@@ -52,6 +52,8 @@ package awsmediaconnect
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiProgramName: jsii.String("ndiProgramName"),
+//   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
 //   	RemoteId: jsii.String("remoteId"),
@@ -75,15 +77,15 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
-	// The range of IP addresses that are allowed to initiate output requests to this flow.
+	// The range of IP addresses that should be allowed to initiate output requests to this flow.
 	//
-	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	// These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
 	//
 	CidrAllowList *[]*string `field:"optional" json:"cidrAllowList" yaml:"cidrAllowList"`
 	// A description of the output.
 	//
-	// This description is not visible outside of the current AWS account even if the account grants entitlements to other accounts.
+	// This description appears only on the MediaConnect console and will not be seen by the end user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -91,7 +93,9 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
 	//
 	Destination *string `field:"optional" json:"destination" yaml:"destination"`
-	// The encryption credentials that you want to use for the output.
+	// The type of key used for the encryption.
+	//
+	// If no `keyType` is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
 	//
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
@@ -101,7 +105,7 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
 	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
-	// The definition for each media stream that is associated with the output.
+	// The media streams that are associated with the output, and the parameters for those associations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfigurations
 	//
 	MediaStreamOutputConfigurations interface{} `field:"optional" json:"mediaStreamOutputConfigurations" yaml:"mediaStreamOutputConfigurations"`
@@ -111,25 +115,29 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-minlatency
 	//
 	MinLatency *float64 `field:"optional" json:"minLatency" yaml:"minLatency"`
-	// The name of the output.
-	//
-	// This value must be unique within the current flow.
+	// The name of the bridge's output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// An indication of whether the new output should be enabled or disabled as soon as it is created.
+	// A suffix for the names of the NDI sources that the flow creates.
 	//
-	// If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.
+	// If a custom name isn't specified, MediaConnect uses the output name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndiprogramname
+	//
+	NdiProgramName *string `field:"optional" json:"ndiProgramName" yaml:"ndiProgramName"`
+	// A quality setting for the NDI Speed HQ encoder.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndispeedhqquality
+	//
+	NdiSpeedHqQuality *float64 `field:"optional" json:"ndiSpeedHqQuality" yaml:"ndiSpeedHqQuality"`
+	// An indication of whether the output should transmit data or not.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-outputstatus
 	//
 	OutputStatus *string `field:"optional" json:"outputStatus" yaml:"outputStatus"`
-	// The port to use when MediaConnect distributes content to the output.
+	// The port to use when content is distributed to this output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	// The identifier that is assigned to the Zixi receiver.
-	//
-	// This parameter applies only to outputs that use Zixi pull.
+	// The remote ID for the Zixi-pull stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
 	//
 	RemoteId *string `field:"optional" json:"remoteId" yaml:"remoteId"`
@@ -143,7 +151,7 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
 	//
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
-	// The VPC interface that you want to send your output to.
+	// The name of the VPC interface attachment to use for this output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
 	//
 	VpcInterfaceAttachment interface{} `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`

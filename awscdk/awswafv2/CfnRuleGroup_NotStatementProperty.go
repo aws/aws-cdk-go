@@ -85,6 +85,9 @@ package awswafv2
 //   				QueryString: queryString,
 //   				SingleHeader: singleHeader,
 //   				SingleQueryArgument: singleQueryArgument,
+//   				UriFragment: &UriFragmentProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				UriPath: uriPath,
 //   			},
 //   			PositionalConstraint: jsii.String("positionalConstraint"),
@@ -254,6 +257,9 @@ package awswafv2
 //   				QueryString: queryString,
 //   				SingleHeader: singleHeader,
 //   				SingleQueryArgument: singleQueryArgument,
+//   				UriFragment: &UriFragmentProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				UriPath: uriPath,
 //   			},
 //   			RegexString: jsii.String("regexString"),
@@ -320,6 +326,9 @@ package awswafv2
 //   				QueryString: queryString,
 //   				SingleHeader: singleHeader,
 //   				SingleQueryArgument: singleQueryArgument,
+//   				UriFragment: &UriFragmentProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				UriPath: uriPath,
 //   			},
 //   			TextTransformations: []interface{}{
@@ -385,6 +394,9 @@ package awswafv2
 //   				QueryString: queryString,
 //   				SingleHeader: singleHeader,
 //   				SingleQueryArgument: singleQueryArgument,
+//   				UriFragment: &UriFragmentProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				UriPath: uriPath,
 //   			},
 //   			Size: jsii.Number(123),
@@ -450,6 +462,9 @@ package awswafv2
 //   				QueryString: queryString,
 //   				SingleHeader: singleHeader,
 //   				SingleQueryArgument: singleQueryArgument,
+//   				UriFragment: &UriFragmentProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				UriPath: uriPath,
 //   			},
 //   			TextTransformations: []interface{}{
@@ -517,6 +532,9 @@ package awswafv2
 //   				QueryString: queryString,
 //   				SingleHeader: singleHeader,
 //   				SingleQueryArgument: singleQueryArgument,
+//   				UriFragment: &UriFragmentProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				UriPath: uriPath,
 //   			},
 //   			TextTransformations: []interface{}{

@@ -1,9 +1,7 @@
 package awsidentitystore
 
 
-// An object that contains the identifier of a group member.
-//
-// Setting the `UserID` field to the specific identifier for a user indicates that the user is a member of the group.
+// An object containing the identifier of a group member.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

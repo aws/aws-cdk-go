@@ -33,7 +33,7 @@ import (
 type CfnBridgeOutput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the bridge that you want to describe.
+	// The Amazon Resource Name (ARN) of the bridge that you want to update.
 	BridgeArn() *string
 	SetBridgeArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -58,7 +58,7 @@ type CfnBridgeOutput interface {
 	// The network output name.
 	Name() *string
 	SetName(val *string)
-	// Add a network output to an existing bridge.
+	// The network output of the bridge.
 	NetworkOutput() interface{}
 	SetNetworkOutput(val interface{})
 	// The tree node.

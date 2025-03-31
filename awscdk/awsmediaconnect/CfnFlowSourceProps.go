@@ -53,9 +53,9 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html
 //
 type CfnFlowSourceProps struct {
-	// A description of the source.
+	// A description for the source.
 	//
-	// This description is not visible outside of the current AWS account.
+	// This value is not used or seen outside of the current MediaConnect account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
@@ -63,13 +63,15 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The type of encryption that is used on the content ingested from the source.
+	// The type of encryption that is used on the content ingested from this source.
+	//
+	// Allowable encryption types: static-key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
 	//
 	Decryption interface{} `field:"optional" json:"decryption" yaml:"decryption"`
-	// The ARN of the entitlement that allows you to subscribe to the flow.
+	// The ARN of the entitlement that allows you to subscribe to this flow.
 	//
-	// The entitlement is set by the content originator, and the ARN is generated as part of the originator's flow.
+	// The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
 	//
 	EntitlementArn *string `field:"optional" json:"entitlementArn" yaml:"entitlementArn"`
@@ -79,7 +81,7 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
 	//
 	FlowArn *string `field:"optional" json:"flowArn" yaml:"flowArn"`
-	// The source configuration for cloud flows receiving a stream from a bridge.
+	// The bridge's source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-gatewaybridgesource
 	//
 	GatewayBridgeSource interface{} `field:"optional" json:"gatewayBridgeSource" yaml:"gatewayBridgeSource"`
@@ -89,7 +91,7 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
 	//
 	IngestPort *float64 `field:"optional" json:"ingestPort" yaml:"ingestPort"`
-	// The maximum bitrate for RIST, RTP, and RTP-FEC streams.
+	// The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
 	//
 	MaxBitrate *float64 `field:"optional" json:"maxBitrate" yaml:"maxBitrate"`
@@ -135,13 +137,13 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
 	//
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
-	// The name of the VPC interface that you want to send your output to.
+	// The name of the VPC interface to use for this source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
 	//
 	VpcInterfaceName *string `field:"optional" json:"vpcInterfaceName" yaml:"vpcInterfaceName"`
-	// The range of IP addresses that are allowed to contribute content to your source.
+	// The range of IP addresses that should be allowed to contribute content to your source.
 	//
-	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	// These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
 	//
 	WhitelistCidr *string `field:"optional" json:"whitelistCidr" yaml:"whitelistCidr"`

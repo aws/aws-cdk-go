@@ -71,6 +71,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Force: jsii.Boolean(false),
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
 //   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -189,6 +190,9 @@ type CfnCluster interface {
 	// The encryption configuration for the cluster.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
+	// Force cluster version update.
+	Force() interface{}
+	SetForce(val interface{})
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig() interface{}
 	SetKubernetesNetworkConfig(val interface{})
@@ -555,6 +559,16 @@ func (j *jsiiProxy_CfnCluster) EncryptionConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) Force() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"force",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) KubernetesNetworkConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -813,6 +827,17 @@ func (j *jsiiProxy_CfnCluster)SetEncryptionConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"encryptionConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetForce(val interface{}) {
+	if err := j.validateSetForceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"force",
 		val,
 	)
 }

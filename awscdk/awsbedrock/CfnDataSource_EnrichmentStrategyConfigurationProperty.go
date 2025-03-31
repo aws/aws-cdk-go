@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+// The strategy used for performing context enrichment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enrichmentstrategyconfiguration.html
 //
 type CfnDataSource_EnrichmentStrategyConfigurationProperty struct {
-	// Enrichment Strategy method.
+	// The method used for the context enrichment strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enrichmentstrategyconfiguration.html#cfn-bedrock-datasource-enrichmentstrategyconfiguration-method
 	//
 	Method *string `field:"required" json:"method" yaml:"method"`

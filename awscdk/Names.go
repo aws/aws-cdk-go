@@ -45,6 +45,28 @@ func Names_NodeUniqueId(node constructs.Node) *string {
 	return returns
 }
 
+// Return the construct path of the given construct, starting at the nearest enclosing Stack.
+//
+// Skips over Nested Stacks, in other words Nested Stacks are included in the construct
+// paths.
+func Names_StackRelativeConstructPath(construct constructs.IConstruct) *string {
+	_init_.Initialize()
+
+	if err := validateNames_StackRelativeConstructPathParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Names",
+		"stackRelativeConstructPath",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a CloudFormation-compatible unique identifier for a construct based on its path.
 //
 // The identifier includes a human readable portion rendered

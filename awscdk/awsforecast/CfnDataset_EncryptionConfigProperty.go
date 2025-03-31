@@ -3,7 +3,7 @@ package awsforecast
 
 // An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 //
-// You can specify this optional object in the `CreateDataset` and `CreatePredictor` requests.
+// You can specify this optional object in the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) and [CreatePredictor](https://docs.aws.amazon.com/forecast/latest/dg/API_CreatePredictor.html) requests.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

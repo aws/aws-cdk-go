@@ -51,7 +51,7 @@ type CfnEnvironmentActions interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the Amazon DataZone environment action.
+	// The environment action description.
 	Description() *string
 	SetDescription(val *string)
 	// The Amazon DataZone domain ID of the environment action.
@@ -78,7 +78,7 @@ type CfnEnvironmentActions interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The parameters of the console link specified as part of the environment action.
+	// The parameters of the environment action.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

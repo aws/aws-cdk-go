@@ -32,10 +32,12 @@ import (
 //   		EnableBasicAuth: jsii.Boolean(false),
 //   	},
 //   	BuildSpec: jsii.String("buildSpec"),
+//   	ComputeRoleArn: jsii.String("computeRoleArn"),
 //   	Description: jsii.String("description"),
 //   	EnableAutoBuild: jsii.Boolean(false),
 //   	EnablePerformanceMode: jsii.Boolean(false),
 //   	EnablePullRequestPreview: jsii.Boolean(false),
+//   	EnableSkewProtection: jsii.Boolean(false),
 //   	EnvironmentVariables: []interface{}{
 //   		&EnvironmentVariableProperty{
 //   			Name: jsii.String("name"),
@@ -85,6 +87,8 @@ type CfnBranch interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	ComputeRoleArn() *string
+	SetComputeRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -101,6 +105,8 @@ type CfnBranch interface {
 	// Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch.
 	EnablePullRequestPreview() interface{}
 	SetEnablePullRequestPreview(val interface{})
+	EnableSkewProtection() interface{}
+	SetEnableSkewProtection(val interface{})
 	// The environment variables for the branch.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
@@ -386,6 +392,16 @@ func (j *jsiiProxy_CfnBranch) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBranch) ComputeRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"computeRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBranch) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -431,6 +447,16 @@ func (j *jsiiProxy_CfnBranch) EnablePullRequestPreview() interface{} {
 	_jsii_.Get(
 		j,
 		"enablePullRequestPreview",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBranch) EnableSkewProtection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableSkewProtection",
 		&returns,
 	)
 	return returns
@@ -636,6 +662,14 @@ func (j *jsiiProxy_CfnBranch)SetBuildSpec(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnBranch)SetComputeRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"computeRoleArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnBranch)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -673,6 +707,17 @@ func (j *jsiiProxy_CfnBranch)SetEnablePullRequestPreview(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enablePullRequestPreview",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBranch)SetEnableSkewProtection(val interface{}) {
+	if err := j.validateSetEnableSkewProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableSkewProtection",
 		val,
 	)
 }

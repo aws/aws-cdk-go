@@ -43,6 +43,14 @@ type NodegroupOptions struct {
 	// Default: 20.
 	//
 	DiskSize *float64 `field:"optional" json:"diskSize" yaml:"diskSize"`
+	// Specifies whether to enable node auto repair for the node group.
+	//
+	// Node auto repair is disabled by default.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/node-health.html#node-auto-repair
+	//
+	// Default: - disabled.
+	//
+	EnableNodeAutoRepair *bool `field:"optional" json:"enableNodeAutoRepair" yaml:"enableNodeAutoRepair"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old

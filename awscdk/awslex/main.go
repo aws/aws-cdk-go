@@ -88,6 +88,22 @@ func init() {
 		reflect.TypeOf((*CfnBot_AudioSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.BKBExactResponseFieldsProperty",
+		reflect.TypeOf((*CfnBot_BKBExactResponseFieldsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.BedrockGuardrailConfigurationProperty",
+		reflect.TypeOf((*CfnBot_BedrockGuardrailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.BedrockKnowledgeStoreConfigurationProperty",
+		reflect.TypeOf((*CfnBot_BedrockKnowledgeStoreConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.BedrockModelSpecificationProperty",
+		reflect.TypeOf((*CfnBot_BedrockModelSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.BotAliasLocaleSettingsItemProperty",
 		reflect.TypeOf((*CfnBot_BotAliasLocaleSettingsItemProperty)(nil)).Elem(),
 	)
@@ -148,6 +164,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_DataPrivacyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.DataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnBot_DataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.DefaultConditionalBranchProperty",
 		reflect.TypeOf((*CfnBot_DefaultConditionalBranchProperty)(nil)).Elem(),
 	)
@@ -170,6 +190,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ElicitationCodeHookInvocationSettingProperty",
 		reflect.TypeOf((*CfnBot_ElicitationCodeHookInvocationSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.ExactResponseFieldsProperty",
+		reflect.TypeOf((*CfnBot_ExactResponseFieldsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ExternalSourceSettingProperty",
@@ -252,6 +276,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_ObfuscationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.OpensearchConfigurationProperty",
+		reflect.TypeOf((*CfnBot_OpensearchConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.OutputContextProperty",
 		reflect.TypeOf((*CfnBot_OutputContextProperty)(nil)).Elem(),
 	)
@@ -274,6 +302,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.PromptSpecificationProperty",
 		reflect.TypeOf((*CfnBot_PromptSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.QnAIntentConfigurationProperty",
+		reflect.TypeOf((*CfnBot_QnAIntentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.QnAKendraConfigurationProperty",
+		reflect.TypeOf((*CfnBot_QnAKendraConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ReplicationProperty",

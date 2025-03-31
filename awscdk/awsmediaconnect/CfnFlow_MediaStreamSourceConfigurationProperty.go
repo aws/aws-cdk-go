@@ -28,13 +28,7 @@ package awsmediaconnect
 type CfnFlow_MediaStreamSourceConfigurationProperty struct {
 	// The format that was used to encode the data.
 	//
-	// For ancillary data streams, set the encoding name to `smpte291` .
-	//
-	// For audio streams, set the encoding name to `pcm` .
-	//
-	// For video, 2110 streams, set the encoding name to `raw` .
-	//
-	// For video, JPEG XS streams, set the encoding name to `jxsv` .
+	// For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamsourceconfiguration.html#cfn-mediaconnect-flow-mediastreamsourceconfiguration-encodingname
 	//
 	EncodingName *string `field:"required" json:"encodingName" yaml:"encodingName"`

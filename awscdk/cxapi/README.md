@@ -681,3 +681,18 @@ When this flag is disabled:
   }
 }
 ```
+
+* `@aws-cdk/aws-dynamodb:retainTableReplica`
+
+Currently, table replica will always be deleted when stack deletes regardless of source table's deletion policy.
+When enabled, table replica will be default to the removal policy of source table unless specified otherwise.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-dynamodb:retainTableReplica": true
+  }
+}
+```

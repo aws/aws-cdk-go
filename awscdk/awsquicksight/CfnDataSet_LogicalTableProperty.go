@@ -63,6 +63,8 @@ package awsquicksight
 //   			},
 //   			RenameColumnOperation: &RenameColumnOperationProperty{
 //   				ColumnName: jsii.String("columnName"),
+//
+//   				// the properties below are optional
 //   				NewColumnName: jsii.String("newColumnName"),
 //   			},
 //   			TagColumnOperation: &TagColumnOperationProperty{

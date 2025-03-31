@@ -16,12 +16,20 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var s3AccessPolicy interface{}
+//
 //   cfnSequenceStore := awscdk.Aws_omics.NewCfnSequenceStore(this, jsii.String("MyCfnSequenceStore"), &CfnSequenceStoreProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AccessLogLocation: jsii.String("accessLogLocation"),
 //   	Description: jsii.String("description"),
+//   	ETagAlgorithmFamily: jsii.String("eTagAlgorithmFamily"),
 //   	FallbackLocation: jsii.String("fallbackLocation"),
+//   	PropagatedSetLevelTags: []*string{
+//   		jsii.String("propagatedSetLevelTags"),
+//   	},
+//   	S3AccessPolicy: s3AccessPolicy,
 //   	SseConfig: &SseConfigProperty{
 //   		Type: jsii.String("type"),
 //
@@ -39,12 +47,25 @@ type CfnSequenceStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Location of the access logs.
+	AccessLogLocation() *string
+	SetAccessLogLocation(val *string)
 	// The store's ARN.
 	AttrArn() *string
 	// When the store was created.
 	AttrCreationTime() *string
+	// This is ARN of the access point associated with the S3 bucket storing read sets.
+	AttrS3AccessPointArn() *string
+	// The S3 URI of the sequence store.
+	AttrS3Uri() *string
 	// The store's ID.
 	AttrSequenceStoreId() *string
+	// Status of the sequence store.
+	AttrStatus() *string
+	// The status message of the sequence store.
+	AttrStatusMessage() *string
+	// The last-updated time of the Sequence Store.
+	AttrUpdateTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -57,6 +78,9 @@ type CfnSequenceStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
+	// The algorithm family of the ETag.
+	ETagAlgorithmFamily() *string
+	SetETagAlgorithmFamily(val *string)
 	// An S3 location that is used to store files that have failed a direct upload.
 	FallbackLocation() *string
 	SetFallbackLocation(val *string)
@@ -75,11 +99,17 @@ type CfnSequenceStore interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+	PropagatedSetLevelTags() *[]*string
+	SetPropagatedSetLevelTags(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The resource policy that controls S3 access on the store.
+	S3AccessPolicy() interface{}
+	SetS3AccessPolicy(val interface{})
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig() interface{}
 	SetSseConfig(val interface{})
@@ -239,6 +269,16 @@ type jsiiProxy_CfnSequenceStore struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnSequenceStore) AccessLogLocation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accessLogLocation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSequenceStore) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -259,11 +299,61 @@ func (j *jsiiProxy_CfnSequenceStore) AttrCreationTime() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSequenceStore) AttrS3AccessPointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrS3AccessPointArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSequenceStore) AttrS3Uri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrS3Uri",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSequenceStore) AttrSequenceStoreId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrSequenceStoreId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSequenceStore) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSequenceStore) AttrStatusMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatusMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSequenceStore) AttrUpdateTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdateTime",
 		&returns,
 	)
 	return returns
@@ -319,6 +409,16 @@ func (j *jsiiProxy_CfnSequenceStore) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSequenceStore) ETagAlgorithmFamily() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"eTagAlgorithmFamily",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSequenceStore) FallbackLocation() *string {
 	var returns *string
 	_jsii_.Get(
@@ -359,11 +459,31 @@ func (j *jsiiProxy_CfnSequenceStore) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSequenceStore) PropagatedSetLevelTags() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"propagatedSetLevelTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSequenceStore) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSequenceStore) S3AccessPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"s3AccessPolicy",
 		&returns,
 	)
 	return returns
@@ -457,10 +577,26 @@ func NewCfnSequenceStore_Override(c CfnSequenceStore, scope constructs.Construct
 	)
 }
 
+func (j *jsiiProxy_CfnSequenceStore)SetAccessLogLocation(val *string) {
+	_jsii_.Set(
+		j,
+		"accessLogLocation",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSequenceStore)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSequenceStore)SetETagAlgorithmFamily(val *string) {
+	_jsii_.Set(
+		j,
+		"eTagAlgorithmFamily",
 		val,
 	)
 }
@@ -480,6 +616,22 @@ func (j *jsiiProxy_CfnSequenceStore)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSequenceStore)SetPropagatedSetLevelTags(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"propagatedSetLevelTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSequenceStore)SetS3AccessPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"s3AccessPolicy",
 		val,
 	)
 }

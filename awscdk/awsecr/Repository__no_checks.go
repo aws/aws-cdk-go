@@ -64,6 +64,10 @@ func validateRepository_ArnForLocalRepositoryParameters(repositoryName *string, 
 	return nil
 }
 
+func validateRepository_FromLookupParameters(scope constructs.Construct, id *string, options *RepositoryLookupOptions) error {
+	return nil
+}
+
 func validateRepository_FromRepositoryArnParameters(scope constructs.Construct, id *string, repositoryArn *string) error {
 	return nil
 }

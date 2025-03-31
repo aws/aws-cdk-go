@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Basic Authentication Credentials.
+// The basic authentication credentials of a connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,9 +16,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-basicauthenticationcredentials.html
 //
 type CfnConnection_BasicAuthenticationCredentialsProperty struct {
+	// The password for a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-basicauthenticationcredentials.html#cfn-datazone-connection-basicauthenticationcredentials-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`
+	// The user name for the connecion.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-basicauthenticationcredentials.html#cfn-datazone-connection-basicauthenticationcredentials-username
 	//
 	UserName *string `field:"optional" json:"userName" yaml:"userName"`

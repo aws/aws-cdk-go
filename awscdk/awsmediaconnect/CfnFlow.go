@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::MediaConnect::Flow resource defines a connection between one or more video sources and one or more outputs.
+// The `AWS::MediaConnect::Flow` resource defines a connection between one or more video sources and one or more outputs.
 //
 // For each flow, you specify the transport protocol to use, encryption information, and details for any outputs or entitlements that you want. AWS Elemental MediaConnect returns an ingest endpoint where you can send your live video as a single unicast stream. The service replicates and distributes the video to every output that you specify, whether inside or outside the AWS Cloud. You can also set up entitlements on a flow to allow other AWS accounts to access your content.
 //
@@ -81,6 +81,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	FlowSize: jsii.String("flowSize"),
 //   	Maintenance: &MaintenanceProperty{
 //   		MaintenanceDay: jsii.String("maintenanceDay"),
 //   		MaintenanceStartHour: jsii.String("maintenanceStartHour"),
@@ -109,6 +110,19 @@ import (
 //   			Fmt: jsii.Number(123),
 //   			VideoFormat: jsii.String("videoFormat"),
 //   		},
+//   	},
+//   	NdiConfig: &NdiConfigProperty{
+//   		MachineName: jsii.String("machineName"),
+//   		NdiDiscoveryServers: []interface{}{
+//   			&NdiDiscoveryServerConfigProperty{
+//   				DiscoveryServerAddress: jsii.String("discoveryServerAddress"),
+//   				VpcInterfaceAdapter: jsii.String("vpcInterfaceAdapter"),
+//
+//   				// the properties below are optional
+//   				DiscoveryServerPort: jsii.Number(123),
+//   			},
+//   		},
+//   		NdiState: jsii.String("ndiState"),
 //   	},
 //   	SourceFailoverConfig: &FailoverConfigProperty{
 //   		FailoverMode: jsii.String("failoverMode"),
@@ -165,7 +179,7 @@ import (
 type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The outgoing IP address that MediaConnect uses to send video from the flow.
+	// The IP address from which video will be sent to output destinations.
 	AttrEgressIp() *string
 	// The Amazon Resource Name (ARN) of the flow.
 	AttrFlowArn() *string
@@ -173,6 +187,10 @@ type CfnFlow interface {
 	//
 	// These options are limited to the Availability Zones within the current AWS Region.
 	AttrFlowAvailabilityZone() *string
+	// This read-only value represents the automatically-generated NDI machine name that MediaConnect generated for this flow.
+	//
+	// These NDI machine names are only generated when you don't specify your own custom name.
+	AttrFlowNdiMachineName() *string
 	// The IP address that the flow listens on for incoming content.
 	AttrSourceIngestIp() *string
 	// The ARN of the source.
@@ -193,6 +211,9 @@ type CfnFlow interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Determines the processing capacity and feature set of the flow.
+	FlowSize() *string
+	SetFlowSize(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -206,12 +227,15 @@ type CfnFlow interface {
 	// The maintenance settings you want to use for the flow.
 	Maintenance() interface{}
 	SetMaintenance(val interface{})
-	// The media streams associated with the flow.
+	// The media streams that are associated with the flow.
 	MediaStreams() interface{}
 	SetMediaStreams(val interface{})
 	// The name of the flow.
 	Name() *string
 	SetName(val *string)
+	// Specifies the configuration settings for NDI outputs.
+	NdiConfig() interface{}
+	SetNdiConfig(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -245,7 +269,7 @@ type CfnFlow interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The VPC interfaces that you added to this flow.
+	// The VPC Interfaces for this flow.
 	VpcInterfaces() interface{}
 	SetVpcInterfaces(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -411,6 +435,16 @@ func (j *jsiiProxy_CfnFlow) AttrFlowAvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) AttrFlowNdiMachineName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFlowNdiMachineName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) AttrSourceIngestIp() *string {
 	var returns *string
 	_jsii_.Get(
@@ -491,6 +525,16 @@ func (j *jsiiProxy_CfnFlow) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) FlowSize() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"flowSize",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -526,6 +570,16 @@ func (j *jsiiProxy_CfnFlow) Name() *string {
 	_jsii_.Get(
 		j,
 		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) NdiConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ndiConfig",
 		&returns,
 	)
 	return returns
@@ -657,6 +711,14 @@ func (j *jsiiProxy_CfnFlow)SetAvailabilityZone(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFlow)SetFlowSize(val *string) {
+	_jsii_.Set(
+		j,
+		"flowSize",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFlow)SetMaintenance(val interface{}) {
 	if err := j.validateSetMaintenanceParameters(val); err != nil {
 		panic(err)
@@ -686,6 +748,17 @@ func (j *jsiiProxy_CfnFlow)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetNdiConfig(val interface{}) {
+	if err := j.validateSetNdiConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ndiConfig",
 		val,
 	)
 }

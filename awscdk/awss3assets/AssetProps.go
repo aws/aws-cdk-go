@@ -84,6 +84,25 @@ type AssetProps struct {
 	// Default: false.
 	//
 	DeployTime *bool `field:"optional" json:"deployTime" yaml:"deployTime"`
+	// A display name for this asset.
+	//
+	// If supplied, the display name will be used in locations where the asset
+	// identifier is printed, like in the CLI progress information. If the same
+	// asset is added multiple times, the display name of the first occurrence is
+	// used.
+	//
+	// The default is the construct path of the Asset construct, with respect to
+	// the enclosing stack. If the asset is produced by a construct helper
+	// function (such as `lambda.Code.fromAsset()`), this will look like
+	// `MyFunction/Code`.
+	//
+	// We use the stack-relative construct path so that in the common case where
+	// you have multiple stacks with the same asset, we won't show something like
+	// `/MyBetaStack/MyFunction/Code` when you are actually deploying to
+	// production.
+	// Default: - Stack-relative construct path.
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.

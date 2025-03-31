@@ -29,6 +29,7 @@ import (
 //   	CapacityType: eks_v2_alpha.CapacityType_SPOT,
 //   	DesiredSize: jsii.Number(123),
 //   	DiskSize: jsii.Number(123),
+//   	EnableNodeAutoRepair: jsii.Boolean(false),
 //   	ForceUpdate: jsii.Boolean(false),
 //   	InstanceType: instanceType,
 //   	InstanceTypes: []*instanceType{
@@ -112,6 +113,15 @@ type NodegroupProps struct {
 	//
 	// Experimental.
 	DiskSize *float64 `field:"optional" json:"diskSize" yaml:"diskSize"`
+	// Specifies whether to enable node auto repair for the node group.
+	//
+	// Node auto repair is disabled by default.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/node-health.html#node-auto-repair
+	//
+	// Default: - disabled.
+	//
+	// Experimental.
+	EnableNodeAutoRepair *bool `field:"optional" json:"enableNodeAutoRepair" yaml:"enableNodeAutoRepair"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old

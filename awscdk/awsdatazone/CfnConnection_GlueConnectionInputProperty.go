@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Glue Connection Input.
+// The AWS Glue connecton input.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -77,46 +77,51 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html
 //
 type CfnConnection_GlueConnectionInputProperty struct {
-	// Property Map.
+	// The Amazon Athena properties of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-athenaproperties
 	//
 	AthenaProperties interface{} `field:"optional" json:"athenaProperties" yaml:"athenaProperties"`
-	// Authentication Configuration Input.
+	// The authentication configuration of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-authenticationconfiguration
 	//
 	AuthenticationConfiguration interface{} `field:"optional" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
-	// Connection Properties.
+	// The connection properties of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-connectionproperties
 	//
 	ConnectionProperties interface{} `field:"optional" json:"connectionProperties" yaml:"connectionProperties"`
-	// Glue Connection Type.
+	// The connection type of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-connectiontype
 	//
 	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
+	// The description of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The match criteria of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-matchcriteria
 	//
 	MatchCriteria *string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
+	// The name of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Physical Connection Requirements.
+	// The physical connection requirements for the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-physicalconnectionrequirements
 	//
 	PhysicalConnectionRequirements interface{} `field:"optional" json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`
-	// Property Map.
+	// The Python properties of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-pythonproperties
 	//
 	PythonProperties interface{} `field:"optional" json:"pythonProperties" yaml:"pythonProperties"`
-	// Property Map.
+	// The Spark properties of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-sparkproperties
 	//
 	SparkProperties interface{} `field:"optional" json:"sparkProperties" yaml:"sparkProperties"`
+	// Speciefies whether to validate credentials of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-validatecredentials
 	//
 	ValidateCredentials interface{} `field:"optional" json:"validateCredentials" yaml:"validateCredentials"`
+	// Speciefies whether to validate for compute environments of the AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html#cfn-datazone-connection-glueconnectioninput-validateforcomputeenvironments
 	//
 	ValidateForComputeEnvironments *[]*string `field:"optional" json:"validateForComputeEnvironments" yaml:"validateForComputeEnvironments"`

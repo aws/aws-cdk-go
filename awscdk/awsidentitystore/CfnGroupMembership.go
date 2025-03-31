@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Contains the identifiers for a group, a group member, and a `GroupMembership` object in the identity store.
+// Creates a relationship between a member and a group.
+//
+// The following identifiers must be specified: `GroupId` , `IdentityStoreId` , and `MemberId` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,7 +31,7 @@ import (
 type CfnGroupMembership interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The identifier for a `GroupMembership` in the identity store.
+	// The identifier for a `GroupMembership` object in an identity store.
 	AttrMembershipId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,7 +58,7 @@ type CfnGroupMembership interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// An object containing the identifier of a group member.
+	// An object that contains the identifier of a group member.
 	MemberId() interface{}
 	SetMemberId(val interface{})
 	// The tree node.

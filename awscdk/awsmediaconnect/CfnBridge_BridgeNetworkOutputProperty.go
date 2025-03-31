@@ -22,7 +22,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworkoutput.html
 //
 type CfnBridge_BridgeNetworkOutputProperty struct {
-	// The network output IP Address.
+	// The network output IP address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworkoutput.html#cfn-mediaconnect-bridge-bridgenetworkoutput-ipaddress
 	//
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`
@@ -34,11 +34,13 @@ type CfnBridge_BridgeNetworkOutputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworkoutput.html#cfn-mediaconnect-bridge-bridgenetworkoutput-networkname
 	//
 	NetworkName *string `field:"required" json:"networkName" yaml:"networkName"`
-	// The network output port.
+	// The network output's port.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworkoutput.html#cfn-mediaconnect-bridge-bridgenetworkoutput-port
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The network output protocol.
+	//
+	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworkoutput.html#cfn-mediaconnect-bridge-bridgenetworkoutput-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`

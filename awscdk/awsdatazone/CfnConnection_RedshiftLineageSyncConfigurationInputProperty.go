@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Redshift Lineage Sync Configuration Input.
+// The Amaon Redshift lineage sync configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,10 +18,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftlineagesyncconfigurationinput.html
 //
 type CfnConnection_RedshiftLineageSyncConfigurationInputProperty struct {
+	// Specifies whether the Amaon Redshift lineage sync configuration is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftlineagesyncconfigurationinput.html#cfn-datazone-connection-redshiftlineagesyncconfigurationinput-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// Lineage Sync Schedule.
+	// The schedule of the Amaon Redshift lineage sync configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftlineagesyncconfigurationinput.html#cfn-datazone-connection-redshiftlineagesyncconfigurationinput-schedule
 	//
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`

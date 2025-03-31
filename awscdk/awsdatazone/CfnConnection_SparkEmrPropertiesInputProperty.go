@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Spark EMR Properties Input.
+// The Spark EMR properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,24 +21,31 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html
 //
 type CfnConnection_SparkEmrPropertiesInputProperty struct {
+	// The compute ARN of Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-computearn
 	//
 	ComputeArn *string `field:"optional" json:"computeArn" yaml:"computeArn"`
+	// The instance profile ARN of Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-instanceprofilearn
 	//
 	InstanceProfileArn *string `field:"optional" json:"instanceProfileArn" yaml:"instanceProfileArn"`
+	// The java virtual env of the Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-javavirtualenv
 	//
 	JavaVirtualEnv *string `field:"optional" json:"javaVirtualEnv" yaml:"javaVirtualEnv"`
+	// The log URI of the Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-loguri
 	//
 	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
+	// The Python virtual env of the Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-pythonvirtualenv
 	//
 	PythonVirtualEnv *string `field:"optional" json:"pythonVirtualEnv" yaml:"pythonVirtualEnv"`
+	// The runtime role of the Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-runtimerole
 	//
 	RuntimeRole *string `field:"optional" json:"runtimeRole" yaml:"runtimeRole"`
+	// The certificates S3 URI of the Spark EMR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html#cfn-datazone-connection-sparkemrpropertiesinput-trustedcertificatess3uri
 	//
 	TrustedCertificatesS3Uri *string `field:"optional" json:"trustedCertificatesS3Uri" yaml:"trustedCertificatesS3Uri"`

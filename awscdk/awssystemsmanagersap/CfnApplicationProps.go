@@ -16,6 +16,13 @@ import (
 //   	ApplicationType: jsii.String("applicationType"),
 //
 //   	// the properties below are optional
+//   	ComponentsInfo: []interface{}{
+//   		&ComponentInfoProperty{
+//   			ComponentType: jsii.String("componentType"),
+//   			Ec2InstanceId: jsii.String("ec2InstanceId"),
+//   			Sid: jsii.String("sid"),
+//   		},
+//   	},
 //   	Credentials: []interface{}{
 //   		&CredentialProperty{
 //   			CredentialType: jsii.String("credentialType"),
@@ -48,6 +55,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-applicationtype
 	//
 	ApplicationType *string `field:"required" json:"applicationType" yaml:"applicationType"`
+	// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-componentsinfo
+	//
+	ComponentsInfo interface{} `field:"optional" json:"componentsInfo" yaml:"componentsInfo"`
 	// The credentials of the SAP application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-credentials
 	//

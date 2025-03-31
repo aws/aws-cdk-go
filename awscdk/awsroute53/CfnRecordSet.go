@@ -73,7 +73,7 @@ type CfnRecordSet interface {
 	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget() interface{}
 	SetAliasTarget(val interface{})
-	// Specifies a coordinate of the east–west position of a geographic point on the surface of the Earth.
+	// This element contains an ID that you use when performing a `GetChange` action to get detailed information about the change.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

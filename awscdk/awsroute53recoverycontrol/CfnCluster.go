@@ -22,6 +22,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	NetworkType: jsii.String("networkType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -68,6 +69,9 @@ type CfnCluster interface {
 	// Name of the cluster.
 	Name() *string
 	SetName(val *string)
+	// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -321,6 +325,16 @@ func (j *jsiiProxy_CfnCluster) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -426,6 +440,14 @@ func (j *jsiiProxy_CfnCluster)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

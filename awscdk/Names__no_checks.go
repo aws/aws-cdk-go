@@ -8,6 +8,10 @@ func validateNames_NodeUniqueIdParameters(node constructs.Node) error {
 	return nil
 }
 
+func validateNames_StackRelativeConstructPathParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
 func validateNames_UniqueIdParameters(construct constructs.IConstruct) error {
 	return nil
 }

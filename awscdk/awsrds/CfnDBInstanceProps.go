@@ -23,6 +23,7 @@ import (
 //   	},
 //   	AutomaticBackupReplicationKmsKeyId: jsii.String("automaticBackupReplicationKmsKeyId"),
 //   	AutomaticBackupReplicationRegion: jsii.String("automaticBackupReplicationRegion"),
+//   	AutomaticBackupReplicationRetentionPeriod: jsii.Number(123),
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	BackupRetentionPeriod: jsii.Number(123),
@@ -232,6 +233,14 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationregion
 	//
 	AutomaticBackupReplicationRegion *string `field:"optional" json:"automaticBackupReplicationRegion" yaml:"automaticBackupReplicationRegion"`
+	// The retention period for automated backups in a different AWS Region.
+	//
+	// Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+	//
+	// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationretentionperiod
+	//
+	AutomaticBackupReplicationRetentionPeriod *float64 `field:"optional" json:"automaticBackupReplicationRetentionPeriod" yaml:"automaticBackupReplicationRetentionPeriod"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
@@ -278,7 +287,9 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-cacertificateidentifier
 	//
 	CaCertificateIdentifier *string `field:"optional" json:"caCertificateIdentifier" yaml:"caCertificateIdentifier"`
-	// The details of the DB instance's server certificate.
+	// The details of the DB instance’s server certificate.
+	//
+	// For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificatedetails
 	//
 	CertificateDetails interface{} `field:"optional" json:"certificateDetails" yaml:"certificateDetails"`
@@ -646,9 +657,14 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableperformanceinsights
 	//
 	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
-	// The connection endpoint for the DB instance.
+	// This data type represents the information you need to connect to an Amazon RDS DB instance.
 	//
-	// > The endpoint might not be shown for instances with the status of `creating` .
+	// This data type is used as a response element in the following actions:
+	//   +   ``CreateDBInstance``
+	//   +   ``DescribeDBInstances``
+	//   +   ``DeleteDBInstance``
+	//
+	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-endpoint
 	//
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`

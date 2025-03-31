@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Glue Properties Input.
+// The AWS Glue properties of a connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -79,7 +79,7 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-gluepropertiesinput.html
 //
 type CfnConnection_GluePropertiesInputProperty struct {
-	// Glue Connection Input.
+	// The AWS Glue connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-gluepropertiesinput.html#cfn-datazone-connection-gluepropertiesinput-glueconnectioninput
 	//
 	GlueConnectionInput interface{} `field:"optional" json:"glueConnectionInput" yaml:"glueConnectionInput"`

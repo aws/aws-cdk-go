@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// OAuth2 Properties.
+// The OAuth2 properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,26 +33,27 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html
 //
 type CfnConnection_OAuth2PropertiesProperty struct {
-	// Authorization Code Properties.
+	// The authorization code properties of the OAuth2 properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html#cfn-datazone-connection-oauth2properties-authorizationcodeproperties
 	//
 	AuthorizationCodeProperties interface{} `field:"optional" json:"authorizationCodeProperties" yaml:"authorizationCodeProperties"`
-	// OAuth2 Client Application.
+	// The OAuth2 client application of the OAuth2 properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html#cfn-datazone-connection-oauth2properties-oauth2clientapplication
 	//
 	OAuth2ClientApplication interface{} `field:"optional" json:"oAuth2ClientApplication" yaml:"oAuth2ClientApplication"`
-	// Glue OAuth2 Credentials.
+	// The OAuth2 credentials of the OAuth2 properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html#cfn-datazone-connection-oauth2properties-oauth2credentials
 	//
 	OAuth2Credentials interface{} `field:"optional" json:"oAuth2Credentials" yaml:"oAuth2Credentials"`
-	// OAuth2 Grant Type.
+	// The OAuth2 grant type of the OAuth2 properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html#cfn-datazone-connection-oauth2properties-oauth2granttype
 	//
 	OAuth2GrantType *string `field:"optional" json:"oAuth2GrantType" yaml:"oAuth2GrantType"`
+	// The OAuth2 token URL of the OAuth2 properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html#cfn-datazone-connection-oauth2properties-tokenurl
 	//
 	TokenUrl *string `field:"optional" json:"tokenUrl" yaml:"tokenUrl"`
-	// The token URL parameters.
+	// The OAuth2 token URL parameter map of the OAuth2 properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html#cfn-datazone-connection-oauth2properties-tokenurlparametersmap
 	//
 	TokenUrlParametersMap interface{} `field:"optional" json:"tokenUrlParametersMap" yaml:"tokenUrlParametersMap"`

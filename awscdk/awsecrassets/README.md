@@ -14,6 +14,9 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
 	Directory: path.join(__dirname, jsii.String("my-image")),
+
+	// Optional: describe the purpose of the asset with a human-readable string
+	DisplayName: jsii.String("Source for my function"),
 })
 ```
 

@@ -29,7 +29,7 @@ type CfnBridge_FailoverConfigProperty struct {
 	FailoverMode *string `field:"required" json:"failoverMode" yaml:"failoverMode"`
 	// The priority you want to assign to a source.
 	//
-	// You can have a primary stream and a backup stream or two equally prioritized streams. This setting only applies when Failover Mode is set to FAILOVER.
+	// You can have a primary stream and a backup stream or two equally prioritized streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-failoverconfig.html#cfn-mediaconnect-bridge-failoverconfig-sourcepriority
 	//
 	SourcePriority interface{} `field:"optional" json:"sourcePriority" yaml:"sourcePriority"`

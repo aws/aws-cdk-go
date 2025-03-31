@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::MediaConnect::Bridge resource defines a connection between your data center’s gateway instances and the cloud.
+// The `AWS::MediaConnect::Bridge` resource defines a connection between your data center’s gateway instances and the cloud.
 //
 // For each bridge, you specify the type of bridge, transport protocol to use, and details for any outputs and failover.
 //
@@ -98,10 +98,10 @@ type CfnBridge interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Create a bridge with the egress bridge type.
+	// An egress bridge is a cloud-to-ground bridge.
 	EgressGatewayBridge() interface{}
 	SetEgressGatewayBridge(val interface{})
-	// Create a bridge with the ingress bridge type.
+	// An ingress bridge is a ground-to-cloud bridge.
 	IngressGatewayBridge() interface{}
 	SetIngressGatewayBridge(val interface{})
 	// The logical ID for this CloudFormation stack element.

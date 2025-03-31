@@ -23,7 +23,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html
 //
 type CfnBridgeOutputProps struct {
-	// The ARN of the bridge that you want to describe.
+	// The Amazon Resource Name (ARN) of the bridge that you want to update.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-bridgearn
 	//
 	BridgeArn *string `field:"required" json:"bridgeArn" yaml:"bridgeArn"`
@@ -33,7 +33,9 @@ type CfnBridgeOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Add a network output to an existing bridge.
+	// The network output of the bridge.
+	//
+	// A network output is delivered to your premises.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html#cfn-mediaconnect-bridgeoutput-networkoutput
 	//
 	NetworkOutput interface{} `field:"required" json:"networkOutput" yaml:"networkOutput"`

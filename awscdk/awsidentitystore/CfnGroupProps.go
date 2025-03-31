@@ -31,7 +31,7 @@ type CfnGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-identitystoreid
 	//
 	IdentityStoreId *string `field:"required" json:"identityStoreId" yaml:"identityStoreId"`
-	// A string containing the description of the group.
+	// A string containing a description of the specified group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html#cfn-identitystore-group-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

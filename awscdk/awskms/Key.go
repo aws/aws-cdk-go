@@ -13,29 +13,19 @@ import (
 // Defines a KMS key.
 //
 // Example:
-//   var vpc vpc
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
-//   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_16_3(),
+//
+//   myKmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
+//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
+//   	Encryption: s3.BucketEncryption_KMS,
+//   	EncryptionKey: myKmsKey,
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
-//   myKey := kms.NewKey(this, jsii.String("MyKey"))
-//
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &DatabaseInstanceProps{
-//   	Engine: Engine,
-//   	Vpc: Vpc,
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres"), &CredentialsBaseOptions{
-//   		SecretName: jsii.String("my-cool-name"),
-//   		EncryptionKey: myKey,
-//   		ExcludeCharacters: jsii.String("!&*^#@()"),
-//   		ReplicaRegions: []replicaRegion{
-//   			&replicaRegion{
-//   				Region: jsii.String("eu-west-1"),
-//   			},
-//   			&replicaRegion{
-//   				Region: jsii.String("eu-west-2"),
-//   			},
-//   		},
-//   	}),
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
+//   	},
 //   })
 //
 type Key interface {

@@ -13,20 +13,15 @@ import (
 // Define an EventBridge EventBus.
 //
 // Example:
-//   bus := events.NewEventBus(this, jsii.String("bus"), &EventBusProps{
-//   	EventBusName: jsii.String("MyCustomEventBus"),
-//   	Description: jsii.String("MyCustomEventBus"),
-//   })
+//   import events "github.com/aws/aws-cdk-go/awscdk"
 //
-//   bus.archive(jsii.String("MyArchive"), &BaseArchiveProps{
-//   	ArchiveName: jsii.String("MyCustomEventBusArchive"),
-//   	Description: jsii.String("MyCustomerEventBus Archive"),
-//   	EventPattern: &EventPattern{
-//   		Account: []*string{
-//   			awscdk.*stack_Of(this).Account,
-//   		},
-//   	},
-//   	Retention: awscdk.Duration_Days(jsii.Number(365)),
+//   var myConfigurationSet configurationSet
+//
+//
+//   bus := events.EventBus_FromEventBusName(this, jsii.String("EventBus"), jsii.String("default"))
+//
+//   myConfigurationSet.AddEventDestination(jsii.String("ToEventBus"), &ConfigurationSetEventDestinationOptions{
+//   	Destination: ses.EventDestination_EventBus(bus),
 //   })
 //
 type EventBus interface {

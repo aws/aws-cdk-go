@@ -33,23 +33,17 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html
 //
 type CfnFlowOutput_MediaStreamOutputConfigurationProperty struct {
-	// The format that will be used to encode the data.
+	// The format that was used to encode the data.
 	//
-	// For ancillary data streams, set the encoding name to `smpte291` .
-	//
-	// For audio streams, set the encoding name to `pcm` .
-	//
-	// For video streams on sources or outputs that use the CDI protocol, set the encoding name to `raw` .
-	//
-	// For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to `jxsv` .
+	// For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-encodingname
 	//
 	EncodingName *string `field:"required" json:"encodingName" yaml:"encodingName"`
-	// A name that helps you distinguish one media stream from another.
+	// The name of the media stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-mediastreamname
 	//
 	MediaStreamName *string `field:"required" json:"mediaStreamName" yaml:"mediaStreamName"`
-	// The media streams that you want to associate with the output.
+	// The transport parameters that are associated with each outbound media stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfiguration-destinationconfigurations
 	//
 	DestinationConfigurations interface{} `field:"optional" json:"destinationConfigurations" yaml:"destinationConfigurations"`

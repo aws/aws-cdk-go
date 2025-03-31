@@ -85,6 +85,9 @@ package awswafv2
 //   	QueryString: queryString,
 //   	SingleHeader: singleHeader,
 //   	SingleQueryArgument: singleQueryArgument,
+//   	UriFragment: &UriFragmentProperty{
+//   		FallbackBehavior: jsii.String("fallbackBehavior"),
+//   	},
 //   	UriPath: uriPath,
 //   }
 //
@@ -191,6 +194,12 @@ type CfnRuleGroup_FieldToMatchProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
 	//
 	SingleQueryArgument interface{} `field:"optional" json:"singleQueryArgument" yaml:"singleQueryArgument"`
+	// The path component of the URI Fragment.
+	//
+	// This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-urifragment
+	//
+	UriFragment interface{} `field:"optional" json:"uriFragment" yaml:"uriFragment"`
 	// Inspect the request URI path.
 	//
 	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .

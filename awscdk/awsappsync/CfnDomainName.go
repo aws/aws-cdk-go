@@ -40,7 +40,7 @@ type CfnDomainName interface {
 	AttrAppSyncDomainName() *string
 	// The domain name.
 	AttrDomainName() *string
-	// The Amazon Resource Name (ARN) for the Domain Name.
+	// The Amazon resource name (ARN) of the domain name.
 	AttrDomainNameArn() *string
 	// The ID of your Amazon Route 53 hosted zone.
 	AttrHostedZoneId() *string
@@ -85,7 +85,7 @@ type CfnDomainName interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A set of tags (key-value pairs) for this API.
+	// A set of tags (key-value pairs) for this domain name.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

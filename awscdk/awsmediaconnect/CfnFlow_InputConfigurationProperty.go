@@ -1,7 +1,7 @@
 package awsmediaconnect
 
 
-// The transport parameters associated with an incoming media stream.
+// The transport parameters that are associated with an incoming media stream.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

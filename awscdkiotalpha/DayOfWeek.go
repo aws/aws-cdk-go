@@ -61,5 +61,8 @@ const (
 	// Saturday.
 	// Experimental.
 	DayOfWeek_SATURDAY DayOfWeek = "SATURDAY"
+	// UNSET_VALUE.
+	// Experimental.
+	DayOfWeek_UNSET_VALUE DayOfWeek = "UNSET_VALUE"
 )
 

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::MediaConnect::FlowSource resource is usedt to add additional sources to an existing flow.
+// The `AWS::MediaConnect::FlowSource` resource is usedt to add additional sources to an existing flow.
 //
 // Adding an additional source requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. A source is the external video content that includes configuration information (encryption and source type) and a network address. Each flow has at least one source. A standard source comes from a source other than another AWS Elemental MediaConnect flow, such as an on-premises encoder.
 //
@@ -82,19 +82,19 @@ type CfnFlowSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The type of encryption that is used on the content ingested from the source.
+	// The type of encryption that is used on the content ingested from this source.
 	Decryption() interface{}
 	SetDecryption(val interface{})
-	// A description of the source.
+	// A description for the source.
 	Description() *string
 	SetDescription(val *string)
-	// The ARN of the entitlement that allows you to subscribe to the flow.
+	// The ARN of the entitlement that allows you to subscribe to this flow.
 	EntitlementArn() *string
 	SetEntitlementArn(val *string)
 	// The Amazon Resource Name (ARN) of the flow this source is connected to.
 	FlowArn() *string
 	SetFlowArn(val *string)
-	// The source configuration for cloud flows receiving a stream from a bridge.
+	// The bridge's source.
 	GatewayBridgeSource() interface{}
 	SetGatewayBridgeSource(val interface{})
 	// The port that the flow listens on for incoming content.
@@ -110,7 +110,7 @@ type CfnFlowSource interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The maximum bitrate for RIST, RTP, and RTP-FEC streams.
+	// The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
 	MaxBitrate() *float64
 	SetMaxBitrate(val *float64)
 	// The maximum latency in milliseconds.
@@ -164,10 +164,10 @@ type CfnFlowSource interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The name of the VPC interface that you want to send your output to.
+	// The name of the VPC interface to use for this source.
 	VpcInterfaceName() *string
 	SetVpcInterfaceName(val *string)
-	// The range of IP addresses that are allowed to contribute content to your source.
+	// The range of IP addresses that should be allowed to contribute content to your source.
 	WhitelistCidr() *string
 	SetWhitelistCidr(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

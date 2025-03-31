@@ -1,9 +1,9 @@
 package awsmediaconnect
 
 
-// A single track or stream of media that contains video, audio, or ancillary data.
+// A media stream represents one component of your content, such as video, audio, or ancillary data.
 //
-// After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+// After you add a media stream to your flow, you can associate it with sources and outputs that use the ST 2110 JPEG XS or CDI protocol.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,7 +55,7 @@ type CfnFlow_MediaStreamProperty struct {
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The sample rate for the stream.
 	//
-	// This value in measured in kHz.
+	// This value is measured in Hz.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-clockrate
 	//
 	ClockRate *float64 `field:"optional" json:"clockRate" yaml:"clockRate"`

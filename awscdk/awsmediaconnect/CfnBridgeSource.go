@@ -47,7 +47,7 @@ import (
 type CfnBridgeSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the bridge that you want to describe.
+	// The ARN of the bridge feeding this flow.
 	BridgeArn() *string
 	SetBridgeArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -59,7 +59,7 @@ type CfnBridgeSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Add a flow source to an existing bridge.
+	// The source of the flow.
 	FlowSource() interface{}
 	SetFlowSource(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -75,7 +75,7 @@ type CfnBridgeSource interface {
 	// The name of the flow source.
 	Name() *string
 	SetName(val *string)
-	// Add a network source to an existing bridge.
+	// The source of the network.
 	NetworkSource() interface{}
 	SetNetworkSource(val interface{})
 	// The tree node.

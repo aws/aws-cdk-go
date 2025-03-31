@@ -24,6 +24,9 @@ to an S3 bucket during deployment.
 ```go
 asset := assets.NewAsset(this, jsii.String("SampleAsset"), &AssetProps{
 	Path: path.join(__dirname, jsii.String("file-asset.txt")),
+
+	// Optional: describe the purpose of the asset with a human-readable string
+	DisplayName: jsii.String("My file"),
 })
 ```
 

@@ -1,7 +1,7 @@
 package awsmediaconnect
 
 
-// The definition of a media stream that is associated with the output.
+// The transport parameters that you want to associate with an outbound media stream.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,15 +19,15 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html
 //
 type CfnFlowOutput_DestinationConfigurationProperty struct {
-	// The IP address where contents of the media stream will be sent.
+	// The IP address where you want MediaConnect to send contents of the media stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html#cfn-mediaconnect-flowoutput-destinationconfiguration-destinationip
 	//
 	DestinationIp *string `field:"required" json:"destinationIp" yaml:"destinationIp"`
-	// The port to use when the content of the media stream is distributed to the output.
+	// The port that you want MediaConnect to use when it distributes the media stream to the output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html#cfn-mediaconnect-flowoutput-destinationconfiguration-destinationport
 	//
 	DestinationPort *float64 `field:"required" json:"destinationPort" yaml:"destinationPort"`
-	// The VPC interface that is used for the media stream associated with the output.
+	// The VPC interface that you want to use for the media stream associated with the output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html#cfn-mediaconnect-flowoutput-destinationconfiguration-interface
 	//
 	Interface interface{} `field:"required" json:"interface" yaml:"interface"`

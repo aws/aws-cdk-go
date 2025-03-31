@@ -63,6 +63,10 @@ type CfnBot_IntentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-parentintentsignature
 	//
 	ParentIntentSignature *string `field:"optional" json:"parentIntentSignature" yaml:"parentIntentSignature"`
+	// Details about the the configuration of the built-in Amazon.QnAIntent.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-qnaintentconfiguration
+	//
+	QnAIntentConfiguration interface{} `field:"optional" json:"qnAIntentConfiguration" yaml:"qnAIntentConfiguration"`
 	// A list of utterances that a user might say to signal the intent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-sampleutterances
 	//

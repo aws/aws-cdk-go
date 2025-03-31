@@ -93,6 +93,11 @@ import (
 //   		},
 //   	},
 //   	DataSetRefreshProperties: &DataSetRefreshPropertiesProperty{
+//   		FailureConfiguration: &RefreshFailureConfigurationProperty{
+//   			EmailAlert: &RefreshFailureEmailAlertProperty{
+//   				AlertStatus: jsii.String("alertStatus"),
+//   			},
+//   		},
 //   		RefreshConfiguration: &RefreshConfigurationProperty{
 //   			IncrementalRefresh: &IncrementalRefreshProperty{
 //   				LookbackWindow: &LookbackWindowProperty{
@@ -177,6 +182,8 @@ import (
 //   					},
 //   					"renameColumnOperation": &RenameColumnOperationProperty{
 //   						"columnName": jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						"newColumnName": jsii.String("newColumnName"),
 //   					},
 //   					"tagColumnOperation": &TagColumnOperationProperty{
@@ -273,6 +280,8 @@ import (
 //   			},
 //   			"s3Source": &S3SourceProperty{
 //   				"dataSourceArn": jsii.String("dataSourceArn"),
+//
+//   				// the properties below are optional
 //   				"inputColumns": []interface{}{
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
@@ -282,8 +291,6 @@ import (
 //   						"subType": jsii.String("subType"),
 //   					},
 //   				},
-//
-//   				// the properties below are optional
 //   				"uploadSettings": &UploadSettingsProperty{
 //   					"containsHeader": jsii.Boolean(false),
 //   					"delimiter": jsii.String("delimiter"),
@@ -325,6 +332,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseAs: jsii.String("useAs"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
@@ -412,5 +420,8 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-useas
+	//
+	UseAs *string `field:"optional" json:"useAs" yaml:"useAs"`
 }
 

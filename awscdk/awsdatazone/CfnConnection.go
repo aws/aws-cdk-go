@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc).
+// In Amazon DataZone, a connection enables you to connect your resources (domains, projects, and environments) to external resources and services.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -159,19 +159,19 @@ type CfnConnection interface {
 	awscdk.IInspectable
 	// The ID of the connection.
 	AttrConnectionId() *string
-	// The ID of the domain in which the connection is created.
+	// The domain ID of the connection.
 	AttrDomainId() *string
-	// The ID of the domain unit in which the connection is created.
+	// The domain unit ID of the connection.
 	AttrDomainUnitId() *string
-	// The ID of the environment in which the connection is created.
+	// The ID of the environment.
 	AttrEnvironmentId() *string
-	// The role of the user in the environment.
+	// The environment user role.
 	AttrEnvironmentUserRole() *string
-	// The ID of the project in which the connection is created.
+	// The ID of the project.
 	AttrProjectId() *string
-	// Connection Type.
+	// The type of the connection.
 	AttrType() *string
-	// AWS Location of project.
+	// The location where the connection is created.
 	AwsLocation() interface{}
 	SetAwsLocation(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -183,13 +183,13 @@ type CfnConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the connection.
+	// Connection description.
 	Description() *string
 	SetDescription(val *string)
-	// The identifier of the domain in which the connection is created.
+	// The ID of the domain where the connection is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	// The identifier of the environment in which the connection is created.
+	// The ID of the environment where the connection is created.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -207,6 +207,7 @@ type CfnConnection interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Connection props.
 	Props() interface{}
 	SetProps(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -93,7 +93,7 @@ type CfnEnvironmentProps struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
 	//
 	AirflowVersion *string `field:"optional" json:"airflowVersion" yaml:"airflowVersion"`
@@ -111,7 +111,7 @@ type CfnEnvironmentProps struct {
 	EndpointManagement *string `field:"optional" json:"endpointManagement" yaml:"endpointManagement"`
 	// The environment class type.
 	//
-	// Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+	// Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
 	//
 	EnvironmentClass *string `field:"optional" json:"environmentClass" yaml:"environmentClass"`
@@ -183,7 +183,7 @@ type CfnEnvironmentProps struct {
 	RequirementsS3Path *string `field:"optional" json:"requirementsS3Path" yaml:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. Valid values:.
 	//
-	// - *v2* - Accepts between 2 to 5. Defaults to 2.
+	// - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
 	// - *v1* - Accepts 1.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
 	//

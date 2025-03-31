@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnCluster) validateSetEncryptionConfigParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetForceParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetKubernetesNetworkConfigParameters(val interface{}) error {
 	return nil
 }

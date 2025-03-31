@@ -21,10 +21,14 @@ package awslambda
 //
 type CfnEventInvokeConfig_DestinationConfigProperty struct {
 	// The destination configuration for failed invocations.
+	//
+	// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure
 	//
 	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination configuration for successful invocations.
+	//
+	// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess
 	//
 	OnSuccess interface{} `field:"optional" json:"onSuccess" yaml:"onSuccess"`

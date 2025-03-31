@@ -121,6 +121,10 @@ type TableProps struct {
 	// Default: RemovalPolicy.RETAIN
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// The removal policy to apply to the DynamoDB replica tables.
+	// Default: undefined - use DynamoDB Table's removal policy.
+	//
+	ReplicaRemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"replicaRemovalPolicy" yaml:"replicaRemovalPolicy"`
 	// Regions where replica tables will be created.
 	// Default: - no replica tables are created.
 	//

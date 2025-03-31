@@ -69,6 +69,9 @@ package cloudassemblyschema
 //   				"networkMode": jsii.String("networkMode"),
 //   				"platform": jsii.String("platform"),
 //   			},
+//
+//   			// the properties below are optional
+//   			"displayName": jsii.String("displayName"),
 //   		},
 //   	},
 //   	Files: map[string]fileAsset{
@@ -94,6 +97,9 @@ package cloudassemblyschema
 //   				"packaging": awscdk.cloud_assembly_schema.FileAssetPackaging_FILE,
 //   				"path": jsii.String("path"),
 //   			},
+//
+//   			// the properties below are optional
+//   			"displayName": jsii.String("displayName"),
 //   		},
 //   	},
 //   }

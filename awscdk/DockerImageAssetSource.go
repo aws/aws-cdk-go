@@ -12,6 +12,7 @@ package awscdk
 //   	// the properties below are optional
 //   	AssetName: jsii.String("assetName"),
 //   	DirectoryName: jsii.String("directoryName"),
+//   	DisplayName: jsii.String("displayName"),
 //   	DockerBuildArgs: map[string]*string{
 //   		"dockerBuildArgsKey": jsii.String("dockerBuildArgs"),
 //   	},
@@ -70,6 +71,13 @@ type DockerImageAssetSource struct {
 	// Default: - Exactly one of `directoryName` and `executable` is required.
 	//
 	DirectoryName *string `field:"optional" json:"directoryName" yaml:"directoryName"`
+	// A display name for this asset.
+	//
+	// If supplied, the display name will be used in locations where the asset
+	// identifier is printed, like in the CLI progress information.
+	// Default: - The asset hash is used to display the asset.
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and

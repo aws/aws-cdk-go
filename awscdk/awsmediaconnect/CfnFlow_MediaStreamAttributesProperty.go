@@ -24,7 +24,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html
 //
 type CfnFlow_MediaStreamAttributesProperty struct {
-	// A set of parameters that define the media stream.
+	// The settings that you want to use to define the media stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html#cfn-mediaconnect-flow-mediastreamattributes-fmtp
 	//
 	Fmtp interface{} `field:"optional" json:"fmtp" yaml:"fmtp"`

@@ -51,11 +51,13 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-scope
 	//
 	Scope *string `field:"optional" json:"scope" yaml:"scope"`
-	// The suffix that will be included in the user agent header.
+	// Returns the user agent suffix for your web crawler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-useragent
 	//
 	UserAgent *string `field:"optional" json:"userAgent" yaml:"userAgent"`
-	// The full user agent header, including UUID and suffix.
+	// A string used for identifying the crawler or bot when it accesses a web server.
+	//
+	// The user agent header value consists of the `bedrockbot` , UUID, and a user agent suffix for your crawler (if one is provided). By default, it is set to `bedrockbot_UUID` . You can optionally append a custom suffix to `bedrockbot_UUID` to allowlist a specific user agent permitted to access your source URLs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-useragentheader
 	//
 	UserAgentHeader *string `field:"optional" json:"userAgentHeader" yaml:"userAgentHeader"`

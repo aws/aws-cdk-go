@@ -100,6 +100,11 @@ import (
 //   		},
 //   	},
 //   	DataSetRefreshProperties: &DataSetRefreshPropertiesProperty{
+//   		FailureConfiguration: &RefreshFailureConfigurationProperty{
+//   			EmailAlert: &RefreshFailureEmailAlertProperty{
+//   				AlertStatus: jsii.String("alertStatus"),
+//   			},
+//   		},
 //   		RefreshConfiguration: &RefreshConfigurationProperty{
 //   			IncrementalRefresh: &IncrementalRefreshProperty{
 //   				LookbackWindow: &LookbackWindowProperty{
@@ -184,6 +189,8 @@ import (
 //   					},
 //   					"renameColumnOperation": &RenameColumnOperationProperty{
 //   						"columnName": jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						"newColumnName": jsii.String("newColumnName"),
 //   					},
 //   					"tagColumnOperation": &TagColumnOperationProperty{
@@ -280,6 +287,8 @@ import (
 //   			},
 //   			"s3Source": &S3SourceProperty{
 //   				"dataSourceArn": jsii.String("dataSourceArn"),
+//
+//   				// the properties below are optional
 //   				"inputColumns": []interface{}{
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
@@ -289,8 +298,6 @@ import (
 //   						"subType": jsii.String("subType"),
 //   					},
 //   				},
-//
-//   				// the properties below are optional
 //   				"uploadSettings": &UploadSettingsProperty{
 //   					"containsHeader": jsii.Boolean(false),
 //   					"delimiter": jsii.String("delimiter"),
@@ -332,6 +339,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseAs: jsii.String("useAs"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
@@ -458,6 +466,8 @@ type CfnDataSet interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	UseAs() *string
+	SetUseAs(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -942,6 +952,16 @@ func (j *jsiiProxy_CfnDataSet) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSet) UseAs() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"useAs",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
 	_init_.Initialize()
@@ -1160,6 +1180,14 @@ func (j *jsiiProxy_CfnDataSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet)SetUseAs(val *string) {
+	_jsii_.Set(
+		j,
+		"useAs",
 		val,
 	)
 }

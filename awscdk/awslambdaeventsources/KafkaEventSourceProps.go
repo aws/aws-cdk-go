@@ -44,6 +44,7 @@ import (
 //   		MinimumPollers: jsii.Number(123),
 //   	},
 //   	Secret: secret,
+//   	StartingPositionTimestamp: jsii.Number(123),
 //   }
 //
 type KafkaEventSourceProps struct {
@@ -113,5 +114,9 @@ type KafkaEventSourceProps struct {
 	// Default: none.
 	//
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
+	// The time from which to start reading, in Unix time seconds.
+	// Default: - no timestamp.
+	//
+	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 }
 

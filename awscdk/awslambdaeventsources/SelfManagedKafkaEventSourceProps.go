@@ -109,6 +109,10 @@ type SelfManagedKafkaEventSourceProps struct {
 	// Default: none.
 	//
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
+	// The time from which to start reading, in Unix time seconds.
+	// Default: - no timestamp.
+	//
+	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.xyz.com:xxxx`.

@@ -10,6 +10,8 @@ package awsquicksight
 //
 //   renameColumnOperationProperty := &RenameColumnOperationProperty{
 //   	ColumnName: jsii.String("columnName"),
+//
+//   	// the properties below are optional
 //   	NewColumnName: jsii.String("newColumnName"),
 //   }
 //
@@ -23,6 +25,6 @@ type CfnDataSet_RenameColumnOperationProperty struct {
 	// The new name for the column.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
 	//
-	NewColumnName *string `field:"required" json:"newColumnName" yaml:"newColumnName"`
+	NewColumnName *string `field:"optional" json:"newColumnName" yaml:"newColumnName"`
 }
 

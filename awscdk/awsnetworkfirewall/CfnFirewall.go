@@ -34,6 +34,9 @@ import (
 //   	// the properties below are optional
 //   	DeleteProtection: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
+//   	EnabledAnalysisTypes: []*string{
+//   		jsii.String("enabledAnalysisTypes"),
+//   	},
 //   	FirewallPolicyChangeProtection: jsii.Boolean(false),
 //   	SubnetChangeProtection: jsii.Boolean(false),
 //   	Tags: []cfnTag{
@@ -73,6 +76,9 @@ type CfnFirewall interface {
 	// A description of the firewall.
 	Description() *string
 	SetDescription(val *string)
+	// An optional setting indicating the specific traffic analysis types to enable on the firewall.
+	EnabledAnalysisTypes() *[]*string
+	SetEnabledAnalysisTypes(val *[]*string)
 	// The descriptive name of the firewall.
 	FirewallName() *string
 	SetFirewallName(val *string)
@@ -354,6 +360,16 @@ func (j *jsiiProxy_CfnFirewall) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewall) EnabledAnalysisTypes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"enabledAnalysisTypes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewall) FirewallName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -537,6 +553,14 @@ func (j *jsiiProxy_CfnFirewall)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetEnabledAnalysisTypes(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"enabledAnalysisTypes",
 		val,
 	)
 }

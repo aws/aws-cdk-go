@@ -32,6 +32,9 @@ package cloudassemblyschema
 //   		Packaging: awscdk.Cloud_assembly_schema.FileAssetPackaging_FILE,
 //   		Path: jsii.String("path"),
 //   	},
+//
+//   	// the properties below are optional
+//   	DisplayName: jsii.String("displayName"),
 //   }
 //
 type FileAsset struct {
@@ -39,5 +42,9 @@ type FileAsset struct {
 	Destinations *map[string]*FileDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
 	Source *FileSource `field:"required" json:"source" yaml:"source"`
+	// A display name for this asset.
+	// Default: - The identifier will be used as the display name.
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 }
 

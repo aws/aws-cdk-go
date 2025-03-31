@@ -13,6 +13,7 @@ package awscdk
 //
 //   	// the properties below are optional
 //   	DeployTime: jsii.Boolean(false),
+//   	DisplayName: jsii.String("displayName"),
 //   	Executable: []*string{
 //   		jsii.String("executable"),
 //   	},
@@ -41,6 +42,13 @@ type FileAssetSource struct {
 	// Default: false.
 	//
 	DeployTime *bool `field:"optional" json:"deployTime" yaml:"deployTime"`
+	// A display name for this asset.
+	//
+	// If supplied, the display name will be used in locations where the asset
+	// identifier is printed, like in the CLI progress information.
+	// Default: - The asset hash is used to display the asset.
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// An external command that will produce the packaged asset.
 	//
 	// The command should produce the location of a ZIP file on `stdout`.

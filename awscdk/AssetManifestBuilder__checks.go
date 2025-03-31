@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
-func (a *jsiiProxy_AssetManifestBuilder) validateAddDockerImageAssetParameters(stack Stack, sourceHash *string, source *cloudassemblyschema.DockerImageSource, dest *cloudassemblyschema.DockerImageDestination) error {
+func (a *jsiiProxy_AssetManifestBuilder) validateAddDockerImageAssetParameters(stack Stack, sourceHash *string, source *cloudassemblyschema.DockerImageSource, dest *cloudassemblyschema.DockerImageDestination, options *AddDockerImageAssetOptions) error {
 	if stack == nil {
 		return fmt.Errorf("parameter stack is required, but nil was provided")
 	}
@@ -33,10 +33,14 @@ func (a *jsiiProxy_AssetManifestBuilder) validateAddDockerImageAssetParameters(s
 		return err
 	}
 
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
 	return nil
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) validateAddFileAssetParameters(stack Stack, sourceHash *string, source *cloudassemblyschema.FileSource, dest *cloudassemblyschema.FileDestination) error {
+func (a *jsiiProxy_AssetManifestBuilder) validateAddFileAssetParameters(stack Stack, sourceHash *string, source *cloudassemblyschema.FileSource, dest *cloudassemblyschema.FileDestination, options *AddFileAssetOptions) error {
 	if stack == nil {
 		return fmt.Errorf("parameter stack is required, but nil was provided")
 	}
@@ -59,10 +63,14 @@ func (a *jsiiProxy_AssetManifestBuilder) validateAddFileAssetParameters(stack St
 		return err
 	}
 
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
 	return nil
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) validateDefaultAddDockerImageAssetParameters(stack Stack, asset *DockerImageAssetSource, target *AssetManifestDockerImageDestination) error {
+func (a *jsiiProxy_AssetManifestBuilder) validateDefaultAddDockerImageAssetParameters(stack Stack, asset *DockerImageAssetSource, target *AssetManifestDockerImageDestination, options *AddDockerImageAssetOptions) error {
 	if stack == nil {
 		return fmt.Errorf("parameter stack is required, but nil was provided")
 	}
@@ -81,10 +89,14 @@ func (a *jsiiProxy_AssetManifestBuilder) validateDefaultAddDockerImageAssetParam
 		return err
 	}
 
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
 	return nil
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) validateDefaultAddFileAssetParameters(stack Stack, asset *FileAssetSource, target *AssetManifestFileDestination) error {
+func (a *jsiiProxy_AssetManifestBuilder) validateDefaultAddFileAssetParameters(stack Stack, asset *FileAssetSource, target *AssetManifestFileDestination, options *AddFileAssetOptions) error {
 	if stack == nil {
 		return fmt.Errorf("parameter stack is required, but nil was provided")
 	}
@@ -100,6 +112,10 @@ func (a *jsiiProxy_AssetManifestBuilder) validateDefaultAddFileAssetParameters(s
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(target, func() string { return "parameter target" }); err != nil {
+		return err
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

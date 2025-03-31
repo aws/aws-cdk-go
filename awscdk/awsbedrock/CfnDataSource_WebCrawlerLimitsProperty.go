@@ -18,7 +18,9 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html
 //
 type CfnDataSource_WebCrawlerLimitsProperty struct {
-	// Maximum number of pages the crawler can crawl.
+	// The max number of web pages crawled from your source URLs, up to 25,000 pages.
+	//
+	// If the web pages exceed this limit, the data source sync will fail and no web pages will be ingested.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html#cfn-bedrock-datasource-webcrawlerlimits-maxpages
 	//
 	MaxPages *float64 `field:"optional" json:"maxPages" yaml:"maxPages"`

@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Bedrock Foundation Model configuration to be used for Context Enrichment.
+// Context enrichment configuration is used to provide additional context to the RAG application using Amazon Bedrock foundation models.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,11 +18,13 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html
 //
 type CfnDataSource_BedrockFoundationModelContextEnrichmentConfigurationProperty struct {
-	// Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+	// The enrichment stategy used to provide additional context.
+	//
+	// For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration-enrichmentstrategyconfiguration
 	//
 	EnrichmentStrategyConfiguration interface{} `field:"required" json:"enrichmentStrategyConfiguration" yaml:"enrichmentStrategyConfiguration"`
-	// The model's ARN.
+	// The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration-modelarn
 	//
 	ModelArn *string `field:"required" json:"modelArn" yaml:"modelArn"`

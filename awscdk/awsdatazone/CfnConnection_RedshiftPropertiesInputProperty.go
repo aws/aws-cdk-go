@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Redshift Properties Input.
+// The Amazon Redshift properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,22 +34,27 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html
 //
 type CfnConnection_RedshiftPropertiesInputProperty struct {
+	// The Amaon Redshift credentials.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html#cfn-datazone-connection-redshiftpropertiesinput-credentials
 	//
 	Credentials interface{} `field:"optional" json:"credentials" yaml:"credentials"`
+	// The Amazon Redshift database name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html#cfn-datazone-connection-redshiftpropertiesinput-databasename
 	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	// The Amazon Redshift host.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html#cfn-datazone-connection-redshiftpropertiesinput-host
 	//
 	Host *string `field:"optional" json:"host" yaml:"host"`
-	// Redshift Lineage Sync Configuration Input.
+	// The lineage sync of the Amazon Redshift.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html#cfn-datazone-connection-redshiftpropertiesinput-lineagesync
 	//
 	LineageSync interface{} `field:"optional" json:"lineageSync" yaml:"lineageSync"`
+	// The Amaon Redshift port.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html#cfn-datazone-connection-redshiftpropertiesinput-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// The Amazon Redshift storage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html#cfn-datazone-connection-redshiftpropertiesinput-storage
 	//
 	Storage interface{} `field:"optional" json:"storage" yaml:"storage"`

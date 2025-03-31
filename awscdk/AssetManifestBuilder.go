@@ -24,20 +24,20 @@ type AssetManifestBuilder interface {
 	// Add a docker asset source and destination to the manifest.
 	//
 	// sourceHash should be unique for every source.
-	AddDockerImageAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.DockerImageSource, dest *cloudassemblyschema.DockerImageDestination) *cloudassemblyschema.DockerImageDestination
+	AddDockerImageAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.DockerImageSource, dest *cloudassemblyschema.DockerImageDestination, options *AddDockerImageAssetOptions) *cloudassemblyschema.DockerImageDestination
 	// Add a file asset source and destination to the manifest.
 	//
 	// sourceHash should be unique for every source.
-	AddFileAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.FileSource, dest *cloudassemblyschema.FileDestination) *cloudassemblyschema.FileDestination
+	AddFileAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.FileSource, dest *cloudassemblyschema.FileDestination, options *AddFileAssetOptions) *cloudassemblyschema.FileDestination
 	// Add a docker image asset to the manifest with default settings.
 	//
 	// Derive the region from the stack, use the asset hash as the key, and set the prefix.
-	DefaultAddDockerImageAsset(stack Stack, asset *DockerImageAssetSource, target *AssetManifestDockerImageDestination) *cloudassemblyschema.DockerImageDestination
+	DefaultAddDockerImageAsset(stack Stack, asset *DockerImageAssetSource, target *AssetManifestDockerImageDestination, options *AddDockerImageAssetOptions) *cloudassemblyschema.DockerImageDestination
 	// Add a file asset to the manifest with default settings.
 	//
 	// Derive the region from the stack, use the asset hash as the key, copy the
 	// file extension over, and set the prefix.
-	DefaultAddFileAsset(stack Stack, asset *FileAssetSource, target *AssetManifestFileDestination) *cloudassemblyschema.FileDestination
+	DefaultAddFileAsset(stack Stack, asset *FileAssetSource, target *AssetManifestFileDestination, options *AddFileAssetOptions) *cloudassemblyschema.FileDestination
 	// Write the manifest to disk, and add it to the synthesis session.
 	//
 	// Return the artifact id, which should be added to the `additionalDependencies`
@@ -85,8 +85,8 @@ func NewAssetManifestBuilder_Override(a AssetManifestBuilder) {
 	)
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) AddDockerImageAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.DockerImageSource, dest *cloudassemblyschema.DockerImageDestination) *cloudassemblyschema.DockerImageDestination {
-	if err := a.validateAddDockerImageAssetParameters(stack, sourceHash, source, dest); err != nil {
+func (a *jsiiProxy_AssetManifestBuilder) AddDockerImageAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.DockerImageSource, dest *cloudassemblyschema.DockerImageDestination, options *AddDockerImageAssetOptions) *cloudassemblyschema.DockerImageDestination {
+	if err := a.validateAddDockerImageAssetParameters(stack, sourceHash, source, dest, options); err != nil {
 		panic(err)
 	}
 	var returns *cloudassemblyschema.DockerImageDestination
@@ -94,15 +94,15 @@ func (a *jsiiProxy_AssetManifestBuilder) AddDockerImageAsset(stack Stack, source
 	_jsii_.Invoke(
 		a,
 		"addDockerImageAsset",
-		[]interface{}{stack, sourceHash, source, dest},
+		[]interface{}{stack, sourceHash, source, dest, options},
 		&returns,
 	)
 
 	return returns
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) AddFileAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.FileSource, dest *cloudassemblyschema.FileDestination) *cloudassemblyschema.FileDestination {
-	if err := a.validateAddFileAssetParameters(stack, sourceHash, source, dest); err != nil {
+func (a *jsiiProxy_AssetManifestBuilder) AddFileAsset(stack Stack, sourceHash *string, source *cloudassemblyschema.FileSource, dest *cloudassemblyschema.FileDestination, options *AddFileAssetOptions) *cloudassemblyschema.FileDestination {
+	if err := a.validateAddFileAssetParameters(stack, sourceHash, source, dest, options); err != nil {
 		panic(err)
 	}
 	var returns *cloudassemblyschema.FileDestination
@@ -110,15 +110,15 @@ func (a *jsiiProxy_AssetManifestBuilder) AddFileAsset(stack Stack, sourceHash *s
 	_jsii_.Invoke(
 		a,
 		"addFileAsset",
-		[]interface{}{stack, sourceHash, source, dest},
+		[]interface{}{stack, sourceHash, source, dest, options},
 		&returns,
 	)
 
 	return returns
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) DefaultAddDockerImageAsset(stack Stack, asset *DockerImageAssetSource, target *AssetManifestDockerImageDestination) *cloudassemblyschema.DockerImageDestination {
-	if err := a.validateDefaultAddDockerImageAssetParameters(stack, asset, target); err != nil {
+func (a *jsiiProxy_AssetManifestBuilder) DefaultAddDockerImageAsset(stack Stack, asset *DockerImageAssetSource, target *AssetManifestDockerImageDestination, options *AddDockerImageAssetOptions) *cloudassemblyschema.DockerImageDestination {
+	if err := a.validateDefaultAddDockerImageAssetParameters(stack, asset, target, options); err != nil {
 		panic(err)
 	}
 	var returns *cloudassemblyschema.DockerImageDestination
@@ -126,15 +126,15 @@ func (a *jsiiProxy_AssetManifestBuilder) DefaultAddDockerImageAsset(stack Stack,
 	_jsii_.Invoke(
 		a,
 		"defaultAddDockerImageAsset",
-		[]interface{}{stack, asset, target},
+		[]interface{}{stack, asset, target, options},
 		&returns,
 	)
 
 	return returns
 }
 
-func (a *jsiiProxy_AssetManifestBuilder) DefaultAddFileAsset(stack Stack, asset *FileAssetSource, target *AssetManifestFileDestination) *cloudassemblyschema.FileDestination {
-	if err := a.validateDefaultAddFileAssetParameters(stack, asset, target); err != nil {
+func (a *jsiiProxy_AssetManifestBuilder) DefaultAddFileAsset(stack Stack, asset *FileAssetSource, target *AssetManifestFileDestination, options *AddFileAssetOptions) *cloudassemblyschema.FileDestination {
+	if err := a.validateDefaultAddFileAssetParameters(stack, asset, target, options); err != nil {
 		panic(err)
 	}
 	var returns *cloudassemblyschema.FileDestination
@@ -142,7 +142,7 @@ func (a *jsiiProxy_AssetManifestBuilder) DefaultAddFileAsset(stack Stack, asset 
 	_jsii_.Invoke(
 		a,
 		"defaultAddFileAsset",
-		[]interface{}{stack, asset, target},
+		[]interface{}{stack, asset, target, options},
 		&returns,
 	)
 

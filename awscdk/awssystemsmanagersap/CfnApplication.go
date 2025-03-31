@@ -21,6 +21,13 @@ import (
 //   	ApplicationType: jsii.String("applicationType"),
 //
 //   	// the properties below are optional
+//   	ComponentsInfo: []interface{}{
+//   		&ComponentInfoProperty{
+//   			ComponentType: jsii.String("componentType"),
+//   			Ec2InstanceId: jsii.String("ec2InstanceId"),
+//   			Sid: jsii.String("sid"),
+//   		},
+//   	},
 //   	Credentials: []interface{}{
 //   		&CredentialProperty{
 //   			CredentialType: jsii.String("credentialType"),
@@ -61,6 +68,9 @@ type CfnApplication interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+	ComponentsInfo() interface{}
+	SetComponentsInfo(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -313,6 +323,16 @@ func (j *jsiiProxy_CfnApplication) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) ComponentsInfo() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"componentsInfo",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -499,6 +519,17 @@ func (j *jsiiProxy_CfnApplication)SetApplicationType(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetComponentsInfo(val interface{}) {
+	if err := j.validateSetComponentsInfoParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"componentsInfo",
 		val,
 	)
 }

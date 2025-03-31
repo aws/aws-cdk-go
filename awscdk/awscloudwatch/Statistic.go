@@ -4,25 +4,21 @@ package awscloudwatch
 // Statistic to use over the aggregation period.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var matchmakingRuleSet matchmakingRuleSet
 //
-//   var deliveryStream deliveryStream
-//
-//
-//   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
-//   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
-//   	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
+//   // Alarm that triggers when the per-second average of not placed matches exceed 10%
+//   ruleEvaluationRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
+//   	Expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
 //   	UsingMetrics: map[string]iMetric{
-//   		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
+//   		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
 //   			"statistic": cloudwatch.Statistic_SUM,
 //   		}),
-//   		"bytePerSecLimit": deliveryStream.metric(jsii.String("BytesPerSecondLimit")),
+//   		"ruleEvaluationsFailed": matchmakingRuleSet.metric(jsii.String("ruleEvaluationsFailed")),
 //   	},
 //   })
-//
 //   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: incomingBytesPercentOfLimit,
-//   	Threshold: jsii.Number(0.9),
+//   	Metric: ruleEvaluationRatio,
+//   	Threshold: jsii.Number(0.1),
 //   	EvaluationPeriods: jsii.Number(3),
 //   })
 //

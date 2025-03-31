@@ -56,6 +56,7 @@ import (
 //   	CacheConfig: &CacheConfigProperty{
 //   		Type: jsii.String("type"),
 //   	},
+//   	ComputeRoleArn: jsii.String("computeRoleArn"),
 //   	CustomHeaders: jsii.String("customHeaders"),
 //   	CustomRules: []interface{}{
 //   		&CustomRuleProperty{
@@ -121,6 +122,8 @@ type CfnApp interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	ComputeRoleArn() *string
+	SetComputeRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -448,6 +451,16 @@ func (j *jsiiProxy_CfnApp) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) ComputeRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"computeRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -711,6 +724,14 @@ func (j *jsiiProxy_CfnApp)SetCacheConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"cacheConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApp)SetComputeRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"computeRoleArn",
 		val,
 	)
 }

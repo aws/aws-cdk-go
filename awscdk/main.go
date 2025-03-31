@@ -8,6 +8,14 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.AddDockerImageAssetOptions",
+		reflect.TypeOf((*AddDockerImageAssetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.AddFileAssetOptions",
+		reflect.TypeOf((*AddFileAssetOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.Annotations",
 		reflect.TypeOf((*Annotations)(nil)).Elem(),

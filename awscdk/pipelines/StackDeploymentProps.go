@@ -26,6 +26,7 @@ package pipelines
 //
 //   			// the properties below are optional
 //   			AssetPublishingRoleArn: jsii.String("assetPublishingRoleArn"),
+//   			DisplayName: jsii.String("displayName"),
 //   		},
 //   	},
 //   	AssumeRoleArn: jsii.String("assumeRoleArn"),

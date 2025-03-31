@@ -83,6 +83,7 @@ func init() {
 			"THURSDAY": DayOfWeek_THURSDAY,
 			"FRIDAY": DayOfWeek_FRIDAY,
 			"SATURDAY": DayOfWeek_SATURDAY,
+			"UNSET_VALUE": DayOfWeek_UNSET_VALUE,
 		},
 	)
 	_jsii_.RegisterEnum(

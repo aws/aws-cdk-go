@@ -87,7 +87,7 @@ type CfnDataSource_VectorIngestionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-chunkingconfiguration
 	//
 	ChunkingConfiguration interface{} `field:"optional" json:"chunkingConfiguration" yaml:"chunkingConfiguration"`
-	// Additional Enrichment Configuration for example when using GraphRag.
+	// The context enrichment configuration used for ingestion of the data into the vector store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-contextenrichmentconfiguration
 	//
 	ContextEnrichmentConfiguration interface{} `field:"optional" json:"contextEnrichmentConfiguration" yaml:"contextEnrichmentConfiguration"`

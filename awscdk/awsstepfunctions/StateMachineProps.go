@@ -8,26 +8,25 @@ import (
 // Properties for defining a State Machine.
 //
 // Example:
-//   // Define a state machine with one Pass state
-//   child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &StateMachineProps{
-//   	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"))),
-//   })
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // Include the state machine in a Task state with callback pattern
-//   task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
-//   	StateMachine: child,
-//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Input: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"token": sfn.JsonPath_taskToken(),
-//   		"foo": jsii.String("bar"),
-//   	}),
-//   	Name: jsii.String("MyExecutionName"),
-//   })
 //
-//   // Define a second state machine with the Task state above
-//   // Define a second state machine with the Task state above
-//   sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &StateMachineProps{
-//   	Definition: task,
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
+//   inputArtifact := codepipeline.NewArtifact()
+//   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
+//   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &StateMachineProps{
+//   	Definition: startState,
+//   })
+//   stepFunctionAction := codepipeline_actions.NewStepFunctionInvokeAction(&StepFunctionsInvokeActionProps{
+//   	ActionName: jsii.String("Invoke"),
+//   	StateMachine: simpleStateMachine,
+//   	StateMachineInput: codepipeline_actions.StateMachineInput_FilePath(inputArtifact.AtPath(jsii.String("assets/input.json"))),
+//   })
+//   pipeline.AddStage(&StageOptions{
+//   	StageName: jsii.String("StepFunctions"),
+//   	Actions: []iAction{
+//   		stepFunctionAction,
+//   	},
 //   })
 //
 type StateMachineProps struct {

@@ -18,6 +18,14 @@ func validateNames_NodeUniqueIdParameters(node constructs.Node) error {
 	return nil
 }
 
+func validateNames_StackRelativeConstructPathParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNames_UniqueIdParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")

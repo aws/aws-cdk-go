@@ -78,6 +78,9 @@ package awswafv2
 //   		QueryString: queryString,
 //   		SingleHeader: singleHeader,
 //   		SingleQueryArgument: singleQueryArgument,
+//   		UriFragment: &UriFragmentProperty{
+//   			FallbackBehavior: jsii.String("fallbackBehavior"),
+//   		},
 //   		UriPath: uriPath,
 //   	},
 //   	Size: jsii.Number(123),

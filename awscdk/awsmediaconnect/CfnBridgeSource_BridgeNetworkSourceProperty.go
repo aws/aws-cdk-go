@@ -38,6 +38,8 @@ type CfnBridgeSource_BridgeNetworkSourceProperty struct {
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The network source protocol.
+	//
+	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`

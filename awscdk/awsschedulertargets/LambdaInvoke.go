@@ -13,31 +13,19 @@ import (
 // Use an AWS Lambda function as a target for AWS EventBridge Scheduler.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var fn function
 //
-//
-//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
-//   })
-//
-//   dlq := sqs.NewQueue(this, jsii.String("DLQ"), &QueueProps{
-//   	QueueName: jsii.String("MyDLQ"),
-//   })
 //
 //   target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
-//   	DeadLetterQueue: dlq,
-//   	MaxEventAge: awscdk.Duration_Minutes(jsii.Number(1)),
-//   	RetryAttempts: jsii.Number(3),
 //   	Input: awscdk.ScheduleTargetInput_FromObject(map[string]*string{
 //   		"payload": jsii.String("useful"),
 //   	}),
 //   })
 //
 //   schedule := awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
-//   	Schedule: awscdk.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+//   	Schedule: awscdk.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
 //   	Target: Target,
+//   	Description: jsii.String("This is a test schedule that invokes a lambda function every 10 minutes."),
 //   })
 //
 type LambdaInvoke interface {

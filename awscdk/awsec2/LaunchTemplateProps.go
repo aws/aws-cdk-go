@@ -146,6 +146,10 @@ type LaunchTemplateProps struct {
 	// Default: - Enablement of Nitro enclaves is not specified in the launch template; defaulting to false.
 	//
 	NitroEnclaveEnabled *bool `field:"optional" json:"nitroEnclaveEnabled" yaml:"nitroEnclaveEnabled"`
+	// The placement group that you want to launch the instance into.
+	// Default: - no placement group will be used for this launch template.
+	//
+	PlacementGroup IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// Whether IMDSv2 should be required on launched instances.
 	// Default: - false.
 	//

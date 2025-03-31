@@ -34,6 +34,7 @@ import (
 //   	CapacityType: eks_v2_alpha.CapacityType_SPOT,
 //   	DesiredSize: jsii.Number(123),
 //   	DiskSize: jsii.Number(123),
+//   	EnableNodeAutoRepair: jsii.Boolean(false),
 //   	ForceUpdate: jsii.Boolean(false),
 //   	InstanceType: instanceType,
 //   	InstanceTypes: []*instanceType{

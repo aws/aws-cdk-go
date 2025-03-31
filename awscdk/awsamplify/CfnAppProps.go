@@ -49,6 +49,7 @@ import (
 //   	CacheConfig: &CacheConfigProperty{
 //   		Type: jsii.String("type"),
 //   	},
+//   	ComputeRoleArn: jsii.String("computeRoleArn"),
 //   	CustomHeaders: jsii.String("customHeaders"),
 //   	CustomRules: []interface{}{
 //   		&CustomRuleProperty{
@@ -119,6 +120,9 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-cacheconfig
 	//
 	CacheConfig interface{} `field:"optional" json:"cacheConfig" yaml:"cacheConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-computerolearn
+	//
+	ComputeRoleArn *string `field:"optional" json:"computeRoleArn" yaml:"computeRoleArn"`
 	// The custom HTTP headers for an Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
 	//

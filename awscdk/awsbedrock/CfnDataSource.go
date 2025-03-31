@@ -261,7 +261,9 @@ type CfnDataSource interface {
 	awscdk.IInspectable
 	// The time at which the data source was created.
 	AttrCreatedAt() *string
-	// The full user agent header, including UUID and suffix.
+	// A string used for identifying the crawler or bot when it accesses a web server.
+	//
+	// The user agent header value consists of the `bedrockbot` , UUID, and a user agent suffix for your crawler (if one is provided). By default, it is set to `bedrockbot_UUID` . You can optionally append a custom suffix to `bedrockbot_UUID` to allowlist a specific user agent permitted to access your source URLs.
 	AttrDataSourceConfigurationWebConfigurationCrawlerConfigurationUserAgentHeader() *string
 	// The unique identifier of the data source.
 	AttrDataSourceId() *string

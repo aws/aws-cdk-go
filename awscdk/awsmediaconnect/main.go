@@ -240,6 +240,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEgressIp", GoGetter: "AttrEgressIp"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowArn", GoGetter: "AttrFlowArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowAvailabilityZone", GoGetter: "AttrFlowAvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFlowNdiMachineName", GoGetter: "AttrFlowNdiMachineName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceIngestIp", GoGetter: "AttrSourceIngestIp"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSourceArn", GoGetter: "AttrSourceSourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSourceIngestPort", GoGetter: "AttrSourceSourceIngestPort"},
@@ -248,6 +249,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "flowSize", GoGetter: "FlowSize"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -255,6 +257,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "maintenance", GoGetter: "Maintenance"},
 			_jsii_.MemberProperty{JsiiProperty: "mediaStreams", GoGetter: "MediaStreams"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "ndiConfig", GoGetter: "NdiConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -332,6 +335,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.MediaStreamSourceConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_MediaStreamSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.NdiConfigProperty",
+		reflect.TypeOf((*CfnFlow_NdiConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.NdiDiscoveryServerConfigProperty",
+		reflect.TypeOf((*CfnFlow_NdiDiscoveryServerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SilentAudioProperty",
@@ -449,6 +460,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "mediaStreamOutputConfigurations", GoGetter: "MediaStreamOutputConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "minLatency", GoGetter: "MinLatency"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "ndiProgramName", GoGetter: "NdiProgramName"},
+			_jsii_.MemberProperty{JsiiProperty: "ndiSpeedHqQuality", GoGetter: "NdiSpeedHqQuality"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},

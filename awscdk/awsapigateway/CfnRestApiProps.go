@@ -30,6 +30,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	DisableExecuteApiEndpoint: jsii.Boolean(false),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
+//   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
 //   			jsii.String("types"),
 //   		},

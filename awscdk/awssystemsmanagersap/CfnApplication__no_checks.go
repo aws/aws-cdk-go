@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnApplication) validateSetApplicationTypeParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetComponentsInfoParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetCredentialsParameters(val interface{}) error {
 	return nil
 }

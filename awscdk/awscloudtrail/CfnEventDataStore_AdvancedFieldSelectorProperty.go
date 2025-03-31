@@ -56,15 +56,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// For management and data events for event data stores, you can use it to include or exclude any event source and can use any operator.
 	//
-	// For network activity events, this is a required field that only uses the `Equals` operator. Set this field to the event source for which you want to log network activity events. If you want to log network activity events for multiple event sources, you must create a separate field selector for each event source.
-	//
-	// The following are valid values for network activity events:
-	//
-	// - `cloudtrail.amazonaws.com`
-	// - `ec2.amazonaws.com`
-	// - `kms.amazonaws.com`
-	// - `s3.amazonaws.com`
-	// - `secretsmanager.amazonaws.com`
+	// For network activity events, this is a required field that only uses the `Equals` operator. Set this field to the event source for which you want to log network activity events. If you want to log network activity events for multiple event sources, you must create a separate field selector for each event source. For a list of services supporting network activity events, see [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide* .
 	// - *`eventName`* - This is an optional field that is only used for data events, management events (for event data stores only), and network activity events. You can use any operator with `eventName` . You can use it to ﬁlter in or ﬁlter out specific events. You can have multiple values for this ﬁeld, separated by commas.
 	// - *`eventCategory`* - This field is required and must be set to `Equals` .
 	//

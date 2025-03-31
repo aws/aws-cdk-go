@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnBranch) validateSetEnablePullRequestPreviewParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnBranch) validateSetEnableSkewProtectionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBranch) validateSetEnvironmentVariablesParameters(val interface{}) error {
 	return nil
 }

@@ -27,9 +27,9 @@ type CfnGroupMembershipProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-identitystoreid
 	//
 	IdentityStoreId *string `field:"required" json:"identityStoreId" yaml:"identityStoreId"`
-	// An object containing the identifier of a group member.
+	// An object that contains the identifier of a group member.
 	//
-	// Setting `MemberId` 's `UserId` field to a specific User's ID indicates we should consider that User as a group member.
+	// Setting the `UserID` field to the specific identifier for a user indicates that the user is a member of the group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-memberid
 	//
 	MemberId interface{} `field:"required" json:"memberId" yaml:"memberId"`

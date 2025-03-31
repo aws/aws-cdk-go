@@ -100,8 +100,6 @@ type CfnConfigRuleProps struct {
 	// Defines which resources can trigger an evaluation for the rule.
 	//
 	// The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
-	//
-	// > Scope is only supported for change-triggered rules. Scope is not supported for periodic or hybrid rules.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-scope
 	//
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`

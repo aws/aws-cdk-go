@@ -71,6 +71,7 @@ package awsmediaconnect
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	FlowSize: jsii.String("flowSize"),
 //   	Maintenance: &MaintenanceProperty{
 //   		MaintenanceDay: jsii.String("maintenanceDay"),
 //   		MaintenanceStartHour: jsii.String("maintenanceStartHour"),
@@ -99,6 +100,19 @@ package awsmediaconnect
 //   			Fmt: jsii.Number(123),
 //   			VideoFormat: jsii.String("videoFormat"),
 //   		},
+//   	},
+//   	NdiConfig: &NdiConfigProperty{
+//   		MachineName: jsii.String("machineName"),
+//   		NdiDiscoveryServers: []interface{}{
+//   			&NdiDiscoveryServerConfigProperty{
+//   				DiscoveryServerAddress: jsii.String("discoveryServerAddress"),
+//   				VpcInterfaceAdapter: jsii.String("vpcInterfaceAdapter"),
+//
+//   				// the properties below are optional
+//   				DiscoveryServerPort: jsii.Number(123),
+//   			},
+//   		},
+//   		NdiState: jsii.String("ndiState"),
 //   	},
 //   	SourceFailoverConfig: &FailoverConfigProperty{
 //   		FailoverMode: jsii.String("failoverMode"),
@@ -167,16 +181,28 @@ type CfnFlowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// Determines the processing capacity and feature set of the flow.
+	//
+	// Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-flowsize
+	//
+	FlowSize *string `field:"optional" json:"flowSize" yaml:"flowSize"`
 	// The maintenance settings you want to use for the flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-maintenance
 	//
 	Maintenance interface{} `field:"optional" json:"maintenance" yaml:"maintenance"`
-	// The media streams associated with the flow.
+	// The media streams that are associated with the flow.
 	//
-	// You can associate any of these media streams with sources and outputs on the flow.
+	// After you associate a media stream with a source, you can also associate it with outputs on the flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-mediastreams
 	//
 	MediaStreams interface{} `field:"optional" json:"mediaStreams" yaml:"mediaStreams"`
+	// Specifies the configuration settings for NDI outputs.
+	//
+	// Required when the flow includes NDI outputs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-ndiconfig
+	//
+	NdiConfig interface{} `field:"optional" json:"ndiConfig" yaml:"ndiConfig"`
 	// The settings for source failover.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
 	//
@@ -185,7 +211,7 @@ type CfnFlowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcemonitoringconfig
 	//
 	SourceMonitoringConfig interface{} `field:"optional" json:"sourceMonitoringConfig" yaml:"sourceMonitoringConfig"`
-	// The VPC interfaces that you added to this flow.
+	// The VPC Interfaces for this flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-vpcinterfaces
 	//
 	VpcInterfaces interface{} `field:"optional" json:"vpcInterfaces" yaml:"vpcInterfaces"`

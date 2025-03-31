@@ -16,7 +16,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-blackframes.html
 //
 type CfnFlow_BlackFramesProperty struct {
-	// Indicates whether the `BlackFrames` metric is enabled or disabled.
+	// Indicates whether the `BlackFrames` metric is enabled or disabled..
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-blackframes.html#cfn-mediaconnect-flow-blackframes-state
 	//
 	State *string `field:"optional" json:"state" yaml:"state"`

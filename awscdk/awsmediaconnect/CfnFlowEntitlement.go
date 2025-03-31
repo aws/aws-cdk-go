@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::MediaConnect::FlowEntitlement resource defines the permission that an AWS account grants to another AWS account to allow access to the content in a specific AWS Elemental MediaConnect flow.
+// The `AWS::MediaConnect::FlowEntitlement` resource defines the permission that an AWS account grants to another AWS account to allow access to the content in a specific AWS Elemental MediaConnect flow.
 //
 // The content originator grants an entitlement to a specific AWS account (the subscriber). When an entitlement is granted, the subscriber can create a flow using the originator's flow as the source. Each flow can have up to 50 entitlements.
 //
@@ -66,7 +66,7 @@ type CfnFlowEntitlement interface {
 	// A description of the entitlement.
 	Description() *string
 	SetDescription(val *string)
-	// The type of encryption that MediaConnect will use on the output that is associated with the entitlement.
+	// Information about the encryption of the flow.
 	Encryption() interface{}
 	SetEncryption(val interface{})
 	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.

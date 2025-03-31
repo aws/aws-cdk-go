@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::MediaConnect::Gateway resource is used to create a new gateway.
+// The `AWS::MediaConnect::Gateway` resource is used to create a new gateway.
 //
 // AWS Elemental MediaConnect Gateway is a feature of MediaConnect that allows the deployment of on-premises resources for transporting live video to and from the AWS Cloud. MediaConnect Gateway allows you to contribute live video to the AWS Cloud from on-premises hardware, as well as distribute live video from the AWS Cloud to your local data center.
 //
@@ -64,10 +64,10 @@ type CfnGateway interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the network.
+	// The name of the gateway.
 	Name() *string
 	SetName(val *string)
-	// The list of networks that you want to add.
+	// The list of networks in the gateway.
 	Networks() interface{}
 	SetNetworks(val interface{})
 	// The tree node.

@@ -28,6 +28,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deleteProtection", GoGetter: "DeleteProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "enabledAnalysisTypes", GoGetter: "EnabledAnalysisTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallName", GoGetter: "FirewallName"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallPolicyArn", GoGetter: "FirewallPolicyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallPolicyChangeProtection", GoGetter: "FirewallPolicyChangeProtection"},

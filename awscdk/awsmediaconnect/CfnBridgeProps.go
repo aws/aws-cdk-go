@@ -85,15 +85,15 @@ type CfnBridgeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-sources
 	//
 	Sources interface{} `field:"required" json:"sources" yaml:"sources"`
-	// Create a bridge with the egress bridge type.
+	// An egress bridge is a cloud-to-ground bridge.
 	//
-	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	// The content comes from an existing MediaConnect flow and is delivered to your premises.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-egressgatewaybridge
 	//
 	EgressGatewayBridge interface{} `field:"optional" json:"egressGatewayBridge" yaml:"egressGatewayBridge"`
-	// Create a bridge with the ingress bridge type.
+	// An ingress bridge is a ground-to-cloud bridge.
 	//
-	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+	// The content originates at your premises and is delivered to the cloud.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html#cfn-mediaconnect-bridge-ingressgatewaybridge
 	//
 	IngressGatewayBridge interface{} `field:"optional" json:"ingressGatewayBridge" yaml:"ingressGatewayBridge"`

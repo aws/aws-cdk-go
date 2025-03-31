@@ -1,6 +1,8 @@
 package awsdatazone
 
 
+// Amazon Redshift credentials of a connection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,10 +19,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftcredentials.html
 //
 type CfnConnection_RedshiftCredentialsProperty struct {
+	// The secret ARN of the Amazon Redshift credentials of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftcredentials.html#cfn-datazone-connection-redshiftcredentials-secretarn
 	//
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
-	// The username and password to be used for authentication.
+	// The username and password of the Amazon Redshift credentials of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftcredentials.html#cfn-datazone-connection-redshiftcredentials-usernamepassword
 	//
 	UsernamePassword interface{} `field:"optional" json:"usernamePassword" yaml:"usernamePassword"`

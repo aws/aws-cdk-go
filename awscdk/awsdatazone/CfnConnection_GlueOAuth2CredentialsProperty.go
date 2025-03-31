@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Glue OAuth2 Credentials.
+// The GlueOAuth2 credentials of a connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,15 +18,19 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html
 //
 type CfnConnection_GlueOAuth2CredentialsProperty struct {
+	// The access token of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html#cfn-datazone-connection-glueoauth2credentials-accesstoken
 	//
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
+	// The jwt token of the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html#cfn-datazone-connection-glueoauth2credentials-jwttoken
 	//
 	JwtToken *string `field:"optional" json:"jwtToken" yaml:"jwtToken"`
+	// The refresh token of the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html#cfn-datazone-connection-glueoauth2credentials-refreshtoken
 	//
 	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
+	// The user managed client application client secret of the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html#cfn-datazone-connection-glueoauth2credentials-usermanagedclientapplicationclientsecret
 	//
 	UserManagedClientApplicationClientSecret *string `field:"optional" json:"userManagedClientApplicationClientSecret" yaml:"userManagedClientApplicationClientSecret"`

@@ -31,7 +31,7 @@ type CfnFlowEntitlement_EncryptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-algorithm
 	//
 	Algorithm *string `field:"required" json:"algorithm" yaml:"algorithm"`
-	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
+	// The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
@@ -68,6 +68,8 @@ type CfnFlowEntitlement_EncryptionProperty struct {
 	//
 	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
+	//
+	// This parameter is required for static key encryption and is not valid for SPEKE encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-secretarn
 	//
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`

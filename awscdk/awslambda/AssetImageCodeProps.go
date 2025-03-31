@@ -48,6 +48,7 @@ import (
 //   	Cmd: []*string{
 //   		jsii.String("cmd"),
 //   	},
+//   	DisplayName: jsii.String("displayName"),
 //   	Entrypoint: []*string{
 //   		jsii.String("entrypoint"),
 //   	},
@@ -153,6 +154,26 @@ type AssetImageCodeProps struct {
 	// Default: - no cache to options are passed to the build command.
 	//
 	CacheTo *awsecrassets.DockerCacheOption `field:"optional" json:"cacheTo" yaml:"cacheTo"`
+	// A display name for this asset.
+	//
+	// If supplied, the display name will be used in locations where the asset
+	// identifier is printed, like in the CLI progress information. If the same
+	// asset is added multiple times, the display name of the first occurrence is
+	// used.
+	//
+	// If `assetName` is given, it will also be used as the default `displayName`.
+	// Otherwise, the default is the construct path of the ImageAsset construct,
+	// with respect to the enclosing stack. If the asset is produced by a
+	// construct helper function (such as `lambda.Code.fromAssetImage()`), this
+	// will look like `MyFunction/AssetImage`.
+	//
+	// We use the stack-relative construct path so that in the common case where
+	// you have multiple stacks with the same asset, we won't show something like
+	// `/MyBetaStack/MyFunction/Code` when you are actually deploying to
+	// production.
+	// Default: - Stack-relative construct path.
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Path to the Dockerfile (relative to the directory).
 	// Default: 'Dockerfile'.
 	//

@@ -27,10 +27,12 @@ import (
 //   		EnableBasicAuth: jsii.Boolean(false),
 //   	},
 //   	BuildSpec: jsii.String("buildSpec"),
+//   	ComputeRoleArn: jsii.String("computeRoleArn"),
 //   	Description: jsii.String("description"),
 //   	EnableAutoBuild: jsii.Boolean(false),
 //   	EnablePerformanceMode: jsii.Boolean(false),
 //   	EnablePullRequestPreview: jsii.Boolean(false),
+//   	EnableSkewProtection: jsii.Boolean(false),
 //   	EnvironmentVariables: []interface{}{
 //   		&EnvironmentVariableProperty{
 //   			Name: jsii.String("name"),
@@ -75,6 +77,9 @@ type CfnBranchProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
 	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-computerolearn
+	//
+	ComputeRoleArn *string `field:"optional" json:"computeRoleArn" yaml:"computeRoleArn"`
 	// The description for the branch that is part of an Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
 	//
@@ -99,6 +104,9 @@ type CfnBranchProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
 	//
 	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableskewprotection
+	//
+	EnableSkewProtection interface{} `field:"optional" json:"enableSkewProtection" yaml:"enableSkewProtection"`
 	// The environment variables for the branch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
 	//

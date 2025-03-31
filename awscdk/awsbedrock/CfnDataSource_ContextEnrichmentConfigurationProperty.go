@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Additional Enrichment Configuration for example when using GraphRag.
+// Context enrichment configuration is used to provide additional context to the RAG application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,11 +23,13 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html
 //
 type CfnDataSource_ContextEnrichmentConfigurationProperty struct {
-	// Enrichment type to be used for the vector database.
+	// The method used for context enrichment.
+	//
+	// It must be Amazon Bedrock foundation models.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html#cfn-bedrock-datasource-contextenrichmentconfiguration-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// Bedrock Foundation Model configuration to be used for Context Enrichment.
+	// The configuration of the Amazon Bedrock foundation model used for context enrichment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html#cfn-bedrock-datasource-contextenrichmentconfiguration-bedrockfoundationmodelconfiguration
 	//
 	BedrockFoundationModelConfiguration interface{} `field:"optional" json:"bedrockFoundationModelConfiguration" yaml:"bedrockFoundationModelConfiguration"`

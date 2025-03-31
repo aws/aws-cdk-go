@@ -28,7 +28,7 @@ type CfnEnvironmentActionsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The description of the Amazon DataZone environment action.
+	// The environment action description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -44,7 +44,7 @@ type CfnEnvironmentActionsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-identifier
 	//
 	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
-	// The parameters of the console link specified as part of the environment action.
+	// The parameters of the environment action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html#cfn-datazone-environmentactions-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

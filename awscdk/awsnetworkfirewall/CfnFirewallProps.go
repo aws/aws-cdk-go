@@ -27,6 +27,9 @@ import (
 //   	// the properties below are optional
 //   	DeleteProtection: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
+//   	EnabledAnalysisTypes: []*string{
+//   		jsii.String("enabledAnalysisTypes"),
+//   	},
 //   	FirewallPolicyChangeProtection: jsii.Boolean(false),
 //   	SubnetChangeProtection: jsii.Boolean(false),
 //   	Tags: []cfnTag{
@@ -74,6 +77,10 @@ type CfnFirewallProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// An optional setting indicating the specific traffic analysis types to enable on the firewall.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-enabledanalysistypes
+	//
+	EnabledAnalysisTypes *[]*string `field:"optional" json:"enabledAnalysisTypes" yaml:"enabledAnalysisTypes"`
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association.
 	//
 	// Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .

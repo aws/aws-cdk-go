@@ -3,7 +3,7 @@ package awsmediaconnect
 
 // The priority you want to assign to a source.
 //
-// You can have a primary stream and a backup stream or two equally prioritized streams. This setting only applies when Failover Mode is set to FAILOVER.
+// You can have a primary stream and a backup stream or two equally prioritized streams.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

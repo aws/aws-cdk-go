@@ -49,6 +49,7 @@ import (
 //   			"paramsKey": jsii.String("params"),
 //   		},
 //   	},
+//   	DisplayName: jsii.String("displayName"),
 //   	Exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},

@@ -20,11 +20,13 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html
 //
 type CfnFlowOutput_EncryptionProperty struct {
-	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
+	// The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
+	//
+	// This parameter is required for static key encryption and is not valid for SPEKE encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-secretarn
 	//
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`

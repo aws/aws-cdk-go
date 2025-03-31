@@ -63,6 +63,7 @@ import (
 //   		WorkingDirectory: jsii.String("workingDirectory"),
 //   	},
 //   	DeployTime: jsii.Boolean(false),
+//   	DisplayName: jsii.String("displayName"),
 //   	Exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},

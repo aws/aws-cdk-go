@@ -103,6 +103,10 @@ type ManagedKafkaEventSourceProps struct {
 	// Default: none.
 	//
 	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
+	// The time from which to start reading, in Unix time seconds.
+	// Default: - no timestamp.
+	//
+	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// An MSK cluster construct.
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
 }

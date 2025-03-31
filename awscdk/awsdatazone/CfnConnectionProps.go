@@ -147,11 +147,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html
 //
 type CfnConnectionProps struct {
-	// The identifier of the domain in which the connection is created.
+	// The ID of the domain where the connection is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The identifier of the environment in which the connection is created.
+	// The ID of the environment where the connection is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-environmentidentifier
 	//
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
@@ -159,14 +159,15 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// AWS Location of project.
+	// The location where the connection is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-awslocation
 	//
 	AwsLocation interface{} `field:"optional" json:"awsLocation" yaml:"awsLocation"`
-	// The description of the connection.
+	// Connection description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Connection props.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-props
 	//
 	Props interface{} `field:"optional" json:"props" yaml:"props"`

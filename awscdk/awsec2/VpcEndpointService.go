@@ -13,20 +13,18 @@ import (
 // A VPC endpoint service.
 //
 // Example:
-//   var networkLoadBalancer1 networkLoadBalancer
-//   var networkLoadBalancer2 networkLoadBalancer
+//   var networkLoadBalancer networkLoadBalancer
 //
 //
 //   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &VpcEndpointServiceProps{
 //   	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
-//   		networkLoadBalancer1,
-//   		networkLoadBalancer2,
+//   		networkLoadBalancer,
 //   	},
-//   	AcceptanceRequired: jsii.Boolean(true),
-//   	AllowedPrincipals: []arnPrincipal{
-//   		iam.NewArnPrincipal(jsii.String("arn:aws:iam::123456789012:root")),
+//   	// Support both IPv4 and IPv6 connections to the endpoint service
+//   	SupportedIpAddressTypes: []ipAddressType{
+//   		ec2.*ipAddressType_IPV4,
+//   		ec2.*ipAddressType_IPV6,
 //   	},
-//   	ContributorInsights: jsii.Boolean(true),
 //   })
 //
 type VpcEndpointService interface {

@@ -46,6 +46,8 @@ package awsquicksight
 //   	},
 //   	S3Source: &S3SourceProperty{
 //   		DataSourceArn: jsii.String("dataSourceArn"),
+//
+//   		// the properties below are optional
 //   		InputColumns: []interface{}{
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
@@ -55,8 +57,6 @@ package awsquicksight
 //   				SubType: jsii.String("subType"),
 //   			},
 //   		},
-//
-//   		// the properties below are optional
 //   		UploadSettings: &UploadSettingsProperty{
 //   			ContainsHeader: jsii.Boolean(false),
 //   			Delimiter: jsii.String("delimiter"),

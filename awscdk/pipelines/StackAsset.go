@@ -17,6 +17,7 @@ package pipelines
 //
 //   	// the properties below are optional
 //   	AssetPublishingRoleArn: jsii.String("assetPublishingRoleArn"),
+//   	DisplayName: jsii.String("displayName"),
 //   }
 //
 type StackAsset struct {
@@ -39,5 +40,9 @@ type StackAsset struct {
 	// Default: - No need to assume any role.
 	//
 	AssetPublishingRoleArn *string `field:"optional" json:"assetPublishingRoleArn" yaml:"assetPublishingRoleArn"`
+	// The display name of this asset.
+	// Default: - Use some generated string as display name.
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 }
 

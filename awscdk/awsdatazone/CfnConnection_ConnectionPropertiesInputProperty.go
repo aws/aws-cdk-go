@@ -1,6 +1,8 @@
 package awsdatazone
 
 
+// The properties of a connection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -131,31 +133,31 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html
 //
 type CfnConnection_ConnectionPropertiesInputProperty struct {
-	// Athena Properties Input.
+	// The Amazon Athena properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-athenaproperties
 	//
 	AthenaProperties interface{} `field:"optional" json:"athenaProperties" yaml:"athenaProperties"`
-	// Glue Properties Input.
+	// The AWS Glue properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-glueproperties
 	//
 	GlueProperties interface{} `field:"optional" json:"glueProperties" yaml:"glueProperties"`
-	// HyperPod Properties Input.
+	// The hyper pod properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-hyperpodproperties
 	//
 	HyperPodProperties interface{} `field:"optional" json:"hyperPodProperties" yaml:"hyperPodProperties"`
-	// IAM Properties Input.
+	// The IAM properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-iamproperties
 	//
 	IamProperties interface{} `field:"optional" json:"iamProperties" yaml:"iamProperties"`
-	// Redshift Properties Input.
+	// The Amazon Redshift properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-redshiftproperties
 	//
 	RedshiftProperties interface{} `field:"optional" json:"redshiftProperties" yaml:"redshiftProperties"`
-	// Spark EMR Properties Input.
+	// The Spark EMR properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-sparkemrproperties
 	//
 	SparkEmrProperties interface{} `field:"optional" json:"sparkEmrProperties" yaml:"sparkEmrProperties"`
-	// Spark Glue Properties Input.
+	// The Spark AWS Glue properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-sparkglueproperties
 	//
 	SparkGlueProperties interface{} `field:"optional" json:"sparkGlueProperties" yaml:"sparkGlueProperties"`

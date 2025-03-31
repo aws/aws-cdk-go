@@ -34,6 +34,7 @@ import (
 //   	CapacityType: awscdk.*Aws_eks.CapacityType_SPOT,
 //   	DesiredSize: jsii.Number(123),
 //   	DiskSize: jsii.Number(123),
+//   	EnableNodeAutoRepair: jsii.Boolean(false),
 //   	ForceUpdate: jsii.Boolean(false),
 //   	InstanceTypes: []*instanceType{
 //   		instanceType,

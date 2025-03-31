@@ -475,6 +475,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_TextTransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.UriFragmentProperty",
+		reflect.TypeOf((*CfnRuleGroup_UriFragmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.VisibilityConfigProperty",
 		reflect.TypeOf((*CfnRuleGroup_VisibilityConfigProperty)(nil)).Elem(),
 	)
@@ -846,6 +850,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.TextTransformationProperty",
 		reflect.TypeOf((*CfnWebACL_TextTransformationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.UriFragmentProperty",
+		reflect.TypeOf((*CfnWebACL_UriFragmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.VisibilityConfigProperty",

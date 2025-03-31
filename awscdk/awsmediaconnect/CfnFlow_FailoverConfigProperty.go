@@ -26,15 +26,13 @@ type CfnFlow_FailoverConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-failovermode
 	//
 	FailoverMode *string `field:"optional" json:"failoverMode" yaml:"failoverMode"`
-	// The size of the buffer (delay) that the service maintains.
-	//
-	// A larger buffer means a longer delay in transmitting the stream, but more room for error correction. A smaller buffer means a shorter delay, but less room for error correction. You can choose a value from 100-500 ms. If you keep this field blank, the service uses the default value of 200 ms. This setting only applies when Failover Mode is set to MERGE.
+	// Search window time to look for dash-7 packets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-recoverywindow
 	//
 	RecoveryWindow *float64 `field:"optional" json:"recoveryWindow" yaml:"recoveryWindow"`
 	// The priority you want to assign to a source.
 	//
-	// You can have a primary stream and a backup stream or two equally prioritized streams. This setting only applies when Failover Mode is set to FAILOVER.
+	// You can have a primary stream and a backup stream or two equally prioritized streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-sourcepriority
 	//
 	SourcePriority interface{} `field:"optional" json:"sourcePriority" yaml:"sourcePriority"`

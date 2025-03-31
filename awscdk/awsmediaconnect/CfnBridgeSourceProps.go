@@ -37,7 +37,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html
 //
 type CfnBridgeSourceProps struct {
-	// The ARN of the bridge that you want to describe.
+	// The ARN of the bridge feeding this flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-bridgearn
 	//
 	BridgeArn *string `field:"required" json:"bridgeArn" yaml:"bridgeArn"`
@@ -47,11 +47,11 @@ type CfnBridgeSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Add a flow source to an existing bridge.
+	// The source of the flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-flowsource
 	//
 	FlowSource interface{} `field:"optional" json:"flowSource" yaml:"flowSource"`
-	// Add a network source to an existing bridge.
+	// The source of the network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html#cfn-mediaconnect-bridgesource-networksource
 	//
 	NetworkSource interface{} `field:"optional" json:"networkSource" yaml:"networkSource"`

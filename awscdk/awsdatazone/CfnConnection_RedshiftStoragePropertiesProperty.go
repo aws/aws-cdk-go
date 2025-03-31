@@ -1,6 +1,8 @@
 package awsdatazone
 
 
+// The Amazon Redshift storage properties.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftstorageproperties.html
 //
 type CfnConnection_RedshiftStoragePropertiesProperty struct {
+	// The cluster name in the Amazon Redshift storage properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftstorageproperties.html#cfn-datazone-connection-redshiftstorageproperties-clustername
 	//
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
+	// The workgroup name in the Amazon Redshift storage properties.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftstorageproperties.html#cfn-datazone-connection-redshiftstorageproperties-workgroupname
 	//
 	WorkgroupName *string `field:"optional" json:"workgroupName" yaml:"workgroupName"`

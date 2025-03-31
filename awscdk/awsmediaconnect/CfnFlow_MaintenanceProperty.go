@@ -3,10 +3,6 @@ package awsmediaconnect
 
 // The maintenance setting of a flow.
 //
-// MediaConnect routinely performs maintenance on underlying systems for security, reliability, and operational performance. The maintenance activities include actions such as patching the operating system, updating drivers, or installing software and patches.
-//
-// You can select the day and time that maintenance events occur. This is called a maintenance window and is used every time a maintenance event is required. To change the day and time, you can edit the maintenance window using `MaintenanceDay` and `MaintenanceStartHour` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to.
+// The `AWS::MediaConnect::FlowOutput` resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to.
 //
 // Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source. The following protocols are supported: RIST, RTP, RTP-FEC, SRT-listener, SRT-caller, Zixi pull, and Zixi push. CDI and ST 2110 JPEG XS protocols are not currently supported by AWS CloudFormation.
 //
@@ -62,6 +62,8 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiProgramName: jsii.String("ndiProgramName"),
+//   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
 //   	RemoteId: jsii.String("remoteId"),
@@ -84,7 +86,7 @@ type CfnFlowOutput interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The range of IP addresses that are allowed to initiate output requests to this flow.
+	// The range of IP addresses that should be allowed to initiate output requests to this flow.
 	CidrAllowList() *[]*string
 	SetCidrAllowList(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -97,7 +99,7 @@ type CfnFlowOutput interface {
 	// The IP address where you want to send the output.
 	Destination() *string
 	SetDestination(val *string)
-	// The encryption credentials that you want to use for the output.
+	// The type of key used for the encryption.
 	Encryption() interface{}
 	SetEncryption(val interface{})
 	// The Amazon Resource Name (ARN) of the flow this output is attached to.
@@ -116,21 +118,27 @@ type CfnFlowOutput interface {
 	// The maximum latency in milliseconds.
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
-	// The definition for each media stream that is associated with the output.
+	// The media streams that are associated with the output, and the parameters for those associations.
 	MediaStreamOutputConfigurations() interface{}
 	SetMediaStreamOutputConfigurations(val interface{})
 	// The minimum latency in milliseconds for SRT-based streams.
 	MinLatency() *float64
 	SetMinLatency(val *float64)
-	// The name of the output.
+	// The name of the bridge's output.
 	Name() *string
 	SetName(val *string)
+	// A suffix for the names of the NDI sources that the flow creates.
+	NdiProgramName() *string
+	SetNdiProgramName(val *string)
+	// A quality setting for the NDI Speed HQ encoder.
+	NdiSpeedHqQuality() *float64
+	SetNdiSpeedHqQuality(val *float64)
 	// The tree node.
 	Node() constructs.Node
-	// An indication of whether the new output should be enabled or disabled as soon as it is created.
+	// An indication of whether the output should transmit data or not.
 	OutputStatus() *string
 	SetOutputStatus(val *string)
-	// The port to use when MediaConnect distributes content to the output.
+	// The port to use when content is distributed to this output.
 	Port() *float64
 	SetPort(val *float64)
 	// The protocol to use for the output.
@@ -141,7 +149,7 @@ type CfnFlowOutput interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The identifier that is assigned to the Zixi receiver.
+	// The remote ID for the Zixi-pull stream.
 	RemoteId() *string
 	SetRemoteId(val *string)
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -167,7 +175,7 @@ type CfnFlowOutput interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The VPC interface that you want to send your output to.
+	// The name of the VPC interface attachment to use for this output.
 	VpcInterfaceAttachment() interface{}
 	SetVpcInterfaceAttachment(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -453,6 +461,26 @@ func (j *jsiiProxy_CfnFlowOutput) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) NdiProgramName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ndiProgramName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowOutput) NdiSpeedHqQuality() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ndiSpeedHqQuality",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -678,6 +706,22 @@ func (j *jsiiProxy_CfnFlowOutput)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetNdiProgramName(val *string) {
+	_jsii_.Set(
+		j,
+		"ndiProgramName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetNdiSpeedHqQuality(val *float64) {
+	_jsii_.Set(
+		j,
+		"ndiSpeedHqQuality",
 		val,
 	)
 }

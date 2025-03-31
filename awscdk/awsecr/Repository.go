@@ -274,6 +274,25 @@ func Repository_ArnForLocalRepository(repositoryName *string, scope constructs.I
 	return returns
 }
 
+// Lookup an existing repository.
+func Repository_FromLookup(scope constructs.Construct, id *string, options *RepositoryLookupOptions) IRepository {
+	_init_.Initialize()
+
+	if err := validateRepository_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
+	var returns IRepository
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.Repository",
+		"fromLookup",
+		[]interface{}{scope, id, options},
+		&returns,
+	)
+
+	return returns
+}
+
 func Repository_FromRepositoryArn(scope constructs.Construct, id *string, repositoryArn *string) IRepository {
 	_init_.Initialize()
 

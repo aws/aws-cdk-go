@@ -7,20 +7,18 @@ import (
 // Construction properties for a VpcEndpointService.
 //
 // Example:
-//   var networkLoadBalancer1 networkLoadBalancer
-//   var networkLoadBalancer2 networkLoadBalancer
+//   var networkLoadBalancer networkLoadBalancer
 //
 //
 //   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &VpcEndpointServiceProps{
 //   	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
-//   		networkLoadBalancer1,
-//   		networkLoadBalancer2,
+//   		networkLoadBalancer,
 //   	},
-//   	AcceptanceRequired: jsii.Boolean(true),
-//   	AllowedPrincipals: []arnPrincipal{
-//   		iam.NewArnPrincipal(jsii.String("arn:aws:iam::123456789012:root")),
+//   	// Support both IPv4 and IPv6 connections to the endpoint service
+//   	SupportedIpAddressTypes: []ipAddressType{
+//   		ec2.*ipAddressType_IPV4,
+//   		ec2.*ipAddressType_IPV6,
 //   	},
-//   	ContributorInsights: jsii.Boolean(true),
 //   })
 //
 type VpcEndpointServiceProps struct {
@@ -37,6 +35,10 @@ type VpcEndpointServiceProps struct {
 	// Default: - no principals.
 	//
 	AllowedPrincipals *[]awsiam.ArnPrincipal `field:"optional" json:"allowedPrincipals" yaml:"allowedPrincipals"`
+	// The Regions from which service consumers can access the service.
+	// Default: - No Region restrictions.
+	//
+	AllowedRegions *[]*string `field:"optional" json:"allowedRegions" yaml:"allowedRegions"`
 	// Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink.
 	// Default: false.
 	//

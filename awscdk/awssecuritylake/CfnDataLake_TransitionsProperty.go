@@ -24,7 +24,7 @@ type CfnDataLake_TransitionsProperty struct {
 	Days *float64 `field:"optional" json:"days" yaml:"days"`
 	// The list of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
 	//
-	// The default storage class is S3 Standard.
+	// The default storage class is *S3 Standard* . For information about other storage classes, see [Setting the storage class of an object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/sc-howtoset.html) in the *Amazon S3 User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-transitions.html#cfn-securitylake-datalake-transitions-storageclass
 	//
 	StorageClass *string `field:"optional" json:"storageClass" yaml:"storageClass"`

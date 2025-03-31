@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Authentication Configuration Input.
+// The authentication configuration of a connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,25 +45,27 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html
 //
 type CfnConnection_AuthenticationConfigurationInputProperty struct {
-	// Authentication Type.
+	// The authentication type of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html#cfn-datazone-connection-authenticationconfigurationinput-authenticationtype
 	//
 	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
-	// Basic Authentication Credentials.
+	// The basic authentication credentials of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html#cfn-datazone-connection-authenticationconfigurationinput-basicauthenticationcredentials
 	//
 	BasicAuthenticationCredentials interface{} `field:"optional" json:"basicAuthenticationCredentials" yaml:"basicAuthenticationCredentials"`
-	// Credential Map.
+	// The custom authentication credentials of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html#cfn-datazone-connection-authenticationconfigurationinput-customauthenticationcredentials
 	//
 	CustomAuthenticationCredentials interface{} `field:"optional" json:"customAuthenticationCredentials" yaml:"customAuthenticationCredentials"`
+	// The KMS key ARN of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html#cfn-datazone-connection-authenticationconfigurationinput-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// OAuth2 Properties.
+	// The oAuth2 properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html#cfn-datazone-connection-authenticationconfigurationinput-oauth2properties
 	//
 	OAuth2Properties interface{} `field:"optional" json:"oAuth2Properties" yaml:"oAuth2Properties"`
+	// The secret ARN of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html#cfn-datazone-connection-authenticationconfigurationinput-secretarn
 	//
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`

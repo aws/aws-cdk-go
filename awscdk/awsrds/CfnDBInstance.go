@@ -62,6 +62,7 @@ import (
 //   	},
 //   	AutomaticBackupReplicationKmsKeyId: jsii.String("automaticBackupReplicationKmsKeyId"),
 //   	AutomaticBackupReplicationRegion: jsii.String("automaticBackupReplicationRegion"),
+//   	AutomaticBackupReplicationRetentionPeriod: jsii.Number(123),
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	BackupRetentionPeriod: jsii.Number(123),
@@ -184,6 +185,10 @@ type CfnDBInstance interface {
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
 	AssociatedRoles() interface{}
 	SetAssociatedRoles(val interface{})
+	// The details of the DB instance’s server certificate.
+	//
+	// For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
+	AttrCertificateDetails() awscdk.IResolvable
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
 	AttrCertificateDetailsCaIdentifier() *string
 	// The expiration date of the DB instance’s server certificate.
@@ -202,6 +207,15 @@ type CfnDBInstance interface {
 	//
 	// This setting is valid for RDS Custom only.
 	AttrDbSystemId() *string
+	// This data type represents the information you need to connect to an Amazon RDS DB instance.
+	//
+	// This data type is used as a response element in the following actions:
+	//   +   ``CreateDBInstance``
+	//   +   ``DescribeDBInstances``
+	//   +   ``DeleteDBInstance``
+	//
+	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
+	AttrEndpoint() awscdk.IResolvable
 	// The connection endpoint for the database. For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
 	//
 	// For Aurora Serverless DB clusters, the connection endpoint only applies to the DB cluster.
@@ -222,6 +236,9 @@ type CfnDBInstance interface {
 	// The AWS Region associated with the automated backup.
 	AutomaticBackupReplicationRegion() *string
 	SetAutomaticBackupReplicationRegion(val *string)
+	// The retention period for automated backups in a different AWS Region.
+	AutomaticBackupReplicationRetentionPeriod() *float64
+	SetAutomaticBackupReplicationRetentionPeriod(val *float64)
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
@@ -234,7 +251,7 @@ type CfnDBInstance interface {
 	// The identifier of the CA certificate for this DB instance.
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
-	// The details of the DB instance's server certificate.
+	// The details of the DB instance’s server certificate.
 	CertificateDetails() interface{}
 	SetCertificateDetails(val interface{})
 	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -324,7 +341,7 @@ type CfnDBInstance interface {
 	// Specifies whether to enable Performance Insights for the DB instance.
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
-	// The connection endpoint for the DB instance.
+	// This data type represents the information you need to connect to an Amazon RDS DB instance.
 	Endpoint() interface{}
 	SetEndpoint(val interface{})
 	// The name of the database engine to use for this DB instance.
@@ -669,6 +686,16 @@ func (j *jsiiProxy_CfnDBInstance) AssociatedRoles() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) AttrCertificateDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrCertificateDetails",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) AttrCertificateDetailsCaIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -729,6 +756,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrDbSystemId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) AttrEndpoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) AttrEndpointAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -784,6 +821,16 @@ func (j *jsiiProxy_CfnDBInstance) AutomaticBackupReplicationRegion() *string {
 	_jsii_.Get(
 		j,
 		"automaticBackupReplicationRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AutomaticBackupReplicationRetentionPeriod() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"automaticBackupReplicationRetentionPeriod",
 		&returns,
 	)
 	return returns
@@ -1720,6 +1767,14 @@ func (j *jsiiProxy_CfnDBInstance)SetAutomaticBackupReplicationRegion(val *string
 	_jsii_.Set(
 		j,
 		"automaticBackupReplicationRegion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetAutomaticBackupReplicationRetentionPeriod(val *float64) {
+	_jsii_.Set(
+		j,
+		"automaticBackupReplicationRetentionPeriod",
 		val,
 	)
 }

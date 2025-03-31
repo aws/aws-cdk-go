@@ -1,7 +1,7 @@
 package awsmediaconnect
 
 
-// The VPC interface that you want to send your output to.
+// The settings for attaching a VPC interface to an resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html
 //
 type CfnFlowOutput_VpcInterfaceAttachmentProperty struct {
-	// The name of the VPC interface that you want to send your output to.
+	// The name of the VPC interface to use for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment-vpcinterfacename
 	//
 	VpcInterfaceName *string `field:"optional" json:"vpcInterfaceName" yaml:"vpcInterfaceName"`

@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// Spark Glue Args.
+// The Spark AWS Glue args.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,6 +15,7 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkglueargs.html
 //
 type CfnConnection_SparkGlueArgsProperty struct {
+	// The connection in the Spark AWS Glue args.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkglueargs.html#cfn-datazone-connection-sparkglueargs-connection
 	//
 	Connection *string `field:"optional" json:"connection" yaml:"connection"`

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnFlow) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlow) validateSetNdiConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlow) validateSetSourceParameters(val interface{}) error {
 	return nil
 }

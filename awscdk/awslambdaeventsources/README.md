@@ -258,7 +258,7 @@ behavior:
 * **onFailure**: In the event a record fails and consumes all retries, the record will be sent to S3 bucket, SQS queue or SNS topic that is specified here
 * **parallelizationFactor**: The number of batches to concurrently process on each shard.
 * **retryAttempts**: The maximum number of times a record should be retried in the event of failure.
-* **startingPosition**: Will determine where to begin consumption. 'LATEST' will start at the most recent record and ignore all records that arrived prior to attaching the event source, 'TRIM_HORIZON' will start at the oldest record and ensure you process all available data, while 'AT_TIMESTAMP' will start reading records from a specified time stamp. Note that 'AT_TIMESTAMP' is only supported for Amazon Kinesis streams.
+* **startingPosition**: Will determine where to begin consumption. 'LATEST' will start at the most recent record and ignore all records that arrived prior to attaching the event source, 'TRIM_HORIZON' will start at the oldest record and ensure you process all available data, while 'AT_TIMESTAMP' will start reading records from a specified time stamp.
 * **startingPositionTimestamp**: The time stamp from which to start reading. Used in conjunction with **startingPosition** when set to 'AT_TIMESTAMP'.
 * **tumblingWindow**: The duration in seconds of a processing window when using streams.
 * **enabled**: If the event source mapping should be enabled. The default is true.
@@ -301,7 +301,14 @@ myFunction.AddEventSource(awscdk.NewKinesisConsumerEventSource(streamConsumer, &
 
 ## Kafka
 
-You can write Lambda functions to process data either from [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html) or a [self managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html) cluster.
+You can write Lambda functions to process data either from [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html) or a [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html) cluster. The following parameters will impact to the polling behavior:
+
+* **startingPosition**: Will determine where to begin consumption. 'LATEST' will start at the most recent record and ignore all records that arrived prior to attaching the event source, 'TRIM_HORIZON' will start at the oldest record and ensure you process all available data, while 'AT_TIMESTAMP' will start reading records from a specified time stamp.
+* **startingPositionTimestamp**: The time stamp from which to start reading. Used in conjunction with **startingPosition** when set to 'AT_TIMESTAMP'.
+* **batchSize**: Determines how many records are buffered before invoking your lambda function - could impact your function's memory usage (if too high) and ability to keep up with incoming data velocity (if too low).
+* **maxBatchingWindow**: The maximum amount of time to gather records before invoking the lambda. This increases the likelihood of a full batch at the cost of possibly delaying processing.
+* **onFailure**: In the event a record fails and consumes all retries, the record will be sent to SQS queue or SNS topic that is specified here
+* **enabled**: If the Kafka event source mapping should be enabled. The default is true.
 
 The following code sets up Amazon MSK as an event source for a lambda function. Credentials will need to be configured to access the
 MSK cluster, as described in [Username/Password authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html).

@@ -30,13 +30,13 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-egresscidrblocks
 	//
 	EgressCidrBlocks *[]*string `field:"required" json:"egressCidrBlocks" yaml:"egressCidrBlocks"`
-	// The name of the network.
+	// The name of the gateway.
 	//
-	// This name is used to reference the network and must be unique among networks in this gateway.
+	// This name can not be modified after the gateway is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The list of networks that you want to add.
+	// The list of networks in the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html#cfn-mediaconnect-gateway-networks
 	//
 	Networks interface{} `field:"required" json:"networks" yaml:"networks"`

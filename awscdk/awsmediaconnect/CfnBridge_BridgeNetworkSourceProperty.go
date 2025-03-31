@@ -31,8 +31,6 @@ type CfnBridge_BridgeNetworkSourceProperty struct {
 	//
 	MulticastIp *string `field:"required" json:"multicastIp" yaml:"multicastIp"`
 	// The name of the network source.
-	//
-	// This name is used to reference the source and must be unique among sources in this bridge.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworksource.html#cfn-mediaconnect-bridge-bridgenetworksource-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -45,6 +43,8 @@ type CfnBridge_BridgeNetworkSourceProperty struct {
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The network source protocol.
+	//
+	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworksource.html#cfn-mediaconnect-bridge-bridgenetworksource-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`

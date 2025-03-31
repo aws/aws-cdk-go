@@ -510,6 +510,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecr.RepositoryLookupOptions",
+		reflect.TypeOf((*RepositoryLookupOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.RepositoryProps",
 		reflect.TypeOf((*RepositoryProps)(nil)).Elem(),
 	)

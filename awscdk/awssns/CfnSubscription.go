@@ -44,7 +44,7 @@ import (
 type CfnSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Returns the ARN of the subscription created by the AWS::SNS::Subscription resource.
+	// Returns the ARN of the subscription created by the `AWS::SNS::Subscription` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

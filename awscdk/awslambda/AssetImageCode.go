@@ -54,6 +54,7 @@ import (
 //   	Cmd: []*string{
 //   		jsii.String("cmd"),
 //   	},
+//   	DisplayName: jsii.String("displayName"),
 //   	Entrypoint: []*string{
 //   		jsii.String("entrypoint"),
 //   	},
