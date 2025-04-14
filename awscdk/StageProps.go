@@ -70,6 +70,20 @@ type StageProps struct {
 	//
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
+	//
+	// Be aware that this feature uses Aspects, and the Aspects are applied at the
+	// Stack level with a priority of `MUTATING` (if the feature flag
+	// `@aws-cdk/core:aspectPrioritiesMutating` is set) or `DEFAULT` (if the flag
+	// is not set). This is relevant if you are both using your own Aspects to
+	// assign Permissions Boundaries, as well as specifying this property.  The
+	// Aspect added by this property will overwrite the Permissions Boundary
+	// assigned by your own Aspect if both: (a) your Aspect has a lower or equal
+	// priority to the automatic Aspect, and (b) your Aspect is applied *above*
+	// the Stack level.  If either of those conditions are not true, your own
+	// Aspect will win.
+	//
+	// We recommend assigning Permissions Boundaries only using the provided APIs,
+	// and not using custom Aspects.
 	// Default: - no permissions boundary is applied.
 	//
 	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`

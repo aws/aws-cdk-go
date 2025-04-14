@@ -19,9 +19,9 @@ func (c *jsiiProxy_CustomResourceConfig) validateAddLambdaRuntimeParameters(lamb
 	return nil
 }
 
-func (c *jsiiProxy_CustomResourceConfig) validateAddLogRetentionLifetimeParameters(rentention awslogs.RetentionDays) error {
-	if rentention == "" {
-		return fmt.Errorf("parameter rentention is required, but nil was provided")
+func (c *jsiiProxy_CustomResourceConfig) validateAddLogRetentionLifetimeParameters(retention awslogs.RetentionDays) error {
+	if retention == "" {
+		return fmt.Errorf("parameter retention is required, but nil was provided")
 	}
 
 	return nil

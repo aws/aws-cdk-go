@@ -29,7 +29,7 @@ type CustomResourceConfig interface {
 	// Set the log retention of AWS-vended custom resource lambdas.
 	//
 	// This feature is currently experimental.
-	AddLogRetentionLifetime(rentention awslogs.RetentionDays)
+	AddLogRetentionLifetime(retention awslogs.RetentionDays)
 	// Set the removal policy of AWS-vended custom resource logGroup.
 	//
 	// This feature is currently experimental.
@@ -71,14 +71,14 @@ func (c *jsiiProxy_CustomResourceConfig) AddLambdaRuntime(lambdaRuntime awslambd
 	)
 }
 
-func (c *jsiiProxy_CustomResourceConfig) AddLogRetentionLifetime(rentention awslogs.RetentionDays) {
-	if err := c.validateAddLogRetentionLifetimeParameters(rentention); err != nil {
+func (c *jsiiProxy_CustomResourceConfig) AddLogRetentionLifetime(retention awslogs.RetentionDays) {
+	if err := c.validateAddLogRetentionLifetimeParameters(retention); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"addLogRetentionLifetime",
-		[]interface{}{rentention},
+		[]interface{}{retention},
 	)
 }
 

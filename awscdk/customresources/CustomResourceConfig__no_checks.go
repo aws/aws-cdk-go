@@ -8,7 +8,7 @@ func (c *jsiiProxy_CustomResourceConfig) validateAddLambdaRuntimeParameters(lamb
 	return nil
 }
 
-func (c *jsiiProxy_CustomResourceConfig) validateAddLogRetentionLifetimeParameters(rentention awslogs.RetentionDays) error {
+func (c *jsiiProxy_CustomResourceConfig) validateAddLogRetentionLifetimeParameters(retention awslogs.RetentionDays) error {
 	return nil
 }
 
