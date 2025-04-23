@@ -41,9 +41,13 @@ import (
 //   				Type: jsii.String("type"),
 //
 //   				// the properties below are optional
+//   				InputAction: jsii.String("inputAction"),
+//   				InputEnabled: jsii.Boolean(false),
 //   				InputModalities: []*string{
 //   					jsii.String("inputModalities"),
 //   				},
+//   				OutputAction: jsii.String("outputAction"),
+//   				OutputEnabled: jsii.Boolean(false),
 //   				OutputModalities: []*string{
 //   					jsii.String("outputModalities"),
 //   				},
@@ -55,6 +59,10 @@ import (
 //   			&ContextualGroundingFilterConfigProperty{
 //   				Threshold: jsii.Number(123),
 //   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Action: jsii.String("action"),
+//   				Enabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   	},
@@ -65,6 +73,12 @@ import (
 //   			&PiiEntityConfigProperty{
 //   				Action: jsii.String("action"),
 //   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				InputAction: jsii.String("inputAction"),
+//   				InputEnabled: jsii.Boolean(false),
+//   				OutputAction: jsii.String("outputAction"),
+//   				OutputEnabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   		RegexesConfig: []interface{}{
@@ -75,6 +89,10 @@ import (
 //
 //   				// the properties below are optional
 //   				Description: jsii.String("description"),
+//   				InputAction: jsii.String("inputAction"),
+//   				InputEnabled: jsii.Boolean(false),
+//   				OutputAction: jsii.String("outputAction"),
+//   				OutputEnabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   	},
@@ -95,6 +113,10 @@ import (
 //   				Examples: []*string{
 //   					jsii.String("examples"),
 //   				},
+//   				InputAction: jsii.String("inputAction"),
+//   				InputEnabled: jsii.Boolean(false),
+//   				OutputAction: jsii.String("outputAction"),
+//   				OutputEnabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   	},
@@ -102,11 +124,23 @@ import (
 //   		ManagedWordListsConfig: []interface{}{
 //   			&ManagedWordsConfigProperty{
 //   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				InputAction: jsii.String("inputAction"),
+//   				InputEnabled: jsii.Boolean(false),
+//   				OutputAction: jsii.String("outputAction"),
+//   				OutputEnabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   		WordsConfig: []interface{}{
 //   			&WordConfigProperty{
 //   				Text: jsii.String("text"),
+//
+//   				// the properties below are optional
+//   				InputAction: jsii.String("inputAction"),
+//   				InputEnabled: jsii.Boolean(false),
+//   				OutputAction: jsii.String("outputAction"),
+//   				OutputEnabled: jsii.Boolean(false),
 //   			},
 //   		},
 //   	},

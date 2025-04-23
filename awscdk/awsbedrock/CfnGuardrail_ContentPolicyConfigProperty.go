@@ -16,9 +16,13 @@ package awsbedrock
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			InputAction: jsii.String("inputAction"),
+//   			InputEnabled: jsii.Boolean(false),
 //   			InputModalities: []*string{
 //   				jsii.String("inputModalities"),
 //   			},
+//   			OutputAction: jsii.String("outputAction"),
+//   			OutputEnabled: jsii.Boolean(false),
 //   			OutputModalities: []*string{
 //   				jsii.String("outputModalities"),
 //   			},

@@ -25,9 +25,13 @@ package awsbedrock
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	InputAction: jsii.String("inputAction"),
+//   	InputEnabled: jsii.Boolean(false),
 //   	InputModalities: []*string{
 //   		jsii.String("inputModalities"),
 //   	},
+//   	OutputAction: jsii.String("outputAction"),
+//   	OutputEnabled: jsii.Boolean(false),
 //   	OutputModalities: []*string{
 //   		jsii.String("outputModalities"),
 //   	},
@@ -52,10 +56,22 @@ type CfnGuardrail_ContentFilterConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-inputaction
+	//
+	InputAction *string `field:"optional" json:"inputAction" yaml:"inputAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-inputenabled
+	//
+	InputEnabled interface{} `field:"optional" json:"inputEnabled" yaml:"inputEnabled"`
 	// List of modalities.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-inputmodalities
 	//
 	InputModalities *[]*string `field:"optional" json:"inputModalities" yaml:"inputModalities"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-outputaction
+	//
+	OutputAction *string `field:"optional" json:"outputAction" yaml:"outputAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-outputenabled
+	//
+	OutputEnabled interface{} `field:"optional" json:"outputEnabled" yaml:"outputEnabled"`
 	// List of modalities.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html#cfn-bedrock-guardrail-contentfilterconfig-outputmodalities
 	//

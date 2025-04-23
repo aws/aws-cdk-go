@@ -29,8 +29,21 @@ package awsses
 //   			jsii.String("values"),
 //   		},
 //   	},
+//   	Ipv6Expression: &IngressIpv6ExpressionProperty{
+//   		Evaluate: &IngressIpv6ToEvaluateProperty{
+//   			Attribute: jsii.String("attribute"),
+//   		},
+//   		Operator: jsii.String("operator"),
+//   		Values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
 //   	StringExpression: &IngressStringExpressionProperty{
 //   		Evaluate: &IngressStringToEvaluateProperty{
+//   			Analysis: &IngressAnalysisProperty{
+//   				Analyzer: jsii.String("analyzer"),
+//   				ResultField: jsii.String("resultField"),
+//   			},
 //   			Attribute: jsii.String("attribute"),
 //   		},
 //   		Operator: jsii.String("operator"),
@@ -62,6 +75,9 @@ type CfnMailManagerTrafficPolicy_PolicyConditionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-ipexpression
 	//
 	IpExpression interface{} `field:"optional" json:"ipExpression" yaml:"ipExpression"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-ipv6expression
+	//
+	Ipv6Expression interface{} `field:"optional" json:"ipv6Expression" yaml:"ipv6Expression"`
 	// This represents a string based condition matching on the incoming mail.
 	//
 	// It performs the string operation configured in 'Operator' and evaluates the 'Protocol' object against the 'Value'.

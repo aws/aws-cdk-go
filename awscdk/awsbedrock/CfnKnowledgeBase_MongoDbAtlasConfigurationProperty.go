@@ -22,6 +22,7 @@ package awsbedrock
 //
 //   	// the properties below are optional
 //   	EndpointServiceName: jsii.String("endpointServiceName"),
+//   	TextIndexName: jsii.String("textIndexName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html
@@ -55,5 +56,9 @@ type CfnKnowledgeBase_MongoDbAtlasConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-endpointservicename
 	//
 	EndpointServiceName *string `field:"optional" json:"endpointServiceName" yaml:"endpointServiceName"`
+	// Name of a MongoDB Atlas text index.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html#cfn-bedrock-knowledgebase-mongodbatlasconfiguration-textindexname
+	//
+	TextIndexName *string `field:"optional" json:"textIndexName" yaml:"textIndexName"`
 }
 

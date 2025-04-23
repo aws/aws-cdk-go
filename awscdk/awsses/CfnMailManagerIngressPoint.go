@@ -29,6 +29,14 @@ import (
 //   		SmtpPassword: jsii.String("smtpPassword"),
 //   	},
 //   	IngressPointName: jsii.String("ingressPointName"),
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		PrivateNetworkConfiguration: &PrivateNetworkConfigurationProperty{
+//   			VpcEndpointId: jsii.String("vpcEndpointId"),
+//   		},
+//   		PublicNetworkConfiguration: &PublicNetworkConfigurationProperty{
+//   			IpType: jsii.String("ipType"),
+//   		},
+//   	},
 //   	StatusToUpdate: jsii.String("statusToUpdate"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -81,6 +89,9 @@ type CfnMailManagerIngressPoint interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+	NetworkConfiguration() interface{}
+	SetNetworkConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -374,6 +385,16 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMailManagerIngressPoint) NetworkConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"networkConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMailManagerIngressPoint) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -517,6 +538,17 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint)SetIngressPointName(val *string) {
 	_jsii_.Set(
 		j,
 		"ingressPointName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMailManagerIngressPoint)SetNetworkConfiguration(val interface{}) {
+	if err := j.validateSetNetworkConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"networkConfiguration",
 		val,
 	)
 }

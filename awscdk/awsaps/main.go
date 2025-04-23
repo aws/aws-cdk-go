@@ -184,6 +184,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceConfiguration", GoGetter: "WorkspaceConfiguration"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnWorkspace{}
@@ -194,8 +195,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.LabelProperty",
+		reflect.TypeOf((*CfnWorkspace_LabelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.LimitsPerLabelSetEntryProperty",
+		reflect.TypeOf((*CfnWorkspace_LimitsPerLabelSetEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.LimitsPerLabelSetProperty",
+		reflect.TypeOf((*CfnWorkspace_LimitsPerLabelSetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnWorkspace.LoggingConfigurationProperty",
 		reflect.TypeOf((*CfnWorkspace_LoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.WorkspaceConfigurationProperty",
+		reflect.TypeOf((*CfnWorkspace_WorkspaceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnWorkspaceProps",

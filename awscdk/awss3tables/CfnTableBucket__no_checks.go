@@ -80,6 +80,10 @@ func validateCfnTableBucket_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTableBucket) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTableBucket) validateSetTableBucketNameParameters(val *string) error {
 	return nil
 }

@@ -12,11 +12,23 @@ package awsbedrock
 //   	ManagedWordListsConfig: []interface{}{
 //   		&ManagedWordsConfigProperty{
 //   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			InputAction: jsii.String("inputAction"),
+//   			InputEnabled: jsii.Boolean(false),
+//   			OutputAction: jsii.String("outputAction"),
+//   			OutputEnabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   	WordsConfig: []interface{}{
 //   		&WordConfigProperty{
 //   			Text: jsii.String("text"),
+//
+//   			// the properties below are optional
+//   			InputAction: jsii.String("inputAction"),
+//   			InputEnabled: jsii.Boolean(false),
+//   			OutputAction: jsii.String("outputAction"),
+//   			OutputEnabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   }

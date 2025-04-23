@@ -17,6 +17,7 @@ import (
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DomainName: jsii.String("domainName"),
 //   	EndpointConfiguration: &EndpointConfigurationProperty{
+//   		IpAddressType: jsii.String("ipAddressType"),
 //   		Types: []*string{
 //   			jsii.String("types"),
 //   		},

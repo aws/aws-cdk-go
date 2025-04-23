@@ -105,6 +105,7 @@ package awsevents
 //   			ResourceAssociationArn: jsii.String("resourceAssociationArn"),
 //   		},
 //   	},
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Name: jsii.String("name"),
 //   }
 //
@@ -133,6 +134,9 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-invocationconnectivityparameters
 	//
 	InvocationConnectivityParameters interface{} `field:"optional" json:"invocationConnectivityParameters" yaml:"invocationConnectivityParameters"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// The name for the connection to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
 	//

@@ -13,6 +13,9 @@ package awsbedrock
 //   	PrimaryKeyField: jsii.String("primaryKeyField"),
 //   	TextField: jsii.String("textField"),
 //   	VectorField: jsii.String("vectorField"),
+//
+//   	// the properties below are optional
+//   	CustomMetadataField: jsii.String("customMetadataField"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html
@@ -36,5 +39,9 @@ type CfnKnowledgeBase_RdsFieldMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-vectorfield
 	//
 	VectorField *string `field:"required" json:"vectorField" yaml:"vectorField"`
+	// The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-custommetadatafield
+	//
+	CustomMetadataField *string `field:"optional" json:"customMetadataField" yaml:"customMetadataField"`
 }
 

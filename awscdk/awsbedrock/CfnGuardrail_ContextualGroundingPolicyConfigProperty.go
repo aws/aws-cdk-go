@@ -13,6 +13,10 @@ package awsbedrock
 //   		&ContextualGroundingFilterConfigProperty{
 //   			Threshold: jsii.Number(123),
 //   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Action: jsii.String("action"),
+//   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   }

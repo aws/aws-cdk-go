@@ -231,7 +231,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	SpotIamFleetRole *string `field:"optional" json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// Key-value pair tags to be applied to Amazon EC2 resources that are launched in the compute environment.
 	//
-	// For AWS Batch , these take the form of `"String1": "String2"` , where `String1` is the tag key and `String2` is the tag value-for example, `{ "Name": "Batch Instance - C4OnDemand" }` . This is helpful for recognizing your Batch instances in the Amazon EC2 console. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation.
+	// For AWS Batch , these take the form of `"String1": "String2"` , where `String1` is the tag key and `String2` is the tag value (for example, `{ "Name": "Batch Instance - C4OnDemand" }` ). This is helpful for recognizing your Batch instances in the Amazon EC2 console. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation.
 	//
 	// When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//

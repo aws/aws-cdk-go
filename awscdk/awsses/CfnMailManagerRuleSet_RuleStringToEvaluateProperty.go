@@ -11,6 +11,10 @@ package awsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   ruleStringToEvaluateProperty := &RuleStringToEvaluateProperty{
+//   	Analysis: &AnalysisProperty{
+//   		Analyzer: jsii.String("analyzer"),
+//   		ResultField: jsii.String("resultField"),
+//   	},
 //   	Attribute: jsii.String("attribute"),
 //   	MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   }
@@ -18,6 +22,10 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html
 //
 type CfnMailManagerRuleSet_RuleStringToEvaluateProperty struct {
+	// The Add On ARN and its returned value to evaluate in a string condition expression.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-analysis
+	//
+	Analysis interface{} `field:"optional" json:"analysis" yaml:"analysis"`
 	// The email attribute to evaluate in a string condition expression.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-attribute
 	//

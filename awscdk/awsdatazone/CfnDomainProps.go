@@ -21,6 +21,7 @@ import (
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ServiceRole: jsii.String("serviceRole"),
 //   	SingleSignOn: &SingleSignOnProperty{
+//   		IdcInstanceArn: jsii.String("idcInstanceArn"),
 //   		Type: jsii.String("type"),
 //   		UserAssignment: jsii.String("userAssignment"),
 //   	},

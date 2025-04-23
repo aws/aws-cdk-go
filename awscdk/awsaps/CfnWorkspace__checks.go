@@ -213,6 +213,30 @@ func (j *jsiiProxy_CfnWorkspace) validateSetTagsRawParameters(val *[]*awscdk.Cfn
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkspace) validateSetWorkspaceConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnWorkspace_WorkspaceConfigurationProperty:
+		val := val.(*CfnWorkspace_WorkspaceConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWorkspace_WorkspaceConfigurationProperty:
+		val_ := val.(CfnWorkspace_WorkspaceConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkspace_WorkspaceConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnWorkspaceParameters(scope constructs.Construct, id *string, props *CfnWorkspaceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

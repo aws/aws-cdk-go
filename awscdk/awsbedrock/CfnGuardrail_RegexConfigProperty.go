@@ -15,6 +15,10 @@ package awsbedrock
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	InputAction: jsii.String("inputAction"),
+//   	InputEnabled: jsii.Boolean(false),
+//   	OutputAction: jsii.String("outputAction"),
+//   	OutputEnabled: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html
@@ -36,5 +40,19 @@ type CfnGuardrail_RegexConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Options for sensitive information action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-inputaction
+	//
+	InputAction *string `field:"optional" json:"inputAction" yaml:"inputAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-inputenabled
+	//
+	InputEnabled interface{} `field:"optional" json:"inputEnabled" yaml:"inputEnabled"`
+	// Options for sensitive information action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-outputaction
+	//
+	OutputAction *string `field:"optional" json:"outputAction" yaml:"outputAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html#cfn-bedrock-guardrail-regexconfig-outputenabled
+	//
+	OutputEnabled interface{} `field:"optional" json:"outputEnabled" yaml:"outputEnabled"`
 }
 

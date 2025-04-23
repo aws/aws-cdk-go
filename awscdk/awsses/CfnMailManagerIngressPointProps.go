@@ -22,6 +22,14 @@ import (
 //   		SmtpPassword: jsii.String("smtpPassword"),
 //   	},
 //   	IngressPointName: jsii.String("ingressPointName"),
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		PrivateNetworkConfiguration: &PrivateNetworkConfigurationProperty{
+//   			VpcEndpointId: jsii.String("vpcEndpointId"),
+//   		},
+//   		PublicNetworkConfiguration: &PublicNetworkConfigurationProperty{
+//   			IpType: jsii.String("ipType"),
+//   		},
+//   	},
 //   	StatusToUpdate: jsii.String("statusToUpdate"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -54,6 +62,10 @@ type CfnMailManagerIngressPointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-ingresspointname
 	//
 	IngressPointName *string `field:"optional" json:"ingressPointName" yaml:"ingressPointName"`
+	// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-networkconfiguration
+	//
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The update status of an ingress endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-statustoupdate
 	//

@@ -167,6 +167,17 @@ func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_DOTNET_8() IBuildImage {
 	return returns
 }
 
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_GO_1_24() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_GO_1_24",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_NODE_20() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
@@ -178,12 +189,45 @@ func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_NODE_20() IBuildImage {
 	return returns
 }
 
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_NODE_22() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_NODE_22",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_PYTHON_3_12() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
 		"AMAZON_LINUX_2023_PYTHON_3_12",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_PYTHON_3_13() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_PYTHON_3_13",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_RUBY_3_4() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_RUBY_3_4",
 		&returns,
 	)
 	return returns

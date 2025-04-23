@@ -10,6 +10,10 @@ package awsses
 //
 //   ruleStringExpressionProperty := &RuleStringExpressionProperty{
 //   	Evaluate: &RuleStringToEvaluateProperty{
+//   		Analysis: &AnalysisProperty{
+//   			Analyzer: jsii.String("analyzer"),
+//   			ResultField: jsii.String("resultField"),
+//   		},
 //   		Attribute: jsii.String("attribute"),
 //   		MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   	},

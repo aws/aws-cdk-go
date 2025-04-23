@@ -159,6 +159,9 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-command
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// Determines whether execute command functionality is turned on for this task.
+	//
+	// If `true` , execute command functionality is turned on all the containers in the task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-enableexecutecommand
 	//
 	EnableExecuteCommand interface{} `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`

@@ -13,6 +13,12 @@ package awsbedrock
 //   		&PiiEntityConfigProperty{
 //   			Action: jsii.String("action"),
 //   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			InputAction: jsii.String("inputAction"),
+//   			InputEnabled: jsii.Boolean(false),
+//   			OutputAction: jsii.String("outputAction"),
+//   			OutputEnabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   	RegexesConfig: []interface{}{
@@ -23,6 +29,10 @@ package awsbedrock
 //
 //   			// the properties below are optional
 //   			Description: jsii.String("description"),
+//   			InputAction: jsii.String("inputAction"),
+//   			InputEnabled: jsii.Boolean(false),
+//   			OutputAction: jsii.String("outputAction"),
+//   			OutputEnabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   }

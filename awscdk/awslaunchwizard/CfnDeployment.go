@@ -21,12 +21,12 @@ import (
 //   cfnDeployment := awscdk.Aws_launchwizard.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &CfnDeploymentProps{
 //   	DeploymentPatternName: jsii.String("deploymentPatternName"),
 //   	Name: jsii.String("name"),
-//   	Specifications: map[string]*string{
-//   		"specificationsKey": jsii.String("specifications"),
-//   	},
 //   	WorkloadName: jsii.String("workloadName"),
 //
 //   	// the properties below are optional
+//   	Specifications: map[string]*string{
+//   		"specificationsKey": jsii.String("specifications"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),

@@ -29,6 +29,22 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WorkspaceConfiguration: &WorkspaceConfigurationProperty{
+//   		LimitsPerLabelSets: []interface{}{
+//   			&LimitsPerLabelSetProperty{
+//   				LabelSet: []interface{}{
+//   					&LabelProperty{
+//   						Name: jsii.String("name"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				Limits: &LimitsPerLabelSetEntryProperty{
+//   					MaxSeries: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		RetentionPeriodInDays: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html
@@ -109,6 +125,9 @@ type CfnWorkspace interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Workspace configuration.
+	WorkspaceConfiguration() interface{}
+	SetWorkspaceConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -433,6 +452,16 @@ func (j *jsiiProxy_CfnWorkspace) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) WorkspaceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workspaceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
@@ -503,6 +532,17 @@ func (j *jsiiProxy_CfnWorkspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetWorkspaceConfiguration(val interface{}) {
+	if err := j.validateSetWorkspaceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"workspaceConfiguration",
 		val,
 	)
 }

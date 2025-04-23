@@ -19,6 +19,10 @@ package awsbedrock
 //   			Examples: []*string{
 //   				jsii.String("examples"),
 //   			},
+//   			InputAction: jsii.String("inputAction"),
+//   			InputEnabled: jsii.Boolean(false),
+//   			OutputAction: jsii.String("outputAction"),
+//   			OutputEnabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   }

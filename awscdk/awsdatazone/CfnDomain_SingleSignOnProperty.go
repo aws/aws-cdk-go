@@ -9,6 +9,7 @@ package awsdatazone
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   singleSignOnProperty := &SingleSignOnProperty{
+//   	IdcInstanceArn: jsii.String("idcInstanceArn"),
 //   	Type: jsii.String("type"),
 //   	UserAssignment: jsii.String("userAssignment"),
 //   }
@@ -16,6 +17,10 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html
 //
 type CfnDomain_SingleSignOnProperty struct {
+	// The ARN of the AWS Identity Center instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html#cfn-datazone-domain-singlesignon-idcinstancearn
+	//
+	IdcInstanceArn *string `field:"optional" json:"idcInstanceArn" yaml:"idcInstanceArn"`
 	// The type of single sign-on in Amazon DataZone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html#cfn-datazone-domain-singlesignon-type
 	//

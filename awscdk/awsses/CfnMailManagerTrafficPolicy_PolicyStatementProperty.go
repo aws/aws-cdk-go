@@ -30,8 +30,21 @@ package awsses
 //   					jsii.String("values"),
 //   				},
 //   			},
+//   			Ipv6Expression: &IngressIpv6ExpressionProperty{
+//   				Evaluate: &IngressIpv6ToEvaluateProperty{
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   				Operator: jsii.String("operator"),
+//   				Values: []*string{
+//   					jsii.String("values"),
+//   				},
+//   			},
 //   			StringExpression: &IngressStringExpressionProperty{
 //   				Evaluate: &IngressStringToEvaluateProperty{
+//   					Analysis: &IngressAnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
 //   					Attribute: jsii.String("attribute"),
 //   				},
 //   				Operator: jsii.String("operator"),

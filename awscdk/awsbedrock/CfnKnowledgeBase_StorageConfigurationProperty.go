@@ -26,6 +26,7 @@ package awsbedrock
 //
 //   		// the properties below are optional
 //   		EndpointServiceName: jsii.String("endpointServiceName"),
+//   		TextIndexName: jsii.String("textIndexName"),
 //   	},
 //   	NeptuneAnalyticsConfiguration: &NeptuneAnalyticsConfigurationProperty{
 //   		FieldMapping: &NeptuneAnalyticsFieldMappingProperty{
@@ -72,6 +73,9 @@ package awsbedrock
 //   			PrimaryKeyField: jsii.String("primaryKeyField"),
 //   			TextField: jsii.String("textField"),
 //   			VectorField: jsii.String("vectorField"),
+//
+//   			// the properties below are optional
+//   			CustomMetadataField: jsii.String("customMetadataField"),
 //   		},
 //   		ResourceArn: jsii.String("resourceArn"),
 //   		TableName: jsii.String("tableName"),

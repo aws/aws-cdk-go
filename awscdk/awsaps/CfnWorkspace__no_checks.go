@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnWorkspace) validateSetTagsRawParameters(val *[]*awscdk.Cfn
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkspace) validateSetWorkspaceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnWorkspaceParameters(scope constructs.Construct, id *string, props *CfnWorkspaceProps) error {
 	return nil
 }

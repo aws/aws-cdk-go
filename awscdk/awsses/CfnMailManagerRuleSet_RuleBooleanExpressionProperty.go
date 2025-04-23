@@ -10,6 +10,10 @@ package awsses
 //
 //   ruleBooleanExpressionProperty := &RuleBooleanExpressionProperty{
 //   	Evaluate: &RuleBooleanToEvaluateProperty{
+//   		Analysis: &AnalysisProperty{
+//   			Analyzer: jsii.String("analyzer"),
+//   			ResultField: jsii.String("resultField"),
+//   		},
 //   		Attribute: jsii.String("attribute"),
 //   	},
 //   	Operator: jsii.String("operator"),

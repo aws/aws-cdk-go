@@ -34,6 +34,7 @@ type CfnJobDefinition_LogConfigurationProperty struct {
 	//
 	// > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 	//
+	// - **awsfirelens** - Specifies the firelens logging driver. For more information on configuring Firelens, see [Send Amazon ECS logs to an AWS service or AWS Partner](https://docs.aws.amazon.com//AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 	// - **awslogs** - Specifies the Amazon CloudWatch Logs logging driver. For more information, see [Using the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html) in the *AWS Batch User Guide* and [Amazon CloudWatch Logs logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/awslogs/) in the Docker documentation.
 	// - **fluentd** - Specifies the Fluentd logging driver. For more information including usage and options, see [Fluentd logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/fluentd/) in the *Docker documentation* .
 	// - **gelf** - Specifies the Graylog Extended Format (GELF) logging driver. For more information including usage and options, see [Graylog Extended Format logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/gelf/) in the *Docker documentation* .

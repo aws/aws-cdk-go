@@ -12,6 +12,10 @@ package awss3tables
 //   	TableBucketName: jsii.String("tableBucketName"),
 //
 //   	// the properties below are optional
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SseAlgorithm: jsii.String("sseAlgorithm"),
+//   	},
 //   	UnreferencedFileRemoval: &UnreferencedFileRemovalProperty{
 //   		NoncurrentDays: jsii.Number(123),
 //   		Status: jsii.String("status"),
@@ -26,6 +30,12 @@ type CfnTableBucketProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-tablebucketname
 	//
 	TableBucketName *string `field:"required" json:"tableBucketName" yaml:"tableBucketName"`
+	// Configuration specifying how data should be encrypted.
+	//
+	// This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-encryptionconfiguration
+	//
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The unreferenced file removal settings for your table bucket.
 	//
 	// Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .

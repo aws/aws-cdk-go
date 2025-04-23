@@ -117,6 +117,7 @@ import (
 //   			ResourceAssociationArn: jsii.String("resourceAssociationArn"),
 //   		},
 //   	},
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Name: jsii.String("name"),
 //   })
 //
@@ -160,6 +161,8 @@ type CfnConnection interface {
 	// For connections to private APIs, the parameters to use for invoking the API.
 	InvocationConnectivityParameters() interface{}
 	SetInvocationConnectivityParameters(val interface{})
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -460,6 +463,16 @@ func (j *jsiiProxy_CfnConnection) InvocationConnectivityParameters() interface{}
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -592,6 +605,14 @@ func (j *jsiiProxy_CfnConnection)SetInvocationConnectivityParameters(val interfa
 	_jsii_.Set(
 		j,
 		"invocationConnectivityParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

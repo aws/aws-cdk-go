@@ -76,6 +76,10 @@ package awsses
 //   		&RuleConditionProperty{
 //   			BooleanExpression: &RuleBooleanExpressionProperty{
 //   				Evaluate: &RuleBooleanToEvaluateProperty{
+//   					Analysis: &AnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
 //   					Attribute: jsii.String("attribute"),
 //   				},
 //   				Operator: jsii.String("operator"),
@@ -104,6 +108,10 @@ package awsses
 //   			},
 //   			StringExpression: &RuleStringExpressionProperty{
 //   				Evaluate: &RuleStringToEvaluateProperty{
+//   					Analysis: &AnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
 //   					Attribute: jsii.String("attribute"),
 //   					MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   				},
@@ -132,6 +140,10 @@ package awsses
 //   		&RuleConditionProperty{
 //   			BooleanExpression: &RuleBooleanExpressionProperty{
 //   				Evaluate: &RuleBooleanToEvaluateProperty{
+//   					Analysis: &AnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
 //   					Attribute: jsii.String("attribute"),
 //   				},
 //   				Operator: jsii.String("operator"),
@@ -160,6 +172,10 @@ package awsses
 //   			},
 //   			StringExpression: &RuleStringExpressionProperty{
 //   				Evaluate: &RuleStringToEvaluateProperty{
+//   					Analysis: &AnalysisProperty{
+//   						Analyzer: jsii.String("analyzer"),
+//   						ResultField: jsii.String("resultField"),
+//   					},
 //   					Attribute: jsii.String("attribute"),
 //   					MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   				},

@@ -160,6 +160,9 @@ type CfnJobDefinition_EcsTaskPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-containers
 	//
 	Containers interface{} `field:"optional" json:"containers" yaml:"containers"`
+	// Determines whether execute command functionality is turned on for this task.
+	//
+	// If `true` , execute command functionality is turned on all the containers in the task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-enableexecutecommand
 	//
 	EnableExecuteCommand interface{} `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`

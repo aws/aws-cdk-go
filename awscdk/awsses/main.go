@@ -567,6 +567,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ingressPointName", GoGetter: "IngressPointName"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -598,6 +599,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.IngressPointConfigurationProperty",
 		reflect.TypeOf((*CfnMailManagerIngressPoint_IngressPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.NetworkConfigurationProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPoint_NetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.PrivateNetworkConfigurationProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPoint_PrivateNetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.PublicNetworkConfigurationProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPoint_PublicNetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPointProps",
@@ -877,6 +890,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressIpv4ExpressionProperty",
 		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressIpv4ExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressIpv6ExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressIpv6ExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressIpv6ToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressIpv6ToEvaluateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressStringExpressionProperty",

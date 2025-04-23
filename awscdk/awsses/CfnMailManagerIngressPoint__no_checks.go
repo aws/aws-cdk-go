@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) validateSetIngressPointConfigurat
 	return nil
 }
 
+func (j *jsiiProxy_CfnMailManagerIngressPoint) validateSetNetworkConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMailManagerIngressPoint) validateSetRuleSetIdParameters(val *string) error {
 	return nil
 }

@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) validateSetIngressPointConfigurat
 	return nil
 }
 
+func (j *jsiiProxy_CfnMailManagerIngressPoint) validateSetNetworkConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnMailManagerIngressPoint_NetworkConfigurationProperty:
+		val := val.(*CfnMailManagerIngressPoint_NetworkConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnMailManagerIngressPoint_NetworkConfigurationProperty:
+		val_ := val.(CfnMailManagerIngressPoint_NetworkConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMailManagerIngressPoint_NetworkConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnMailManagerIngressPoint) validateSetRuleSetIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

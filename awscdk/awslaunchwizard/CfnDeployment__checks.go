@@ -196,9 +196,6 @@ func (j *jsiiProxy_CfnDeployment) validateSetNameParameters(val *string) error {
 }
 
 func (j *jsiiProxy_CfnDeployment) validateSetSpecificationsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case *map[string]*string:
 		// ok

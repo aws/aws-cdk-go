@@ -24,6 +24,22 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WorkspaceConfiguration: &WorkspaceConfigurationProperty{
+//   		LimitsPerLabelSets: []interface{}{
+//   			&LimitsPerLabelSetProperty{
+//   				LabelSet: []interface{}{
+//   					&LabelProperty{
+//   						Name: jsii.String("name"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				Limits: &LimitsPerLabelSetEntryProperty{
+//   					MaxSeries: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		RetentionPeriodInDays: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html
@@ -59,5 +75,9 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Workspace configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-workspaceconfiguration
+	//
+	WorkspaceConfiguration interface{} `field:"optional" json:"workspaceConfiguration" yaml:"workspaceConfiguration"`
 }
 

@@ -161,6 +161,7 @@ import (
 //
 //   			// the properties below are optional
 //   			EndpointServiceName: jsii.String("endpointServiceName"),
+//   			TextIndexName: jsii.String("textIndexName"),
 //   		},
 //   		NeptuneAnalyticsConfiguration: &NeptuneAnalyticsConfigurationProperty{
 //   			FieldMapping: &NeptuneAnalyticsFieldMappingProperty{
@@ -207,6 +208,9 @@ import (
 //   				PrimaryKeyField: jsii.String("primaryKeyField"),
 //   				TextField: jsii.String("textField"),
 //   				VectorField: jsii.String("vectorField"),
+//
+//   				// the properties below are optional
+//   				CustomMetadataField: jsii.String("customMetadataField"),
 //   			},
 //   			ResourceArn: jsii.String("resourceArn"),
 //   			TableName: jsii.String("tableName"),

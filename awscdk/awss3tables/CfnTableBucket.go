@@ -13,7 +13,8 @@ import (
 //
 // For more information, see [Creating a table bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html) in the *Amazon Simple Storage Service User Guide* .
 //
-// - **Permissions** - You must have the `s3tables:CreateTableBucket` permission to use this operation.
+// - **Permissions** - - You must have the `s3tables:CreateTableBucket` permission to use this operation.
+// - If you use this operation with the optional `encryptionConfiguration` parameter you must have the `s3tables:PutTableBucketEncryption` permission.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +25,10 @@ import (
 //   	TableBucketName: jsii.String("tableBucketName"),
 //
 //   	// the properties below are optional
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SseAlgorithm: jsii.String("sseAlgorithm"),
+//   	},
 //   	UnreferencedFileRemoval: &UnreferencedFileRemovalProperty{
 //   		NoncurrentDays: jsii.Number(123),
 //   		Status: jsii.String("status"),
@@ -47,6 +52,9 @@ type CfnTableBucket interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Configuration specifying how data should be encrypted.
+	EncryptionConfiguration() interface{}
+	SetEncryptionConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -270,6 +278,16 @@ func (j *jsiiProxy_CfnTableBucket) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTableBucket) EncryptionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTableBucket) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -375,6 +393,17 @@ func NewCfnTableBucket_Override(c CfnTableBucket, scope constructs.Construct, id
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTableBucket)SetEncryptionConfiguration(val interface{}) {
+	if err := j.validateSetEncryptionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionConfiguration",
+		val,
 	)
 }
 

@@ -149,6 +149,9 @@ type CfnJobDefinition_MultiNodeEcsTaskPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodeecstaskproperties.html#cfn-batch-jobdefinition-multinodeecstaskproperties-containers
 	//
 	Containers interface{} `field:"optional" json:"containers" yaml:"containers"`
+	// Determines whether execute command functionality is turned on for this task.
+	//
+	// If `true` , execute command functionality is turned on all the containers in the task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodeecstaskproperties.html#cfn-batch-jobdefinition-multinodeecstaskproperties-enableexecutecommand
 	//
 	EnableExecuteCommand interface{} `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`

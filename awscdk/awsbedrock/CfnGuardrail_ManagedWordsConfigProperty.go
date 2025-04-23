@@ -10,6 +10,12 @@ package awsbedrock
 //
 //   managedWordsConfigProperty := &ManagedWordsConfigProperty{
 //   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	InputAction: jsii.String("inputAction"),
+//   	InputEnabled: jsii.Boolean(false),
+//   	OutputAction: jsii.String("outputAction"),
+//   	OutputEnabled: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html
@@ -19,5 +25,17 @@ type CfnGuardrail_ManagedWordsConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-inputaction
+	//
+	InputAction *string `field:"optional" json:"inputAction" yaml:"inputAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-inputenabled
+	//
+	InputEnabled interface{} `field:"optional" json:"inputEnabled" yaml:"inputEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-outputaction
+	//
+	OutputAction *string `field:"optional" json:"outputAction" yaml:"outputAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-outputenabled
+	//
+	OutputEnabled interface{} `field:"optional" json:"outputEnabled" yaml:"outputEnabled"`
 }
 
