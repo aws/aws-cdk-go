@@ -18,6 +18,10 @@ package awseks
 type AlbControllerOptions struct {
 	// Version of the controller.
 	Version AlbControllerVersion `field:"required" json:"version" yaml:"version"`
+	// Additional helm chart values for ALB controller.
+	// Default: - no additional helm chart values.
+	//
+	AdditionalHelmChartValues *AlbControllerHelmChartOptions `field:"optional" json:"additionalHelmChartValues" yaml:"additionalHelmChartValues"`
 	// The IAM policy to apply to the service account.
 	//
 	// If you're using one of the built-in versions, this is not required since

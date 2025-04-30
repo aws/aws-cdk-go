@@ -11,36 +11,31 @@ import (
 // Represents source code for an AppSync Function or Resolver.
 //
 // Example:
-//   var api graphqlApi
+//   var api eventApi
+//   var lambdaDataSource appSyncLambdaDataSource
 //
 //
-//   myJsFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
-//   	Name: jsii.String("my_js_function"),
-//   	Api: Api,
-//   	DataSource: api.AddNoneDataSource(jsii.String("none")),
-//   	Code: appsync.Code_FromAsset(jsii.String("directory/function_code.js")),
-//   	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
+//   // Lambda data source for publish handler
+//   api.AddChannelNamespace(jsii.String("lambda-ns"), &ChannelNamespaceOptions{
+//   	Code: appsync.Code_FromInline(jsii.String("/* event handler code here.*/")),
+//   	PublishHandlerConfig: &HandlerConfig{
+//   		DataSource: lambdaDataSource,
+//   	},
 //   })
 //
-//   appsync.NewResolver(this, jsii.String("PipelineResolver"), &ResolverProps{
-//   	Api: Api,
-//   	TypeName: jsii.String("typeName"),
-//   	FieldName: jsii.String("fieldName"),
-//   	Code: appsync.Code_FromInline(jsii.String(`
-//   	    // The before step
-//   	    export function request(...args) {
-//   	      console.log(args);
-//   	      return {}
-//   	    }
+//   // Direct Lambda data source for publish handler
+//   api.AddChannelNamespace(jsii.String("lambda-direct-ns"), &ChannelNamespaceOptions{
+//   	PublishHandlerConfig: &HandlerConfig{
+//   		DataSource: lambdaDataSource,
+//   		Direct: jsii.Boolean(true),
+//   	},
+//   })
 //
-//   	    // The after step
-//   	    export function response(ctx) {
-//   	      return ctx.prev.result
-//   	    }
-//   	  `)),
-//   	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
-//   	PipelineConfig: []iAppsyncFunction{
-//   		myJsFunction,
+//   api.AddChannelNamespace(jsii.String("lambda-direct-async-ns"), &ChannelNamespaceOptions{
+//   	PublishHandlerConfig: &HandlerConfig{
+//   		DataSource: lambdaDataSource,
+//   		Direct: jsii.Boolean(true),
+//   		LambdaInvokeType: appsync.LambdaInvokeType_EVENT,
 //   	},
 //   })
 //

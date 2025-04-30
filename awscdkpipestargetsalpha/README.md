@@ -26,6 +26,7 @@ Pipe targets are the end point of an EventBridge Pipe. The following targets are
 * `targets.ApiGatewayTarget`: [Send event source to an API Gateway REST API](#amazon-api-gateway-rest-api)
 * `targets.CloudWatchLogsTarget`: [Send event source to a CloudWatch Logs log group](#amazon-cloudwatch-logs-log-group)
 * `targets.EventBridgeTarget`: [Send event source to an EventBridge event bus](#amazon-eventbridge-event-bus)
+* `targets.FirehoseTarget`: [Send event source to an Amazon Data Firehose delivery stream](#amazon-data-firehose-delivery-stream)
 * `targets.KinesisTarget`: [Send event source to a Kinesis data stream](#amazon-kinesis-data-stream)
 * `targets.LambdaFunction`: [Send event source to a Lambda function](#aws-lambda-function)
 * `targets.SageMakerTarget`: [Send event source to a SageMaker pipeline](#amazon-sagemaker-pipeline)
@@ -193,6 +194,43 @@ eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTarge
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: eventBusTarget,
+})
+```
+
+### Amazon Data Firehose Delivery Stream
+
+An Amazon Data Firehose delivery stream can be used as a target for a pipe.
+The delivery stream will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetDeliveryStream deliveryStream
+
+
+deliveryStreamTarget := targets.NewFirehoseTarget(targetDeliveryStream)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: deliveryStreamTarget,
+})
+```
+
+The input to the target delivery stream can be transformed:
+
+```go
+var sourceQueue queue
+var targetDeliveryStream deliveryStream
+
+
+deliveryStreamTarget := targets.NewFirehoseTarget(targetDeliveryStream, &FirehoseTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: deliveryStreamTarget,
 })
 ```
 

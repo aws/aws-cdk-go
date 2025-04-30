@@ -4,33 +4,30 @@ package awsappsync
 // Properties for an AppSync Event API.
 //
 // Example:
-//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var handler function
 //
+//
+//   iamProvider := &AppSyncAuthProvider{
+//   	AuthorizationType: appsync.AppSyncAuthorizationType_IAM,
+//   }
 //
 //   apiKeyProvider := &AppSyncAuthProvider{
 //   	AuthorizationType: appsync.AppSyncAuthorizationType_API_KEY,
 //   }
 //
+//   /* API with IAM and API Key providers.
+//    * Connection, default publish and default subscribe
+//    * can be done with either IAM and API Key.
+//    */
 //   api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
-//   	ApiName: jsii.String("Api"),
-//   	OwnerContact: jsii.String("OwnerContact"),
+//   	ApiName: jsii.String("api"),
 //   	AuthorizationConfig: &EventApiAuthConfig{
+//   		// set auth providers
 //   		AuthProviders: []appSyncAuthProvider{
+//   			iamProvider,
 //   			apiKeyProvider,
 //   		},
-//   		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
-//   		},
-//   		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
-//   		},
-//   		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
-//   		},
-//   	},
-//   	LogConfig: &AppSyncLogConfig{
-//   		FieldLogLevel: appsync.AppSyncFieldLogLevel_INFO,
-//   		Retention: logs.RetentionDays_ONE_WEEK,
 //   	},
 //   })
 //

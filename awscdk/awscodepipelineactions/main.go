@@ -702,12 +702,43 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline_actions.OrganizationsDeploymentProps",
 		reflect.TypeOf((*OrganizationsDeploymentProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.PipelineInvokeAction",
+		reflect.TypeOf((*PipelineInvokeAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "providedActionProperties", GoGetter: "ProvidedActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PipelineInvokeAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.PipelineInvokeActionProps",
+		reflect.TypeOf((*PipelineInvokeActionProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codepipeline_actions.RegistryType",
 		reflect.TypeOf((*RegistryType)(nil)).Elem(),
 		map[string]interface{}{
 			"PRIVATE": RegistryType_PRIVATE,
 			"PUBLIC": RegistryType_PUBLIC,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline_actions.RevisionType",
+		reflect.TypeOf((*RevisionType)(nil)).Elem(),
+		map[string]interface{}{
+			"COMMIT_ID": RevisionType_COMMIT_ID,
+			"IMAGE_DIGEST": RevisionType_IMAGE_DIGEST,
+			"S3_OBJECT_VERSION_ID": RevisionType_S3_OBJECT_VERSION_ID,
+			"S3_OBJECT_KEY": RevisionType_S3_OBJECT_KEY,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -791,6 +822,10 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1Props",
 		reflect.TypeOf((*ServiceCatalogDeployActionBeta1Props)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.SourceRevision",
+		reflect.TypeOf((*SourceRevision)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
 		reflect.TypeOf((*StackInstances)(nil)).Elem(),
@@ -864,5 +899,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline_actions.StepFunctionsInvokeActionProps",
 		reflect.TypeOf((*StepFunctionsInvokeActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.Variable",
+		reflect.TypeOf((*Variable)(nil)).Elem(),
 	)
 }

@@ -34,6 +34,14 @@ type ChannelNamespaceProps struct {
 	// Default: - no code is used.
 	//
 	Code Code `field:"optional" json:"code" yaml:"code"`
+	// onPublish handler config.
+	// Default: - no handler config.
+	//
+	PublishHandlerConfig *HandlerConfig `field:"optional" json:"publishHandlerConfig" yaml:"publishHandlerConfig"`
+	// onSubscribe handler config.
+	// Default: - no handler config.
+	//
+	SubscribeHandlerConfig *HandlerConfig `field:"optional" json:"subscribeHandlerConfig" yaml:"subscribeHandlerConfig"`
 	// The API this channel namespace is associated with.
 	Api IEventApi `field:"required" json:"api" yaml:"api"`
 }

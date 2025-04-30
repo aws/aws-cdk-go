@@ -5,41 +5,43 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An AppSync Event API.
 //
 // Example:
-//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var handler function
 //
+//
+//   iamProvider := &AppSyncAuthProvider{
+//   	AuthorizationType: appsync.AppSyncAuthorizationType_IAM,
+//   }
 //
 //   apiKeyProvider := &AppSyncAuthProvider{
 //   	AuthorizationType: appsync.AppSyncAuthorizationType_API_KEY,
 //   }
 //
+//   /* API with IAM and API Key providers.
+//    * Connection, default publish and default subscribe
+//    * can be done with either IAM and API Key.
+//    */
 //   api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
-//   	ApiName: jsii.String("Api"),
-//   	OwnerContact: jsii.String("OwnerContact"),
+//   	ApiName: jsii.String("api"),
 //   	AuthorizationConfig: &EventApiAuthConfig{
+//   		// set auth providers
 //   		AuthProviders: []appSyncAuthProvider{
+//   			iamProvider,
 //   			apiKeyProvider,
 //   		},
-//   		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
-//   		},
-//   		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
-//   		},
-//   		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
-//   		},
-//   	},
-//   	LogConfig: &AppSyncLogConfig{
-//   		FieldLogLevel: appsync.AppSyncFieldLogLevel_INFO,
-//   		Retention: logs.RetentionDays_ONE_WEEK,
 //   	},
 //   })
 //
@@ -100,6 +102,18 @@ type EventApi interface {
 	Stack() awscdk.Stack
 	// add a new Channel Namespace to this API.
 	AddChannelNamespace(id *string, options *ChannelNamespaceOptions) ChannelNamespace
+	// add a new DynamoDB data source to this API.
+	AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *AppSyncDataSourceOptions) AppSyncDynamoDbDataSource
+	// Add an EventBridge data source to this api.
+	AddEventBridgeDataSource(id *string, eventBus awsevents.IEventBus, options *AppSyncDataSourceOptions) AppSyncEventBridgeDataSource
+	// add a new http data source to this API.
+	AddHttpDataSource(id *string, endpoint *string, options *AppSyncHttpDataSourceOptions) AppSyncHttpDataSource
+	// add a new Lambda data source to this API.
+	AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *AppSyncDataSourceOptions) AppSyncLambdaDataSource
+	// add a new OpenSearch data source to this API.
+	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *AppSyncDataSourceOptions) AppSyncOpenSearchDataSource
+	// add a new Rds data source to this API.
+	AddRdsDataSource(id *string, serverlessCluster interface{}, secretStore awssecretsmanager.ISecret, databaseName *string, options *AppSyncDataSourceOptions) AppSyncRdsDataSource
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -449,6 +463,102 @@ func (e *jsiiProxy_EventApi) AddChannelNamespace(id *string, options *ChannelNam
 		e,
 		"addChannelNamespace",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventApi) AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *AppSyncDataSourceOptions) AppSyncDynamoDbDataSource {
+	if err := e.validateAddDynamoDbDataSourceParameters(id, table, options); err != nil {
+		panic(err)
+	}
+	var returns AppSyncDynamoDbDataSource
+
+	_jsii_.Invoke(
+		e,
+		"addDynamoDbDataSource",
+		[]interface{}{id, table, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventApi) AddEventBridgeDataSource(id *string, eventBus awsevents.IEventBus, options *AppSyncDataSourceOptions) AppSyncEventBridgeDataSource {
+	if err := e.validateAddEventBridgeDataSourceParameters(id, eventBus, options); err != nil {
+		panic(err)
+	}
+	var returns AppSyncEventBridgeDataSource
+
+	_jsii_.Invoke(
+		e,
+		"addEventBridgeDataSource",
+		[]interface{}{id, eventBus, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventApi) AddHttpDataSource(id *string, endpoint *string, options *AppSyncHttpDataSourceOptions) AppSyncHttpDataSource {
+	if err := e.validateAddHttpDataSourceParameters(id, endpoint, options); err != nil {
+		panic(err)
+	}
+	var returns AppSyncHttpDataSource
+
+	_jsii_.Invoke(
+		e,
+		"addHttpDataSource",
+		[]interface{}{id, endpoint, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventApi) AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *AppSyncDataSourceOptions) AppSyncLambdaDataSource {
+	if err := e.validateAddLambdaDataSourceParameters(id, lambdaFunction, options); err != nil {
+		panic(err)
+	}
+	var returns AppSyncLambdaDataSource
+
+	_jsii_.Invoke(
+		e,
+		"addLambdaDataSource",
+		[]interface{}{id, lambdaFunction, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventApi) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *AppSyncDataSourceOptions) AppSyncOpenSearchDataSource {
+	if err := e.validateAddOpenSearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
+	var returns AppSyncOpenSearchDataSource
+
+	_jsii_.Invoke(
+		e,
+		"addOpenSearchDataSource",
+		[]interface{}{id, domain, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventApi) AddRdsDataSource(id *string, serverlessCluster interface{}, secretStore awssecretsmanager.ISecret, databaseName *string, options *AppSyncDataSourceOptions) AppSyncRdsDataSource {
+	if err := e.validateAddRdsDataSourceParameters(id, serverlessCluster, secretStore, options); err != nil {
+		panic(err)
+	}
+	var returns AppSyncRdsDataSource
+
+	_jsii_.Invoke(
+		e,
+		"addRdsDataSource",
+		[]interface{}{id, serverlessCluster, secretStore, databaseName, options},
 		&returns,
 	)
 

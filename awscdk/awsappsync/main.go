@@ -54,12 +54,121 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncAwsIamConfig",
+		reflect.TypeOf((*AppSyncAwsIamConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncBackedDataSource",
+		reflect.TypeOf((*AppSyncBackedDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncBackedDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBaseDataSource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncBackedDataSourceProps",
+		reflect.TypeOf((*AppSyncBackedDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncBaseDataSource",
+		reflect.TypeOf((*AppSyncBaseDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncBaseDataSource{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncBaseDataSourceProps",
+		reflect.TypeOf((*AppSyncBaseDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.AppSyncCognitoConfig",
 		reflect.TypeOf((*AppSyncCognitoConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncDataSourceOptions",
+		reflect.TypeOf((*AppSyncDataSourceOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.AppSyncDataSourceType",
+		reflect.TypeOf((*AppSyncDataSourceType)(nil)).Elem(),
+		map[string]interface{}{
+			"LAMBDA": AppSyncDataSourceType_LAMBDA,
+			"DYNAMODB": AppSyncDataSourceType_DYNAMODB,
+			"EVENTBRIDGE": AppSyncDataSourceType_EVENTBRIDGE,
+			"OPENSEARCH_SERVICE": AppSyncDataSourceType_OPENSEARCH_SERVICE,
+			"HTTP": AppSyncDataSourceType_HTTP,
+			"RELATIONAL_DATABASE": AppSyncDataSourceType_RELATIONAL_DATABASE,
+			"BEDROCK": AppSyncDataSourceType_BEDROCK,
+		},
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.AppSyncDomainOptions",
 		reflect.TypeOf((*AppSyncDomainOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncDynamoDbDataSource",
+		reflect.TypeOf((*AppSyncDynamoDbDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncDynamoDbDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBackedDataSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncDynamoDbDataSourceProps",
+		reflect.TypeOf((*AppSyncDynamoDbDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncEventBridgeDataSource",
+		reflect.TypeOf((*AppSyncEventBridgeDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncEventBridgeDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBackedDataSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncEventBridgeDataSourceProps",
+		reflect.TypeOf((*AppSyncEventBridgeDataSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.AppSyncEventResource",
@@ -70,6 +179,10 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_AppSyncEventResource{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncExtendedDataSourceProps",
+		reflect.TypeOf((*AppSyncExtendedDataSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_appsync.AppSyncFieldLogLevel",
@@ -82,9 +195,57 @@ func init() {
 			"ALL": AppSyncFieldLogLevel_ALL,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncHttpDataSource",
+		reflect.TypeOf((*AppSyncHttpDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncHttpDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBackedDataSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncHttpDataSourceOptions",
+		reflect.TypeOf((*AppSyncHttpDataSourceOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncHttpDataSourceProps",
+		reflect.TypeOf((*AppSyncHttpDataSourceProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.AppSyncLambdaAuthorizerConfig",
 		reflect.TypeOf((*AppSyncLambdaAuthorizerConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncLambdaDataSource",
+		reflect.TypeOf((*AppSyncLambdaDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncLambdaDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBackedDataSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncLambdaDataSourceProps",
+		reflect.TypeOf((*AppSyncLambdaDataSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.AppSyncLogConfig",
@@ -93,6 +254,54 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.AppSyncOpenIdConnectConfig",
 		reflect.TypeOf((*AppSyncOpenIdConnectConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncOpenSearchDataSource",
+		reflect.TypeOf((*AppSyncOpenSearchDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncOpenSearchDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBackedDataSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncOpenSearchDataSourceProps",
+		reflect.TypeOf((*AppSyncOpenSearchDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncRdsDataSource",
+		reflect.TypeOf((*AppSyncRdsDataSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncRdsDataSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AppSyncBackedDataSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncRdsDataSourceProps",
+		reflect.TypeOf((*AppSyncRdsDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncRdsDataSourcePropsV2",
+		reflect.TypeOf((*AppSyncRdsDataSourcePropsV2)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.AppsyncFunction",
@@ -478,6 +687,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "handlerConfigs", GoGetter: "HandlerConfigs"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -510,6 +720,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.CfnChannelNamespace.AuthModeProperty",
 		reflect.TypeOf((*CfnChannelNamespace_AuthModeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.CfnChannelNamespace.HandlerConfigProperty",
+		reflect.TypeOf((*CfnChannelNamespace_HandlerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.CfnChannelNamespace.HandlerConfigsProperty",
+		reflect.TypeOf((*CfnChannelNamespace_HandlerConfigsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.CfnChannelNamespace.IntegrationProperty",
+		reflect.TypeOf((*CfnChannelNamespace_IntegrationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.CfnChannelNamespace.LambdaConfigProperty",
+		reflect.TypeOf((*CfnChannelNamespace_LambdaConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.CfnChannelNamespaceProps",
@@ -1220,6 +1446,12 @@ func init() {
 		reflect.TypeOf((*EventApi)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addChannelNamespace", GoMethod: "AddChannelNamespace"},
+			_jsii_.MemberMethod{JsiiMethod: "addDynamoDbDataSource", GoMethod: "AddDynamoDbDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addEventBridgeDataSource", GoMethod: "AddEventBridgeDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addHttpDataSource", GoMethod: "AddHttpDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addLambdaDataSource", GoMethod: "AddLambdaDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addOpenSearchDataSource", GoMethod: "AddOpenSearchDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addRdsDataSource", GoMethod: "AddRdsDataSource"},
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "apiKeys", GoGetter: "ApiKeys"},
@@ -1267,6 +1499,12 @@ func init() {
 		reflect.TypeOf((*EventApiBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addChannelNamespace", GoMethod: "AddChannelNamespace"},
+			_jsii_.MemberMethod{JsiiMethod: "addDynamoDbDataSource", GoMethod: "AddDynamoDbDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addEventBridgeDataSource", GoMethod: "AddEventBridgeDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addHttpDataSource", GoMethod: "AddHttpDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addLambdaDataSource", GoMethod: "AddLambdaDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addOpenSearchDataSource", GoMethod: "AddOpenSearchDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addRdsDataSource", GoMethod: "AddRdsDataSource"},
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1456,6 +1694,18 @@ func init() {
 		"aws-cdk-lib.aws_appsync.GraphqlApiProps",
 		reflect.TypeOf((*GraphqlApiProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.HandlerBehavior",
+		reflect.TypeOf((*HandlerBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"CODE": HandlerBehavior_CODE,
+			"DIRECT": HandlerBehavior_DIRECT,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.HandlerConfig",
+		reflect.TypeOf((*HandlerConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.HttpDataSource",
 		reflect.TypeOf((*HttpDataSource)(nil)).Elem(),
@@ -1551,6 +1801,12 @@ func init() {
 		reflect.TypeOf((*IEventApi)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addChannelNamespace", GoMethod: "AddChannelNamespace"},
+			_jsii_.MemberMethod{JsiiMethod: "addDynamoDbDataSource", GoMethod: "AddDynamoDbDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addEventBridgeDataSource", GoMethod: "AddEventBridgeDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addHttpDataSource", GoMethod: "AddHttpDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addLambdaDataSource", GoMethod: "AddLambdaDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addOpenSearchDataSource", GoMethod: "AddOpenSearchDataSource"},
+			_jsii_.MemberMethod{JsiiMethod: "addRdsDataSource", GoMethod: "AddRdsDataSource"},
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1715,6 +1971,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.LambdaDataSourceProps",
 		reflect.TypeOf((*LambdaDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.LambdaInvokeType",
+		reflect.TypeOf((*LambdaInvokeType)(nil)).Elem(),
+		map[string]interface{}{
+			"EVENT": LambdaInvokeType_EVENT,
+			"REQUEST_RESPONSE": LambdaInvokeType_REQUEST_RESPONSE,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.LogConfig",

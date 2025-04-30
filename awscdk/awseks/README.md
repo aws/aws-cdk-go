@@ -775,6 +775,24 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 })
 ```
 
+To provide additional Helm chart values supported by `albController` in CDK, use the `additionalHelmChartValues` property. For example, the following code snippet shows how to set the `enableWafV2` flag:
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
+
+
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_32(),
+	AlbController: &AlbControllerOptions{
+		Version: eks.AlbControllerVersion_V2_8_2(),
+		AdditionalHelmChartValues: &AlbControllerHelmChartOptions{
+			EnableWafv2: jsii.Boolean(false),
+		},
+	},
+	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
+})
+```
+
 The `albController` requires `defaultCapacity` or at least one nodegroup. If there's no `defaultCapacity` or available
 nodegroup for the cluster, the `albController` deployment would fail.
 

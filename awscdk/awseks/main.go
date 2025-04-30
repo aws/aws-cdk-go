@@ -138,6 +138,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AlbControllerHelmChartOptions",
+		reflect.TypeOf((*AlbControllerHelmChartOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.AlbControllerOptions",
 		reflect.TypeOf((*AlbControllerOptions)(nil)).Elem(),
 	)

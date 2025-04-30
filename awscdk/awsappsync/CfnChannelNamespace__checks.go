@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnChannelNamespace) validateSetApiIdParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannelNamespace) validateSetHandlerConfigsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnChannelNamespace_HandlerConfigsProperty:
+		val := val.(*CfnChannelNamespace_HandlerConfigsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnChannelNamespace_HandlerConfigsProperty:
+		val_ := val.(CfnChannelNamespace_HandlerConfigsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnChannelNamespace_HandlerConfigsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannelNamespace) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

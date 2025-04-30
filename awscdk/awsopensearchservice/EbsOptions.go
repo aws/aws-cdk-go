@@ -12,14 +12,19 @@ import (
 //
 // Example:
 //   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+//   	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
 //   	Ebs: &EbsOptions{
-//   		VolumeSize: jsii.Number(100),
-//   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD,
+//   		VolumeSize: jsii.Number(10),
+//   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD_GP3,
 //   	},
-//   	NodeToNodeEncryption: jsii.Boolean(true),
-//   	EncryptionAtRest: &EncryptionAtRestOptions{
+//   	ZoneAwareness: &ZoneAwarenessConfig{
 //   		Enabled: jsii.Boolean(true),
+//   		AvailabilityZoneCount: jsii.Number(3),
+//   	},
+//   	Capacity: &CapacityConfig{
+//   		MultiAzWithStandbyEnabled: jsii.Boolean(true),
+//   		MasterNodes: jsii.Number(3),
+//   		DataNodes: jsii.Number(3),
 //   	},
 //   })
 //

@@ -5,16 +5,19 @@ package awsappsync
 //
 // Example:
 //   var api eventApi
+//   var ddbDataSource appSyncDynamoDbDataSource
+//   var ebDataSource appSyncEventBridgeDataSource
 //
 //
-//   // create a channel namespace
-//   // create a channel namespace
-//   appsync.NewChannelNamespace(this, jsii.String("Namespace"), &ChannelNamespaceProps{
-//   	Api: Api,
-//   })
-//
-//   // You can also create a namespace through the addChannelNamespace method
-//   api.AddChannelNamespace(jsii.String("AnotherNameSpace"), &ChannelNamespaceOptions{
+//   // DynamoDB data source for publish handler
+//   api.AddChannelNamespace(jsii.String("ddb-eb-ns"), &ChannelNamespaceOptions{
+//   	Code: appsync.Code_FromInline(jsii.String("/* event handler code here.*/")),
+//   	PublishHandlerConfig: &HandlerConfig{
+//   		DataSource: ddbDataSource,
+//   	},
+//   	SubscribeHandlerConfig: &HandlerConfig{
+//   		DataSource: ebDataSource,
+//   	},
 //   })
 //
 type ChannelNamespaceOptions struct {
@@ -30,5 +33,13 @@ type ChannelNamespaceOptions struct {
 	// Default: - no code is used.
 	//
 	Code Code `field:"optional" json:"code" yaml:"code"`
+	// onPublish handler config.
+	// Default: - no handler config.
+	//
+	PublishHandlerConfig *HandlerConfig `field:"optional" json:"publishHandlerConfig" yaml:"publishHandlerConfig"`
+	// onSubscribe handler config.
+	// Default: - no handler config.
+	//
+	SubscribeHandlerConfig *HandlerConfig `field:"optional" json:"subscribeHandlerConfig" yaml:"subscribeHandlerConfig"`
 }
 

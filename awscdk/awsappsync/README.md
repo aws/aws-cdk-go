@@ -1089,6 +1089,154 @@ api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
 api.AddChannelNamespace(jsii.String("default"))
 ```
 
+### Data Sources
+
+With AWS AppSync Events, you can configure data source integrations with Amazon DynamoDB, Amazon Aurora Serverless, Amazon EventBridge, Amazon Bedrock Runtime, AWS Lambda, Amazon OpenSearch Service, and HTTP endpoints. The Event API can be associated with the data source and you can use the data source as an integration in your channel namespace event handlers for `onPublish` and `onSubscribe` operations.
+
+Below are examples for how you add the various data sources to you Event API.
+
+#### Amazon DynamoDB
+
+```go
+api := appsync.NewEventApi(this, jsii.String("EventApiDynamoDB"), &EventApiProps{
+	ApiName: jsii.String("DynamoDBEventApi"),
+})
+
+table := dynamodb.NewTable(this, jsii.String("table"), &TableProps{
+	TableName: jsii.String("event-messages"),
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+
+dataSource := api.AddDynamoDbDataSource(jsii.String("ddbsource"), table)
+```
+
+#### Amazon Aurora Serverless
+
+```go
+import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc vpc
+
+databaseName := "mydb"
+cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
+		Version: rds.AuroraPostgresEngineVersion_VER_16_6(),
+	}),
+	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
+	Vpc: vpc,
+	Credentials: map[string]*string{
+		"username": jsii.String("clusteradmin"),
+	},
+	DefaultDatabaseName: databaseName,
+	EnableDataApi: jsii.Boolean(true),
+})
+
+secret := secretsmanager.Secret_FromSecretNameV2(this, jsii.String("Secret"), jsii.String("db-secretName"))
+
+api := appsync.NewEventApi(this, jsii.String("EventApiRds"), &EventApiProps{
+	ApiName: jsii.String("RdsEventApi"),
+})
+
+dataSource := api.AddRdsDataSource(jsii.String("rdsds"), cluster, secret, databaseName)
+```
+
+#### Amazon EventBridge
+
+```go
+import events "github.com/aws/aws-cdk-go/awscdk"
+
+
+api := appsync.NewEventApi(this, jsii.String("EventApiEventBridge"), &EventApiProps{
+	ApiName: jsii.String("EventBridgeEventApi"),
+})
+
+eventBus := events.NewEventBus(this, jsii.String("test-bus"))
+
+dataSource := api.AddEventBridgeDataSource(jsii.String("eventbridgeds"), eventBus)
+```
+
+#### AWS Lambda
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+
+var lambdaDs function
+
+
+api := appsync.NewEventApi(this, jsii.String("EventApiLambda"), &EventApiProps{
+	ApiName: jsii.String("LambdaEventApi"),
+})
+
+dataSource := api.AddLambdaDataSource(jsii.String("lambdads"), lambdaDs)
+```
+
+#### Amazon OpenSearch Service
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: opensearch.EngineVersion_OPENSEARCH_2_17(),
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		Enabled: jsii.Boolean(true),
+	},
+	NodeToNodeEncryption: jsii.Boolean(true),
+	EnforceHttps: jsii.Boolean(true),
+	Capacity: &CapacityConfig{
+		MultiAzWithStandbyEnabled: jsii.Boolean(false),
+	},
+	Ebs: &EbsOptions{
+		Enabled: jsii.Boolean(true),
+		VolumeSize: jsii.Number(10),
+	},
+})
+api := appsync.NewEventApi(this, jsii.String("EventApiOpenSearch"), &EventApiProps{
+	ApiName: jsii.String("OpenSearchEventApi"),
+})
+
+dataSource := api.AddOpenSearchDataSource(jsii.String("opensearchds"), domain)
+```
+
+#### HTTP Endpoints
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+api := appsync.NewEventApi(this, jsii.String("EventApiHttp"), &EventApiProps{
+	ApiName: jsii.String("HttpEventApi"),
+})
+
+randomApi := apigw.NewRestApi(this, jsii.String("RandomApi"))
+randomRoute := randomApi.Root.AddResource(jsii.String("random"))
+randomRoute.AddMethod(jsii.String("GET"), apigw.NewMockIntegration(&IntegrationOptions{
+	IntegrationResponses: []integrationResponse{
+		&integrationResponse{
+			StatusCode: jsii.String("200"),
+			ResponseTemplates: map[string]*string{
+				"application/json": jsii.String("my-random-value"),
+			},
+		},
+	},
+	PassthroughBehavior: apigw.PassthroughBehavior_NEVER,
+	RequestTemplates: map[string]*string{
+		"application/json": jsii.String("{ \"statusCode\": 200 }"),
+	},
+}), &MethodOptions{
+	MethodResponses: []methodResponse{
+		&methodResponse{
+			StatusCode: jsii.String("200"),
+		},
+	},
+})
+
+dataSource := api.AddHttpDataSource(jsii.String("httpsource"), fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com", randomApi.RestApiId, this.Region))
+```
+
 ### Custom Domain Names
 
 With AWS AppSync, you can use custom domain names to configure a single, memorable domain that works for your Event APIs.
@@ -1219,6 +1367,8 @@ Channel namespaces provide a scalable approach to managing large numbers of chan
 
 Instead of configuring each channel individually, developers can apply settings across an entire namespace.
 
+Channel namespace can optionally interact with data sources configured on the Event API by defining optional event handler code or using direct integrations with the data source where applicable.
+
 For more information, see [Understanding channel namespaces](https://docs.aws.amazon.com/appsync/latest/eventapi/channel-namespaces.html).
 
 ```go
@@ -1277,5 +1427,63 @@ appsync.NewChannelNamespace(this, jsii.String("Namespace"), &ChannelNamespacePro
 	Api: Api,
 	// set a handler from an asset
 	Code: appsync.Code_FromAsset(jsii.String("directory/function_code.js")),
+})
+```
+
+You can define an integration in your event handler for `onPublish` and/or `onSubscribe` operations. When defining integrations on your channel namespace, you write code in the event handler to submit requests to and process responses from your data source. For example, if you configure an integration with Amazon DynamoDB for `onPublish` operations, you can persist those events to DynamoDB using a `batchPut` operation in the `request` method, and then return the events as normal in the `response` method. For an integration with Amazon OpenSearch Service, you may use this for `onPublish` operations to enrich the events.
+
+When using the AWS Lambda data source integration, you can either invoke the Lambda function using the event handler code or you can directly invoke the Lambda function, bypassing the event handler code all together. When using direct invoke, you can choose to invoke the Lambda function synchronously or asynchronously by specifying the `invokeType` as `REQUEST_RESPONSE` or `EVENT` respectively.
+
+Below are examples using Amazon DynamoDB, Amazon EventBridge, and AWS Lambda. You can leverage any supported data source in the same way.
+
+#### Amazon DynamoDB & Amazon EventBridge
+
+```go
+var api eventApi
+var ddbDataSource appSyncDynamoDbDataSource
+var ebDataSource appSyncEventBridgeDataSource
+
+
+// DynamoDB data source for publish handler
+api.AddChannelNamespace(jsii.String("ddb-eb-ns"), &ChannelNamespaceOptions{
+	Code: appsync.Code_FromInline(jsii.String("/* event handler code here.*/")),
+	PublishHandlerConfig: &HandlerConfig{
+		DataSource: ddbDataSource,
+	},
+	SubscribeHandlerConfig: &HandlerConfig{
+		DataSource: ebDataSource,
+	},
+})
+```
+
+#### AWS Lambda
+
+```go
+var api eventApi
+var lambdaDataSource appSyncLambdaDataSource
+
+
+// Lambda data source for publish handler
+api.AddChannelNamespace(jsii.String("lambda-ns"), &ChannelNamespaceOptions{
+	Code: appsync.Code_FromInline(jsii.String("/* event handler code here.*/")),
+	PublishHandlerConfig: &HandlerConfig{
+		DataSource: lambdaDataSource,
+	},
+})
+
+// Direct Lambda data source for publish handler
+api.AddChannelNamespace(jsii.String("lambda-direct-ns"), &ChannelNamespaceOptions{
+	PublishHandlerConfig: &HandlerConfig{
+		DataSource: lambdaDataSource,
+		Direct: jsii.Boolean(true),
+	},
+})
+
+api.AddChannelNamespace(jsii.String("lambda-direct-async-ns"), &ChannelNamespaceOptions{
+	PublishHandlerConfig: &HandlerConfig{
+		DataSource: lambdaDataSource,
+		Direct: jsii.Boolean(true),
+		LambdaInvokeType: appsync.LambdaInvokeType_EVENT,
+	},
 })
 ```

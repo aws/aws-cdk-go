@@ -42,6 +42,10 @@ import (
 //   		Version: albControllerVersion,
 //
 //   		// the properties below are optional
+//   		AdditionalHelmChartValues: &AlbControllerHelmChartOptions{
+//   			EnableWaf: jsii.Boolean(false),
+//   			EnableWafv2: jsii.Boolean(false),
+//   		},
 //   		Policy: policy,
 //   		Repository: jsii.String("repository"),
 //   	},

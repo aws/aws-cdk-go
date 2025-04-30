@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnChannelNamespace) validateSetApiIdParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannelNamespace) validateSetHandlerConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannelNamespace) validateSetNameParameters(val *string) error {
 	return nil
 }

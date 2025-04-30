@@ -25,6 +25,30 @@ import (
 //   	// the properties below are optional
 //   	CodeHandlers: jsii.String("codeHandlers"),
 //   	CodeS3Location: jsii.String("codeS3Location"),
+//   	HandlerConfigs: &HandlerConfigsProperty{
+//   		OnPublish: &HandlerConfigProperty{
+//   			Behavior: jsii.String("behavior"),
+//   			Integration: &IntegrationProperty{
+//   				DataSourceName: jsii.String("dataSourceName"),
+//
+//   				// the properties below are optional
+//   				LambdaConfig: &LambdaConfigProperty{
+//   					InvokeType: jsii.String("invokeType"),
+//   				},
+//   			},
+//   		},
+//   		OnSubscribe: &HandlerConfigProperty{
+//   			Behavior: jsii.String("behavior"),
+//   			Integration: &IntegrationProperty{
+//   				DataSourceName: jsii.String("dataSourceName"),
+//
+//   				// the properties below are optional
+//   				LambdaConfig: &LambdaConfigProperty{
+//   					InvokeType: jsii.String("invokeType"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	PublishAuthModes: []interface{}{
 //   		&AuthModeProperty{
 //   			AuthType: jsii.String("authType"),
@@ -49,10 +73,10 @@ type CfnChannelNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The `Api` ID.
+	// AppSync Api Id that this Channel Namespace belongs to.
 	ApiId() *string
 	SetApiId(val *string)
-	// The Amazon Resource Name (ARN) of the channel namespace.
+	// The Amazon Resource Name (ARN) for the Channel Namespace.
 	AttrChannelNamespaceArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -61,7 +85,7 @@ type CfnChannelNamespace interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The event handler functions that run custom business logic to process published events and subscribe requests.
+	// String of APPSYNC_JS code to be used by the handlers.
 	CodeHandlers() *string
 	SetCodeHandlers(val *string)
 	// The Amazon S3 endpoint where the code is located.
@@ -71,6 +95,8 @@ type CfnChannelNamespace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	HandlerConfigs() interface{}
+	SetHandlerConfigs(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,7 +107,7 @@ type CfnChannelNamespace interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the channel namespace.
+	// Namespace indentifier.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -101,7 +127,7 @@ type CfnChannelNamespace interface {
 	// The authorization mode to use for subscribing to messages on the channel namespace.
 	SubscribeAuthModes() interface{}
 	SetSubscribeAuthModes(val interface{})
-	// A set of tags (key-value pairs) for this channel namespace.
+	// An arbitrary set of tags (key-value pairs) for this AppSync API.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -341,6 +367,16 @@ func (j *jsiiProxy_CfnChannelNamespace) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannelNamespace) HandlerConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"handlerConfigs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannelNamespace) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -492,6 +528,17 @@ func (j *jsiiProxy_CfnChannelNamespace)SetCodeS3Location(val *string) {
 	_jsii_.Set(
 		j,
 		"codeS3Location",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannelNamespace)SetHandlerConfigs(val interface{}) {
+	if err := j.validateSetHandlerConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"handlerConfigs",
 		val,
 	)
 }

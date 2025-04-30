@@ -8,6 +8,30 @@ func (e *jsiiProxy_EventApi) validateAddChannelNamespaceParameters(id *string, o
 	return nil
 }
 
+func (e *jsiiProxy_EventApi) validateAddDynamoDbDataSourceParameters(id *string, table awsdynamodb.ITable, options *AppSyncDataSourceOptions) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventApi) validateAddEventBridgeDataSourceParameters(id *string, eventBus awsevents.IEventBus, options *AppSyncDataSourceOptions) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventApi) validateAddHttpDataSourceParameters(id *string, endpoint *string, options *AppSyncHttpDataSourceOptions) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventApi) validateAddLambdaDataSourceParameters(id *string, lambdaFunction awslambda.IFunction, options *AppSyncDataSourceOptions) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventApi) validateAddOpenSearchDataSourceParameters(id *string, domain awsopensearchservice.IDomain, options *AppSyncDataSourceOptions) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventApi) validateAddRdsDataSourceParameters(id *string, serverlessCluster interface{}, secretStore awssecretsmanager.ISecret, options *AppSyncDataSourceOptions) error {
+	return nil
+}
+
 func (e *jsiiProxy_EventApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

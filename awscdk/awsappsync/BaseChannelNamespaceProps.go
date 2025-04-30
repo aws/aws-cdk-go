@@ -8,6 +8,7 @@ package awsappsync
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var appSyncBackedDataSource appSyncBackedDataSource
 //   var code code
 //
 //   baseChannelNamespaceProps := &BaseChannelNamespaceProps{
@@ -21,6 +22,16 @@ package awsappsync
 //   	},
 //   	ChannelNamespaceName: jsii.String("channelNamespaceName"),
 //   	Code: code,
+//   	PublishHandlerConfig: &HandlerConfig{
+//   		DataSource: appSyncBackedDataSource,
+//   		Direct: jsii.Boolean(false),
+//   		LambdaInvokeType: awscdk.*Aws_appsync.LambdaInvokeType_EVENT,
+//   	},
+//   	SubscribeHandlerConfig: &HandlerConfig{
+//   		DataSource: appSyncBackedDataSource,
+//   		Direct: jsii.Boolean(false),
+//   		LambdaInvokeType: awscdk.*Aws_appsync.LambdaInvokeType_EVENT,
+//   	},
 //   }
 //
 type BaseChannelNamespaceProps struct {
@@ -36,5 +47,13 @@ type BaseChannelNamespaceProps struct {
 	// Default: - no code is used.
 	//
 	Code Code `field:"optional" json:"code" yaml:"code"`
+	// onPublish handler config.
+	// Default: - no handler config.
+	//
+	PublishHandlerConfig *HandlerConfig `field:"optional" json:"publishHandlerConfig" yaml:"publishHandlerConfig"`
+	// onSubscribe handler config.
+	// Default: - no handler config.
+	//
+	SubscribeHandlerConfig *HandlerConfig `field:"optional" json:"subscribeHandlerConfig" yaml:"subscribeHandlerConfig"`
 }
 

@@ -9,29 +9,33 @@ package awsappsync
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   eventApiAttributes := &EventApiAttributes{
-//   	ApiArn: jsii.String("apiArn"),
 //   	ApiId: jsii.String("apiId"),
-//   	ApiName: jsii.String("apiName"),
 //   	HttpDns: jsii.String("httpDns"),
 //   	RealtimeDns: jsii.String("realtimeDns"),
 //
 //   	// the properties below are optional
+//   	ApiArn: jsii.String("apiArn"),
+//   	ApiName: jsii.String("apiName"),
 //   	AuthProviderTypes: []appSyncAuthorizationType{
 //   		awscdk.Aws_appsync.*appSyncAuthorizationType_API_KEY,
 //   	},
 //   }
 //
 type EventApiAttributes struct {
-	// the ARN of the Event API.
-	ApiArn *string `field:"required" json:"apiArn" yaml:"apiArn"`
 	// an unique AWS AppSync Event API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
-	// the name of the Event API.
-	ApiName *string `field:"required" json:"apiName" yaml:"apiName"`
 	// the domain name of the Api's HTTP endpoint.
 	HttpDns *string `field:"required" json:"httpDns" yaml:"httpDns"`
 	// the domain name of the Api's real-time endpoint.
 	RealtimeDns *string `field:"required" json:"realtimeDns" yaml:"realtimeDns"`
+	// the ARN of the Event API.
+	// Default: - constructed arn.
+	//
+	ApiArn *string `field:"optional" json:"apiArn" yaml:"apiArn"`
+	// the name of the Event API.
+	// Default: - not needed to import API.
+	//
+	ApiName *string `field:"optional" json:"apiName" yaml:"apiName"`
 	// The Authorization Types for this Event Api.
 	// Default: - none, required to construct event rules from imported APIs.
 	//

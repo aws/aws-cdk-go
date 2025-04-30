@@ -10,22 +10,29 @@ import (
 // not update an existing one. Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
 //
 // Example:
-//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
-//   	EnforceHttps: jsii.Boolean(true),
-//   	NodeToNodeEncryption: jsii.Boolean(true),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
+//   	Version: opensearch.EngineVersion_OPENSEARCH_2_17(),
 //   	EncryptionAtRest: &EncryptionAtRestOptions{
 //   		Enabled: jsii.Boolean(true),
 //   	},
-//   	FineGrainedAccessControl: &AdvancedSecurityOptions{
-//   		MasterUserName: jsii.String("master-user"),
-//   		SamlAuthenticationEnabled: jsii.Boolean(true),
-//   		SamlAuthenticationOptions: &SAMLOptionsProperty{
-//   			IdpEntityId: jsii.String("entity-id"),
-//   			IdpMetadataContent: jsii.String("metadata-content-with-quotes-escaped"),
-//   		},
+//   	NodeToNodeEncryption: jsii.Boolean(true),
+//   	EnforceHttps: jsii.Boolean(true),
+//   	Capacity: &CapacityConfig{
+//   		MultiAzWithStandbyEnabled: jsii.Boolean(false),
+//   	},
+//   	Ebs: &EbsOptions{
+//   		Enabled: jsii.Boolean(true),
+//   		VolumeSize: jsii.Number(10),
 //   	},
 //   })
+//   api := appsync.NewEventApi(this, jsii.String("EventApiOpenSearch"), &EventApiProps{
+//   	ApiName: jsii.String("OpenSearchEventApi"),
+//   })
+//
+//   dataSource := api.AddOpenSearchDataSource(jsii.String("opensearchds"), domain)
 //
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
