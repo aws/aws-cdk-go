@@ -4,18 +4,15 @@ package awscdkamplifyalpha
 // Options for a custom rewrite/redirect rule for an Amplify App.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import amplify_alpha "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
+//   import "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
 //
-//   customRuleOptions := &CustomRuleOptions{
-//   	Source: jsii.String("source"),
-//   	Target: jsii.String("target"),
+//   var amplifyApp app
 //
-//   	// the properties below are optional
-//   	Condition: jsii.String("condition"),
-//   	Status: amplify_alpha.RedirectStatus_REWRITE,
-//   }
+//   amplifyApp.AddCustomRule(awscdkamplifyalpha.NewCustomRule(&CustomRuleOptions{
+//   	Source: jsii.String("/docs/specific-filename.html"),
+//   	Target: jsii.String("/documents/different-filename.html"),
+//   	Status: amplify.RedirectStatus_TEMPORARY_REDIRECT,
+//   }))
 //
 // Experimental.
 type CustomRuleOptions struct {

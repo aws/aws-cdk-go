@@ -14,6 +14,22 @@ type jsiiProxy_Manifest struct {
 	_ byte // padding
 }
 
+// Return the CLI version that supports this Cloud Assembly Schema version.
+func Manifest_CliVersion() *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"cliVersion",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Load and validates the cloud assembly manifest from file.
 func Manifest_LoadAssemblyManifest(filePath *string, options *LoadManifestOptions) *AssemblyManifest {
 	_init_.Initialize()

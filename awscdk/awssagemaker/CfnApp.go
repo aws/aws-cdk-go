@@ -25,6 +25,7 @@ import (
 //   	UserProfileName: jsii.String("userProfileName"),
 //
 //   	// the properties below are optional
+//   	RecoveryMode: jsii.Boolean(false),
 //   	ResourceSpec: &ResourceSpecProperty{
 //   		InstanceType: jsii.String("instanceType"),
 //   		LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
@@ -53,6 +54,8 @@ type CfnApp interface {
 	SetAppType(val *string)
 	// The Amazon Resource Name (ARN) of the app, such as `arn:aws:sagemaker:us-west-2:account-id:app/my-app-name` .
 	AttrAppArn() *string
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	AttrBuiltInLifecycleConfigArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,6 +80,9 @@ type CfnApp interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Indicates whether the application is launched in recovery mode.
+	RecoveryMode() interface{}
+	SetRecoveryMode(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -274,6 +280,16 @@ func (j *jsiiProxy_CfnApp) AttrAppArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) AttrBuiltInLifecycleConfigArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrBuiltInLifecycleConfigArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -339,6 +355,16 @@ func (j *jsiiProxy_CfnApp) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApp) RecoveryMode() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"recoveryMode",
 		&returns,
 	)
 	return returns
@@ -481,6 +507,17 @@ func (j *jsiiProxy_CfnApp)SetDomainId(val *string) {
 	_jsii_.Set(
 		j,
 		"domainId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApp)SetRecoveryMode(val interface{}) {
+	if err := j.validateSetRecoveryModeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"recoveryMode",
 		val,
 	)
 }

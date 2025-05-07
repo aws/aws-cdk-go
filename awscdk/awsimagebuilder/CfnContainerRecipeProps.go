@@ -81,7 +81,9 @@ type CfnContainerRecipeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The base image for the container recipe.
+	// The base image for customizations specified in the container recipe.
+	//
+	// This can contain an Image Builder image resource ARN or a container image URI, for example `amazonlinux:latest` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
 	//
 	ParentImage *string `field:"required" json:"parentImage" yaml:"parentImage"`

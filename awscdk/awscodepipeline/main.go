@@ -244,6 +244,10 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_EncryptionKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.EnvironmentVariableProperty",
+		reflect.TypeOf((*CfnPipeline_EnvironmentVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.FailureConditionsProperty",
 		reflect.TypeOf((*CfnPipeline_FailureConditionsProperty)(nil)).Elem(),
 	)

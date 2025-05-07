@@ -14,8 +14,19 @@ package awssagemaker
 //   	HiddenAppTypes: []*string{
 //   		jsii.String("hiddenAppTypes"),
 //   	},
+//   	HiddenInstanceTypes: []*string{
+//   		jsii.String("hiddenInstanceTypes"),
+//   	},
 //   	HiddenMlTools: []*string{
 //   		jsii.String("hiddenMlTools"),
+//   	},
+//   	HiddenSageMakerImageVersionAliases: []interface{}{
+//   		&HiddenSageMakerImageProperty{
+//   			SageMakerImageName: jsii.String("sageMakerImageName"),
+//   			VersionAliases: []*string{
+//   				jsii.String("versionAliases"),
+//   			},
+//   		},
 //   	},
 //   }
 //
@@ -26,9 +37,17 @@ type CfnUserProfile_StudioWebPortalSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddenapptypes
 	//
 	HiddenAppTypes *[]*string `field:"optional" json:"hiddenAppTypes" yaml:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddeninstancetypes
+	//
+	HiddenInstanceTypes *[]*string `field:"optional" json:"hiddenInstanceTypes" yaml:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddenmltools
 	//
 	HiddenMlTools *[]*string `field:"optional" json:"hiddenMlTools" yaml:"hiddenMlTools"`
+	// The version aliases you are hiding from the Studio user interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddensagemakerimageversionaliases
+	//
+	HiddenSageMakerImageVersionAliases interface{} `field:"optional" json:"hiddenSageMakerImageVersionAliases" yaml:"hiddenSageMakerImageVersionAliases"`
 }
 

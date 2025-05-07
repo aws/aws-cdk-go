@@ -34,6 +34,7 @@ import (
 //   		},
 //   	},
 //   	UserSettings: &UserSettingsProperty{
+//   		AutoMountHomeEfs: jsii.String("autoMountHomeEfs"),
 //   		CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
 //   			AppLifecycleManagement: &AppLifecycleManagementProperty{
 //   				IdleSettings: &IdleSettingsProperty{
@@ -43,6 +44,7 @@ import (
 //   					MinIdleTimeoutInMinutes: jsii.Number(123),
 //   				},
 //   			},
+//   			BuiltInLifecycleConfigArn: jsii.String("builtInLifecycleConfigArn"),
 //   			CustomImages: []interface{}{
 //   				&CustomImageProperty{
 //   					AppImageConfigName: jsii.String("appImageConfigName"),
@@ -93,6 +95,7 @@ import (
 //   					MinIdleTimeoutInMinutes: jsii.Number(123),
 //   				},
 //   			},
+//   			BuiltInLifecycleConfigArn: jsii.String("builtInLifecycleConfigArn"),
 //   			CodeRepositories: []interface{}{
 //   				&CodeRepositoryProperty{
 //   					RepositoryUrl: jsii.String("repositoryUrl"),
@@ -171,8 +174,19 @@ import (
 //   			HiddenAppTypes: []*string{
 //   				jsii.String("hiddenAppTypes"),
 //   			},
+//   			HiddenInstanceTypes: []*string{
+//   				jsii.String("hiddenInstanceTypes"),
+//   			},
 //   			HiddenMlTools: []*string{
 //   				jsii.String("hiddenMlTools"),
+//   			},
+//   			HiddenSageMakerImageVersionAliases: []interface{}{
+//   				&HiddenSageMakerImageProperty{
+//   					SageMakerImageName: jsii.String("sageMakerImageName"),
+//   					VersionAliases: []*string{
+//   						jsii.String("versionAliases"),
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},

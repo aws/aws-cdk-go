@@ -29,6 +29,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html
 //
 type CfnConnectionGroupProps struct {
+	// The name of the connection group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html#cfn-cloudfront-connectiongroup-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -36,9 +37,11 @@ type CfnConnectionGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html#cfn-cloudfront-connectiongroup-anycastiplistid
 	//
 	AnycastIpListId *string `field:"optional" json:"anycastIpListId" yaml:"anycastIpListId"`
+	// Whether the connection group is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html#cfn-cloudfront-connectiongroup-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// IPv6 is enabled for the connection group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html#cfn-cloudfront-connectiongroup-ipv6enabled
 	//
 	Ipv6Enabled interface{} `field:"optional" json:"ipv6Enabled" yaml:"ipv6Enabled"`

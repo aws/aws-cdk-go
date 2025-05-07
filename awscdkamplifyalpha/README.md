@@ -105,13 +105,15 @@ Auto build and pull request preview are enabled by default.
 Add custom rules for redirection:
 
 ```go
+import "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
+
 var amplifyApp app
 
-amplifyApp.AddCustomRule(map[string]interface{}{
-	"source": jsii.String("/docs/specific-filename.html"),
-	"target": jsii.String("/documents/different-filename.html"),
-	"status": amplify.RedirectStatus_TEMPORARY_REDIRECT,
-})
+amplifyApp.AddCustomRule(awscdkamplifyalpha.NewCustomRule(&CustomRuleOptions{
+	Source: jsii.String("/docs/specific-filename.html"),
+	Target: jsii.String("/documents/different-filename.html"),
+	Status: amplify.RedirectStatus_TEMPORARY_REDIRECT,
+}))
 ```
 
 When working with a single page application (SPA), use the

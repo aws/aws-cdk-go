@@ -241,6 +241,10 @@ func init() {
 		reflect.TypeOf((*CfnDistributionConfiguration_LaunchTemplateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration.SsmParameterConfigurationProperty",
+		reflect.TypeOf((*CfnDistributionConfiguration_SsmParameterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnDistributionConfiguration.TargetContainerRepositoryProperty",
 		reflect.TypeOf((*CfnDistributionConfiguration_TargetContainerRepositoryProperty)(nil)).Elem(),
 	)

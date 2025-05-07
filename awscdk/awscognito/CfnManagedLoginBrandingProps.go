@@ -60,7 +60,7 @@ type CfnManagedLoginBrandingProps struct {
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
 	// When true, applies the default branding style options.
 	//
-	// This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+	// This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
 	//
 	// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-usecognitoprovidedvalues

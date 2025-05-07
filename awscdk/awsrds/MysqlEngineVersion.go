@@ -701,6 +701,17 @@ func MysqlEngineVersion_VER_8_0_41() MysqlEngineVersion {
 	return returns
 }
 
+func MysqlEngineVersion_VER_8_0_42() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_8_0_42",
+		&returns,
+	)
+	return returns
+}
+
 func MysqlEngineVersion_VER_8_4_3() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
@@ -718,6 +729,17 @@ func MysqlEngineVersion_VER_8_4_4() MysqlEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
 		"VER_8_4_4",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_8_4_5() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_8_4_5",
 		&returns,
 	)
 	return returns

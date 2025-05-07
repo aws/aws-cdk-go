@@ -215,6 +215,10 @@ const (
 	InstanceClass_MEMORY8_GRAVITON InstanceClass = "MEMORY8_GRAVITON"
 	// Memory optimized instances with Graviton4 processors.
 	InstanceClass_R8G InstanceClass = "R8G"
+	// Memory optimized instances, 8th generation with Graviton4 processors and local NVME drive.
+	InstanceClass_MEMORY8_GRAVITON4_NVME_DRIVE InstanceClass = "MEMORY8_GRAVITON4_NVME_DRIVE"
+	// Memory optimized instances, 8th generation with Graviton4 processors and local NVME drive.
+	InstanceClass_R8GD InstanceClass = "R8GD"
 	// Compute optimized instances, 3rd generation.
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	// Compute optimized instances, 3rd generation.
@@ -287,6 +291,10 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_C7GD InstanceClass = "C7GD"
+	// Compute optimized instances for high performance computing, 8th generation with Graviton4 processors and local NVME drive.
+	InstanceClass_COMPUTE8_GRAVITON4_NVME_DRIVE InstanceClass = "COMPUTE8_GRAVITON4_NVME_DRIVE"
+	// Compute optimized instances for high performance computing, 8th generation with Graviton4 processors and local NVME drive.
+	InstanceClass_C8GD InstanceClass = "C8GD"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and high network bandwidth capabilities.
 	InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and high network bandwidth capabilities.
@@ -559,6 +567,10 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_M7GD InstanceClass = "M7GD"
+	// Standard instances, 8th generation with Graviton4 processors and local NVME drive.
+	InstanceClass_STANDARD8_GRAVITON4_NVME_DRIVE InstanceClass = "STANDARD8_GRAVITON4_NVME_DRIVE"
+	// Standard instances, 8th generation with Graviton4 processors and local NVME drive.
+	InstanceClass_M8GD InstanceClass = "M8GD"
 	// Standard instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
 	InstanceClass_STANDARD7_INTEL InstanceClass = "STANDARD7_INTEL"
 	// Standard instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.

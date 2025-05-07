@@ -28,6 +28,12 @@ type EndpointConfiguration struct {
 	// Default: EndpointType.EDGE
 	//
 	Types *[]EndpointType `field:"required" json:"types" yaml:"types"`
+	// The IP address types that can invoke the API.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-ip-address-type.html
+	//
+	// Default: undefined - AWS default is DUAL_STACK for private API, IPV4 for all other APIs.
+	//
+	IpAddressType IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// A list of VPC Endpoints against which to create Route53 ALIASes.
 	// Default: - no ALIASes are created for the endpoint.
 	//

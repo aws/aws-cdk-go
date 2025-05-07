@@ -47,6 +47,15 @@ package awsimagebuilder
 //   	LicenseConfigurationArns: []*string{
 //   		jsii.String("licenseConfigurationArns"),
 //   	},
+//   	SsmParameterConfigurations: []interface{}{
+//   		&SsmParameterConfigurationProperty{
+//   			ParameterName: jsii.String("parameterName"),
+//
+//   			// the properties below are optional
+//   			AmiAccountId: jsii.String("amiAccountId"),
+//   			DataType: jsii.String("dataType"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
@@ -84,5 +93,9 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
 	//
 	LicenseConfigurationArns *[]*string `field:"optional" json:"licenseConfigurationArns" yaml:"licenseConfigurationArns"`
+	// Contains settings to update AWS Systems Manager (SSM) Parameter Store Parameters with output AMI IDs from the build by target Region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-ssmparameterconfigurations
+	//
+	SsmParameterConfigurations interface{} `field:"optional" json:"ssmParameterConfigurations" yaml:"ssmParameterConfigurations"`
 }
 

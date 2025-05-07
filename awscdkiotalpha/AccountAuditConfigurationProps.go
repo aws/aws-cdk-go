@@ -7,12 +7,16 @@ import (
 // Properties for defining AWS IoT Audit Configuration.
 //
 // Example:
-//   // Audit notification are sent to the SNS topic
-//   var targetTopic iTopic
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &AccountAuditConfigurationProps{
-//   	TargetTopic: TargetTopic,
+//   	CheckConfiguration: &CheckConfiguration{
+//   		DeviceCertificateAgeCheck: jsii.Boolean(true),
+//   		// The default value is 365 days
+//   		// Valid values range from 30 days (minimum) to 3652 days (10 years, maximum)
+//   		DeviceCertificateAgeCheckDuration: awscdk.Duration_Days(jsii.Number(365)),
+//   	},
 //   })
 //
 // Experimental.

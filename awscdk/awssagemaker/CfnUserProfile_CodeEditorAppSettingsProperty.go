@@ -19,6 +19,7 @@ package awssagemaker
 //   			MinIdleTimeoutInMinutes: jsii.Number(123),
 //   		},
 //   	},
+//   	BuiltInLifecycleConfigArn: jsii.String("builtInLifecycleConfigArn"),
 //   	CustomImages: []interface{}{
 //   		&CustomImageProperty{
 //   			AppImageConfigName: jsii.String("appImageConfigName"),
@@ -46,6 +47,10 @@ type CfnUserProfile_CodeEditorAppSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-applifecyclemanagement
 	//
 	AppLifecycleManagement interface{} `field:"optional" json:"appLifecycleManagement" yaml:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-builtinlifecycleconfigarn
+	//
+	BuiltInLifecycleConfigArn *string `field:"optional" json:"builtInLifecycleConfigArn" yaml:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker images that are configured to run as a Code Editor app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-customimages
 	//

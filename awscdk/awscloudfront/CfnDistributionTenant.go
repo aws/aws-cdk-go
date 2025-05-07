@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::CloudFront::DistributionTenant.
+// The distribution tenant.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -66,13 +66,18 @@ type CfnDistributionTenant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the distribution tenant.
 	AttrArn() *string
+	// The date and time when the distribution tenant was created.
 	AttrCreatedTime() *string
 	AttrDomainResults() awscdk.IResolvable
-	// A complex type that contains `Tag` key and `Tag` value.
+	// The current version of the distribution tenant.
 	AttrETag() *string
+	// The ID of the distribution tenant.
 	AttrId() *string
+	// The date and time when the distribution tenant was updated.
 	AttrLastModifiedTime() *string
+	// The status of the distribution tenant.
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -81,19 +86,23 @@ type CfnDistributionTenant interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The ID of the connection group for the distribution tenant.
 	ConnectionGroupId() *string
 	SetConnectionGroupId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Customizations for the distribution tenant.
 	Customizations() interface{}
 	SetCustomizations(val interface{})
-	// The distribution's identifier.
+	// The ID of the multi-tenant distribution.
 	DistributionId() *string
 	SetDistributionId(val *string)
+	// The domains associated with the distribution tenant.
 	Domains() *[]*string
 	SetDomains(val *[]*string)
+	// Indicates whether the distribution tenant is in an enabled state.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -106,12 +115,15 @@ type CfnDistributionTenant interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest() interface{}
 	SetManagedCertificateRequest(val interface{})
+	// The name of the distribution tenant.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// A list of parameter values to add to the resource.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

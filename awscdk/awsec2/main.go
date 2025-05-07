@@ -592,6 +592,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clientCidrBlock", GoGetter: "ClientCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "clientConnectOptions", GoGetter: "ClientConnectOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "clientLoginBannerOptions", GoGetter: "ClientLoginBannerOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "clientRouteEnforcementOptions", GoGetter: "ClientRouteEnforcementOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "connectionLogOptions", GoGetter: "ConnectionLogOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -647,6 +648,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientLoginBannerOptionsProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientRouteEnforcementOptionsProperty",
+		reflect.TypeOf((*CfnClientVpnEndpoint_ClientRouteEnforcementOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ConnectionLogOptionsProperty",
@@ -8057,6 +8062,8 @@ func init() {
 			"R7A": InstanceClass_R7A,
 			"MEMORY8_GRAVITON": InstanceClass_MEMORY8_GRAVITON,
 			"R8G": InstanceClass_R8G,
+			"MEMORY8_GRAVITON4_NVME_DRIVE": InstanceClass_MEMORY8_GRAVITON4_NVME_DRIVE,
+			"R8GD": InstanceClass_R8GD,
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"C3": InstanceClass_C3,
 			"COMPUTE4": InstanceClass_COMPUTE4,
@@ -8089,6 +8096,8 @@ func init() {
 			"C6GD": InstanceClass_C6GD,
 			"COMPUTE7_GRAVITON3_NVME_DRIVE": InstanceClass_COMPUTE7_GRAVITON3_NVME_DRIVE,
 			"C7GD": InstanceClass_C7GD,
+			"COMPUTE8_GRAVITON4_NVME_DRIVE": InstanceClass_COMPUTE8_GRAVITON4_NVME_DRIVE,
+			"C8GD": InstanceClass_C8GD,
 			"COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH": InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWIDTH,
 			"C6GN": InstanceClass_C6GN,
 			"COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH": InstanceClass_COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH,
@@ -8215,6 +8224,8 @@ func init() {
 			"M8G": InstanceClass_M8G,
 			"STANDARD7_GRAVITON3_NVME_DRIVE": InstanceClass_STANDARD7_GRAVITON3_NVME_DRIVE,
 			"M7GD": InstanceClass_M7GD,
+			"STANDARD8_GRAVITON4_NVME_DRIVE": InstanceClass_STANDARD8_GRAVITON4_NVME_DRIVE,
+			"M8GD": InstanceClass_M8GD,
 			"STANDARD7_INTEL": InstanceClass_STANDARD7_INTEL,
 			"M7I": InstanceClass_M7I,
 			"STANDARD7_INTEL_FLEX": InstanceClass_STANDARD7_INTEL_FLEX,

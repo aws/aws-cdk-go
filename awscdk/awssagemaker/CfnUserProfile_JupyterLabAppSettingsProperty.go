@@ -17,6 +17,7 @@ package awssagemaker
 //   			MinIdleTimeoutInMinutes: jsii.Number(123),
 //   		},
 //   	},
+//   	BuiltInLifecycleConfigArn: jsii.String("builtInLifecycleConfigArn"),
 //   	CodeRepositories: []interface{}{
 //   		&CodeRepositoryProperty{
 //   			RepositoryUrl: jsii.String("repositoryUrl"),
@@ -49,6 +50,10 @@ type CfnUserProfile_JupyterLabAppSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-applifecyclemanagement
 	//
 	AppLifecycleManagement interface{} `field:"optional" json:"appLifecycleManagement" yaml:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-builtinlifecycleconfigarn
+	//
+	BuiltInLifecycleConfigArn *string `field:"optional" json:"builtInLifecycleConfigArn" yaml:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-coderepositories
 	//

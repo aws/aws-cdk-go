@@ -32,7 +32,7 @@ type CfnProfileResourceAssociation interface {
 	awscdk.IInspectable
 	// ID of the Profile resource association.
 	AttrId() *string
-	// Resource type, such as a private hosted zone, or DNS Firewall rule group.
+	// Resource type, such as a private hosted zone, interface VPC endpoint, or DNS Firewall rule group.
 	AttrResourceType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

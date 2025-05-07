@@ -8,10 +8,10 @@ package awscdk
 //
 //
 //   app := awscdk.NewApp(&AppProps{
-//   	DefaultStackSynthesizer: awscdkappstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
+//   	DefaultStackSynthesizer: appstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
 //   		AppId: jsii.String("my-app-id"),
 //   		StagingBucketEncryption: awscdk.BucketEncryption_S3_MANAGED,
-//   		DeploymentIdentities: *awscdkappstagingsynthesizeralpha.DeploymentIdentities_CliCredentials(),
+//   		DeploymentIdentities: appstagingsynthesizeralpha.DeploymentIdentities_CliCredentials(),
 //   	}),
 //   })
 //

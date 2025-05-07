@@ -40,6 +40,8 @@ type CfnCluster interface {
 	AttrResourceArn() *string
 	// The status of the cluster.
 	AttrStatus() *string
+	// The VPC endpoint service name.
+	AttrVpcEndpointServiceName() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -259,6 +261,16 @@ func (j *jsiiProxy_CfnCluster) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrVpcEndpointServiceName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEndpointServiceName",
 		&returns,
 	)
 	return returns

@@ -86,6 +86,7 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		IpAddressType: awscdk.*Aws_apigateway.IpAddressType_IPV4,
 //   		VpcEndpoints: []iVpcEndpoint{
 //   			vpcEndpoint,
 //   		},

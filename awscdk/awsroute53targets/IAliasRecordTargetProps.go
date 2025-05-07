@@ -10,6 +10,10 @@ type IAliasRecordTargetProps interface {
 	// Default: - no health check configuration.
 	//
 	EvaluateTargetHealth() *bool
+	// Target Hosted zone ID.
+	// Default: - hosted zone ID for the EBS endpoint will be retrieved based on the stack's region.
+	//
+	HostedZoneId() *string
 }
 
 // The jsii proxy for IAliasRecordTargetProps
@@ -22,6 +26,16 @@ func (j *jsiiProxy_IAliasRecordTargetProps) EvaluateTargetHealth() *bool {
 	_jsii_.Get(
 		j,
 		"evaluateTargetHealth",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAliasRecordTargetProps) HostedZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"hostedZoneId",
 		&returns,
 	)
 	return returns

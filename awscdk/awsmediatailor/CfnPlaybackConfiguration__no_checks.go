@@ -80,6 +80,10 @@ func validateCfnPlaybackConfiguration_IsConstructParameters(x interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdConditioningConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdDecisionServerUrlParameters(val *string) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// A storage location in an S3 bucket.
+// A storage location in an Amazon S3 bucket.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

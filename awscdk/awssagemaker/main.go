@@ -22,6 +22,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "appName", GoGetter: "AppName"},
 			_jsii_.MemberProperty{JsiiProperty: "appType", GoGetter: "AppType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAppArn", GoGetter: "AttrAppArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBuiltInLifecycleConfigArn", GoGetter: "AttrBuiltInLifecycleConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -35,6 +36,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "recoveryMode", GoGetter: "RecoveryMode"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -3063,6 +3065,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.FSxLustreFileSystemConfigProperty",
 		reflect.TypeOf((*CfnUserProfile_FSxLustreFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.HiddenSageMakerImageProperty",
+		reflect.TypeOf((*CfnUserProfile_HiddenSageMakerImageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.IdleSettingsProperty",

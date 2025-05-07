@@ -36,9 +36,11 @@ type CfnContainerRecipe_InstanceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
 	//
 	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
-	// The AMI ID to use as the base image for a container build and test instance.
+	// The base image for a container build and test instance.
 	//
-	// If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+	// This can contain an AMI ID or it can specify an AWS Systems Manager (SSM) Parameter Store Parameter, prefixed by `ssm:` , followed by the parameter name or ARN.
+	//
+	// If not specified, Image Builder uses the appropriate ECS-optimized AMI as a base image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
 	//
 	Image *string `field:"optional" json:"image" yaml:"image"`

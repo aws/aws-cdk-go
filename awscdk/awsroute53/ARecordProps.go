@@ -7,17 +7,17 @@ import (
 // Construction properties for a ARecord.
 //
 // Example:
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var zone hostedZone
-//   var lb applicationLoadBalancer
+//   var ebsEnvironmentUrl string
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
 //   	Target: route53.RecordTarget_FromAlias(
-//   	targets.NewLoadBalancerTarget(lb, map[string]*bool{
-//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*string{
+//   		"hostedZoneId": awscdk.RegionInfo_get(jsii.String("us-east-1")).ebsEnvEndpointHostedZoneId,
 //   	})),
 //   })
 //

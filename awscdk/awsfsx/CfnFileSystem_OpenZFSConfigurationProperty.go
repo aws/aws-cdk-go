@@ -142,9 +142,8 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
 	// Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps).
 	//
-	// Valid values depend on the `DeploymentType` and `StorageType` that you choose, as follows:
+	// Valid values depend on the `DeploymentType` that you choose, as follows:
 	//
-	// - For `INTELIGENT_TIERING` , valid values are 1280, 2560, 3840, 5120, 7680, or 10240 MBps.
 	// - For `MULTI_AZ_1` and `SINGLE_AZ_2` , valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.
 	// - For `SINGLE_AZ_1` , valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.
 	//

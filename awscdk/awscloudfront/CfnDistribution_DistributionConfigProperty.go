@@ -336,6 +336,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// Default: - "".
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// The connection mode to filter distributions by.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-connectionmode
 	//
 	ConnectionMode *string `field:"optional" json:"connectionMode" yaml:"connectionMode"`
@@ -453,6 +454,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-staging
 	//
 	Staging interface{} `field:"optional" json:"staging" yaml:"staging"`
+	// A distribution tenant configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-tenantconfig
 	//
 	TenantConfig interface{} `field:"optional" json:"tenantConfig" yaml:"tenantConfig"`

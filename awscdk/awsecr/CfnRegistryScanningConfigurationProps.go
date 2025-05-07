@@ -27,8 +27,6 @@ package awsecr
 //
 type CfnRegistryScanningConfigurationProps struct {
 	// The scanning rules associated with the registry.
-	//
-	// A registry scanning configuration may contain a maximum of 2 rules.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registryscanningconfiguration.html#cfn-ecr-registryscanningconfiguration-rules
 	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`

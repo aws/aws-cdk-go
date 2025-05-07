@@ -56,9 +56,7 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-maintenance
 	//
 	Maintenance interface{} `field:"optional" json:"maintenance" yaml:"maintenance"`
-	// A name for this audio selector.
-	//
-	// The AudioDescription (in an output) references this name in order to identify a specific input audio to include in that output.
+	// Name of channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

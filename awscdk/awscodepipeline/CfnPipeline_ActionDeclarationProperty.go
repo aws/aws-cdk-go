@@ -24,6 +24,12 @@ package awscodepipeline
 //   		jsii.String("commands"),
 //   	},
 //   	Configuration: configuration,
+//   	EnvironmentVariables: []interface{}{
+//   		&EnvironmentVariableProperty{
+//   			Name: jsii.String("name"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	InputArtifacts: []interface{}{
 //   		&InputArtifactProperty{
 //   			Name: jsii.String("name"),
@@ -80,6 +86,10 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
+	// The environment variables for the action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-environmentvariables
+	//
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact.
 	//
 	// While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .

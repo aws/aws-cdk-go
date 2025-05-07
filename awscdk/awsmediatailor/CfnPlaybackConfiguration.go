@@ -24,6 +24,9 @@ import (
 //   	VideoContentSourceUrl: jsii.String("videoContentSourceUrl"),
 //
 //   	// the properties below are optional
+//   	AdConditioningConfiguration: &AdConditioningConfigurationProperty{
+//   		StreamingMediaFileConditioning: jsii.String("streamingMediaFileConditioning"),
+//   	},
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
@@ -74,6 +77,9 @@ type CfnPlaybackConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+	AdConditioningConfiguration() interface{}
+	SetAdConditioningConfiguration(val interface{})
 	// The URL for the ad decision server (ADS).
 	AdDecisionServerUrl() *string
 	SetAdDecisionServerUrl(val *string)
@@ -312,6 +318,16 @@ type jsiiProxy_CfnPlaybackConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) AdConditioningConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"adConditioningConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnPlaybackConfiguration) AdDecisionServerUrl() *string {
@@ -649,6 +665,17 @@ func NewCfnPlaybackConfiguration_Override(c CfnPlaybackConfiguration, scope cons
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetAdConditioningConfiguration(val interface{}) {
+	if err := j.validateSetAdConditioningConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"adConditioningConfiguration",
+		val,
 	)
 }
 

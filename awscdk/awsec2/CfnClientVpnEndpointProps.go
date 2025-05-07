@@ -51,6 +51,9 @@ package awsec2
 //   		// the properties below are optional
 //   		BannerText: jsii.String("bannerText"),
 //   	},
+//   	ClientRouteEnforcementOptions: &ClientRouteEnforcementOptionsProperty{
+//   		Enforced: jsii.Boolean(false),
+//   	},
 //   	Description: jsii.String("description"),
 //   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
@@ -116,6 +119,9 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientloginbanneroptions
 	//
 	ClientLoginBannerOptions interface{} `field:"optional" json:"clientLoginBannerOptions" yaml:"clientLoginBannerOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientrouteenforcementoptions
+	//
+	ClientRouteEnforcementOptions interface{} `field:"optional" json:"clientRouteEnforcementOptions" yaml:"clientRouteEnforcementOptions"`
 	// A brief description of the Client VPN endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description
 	//

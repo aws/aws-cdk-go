@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR).
-//
-// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+// The scanning configuration for a private registry.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,7 +36,7 @@ import (
 type CfnRegistryScanningConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The registry id.
+	// The account ID of the destination registry.
 	AttrRegistryId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

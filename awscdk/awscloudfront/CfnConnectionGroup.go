@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionGroup.
+// The connection group for your distribution tenants.
+//
+// When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,15 +42,21 @@ type CfnConnectionGroup interface {
 	// The ID of the Anycast static IP list.
 	AnycastIpListId() *string
 	SetAnycastIpListId(val *string)
+	// The Amazon Resource Name (ARN) of the connection group.
 	AttrArn() *string
+	// The date and time when the connection group was created.
 	AttrCreatedTime() *string
-	// A complex type that contains `Tag` key and `Tag` value.
+	// The current version of the connection group.
 	AttrETag() *string
+	// The ID of the connection group.
 	AttrId() *string
+	// Whether the connection group is the default connection group for the distribution tenants.
 	AttrIsDefault() awscdk.IResolvable
+	// The date and time when the connection group was updated.
 	AttrLastModifiedTime() *string
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+	// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
 	AttrRoutingEndpoint() *string
+	// The status of the connection group.
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -61,8 +69,10 @@ type CfnConnectionGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Whether the connection group is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	// IPv6 is enabled for the connection group.
 	Ipv6Enabled() interface{}
 	SetIpv6Enabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -75,6 +85,7 @@ type CfnConnectionGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the connection group.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

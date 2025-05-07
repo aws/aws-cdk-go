@@ -58,30 +58,43 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html
 //
 type CfnDistributionTenantProps struct {
-	// The distribution's identifier.
-	//
-	// For example: `E1U5RQF7T870K0` .
+	// The ID of the multi-tenant distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-distributionid
 	//
 	DistributionId *string `field:"required" json:"distributionId" yaml:"distributionId"`
+	// The domains associated with the distribution tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-domains
 	//
 	Domains *[]*string `field:"required" json:"domains" yaml:"domains"`
+	// The name of the distribution tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The ID of the connection group for the distribution tenant.
+	//
+	// If you don't specify a connection group, CloudFront uses the default connection group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-connectiongroupid
 	//
 	ConnectionGroupId *string `field:"optional" json:"connectionGroupId" yaml:"connectionGroupId"`
+	// Customizations for the distribution tenant.
+	//
+	// For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-customizations
 	//
 	Customizations interface{} `field:"optional" json:"customizations" yaml:"customizations"`
+	// Indicates whether the distribution tenant is in an enabled state.
+	//
+	// If disabled, the distribution tenant won't serve traffic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-managedcertificaterequest
 	//
 	ManagedCertificateRequest interface{} `field:"optional" json:"managedCertificateRequest" yaml:"managedCertificateRequest"`
+	// A list of parameter values to add to the resource.
+	//
+	// A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html#cfn-cloudfront-distributiontenant-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

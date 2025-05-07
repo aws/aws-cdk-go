@@ -198,6 +198,7 @@ func init() {
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration",
 		reflect.TypeOf((*CfnPlaybackConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "adConditioningConfiguration", GoGetter: "AdConditioningConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
@@ -257,6 +258,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.AdConditioningConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_AdConditioningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.AdMarkerPassthroughProperty",

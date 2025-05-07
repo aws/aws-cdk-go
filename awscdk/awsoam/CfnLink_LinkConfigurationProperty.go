@@ -20,7 +20,7 @@ package awsoam
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html
 //
 type CfnLink_LinkConfigurationProperty struct {
-	// Use this structure to filter which log groups are to send log events from the source account to the monitoring account.
+	// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html#cfn-oam-link-linkconfiguration-loggroupconfiguration
 	//
 	LogGroupConfiguration interface{} `field:"optional" json:"logGroupConfiguration" yaml:"logGroupConfiguration"`

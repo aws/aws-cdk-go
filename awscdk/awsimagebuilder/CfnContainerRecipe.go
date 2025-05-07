@@ -134,7 +134,7 @@ type CfnContainerRecipe interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The base image for the container recipe.
+	// The base image for customizations specified in the container recipe.
 	ParentImage() *string
 	SetParentImage(val *string)
 	// Specifies the operating system platform when you use a custom base image.

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnApp) validateSetDomainIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnApp) validateSetRecoveryModeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApp) validateSetResourceSpecParameters(val interface{}) error {
 	return nil
 }

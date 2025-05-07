@@ -8,14 +8,18 @@ import (
 // Type union for a record that accepts multiple types of target.
 //
 // Example:
-//   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myZone hostedZone
-//   var distribution cloudFrontWebDistribution
+//   var zone hostedZone
+//   var ebsEnvironmentUrl string
 //
-//   route53.NewAaaaRecord(this, jsii.String("Alias"), &AaaaRecordProps{
-//   	Zone: myZone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewCloudFrontTarget(distribution)),
+//
+//   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+//   	Zone: Zone,
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*string{
+//   		"hostedZoneId": awscdk.RegionInfo_get(jsii.String("us-east-1")).ebsEnvEndpointHostedZoneId,
+//   	})),
 //   })
 //
 type RecordTarget interface {

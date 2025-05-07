@@ -54,6 +54,15 @@ import (
 //   			LicenseConfigurationArns: []*string{
 //   				jsii.String("licenseConfigurationArns"),
 //   			},
+//   			SsmParameterConfigurations: []interface{}{
+//   				&SsmParameterConfigurationProperty{
+//   					ParameterName: jsii.String("parameterName"),
+//
+//   					// the properties below are optional
+//   					AmiAccountId: jsii.String("amiAccountId"),
+//   					DataType: jsii.String("dataType"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),

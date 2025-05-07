@@ -83,7 +83,7 @@ type CfnChannel interface {
 	// Maintenance settings for this channel.
 	Maintenance() interface{}
 	SetMaintenance(val interface{})
-	// A name for this audio selector.
+	// Name of channel.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

@@ -34,7 +34,7 @@ package awsoam
 type CfnLinkProps struct {
 	// An array of strings that define which types of data that the source account shares with the monitoring account.
 	//
-	// Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+	// Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-resourcetypes
 	//
 	ResourceTypes *[]*string `field:"required" json:"resourceTypes" yaml:"resourceTypes"`
@@ -50,7 +50,9 @@ type CfnLinkProps struct {
 	//
 	// - `$AccountName` is the name of the account
 	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
-	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`.
+	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	//
+	// > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-labeltemplate
 	//
 	LabelTemplate *string `field:"optional" json:"labelTemplate" yaml:"labelTemplate"`

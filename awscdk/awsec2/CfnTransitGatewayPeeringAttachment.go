@@ -76,10 +76,10 @@ type CfnTransitGatewayPeeringAttachment interface {
 	// The ID of the AWS account that owns the transit gateway.
 	PeerAccountId() *string
 	SetPeerAccountId(val *string)
-	// The Region of the transit gateway.
+	// The Region where the transit gateway that you want to create the peer for is located.
 	PeerRegion() *string
 	SetPeerRegion(val *string)
-	// The ID of the transit gateway.
+	// The ID of the transit gateway in the PeerRegion.
 	PeerTransitGatewayId() *string
 	SetPeerTransitGatewayId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

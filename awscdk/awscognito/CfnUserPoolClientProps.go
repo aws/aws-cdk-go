@@ -47,6 +47,10 @@ package awscognito
 //   	ReadAttributes: []*string{
 //   		jsii.String("readAttributes"),
 //   	},
+//   	RefreshTokenRotation: &RefreshTokenRotationProperty{
+//   		Feature: jsii.String("feature"),
+//   		RetryGracePeriodSeconds: jsii.Number(123),
+//   	},
 //   	RefreshTokenValidity: jsii.Number(123),
 //   	SupportedIdentityProviders: []*string{
 //   		jsii.String("supportedIdentityProviders"),
@@ -229,6 +233,9 @@ type CfnUserPoolClientProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-readattributes
 	//
 	ReadAttributes *[]*string `field:"optional" json:"readAttributes" yaml:"readAttributes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenrotation
+	//
+	RefreshTokenRotation interface{} `field:"optional" json:"refreshTokenRotation" yaml:"refreshTokenRotation"`
 	// The refresh token time limit.
 	//
 	// After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.

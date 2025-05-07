@@ -129,6 +129,7 @@ iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &Accou
 		// disabled
 		CaCertificateKeyQualityCheck: jsii.Boolean(false),
 		ConflictingClientIdsCheck: jsii.Boolean(false),
+		DeviceCertificateAgeCheck: jsii.Boolean(false),
 		DeviceCertificateExpiringCheck: jsii.Boolean(false),
 		DeviceCertificateKeyQualityCheck: jsii.Boolean(false),
 		DeviceCertificateSharedCheck: jsii.Boolean(false),
@@ -141,6 +142,22 @@ iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &Accou
 		RevokedCaCertificateStillActiveCheck: jsii.Boolean(false),
 		RevokedDeviceCertificateStillActiveCheck: jsii.Boolean(false),
 		UnauthenticatedCognitoRoleOverlyPermissiveCheck: jsii.Boolean(false),
+	},
+})
+```
+
+To configure [the device certificate age check](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/device-certificate-age-check.html), you can specify the duration for the check:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &AccountAuditConfigurationProps{
+	CheckConfiguration: &CheckConfiguration{
+		DeviceCertificateAgeCheck: jsii.Boolean(true),
+		// The default value is 365 days
+		// Valid values range from 30 days (minimum) to 3652 days (10 years, maximum)
+		DeviceCertificateAgeCheckDuration: awscdk.Duration_Days(jsii.Number(365)),
 	},
 })
 ```

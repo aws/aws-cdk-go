@@ -271,6 +271,30 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetGenerateSecretParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserPoolClient) validateSetRefreshTokenRotationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnUserPoolClient_RefreshTokenRotationProperty:
+		val := val.(*CfnUserPoolClient_RefreshTokenRotationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnUserPoolClient_RefreshTokenRotationProperty:
+		val_ := val.(CfnUserPoolClient_RefreshTokenRotationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolClient_RefreshTokenRotationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserPoolClient) validateSetTokenValidityUnitsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

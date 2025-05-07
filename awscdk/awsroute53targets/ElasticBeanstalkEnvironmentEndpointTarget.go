@@ -13,6 +13,8 @@ import (
 // Only supports Elastic Beanstalk environments created after 2016 that have a regional endpoint.
 //
 // Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var zone hostedZone
 //   var ebsEnvironmentUrl string
 //
@@ -20,8 +22,8 @@ import (
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
 //   	Target: route53.RecordTarget_FromAlias(
-//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*bool{
-//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*string{
+//   		"hostedZoneId": awscdk.RegionInfo_get(jsii.String("us-east-1")).ebsEnvEndpointHostedZoneId,
 //   	})),
 //   })
 //

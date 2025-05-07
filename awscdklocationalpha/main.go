@@ -9,6 +9,70 @@ import (
 
 func init() {
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.AllowMapsAction",
+		reflect.TypeOf((*AllowMapsAction)(nil)).Elem(),
+		map[string]interface{}{
+			"GET_STATIC_MAP": AllowMapsAction_GET_STATIC_MAP,
+			"GET_TILE": AllowMapsAction_GET_TILE,
+			"ANY": AllowMapsAction_ANY,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.AllowPlacesAction",
+		reflect.TypeOf((*AllowPlacesAction)(nil)).Elem(),
+		map[string]interface{}{
+			"AUTOCOMPLETE": AllowPlacesAction_AUTOCOMPLETE,
+			"GEOCODE": AllowPlacesAction_GEOCODE,
+			"GET_PLACE": AllowPlacesAction_GET_PLACE,
+			"REVERSE_GEOCODE": AllowPlacesAction_REVERSE_GEOCODE,
+			"SEARCH_NEARBY": AllowPlacesAction_SEARCH_NEARBY,
+			"SEARCH_TEXT": AllowPlacesAction_SEARCH_TEXT,
+			"SUGGEST": AllowPlacesAction_SUGGEST,
+			"ANY": AllowPlacesAction_ANY,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.AllowRoutesAction",
+		reflect.TypeOf((*AllowRoutesAction)(nil)).Elem(),
+		map[string]interface{}{
+			"CALCULATE_ISOLINES": AllowRoutesAction_CALCULATE_ISOLINES,
+			"CALCULATE_ROUTES": AllowRoutesAction_CALCULATE_ROUTES,
+			"CALCULATE_ROUTE_MATRIX": AllowRoutesAction_CALCULATE_ROUTE_MATRIX,
+			"OPTIMIZE_WAYPOINTS": AllowRoutesAction_OPTIMIZE_WAYPOINTS,
+			"SNAP_TO_ROADS": AllowRoutesAction_SNAP_TO_ROADS,
+			"ANY": AllowRoutesAction_ANY,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-location-alpha.ApiKey",
+		reflect.TypeOf((*ApiKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyArn", GoGetter: "ApiKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyCreateTime", GoGetter: "ApiKeyCreateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyName", GoGetter: "ApiKeyName"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyUpdateTime", GoGetter: "ApiKeyUpdateTime"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiKey)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-location-alpha.ApiKeyProps",
+		reflect.TypeOf((*ApiKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-location-alpha.CustomLayer",
 		reflect.TypeOf((*CustomLayer)(nil)).Elem(),
 		map[string]interface{}{
@@ -54,6 +118,23 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-location-alpha.GeofenceCollectionProps",
 		reflect.TypeOf((*GeofenceCollectionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-location-alpha.IApiKey",
+		reflect.TypeOf((*IApiKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyArn", GoGetter: "ApiKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyName", GoGetter: "ApiKeyName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApiKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-location-alpha.IGeofenceCollection",

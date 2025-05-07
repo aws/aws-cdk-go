@@ -1,7 +1,7 @@
 package awscloudfront
 
 
-// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +19,7 @@ package awscloudfront
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
 //
 type CfnRealtimeLogConfig_EndPointProperty struct {
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
 	//
 	KinesisStreamConfig interface{} `field:"required" json:"kinesisStreamConfig" yaml:"kinesisStreamConfig"`

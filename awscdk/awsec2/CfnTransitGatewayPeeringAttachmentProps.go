@@ -33,11 +33,11 @@ type CfnTransitGatewayPeeringAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
 	//
 	PeerAccountId *string `field:"required" json:"peerAccountId" yaml:"peerAccountId"`
-	// The Region of the transit gateway.
+	// The Region where the transit gateway that you want to create the peer for is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
 	//
 	PeerRegion *string `field:"required" json:"peerRegion" yaml:"peerRegion"`
-	// The ID of the transit gateway.
+	// The ID of the transit gateway in the PeerRegion.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
 	//
 	PeerTransitGatewayId *string `field:"required" json:"peerTransitGatewayId" yaml:"peerTransitGatewayId"`

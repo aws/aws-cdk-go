@@ -165,6 +165,8 @@ type CfnUserPoolClient interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	RefreshTokenRotation() interface{}
+	SetRefreshTokenRotation(val interface{})
 	// The refresh token time limit.
 	RefreshTokenValidity() *float64
 	SetRefreshTokenValidity(val *float64)
@@ -600,6 +602,16 @@ func (j *jsiiProxy_CfnUserPoolClient) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolClient) RefreshTokenRotation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"refreshTokenRotation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolClient) RefreshTokenValidity() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -855,6 +867,17 @@ func (j *jsiiProxy_CfnUserPoolClient)SetReadAttributes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"readAttributes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPoolClient)SetRefreshTokenRotation(val interface{}) {
+	if err := j.validateSetRefreshTokenRotationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"refreshTokenRotation",
 		val,
 	)
 }

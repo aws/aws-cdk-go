@@ -8,11 +8,11 @@ package awss3
 //
 //
 //   app := awscdk.NewApp(&AppProps{
-//   	DefaultStackSynthesizer: awscdkappstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
+//   	DefaultStackSynthesizer: appstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
 //   		AppId: jsii.String("my-app-id"),
 //   		StagingBucketEncryption: awscdk.BucketEncryption_S3_MANAGED,
-//   		FileAssetPublishingRole: *awscdkappstagingsynthesizeralpha.BootstrapRole_FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/S3Access")),
-//   		ImageAssetPublishingRole: *awscdkappstagingsynthesizeralpha.BootstrapRole_*FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/ECRAccess")),
+//   		FileAssetPublishingRole: appstagingsynthesizeralpha.BootstrapRole_FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/S3Access")),
+//   		ImageAssetPublishingRole: appstagingsynthesizeralpha.BootstrapRole_*FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/ECRAccess")),
 //   	}),
 //   })
 //

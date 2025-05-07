@@ -132,6 +132,7 @@ func init() {
 		reflect.TypeOf((*IAliasRecordTargetProps)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "evaluateTargetHealth", GoGetter: "EvaluateTargetHealth"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
 		},
 		func() interface{} {
 			return &jsiiProxy_IAliasRecordTargetProps{}

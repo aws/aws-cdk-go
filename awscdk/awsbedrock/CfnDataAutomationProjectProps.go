@@ -31,8 +31,32 @@ import (
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	OverrideConfiguration: &OverrideConfigurationProperty{
+//   		Audio: &AudioOverrideConfigurationProperty{
+//   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   		},
 //   		Document: &DocumentOverrideConfigurationProperty{
+//   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
+//   				State: jsii.String("state"),
+//   			},
 //   			Splitter: &SplitterConfigurationProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   		},
+//   		Image: &ImageOverrideConfigurationProperty{
+//   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   		},
+//   		ModalityRouting: &ModalityRoutingConfigurationProperty{
+//   			Jpeg: jsii.String("jpeg"),
+//   			Mov: jsii.String("mov"),
+//   			Mp4: jsii.String("mp4"),
+//   			Png: jsii.String("png"),
+//   		},
+//   		Video: &VideoOverrideConfigurationProperty{
+//   			ModalityProcessing: &ModalityProcessingConfigurationProperty{
 //   				State: jsii.String("state"),
 //   			},
 //   		},

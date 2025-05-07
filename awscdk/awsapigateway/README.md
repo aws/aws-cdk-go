@@ -1815,6 +1815,22 @@ api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 })
 ```
 
+You can also configure [endpoint IP address type](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-ip-address-type.html).
+The default value is `IpAddressType.DUAL_STACK` for private API, and `IpAddressType.IPV4` for regional and edge-optimized API.
+
+```go
+api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
+	EndpointConfiguration: &EndpointConfiguration{
+		Types: []endpointType{
+			apigateway.*endpointType_REGIONAL,
+		},
+		IpAddressType: apigateway.IpAddressType_DUAL_STACK,
+	},
+})
+```
+
+**Note**: If creating a private API, the `IPV4` IP address type is not supported.
+
 You can also create an association between your Rest API and a VPC endpoint. By doing so,
 API Gateway will generate a new
 Route53 Alias DNS record which you can use to invoke your private APIs. More info can be found

@@ -411,6 +411,10 @@ func init() {
 		reflect.TypeOf((*CfnDataAutomationProject_AudioExtractionCategoryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.AudioOverrideConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_AudioOverrideConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.AudioStandardExtractionProperty",
 		reflect.TypeOf((*CfnDataAutomationProject_AudioStandardExtractionProperty)(nil)).Elem(),
 	)
@@ -475,6 +479,10 @@ func init() {
 		reflect.TypeOf((*CfnDataAutomationProject_ImageExtractionCategoryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.ImageOverrideConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_ImageOverrideConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.ImageStandardExtractionProperty",
 		reflect.TypeOf((*CfnDataAutomationProject_ImageStandardExtractionProperty)(nil)).Elem(),
 	)
@@ -485,6 +493,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.ImageStandardOutputConfigurationProperty",
 		reflect.TypeOf((*CfnDataAutomationProject_ImageStandardOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.ModalityProcessingConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_ModalityProcessingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.ModalityRoutingConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_ModalityRoutingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.OverrideConfigurationProperty",
@@ -505,6 +521,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.VideoExtractionCategoryProperty",
 		reflect.TypeOf((*CfnDataAutomationProject_VideoExtractionCategoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.VideoOverrideConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationProject_VideoOverrideConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataAutomationProject.VideoStandardExtractionProperty",

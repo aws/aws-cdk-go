@@ -1,7 +1,9 @@
 package awsecr
 
 
-// The details of a scanning repository filter.
+// The filter settings used with image replication.
+//
+// Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

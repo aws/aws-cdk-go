@@ -32,6 +32,12 @@ import (
 //   						jsii.String("commands"),
 //   					},
 //   					Configuration: configuration,
+//   					EnvironmentVariables: []interface{}{
+//   						&EnvironmentVariableProperty{
+//   							Name: jsii.String("name"),
+//   							Value: jsii.String("value"),
+//   						},
+//   					},
 //   					InputArtifacts: []interface{}{
 //   						&InputArtifactProperty{
 //   							Name: jsii.String("name"),

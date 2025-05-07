@@ -13,6 +13,7 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   userSettingsProperty := &UserSettingsProperty{
+//   	AutoMountHomeEfs: jsii.String("autoMountHomeEfs"),
 //   	CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
 //   		AppLifecycleManagement: &AppLifecycleManagementProperty{
 //   			IdleSettings: &IdleSettingsProperty{
@@ -22,6 +23,7 @@ package awssagemaker
 //   				MinIdleTimeoutInMinutes: jsii.Number(123),
 //   			},
 //   		},
+//   		BuiltInLifecycleConfigArn: jsii.String("builtInLifecycleConfigArn"),
 //   		CustomImages: []interface{}{
 //   			&CustomImageProperty{
 //   				AppImageConfigName: jsii.String("appImageConfigName"),
@@ -72,6 +74,7 @@ package awssagemaker
 //   				MinIdleTimeoutInMinutes: jsii.Number(123),
 //   			},
 //   		},
+//   		BuiltInLifecycleConfigArn: jsii.String("builtInLifecycleConfigArn"),
 //   		CodeRepositories: []interface{}{
 //   			&CodeRepositoryProperty{
 //   				RepositoryUrl: jsii.String("repositoryUrl"),
@@ -150,8 +153,19 @@ package awssagemaker
 //   		HiddenAppTypes: []*string{
 //   			jsii.String("hiddenAppTypes"),
 //   		},
+//   		HiddenInstanceTypes: []*string{
+//   			jsii.String("hiddenInstanceTypes"),
+//   		},
 //   		HiddenMlTools: []*string{
 //   			jsii.String("hiddenMlTools"),
+//   		},
+//   		HiddenSageMakerImageVersionAliases: []interface{}{
+//   			&HiddenSageMakerImageProperty{
+//   				SageMakerImageName: jsii.String("sageMakerImageName"),
+//   				VersionAliases: []*string{
+//   					jsii.String("versionAliases"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -159,6 +173,10 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
 //
 type CfnUserProfile_UserSettingsProperty struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-automounthomeefs
+	//
+	AutoMountHomeEfs *string `field:"optional" json:"autoMountHomeEfs" yaml:"autoMountHomeEfs"`
 	// The Code Editor application settings.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.

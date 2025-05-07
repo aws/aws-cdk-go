@@ -18,6 +18,7 @@ import (
 //   	UserProfileName: jsii.String("userProfileName"),
 //
 //   	// the properties below are optional
+//   	RecoveryMode: jsii.Boolean(false),
 //   	ResourceSpec: &ResourceSpecProperty{
 //   		InstanceType: jsii.String("instanceType"),
 //   		LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
@@ -51,6 +52,10 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
 	//
 	UserProfileName *string `field:"required" json:"userProfileName" yaml:"userProfileName"`
+	// Indicates whether the application is launched in recovery mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-recoverymode
+	//
+	RecoveryMode interface{} `field:"optional" json:"recoveryMode" yaml:"recoveryMode"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
 	//

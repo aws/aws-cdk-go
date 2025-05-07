@@ -232,4 +232,45 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 })
 ```
 
+If Elastic Beanstalk environment URL is not avaiable at synth time, you can specify Hosted Zone ID of the target
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var zone hostedZone
+var ebsEnvironmentUrl string
+
+
+route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+	Zone: Zone,
+	Target: route53.RecordTarget_FromAlias(
+	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*string{
+		"hostedZoneId": awscdk.RegionInfo_get(jsii.String("us-east-1")).ebsEnvEndpointHostedZoneId,
+	})),
+})
+```
+
+Or you can specify Stack region for CDK to generate the correct Hosted Zone ID.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var app app
+var zone hostedZone
+var ebsEnvironmentUrl string
+
+
+stack := awscdk.Newstack(app, jsii.String("my-stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-east-1"),
+	},
+})
+
+route53.NewARecord(stack, jsii.String("AliasRecord"), &ARecordProps{
+	Zone: Zone,
+	Target: route53.RecordTarget_FromAlias(
+	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl)),
+})
+```
+
 See the documentation of `aws-cdk-lib/aws-route53` for more information.

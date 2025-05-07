@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetGenerateSecretParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserPoolClient) validateSetRefreshTokenRotationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserPoolClient) validateSetTokenValidityUnitsParameters(val interface{}) error {
 	return nil
 }

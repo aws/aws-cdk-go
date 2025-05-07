@@ -61,6 +61,9 @@ import (
 //   		// the properties below are optional
 //   		BannerText: jsii.String("bannerText"),
 //   	},
+//   	ClientRouteEnforcementOptions: &ClientRouteEnforcementOptionsProperty{
+//   		Enforced: jsii.Boolean(false),
+//   	},
 //   	Description: jsii.String("description"),
 //   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
@@ -111,6 +114,8 @@ type CfnClientVpnEndpoint interface {
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions() interface{}
 	SetClientLoginBannerOptions(val interface{})
+	ClientRouteEnforcementOptions() interface{}
+	SetClientRouteEnforcementOptions(val interface{})
 	// Information about the client connection logging options.
 	ConnectionLogOptions() interface{}
 	SetConnectionLogOptions(val interface{})
@@ -401,6 +406,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) ClientLoginBannerOptions() interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) ClientRouteEnforcementOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"clientRouteEnforcementOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) ConnectionLogOptions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -669,6 +684,17 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientLoginBannerOptions(val interfac
 	_jsii_.Set(
 		j,
 		"clientLoginBannerOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientRouteEnforcementOptions(val interface{}) {
+	if err := j.validateSetClientRouteEnforcementOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"clientRouteEnforcementOptions",
 		val,
 	)
 }

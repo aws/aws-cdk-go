@@ -19,6 +19,9 @@ import (
 //   	VideoContentSourceUrl: jsii.String("videoContentSourceUrl"),
 //
 //   	// the properties below are optional
+//   	AdConditioningConfiguration: &AdConditioningConfigurationProperty{
+//   		StreamingMediaFileConditioning: jsii.String("streamingMediaFileConditioning"),
+//   	},
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
@@ -82,6 +85,10 @@ type CfnPlaybackConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-videocontentsourceurl
 	//
 	VideoContentSourceUrl *string `field:"required" json:"videoContentSourceUrl" yaml:"videoContentSourceUrl"`
+	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-adconditioningconfiguration
+	//
+	AdConditioningConfiguration interface{} `field:"optional" json:"adConditioningConfiguration" yaml:"adConditioningConfiguration"`
 	// The configuration for avail suppression, also known as ad suppression.
 	//
 	// For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .

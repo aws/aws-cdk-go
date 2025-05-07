@@ -582,6 +582,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "preventUserExistenceErrors", GoGetter: "PreventUserExistenceErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "readAttributes", GoGetter: "ReadAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "refreshTokenRotation", GoGetter: "RefreshTokenRotation"},
 			_jsii_.MemberProperty{JsiiProperty: "refreshTokenValidity", GoGetter: "RefreshTokenValidity"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -607,6 +608,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPoolClient.AnalyticsConfigurationProperty",
 		reflect.TypeOf((*CfnUserPoolClient_AnalyticsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient.RefreshTokenRotationProperty",
+		reflect.TypeOf((*CfnUserPoolClient_RefreshTokenRotationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPoolClient.TokenValidityUnitsProperty",

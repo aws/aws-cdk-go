@@ -240,6 +240,17 @@ func FoundationModelIdentifier_AMAZON_NOVA_MICRO_V1_0_128_K() FoundationModelIde
 	return returns
 }
 
+func FoundationModelIdentifier_AMAZON_NOVA_PREMIER_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_PREMIER_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_NOVA_PRO_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1175,6 +1186,28 @@ func FoundationModelIdentifier_META_LLAMA_3_8B_INSTRUCT_V1() FoundationModelIden
 	return returns
 }
 
+func FoundationModelIdentifier_META_LLAMA_4_MAVERICK_17B_INSTRUCT_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_4_MAVERICK_17B_INSTRUCT_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_4_SCOUT_17B_INSTRUCT_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_4_SCOUT_17B_INSTRUCT_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_MISTRAL_LARGE_2_V0_1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1346,6 +1379,28 @@ func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_ULTRA_V1_1() FoundationMod
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"STABILITY_STABLE_IMAGE_ULTRA_V1_1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_WRITER_PALMYRA_X4_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"WRITER_PALMYRA_X4_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_WRITER_PALMYRA_X5_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"WRITER_PALMYRA_X5_V1_0",
 		&returns,
 	)
 	return returns
