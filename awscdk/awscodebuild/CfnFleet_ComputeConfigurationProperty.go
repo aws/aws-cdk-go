@@ -12,6 +12,7 @@ package awscodebuild
 //
 //   computeConfigurationProperty := &ComputeConfigurationProperty{
 //   	Disk: jsii.Number(123),
+//   	InstanceType: jsii.String("instanceType"),
 //   	MachineType: jsii.String("machineType"),
 //   	Memory: jsii.Number(123),
 //   	VCpu: jsii.Number(123),
@@ -24,6 +25,10 @@ type CfnFleet_ComputeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-disk
 	//
 	Disk *float64 `field:"optional" json:"disk" yaml:"disk"`
+	// The EC2 instance type to be launched in your fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-instancetype
+	//
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The machine type of the instance type included in your fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html#cfn-codebuild-fleet-computeconfiguration-machinetype
 	//

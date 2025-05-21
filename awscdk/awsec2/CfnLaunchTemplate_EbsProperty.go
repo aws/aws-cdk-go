@@ -17,6 +17,7 @@ package awsec2
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	SnapshotId: jsii.String("snapshotId"),
 //   	Throughput: jsii.Number(123),
+//   	VolumeInitializationRate: jsii.Number(123),
 //   	VolumeSize: jsii.Number(123),
 //   	VolumeType: jsii.String("volumeType"),
 //   }
@@ -64,6 +65,23 @@ type CfnLaunchTemplate_EbsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-throughput
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+	//
+	// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+	//
+	// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+	//
+	// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+	// - You want to create a volume that is initialized at the default rate.
+	//
+	// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+	//
+	// Valid range: 100 - 300 MiB/s.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumeinitializationrate
+	//
+	VolumeInitializationRate *float64 `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:

@@ -554,6 +554,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "domainIdentifier", GoGetter: "DomainIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "enabledRegions", GoGetter: "EnabledRegions"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentBlueprintIdentifier", GoGetter: "EnvironmentBlueprintIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "environmentRolePermissionBoundary", GoGetter: "EnvironmentRolePermissionBoundary"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -563,6 +564,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "provisioningConfigurations", GoGetter: "ProvisioningConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "provisioningRoleArn", GoGetter: "ProvisioningRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalParameters", GoGetter: "RegionalParameters"},
@@ -582,6 +584,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnEnvironmentBlueprintConfiguration.LakeFormationConfigurationProperty",
+		reflect.TypeOf((*CfnEnvironmentBlueprintConfiguration_LakeFormationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnEnvironmentBlueprintConfiguration.ProvisioningConfigurationProperty",
+		reflect.TypeOf((*CfnEnvironmentBlueprintConfiguration_ProvisioningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnEnvironmentBlueprintConfiguration.RegionalParameterProperty",
@@ -791,12 +801,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainId", GoGetter: "AttrDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedAt", GoGetter: "AttrLastUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProjectStatus", GoGetter: "AttrProjectStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "domainIdentifier", GoGetter: "DomainIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "domainUnitId", GoGetter: "DomainUnitId"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "glossaryTerms", GoGetter: "GlossaryTerms"},
@@ -807,6 +819,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "projectProfileId", GoGetter: "ProjectProfileId"},
+			_jsii_.MemberProperty{JsiiProperty: "projectProfileVersion", GoGetter: "ProjectProfileVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -816,6 +830,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "userParameters", GoGetter: "UserParameters"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -824,6 +839,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProject.EnvironmentConfigurationUserParameterProperty",
+		reflect.TypeOf((*CfnProject_EnvironmentConfigurationUserParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProject.EnvironmentParameterProperty",
+		reflect.TypeOf((*CfnProject_EnvironmentParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_datazone.CfnProjectMembership",

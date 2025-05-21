@@ -28,6 +28,9 @@ package awscodepipeline
 //   		&EnvironmentVariableProperty{
 //   			Name: jsii.String("name"),
 //   			Value: jsii.String("value"),
+//
+//   			// the properties below are optional
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	InputArtifacts: []interface{}{

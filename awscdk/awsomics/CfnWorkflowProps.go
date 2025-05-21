@@ -22,6 +22,7 @@ package awsomics
 //   		},
 //   	},
 //   	StorageCapacity: jsii.Number(123),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -61,6 +62,9 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-storagecapacity
 	//
 	StorageCapacity *float64 `field:"optional" json:"storageCapacity" yaml:"storageCapacity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-storagetype
+	//
+	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// Tags for the workflow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-tags
 	//

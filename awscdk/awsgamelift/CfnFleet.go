@@ -108,6 +108,12 @@ import (
 //   	ScriptId: jsii.String("scriptId"),
 //   	ServerLaunchParameters: jsii.String("serverLaunchParameters"),
 //   	ServerLaunchPath: jsii.String("serverLaunchPath"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
@@ -115,17 +121,24 @@ import (
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Amazon GameLift Servers Anywhere configuration options.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
 	// Current resource capacity settings for managed EC2 fleets and managed container fleets.
 	ApplyCapacity() *string
 	SetApplyCapacity(val *string)
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it.
+	//
+	// ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+	AttrFleetArn() *string
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
 	// A unique identifier for a build to be deployed on the new fleet.
 	BuildId() *string
 	SetBuildId(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Prompts Amazon GameLift Servers to generate a TLS/SSL certificate for the fleet.
 	CertificateConfiguration() interface{}
 	SetCertificateConfiguration(val interface{})
@@ -145,7 +158,9 @@ type CfnFleet interface {
 	Description() *string
 	SetDescription(val *string)
 	// The number of EC2 instances that you want this fleet to host.
+	// Deprecated: this property has been deprecated.
 	DesiredEc2Instances() *float64
+	// Deprecated: this property has been deprecated.
 	SetDesiredEc2Instances(val *float64)
 	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	Ec2InboundPermissions() interface{}
@@ -181,13 +196,17 @@ type CfnFleet interface {
 	// Deprecated: this property has been deprecated.
 	SetLogPaths(val *[]*string)
 	// The maximum number of instances that are allowed in the specified fleet location.
+	// Deprecated: this property has been deprecated.
 	MaxSize() *float64
+	// Deprecated: this property has been deprecated.
 	SetMaxSize(val *float64)
 	// The name of an AWS CloudWatch metric group to add this fleet to.
 	MetricGroups() *[]*string
 	SetMetricGroups(val *[]*string)
 	// The minimum number of instances that are allowed in the specified fleet location.
+	// Deprecated: this property has been deprecated.
 	MinSize() *float64
+	// Deprecated: this property has been deprecated.
 	SetMinSize(val *float64)
 	// A descriptive label that is associated with a fleet.
 	Name() *string
@@ -234,6 +253,9 @@ type CfnFleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -378,6 +400,7 @@ type CfnFleet interface {
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFleet) AnywhereConfiguration() interface{} {
@@ -400,6 +423,16 @@ func (j *jsiiProxy_CfnFleet) ApplyCapacity() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) AttrFleetArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFleetArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) AttrFleetId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -415,6 +448,16 @@ func (j *jsiiProxy_CfnFleet) BuildId() *string {
 	_jsii_.Get(
 		j,
 		"buildId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -740,6 +783,16 @@ func (j *jsiiProxy_CfnFleet) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1024,6 +1077,17 @@ func (j *jsiiProxy_CfnFleet)SetServerLaunchPath(val *string) {
 	_jsii_.Set(
 		j,
 		"serverLaunchPath",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

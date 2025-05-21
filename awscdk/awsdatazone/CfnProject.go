@@ -24,8 +24,23 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	DomainUnitId: jsii.String("domainUnitId"),
 //   	GlossaryTerms: []*string{
 //   		jsii.String("glossaryTerms"),
+//   	},
+//   	ProjectProfileId: jsii.String("projectProfileId"),
+//   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
+//   	UserParameters: []interface{}{
+//   		&EnvironmentConfigurationUserParameterProperty{
+//   			EnvironmentConfigurationName: jsii.String("environmentConfigurationName"),
+//   			EnvironmentId: jsii.String("environmentId"),
+//   			EnvironmentParameters: []interface{}{
+//   				&EnvironmentParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   })
 //
@@ -44,6 +59,7 @@ type CfnProject interface {
 	AttrId() *string
 	// The timestamp of when the project was last updated.
 	AttrLastUpdatedAt() *string
+	AttrProjectStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -59,6 +75,9 @@ type CfnProject interface {
 	// The identifier of a Amazon DataZone domain where the project exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	// The ID of the domain unit.
+	DomainUnitId() *string
+	SetDomainUnitId(val *string)
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms() *[]*string
 	SetGlossaryTerms(val *[]*string)
@@ -77,6 +96,12 @@ type CfnProject interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The project profile ID.
+	ProjectProfileId() *string
+	SetProjectProfileId(val *string)
+	// The project profile version to which the project should be updated.
+	ProjectProfileVersion() *string
+	SetProjectProfileVersion(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -99,6 +124,9 @@ type CfnProject interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The user parameters of the project.
+	UserParameters() interface{}
+	SetUserParameters(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -282,6 +310,16 @@ func (j *jsiiProxy_CfnProject) AttrLastUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) AttrProjectStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrProjectStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -342,6 +380,16 @@ func (j *jsiiProxy_CfnProject) DomainIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) DomainUnitId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainUnitId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) GlossaryTerms() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -382,6 +430,26 @@ func (j *jsiiProxy_CfnProject) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) ProjectProfileId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectProfileId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) ProjectProfileVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectProfileVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -417,6 +485,16 @@ func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) UserParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"userParameters",
 		&returns,
 	)
 	return returns
@@ -469,6 +547,14 @@ func (j *jsiiProxy_CfnProject)SetDomainIdentifier(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnProject)SetDomainUnitId(val *string) {
+	_jsii_.Set(
+		j,
+		"domainUnitId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnProject)SetGlossaryTerms(val *[]*string) {
 	_jsii_.Set(
 		j,
@@ -484,6 +570,33 @@ func (j *jsiiProxy_CfnProject)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetProjectProfileId(val *string) {
+	_jsii_.Set(
+		j,
+		"projectProfileId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetProjectProfileVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"projectProfileVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetUserParameters(val interface{}) {
+	if err := j.validateSetUserParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"userParameters",
 		val,
 	)
 }

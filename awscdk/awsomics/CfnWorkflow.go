@@ -38,6 +38,7 @@ import (
 //   		},
 //   	},
 //   	StorageCapacity: jsii.Number(123),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -61,6 +62,7 @@ type CfnWorkflow interface {
 	AttrStatus() *string
 	// The workflow's type.
 	AttrType() *string
+	AttrUuid() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -112,6 +114,8 @@ type CfnWorkflow interface {
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
 	StorageCapacity() *float64
 	SetStorageCapacity(val *float64)
+	StorageType() *string
+	SetStorageType(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Tags for the workflow.
@@ -324,6 +328,16 @@ func (j *jsiiProxy_CfnWorkflow) AttrType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) AttrUuid() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUuid",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -474,6 +488,16 @@ func (j *jsiiProxy_CfnWorkflow) StorageCapacity() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) StorageType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"storageType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -605,6 +629,14 @@ func (j *jsiiProxy_CfnWorkflow)SetStorageCapacity(val *float64) {
 	_jsii_.Set(
 		j,
 		"storageCapacity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetStorageType(val *string) {
+	_jsii_.Set(
+		j,
+		"storageType",
 		val,
 	)
 }

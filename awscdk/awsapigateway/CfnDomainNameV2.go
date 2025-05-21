@@ -30,6 +30,7 @@ import (
 //   		},
 //   	},
 //   	Policy: policy,
+//   	RoutingMode: jsii.String("routingMode"),
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -89,6 +90,9 @@ type CfnDomainNameV2 interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY].
+	RoutingMode() *string
+	SetRoutingMode(val *string)
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
@@ -386,6 +390,16 @@ func (j *jsiiProxy_CfnDomainNameV2) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainNameV2) RoutingMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"routingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainNameV2) SecurityPolicy() *string {
 	var returns *string
 	_jsii_.Get(
@@ -495,6 +509,14 @@ func (j *jsiiProxy_CfnDomainNameV2)SetPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"policy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainNameV2)SetRoutingMode(val *string) {
+	_jsii_.Set(
+		j,
+		"routingMode",
 		val,
 	)
 }

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Bedrock::IntelligentPromptRouter Resource Type.
+// Specifies an intelligent prompt router resource for Amazon Bedrock .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,15 +46,15 @@ type CfnIntelligentPromptRouter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Time Stamp.
+	// Indicates the time that the prompt router was created.
 	AttrCreatedAt() *string
-	// Arn of the Prompt Router.
+	// The Amazon Resource Name (ARN) of the prompt router.
 	AttrPromptRouterArn() *string
-	// Status of a PromptRouter.
+	// The router's status.
 	AttrStatus() *string
-	// Type of a Prompt Router.
+	// The router's type.
 	AttrType() *string
-	// Time Stamp.
+	// When the router was updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -67,10 +67,10 @@ type CfnIntelligentPromptRouter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Description of the Prompt Router.
+	// An optional description of the prompt router to help identify its purpose.
 	Description() *string
 	SetDescription(val *string)
-	// Model configuration.
+	// The default model to use when the routing criteria is not met.
 	FallbackModel() interface{}
 	SetFallbackModel(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -83,12 +83,12 @@ type CfnIntelligentPromptRouter interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// List of model configuration.
+	// A list of foundation models that the prompt router can route requests to.
 	Models() interface{}
 	SetModels(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// Name of the Prompt Router.
+	// The name of the prompt router.
 	PromptRouterName() *string
 	SetPromptRouterName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -103,7 +103,7 @@ type CfnIntelligentPromptRouter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// List of Tags.
+	// An array of key-value pairs to apply to this resource as tags.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

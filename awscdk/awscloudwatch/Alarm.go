@@ -398,6 +398,17 @@ func Alarm_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+func Alarm_ANOMALY_DETECTION_NO_THRESHOLD() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudwatch.Alarm",
+		"ANOMALY_DETECTION_NO_THRESHOLD",
+		&returns,
+	)
+	return returns
+}
+
 func Alarm_PROPERTY_INJECTION_ID() *string {
 	_init_.Initialize()
 	var returns *string

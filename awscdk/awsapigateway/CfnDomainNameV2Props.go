@@ -23,6 +23,7 @@ import (
 //   		},
 //   	},
 //   	Policy: policy,
+//   	RoutingMode: jsii.String("routingMode"),
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -55,6 +56,14 @@ type CfnDomainNameV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-policy
 	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
+	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY].
+	//
+	// All other inputs are invalid.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-routingmode
+	//
+	// Default: - "BASE_PATH_MAPPING_ONLY".
+	//
+	RoutingMode *string `field:"optional" json:"routingMode" yaml:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	//
 	// Only `TLS_1_2` is supported.

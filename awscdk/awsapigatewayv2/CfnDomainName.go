@@ -36,6 +36,7 @@ import (
 //   		TruststoreUri: jsii.String("truststoreUri"),
 //   		TruststoreVersion: jsii.String("truststoreVersion"),
 //   	},
+//   	RoutingMode: jsii.String("routingMode"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -90,6 +91,8 @@ type CfnDomainName interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	RoutingMode() *string
+	SetRoutingMode(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -376,6 +379,16 @@ func (j *jsiiProxy_CfnDomainName) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainName) RoutingMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"routingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainName) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -483,6 +496,14 @@ func (j *jsiiProxy_CfnDomainName)SetMutualTlsAuthentication(val interface{}) {
 	_jsii_.Set(
 		j,
 		"mutualTlsAuthentication",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainName)SetRoutingMode(val *string) {
+	_jsii_.Set(
+		j,
+		"routingMode",
 		val,
 	)
 }

@@ -1,5 +1,8 @@
 package awsgamelift
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnFleet`.
 //
@@ -98,6 +101,12 @@ package awsgamelift
 //   	ScriptId: jsii.String("scriptId"),
 //   	ServerLaunchParameters: jsii.String("serverLaunchParameters"),
 //   	ServerLaunchPath: jsii.String("serverLaunchPath"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
@@ -153,6 +162,7 @@ type CfnFleetProps struct {
 	// When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
 	//
+	// Deprecated: this property has been deprecated.
 	DesiredEc2Instances *float64 `field:"optional" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
 	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	//
@@ -202,6 +212,7 @@ type CfnFleetProps struct {
 	// If this parameter is not set, the default is 1.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
 	//
+	// Deprecated: this property has been deprecated.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
 	// The name of an AWS CloudWatch metric group to add this fleet to.
 	//
@@ -214,6 +225,7 @@ type CfnFleetProps struct {
 	// If this parameter is not set, the default is 0.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
 	//
+	// Deprecated: this property has been deprecated.
 	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
 	// The status of termination protection for active game sessions on the fleet.
 	//
@@ -276,5 +288,9 @@ type CfnFleetProps struct {
 	//
 	// Deprecated: this property has been deprecated.
 	ServerLaunchPath *string `field:"optional" json:"serverLaunchPath" yaml:"serverLaunchPath"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

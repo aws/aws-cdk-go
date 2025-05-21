@@ -11,6 +11,9 @@ package awscodepipeline
 //   environmentVariableProperty := &EnvironmentVariableProperty{
 //   	Name: jsii.String("name"),
 //   	Value: jsii.String("value"),
+//
+//   	// the properties below are optional
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-environmentvariable.html
@@ -24,5 +27,9 @@ type CfnPipeline_EnvironmentVariableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-environmentvariable.html#cfn-codepipeline-pipeline-environmentvariable-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`
+	// The type of the environment variable.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-environmentvariable.html#cfn-codepipeline-pipeline-environmentvariable-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

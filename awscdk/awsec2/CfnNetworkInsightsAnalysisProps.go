@@ -47,6 +47,7 @@ type CfnNetworkInsightsAnalysisProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
 	//
 	FilterInArns *[]*string `field:"optional" json:"filterInArns" yaml:"filterInArns"`
+	// The Amazon Resource Names (ARN) of the resources that the path must ignore.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filteroutarns
 	//
 	FilterOutArns *[]*string `field:"optional" json:"filterOutArns" yaml:"filterOutArns"`

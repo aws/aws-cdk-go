@@ -15,6 +15,7 @@ import (
 //   	BaseCapacity: jsii.Number(123),
 //   	ComputeConfiguration: &ComputeConfigurationProperty{
 //   		Disk: jsii.Number(123),
+//   		InstanceType: jsii.String("instanceType"),
 //   		MachineType: jsii.String("machineType"),
 //   		Memory: jsii.Number(123),
 //   		VCpu: jsii.Number(123),

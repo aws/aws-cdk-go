@@ -28,6 +28,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	EnablePrivateGua: jsii.Boolean(false),
+//   	MeteredAccount: jsii.String("meteredAccount"),
 //   	OperatingRegions: []interface{}{
 //   		&IpamOperatingRegionProperty{
 //   			RegionName: jsii.String("regionName"),
@@ -92,6 +93,9 @@ type CfnIPAM interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A metered account is an account that is charged for active IP addresses managed in IPAM.
+	MeteredAccount() *string
+	SetMeteredAccount(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The operating Regions for an IPAM.
@@ -421,6 +425,16 @@ func (j *jsiiProxy_CfnIPAM) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAM) MeteredAccount() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"meteredAccount",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAM) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -565,6 +579,14 @@ func (j *jsiiProxy_CfnIPAM)SetEnablePrivateGua(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enablePrivateGua",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAM)SetMeteredAccount(val *string) {
+	_jsii_.Set(
+		j,
+		"meteredAccount",
 		val,
 	)
 }

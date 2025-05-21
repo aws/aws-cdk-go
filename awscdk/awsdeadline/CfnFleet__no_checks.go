@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnFleet) validateSetFarmIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetHostConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetMaxWorkerCountParameters(val *float64) error {
 	return nil
 }

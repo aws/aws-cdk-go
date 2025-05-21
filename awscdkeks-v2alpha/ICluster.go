@@ -43,12 +43,6 @@ type ICluster interface {
 	// add the right policies to the instance role, apply the right tags, and add
 	// the required user data to the instance's launch configuration.
 	//
-	// Spot instances will be labeled `lifecycle=Ec2Spot` and tainted with `PreferNoSchedule`.
-	// If kubectl is enabled, the
-	// [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler)
-	// daemon will be installed on all spot instances to handle
-	// [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
-	//
 	// Prefer to use `addAutoScalingGroupCapacity` if possible.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 	//

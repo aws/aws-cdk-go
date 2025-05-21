@@ -151,6 +151,45 @@ func init() {
 		reflect.TypeOf((*AlarmWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.AnomalyDetectionAlarm",
+		reflect.TypeOf((*AnomalyDetectionAlarm)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addInsufficientDataAction", GoMethod: "AddInsufficientDataAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addOkAction", GoMethod: "AddOkAction"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmActionArns", GoGetter: "AlarmActionArns"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmArn", GoGetter: "AlarmArn"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmName", GoGetter: "AlarmName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "insufficientDataActionArns", GoGetter: "InsufficientDataActionArns"},
+			_jsii_.MemberProperty{JsiiProperty: "metric", GoGetter: "Metric"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "okActionArns", GoGetter: "OkActionArns"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAlarmRule", GoMethod: "RenderAlarmRule"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toAnnotation", GoMethod: "ToAnnotation"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AnomalyDetectionAlarm{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Alarm)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.AnomalyDetectionAlarmProps",
+		reflect.TypeOf((*AnomalyDetectionAlarmProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.AnomalyDetectionMetricOptions",
+		reflect.TypeOf((*AnomalyDetectionMetricOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
 		reflect.TypeOf((*CfnAlarm)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -23,13 +23,24 @@ import (
 // alarms and graphs.
 //
 // Example:
-//   var fn function
+//   // Create a metric
+//   metric := cloudwatch.NewMetric(&MetricProps{
+//   	Namespace: jsii.String("AWS/EC2"),
+//   	MetricName: jsii.String("CPUUtilization"),
+//   	Statistic: jsii.String("Average"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+//   })
 //
+//   // Create an anomaly detection alarm
+//   alarm := cloudwatch.NewAnomalyDetectionAlarm(this, jsii.String("AnomalyAlarm"), &AnomalyDetectionAlarmProps{
+//   	Metric: metric,
+//   	EvaluationPeriods: jsii.Number(1),
 //
-//   minuteErrorRate := fn.metricErrors(&MetricOptions{
-//   	Statistic: cloudwatch.Stats_AVERAGE(),
-//   	Period: awscdk.Duration_Minutes(jsii.Number(1)),
-//   	Label: jsii.String("Lambda failure rate"),
+//   	// Number of standard deviations for the band (default: 2)
+//   	StdDevs: jsii.Number(2),
+//   	// Alarm outside on either side of the band, or just below or above it (default: outside)
+//   	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
+//   	AlarmDescription: jsii.String("Alarm when metric is outside the expected band"),
 //   })
 //
 type Metric interface {
@@ -236,6 +247,27 @@ func NewMetric_Override(m Metric, props *MetricProps) {
 		[]interface{}{props},
 		m,
 	)
+}
+
+// Creates an anomaly detection metric from the provided metric.
+//
+// Returns: An anomaly detection metric.
+func Metric_AnomalyDetectionFor(props *AnomalyDetectionMetricOptions) MathExpression {
+	_init_.Initialize()
+
+	if err := validateMetric_AnomalyDetectionForParameters(props); err != nil {
+		panic(err)
+	}
+	var returns MathExpression
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.Metric",
+		"anomalyDetectionFor",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
 }
 
 // Grant permissions to the given identity to write metrics.

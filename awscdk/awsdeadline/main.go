@@ -89,6 +89,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "farmId", GoGetter: "FarmId"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "hostConfiguration", GoGetter: "HostConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxWorkerCount", GoGetter: "MaxWorkerCount"},
@@ -161,6 +162,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.FleetConfigurationProperty",
 		reflect.TypeOf((*CfnFleet_FleetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnFleet.HostConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_HostConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.MemoryMiBRangeProperty",

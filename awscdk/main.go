@@ -1844,6 +1844,7 @@ func init() {
 			"NODEJS_16_X": CustomResourceProviderRuntime_NODEJS_16_X,
 			"NODEJS_18_X": CustomResourceProviderRuntime_NODEJS_18_X,
 			"NODEJS_20_X": CustomResourceProviderRuntime_NODEJS_20_X,
+			"NODEJS_22_X": CustomResourceProviderRuntime_NODEJS_22_X,
 		},
 	)
 	_jsii_.RegisterClass(

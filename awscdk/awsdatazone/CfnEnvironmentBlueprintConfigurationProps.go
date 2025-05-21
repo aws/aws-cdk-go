@@ -16,7 +16,18 @@ package awsdatazone
 //   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
 //
 //   	// the properties below are optional
+//   	EnvironmentRolePermissionBoundary: jsii.String("environmentRolePermissionBoundary"),
 //   	ManageAccessRoleArn: jsii.String("manageAccessRoleArn"),
+//   	ProvisioningConfigurations: []interface{}{
+//   		&ProvisioningConfigurationProperty{
+//   			LakeFormationConfiguration: &LakeFormationConfigurationProperty{
+//   				LocationRegistrationExcludeS3Locations: []*string{
+//   					jsii.String("locationRegistrationExcludeS3Locations"),
+//   				},
+//   				LocationRegistrationRole: jsii.String("locationRegistrationRole"),
+//   			},
+//   		},
+//   	},
 //   	ProvisioningRoleArn: jsii.String("provisioningRoleArn"),
 //   	RegionalParameters: []interface{}{
 //   		&RegionalParameterProperty{
@@ -45,10 +56,16 @@ type CfnEnvironmentBlueprintConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-environmentblueprintidentifier
 	//
 	EnvironmentBlueprintIdentifier *string `field:"required" json:"environmentBlueprintIdentifier" yaml:"environmentBlueprintIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-environmentrolepermissionboundary
+	//
+	EnvironmentRolePermissionBoundary *string `field:"optional" json:"environmentRolePermissionBoundary" yaml:"environmentRolePermissionBoundary"`
 	// The ARN of the manage access role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-manageaccessrolearn
 	//
 	ManageAccessRoleArn *string `field:"optional" json:"manageAccessRoleArn" yaml:"manageAccessRoleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-provisioningconfigurations
+	//
+	ProvisioningConfigurations interface{} `field:"optional" json:"provisioningConfigurations" yaml:"provisioningConfigurations"`
 	// The ARN of the provisioning role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-provisioningrolearn
 	//

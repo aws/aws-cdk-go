@@ -82,6 +82,7 @@ type CfnNetworkInsightsAnalysis interface {
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
 	FilterInArns() *[]*string
 	SetFilterInArns(val *[]*string)
+	// The Amazon Resource Names (ARN) of the resources that the path must ignore.
 	FilterOutArns() *[]*string
 	SetFilterOutArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.

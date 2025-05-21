@@ -16,6 +16,10 @@ func (m *jsiiProxy_Metric) validateWithParameters(props *MetricOptions) error {
 	return nil
 }
 
+func validateMetric_AnomalyDetectionForParameters(props *AnomalyDetectionMetricOptions) error {
+	return nil
+}
+
 func validateMetric_GrantPutMetricDataParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

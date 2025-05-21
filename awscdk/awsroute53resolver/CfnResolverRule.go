@@ -20,7 +20,6 @@ import (
 //   	RuleType: jsii.String("ruleType"),
 //
 //   	// the properties below are optional
-//   	DelegationRecord: jsii.String("delegationRecord"),
 //   	DomainName: jsii.String("domainName"),
 //   	Name: jsii.String("name"),
 //   	ResolverEndpointId: jsii.String("resolverEndpointId"),
@@ -74,9 +73,6 @@ type CfnResolverRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The name server domain for queries to be delegated to if a query matches the delegation record.
-	DelegationRecord() *string
-	SetDelegationRecord(val *string)
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
 	DomainName() *string
 	SetDomainName(val *string)
@@ -365,16 +361,6 @@ func (j *jsiiProxy_CfnResolverRule) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRule) DelegationRecord() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"delegationRecord",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnResolverRule) DomainName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -530,14 +516,6 @@ func NewCfnResolverRule_Override(c CfnResolverRule, scope constructs.Construct, 
 		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnResolverRule)SetDelegationRecord(val *string) {
-	_jsii_.Set(
-		j,
-		"delegationRecord",
-		val,
 	)
 }
 

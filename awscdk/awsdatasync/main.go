@@ -774,6 +774,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "agentArns", GoGetter: "AgentArns"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConnectivityStatus", GoGetter: "AttrConnectivityStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecretsManagerArn", GoGetter: "AttrSecretsManagerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStorageSystemArn", GoGetter: "AttrStorageSystemArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

@@ -27,6 +27,7 @@ import (
 //   		SettingsGroup: jsii.String("settingsGroup"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	RunningMode: jsii.String("runningMode"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -67,6 +68,9 @@ type CfnWorkspacesPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-runningmode
+	//
+	RunningMode *string `field:"optional" json:"runningMode" yaml:"runningMode"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-tags
 	//
 	// Deprecated: this property has been deprecated.

@@ -49,6 +49,17 @@ func (m *jsiiProxy_Metric) validateWithParameters(props *MetricOptions) error {
 	return nil
 }
 
+func validateMetric_AnomalyDetectionForParameters(props *AnomalyDetectionMetricOptions) error {
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateMetric_GrantPutMetricDataParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

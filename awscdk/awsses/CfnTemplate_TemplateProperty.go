@@ -32,7 +32,7 @@ type CfnTemplate_TemplateProperty struct {
 	HtmlPart *string `field:"optional" json:"htmlPart" yaml:"htmlPart"`
 	// The name of the template.
 	//
-	// You will refer to this name when you send email using the `SendTemplatedEmail` or `SendBulkTemplatedEmail` operations.
+	// You will refer to this name when you send email using the `SendEmail` or `SendBulkEmail` operations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
 	//
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`

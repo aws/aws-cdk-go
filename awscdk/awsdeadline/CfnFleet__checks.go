@@ -222,6 +222,30 @@ func (j *jsiiProxy_CfnFleet) validateSetFarmIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetHostConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFleet_HostConfigurationProperty:
+		val := val.(*CfnFleet_HostConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFleet_HostConfigurationProperty:
+		val_ := val.(CfnFleet_HostConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_HostConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetMaxWorkerCountParameters(val *float64) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

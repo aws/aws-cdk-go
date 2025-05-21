@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnFleet) validateSetScalingPoliciesParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFleetParameters(scope constructs.Construct, id *string, props *CfnFleetProps) error {
 	return nil
 }

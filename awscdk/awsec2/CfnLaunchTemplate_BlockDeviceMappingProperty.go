@@ -21,6 +21,7 @@ package awsec2
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   		SnapshotId: jsii.String("snapshotId"),
 //   		Throughput: jsii.Number(123),
+//   		VolumeInitializationRate: jsii.Number(123),
 //   		VolumeSize: jsii.Number(123),
 //   		VolumeType: jsii.String("volumeType"),
 //   	},

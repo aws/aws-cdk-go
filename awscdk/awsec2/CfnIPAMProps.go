@@ -19,6 +19,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	EnablePrivateGua: jsii.Boolean(false),
+//   	MeteredAccount: jsii.String("meteredAccount"),
 //   	OperatingRegions: []interface{}{
 //   		&IpamOperatingRegionProperty{
 //   			RegionName: jsii.String("regionName"),
@@ -50,6 +51,10 @@ type CfnIPAMProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-enableprivategua
 	//
 	EnablePrivateGua interface{} `field:"optional" json:"enablePrivateGua" yaml:"enablePrivateGua"`
+	// A metered account is an account that is charged for active IP addresses managed in IPAM.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-meteredaccount
+	//
+	MeteredAccount *string `field:"optional" json:"meteredAccount" yaml:"meteredAccount"`
 	// The operating Regions for an IPAM.
 	//
 	// Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.

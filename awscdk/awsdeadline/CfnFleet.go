@@ -153,6 +153,12 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	HostConfiguration: &HostConfigurationProperty{
+//   		ScriptBody: jsii.String("scriptBody"),
+//
+//   		// the properties below are optional
+//   		ScriptTimeoutSeconds: jsii.Number(123),
+//   	},
 //   	MinWorkerCount: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -200,6 +206,8 @@ type CfnFleet interface {
 	// The farm ID.
 	FarmId() *string
 	SetFarmId(val *string)
+	HostConfiguration() interface{}
+	SetHostConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -520,6 +528,16 @@ func (j *jsiiProxy_CfnFleet) FarmId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) HostConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hostConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -685,6 +703,17 @@ func (j *jsiiProxy_CfnFleet)SetFarmId(val *string) {
 	_jsii_.Set(
 		j,
 		"farmId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetHostConfiguration(val interface{}) {
+	if err := j.validateSetHostConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hostConfiguration",
 		val,
 	)
 }

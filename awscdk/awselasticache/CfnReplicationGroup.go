@@ -172,7 +172,7 @@ type CfnReplicationGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Enabled or Disabled.
+	// The mode can be enabled or disabled.
 	ClusterMode() *string
 	SetClusterMode(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

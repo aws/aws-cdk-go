@@ -26,6 +26,7 @@ package awsapigatewayv2
 //   		TruststoreUri: jsii.String("truststoreUri"),
 //   		TruststoreVersion: jsii.String("truststoreVersion"),
 //   	},
+//   	RoutingMode: jsii.String("routingMode"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -48,6 +49,11 @@ type CfnDomainNameProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-mutualtlsauthentication
 	//
 	MutualTlsAuthentication interface{} `field:"optional" json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-routingmode
+	//
+	// Default: - "API_MAPPING_ONLY".
+	//
+	RoutingMode *string `field:"optional" json:"routingMode" yaml:"routingMode"`
 	// The collection of tags associated with a domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
 	//

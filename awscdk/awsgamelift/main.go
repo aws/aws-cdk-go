@@ -347,8 +347,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "anywhereConfiguration", GoGetter: "AnywhereConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applyCapacity", GoGetter: "ApplyCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFleetArn", GoGetter: "AttrFleetArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFleetId", GoGetter: "AttrFleetId"},
 			_jsii_.MemberProperty{JsiiProperty: "buildId", GoGetter: "BuildId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateConfiguration", GoGetter: "CertificateConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -391,6 +393,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serverLaunchPath", GoGetter: "ServerLaunchPath"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -400,6 +403,7 @@ func init() {
 			j := jsiiProxy_CfnFleet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

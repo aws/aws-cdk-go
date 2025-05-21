@@ -7,31 +7,24 @@ import (
 // Properties for a metric.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
+//   // Create a metric
 //   metric := cloudwatch.NewMetric(&MetricProps{
-//   	Namespace: jsii.String("MyNamespace"),
-//   	MetricName: jsii.String("MyMetric"),
-//   	DimensionsMap: map[string]*string{
-//   		"MyDimension": jsii.String("MyDimensionValue"),
-//   	},
-//   })
-//   alarm := cloudwatch.NewAlarm(this, jsii.String("MyAlarm"), &AlarmProps{
-//   	Metric: metric,
-//   	Threshold: jsii.Number(100),
-//   	EvaluationPeriods: jsii.Number(3),
-//   	DatapointsToAlarm: jsii.Number(2),
+//   	Namespace: jsii.String("AWS/EC2"),
+//   	MetricName: jsii.String("CPUUtilization"),
+//   	Statistic: jsii.String("Average"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
-//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
-//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
-//   	Actions: []iAction{
-//   		actions.NewCloudWatchSetAlarmStateAction(alarm, &CloudWatchSetAlarmStateActionProps{
-//   			Reason: jsii.String("AWS Iot Rule action is triggered"),
-//   			AlarmStateToSet: cloudwatch.AlarmState_ALARM,
-//   		}),
-//   	},
+//   // Create an anomaly detection alarm
+//   alarm := cloudwatch.NewAnomalyDetectionAlarm(this, jsii.String("AnomalyAlarm"), &AnomalyDetectionAlarmProps{
+//   	Metric: metric,
+//   	EvaluationPeriods: jsii.Number(1),
+//
+//   	// Number of standard deviations for the band (default: 2)
+//   	StdDevs: jsii.Number(2),
+//   	// Alarm outside on either side of the band, or just below or above it (default: outside)
+//   	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
+//   	AlarmDescription: jsii.String("Alarm when metric is outside the expected band"),
 //   })
 //
 type MetricProps struct {

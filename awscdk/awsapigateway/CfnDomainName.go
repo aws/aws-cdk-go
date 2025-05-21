@@ -35,6 +35,7 @@ import (
 //   	},
 //   	OwnershipVerificationCertificateArn: jsii.String("ownershipVerificationCertificateArn"),
 //   	RegionalCertificateArn: jsii.String("regionalCertificateArn"),
+//   	RoutingMode: jsii.String("routingMode"),
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -60,6 +61,9 @@ type CfnDomainName interface {
 	//
 	// The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	AttrDistributionHostedZoneId() *string
+	// The ARN of the domain name.
+	//
+	// Supported only for private custom domain names.
 	AttrDomainNameArn() *string
 	// The domain name associated with the regional endpoint for this custom domain name.
 	//
@@ -111,6 +115,8 @@ type CfnDomainName interface {
 	// The reference to an AWS -managed certificate that will be used for validating the regional domain name.
 	RegionalCertificateArn() *string
 	SetRegionalCertificateArn(val *string)
+	RoutingMode() *string
+	SetRoutingMode(val *string)
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
@@ -450,6 +456,16 @@ func (j *jsiiProxy_CfnDomainName) RegionalCertificateArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainName) RoutingMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"routingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainName) SecurityPolicy() *string {
 	var returns *string
 	_jsii_.Get(
@@ -588,6 +604,14 @@ func (j *jsiiProxy_CfnDomainName)SetRegionalCertificateArn(val *string) {
 	_jsii_.Set(
 		j,
 		"regionalCertificateArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainName)SetRoutingMode(val *string) {
+	_jsii_.Set(
+		j,
+		"routingMode",
 		val,
 	)
 }

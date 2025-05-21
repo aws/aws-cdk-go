@@ -24,7 +24,18 @@ import (
 //   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
 //
 //   	// the properties below are optional
+//   	EnvironmentRolePermissionBoundary: jsii.String("environmentRolePermissionBoundary"),
 //   	ManageAccessRoleArn: jsii.String("manageAccessRoleArn"),
+//   	ProvisioningConfigurations: []interface{}{
+//   		&ProvisioningConfigurationProperty{
+//   			LakeFormationConfiguration: &LakeFormationConfigurationProperty{
+//   				LocationRegistrationExcludeS3Locations: []*string{
+//   					jsii.String("locationRegistrationExcludeS3Locations"),
+//   				},
+//   				LocationRegistrationRole: jsii.String("locationRegistrationRole"),
+//   			},
+//   		},
+//   	},
 //   	ProvisioningRoleArn: jsii.String("provisioningRoleArn"),
 //   	RegionalParameters: []interface{}{
 //   		&RegionalParameterProperty{
@@ -69,6 +80,8 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// The identifier of the environment blueprint.
 	EnvironmentBlueprintIdentifier() *string
 	SetEnvironmentBlueprintIdentifier(val *string)
+	EnvironmentRolePermissionBoundary() *string
+	SetEnvironmentRolePermissionBoundary(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -84,6 +97,8 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	SetManageAccessRoleArn(val *string)
 	// The tree node.
 	Node() constructs.Node
+	ProvisioningConfigurations() interface{}
+	SetProvisioningConfigurations(val interface{})
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn() *string
 	SetProvisioningRoleArn(val *string)
@@ -355,6 +370,16 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnvironmentBlueprintIde
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnvironmentRolePermissionBoundary() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentRolePermissionBoundary",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -380,6 +405,16 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) Node() constructs.Node 
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) ProvisioningConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"provisioningConfigurations",
 		&returns,
 	)
 	return returns
@@ -506,10 +541,29 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration)SetEnvironmentBlueprintI
 	)
 }
 
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration)SetEnvironmentRolePermissionBoundary(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentRolePermissionBoundary",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration)SetManageAccessRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"manageAccessRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration)SetProvisioningConfigurations(val interface{}) {
+	if err := j.validateSetProvisioningConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"provisioningConfigurations",
 		val,
 	)
 }

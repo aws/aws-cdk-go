@@ -15,7 +15,6 @@ import (
 //   	RuleType: jsii.String("ruleType"),
 //
 //   	// the properties below are optional
-//   	DelegationRecord: jsii.String("delegationRecord"),
 //   	DomainName: jsii.String("domainName"),
 //   	Name: jsii.String("name"),
 //   	ResolverEndpointId: jsii.String("resolverEndpointId"),
@@ -49,10 +48,6 @@ type CfnResolverRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-ruletype
 	//
 	RuleType *string `field:"required" json:"ruleType" yaml:"ruleType"`
-	// The name server domain for queries to be delegated to if a query matches the delegation record.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-delegationrecord
-	//
-	DelegationRecord *string `field:"optional" json:"delegationRecord" yaml:"delegationRecord"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
 	//
 	// If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).

@@ -26,6 +26,7 @@ import (
 //   	},
 //   	OwnershipVerificationCertificateArn: jsii.String("ownershipVerificationCertificateArn"),
 //   	RegionalCertificateArn: jsii.String("regionalCertificateArn"),
+//   	RoutingMode: jsii.String("routingMode"),
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -70,6 +71,11 @@ type CfnDomainNameProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 	//
 	RegionalCertificateArn *string `field:"optional" json:"regionalCertificateArn" yaml:"regionalCertificateArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-routingmode
+	//
+	// Default: - "BASE_PATH_MAPPING_ONLY".
+	//
+	RoutingMode *string `field:"optional" json:"routingMode" yaml:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	//
 	// The valid values are `TLS_1_0` and `TLS_1_2` .

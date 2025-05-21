@@ -146,6 +146,12 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	HostConfiguration: &HostConfigurationProperty{
+//   		ScriptBody: jsii.String("scriptBody"),
+//
+//   		// the properties below are optional
+//   		ScriptTimeoutSeconds: jsii.Number(123),
+//   	},
 //   	MinWorkerCount: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -188,6 +194,9 @@ type CfnFleetProps struct {
 	// Default: - "".
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-hostconfiguration
+	//
+	HostConfiguration interface{} `field:"optional" json:"hostConfiguration" yaml:"hostConfiguration"`
 	// The minimum number of workers in the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-minworkercount
 	//

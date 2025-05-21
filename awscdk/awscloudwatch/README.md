@@ -388,6 +388,58 @@ only supports filtering by `unit` for Alarms, not in Dashboard graphs.
 Please see the following GitHub issue for a discussion on real unit
 calculations in CDK: https://github.com/aws/aws-cdk/issues/5595
 
+## Anomaly Detection Alarms
+
+CloudWatch anomaly detection applies machine learning algorithms to create a model of expected metric behavior. You can use anomaly detection to:
+
+* Detect anomalies with minimal configuration
+* Visualize expected metric behavior
+* Create alarms that trigger when metrics deviate from expected patterns
+
+### Creating an Anomaly Detection Alarm
+
+To build an Anomaly Detection Alarm, you should create a MathExpression that
+uses an `ANOMALY_DETECTION_BAND()` function, and use one of the band comparison
+operators (see the next section). Anomaly Detection Alarms have a dynamic
+threshold, not a fixed one, so the value for `threshold` is ignored. Specify the
+value `0` or use the symbolic `Alarm.ANOMALY_DETECTION_NO_THRESHOLD` value.
+
+You can use the `AnomalyDetectionAlarm` class for convenience, which takes care
+of building the right metric math expression and passing in a magic value for
+the treshold for you:
+
+```go
+// Create a metric
+metric := cloudwatch.NewMetric(&MetricProps{
+	Namespace: jsii.String("AWS/EC2"),
+	MetricName: jsii.String("CPUUtilization"),
+	Statistic: jsii.String("Average"),
+	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+})
+
+// Create an anomaly detection alarm
+alarm := cloudwatch.NewAnomalyDetectionAlarm(this, jsii.String("AnomalyAlarm"), &AnomalyDetectionAlarmProps{
+	Metric: metric,
+	EvaluationPeriods: jsii.Number(1),
+
+	// Number of standard deviations for the band (default: 2)
+	StdDevs: jsii.Number(2),
+	// Alarm outside on either side of the band, or just below or above it (default: outside)
+	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
+	AlarmDescription: jsii.String("Alarm when metric is outside the expected band"),
+})
+```
+
+### Comparison Operators for Anomaly Detection
+
+When creating an anomaly detection alarm, you must use one of the following comparison operators:
+
+* `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD`: Alarm when the metric is outside the band, on either side of it
+* `GREATER_THAN_UPPER_THRESHOLD`: Alarm only when the metric is above the band
+* `LESS_THAN_LOWER_THRESHOLD`: Alarm only when the metric is below the band
+
+For more information on anomaly detection in CloudWatch, see the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html).
+
 ## Dashboards
 
 Dashboards are set of Widgets stored server-side which can be accessed quickly

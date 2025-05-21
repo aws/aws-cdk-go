@@ -38,15 +38,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html
 //
 type CfnIntelligentPromptRouterProps struct {
-	// Model configuration.
+	// The default model to use when the routing criteria is not met.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html#cfn-bedrock-intelligentpromptrouter-fallbackmodel
 	//
 	FallbackModel interface{} `field:"required" json:"fallbackModel" yaml:"fallbackModel"`
-	// List of model configuration.
+	// A list of foundation models that the prompt router can route requests to.
+	//
+	// At least one model must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html#cfn-bedrock-intelligentpromptrouter-models
 	//
 	Models interface{} `field:"required" json:"models" yaml:"models"`
-	// Name of the Prompt Router.
+	// The name of the prompt router.
+	//
+	// The name must be unique within your AWS account in the current region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html#cfn-bedrock-intelligentpromptrouter-promptroutername
 	//
 	PromptRouterName *string `field:"required" json:"promptRouterName" yaml:"promptRouterName"`
@@ -54,11 +58,13 @@ type CfnIntelligentPromptRouterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html#cfn-bedrock-intelligentpromptrouter-routingcriteria
 	//
 	RoutingCriteria interface{} `field:"required" json:"routingCriteria" yaml:"routingCriteria"`
-	// Description of the Prompt Router.
+	// An optional description of the prompt router to help identify its purpose.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html#cfn-bedrock-intelligentpromptrouter-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// List of Tags.
+	// An array of key-value pairs to apply to this resource as tags.
+	//
+	// You can use tags to categorize and manage your AWS resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html#cfn-bedrock-intelligentpromptrouter-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
