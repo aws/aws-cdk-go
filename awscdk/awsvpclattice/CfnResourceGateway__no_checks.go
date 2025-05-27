@@ -80,7 +80,19 @@ func validateCfnResourceGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceGateway) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnResourceGateway) validateSetSubnetIdsParameters(val *[]*string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResourceGateway) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnResourceGateway) validateSetVpcIdentifierParameters(val *string) error {
 	return nil
 }
 

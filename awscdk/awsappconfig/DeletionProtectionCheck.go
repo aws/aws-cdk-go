@@ -7,11 +7,28 @@ package awsappconfig
 //   var application application
 //   var alarm alarm
 //   var compositeAlarm compositeAlarm
+//   var bucket bucket
 //
 //
+//   // Environment deletion protection check
+//   // Environment deletion protection check
 //   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 //   	Application: Application,
 //   	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_APPLY,
+//   })
+//
+//   // configuration profile with deletion protection check
+//   // configuration profile with deletion protection check
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfigFromFile"), &HostedConfigurationProps{
+//   	Application: Application,
+//   	Content: appconfig.ConfigurationContent_FromFile(jsii.String("config.json")),
+//   	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_BYPASS,
+//   })
+//
+//   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
+//   	Application: Application,
+//   	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
+//   	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   })
 //
 type DeletionProtectionCheck string

@@ -23,6 +23,18 @@ import (
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupArn: jsii.String("logGroupArn"),
 //   	},
+//   	QueryLoggingConfiguration: &QueryLoggingConfigurationProperty{
+//   		Destinations: []interface{}{
+//   			&LoggingDestinationProperty{
+//   				CloudWatchLogs: &CloudWatchLogDestinationProperty{
+//   					LogGroupArn: jsii.String("logGroupArn"),
+//   				},
+//   				Filters: &LoggingFilterProperty{
+//   					QspThreshold: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -98,6 +110,9 @@ type CfnWorkspace interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Query logging configuration.
+	QueryLoggingConfiguration() interface{}
+	SetQueryLoggingConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -392,6 +407,16 @@ func (j *jsiiProxy_CfnWorkspace) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) QueryLoggingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"queryLoggingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -521,6 +546,17 @@ func (j *jsiiProxy_CfnWorkspace)SetLoggingConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"loggingConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetQueryLoggingConfiguration(val interface{}) {
+	if err := j.validateSetQueryLoggingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"queryLoggingConfiguration",
 		val,
 	)
 }

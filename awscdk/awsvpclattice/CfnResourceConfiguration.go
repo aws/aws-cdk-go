@@ -19,8 +19,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnResourceConfiguration := awscdk.Aws_vpclattice.NewCfnResourceConfiguration(this, jsii.String("MyCfnResourceConfiguration"), &CfnResourceConfigurationProps{
-//   	AllowAssociationToSharableServiceNetwork: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
+//   	ResourceConfigurationType: jsii.String("resourceConfigurationType"),
+//
+//   	// the properties below are optional
+//   	AllowAssociationToSharableServiceNetwork: jsii.Boolean(false),
 //   	PortRanges: []*string{
 //   		jsii.String("portRanges"),
 //   	},
@@ -35,7 +38,6 @@ import (
 //   		IpResource: jsii.String("ipResource"),
 //   	},
 //   	ResourceConfigurationGroupId: jsii.String("resourceConfigurationGroupId"),
-//   	ResourceConfigurationType: jsii.String("resourceConfigurationType"),
 //   	ResourceGatewayId: jsii.String("resourceGatewayId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -536,6 +538,9 @@ func (j *jsiiProxy_CfnResourceConfiguration)SetAllowAssociationToSharableService
 }
 
 func (j *jsiiProxy_CfnResourceConfiguration)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -587,6 +592,9 @@ func (j *jsiiProxy_CfnResourceConfiguration)SetResourceConfigurationGroupId(val 
 }
 
 func (j *jsiiProxy_CfnResourceConfiguration)SetResourceConfigurationType(val *string) {
+	if err := j.validateSetResourceConfigurationTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"resourceConfigurationType",

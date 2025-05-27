@@ -18,12 +18,20 @@ import (
 //   	Application: app,
 //   })
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
 //   	Application: app,
 //   	DeployTo: []iEnvironment{
 //   		env,
 //   	},
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my first configuration content.")),
+//   })
+//
+//   appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
+//   	Application: app,
+//   	DeployTo: []*iEnvironment{
+//   		env,
+//   	},
+//   	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my second configuration content.")),
 //   })
 //
 // See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-environment.html

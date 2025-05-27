@@ -15,11 +15,15 @@ import (
 //
 //   task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
 //   	Model: Model,
-//   	Input: &BedrockInvokeModelInputProps{
-//   		S3InputUri: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
-//   	},
-//   	Output: &BedrockInvokeModelOutputProps{
-//   		S3OutputUri: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+//   	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"inputText": jsii.String("Generate a list of five first names."),
+//   		"textGenerationConfig": map[string]*f64{
+//   			"maxTokenCount": jsii.Number(100),
+//   			"temperature": jsii.Number(1),
+//   		},
+//   	}),
+//   	ResultSelector: map[string]interface{}{
+//   		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
 //   	},
 //   })
 //
@@ -741,6 +745,28 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_INSTANT_V1_2_100K() FoundationMo
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"ANTHROPIC_CLAUDE_INSTANT_V1_2_100K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_OPUS_4_20250514_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_OPUS_4_20250514_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_4_20250514_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_SONNET_4_20250514_V1_0",
 		&returns,
 	)
 	return returns

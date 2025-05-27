@@ -179,6 +179,30 @@ func validateCfnFlowAlias_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowAlias) validateSetConcurrencyConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFlowAlias_FlowAliasConcurrencyConfigurationProperty:
+		val := val.(*CfnFlowAlias_FlowAliasConcurrencyConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFlowAlias_FlowAliasConcurrencyConfigurationProperty:
+		val_ := val.(CfnFlowAlias_FlowAliasConcurrencyConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowAlias_FlowAliasConcurrencyConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowAlias) validateSetFlowArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

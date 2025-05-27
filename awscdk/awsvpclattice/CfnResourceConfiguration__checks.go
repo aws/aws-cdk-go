@@ -196,6 +196,14 @@ func (j *jsiiProxy_CfnResourceConfiguration) validateSetAllowAssociationToSharab
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceConfiguration) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnResourceConfiguration) validateSetResourceConfigurationDefinitionParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -220,6 +228,14 @@ func (j *jsiiProxy_CfnResourceConfiguration) validateSetResourceConfigurationDef
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceConfiguration) validateSetResourceConfigurationTypeParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnResourceConfiguration) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -239,6 +255,9 @@ func validateNewCfnResourceConfigurationParameters(scope constructs.Construct, i
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

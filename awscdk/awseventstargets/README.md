@@ -26,6 +26,7 @@ Currently supported are:
     * [Assign public IP addresses to tasks](#assign-public-ip-addresses-to-tasks)
     * [Enable Amazon ECS Exec for ECS Task](#enable-amazon-ecs-exec-for-ecs-task)
   * [Run a Redshift query](#schedule-a-redshift-query-serverless-or-cluster)
+  * [Publish to an SNS topic](#publish-to-an-sns-topic)
 
 See the README of the `aws-cdk-lib/aws-events` library for more information on
 EventBridge.
@@ -667,5 +668,41 @@ rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &Re
 		jsii.String("SELECT * FROM foo"),
 		jsii.String("SELECT * FROM baz"),
 	},
+}))
+```
+
+## Publish to an SNS Topic
+
+Use the `SnsTopic` target to publish to an SNS Topic.
+
+The code snippet below creates the scheduled event rule that publishes to an SNS Topic using a resource policy.
+
+```go
+import sns "github.com/aws/aws-cdk-go/awscdk"
+
+var topic iTopic
+
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(targets.NewSnsTopic(topic))
+```
+
+Alternatively, a role can be attached to the target when the rule is triggered.
+
+```go
+import sns "github.com/aws/aws-cdk-go/awscdk"
+
+var topic iTopic
+
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
+	AuthorizeUsingRole: jsii.Boolean(true),
 }))
 ```

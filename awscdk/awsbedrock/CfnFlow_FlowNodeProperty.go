@@ -33,6 +33,10 @@ package awsbedrock
 //   				},
 //   			},
 //   		},
+//   		InlineCode: &InlineCodeFlowNodeConfigurationProperty{
+//   			Code: jsii.String("code"),
+//   			Language: jsii.String("language"),
+//   		},
 //   		Input: input,
 //   		Iterator: iterator,
 //   		KnowledgeBase: &KnowledgeBaseFlowNodeConfigurationProperty{

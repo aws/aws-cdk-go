@@ -18,6 +18,18 @@ import (
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupArn: jsii.String("logGroupArn"),
 //   	},
+//   	QueryLoggingConfiguration: &QueryLoggingConfigurationProperty{
+//   		Destinations: []interface{}{
+//   			&LoggingDestinationProperty{
+//   				CloudWatchLogs: &CloudWatchLogDestinationProperty{
+//   					LogGroupArn: jsii.String("logGroupArn"),
+//   				},
+//   				Filters: &LoggingFilterProperty{
+//   					QspThreshold: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -71,6 +83,10 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration
 	//
 	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	// Query logging configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-queryloggingconfiguration
+	//
+	QueryLoggingConfiguration interface{} `field:"optional" json:"queryLoggingConfiguration" yaml:"queryLoggingConfiguration"`
 	// The list of tag keys and values that are associated with the workspace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-tags
 	//

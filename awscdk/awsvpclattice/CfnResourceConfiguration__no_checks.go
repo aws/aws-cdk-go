@@ -84,7 +84,15 @@ func (j *jsiiProxy_CfnResourceConfiguration) validateSetAllowAssociationToSharab
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceConfiguration) validateSetNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResourceConfiguration) validateSetResourceConfigurationDefinitionParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnResourceConfiguration) validateSetResourceConfigurationTypeParameters(val *string) error {
 	return nil
 }
 

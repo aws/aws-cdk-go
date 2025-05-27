@@ -28,6 +28,12 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	ConcurrencyConfiguration: &FlowAliasConcurrencyConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		MaxConcurrency: jsii.Number(123),
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -57,6 +63,8 @@ type CfnFlowAlias interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	ConcurrencyConfiguration() interface{}
+	SetConcurrencyConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -336,6 +344,16 @@ func (j *jsiiProxy_CfnFlowAlias) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowAlias) ConcurrencyConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"concurrencyConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowAlias) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -481,6 +499,17 @@ func NewCfnFlowAlias_Override(c CfnFlowAlias, scope constructs.Construct, id *st
 		"aws-cdk-lib.aws_bedrock.CfnFlowAlias",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowAlias)SetConcurrencyConfiguration(val interface{}) {
+	if err := j.validateSetConcurrencyConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"concurrencyConfiguration",
+		val,
 	)
 }
 

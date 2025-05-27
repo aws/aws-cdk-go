@@ -684,6 +684,14 @@ stack2 := NewStack2(app, jsii.String("Stack2"), &stack2Props{
 })
 ```
 
+> Note: If you encounter an error like "Delete canceled. Cannot delete export ..."
+> when using a cross-stack reference to a VPC, it's likely due to CloudFormation
+> export/import constraints. In such cases, it's safer to use Vpc.fromLookup()
+> in the consuming stack instead of directly referencing the VPC object, more details
+> is provided in [Importing an existing VPC](#importing-an-existing-vpc). This
+> avoids creating CloudFormation exports and gives more flexibility, especially
+> when stacks need to be deleted or updated independently.
+
 ### Importing an existing VPC
 
 If your VPC is created outside your CDK app, you can use `Vpc.fromLookup()`.

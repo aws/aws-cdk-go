@@ -99,26 +99,6 @@ user := iam.NewUser(this, jsii.String("MyUser"))
 env.grantReadConfig(user)
 ```
 
-### Deletion Protection Check
-
-You can enable [deletion protection](https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html) on the environment by setting the `deletionProtectionCheck` property.
-
-* ACCOUNT_DEFAULT: The default setting, which uses account-level deletion protection. To configure account-level deletion protection, use the UpdateAccountSettings API.
-* APPLY: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. APPLY also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks.
-* BYPASS: Instructs AWS AppConfig to bypass the deletion protection check and delete an environment even if deletion protection would have otherwise prevented it.
-
-```go
-var application application
-var alarm alarm
-var compositeAlarm compositeAlarm
-
-
-appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
-	Application: Application,
-	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_APPLY,
-})
-```
-
 ## Deployment Strategy
 
 [AWS AppConfig Deployment Strategy Documentation](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html)
@@ -575,6 +555,43 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 			FinalBakeTime: awscdk.Duration_*Minutes(jsii.Number(15)),
 		}),
 	}),
+})
+```
+
+## Deletion Protection Check
+
+You can enable [deletion protection](https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html) on the environment and configuration profile by setting the `deletionProtectionCheck` property.
+
+* ACCOUNT_DEFAULT: The default setting, which uses account-level deletion protection. To configure account-level deletion protection, use the UpdateAccountSettings API.
+* APPLY: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. APPLY also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks.
+* BYPASS: Instructs AWS AppConfig to bypass the deletion protection check and delete an environment even if deletion protection would have otherwise prevented it.
+
+```go
+var application application
+var alarm alarm
+var compositeAlarm compositeAlarm
+var bucket bucket
+
+
+// Environment deletion protection check
+// Environment deletion protection check
+appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
+	Application: Application,
+	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_APPLY,
+})
+
+// configuration profile with deletion protection check
+// configuration profile with deletion protection check
+appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfigFromFile"), &HostedConfigurationProps{
+	Application: Application,
+	Content: appconfig.ConfigurationContent_FromFile(jsii.String("config.json")),
+	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_BYPASS,
+})
+
+appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
+	Application: Application,
+	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
+	DeletionProtectionCheck: appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 })
 ```
 

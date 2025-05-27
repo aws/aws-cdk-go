@@ -496,6 +496,81 @@ func init() {
 		reflect.TypeOf((*BatchSubmitJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.BedrockCreateModelCustomizationJob",
+		reflect.TypeOf((*BedrockCreateModelCustomizationJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailed", GoMethod: "MetricFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeartbeatTimedOut", GoMethod: "MetricHeartbeatTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRunTime", GoMethod: "MetricRunTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduled", GoMethod: "MetricScheduled"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduleTime", GoMethod: "MetricScheduleTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStarted", GoMethod: "MetricStarted"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSucceeded", GoMethod: "MetricSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTime", GoMethod: "MetricTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
+			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "stateName", GoGetter: "StateName"},
+			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
+			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BedrockCreateModelCustomizationJob{}
+			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsTaskStateBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.BedrockCreateModelCustomizationJobProps",
+		reflect.TypeOf((*BedrockCreateModelCustomizationJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.BedrockInvokeModel",
 		reflect.TypeOf((*BedrockInvokeModel)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1167,6 +1242,23 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.CronOptions",
 		reflect.TypeOf((*CronOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CustomModelTag",
+		reflect.TypeOf((*CustomModelTag)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CustomizationType",
+		reflect.TypeOf((*CustomizationType)(nil)).Elem(),
+		map[string]interface{}{
+			"FINE_TUNING": CustomizationType_FINE_TUNING,
+			"CONTINUED_PRE_TRAINING": CustomizationType_CONTINUED_PRE_TRAINING,
+			"DISTILLATION": CustomizationType_DISTILLATION,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.DataBucketConfiguration",
+		reflect.TypeOf((*DataBucketConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.DataSource",
@@ -3483,6 +3575,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_stepfunctions_tasks.IBedrockCreateModelCustomizationJobVpcConfig",
+		reflect.TypeOf((*IBedrockCreateModelCustomizationJobVpcConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "securityGroups", GoGetter: "SecurityGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IBedrockCreateModelCustomizationJobVpcConfig{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_stepfunctions_tasks.IContainerDefinition",
 		reflect.TypeOf((*IContainerDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -3741,6 +3844,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.Monitoring",
 		reflect.TypeOf((*Monitoring)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.OutputBucketConfiguration",
+		reflect.TypeOf((*OutputBucketConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.OutputDataConfig",
@@ -4693,6 +4800,10 @@ func init() {
 		reflect.TypeOf((*TaskEnvironmentVariable)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.TrainingBucketConfiguration",
+		reflect.TypeOf((*TrainingBucketConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.TransformDataSource",
 		reflect.TypeOf((*TransformDataSource)(nil)).Elem(),
 	)
@@ -4723,6 +4834,10 @@ func init() {
 			"NONE": URLEncodingFormat_NONE,
 			"REPEAT": URLEncodingFormat_REPEAT,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ValidationBucketConfiguration",
+		reflect.TypeOf((*ValidationBucketConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",

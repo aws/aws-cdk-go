@@ -19,13 +19,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnResourceGateway := awscdk.Aws_vpclattice.NewCfnResourceGateway(this, jsii.String("MyCfnResourceGateway"), &CfnResourceGatewayProps{
-//   	IpAddressType: jsii.String("ipAddressType"),
 //   	Name: jsii.String("name"),
-//   	SecurityGroupIds: []*string{
-//   		jsii.String("securityGroupIds"),
-//   	},
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
+//   	},
+//   	VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   	// the properties below are optional
+//   	IpAddressType: jsii.String("ipAddressType"),
+//   	SecurityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -33,7 +36,6 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	VpcIdentifier: jsii.String("vpcIdentifier"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html
@@ -470,6 +472,9 @@ func (j *jsiiProxy_CfnResourceGateway)SetIpAddressType(val *string) {
 }
 
 func (j *jsiiProxy_CfnResourceGateway)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -486,6 +491,9 @@ func (j *jsiiProxy_CfnResourceGateway)SetSecurityGroupIds(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnResourceGateway)SetSubnetIds(val *[]*string) {
+	if err := j.validateSetSubnetIdsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"subnetIds",
@@ -505,6 +513,9 @@ func (j *jsiiProxy_CfnResourceGateway)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnResourceGateway)SetVpcIdentifier(val *string) {
+	if err := j.validateSetVpcIdentifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"vpcIdentifier",

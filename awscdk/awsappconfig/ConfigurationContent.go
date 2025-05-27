@@ -8,17 +8,17 @@ import (
 // Defines the hosted configuration content.
 //
 // Example:
-//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
-//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
-//   	Application: app,
-//   })
+//   var application application
+//   var fn function
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
-//   	Application: app,
-//   	DeployTo: []iEnvironment{
-//   		env,
-//   	},
+//
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+//   	Application: Application,
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+//   	Validators: []iValidator{
+//   		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
+//   		appconfig.LambdaValidator_FromFunction(fn),
+//   	},
 //   })
 //
 type ConfigurationContent interface {

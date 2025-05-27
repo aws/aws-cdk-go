@@ -50,6 +50,8 @@ import (
 //   			Listener: jsii.String("listener2"),
 //   		},
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
+//   	MaxHealthyPercent: jsii.Number(200),
 //   })
 //
 type NetworkMultipleTargetGroupsFargateService interface {

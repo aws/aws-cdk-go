@@ -22,6 +22,7 @@ import (
 //   	Content: configurationContent,
 //
 //   	// the properties below are optional
+//   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	DeploymentKey: key,
 //   	DeploymentStrategy: deploymentStrategy,
 //   	DeployTo: []iEnvironment{
@@ -30,7 +31,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	LatestVersionNumber: jsii.Number(123),
 //   	Name: jsii.String("name"),
-//   	Type: awscdk.Aws_appconfig.ConfigurationType_FREEFORM,
+//   	Type: awscdk.*Aws_appconfig.ConfigurationType_FREEFORM,
 //   	Validators: []*iValidator{
 //   		validator,
 //   	},
@@ -38,6 +39,15 @@ import (
 //   }
 //
 type HostedConfigurationOptions struct {
+	// A parameter to configure deletion protection.
+	//
+	// Deletion protection prevents a user from deleting a configuration profile if your application has called
+	// either `GetLatestConfiguration` or `GetConfiguration` for the configuration profile during the specified interval.
+	// See: https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	//
+	// Default: DeletionProtectionCheck.ACCOUNT_DEFAULT
+	//
+	DeletionProtectionCheck DeletionProtectionCheck `field:"optional" json:"deletionProtectionCheck" yaml:"deletionProtectionCheck"`
 	// The deployment key of the configuration.
 	// Default: - None.
 	//

@@ -30,6 +30,10 @@ package awsbedrock
 //   			},
 //   		},
 //   	},
+//   	InlineCode: &InlineCodeFlowNodeConfigurationProperty{
+//   		Code: jsii.String("code"),
+//   		Language: jsii.String("language"),
+//   	},
 //   	Input: input,
 //   	Iterator: iterator,
 //   	KnowledgeBase: &KnowledgeBaseFlowNodeConfigurationProperty{
@@ -128,6 +132,10 @@ type CfnFlow_FlowNodeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-condition
 	//
 	Condition interface{} `field:"optional" json:"condition" yaml:"condition"`
+	// Inline code config strucuture, contains code configs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-inlinecode
+	//
+	InlineCode interface{} `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// Contains configurations for an input flow node in your flow.
 	//
 	// The first node in the flow. `inputs` can't be specified for this node.

@@ -37,6 +37,8 @@ type SourcedConfiguration interface {
 	ConfigurationProfileArn() *string
 	// The ID of the configuration profile.
 	ConfigurationProfileId() *string
+	DeletionProtectionCheck() DeletionProtectionCheck
+	SetDeletionProtectionCheck(val DeletionProtectionCheck)
 	// The deployment key for the configuration.
 	DeploymentKey() awskms.IKey
 	// The deployment strategy for the configuration.
@@ -135,6 +137,16 @@ func (j *jsiiProxy_SourcedConfiguration) ConfigurationProfileId() *string {
 	_jsii_.Get(
 		j,
 		"configurationProfileId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SourcedConfiguration) DeletionProtectionCheck() DeletionProtectionCheck {
+	var returns DeletionProtectionCheck
+	_jsii_.Get(
+		j,
+		"deletionProtectionCheck",
 		&returns,
 	)
 	return returns
@@ -305,6 +317,14 @@ func (j *jsiiProxy_SourcedConfiguration)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_SourcedConfiguration)SetDeletionProtectionCheck(val DeletionProtectionCheck) {
+	_jsii_.Set(
+		j,
+		"deletionProtectionCheck",
 		val,
 	)
 }

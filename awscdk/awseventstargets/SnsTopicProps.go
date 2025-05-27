@@ -3,6 +3,7 @@ package awseventstargets
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
@@ -14,8 +15,9 @@ import (
 //
 //
 //   onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
-//   	Message: events.RuleTargetInput_FromText(
-//   	fmt.Sprintf("A commit was pushed to the repository %v on branch %v", codecommit.ReferenceEvent_RepositoryName(), codecommit.ReferenceEvent_ReferenceName())),
+//   	Message: events.RuleTargetInput_FromObject(map[string]*string{
+//   		"DataType": fmt.Sprintf("custom_%v", events.EventField_fromPath(jsii.String("$.detail-type"))),
+//   	}),
 //   }))
 //
 type SnsTopicProps struct {
@@ -41,9 +43,17 @@ type SnsTopicProps struct {
 	// Default: 185.
 	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
+	// Specifies whether an IAM role should be used to publish to the topic.
+	// Default: - true if `role` is provided, false otherwise.
+	//
+	AuthorizeUsingRole *bool `field:"optional" json:"authorizeUsingRole" yaml:"authorizeUsingRole"`
 	// The message to send to the topic.
 	// Default: the entire EventBridge event.
 	//
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
+	// The IAM role to be used to publish to the topic.
+	// Default: - a new role will be created if `authorizeUsingRole` is true.
+	//
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

@@ -172,6 +172,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLoggingConfiguration", GoGetter: "QueryLoggingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -195,6 +196,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.CloudWatchLogDestinationProperty",
+		reflect.TypeOf((*CfnWorkspace_CloudWatchLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnWorkspace.LabelProperty",
 		reflect.TypeOf((*CfnWorkspace_LabelProperty)(nil)).Elem(),
 	)
@@ -209,6 +214,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnWorkspace.LoggingConfigurationProperty",
 		reflect.TypeOf((*CfnWorkspace_LoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.LoggingDestinationProperty",
+		reflect.TypeOf((*CfnWorkspace_LoggingDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.LoggingFilterProperty",
+		reflect.TypeOf((*CfnWorkspace_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnWorkspace.QueryLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnWorkspace_QueryLoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnWorkspace.WorkspaceConfigurationProperty",

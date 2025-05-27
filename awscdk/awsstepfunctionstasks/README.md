@@ -39,9 +39,11 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
   * [Bedrock](#bedrock)
 
     * [InvokeModel](#invokemodel)
+    * [createModelCustomizationJob](#createmodelcustomizationjob)
   * [CodeBuild](#codebuild)
 
     * [StartBuild](#startbuild)
+    * [StartBuildBatch](#startbuildbatch)
   * [DynamoDB](#dynamodb)
 
     * [GetItem](#getitem)
@@ -54,6 +56,7 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 
       * [EC2](#ec2)
       * [Fargate](#fargate)
+      * [ECS enable Exec](#ecs-enable-exec)
   * [EMR](#emr)
 
     * [Create Cluster](#create-cluster)
@@ -76,8 +79,8 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
     * [Put Events](#put-events)
   * [Glue](#glue)
 
-    * [Start Job Run](#start-job-run)
-    * [Start Crawler Run](#startcrawlerrun)
+    * [StartJobRun](#startjobrun)
+    * [StartCrawlerRun](#startcrawlerrun)
   * [Glue DataBrew](#glue-databrew)
 
     * [Start Job Run](#start-job-run-1)
@@ -527,6 +530,75 @@ task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model with guardra
 	Guardrail: tasks.Guardrail_Enable(jsii.String("guardrailId"), jsii.Number(1)),
 	ResultSelector: map[string]interface{}{
 		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
+	},
+})
+```
+
+### createModelCustomizationJob
+
+The [CreateModelCustomizationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html) API creates a fine-tuning job to customize a base model.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+var outputBucket iBucket
+var trainingBucket iBucket
+var validationBucket iBucket
+var kmsKey iKey
+var vpc iVpc
+
+
+model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+
+task := tasks.NewBedrockCreateModelCustomizationJob(this, jsii.String("CreateModelCustomizationJob"), &BedrockCreateModelCustomizationJobProps{
+	BaseModel: model,
+	ClientRequestToken: jsii.String("MyToken"),
+	CustomizationType: tasks.CustomizationType_FINE_TUNING,
+	CustomModelKmsKey: kmsKey,
+	CustomModelName: jsii.String("MyCustomModel"),
+	 // required
+	CustomModelTags: []customModelTag{
+		&customModelTag{
+			Key: jsii.String("key1"),
+			Value: jsii.String("value1"),
+		},
+	},
+	HyperParameters: map[string]*string{
+		"batchSize": jsii.String("10"),
+	},
+	JobName: jsii.String("MyCustomizationJob"),
+	 // required
+	JobTags: []*customModelTag{
+		&customModelTag{
+			Key: jsii.String("key2"),
+			Value: jsii.String("value2"),
+		},
+	},
+	OutputData: &OutputBucketConfiguration{
+		Bucket: outputBucket,
+		 // required
+		Path: jsii.String("output-data/"),
+	},
+	TrainingData: &TrainingBucketConfiguration{
+		Bucket: trainingBucket,
+		Path: jsii.String("training-data/data.json"),
+	},
+	 // required
+	// If you don't provide validation data, you have to specify `Evaluation percentage` hyperparameter.
+	ValidationData: []validationBucketConfiguration{
+		&validationBucketConfiguration{
+			Bucket: validationBucket,
+			Path: jsii.String("validation-data/data.json"),
+		},
+	},
+	VpcConfig: map[string][]iSecurityGroup{
+		"securityGroups": []*iSecurityGroup{
+			ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+				"vpc": vpc,
+			}),
+		},
+		"subnets": vpc.privateSubnets,
 	},
 })
 ```

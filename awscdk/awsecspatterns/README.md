@@ -275,6 +275,8 @@ loadBalancedFargateService := ecsPatterns.NewNetworkMultipleTargetGroupsFargateS
 			Listener: jsii.String("listener2"),
 		},
 	},
+	MinHealthyPercent: jsii.Number(100),
+	MaxHealthyPercent: jsii.Number(200),
 })
 ```
 

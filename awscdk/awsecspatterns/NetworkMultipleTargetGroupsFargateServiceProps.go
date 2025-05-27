@@ -46,6 +46,8 @@ import (
 //   			Listener: jsii.String("listener2"),
 //   		},
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
+//   	MaxHealthyPercent: jsii.Number(200),
 //   })
 //
 type NetworkMultipleTargetGroupsFargateServiceProps struct {
@@ -186,5 +188,13 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 	// Default: false.
 	//
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Default: - 200%.
+	//
+	MaxHealthyPercent *float64 `field:"optional" json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
+	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Default: - 50%.
+	//
+	MinHealthyPercent *float64 `field:"optional" json:"minHealthyPercent" yaml:"minHealthyPercent"`
 }
 

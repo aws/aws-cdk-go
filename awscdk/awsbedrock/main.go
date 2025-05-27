@@ -879,6 +879,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_GuardrailConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.InlineCodeFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_InlineCodeFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.KnowledgeBaseFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_KnowledgeBaseFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
@@ -975,6 +979,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "concurrencyConfiguration", GoGetter: "ConcurrencyConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "flowArn", GoGetter: "FlowArn"},
@@ -1007,6 +1012,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowAlias.FlowAliasConcurrencyConfigurationProperty",
+		reflect.TypeOf((*CfnFlowAlias_FlowAliasConcurrencyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowAlias.FlowAliasRoutingConfigurationListItemProperty",
@@ -1123,6 +1132,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.GuardrailConfigurationProperty",
 		reflect.TypeOf((*CfnFlowVersion_GuardrailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.InlineCodeFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_InlineCodeFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.KnowledgeBaseFlowNodeConfigurationProperty",

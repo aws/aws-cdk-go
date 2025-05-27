@@ -18,6 +18,12 @@ package awsbedrock
 //   	},
 //
 //   	// the properties below are optional
+//   	ConcurrencyConfiguration: &FlowAliasConcurrencyConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		MaxConcurrency: jsii.Number(123),
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -41,6 +47,9 @@ type CfnFlowAliasProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html#cfn-bedrock-flowalias-routingconfiguration
 	//
 	RoutingConfiguration interface{} `field:"required" json:"routingConfiguration" yaml:"routingConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html#cfn-bedrock-flowalias-concurrencyconfiguration
+	//
+	ConcurrencyConfiguration interface{} `field:"optional" json:"concurrencyConfiguration" yaml:"concurrencyConfiguration"`
 	// A description of the alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html#cfn-bedrock-flowalias-description
 	//

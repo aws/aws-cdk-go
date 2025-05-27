@@ -331,7 +331,7 @@ type DatabaseClusterProps struct {
 	//
 	StorageEncryptionKey awskms.IKey `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// The storage type to be associated with the DB cluster.
-	// Default: - DBClusterStorageType.AURORA_IOPT1
+	// Default: - DBClusterStorageType.AURORA
 	//
 	StorageType DBClusterStorageType `field:"optional" json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the cluster.

@@ -7,20 +7,29 @@ import (
 // Properties for HostedConfiguration.
 //
 // Example:
-//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
-//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
-//   	Application: app,
-//   })
+//   var application application
+//   var fn function
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
-//   	Application: app,
-//   	DeployTo: []iEnvironment{
-//   		env,
-//   	},
+//
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+//   	Application: Application,
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+//   	Validators: []iValidator{
+//   		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
+//   		appconfig.LambdaValidator_FromFunction(fn),
+//   	},
 //   })
 //
 type HostedConfigurationProps struct {
+	// A parameter to configure deletion protection.
+	//
+	// Deletion protection prevents a user from deleting a configuration profile if your application has called
+	// either `GetLatestConfiguration` or `GetConfiguration` for the configuration profile during the specified interval.
+	// See: https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	//
+	// Default: DeletionProtectionCheck.ACCOUNT_DEFAULT
+	//
+	DeletionProtectionCheck DeletionProtectionCheck `field:"optional" json:"deletionProtectionCheck" yaml:"deletionProtectionCheck"`
 	// The deployment key of the configuration.
 	// Default: - None.
 	//

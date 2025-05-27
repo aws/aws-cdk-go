@@ -12,8 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnResourceConfigurationProps := &CfnResourceConfigurationProps{
-//   	AllowAssociationToSharableServiceNetwork: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
+//   	ResourceConfigurationType: jsii.String("resourceConfigurationType"),
+//
+//   	// the properties below are optional
+//   	AllowAssociationToSharableServiceNetwork: jsii.Boolean(false),
 //   	PortRanges: []*string{
 //   		jsii.String("portRanges"),
 //   	},
@@ -28,7 +31,6 @@ import (
 //   		IpResource: jsii.String("ipResource"),
 //   	},
 //   	ResourceConfigurationGroupId: jsii.String("resourceConfigurationGroupId"),
-//   	ResourceConfigurationType: jsii.String("resourceConfigurationType"),
 //   	ResourceGatewayId: jsii.String("resourceGatewayId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -41,14 +43,23 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html
 //
 type CfnResourceConfigurationProps struct {
+	// The name of the resource configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-name
+	//
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// The type of resource configuration. A resource configuration can be one of the following types:.
+	//
+	// - *SINGLE* - A single resource.
+	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+	// - *CHILD* - A single resource that is part of a group resource configuration.
+	// - *ARN* - An AWS resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationtype
+	//
+	ResourceConfigurationType *string `field:"required" json:"resourceConfigurationType" yaml:"resourceConfigurationType"`
 	// Specifies whether the resource configuration can be associated with a sharable service network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-allowassociationtosharableservicenetwork
 	//
 	AllowAssociationToSharableServiceNetwork interface{} `field:"optional" json:"allowAssociationToSharableServiceNetwork" yaml:"allowAssociationToSharableServiceNetwork"`
-	// The name of the resource configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-name
-	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535).
 	//
 	// You can separate port ranges using commas (for example: 1,2,22-30).
@@ -75,15 +86,6 @@ type CfnResourceConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationgroupid
 	//
 	ResourceConfigurationGroupId *string `field:"optional" json:"resourceConfigurationGroupId" yaml:"resourceConfigurationGroupId"`
-	// The type of resource configuration. A resource configuration can be one of the following types:.
-	//
-	// - *SINGLE* - A single resource.
-	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
-	// - *CHILD* - A single resource that is part of a group resource configuration.
-	// - *ARN* - An AWS resource.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationtype
-	//
-	ResourceConfigurationType *string `field:"optional" json:"resourceConfigurationType" yaml:"resourceConfigurationType"`
 	// The ID of the resource gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourcegatewayid
 	//

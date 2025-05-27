@@ -45,17 +45,26 @@ import (
 // ```.
 //
 // Example:
-//   var vpc vpc
-//
-//
-//   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+//   	MaxAzs: jsii.Number(1),
+//   })
+//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
-//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SG"), &SecurityGroupProps{
 //   	Vpc: Vpc,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
-//   	SecurityGroup: mySecurityGroup,
+//   })
+//
+//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
+//   	Cluster: Cluster,
+//   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		MemoryLimitMiB: jsii.Number(512),
+//   	},
+//   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
+//   	SecurityGroups: []iSecurityGroup{
+//   		securityGroup,
+//   	},
 //   })
 //
 type SecurityGroup interface {

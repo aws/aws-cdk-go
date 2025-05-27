@@ -12,17 +12,17 @@ import (
 // A hosted configuration represents configuration stored in the AWS AppConfig hosted configuration store.
 //
 // Example:
-//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
-//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
-//   	Application: app,
-//   })
+//   var application application
+//   var fn function
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
-//   	Application: app,
-//   	DeployTo: []iEnvironment{
-//   		env,
-//   	},
+//
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+//   	Application: Application,
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+//   	Validators: []iValidator{
+//   		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
+//   		appconfig.LambdaValidator_FromFunction(fn),
+//   	},
 //   })
 //
 type HostedConfiguration interface {
@@ -41,6 +41,8 @@ type HostedConfiguration interface {
 	Content() *string
 	// The content type of the hosted configuration.
 	ContentType() *string
+	DeletionProtectionCheck() DeletionProtectionCheck
+	SetDeletionProtectionCheck(val DeletionProtectionCheck)
 	// The deployment key for the configuration.
 	DeploymentKey() awskms.IKey
 	// The deployment strategy for the configuration.
@@ -155,6 +157,16 @@ func (j *jsiiProxy_HostedConfiguration) ContentType() *string {
 	_jsii_.Get(
 		j,
 		"contentType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HostedConfiguration) DeletionProtectionCheck() DeletionProtectionCheck {
+	var returns DeletionProtectionCheck
+	_jsii_.Get(
+		j,
+		"deletionProtectionCheck",
 		&returns,
 	)
 	return returns
@@ -325,6 +337,14 @@ func (j *jsiiProxy_HostedConfiguration)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_HostedConfiguration)SetDeletionProtectionCheck(val DeletionProtectionCheck) {
+	_jsii_.Set(
+		j,
+		"deletionProtectionCheck",
 		val,
 	)
 }

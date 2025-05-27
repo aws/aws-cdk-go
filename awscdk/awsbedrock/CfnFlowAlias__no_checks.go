@@ -80,6 +80,10 @@ func validateCfnFlowAlias_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowAlias) validateSetConcurrencyConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowAlias) validateSetFlowArnParameters(val *string) error {
 	return nil
 }
