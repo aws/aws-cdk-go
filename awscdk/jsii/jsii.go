@@ -1,0 +1,32 @@
+// Package jsii contains the functionaility needed for jsii packages to
+// initialize their dependencies and themselves. Users should never need to use this package
+// directly. If you find you need to - please report a bug at
+// https://github.com/aws/jsii/issues/new/choose
+package jsii
+
+import (
+	_                         "embed"
+
+	_jsii_                    "github.com/aws/jsii-runtime-go/runtime"
+
+	constructs                "github.com/aws/constructs-go/constructs/v10/jsii"
+	awscliv1                  "github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2/jsii"
+	nodeproxyagentv6          "github.com/cdklabs/awscdk-asset-node-proxy-agent-go/nodeproxyagentv6/v2/jsii"
+	awscdkcloudassemblyschema "github.com/cdklabs/cloud-assembly-schema-go/awscdkcloudassemblyschema/v44/jsii"
+)
+
+//go:embed aws-cdk-lib-2.200.0.tgz
+var tarball []byte
+
+// Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
+// The implementation is idempotent (and hence safe to be called over and over).
+func Initialize() {
+	// Ensure all dependencies are initialized
+	awscliv1.Initialize()
+	nodeproxyagentv6.Initialize()
+	awscdkcloudassemblyschema.Initialize()
+	constructs.Initialize()
+
+	// Load this library into the kernel
+	_jsii_.Load("aws-cdk-lib", "2.200.0", tarball)
+}
