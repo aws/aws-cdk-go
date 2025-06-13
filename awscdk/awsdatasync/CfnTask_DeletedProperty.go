@@ -1,7 +1,9 @@
 package awsdatasync
 
 
-// The reporting level for the deleted section of your DataSync task report.
+// Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location.
+//
+// This only applies if you configure your task to delete data in the destination that isn't in the source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,9 +18,6 @@ package awsdatasync
 //
 type CfnTask_DeletedProperty struct {
 	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
-	//
-	// - `ERRORS_ONLY` : A report shows what DataSync was unable to delete.
-	// - `SUCCESSES_AND_ERRORS` : A report shows what DataSync was able and unable to delete.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-deleted.html#cfn-datasync-task-deleted-reportlevel
 	//
 	ReportLevel *string `field:"optional" json:"reportLevel" yaml:"reportLevel"`

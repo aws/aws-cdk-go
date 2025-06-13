@@ -177,6 +177,26 @@ autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &A
 })
 ```
 
+To customize the cache key, use the `additionalCacheKey` parameter.
+This allows you to have multiple lookups with the same parameters
+cache their values separately. This can be useful if you want to
+scope the context variable to a construct (ie, using `additionalCacheKey: this.node.path`),
+so that if the value in the cache needs to be updated, it does not need to be updated
+for all constructs at the same time.
+
+```go
+var vpc vpc
+
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(&EcsOptimizedImageOptions{
+		CachedInContext: jsii.Boolean(true),
+		AdditionalCacheKey: this.Node.path,
+	}),
+	Vpc: Vpc,
+	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+})
+```
+
 To use `LaunchTemplate` with `AsgCapacityProvider`, make sure to specify the `userData` in the `LaunchTemplate`:
 
 ```go

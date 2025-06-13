@@ -450,10 +450,10 @@ func StringParameter_ValueForTypedStringParameterV2(scope constructs.Construct, 
 // If defaultValue is provided, it will be used as the dummyValue
 // and the ContextProvider will be told NOT to raise an error on synthesis
 // if the SSM Parameter is not found in the account at synth time.
-func StringParameter_ValueFromLookup(scope constructs.Construct, parameterName *string, defaultValue *string) *string {
+func StringParameter_ValueFromLookup(scope constructs.Construct, parameterName *string, defaultValue *string, options *StringParameterLookupOptions) *string {
 	_init_.Initialize()
 
-	if err := validateStringParameter_ValueFromLookupParameters(scope, parameterName); err != nil {
+	if err := validateStringParameter_ValueFromLookupParameters(scope, parameterName, options); err != nil {
 		panic(err)
 	}
 	var returns *string
@@ -461,7 +461,7 @@ func StringParameter_ValueFromLookup(scope constructs.Construct, parameterName *
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssm.StringParameter",
 		"valueFromLookup",
-		[]interface{}{scope, parameterName, defaultValue},
+		[]interface{}{scope, parameterName, defaultValue, options},
 		&returns,
 	)
 

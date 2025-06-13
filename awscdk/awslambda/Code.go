@@ -17,22 +17,29 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &SigningProfileProps{
-//   	Platform: signer.Platform_AWS_LAMBDA_SHA384_ECDSA(),
+//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 //   })
 //
-//   codeSigningConfig := lambda.NewCodeSigningConfig(this, jsii.String("CodeSigningConfig"), &CodeSigningConfigProps{
-//   	SigningProfiles: []iSigningProfile{
-//   		signingProfile,
+//   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+//   	EventPattern: &EventPattern{
+//   		Source: []*string{
+//   			jsii.String("aws.ec2"),
+//   		},
 //   	},
 //   })
 //
-//   lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
-//   	CodeSigningConfig: CodeSigningConfig,
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-//   })
+//   queue := sqs.NewQueue(this, jsii.String("Queue"))
+//
+//   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
+//   	DeadLetterQueue: queue,
+//   	 // Optional: add a dead letter queue
+//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
+//   	 // Optional: set the maxEventAge retry policy
+//   	RetryAttempts: jsii.Number(2),
+//   }))
 //
 type Code interface {
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.

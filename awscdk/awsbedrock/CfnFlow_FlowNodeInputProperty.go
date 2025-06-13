@@ -12,6 +12,9 @@ package awsbedrock
 //   	Expression: jsii.String("expression"),
 //   	Name: jsii.String("name"),
 //   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	Category: jsii.String("category"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html
@@ -33,5 +36,13 @@ type CfnFlow_FlowNodeInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// Specifies how input data flows between iterations in a DoWhile loop.
+	//
+	// - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+	// - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+	// - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-category
+	//
+	Category *string `field:"optional" json:"category" yaml:"category"`
 }
 

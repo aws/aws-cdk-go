@@ -10,6 +10,21 @@ package awslambda
 //
 //   amazonManagedKafkaEventSourceConfigProperty := &AmazonManagedKafkaEventSourceConfigProperty{
 //   	ConsumerGroupId: jsii.String("consumerGroupId"),
+//   	SchemaRegistryConfig: &SchemaRegistryConfigProperty{
+//   		AccessConfigs: []interface{}{
+//   			&SchemaRegistryAccessConfigProperty{
+//   				Type: jsii.String("type"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   		},
+//   		EventRecordFormat: jsii.String("eventRecordFormat"),
+//   		SchemaRegistryUri: jsii.String("schemaRegistryUri"),
+//   		SchemaValidationConfigs: []interface{}{
+//   			&SchemaValidationConfigProperty{
+//   				Attribute: jsii.String("attribute"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html
@@ -21,5 +36,8 @@ type CfnEventSourceMapping_AmazonManagedKafkaEventSourceConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig-consumergroupid
 	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig-schemaregistryconfig
+	//
+	SchemaRegistryConfig interface{} `field:"optional" json:"schemaRegistryConfig" yaml:"schemaRegistryConfig"`
 }
 

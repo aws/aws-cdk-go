@@ -13,6 +13,14 @@ package awscustomerprofiles
 //   	Range: &RangeProperty{
 //   		Unit: jsii.String("unit"),
 //   		Value: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		TimestampFormat: jsii.String("timestampFormat"),
+//   		TimestampSource: jsii.String("timestampSource"),
+//   		ValueRange: &ValueRangeProperty{
+//   			End: jsii.Number(123),
+//   			Start: jsii.Number(123),
+//   		},
 //   	},
 //   	Threshold: &ThresholdProperty{
 //   		Operator: jsii.String("operator"),

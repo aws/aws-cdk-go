@@ -12,6 +12,22 @@ package awsec2
 //
 //   fleetLaunchTemplateOverridesRequestProperty := &FleetLaunchTemplateOverridesRequestProperty{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	BlockDeviceMappings: []interface{}{
+//   		&BlockDeviceMappingProperty{
+//   			DeviceName: jsii.String("deviceName"),
+//   			Ebs: &EbsBlockDeviceProperty{
+//   				DeleteOnTermination: jsii.Boolean(false),
+//   				Encrypted: jsii.Boolean(false),
+//   				Iops: jsii.Number(123),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				SnapshotId: jsii.String("snapshotId"),
+//   				VolumeSize: jsii.Number(123),
+//   				VolumeType: jsii.String("volumeType"),
+//   			},
+//   			NoDevice: jsii.String("noDevice"),
+//   			VirtualName: jsii.String("virtualName"),
+//   		},
+//   	},
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
@@ -114,6 +130,14 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-blockdevicemappings
+	//
+	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// The attributes for the instance types.
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.

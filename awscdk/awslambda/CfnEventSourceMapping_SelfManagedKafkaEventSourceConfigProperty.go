@@ -10,6 +10,21 @@ package awslambda
 //
 //   selfManagedKafkaEventSourceConfigProperty := &SelfManagedKafkaEventSourceConfigProperty{
 //   	ConsumerGroupId: jsii.String("consumerGroupId"),
+//   	SchemaRegistryConfig: &SchemaRegistryConfigProperty{
+//   		AccessConfigs: []interface{}{
+//   			&SchemaRegistryAccessConfigProperty{
+//   				Type: jsii.String("type"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   		},
+//   		EventRecordFormat: jsii.String("eventRecordFormat"),
+//   		SchemaRegistryUri: jsii.String("schemaRegistryUri"),
+//   		SchemaValidationConfigs: []interface{}{
+//   			&SchemaValidationConfigProperty{
+//   				Attribute: jsii.String("attribute"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html
@@ -17,9 +32,12 @@ package awslambda
 type CfnEventSourceMapping_SelfManagedKafkaEventSourceConfigProperty struct {
 	// The identifier for the Kafka consumer group to join.
 	//
-	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id) .
+	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-consumergroupid
 	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-schemaregistryconfig
+	//
+	SchemaRegistryConfig interface{} `field:"optional" json:"schemaRegistryConfig" yaml:"schemaRegistryConfig"`
 }
 

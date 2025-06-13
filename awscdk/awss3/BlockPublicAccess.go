@@ -6,10 +6,15 @@ import (
 )
 
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &BucketProps{
-//   	BlockPublicAccess: s3.NewBlockPublicAccess(&BlockPublicAccessOptions{
-//   		BlockPublicPolicy: jsii.Boolean(false),
-//   	}),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   s3.NewBucket(*scope, jsii.String("Bucket"), &BucketProps{
+//   	BlockPublicAccess: s3.BlockPublicAccess_BLOCK_ALL(),
+//   	Encryption: s3.BucketEncryption_S3_MANAGED,
+//   	EnforceSSL: jsii.Boolean(true),
+//   	Versioned: jsii.Boolean(true),
+//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   })
 //
 type BlockPublicAccess interface {

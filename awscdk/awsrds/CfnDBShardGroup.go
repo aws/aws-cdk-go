@@ -62,9 +62,7 @@ type CfnDBShardGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Specifies whether to create standby DB shard groups for the DB shard group.
-	//
-	// Valid values are the following:.
+	// Specifies whether to create standby standby DB data access shard for the DB shard group.
 	ComputeRedundancy() *float64
 	SetComputeRedundancy(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

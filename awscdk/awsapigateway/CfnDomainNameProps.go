@@ -71,6 +71,9 @@ type CfnDomainNameProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 	//
 	RegionalCertificateArn *string `field:"optional" json:"regionalCertificateArn" yaml:"regionalCertificateArn"`
+	// The routing mode for this domain name.
+	//
+	// The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-routingmode
 	//
 	// Default: - "BASE_PATH_MAPPING_ONLY".

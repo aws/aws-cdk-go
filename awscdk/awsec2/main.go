@@ -957,6 +957,10 @@ func init() {
 		reflect.TypeOf((*CfnEC2Fleet_BaselinePerformanceFactorsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.BlockDeviceMappingProperty",
+		reflect.TypeOf((*CfnEC2Fleet_BlockDeviceMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CapacityRebalanceProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CapacityRebalanceProperty)(nil)).Elem(),
 	)
@@ -967,6 +971,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CpuPerformanceFactorRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.EbsBlockDeviceProperty",
+		reflect.TypeOf((*CfnEC2Fleet_EbsBlockDeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateConfigRequestProperty",

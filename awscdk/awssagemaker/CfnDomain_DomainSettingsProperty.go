@@ -34,6 +34,15 @@ package awssagemaker
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
+//   	UnifiedStudioSettings: &UnifiedStudioSettingsProperty{
+//   		DomainAccountId: jsii.String("domainAccountId"),
+//   		DomainId: jsii.String("domainId"),
+//   		DomainRegion: jsii.String("domainRegion"),
+//   		EnvironmentId: jsii.String("environmentId"),
+//   		ProjectId: jsii.String("projectId"),
+//   		ProjectS3Path: jsii.String("projectS3Path"),
+//   		StudioWebPortalAccess: jsii.String("studioWebPortalAccess"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html
@@ -55,5 +64,9 @@ type CfnDomain_DomainSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	// A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-unifiedstudiosettings
+	//
+	UnifiedStudioSettings interface{} `field:"optional" json:"unifiedStudioSettings" yaml:"unifiedStudioSettings"`
 }
 

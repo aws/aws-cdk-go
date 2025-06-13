@@ -101,6 +101,8 @@ type CfnWebACL interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	OnSourceDDoSProtectionConfig() interface{}
+	SetOnSourceDDoSProtectionConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -454,6 +456,16 @@ func (j *jsiiProxy_CfnWebACL) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebACL) OnSourceDDoSProtectionConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"onSourceDDoSProtectionConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACL) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -660,6 +672,14 @@ func (j *jsiiProxy_CfnWebACL)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL)SetOnSourceDDoSProtectionConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"onSourceDDoSProtectionConfig",
 		val,
 	)
 }

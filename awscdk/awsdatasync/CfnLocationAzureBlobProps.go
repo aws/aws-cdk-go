@@ -52,9 +52,13 @@ type CfnLocationAzureBlobProps struct {
 	// Default: - "SAS".
 	//
 	AzureBlobAuthenticationType *string `field:"required" json:"azureBlobAuthenticationType" yaml:"azureBlobAuthenticationType"`
-	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.
+	// (Optional) Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.
+	//
+	// If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	//
 	// You can specify more than one agent. For more information, see [Using multiple agents for your transfer](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+	//
+	// > Make sure you configure this parameter correctly when you first create your storage location. You cannot add or remove agents from a storage location after you create it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-agentarns
 	//
 	AgentArns *[]*string `field:"optional" json:"agentArns" yaml:"agentArns"`
@@ -71,6 +75,8 @@ type CfnLocationAzureBlobProps struct {
 	//
 	AzureBlobContainerUrl *string `field:"optional" json:"azureBlobContainerUrl" yaml:"azureBlobContainerUrl"`
 	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+	//
+	// > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-azureblobsasconfiguration
 	//
 	AzureBlobSasConfiguration interface{} `field:"optional" json:"azureBlobSasConfiguration" yaml:"azureBlobSasConfiguration"`
@@ -82,11 +88,17 @@ type CfnLocationAzureBlobProps struct {
 	// Default: - "BLOCK".
 	//
 	AzureBlobType *string `field:"optional" json:"azureBlobType" yaml:"azureBlobType"`
-	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+	//
+	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-cmksecretconfig
 	//
 	CmkSecretConfig interface{} `field:"optional" json:"cmkSecretConfig" yaml:"cmkSecretConfig"`
-	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text.
+	//
+	// This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-customsecretconfig
 	//
 	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`

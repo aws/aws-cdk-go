@@ -35,6 +35,7 @@ import (
 //   	PerformanceMode: jsii.Boolean(false),
 //   	PullRequestEnvironmentName: jsii.String("pullRequestEnvironmentName"),
 //   	PullRequestPreview: jsii.Boolean(false),
+//   	SkewProtection: jsii.Boolean(false),
 //   	Stage: jsii.String("stage"),
 //   }
 //
@@ -105,6 +106,16 @@ type BranchProps struct {
 	//
 	// Experimental.
 	PullRequestPreview *bool `field:"optional" json:"pullRequestPreview" yaml:"pullRequestPreview"`
+	// Specifies whether the skew protection feature is enabled for the branch.
+	//
+	// Deployment skew protection is available to Amplify applications to eliminate version skew issues
+	// between client and servers in web applications.
+	// When you apply skew protection to a branch, you can ensure that your clients always interact
+	// with the correct version of server-side assets, regardless of when a deployment occurs.
+	// Default: None - Default setting is no skew protection.
+	//
+	// Experimental.
+	SkewProtection *bool `field:"optional" json:"skewProtection" yaml:"skewProtection"`
 	// Stage for the branch.
 	// Default: - no stage.
 	//

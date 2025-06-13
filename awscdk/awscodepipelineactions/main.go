@@ -368,6 +368,59 @@ func init() {
 		reflect.TypeOf((*CommonCloudFormationStackSetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.Ec2DeployAction",
+		reflect.TypeOf((*Ec2DeployAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "providedActionProperties", GoGetter: "ProvidedActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Ec2DeployAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.Ec2DeployActionProps",
+		reflect.TypeOf((*Ec2DeployActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.Ec2DeploySpecifications",
+		reflect.TypeOf((*Ec2DeploySpecifications)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Ec2DeploySpecifications{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.Ec2DeploySpecificationsInlineProps",
+		reflect.TypeOf((*Ec2DeploySpecificationsInlineProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline_actions.Ec2InstanceType",
+		reflect.TypeOf((*Ec2InstanceType)(nil)).Elem(),
+		map[string]interface{}{
+			"EC2": Ec2InstanceType_EC2,
+			"SSM_MANAGED_NODE": Ec2InstanceType_SSM_MANAGED_NODE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.Ec2MaxInstances",
+		reflect.TypeOf((*Ec2MaxInstances)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Ec2MaxInstances{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.EcrBuildAndPublishAction",
 		reflect.TypeOf((*EcrBuildAndPublishAction)(nil)).Elem(),
 		[]_jsii_.Member{

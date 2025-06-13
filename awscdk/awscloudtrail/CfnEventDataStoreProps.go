@@ -45,6 +45,14 @@ import (
 //   		},
 //   	},
 //   	BillingMode: jsii.String("billingMode"),
+//   	ContextKeySelectors: []interface{}{
+//   		&ContextKeySelectorProperty{
+//   			EqualTo: []*string{
+//   				jsii.String("equalTo"),
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	FederationEnabled: jsii.Boolean(false),
 //   	FederationRoleArn: jsii.String("federationRoleArn"),
 //   	IngestionEnabled: jsii.Boolean(false),
@@ -55,6 +63,7 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	MaxEventSize: jsii.String("maxEventSize"),
 //   	MultiRegionEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	OrganizationEnabled: jsii.Boolean(false),
@@ -96,6 +105,10 @@ type CfnEventDataStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-billingmode
 	//
 	BillingMode *string `field:"optional" json:"billingMode" yaml:"billingMode"`
+	// The list of context key selectors that are configured for the event data store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-contextkeyselectors
+	//
+	ContextKeySelectors interface{} `field:"optional" json:"contextKeySelectors" yaml:"contextKeySelectors"`
 	// Indicates if [Lake query federation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html) is enabled. By default, Lake query federation is disabled. You cannot delete an event data store if Lake query federation is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationenabled
 	//
@@ -145,6 +158,12 @@ type CfnEventDataStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// The maximum allowed size for events to be stored in the specified event data store.
+	//
+	// If you are using context key selectors, MaxEventSize must be set to Large.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-maxeventsize
+	//
+	MaxEventSize *string `field:"optional" json:"maxEventSize" yaml:"maxEventSize"`
 	// Specifies whether the event data store includes events from all Regions, or only from the Region in which the event data store is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-multiregionenabled
 	//

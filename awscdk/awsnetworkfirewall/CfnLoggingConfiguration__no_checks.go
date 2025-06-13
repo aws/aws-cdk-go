@@ -80,6 +80,10 @@ func validateCfnLoggingConfiguration_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoggingConfiguration) validateSetEnableMonitoringDashboardParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLoggingConfiguration) validateSetFirewallArnParameters(val *string) error {
 	return nil
 }

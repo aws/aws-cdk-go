@@ -14,21 +14,27 @@ import (
 // Example:
 //   var vpc vpc
 //
-//   var sourceInstance databaseInstance
-//
-//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
-//   	SnapshotIdentifier: jsii.String("my-snapshot"),
-//   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   		Version: rds.PostgresEngineVersion_VER_16_3(),
-//   	}),
-//   	// optional, defaults to m5.large
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
-//   	Vpc: Vpc,
+//   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+//   	Version: rds.PostgresEngineVersion_VER_16_3(),
 //   })
-//   rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &DatabaseInstanceReadReplicaProps{
-//   	SourceDatabaseInstance: sourceInstance,
-//   	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
+//   myKey := kms.NewKey(this, jsii.String("MyKey"))
+//
+//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &DatabaseInstanceFromSnapshotProps{
+//   	Engine: Engine,
 //   	Vpc: Vpc,
+//   	SnapshotIdentifier: jsii.String("mySnapshot"),
+//   	Credentials: rds.SnapshotCredentials_FromGeneratedSecret(jsii.String("username"), &SnapshotCredentialsFromGeneratedPasswordOptions{
+//   		EncryptionKey: myKey,
+//   		ExcludeCharacters: jsii.String("!&*^#@()"),
+//   		ReplicaRegions: []replicaRegion{
+//   			&replicaRegion{
+//   				Region: jsii.String("eu-west-1"),
+//   			},
+//   			&replicaRegion{
+//   				Region: jsii.String("eu-west-2"),
+//   			},
+//   		},
+//   	}),
 //   })
 //
 type DatabaseInstanceFromSnapshotProps struct {
@@ -327,11 +333,21 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// Default: - RDS default timezone.
 	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
-	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
+	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
 	//
-	// If you're restoring from a shared manual DB
-	// snapshot, you must specify the ARN of the snapshot.
-	SnapshotIdentifier *string `field:"required" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
+	// For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
+	//
+	// Constraints:
+	//
+	// - Can't be specified when `snapshotIdentifier` is specified.
+	// - Must be specified when `snapshotIdentifier` isn't specified.
+	// - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the `clusterSnapshotIdentifier` must be the ARN of the shared snapshot.
+	// - Can't be the identifier of an Aurora DB cluster snapshot.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RestoreFromMultiAZDBClusterSnapshot.html
+	//
+	// Default: - None.
+	//
+	ClusterSnapshotIdentifier *string `field:"optional" json:"clusterSnapshotIdentifier" yaml:"clusterSnapshotIdentifier"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
@@ -339,5 +355,16 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// Default: - The existing username and password from the snapshot will be used.
 	//
 	Credentials SnapshotCredentials `field:"optional" json:"credentials" yaml:"credentials"`
+	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
+	//
+	// If you're restoring from a shared manual DB
+	// snapshot, you must specify the ARN of the snapshot.
+	// Constraints:
+	//
+	// - Can't be specified when `clusterSnapshotIdentifier` is specified.
+	// - Must be specified when `clusterSnapshotIdentifier` isn't specified.
+	// Default: - None.
+	//
+	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 }
 

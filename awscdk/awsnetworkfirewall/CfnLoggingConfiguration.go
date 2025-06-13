@@ -41,6 +41,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	EnableMonitoringDashboard: jsii.Boolean(false),
 //   	FirewallName: jsii.String("firewallName"),
 //   })
 //
@@ -58,6 +59,8 @@ type CfnLoggingConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	EnableMonitoringDashboard() interface{}
+	SetEnableMonitoringDashboard(val interface{})
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
@@ -274,6 +277,16 @@ func (j *jsiiProxy_CfnLoggingConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoggingConfiguration) EnableMonitoringDashboard() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableMonitoringDashboard",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoggingConfiguration) FirewallArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -389,6 +402,17 @@ func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constr
 		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLoggingConfiguration)SetEnableMonitoringDashboard(val interface{}) {
+	if err := j.validateSetEnableMonitoringDashboardParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableMonitoringDashboard",
+		val,
 	)
 }
 

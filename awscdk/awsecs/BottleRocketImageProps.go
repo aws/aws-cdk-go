@@ -18,6 +18,10 @@ import (
 //   })
 //
 type BottleRocketImageProps struct {
+	// Adds an additional discriminator to the `cdk.context.json` cache key.
+	// Default: - no additional cache key.
+	//
+	AdditionalCacheKey *string `field:"optional" json:"additionalCacheKey" yaml:"additionalCacheKey"`
 	// The CPU architecture.
 	// Default: - x86_64.
 	//

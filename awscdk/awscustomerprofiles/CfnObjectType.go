@@ -50,6 +50,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	MaxProfileObjectCount: jsii.Number(123),
 //   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -73,6 +74,8 @@ type CfnObjectType interface {
 	AttrCreatedAt() *string
 	// The timestamp of when the object type was most recently edited.
 	AttrLastUpdatedAt() *string
+	// The maximum available number of profile objects.
+	AttrMaxAvailableProfileObjectCount() *float64
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -110,6 +113,9 @@ type CfnObjectType interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maximum number of profile objects for this object type.
+	MaxProfileObjectCount() *float64
+	SetMaxProfileObjectCount(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// The name of the profile object type.
@@ -312,6 +318,16 @@ func (j *jsiiProxy_CfnObjectType) AttrLastUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnObjectType) AttrMaxAvailableProfileObjectCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrMaxAvailableProfileObjectCount",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnObjectType) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -417,6 +433,16 @@ func (j *jsiiProxy_CfnObjectType) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnObjectType) MaxProfileObjectCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxProfileObjectCount",
 		&returns,
 	)
 	return returns
@@ -617,6 +643,14 @@ func (j *jsiiProxy_CfnObjectType)SetKeys(val interface{}) {
 	_jsii_.Set(
 		j,
 		"keys",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnObjectType)SetMaxProfileObjectCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxProfileObjectCount",
 		val,
 	)
 }

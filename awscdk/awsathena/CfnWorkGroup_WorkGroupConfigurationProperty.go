@@ -22,6 +22,12 @@ package awsathena
 //   		SelectedEngineVersion: jsii.String("selectedEngineVersion"),
 //   	},
 //   	ExecutionRole: jsii.String("executionRole"),
+//   	ManagedQueryResultsConfiguration: &ManagedQueryResultsConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		EncryptionConfiguration: &ManagedStorageEncryptionConfigurationProperty{
+//   			KmsKey: jsii.String("kmsKey"),
+//   		},
+//   	},
 //   	PublishCloudWatchMetricsEnabled: jsii.Boolean(false),
 //   	RequesterPaysEnabled: jsii.Boolean(false),
 //   	ResultConfiguration: &ResultConfigurationProperty{
@@ -76,6 +82,12 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	// The configuration for the managed query results and encryption option.
+	//
+	// ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-managedqueryresultsconfiguration
+	//
+	ManagedQueryResultsConfiguration interface{} `field:"optional" json:"managedQueryResultsConfiguration" yaml:"managedQueryResultsConfiguration"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 	//

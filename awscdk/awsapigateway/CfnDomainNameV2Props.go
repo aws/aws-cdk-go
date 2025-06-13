@@ -56,9 +56,9 @@ type CfnDomainNameV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-policy
 	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
-	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY].
+	// The routing mode for this domain name.
 	//
-	// All other inputs are invalid.
+	// The routing mode determines how API Gateway sends traffic from your custom domain name to your private APIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-routingmode
 	//
 	// Default: - "BASE_PATH_MAPPING_ONLY".

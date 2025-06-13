@@ -323,8 +323,22 @@ things.
 > *Info* More complete details can be found [in the docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2-examples-setting-capacity-range-for-cluster)
 
 You can also set minimum capacity to zero ACUs and automatically pause,
-if they don't have any connections initiated by user activity within a specified time period.
+if they don't have any connections initiated by user activity within a time period specified by `serverlessV2AutoPauseDuration` (300 seconds by default).
 For more information, see [Scaling to Zero ACUs with automatic pause and resume for Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2-auto-pause.html).
+
+```go
+var vpc vpc
+
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_08_0(),
+	}),
+	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
+	ServerlessV2MinCapacity: jsii.Number(0),
+	ServerlessV2AutoPauseDuration: awscdk.Duration_Hours(jsii.Number(1)),
+	Vpc: Vpc,
+})
+```
 
 Another way that you control the capacity/scaling of your serverless v2 reader
 instances is based on the [promotion tier](https://aws.amazon.com/blogs/aws/additional-failover-control-for-amazon-aurora/)
@@ -662,6 +676,21 @@ rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInst
 rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &DatabaseInstanceReadReplicaProps{
 	SourceDatabaseInstance: sourceInstance,
 	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+})
+```
+
+Or you can [restore a DB instance from a Multi-AZ DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RestoreFromMultiAZDBClusterSnapshot.html)
+
+```go
+var vpc vpc
+
+
+rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
+	ClusterSnapshotIdentifier: jsii.String("my-cluster-snapshot"),
+	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+		Version: rds.PostgresEngineVersion_VER_16_3(),
+	}),
 	Vpc: Vpc,
 })
 ```
@@ -1326,7 +1355,7 @@ proxy.GrantConnect(role, jsii.String("admin"))
 See [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html) for setup instructions.
 
 To specify the details of authentication used by a proxy to log in as a specific database
-user use the `clientPasswordAuthType` property:
+user use the `clientPasswordAuthType` property:
 
 ```go
 var vpc vpc

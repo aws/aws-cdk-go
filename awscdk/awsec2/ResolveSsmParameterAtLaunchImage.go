@@ -20,6 +20,7 @@ import (
 //   var userData userData
 //
 //   resolveSsmParameterAtLaunchImage := awscdk.Aws_ec2.NewResolveSsmParameterAtLaunchImage(jsii.String("parameterName"), &SsmParameterImageOptions{
+//   	AdditionalCacheKey: jsii.String("additionalCacheKey"),
 //   	CachedInContext: jsii.Boolean(false),
 //   	Os: awscdk.*Aws_ec2.OperatingSystemType_LINUX,
 //   	ParameterVersion: jsii.String("parameterVersion"),

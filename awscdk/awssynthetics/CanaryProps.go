@@ -89,6 +89,18 @@ type CanaryProps struct {
 	//
 	// Deprecated: use provisionedResourceCleanup.
 	Cleanup Cleanup `field:"optional" json:"cleanup" yaml:"cleanup"`
+	// Specifies whether to perform a dry run before updating the canary.
+	//
+	// If set to true, CDK will execute a dry run to validate the changes before applying them to the canary.
+	// If the dry run succeeds, the canary will be updated with the changes.
+	// If the dry run fails, the CloudFormation deployment will fail with the dry run’s failure reason.
+	//
+	// If set to false or omitted, the canary will be updated directly without first performing a dry run.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/performing-safe-canary-upgrades.html
+	//
+	// Default: undefined - AWS CloudWatch default is false.
+	//
+	DryRunAndUpdate *bool `field:"optional" json:"dryRunAndUpdate" yaml:"dryRunAndUpdate"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//
 	// Use environment variables

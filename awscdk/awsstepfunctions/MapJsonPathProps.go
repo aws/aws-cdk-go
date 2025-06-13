@@ -23,6 +23,7 @@ package awsstepfunctions
 //   		"itemSelectorKey": itemSelector,
 //   	},
 //   	ItemsPath: jsii.String("itemsPath"),
+//   	JsonataItemSelector: jsii.String("jsonataItemSelector"),
 //   	MaxConcurrency: jsii.Number(123),
 //   	MaxConcurrencyPath: jsii.String("maxConcurrencyPath"),
 //   	OutputPath: jsii.String("outputPath"),
@@ -61,12 +62,18 @@ type MapJsonPathProps struct {
 	// Default: - Not assign variables.
 	//
 	Assign *map[string]interface{} `field:"optional" json:"assign" yaml:"assign"`
-	// The JSON that you want to override your default iteration input (mutually exclusive  with `parameters`).
+	// The JSON that you want to override your default iteration input (mutually exclusive  with `parameters` and `jsonataItemSelector`).
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
 	//
 	// Default: $.
 	//
 	ItemSelector *map[string]interface{} `field:"optional" json:"itemSelector" yaml:"itemSelector"`
+	// Jsonata expression that evaluates to a JSON array to override your default iteration input (mutually exclusive with `parameters` and `itemSelector`).
+	//
+	// Example value: `{% {\"foo\": \"foo\", \"input\": $states.input} %}`
+	// Default: $.
+	//
+	JsonataItemSelector *string `field:"optional" json:"jsonataItemSelector" yaml:"jsonataItemSelector"`
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.

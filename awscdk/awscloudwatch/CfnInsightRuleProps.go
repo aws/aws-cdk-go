@@ -45,6 +45,9 @@ type CfnInsightRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate
 	//
 	RuleState *string `field:"required" json:"ruleState" yaml:"ruleState"`
+	// Determines whether the rules is evaluated on transformed versions of logs.
+	//
+	// Valid values are `TRUE` and `FALSE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-applyontransformedlogs
 	//
 	ApplyOnTransformedLogs interface{} `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`

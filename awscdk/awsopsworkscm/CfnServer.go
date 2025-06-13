@@ -46,7 +46,6 @@ import (
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	ServerName: jsii.String("serverName"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -73,6 +72,8 @@ type CfnServer interface {
 	//
 	// Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
 	AttrEndpoint() *string
+	// The ID of the server.
+	AttrId() *string
 	// The name of the server.
 	AttrServerName() *string
 	// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
@@ -149,9 +150,6 @@ type CfnServer interface {
 	// A list of security group IDs to attach to the Amazon EC2 instance.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// The name of the server.
-	ServerName() *string
-	SetServerName(val *string)
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
@@ -339,6 +337,16 @@ func (j *jsiiProxy_CfnServer) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServer) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -579,16 +587,6 @@ func (j *jsiiProxy_CfnServer) SecurityGroupIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"securityGroupIds",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServer) ServerName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"serverName",
 		&returns,
 	)
 	return returns
@@ -839,14 +837,6 @@ func (j *jsiiProxy_CfnServer)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnServer)SetServerName(val *string) {
-	_jsii_.Set(
-		j,
-		"serverName",
 		val,
 	)
 }

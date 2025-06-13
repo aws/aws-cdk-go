@@ -49,6 +49,10 @@ package awsec2
 type LookupMachineImageProps struct {
 	// Name of the image (may contain wildcards).
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Adds an additional discriminator to the `cdk.context.json` cache key.
+	// Default: - no additional cache key.
+	//
+	AdditionalCacheKey *string `field:"optional" json:"additionalCacheKey" yaml:"additionalCacheKey"`
 	// Additional filters on the AMI.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 	//

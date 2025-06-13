@@ -52,7 +52,6 @@ type CfnBroker_UserProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-groups
 	//
 	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
-	// Enables Jolokia access to the ActiveMQ broker for the ActiveMQ user (Does not apply to RabbitMQ brokers).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-jolokiaapiaccess
 	//
 	JolokiaApiAccess *string `field:"optional" json:"jolokiaApiAccess" yaml:"jolokiaApiAccess"`

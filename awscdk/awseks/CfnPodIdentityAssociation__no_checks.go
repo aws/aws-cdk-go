@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetClusterNameParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetDisableSessionTagsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetNamespaceParameters(val *string) error {
 	return nil
 }

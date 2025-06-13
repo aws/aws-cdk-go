@@ -30,6 +30,14 @@ import (
 //   		Range: &RangeProperty{
 //   			Unit: jsii.String("unit"),
 //   			Value: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			TimestampFormat: jsii.String("timestampFormat"),
+//   			TimestampSource: jsii.String("timestampSource"),
+//   			ValueRange: &ValueRangeProperty{
+//   				End: jsii.Number(123),
+//   				Start: jsii.Number(123),
+//   			},
 //   		},
 //   		Threshold: &ThresholdProperty{
 //   			Operator: jsii.String("operator"),
@@ -44,6 +52,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseHistoricalData: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html
@@ -81,5 +90,9 @@ type CfnCalculatedAttributeDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Whether to use historical data for the calculated attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-usehistoricaldata
+	//
+	UseHistoricalData interface{} `field:"optional" json:"useHistoricalData" yaml:"useHistoricalData"`
 }
 

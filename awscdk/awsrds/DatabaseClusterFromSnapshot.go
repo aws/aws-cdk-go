@@ -95,6 +95,7 @@ type DatabaseClusterFromSnapshot interface {
 	// The secret attached to this cluster.
 	Secret() awssecretsmanager.ISecret
 	SecurityGroups() *[]awsec2.ISecurityGroup
+	ServerlessV2AutoPauseDuration() awscdk.Duration
 	ServerlessV2MaxCapacity() *float64
 	ServerlessV2MinCapacity() *float64
 	// Application for single user rotation of the master password to this cluster.
@@ -458,6 +459,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) SecurityGroups() *[]awsec2.ISecu
 	_jsii_.Get(
 		j,
 		"securityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) ServerlessV2AutoPauseDuration() awscdk.Duration {
+	var returns awscdk.Duration
+	_jsii_.Get(
+		j,
+		"serverlessV2AutoPauseDuration",
 		&returns,
 	)
 	return returns

@@ -3,7 +3,7 @@ package awsdatasync
 
 // Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location.
 //
-// DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+// DataSync uses the default AWS -managed KMS key to encrypt this secret in AWS Secrets Manager .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

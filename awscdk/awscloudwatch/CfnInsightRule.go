@@ -39,6 +39,7 @@ type CfnInsightRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Determines whether the rules is evaluated on transformed versions of logs.
 	ApplyOnTransformedLogs() interface{}
 	SetApplyOnTransformedLogs(val interface{})
 	// The ARN of the Contributor Insights rule, such as `arn:aws:cloudwatch:us-west-2:123456789012:insight-rule/MyInsightRuleName` .

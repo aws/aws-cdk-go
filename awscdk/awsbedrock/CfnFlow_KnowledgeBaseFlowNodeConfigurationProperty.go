@@ -10,6 +10,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalModelRequestFields interface{}
+//
 //   knowledgeBaseFlowNodeConfigurationProperty := &KnowledgeBaseFlowNodeConfigurationProperty{
 //   	KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //
@@ -18,7 +20,73 @@ package awsbedrock
 //   		GuardrailIdentifier: jsii.String("guardrailIdentifier"),
 //   		GuardrailVersion: jsii.String("guardrailVersion"),
 //   	},
+//   	InferenceConfiguration: &PromptInferenceConfigurationProperty{
+//   		Text: &PromptModelInferenceConfigurationProperty{
+//   			MaxTokens: jsii.Number(123),
+//   			StopSequences: []*string{
+//   				jsii.String("stopSequences"),
+//   			},
+//   			Temperature: jsii.Number(123),
+//   			TopP: jsii.Number(123),
+//   		},
+//   	},
 //   	ModelId: jsii.String("modelId"),
+//   	NumberOfResults: jsii.Number(123),
+//   	OrchestrationConfiguration: &KnowledgeBaseOrchestrationConfigurationProperty{
+//   		AdditionalModelRequestFields: additionalModelRequestFields,
+//   		InferenceConfig: &PromptInferenceConfigurationProperty{
+//   			Text: &PromptModelInferenceConfigurationProperty{
+//   				MaxTokens: jsii.Number(123),
+//   				StopSequences: []*string{
+//   					jsii.String("stopSequences"),
+//   				},
+//   				Temperature: jsii.Number(123),
+//   				TopP: jsii.Number(123),
+//   			},
+//   		},
+//   		PerformanceConfig: &PerformanceConfigurationProperty{
+//   			Latency: jsii.String("latency"),
+//   		},
+//   		PromptTemplate: &KnowledgeBasePromptTemplateProperty{
+//   			TextPromptTemplate: jsii.String("textPromptTemplate"),
+//   		},
+//   	},
+//   	PromptTemplate: &KnowledgeBasePromptTemplateProperty{
+//   		TextPromptTemplate: jsii.String("textPromptTemplate"),
+//   	},
+//   	RerankingConfiguration: &VectorSearchRerankingConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		BedrockRerankingConfiguration: &VectorSearchBedrockRerankingConfigurationProperty{
+//   			ModelConfiguration: &VectorSearchBedrockRerankingModelConfigurationProperty{
+//   				ModelArn: jsii.String("modelArn"),
+//
+//   				// the properties below are optional
+//   				AdditionalModelRequestFields: additionalModelRequestFields,
+//   			},
+//
+//   			// the properties below are optional
+//   			MetadataConfiguration: &MetadataConfigurationForRerankingProperty{
+//   				SelectionMode: jsii.String("selectionMode"),
+//
+//   				// the properties below are optional
+//   				SelectiveModeConfiguration: &RerankingMetadataSelectiveModeConfigurationProperty{
+//   					FieldsToExclude: []interface{}{
+//   						&FieldForRerankingProperty{
+//   							FieldName: jsii.String("fieldName"),
+//   						},
+//   					},
+//   					FieldsToInclude: []interface{}{
+//   						&FieldForRerankingProperty{
+//   							FieldName: jsii.String("fieldName"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			NumberOfRerankedResults: jsii.Number(123),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html
@@ -32,9 +100,29 @@ type CfnFlow_KnowledgeBaseFlowNodeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-guardrailconfiguration
 	//
 	GuardrailConfiguration interface{} `field:"optional" json:"guardrailConfiguration" yaml:"guardrailConfiguration"`
+	// Contains inference configurations for the prompt.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-inferenceconfiguration
+	//
+	InferenceConfiguration interface{} `field:"optional" json:"inferenceConfiguration" yaml:"inferenceConfiguration"`
 	// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-modelid
 	//
 	ModelId *string `field:"optional" json:"modelId" yaml:"modelId"`
+	// The number of results to retrieve from the knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-numberofresults
+	//
+	NumberOfResults *float64 `field:"optional" json:"numberOfResults" yaml:"numberOfResults"`
+	// The configuration for orchestrating the retrieval and generation process in the knowledge base node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-orchestrationconfiguration
+	//
+	OrchestrationConfiguration interface{} `field:"optional" json:"orchestrationConfiguration" yaml:"orchestrationConfiguration"`
+	// A custom prompt template to use with the knowledge base for generating responses.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-prompttemplate
+	//
+	PromptTemplate interface{} `field:"optional" json:"promptTemplate" yaml:"promptTemplate"`
+	// The configuration for reranking the retrieved results from the knowledge base to improve relevance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flow-knowledgebaseflownodeconfiguration-rerankingconfiguration
+	//
+	RerankingConfiguration interface{} `field:"optional" json:"rerankingConfiguration" yaml:"rerankingConfiguration"`
 }
 

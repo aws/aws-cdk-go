@@ -698,6 +698,10 @@ func init() {
 		reflect.TypeOf((*CfnDomain_StudioWebPortalSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.UnifiedStudioSettingsProperty",
+		reflect.TypeOf((*CfnDomain_UnifiedStudioSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.UserSettingsProperty",
 		reflect.TypeOf((*CfnDomain_UserSettingsProperty)(nil)).Elem(),
 	)

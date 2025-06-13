@@ -58,7 +58,7 @@ type CfnEmailAddress interface {
 	// The display name of email address.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.
+	// The email address, including the domain.
 	EmailAddress() *string
 	SetEmailAddress(val *string)
 	// The Amazon Resource Name (ARN) of the instance.

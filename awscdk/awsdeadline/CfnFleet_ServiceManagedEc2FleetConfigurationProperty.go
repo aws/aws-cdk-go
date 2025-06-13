@@ -76,6 +76,9 @@ package awsdeadline
 //   	InstanceMarketOptions: &ServiceManagedEc2InstanceMarketOptionsProperty{
 //   		Type: jsii.String("type"),
 //   	},
+//
+//   	// the properties below are optional
+//   	StorageProfileId: jsii.String("storageProfileId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html
@@ -89,5 +92,9 @@ type CfnFleet_ServiceManagedEc2FleetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancemarketoptions
 	//
 	InstanceMarketOptions interface{} `field:"required" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
+	// The storage profile ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
+	//
+	StorageProfileId *string `field:"optional" json:"storageProfileId" yaml:"storageProfileId"`
 }
 

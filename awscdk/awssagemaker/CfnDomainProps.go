@@ -321,6 +321,15 @@ import (
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
+//   		UnifiedStudioSettings: &UnifiedStudioSettingsProperty{
+//   			DomainAccountId: jsii.String("domainAccountId"),
+//   			DomainId: jsii.String("domainId"),
+//   			DomainRegion: jsii.String("domainRegion"),
+//   			EnvironmentId: jsii.String("environmentId"),
+//   			ProjectId: jsii.String("projectId"),
+//   			ProjectS3Path: jsii.String("projectS3Path"),
+//   			StudioWebPortalAccess: jsii.String("studioWebPortalAccess"),
+//   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	TagPropagation: jsii.String("tagPropagation"),

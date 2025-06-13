@@ -21,6 +21,22 @@ package awsec2
 //   			Overrides: []interface{}{
 //   				&FleetLaunchTemplateOverridesRequestProperty{
 //   					AvailabilityZone: jsii.String("availabilityZone"),
+//   					BlockDeviceMappings: []interface{}{
+//   						&BlockDeviceMappingProperty{
+//   							DeviceName: jsii.String("deviceName"),
+//   							Ebs: &EbsBlockDeviceProperty{
+//   								DeleteOnTermination: jsii.Boolean(false),
+//   								Encrypted: jsii.Boolean(false),
+//   								Iops: jsii.Number(123),
+//   								KmsKeyId: jsii.String("kmsKeyId"),
+//   								SnapshotId: jsii.String("snapshotId"),
+//   								VolumeSize: jsii.Number(123),
+//   								VolumeType: jsii.String("volumeType"),
+//   							},
+//   							NoDevice: jsii.String("noDevice"),
+//   							VirtualName: jsii.String("virtualName"),
+//   						},
+//   					},
 //   					InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   						AcceleratorCount: &AcceleratorCountRequestProperty{
 //   							Max: jsii.Number(123),

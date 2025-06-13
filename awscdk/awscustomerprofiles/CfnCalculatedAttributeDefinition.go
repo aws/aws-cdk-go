@@ -35,6 +35,14 @@ import (
 //   		Range: &RangeProperty{
 //   			Unit: jsii.String("unit"),
 //   			Value: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			TimestampFormat: jsii.String("timestampFormat"),
+//   			TimestampSource: jsii.String("timestampSource"),
+//   			ValueRange: &ValueRangeProperty{
+//   				End: jsii.Number(123),
+//   				Start: jsii.Number(123),
+//   			},
 //   		},
 //   		Threshold: &ThresholdProperty{
 //   			Operator: jsii.String("operator"),
@@ -49,6 +57,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseHistoricalData: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html
@@ -64,6 +73,10 @@ type CfnCalculatedAttributeDefinition interface {
 	SetAttributeDetails(val interface{})
 	// The timestamp of when the calculated attribute definition was most recently edited.
 	AttrLastUpdatedAt() *string
+	// The readiness status of the calculated attribute.
+	AttrReadiness() awscdk.IResolvable
+	// The status of the calculated attribute definition.
+	AttrStatus() *string
 	// The name of an attribute defined in a profile object type.
 	CalculatedAttributeName() *string
 	SetCalculatedAttributeName(val *string)
@@ -130,6 +143,9 @@ type CfnCalculatedAttributeDefinition interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Whether to use historical data for the calculated attribute.
+	UseHistoricalData() interface{}
+	SetUseHistoricalData(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -289,6 +305,26 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) AttrLastUpdatedAt() *string
 	_jsii_.Get(
 		j,
 		"attrLastUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) AttrReadiness() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrReadiness",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
 		&returns,
 	)
 	return returns
@@ -474,6 +510,16 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) UpdatedProperties() *map[st
 	return returns
 }
 
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) UseHistoricalData() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"useHistoricalData",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnCalculatedAttributeDefinition(scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) CfnCalculatedAttributeDefinition {
 	_init_.Initialize()
@@ -580,6 +626,17 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition)SetTags(val *[]*awscdk.CfnTa
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition)SetUseHistoricalData(val interface{}) {
+	if err := j.validateSetUseHistoricalDataParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"useHistoricalData",
 		val,
 	)
 }

@@ -14,18 +14,11 @@ import (
 // Creates a new EBS Volume in AWS EC2.
 //
 // Example:
-//   var instance instance
-//   var role role
-//
-//
-//   volume := ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
-//   	AvailabilityZone: jsii.String("us-west-2a"),
-//   	Size: awscdk.Size_Gibibytes(jsii.Number(500)),
-//   	Encrypted: jsii.Boolean(true),
-//   })
-//
-//   volume.grantAttachVolume(role, []iInstance{
-//   	instance,
+//   ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
+//   	AvailabilityZone: jsii.String("us-east-1a"),
+//   	Size: awscdk.Size_Gibibytes(jsii.Number(125)),
+//   	VolumeType: ec2.EbsDeviceVolumeType_GP3,
+//   	Throughput: jsii.Number(125),
 //   })
 //
 type Volume interface {

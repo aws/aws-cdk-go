@@ -29,7 +29,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html
 //
 type CfnEmailAddressProps struct {
-	// The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.
+	// The email address, including the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-emailaddress
 	//
 	EmailAddress *string `field:"required" json:"emailAddress" yaml:"emailAddress"`

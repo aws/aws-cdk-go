@@ -43,6 +43,9 @@ type CfnPolicyStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-validationsettings
 	//
 	ValidationSettings interface{} `field:"required" json:"validationSettings" yaml:"validationSettings"`
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-deletionprotection
 	//
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`

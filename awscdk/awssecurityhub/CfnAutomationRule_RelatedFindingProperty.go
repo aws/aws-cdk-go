@@ -8,10 +8,8 @@ package awssecurityhub
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var id interface{}
-//
 //   relatedFindingProperty := &RelatedFindingProperty{
-//   	Id: id,
+//   	Id: jsii.String("id"),
 //   	ProductArn: jsii.String("productArn"),
 //   }
 //
@@ -23,7 +21,7 @@ type CfnAutomationRule_RelatedFindingProperty struct {
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-relatedfinding.html#cfn-securityhub-automationrule-relatedfinding-id
 	//
-	Id interface{} `field:"required" json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The Amazon Resource Name (ARN) for the product that generated a related finding.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-relatedfinding.html#cfn-securityhub-automationrule-relatedfinding-productarn
 	//

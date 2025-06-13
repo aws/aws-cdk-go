@@ -8,18 +8,11 @@ import (
 // Properties of an EBS Volume.
 //
 // Example:
-//   var instance instance
-//   var role role
-//
-//
-//   volume := ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
-//   	AvailabilityZone: jsii.String("us-west-2a"),
-//   	Size: awscdk.Size_Gibibytes(jsii.Number(500)),
-//   	Encrypted: jsii.Boolean(true),
-//   })
-//
-//   volume.grantAttachVolume(role, []iInstance{
-//   	instance,
+//   ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
+//   	AvailabilityZone: jsii.String("us-east-1a"),
+//   	Size: awscdk.Size_Gibibytes(jsii.Number(125)),
+//   	VolumeType: ec2.EbsDeviceVolumeType_GP3,
+//   	Throughput: jsii.Number(125),
 //   })
 //
 type VolumeProps struct {
@@ -76,7 +69,7 @@ type VolumeProps struct {
 	//         }
 	//       }
 	// }.
-	// Default: The default KMS key for the account, region, and EC2 service is used.
+	// Default: - The default KMS key for the account, region, and EC2 service is used.
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
@@ -99,13 +92,13 @@ type VolumeProps struct {
 	// You must specify either a snapshot ID or a volume size.
 	// See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html
 	// for details on the allowable size for each type of volume.
-	// Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+	// Default: - If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 	//
 	Size awscdk.Size `field:"optional" json:"size" yaml:"size"`
 	// The snapshot from which to create the volume.
 	//
 	// You must specify either a snapshot ID or a volume size.
-	// Default: The EBS volume is not created from a snapshot.
+	// Default: - The EBS volume is not created from a snapshot.
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The throughput that the volume supports, in MiB/s Takes a minimum of 125 and maximum of 1000.
@@ -114,8 +107,18 @@ type VolumeProps struct {
 	// Default: - 125 MiB/s. Only valid on gp3 volumes.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// Valid range is between 100 and 300 MiB/s.
+	//
+	// This parameter is supported only for volumes created from snapshots.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate
+	//
+	// Default: undefined - The volume initialization rate is not set.
+	//
+	VolumeInitializationRate awscdk.Size `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The value of the physicalName property of this resource.
-	// Default: The physical name will be allocated by CloudFormation at deployment time.
+	// Default: - The physical name will be allocated by CloudFormation at deployment time.
 	//
 	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 	// The type of the volume;

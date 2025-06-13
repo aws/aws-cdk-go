@@ -29,17 +29,15 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 	//
 	// Constraints:
 	//
-	// - Must be between 0 and 3600.
+	// - Must be between 0 and 300.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
 	//
 	ConnectionBorrowTimeout *float64 `field:"optional" json:"connectionBorrowTimeout" yaml:"connectionBorrowTimeout"`
 	// Add an initialization query, or modify the current one.
 	//
-	// You can specify one or more SQL statements for the proxy to run when opening each new database connection. The setting is typically used with `SET` statements to make sure that each connection has identical settings. Make sure that the query you add is valid. To include multiple variables in a single `SET` statement, use comma separators.
+	// You can specify one or more SQL statements for the proxy to run when opening each new database connection. The setting is typically used with `SET` statements to make sure that each connection has identical settings. Make sure the query added here is valid. This is an optional field, so you can choose to leave it empty. For including multiple variables in a single SET statement, use a comma separator.
 	//
 	// For example: `SET variable1=value1, variable2=value2`
-	//
-	// For multiple statements, use semicolons as the separator.
 	//
 	// Default: no initialization query.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery

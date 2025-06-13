@@ -8,11 +8,9 @@ package awssecurityhub
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var updatedBy interface{}
-//
 //   noteUpdateProperty := &NoteUpdateProperty{
 //   	Text: jsii.String("text"),
-//   	UpdatedBy: updatedBy,
+//   	UpdatedBy: jsii.String("updatedBy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html
@@ -25,6 +23,6 @@ type CfnAutomationRule_NoteUpdateProperty struct {
 	// The principal that updated the note.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html#cfn-securityhub-automationrule-noteupdate-updatedby
 	//
-	UpdatedBy interface{} `field:"required" json:"updatedBy" yaml:"updatedBy"`
+	UpdatedBy *string `field:"required" json:"updatedBy" yaml:"updatedBy"`
 }
 

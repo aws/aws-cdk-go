@@ -122,7 +122,7 @@ type CfnMethod_IntegrationProperty struct {
 	RequestTemplates interface{} `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// Custom timeout between 50 and 29,000 milliseconds.
 	//
-	// The default value is 29,000 milliseconds or 29 seconds.
+	// The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
 	//
 	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`

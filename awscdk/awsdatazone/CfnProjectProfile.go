@@ -20,21 +20,41 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	AllowedDesignations: []interface{}{
-//   		&DesignationConfigurationProperty{
-//   			DesignationId: jsii.String("designationId"),
-//   		},
-//   	},
-//   	ChangeLog: jsii.String("changeLog"),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	DomainUnitIdentifier: jsii.String("domainUnitIdentifier"),
-//   	ProjectScopes: []interface{}{
-//   		&ProjectScopeProperty{
+//   	EnvironmentConfigurations: []interface{}{
+//   		&EnvironmentConfigurationProperty{
+//   			AwsRegion: &RegionProperty{
+//   				RegionName: jsii.String("regionName"),
+//   			},
+//   			EnvironmentBlueprintId: jsii.String("environmentBlueprintId"),
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
-//   			Policy: jsii.String("policy"),
+//   			AwsAccount: &AwsAccountProperty{
+//   				AwsAccountId: jsii.String("awsAccountId"),
+//   			},
+//   			ConfigurationParameters: &EnvironmentConfigurationParametersDetailsProperty{
+//   				ParameterOverrides: []interface{}{
+//   					&EnvironmentConfigurationParameterProperty{
+//   						IsEditable: jsii.Boolean(false),
+//   						Name: jsii.String("name"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				ResolvedParameters: []interface{}{
+//   					&EnvironmentConfigurationParameterProperty{
+//   						IsEditable: jsii.Boolean(false),
+//   						Name: jsii.String("name"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			DeploymentMode: jsii.String("deploymentMode"),
+//   			DeploymentOrder: jsii.Number(123),
+//   			Description: jsii.String("description"),
+//   			Id: jsii.String("id"),
 //   		},
 //   	},
 //   	Status: jsii.String("status"),
@@ -45,32 +65,37 @@ import (
 type CfnProjectProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AllowedDesignations() interface{}
-	SetAllowedDesignations(val interface{})
+	// The timestamp of when the project profile was created.
 	AttrCreatedAt() *string
+	// The user who created the project profile.
 	AttrCreatedBy() *string
+	// The domain ID of the project profile.
 	AttrDomainId() *string
+	// The domain unit ID of the project profile.
 	AttrDomainUnitId() *string
+	// The ID of the project profile.
 	AttrId() *string
 	AttrIdentifier() *string
+	// The timestamp at which a project profile was last updated.
 	AttrLastUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	ChangeLog() *string
-	SetChangeLog(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The description of the project profile.
 	Description() *string
 	SetDescription(val *string)
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
 	DomainUnitIdentifier() *string
 	SetDomainUnitIdentifier(val *string)
+	EnvironmentConfigurations() interface{}
+	SetEnvironmentConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -81,12 +106,11 @@ type CfnProjectProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of a project profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	ProjectScopes() interface{}
-	SetProjectScopes(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -96,6 +120,7 @@ type CfnProjectProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The status of a project profile.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -244,16 +269,6 @@ type jsiiProxy_CfnProjectProfile struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnProjectProfile) AllowedDesignations() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"allowedDesignations",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnProjectProfile) AttrCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -354,16 +369,6 @@ func (j *jsiiProxy_CfnProjectProfile) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProjectProfile) ChangeLog() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"changeLog",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnProjectProfile) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -404,6 +409,16 @@ func (j *jsiiProxy_CfnProjectProfile) DomainUnitIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProjectProfile) EnvironmentConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"environmentConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProjectProfile) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -429,16 +444,6 @@ func (j *jsiiProxy_CfnProjectProfile) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnProjectProfile) ProjectScopes() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"projectScopes",
 		&returns,
 	)
 	return returns
@@ -522,25 +527,6 @@ func NewCfnProjectProfile_Override(c CfnProjectProfile, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnProjectProfile)SetAllowedDesignations(val interface{}) {
-	if err := j.validateSetAllowedDesignationsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"allowedDesignations",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnProjectProfile)SetChangeLog(val *string) {
-	_jsii_.Set(
-		j,
-		"changeLog",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnProjectProfile)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -565,6 +551,17 @@ func (j *jsiiProxy_CfnProjectProfile)SetDomainUnitIdentifier(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnProjectProfile)SetEnvironmentConfigurations(val interface{}) {
+	if err := j.validateSetEnvironmentConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"environmentConfigurations",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnProjectProfile)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -572,17 +569,6 @@ func (j *jsiiProxy_CfnProjectProfile)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnProjectProfile)SetProjectScopes(val interface{}) {
-	if err := j.validateSetProjectScopesParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"projectScopes",
 		val,
 	)
 }

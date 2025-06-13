@@ -80,15 +80,11 @@ func validateCfnProjectProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnProjectProfile) validateSetAllowedDesignationsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnProjectProfile) validateSetEnvironmentConfigurationsParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnProjectProfile) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnProjectProfile) validateSetProjectScopesParameters(val interface{}) error {
 	return nil
 }
 

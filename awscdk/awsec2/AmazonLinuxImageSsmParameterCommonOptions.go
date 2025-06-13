@@ -11,6 +11,7 @@ package awsec2
 //   var userData userData
 //
 //   amazonLinuxImageSsmParameterCommonOptions := &AmazonLinuxImageSsmParameterCommonOptions{
+//   	AdditionalCacheKey: jsii.String("additionalCacheKey"),
 //   	CachedInContext: jsii.Boolean(false),
 //   	CpuType: awscdk.Aws_ec2.AmazonLinuxCpuType_ARM_64,
 //   	Edition: awscdk.*Aws_ec2.AmazonLinuxEdition_STANDARD,
@@ -18,6 +19,10 @@ package awsec2
 //   }
 //
 type AmazonLinuxImageSsmParameterCommonOptions struct {
+	// Adds an additional discriminator to the `cdk.context.json` cache key.
+	// Default: - no additional cache key.
+	//
+	AdditionalCacheKey *string `field:"optional" json:"additionalCacheKey" yaml:"additionalCacheKey"`
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
 	// By default, the newest image is used on each deployment. This will cause

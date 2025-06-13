@@ -42,7 +42,11 @@ type ClusterProps struct {
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
-	// the cluster name and, if applicable, the ARN of the masters IAM role.
+	// the cluster name and the ARN of the masters IAM role.
+	//
+	// Note: If mastersRole is not specified, this property will be ignored and no config command will be emitted.
+	// See: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_eks-readme.html#masters-role
+	//
 	// Default: true.
 	//
 	OutputConfigCommand *bool `field:"optional" json:"outputConfigCommand" yaml:"outputConfigCommand"`
@@ -211,6 +215,15 @@ type ClusterProps struct {
 	// Default: true.
 	//
 	BootstrapClusterCreatorAdminPermissions *bool `field:"optional" json:"bootstrapClusterCreatorAdminPermissions" yaml:"bootstrapClusterCreatorAdminPermissions"`
+	// If you set this value to False when creating a cluster, the default networking add-ons will not be installed.
+	//
+	// The default networking addons include vpc-cni, coredns, and kube-proxy.
+	// Use this option when you plan to install third-party alternative add-ons or self-manage the default networking add-ons.
+	//
+	// Changing this value after the cluster has been created will result in the cluster being replaced.
+	// Default: true.
+	//
+	BootstrapSelfManagedAddons *bool `field:"optional" json:"bootstrapSelfManagedAddons" yaml:"bootstrapSelfManagedAddons"`
 	// Number of instances to allocate as an initial capacity for this cluster.
 	//
 	// Instance type can be configured through `defaultCapacityInstanceType`,

@@ -33,9 +33,15 @@ type CfnCluster_ManagedScalingPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-managedscalingpolicy.html#cfn-emr-cluster-managedscalingpolicy-computelimits
 	//
 	ComputeLimits interface{} `field:"optional" json:"computeLimits" yaml:"computeLimits"`
+	// Determines whether a custom scaling utilization performance index can be set.
+	//
+	// Possible values include *ADVANCED* or *DEFAULT* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-managedscalingpolicy.html#cfn-emr-cluster-managedscalingpolicy-scalingstrategy
 	//
 	ScalingStrategy *string `field:"optional" json:"scalingStrategy" yaml:"scalingStrategy"`
+	// An integer value that represents an advanced scaling strategy.
+	//
+	// Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-managedscalingpolicy.html#cfn-emr-cluster-managedscalingpolicy-utilizationperformanceindex
 	//
 	UtilizationPerformanceIndex *float64 `field:"optional" json:"utilizationPerformanceIndex" yaml:"utilizationPerformanceIndex"`

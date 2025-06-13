@@ -521,6 +521,18 @@ func init() {
 		reflect.TypeOf((*CfnEventSourceMapping_ScalingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.SchemaRegistryAccessConfigProperty",
+		reflect.TypeOf((*CfnEventSourceMapping_SchemaRegistryAccessConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.SchemaRegistryConfigProperty",
+		reflect.TypeOf((*CfnEventSourceMapping_SchemaRegistryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.SchemaValidationConfigProperty",
+		reflect.TypeOf((*CfnEventSourceMapping_SchemaValidationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.SelfManagedEventSourceProperty",
 		reflect.TypeOf((*CfnEventSourceMapping_SelfManagedEventSourceProperty)(nil)).Elem(),
 	)

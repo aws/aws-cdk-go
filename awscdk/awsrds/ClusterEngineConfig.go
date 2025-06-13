@@ -14,6 +14,7 @@ package awsrds
 //   	Features: &ClusterEngineFeatures{
 //   		S3Export: jsii.String("s3Export"),
 //   		S3Import: jsii.String("s3Import"),
+//   		ServerlessV2AutoPauseSupported: jsii.Boolean(false),
 //   	},
 //   	ParameterGroup: parameterGroup,
 //   	Port: jsii.Number(123),

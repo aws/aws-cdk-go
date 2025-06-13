@@ -159,6 +159,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "contextKeySelectors", GoGetter: "ContextKeySelectors"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "federationEnabled", GoGetter: "FederationEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "federationRoleArn", GoGetter: "FederationRoleArn"},
@@ -170,6 +171,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "maxEventSize", GoGetter: "MaxEventSize"},
 			_jsii_.MemberProperty{JsiiProperty: "multiRegionEnabled", GoGetter: "MultiRegionEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -207,6 +209,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore.AdvancedFieldSelectorProperty",
 		reflect.TypeOf((*CfnEventDataStore_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore.ContextKeySelectorProperty",
+		reflect.TypeOf((*CfnEventDataStore_ContextKeySelectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore.InsightSelectorProperty",

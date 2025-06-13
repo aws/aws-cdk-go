@@ -134,6 +134,9 @@ package awsdeadline
 //   		InstanceMarketOptions: &ServiceManagedEc2InstanceMarketOptionsProperty{
 //   			Type: jsii.String("type"),
 //   		},
+//
+//   		// the properties below are optional
+//   		StorageProfileId: jsii.String("storageProfileId"),
 //   	},
 //   }
 //

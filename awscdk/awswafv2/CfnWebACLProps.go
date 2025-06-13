@@ -80,6 +80,9 @@ type CfnWebACLProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-onsourceddosprotectionconfig
+	//
+	OnSourceDDoSProtectionConfig interface{} `field:"optional" json:"onSourceDDoSProtectionConfig" yaml:"onSourceDDoSProtectionConfig"`
 	// The rule statements used to identify the web requests that you want to manage.
 	//
 	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.

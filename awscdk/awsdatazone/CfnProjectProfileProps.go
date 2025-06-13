@@ -12,21 +12,41 @@ package awsdatazone
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	AllowedDesignations: []interface{}{
-//   		&DesignationConfigurationProperty{
-//   			DesignationId: jsii.String("designationId"),
-//   		},
-//   	},
-//   	ChangeLog: jsii.String("changeLog"),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	DomainUnitIdentifier: jsii.String("domainUnitIdentifier"),
-//   	ProjectScopes: []interface{}{
-//   		&ProjectScopeProperty{
+//   	EnvironmentConfigurations: []interface{}{
+//   		&EnvironmentConfigurationProperty{
+//   			AwsRegion: &RegionProperty{
+//   				RegionName: jsii.String("regionName"),
+//   			},
+//   			EnvironmentBlueprintId: jsii.String("environmentBlueprintId"),
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
-//   			Policy: jsii.String("policy"),
+//   			AwsAccount: &AwsAccountProperty{
+//   				AwsAccountId: jsii.String("awsAccountId"),
+//   			},
+//   			ConfigurationParameters: &EnvironmentConfigurationParametersDetailsProperty{
+//   				ParameterOverrides: []interface{}{
+//   					&EnvironmentConfigurationParameterProperty{
+//   						IsEditable: jsii.Boolean(false),
+//   						Name: jsii.String("name"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				ResolvedParameters: []interface{}{
+//   					&EnvironmentConfigurationParameterProperty{
+//   						IsEditable: jsii.Boolean(false),
+//   						Name: jsii.String("name"),
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			DeploymentMode: jsii.String("deploymentMode"),
+//   			DeploymentOrder: jsii.Number(123),
+//   			Description: jsii.String("description"),
+//   			Id: jsii.String("id"),
 //   		},
 //   	},
 //   	Status: jsii.String("status"),
@@ -35,15 +55,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html
 //
 type CfnProjectProfileProps struct {
+	// The name of a project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-alloweddesignations
-	//
-	AllowedDesignations interface{} `field:"optional" json:"allowedDesignations" yaml:"allowedDesignations"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-changelog
-	//
-	ChangeLog *string `field:"optional" json:"changeLog" yaml:"changeLog"`
+	// The description of the project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -53,9 +69,10 @@ type CfnProjectProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-domainunitidentifier
 	//
 	DomainUnitIdentifier *string `field:"optional" json:"domainUnitIdentifier" yaml:"domainUnitIdentifier"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-projectscopes
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-environmentconfigurations
 	//
-	ProjectScopes interface{} `field:"optional" json:"projectScopes" yaml:"projectScopes"`
+	EnvironmentConfigurations interface{} `field:"optional" json:"environmentConfigurations" yaml:"environmentConfigurations"`
+	// The status of a project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

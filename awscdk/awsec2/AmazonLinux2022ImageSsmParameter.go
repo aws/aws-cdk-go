@@ -18,6 +18,7 @@ import (
 //   var userData userData
 //
 //   amazonLinux2022ImageSsmParameter := awscdk.Aws_ec2.NewAmazonLinux2022ImageSsmParameter(&AmazonLinux2022ImageSsmParameterProps{
+//   	AdditionalCacheKey: jsii.String("additionalCacheKey"),
 //   	CachedInContext: jsii.Boolean(false),
 //   	CpuType: awscdk.*Aws_ec2.AmazonLinuxCpuType_ARM_64,
 //   	Edition: awscdk.*Aws_ec2.AmazonLinuxEdition_STANDARD,

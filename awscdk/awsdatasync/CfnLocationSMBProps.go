@@ -49,19 +49,13 @@ type CfnLocationSMBProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
 	//
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
-	// Specifies the authentication protocol that DataSync uses to connect to your SMB file server.
-	//
-	// DataSync supports `NTLM` (default) and `KERBEROS` authentication.
-	//
-	// For more information, see [Providing DataSync access to SMB file servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions) .
+	// The authentication mode used to determine identity of user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-authenticationtype
 	//
 	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
 	// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
 	//
-	// This parameter applies only if `AuthenticationType` is set to `KERBEROS` .
-	//
-	// If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+	// This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-dnsipaddresses
 	//
 	DnsIpAddresses *[]*string `field:"optional" json:"dnsIpAddresses" yaml:"dnsIpAddresses"`
@@ -73,25 +67,19 @@ type CfnLocationSMBProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
-	// Specifies your Kerberos key table (keytab) file, which includes mappings between your Kerberos principal and encryption keys.
+	// The Base64 string representation of the Keytab file.
 	//
-	// The file must be base64 encoded.
-	//
-	// To avoid task execution errors, make sure that the Kerberos principal that you use to create the keytab file matches exactly what you specify for `KerberosPrincipal` .
+	// Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-kerberoskeytab
 	//
 	KerberosKeytab *string `field:"optional" json:"kerberosKeytab" yaml:"kerberosKeytab"`
-	// Specifies a Kerberos configuration file ( `krb5.conf` ) that defines your Kerberos realm configuration.
-	//
-	// The file must be base64 encoded.
+	// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-kerberoskrb5conf
 	//
 	KerberosKrb5Conf *string `field:"optional" json:"kerberosKrb5Conf" yaml:"kerberosKrb5Conf"`
-	// Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server.
+	// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server.
 	//
-	// A Kerberos principal might look like `HOST/kerberosuser@MYDOMAIN.ORG` .
-	//
-	// Principal names are case sensitive. Your DataSync task execution will fail if the principal that you specify for this parameter doesn’t exactly match the principal that you use to create the keytab file.
+	// SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-kerberosprincipal
 	//
 	KerberosPrincipal *string `field:"optional" json:"kerberosPrincipal" yaml:"kerberosPrincipal"`

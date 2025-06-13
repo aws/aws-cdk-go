@@ -67,6 +67,28 @@ func Errors_IsAssertionError(x interface{}) *bool {
 	return returns
 }
 
+// Test whether the given error is an AssumptionError.
+//
+// An AssumptionError is thrown when a construct made an assumption somewhere that doesn't hold true.
+// This error always indicates a bug in the construct.
+func Errors_IsAssumptionError(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateErrors_IsAssumptionErrorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Errors",
+		"isAssumptionError",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Test whether the given error is a CloudAssemblyError.
 //
 // A CloudAssemblyError is thrown for unexpected problems with the synthesized assembly.
@@ -103,6 +125,27 @@ func Errors_IsConstructError(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.Errors",
 		"isConstructError",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Test whether the given error is an ExecutionError.
+//
+// An ExecutionError is thrown if an externally executed script or code failed.
+func Errors_IsExecutionError(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateErrors_IsExecutionErrorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Errors",
+		"isExecutionError",
 		[]interface{}{x},
 		&returns,
 	)

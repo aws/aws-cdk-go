@@ -39,7 +39,7 @@ type CfnApiCache interface {
 	// The GraphQL API ID.
 	ApiId() *string
 	SetApiId(val *string)
-	// At-rest encryption flag for cache.
+	// *This parameter has been deprecated* .
 	AtRestEncryptionEnabled() interface{}
 	SetAtRestEncryptionEnabled(val interface{})
 	AttrId() *string
@@ -78,7 +78,7 @@ type CfnApiCache interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Transit encryption flag when connecting to cache.
+	// *This parameter has been deprecated* .
 	TransitEncryptionEnabled() interface{}
 	SetTransitEncryptionEnabled(val interface{})
 	// TTL in seconds for cache entries.

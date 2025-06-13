@@ -46,7 +46,11 @@ type CfnLocationObjectStorageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
 	//
 	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
-	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system.
+	// (Optional) Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system.
+	//
+	// If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
+	//
+	// > Make sure you configure this parameter correctly when you first create your storage location. You cannot add or remove agents from a storage location after you create it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
 	//
 	AgentArns *[]*string `field:"optional" json:"agentArns" yaml:"agentArns"`
@@ -54,15 +58,27 @@ type CfnLocationObjectStorageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
 	//
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
-	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+	//
+	// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+	//
+	// Make sure the DataSync has permission to access the KMS key that you specify.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-cmksecretconfig
 	//
 	CmkSecretConfig interface{} `field:"optional" json:"cmkSecretConfig" yaml:"cmkSecretConfig"`
-	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text.
+	//
+	// This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-customsecretconfig
 	//
 	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
 	// Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.
+	//
+	// > If you provide a secret using `SecretKey` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's Secrets Manager secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
 	//
 	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
@@ -93,6 +109,8 @@ type CfnLocationObjectStorageProps struct {
 	//
 	ServerPort *float64 `field:"optional" json:"serverPort" yaml:"serverPort"`
 	// Specifies the protocol that your object storage server uses to communicate.
+	//
+	// If not specified, the default value is `HTTPS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
 	//
 	ServerProtocol *string `field:"optional" json:"serverProtocol" yaml:"serverProtocol"`

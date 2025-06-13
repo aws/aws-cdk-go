@@ -18,12 +18,14 @@ import (
 //   	ServiceAccount: jsii.String("serviceAccount"),
 //
 //   	// the properties below are optional
+//   	DisableSessionTags: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetRoleArn: jsii.String("targetRoleArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html
@@ -49,6 +51,10 @@ type CfnPodIdentityAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-serviceaccount
 	//
 	ServiceAccount *string `field:"required" json:"serviceAccount" yaml:"serviceAccount"`
+	// The Disable Session Tags of the pod identity association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-disablesessiontags
+	//
+	DisableSessionTags interface{} `field:"optional" json:"disableSessionTags" yaml:"disableSessionTags"`
 	// Metadata that assists with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or AWS resources.
@@ -63,5 +69,9 @@ type CfnPodIdentityAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The Target Role Arn of the pod identity association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-targetrolearn
+	//
+	TargetRoleArn *string `field:"optional" json:"targetRoleArn" yaml:"targetRoleArn"`
 }
 

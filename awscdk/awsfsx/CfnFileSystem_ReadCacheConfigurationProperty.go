@@ -1,7 +1,7 @@
 package awsfsx
 
 
-// The configuration for the optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class.
+// The configuration for the optional provisioned SSD read cache on Amazon FSx for OpenZFS file systems that use the Intelligent-Tiering storage class.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

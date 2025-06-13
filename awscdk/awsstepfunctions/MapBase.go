@@ -35,6 +35,7 @@ type MapBase interface {
 	ItemsPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
+	JsonataItemSelector() *string
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
@@ -228,6 +229,16 @@ func (j *jsiiProxy_MapBase) Iteration() StateGraph {
 	_jsii_.Get(
 		j,
 		"iteration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MapBase) JsonataItemSelector() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jsonataItemSelector",
 		&returns,
 	)
 	return returns

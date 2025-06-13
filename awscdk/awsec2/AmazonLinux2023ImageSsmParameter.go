@@ -16,18 +16,19 @@ import (
 //   ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
 //   	Vpc: Vpc,
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(&AmazonLinux2023ImageSsmParameterProps{
-//   		CachedInContext: jsii.Boolean(true),
+//   	// context cache is turned on by default
+//   	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(&AmazonLinux2023ImageSsmParameterProps{
+//   		Kernel: ec2.AmazonLinux2023Kernel_CDK_LATEST(),
 //   	}),
 //   })
 //
 //   // or
+//
 //   // or
 //   ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
 //   	Vpc: Vpc,
 //   	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
-//   	// context cache is turned on by default
-//   	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 //   })
 //
 type AmazonLinux2023ImageSsmParameter interface {

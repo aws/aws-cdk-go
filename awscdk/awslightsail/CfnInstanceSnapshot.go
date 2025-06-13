@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Lightsail::InstanceSnapshot.
+// Describes an instance snapshot.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,9 +35,9 @@ type CfnInstanceSnapshot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the snapshot.
+	// The Amazon Resource Name (ARN) of the snapshot ( `arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE` ).
 	AttrArn() *string
-	// The Amazon Resource Name (ARN) of the instance from which the snapshot was created.
+	// The Amazon Resource Name (ARN) of the instance from which the snapshot was created ( `arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE` ).
 	AttrFromInstanceArn() *string
 	// The instance from which the snapshot was created.
 	AttrFromInstanceName() *string
@@ -45,13 +45,15 @@ type CfnInstanceSnapshot interface {
 	AttrIsFromAutoSnapshot() awscdk.IResolvable
 	// The region name and Availability Zone where you created the snapshot.
 	AttrLocation() awscdk.IResolvable
-	// The type of resource (usually InstanceSnapshot).
+	// The type of resource (usually `InstanceSnapshot` ).
 	AttrResourceType() *string
 	// The size in GB of the SSD.
 	AttrSizeInGb() *float64
 	// The state the snapshot is in.
 	AttrState() *string
-	// Support code to help identify any issues.
+	// The support code.
+	//
+	// Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	AttrSupportCode() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -64,7 +66,7 @@ type CfnInstanceSnapshot interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The instance from which the snapshot was created.
+	// The name the user gave the instance ( `Amazon_Linux_2023-1` ).
 	InstanceName() *string
 	SetInstanceName(val *string)
 	// The name of the snapshot.
@@ -91,7 +93,7 @@ type CfnInstanceSnapshot interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The tag keys and optional values for the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

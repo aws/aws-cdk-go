@@ -13,6 +13,12 @@ import (
 //
 //   cfnClusterProps := &CfnClusterProps{
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
+//   	MultiRegionProperties: &MultiRegionPropertiesProperty{
+//   		Clusters: []*string{
+//   			jsii.String("clusters"),
+//   		},
+//   		WitnessRegion: jsii.String("witnessRegion"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -28,6 +34,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-deletionprotectionenabled
 	//
 	DeletionProtectionEnabled interface{} `field:"optional" json:"deletionProtectionEnabled" yaml:"deletionProtectionEnabled"`
+	// Defines the structure for multi-Region cluster configurations, containing the witness Region and peered cluster settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-multiregionproperties
+	//
+	MultiRegionProperties interface{} `field:"optional" json:"multiRegionProperties" yaml:"multiRegionProperties"`
 	// A map of key and value pairs this cluster is tagged with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-tags
 	//

@@ -12,14 +12,14 @@ import (
 // An Amplify Console branch.
 //
 // Example:
+//   import assets "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var asset asset
 //   var amplifyApp app
 //
-//
-//   main := amplifyApp.AddBranch(jsii.String("main")) // `id` will be used as repo branch name
-//   dev := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
-//   	PerformanceMode: jsii.Boolean(true),
+//   branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
+//   	Asset: asset,
 //   })
-//   dev.AddEnvironment(jsii.String("STAGE"), jsii.String("dev"))
 //
 // Experimental.
 type Branch interface {

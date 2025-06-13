@@ -1324,6 +1324,17 @@ func InterfaceVpcEndpointAwsService_DIRECTORY_SERVICE_DATA() InterfaceVpcEndpoin
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_DSQL_MANAGEMENT() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"DSQL_MANAGEMENT",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_DYNAMODB() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

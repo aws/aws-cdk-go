@@ -22,6 +22,10 @@ package awsec2
 //   lb.AddTarget(elb.NewInstanceTarget(instance))
 //
 type AmazonLinuxImageProps struct {
+	// Adds an additional discriminator to the `cdk.context.json` cache key.
+	// Default: - no additional cache key.
+	//
+	AdditionalCacheKey *string `field:"optional" json:"additionalCacheKey" yaml:"additionalCacheKey"`
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
 	// By default, the newest image is used on each deployment. This will cause

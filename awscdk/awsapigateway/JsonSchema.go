@@ -50,7 +50,7 @@ package awsapigateway
 // See: https://github.com/tdegrunt/jsonschema
 //
 type JsonSchema struct {
-	AdditionalItems *[]*JsonSchema `field:"optional" json:"additionalItems" yaml:"additionalItems"`
+	AdditionalItems interface{} `field:"optional" json:"additionalItems" yaml:"additionalItems"`
 	AdditionalProperties interface{} `field:"optional" json:"additionalProperties" yaml:"additionalProperties"`
 	AllOf *[]*JsonSchema `field:"optional" json:"allOf" yaml:"allOf"`
 	AnyOf *[]*JsonSchema `field:"optional" json:"anyOf" yaml:"anyOf"`

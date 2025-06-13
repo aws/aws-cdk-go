@@ -27,7 +27,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instancesnapshot.html
 //
 type CfnInstanceSnapshotProps struct {
-	// The instance from which the snapshot was created.
+	// The name the user gave the instance ( `Amazon_Linux_2023-1` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instancesnapshot.html#cfn-lightsail-instancesnapshot-instancename
 	//
 	InstanceName *string `field:"required" json:"instanceName" yaml:"instanceName"`
@@ -35,7 +35,9 @@ type CfnInstanceSnapshotProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instancesnapshot.html#cfn-lightsail-instancesnapshot-instancesnapshotname
 	//
 	InstanceSnapshotName *string `field:"required" json:"instanceSnapshotName" yaml:"instanceSnapshotName"`
-	// An array of key-value pairs to apply to this resource.
+	// The tag keys and optional values for the resource.
+	//
+	// For more information about tags in Lightsail, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instancesnapshot.html#cfn-lightsail-instancesnapshot-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

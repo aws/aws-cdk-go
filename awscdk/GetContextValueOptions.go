@@ -14,6 +14,7 @@ package awscdk
 //   	Provider: jsii.String("provider"),
 //
 //   	// the properties below are optional
+//   	AdditionalCacheKey: jsii.String("additionalCacheKey"),
 //   	IgnoreErrorOnMissingContext: jsii.Boolean(false),
 //   	IncludeEnvironment: jsii.Boolean(false),
 //   	MustExist: jsii.Boolean(false),
@@ -25,6 +26,10 @@ package awscdk
 type GetContextValueOptions struct {
 	// The context provider to query.
 	Provider *string `field:"required" json:"provider" yaml:"provider"`
+	// Adds an additional discriminator to the `cdk.context.json` cache key.
+	// Default: - no additional cache key.
+	//
+	AdditionalCacheKey *string `field:"optional" json:"additionalCacheKey" yaml:"additionalCacheKey"`
 	// Whether to include the stack's account and region automatically.
 	// Default: true.
 	//

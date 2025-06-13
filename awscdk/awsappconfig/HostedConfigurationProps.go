@@ -69,6 +69,10 @@ type HostedConfigurationProps struct {
 	Application IApplication `field:"required" json:"application" yaml:"application"`
 	// The content of the hosted configuration.
 	Content ConfigurationContent `field:"required" json:"content" yaml:"content"`
+	// The customer managed key to encrypt hosted configuration.
+	// Default: None.
+	//
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The latest version number of the hosted configuration.
 	// Default: - None.
 	//

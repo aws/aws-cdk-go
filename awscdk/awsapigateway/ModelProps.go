@@ -14,9 +14,7 @@ package awsapigateway
 //   modelProps := &ModelProps{
 //   	RestApi: restApi,
 //   	Schema: &jsonSchema{
-//   		AdditionalItems: []*jsonSchema{
-//   			jsonSchema_,
-//   		},
+//   		AdditionalItems: jsii.Boolean(false),
 //   		AdditionalProperties: jsii.Boolean(false),
 //   		AllOf: []*jsonSchema{
 //   			jsonSchema_,

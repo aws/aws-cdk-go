@@ -205,13 +205,17 @@ func validateStringParameter_ValueForTypedStringParameterV2Parameters(scope cons
 	return nil
 }
 
-func validateStringParameter_ValueFromLookupParameters(scope constructs.Construct, parameterName *string) error {
+func validateStringParameter_ValueFromLookupParameters(scope constructs.Construct, parameterName *string, options *StringParameterLookupOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if parameterName == nil {
 		return fmt.Errorf("parameter parameterName is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

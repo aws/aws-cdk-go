@@ -12,6 +12,7 @@ package awscdk
 //   	Provider: jsii.String("provider"),
 //
 //   	// the properties below are optional
+//   	AdditionalCacheKey: jsii.String("additionalCacheKey"),
 //   	IncludeEnvironment: jsii.Boolean(false),
 //   	Props: map[string]interface{}{
 //   		"propsKey": props,
@@ -21,6 +22,10 @@ package awscdk
 type GetContextKeyOptions struct {
 	// The context provider to query.
 	Provider *string `field:"required" json:"provider" yaml:"provider"`
+	// Adds an additional discriminator to the `cdk.context.json` cache key.
+	// Default: - no additional cache key.
+	//
+	AdditionalCacheKey *string `field:"optional" json:"additionalCacheKey" yaml:"additionalCacheKey"`
 	// Whether to include the stack's account and region automatically.
 	// Default: true.
 	//

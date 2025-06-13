@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetTagsParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetUseHistoricalDataParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnCalculatedAttributeDefinitionParameters(scope constructs.Construct, id *string, props *CfnCalculatedAttributeDefinitionProps) error {
 	return nil
 }

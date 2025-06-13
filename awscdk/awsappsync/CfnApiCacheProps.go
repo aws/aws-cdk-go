@@ -66,9 +66,9 @@ type CfnApiCacheProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// At-rest encryption flag for cache.
+	// *This parameter has been deprecated* .
 	//
-	// You cannot update this setting after creation.
+	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-atrestencryptionenabled
 	//
 	AtRestEncryptionEnabled interface{} `field:"optional" json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
@@ -81,9 +81,9 @@ type CfnApiCacheProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-healthmetricsconfig
 	//
 	HealthMetricsConfig *string `field:"optional" json:"healthMetricsConfig" yaml:"healthMetricsConfig"`
-	// Transit encryption flag when connecting to cache.
+	// *This parameter has been deprecated* .
 	//
-	// You cannot update this setting after creation.
+	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html#cfn-appsync-apicache-transitencryptionenabled
 	//
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`

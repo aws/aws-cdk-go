@@ -130,7 +130,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	BareMetal *string `field:"optional" json:"bareMetal" yaml:"bareMetal"`
 	// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
 	//
-	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineebsbandwidthmbps
@@ -142,7 +142,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	BaselinePerformanceFactors interface{} `field:"optional" json:"baselinePerformanceFactors" yaml:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance instance types are included, excluded, or required.
 	//
-	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: `excluded`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-burstableperformance
@@ -153,6 +153,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// - For instance types with Intel CPUs, specify `intel` .
 	// - For instance types with AMD CPUs, specify `amd` .
 	// - For instance types with AWS CPUs, specify `amazon-web-services` .
+	// - For instance types with Apple CPUs, specify `apple` .
 	//
 	// > Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//
@@ -174,7 +175,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
 	// Indicates whether current or previous generation instance types are included.
 	//
-	// - For current generation instance types, specify `current` . The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// - For current generation instance types, specify `current` . The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	// - For previous generation instance types, specify `previous` .
 	//
 	// Default: Any current or previous generation.
@@ -183,7 +184,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	InstanceGenerations *[]*string `field:"optional" json:"instanceGenerations" yaml:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
 	//
-	// For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: `included`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-localstorage

@@ -812,6 +812,27 @@ definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(
 map.ItemProcessor(definition)
 ```
 
+When using `JSONata`, the `itemSelector` property in a Map state can be specified in one of two ways. You can provide a valid JSON object containing JSONata expressions for each value:
+
+```go
+map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
+	MaxConcurrency: jsii.Number(1),
+	ItemSelector: map[string]interface{}{
+		"id": jsii.String("{% $states.context.Map.Item.Value.id %}"),
+		"status": jsii.String("{% $states.context.Map.Item.Value.status %}"),
+	},
+})
+```
+
+Alternatively, you can use the `jsonataItemSelector` field to directly supply a JSONata string that evaluates to a complete JSON object:
+
+```go
+map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
+	MaxConcurrency: jsii.Number(1),
+	JsonataItemSelector: jsii.String("{% {\"id\": $states.input.id, \"status\": $states.input.status} %}"),
+})
+```
+
 To define a distributed `Map` state set `itemProcessors` mode to `ProcessorMode.DISTRIBUTED`.
 An `executionType` must be specified for the distributed `Map` workflow.
 

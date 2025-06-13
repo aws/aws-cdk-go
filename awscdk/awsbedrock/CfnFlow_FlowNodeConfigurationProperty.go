@@ -10,12 +10,15 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalModelRequestFields interface{}
 //   var collector interface{}
+//   var flowNodeConfigurationProperty_ flowNodeConfigurationProperty
 //   var input interface{}
 //   var iterator interface{}
+//   var loopInput interface{}
 //   var output interface{}
 //
-//   flowNodeConfigurationProperty := &FlowNodeConfigurationProperty{
+//   flowNodeConfigurationProperty := &flowNodeConfigurationProperty{
 //   	Agent: &AgentFlowNodeConfigurationProperty{
 //   		AgentAliasArn: jsii.String("agentAliasArn"),
 //   	},
@@ -44,7 +47,73 @@ package awsbedrock
 //   			GuardrailIdentifier: jsii.String("guardrailIdentifier"),
 //   			GuardrailVersion: jsii.String("guardrailVersion"),
 //   		},
+//   		InferenceConfiguration: &PromptInferenceConfigurationProperty{
+//   			Text: &PromptModelInferenceConfigurationProperty{
+//   				MaxTokens: jsii.Number(123),
+//   				StopSequences: []*string{
+//   					jsii.String("stopSequences"),
+//   				},
+//   				Temperature: jsii.Number(123),
+//   				TopP: jsii.Number(123),
+//   			},
+//   		},
 //   		ModelId: jsii.String("modelId"),
+//   		NumberOfResults: jsii.Number(123),
+//   		OrchestrationConfiguration: &KnowledgeBaseOrchestrationConfigurationProperty{
+//   			AdditionalModelRequestFields: additionalModelRequestFields,
+//   			InferenceConfig: &PromptInferenceConfigurationProperty{
+//   				Text: &PromptModelInferenceConfigurationProperty{
+//   					MaxTokens: jsii.Number(123),
+//   					StopSequences: []*string{
+//   						jsii.String("stopSequences"),
+//   					},
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
+//   			},
+//   			PerformanceConfig: &PerformanceConfigurationProperty{
+//   				Latency: jsii.String("latency"),
+//   			},
+//   			PromptTemplate: &KnowledgeBasePromptTemplateProperty{
+//   				TextPromptTemplate: jsii.String("textPromptTemplate"),
+//   			},
+//   		},
+//   		PromptTemplate: &KnowledgeBasePromptTemplateProperty{
+//   			TextPromptTemplate: jsii.String("textPromptTemplate"),
+//   		},
+//   		RerankingConfiguration: &VectorSearchRerankingConfigurationProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			BedrockRerankingConfiguration: &VectorSearchBedrockRerankingConfigurationProperty{
+//   				ModelConfiguration: &VectorSearchBedrockRerankingModelConfigurationProperty{
+//   					ModelArn: jsii.String("modelArn"),
+//
+//   					// the properties below are optional
+//   					AdditionalModelRequestFields: additionalModelRequestFields,
+//   				},
+//
+//   				// the properties below are optional
+//   				MetadataConfiguration: &MetadataConfigurationForRerankingProperty{
+//   					SelectionMode: jsii.String("selectionMode"),
+//
+//   					// the properties below are optional
+//   					SelectiveModeConfiguration: &RerankingMetadataSelectiveModeConfigurationProperty{
+//   						FieldsToExclude: []interface{}{
+//   							&FieldForRerankingProperty{
+//   								FieldName: jsii.String("fieldName"),
+//   							},
+//   						},
+//   						FieldsToInclude: []interface{}{
+//   							&FieldForRerankingProperty{
+//   								FieldName: jsii.String("fieldName"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				NumberOfRerankedResults: jsii.Number(123),
+//   			},
+//   		},
 //   	},
 //   	LambdaFunction: &LambdaFunctionFlowNodeConfigurationProperty{
 //   		LambdaArn: jsii.String("lambdaArn"),
@@ -53,6 +122,66 @@ package awsbedrock
 //   		BotAliasArn: jsii.String("botAliasArn"),
 //   		LocaleId: jsii.String("localeId"),
 //   	},
+//   	Loop: &LoopFlowNodeConfigurationProperty{
+//   		Definition: &FlowDefinitionProperty{
+//   			Connections: []interface{}{
+//   				&FlowConnectionProperty{
+//   					Name: jsii.String("name"),
+//   					Source: jsii.String("source"),
+//   					Target: jsii.String("target"),
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Configuration: &FlowConnectionConfigurationProperty{
+//   						Conditional: &FlowConditionalConnectionConfigurationProperty{
+//   							Condition: jsii.String("condition"),
+//   						},
+//   						Data: &FlowDataConnectionConfigurationProperty{
+//   							SourceOutput: jsii.String("sourceOutput"),
+//   							TargetInput: jsii.String("targetInput"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			Nodes: []interface{}{
+//   				&FlowNodeProperty{
+//   					Name: jsii.String("name"),
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Configuration: flowNodeConfigurationProperty_,
+//   					Inputs: []interface{}{
+//   						&FlowNodeInputProperty{
+//   							Expression: jsii.String("expression"),
+//   							Name: jsii.String("name"),
+//   							Type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							Category: jsii.String("category"),
+//   						},
+//   					},
+//   					Outputs: []interface{}{
+//   						&FlowNodeOutputProperty{
+//   							Name: jsii.String("name"),
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	LoopController: &LoopControllerFlowNodeConfigurationProperty{
+//   		ContinueCondition: &FlowConditionProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			Expression: jsii.String("expression"),
+//   		},
+//
+//   		// the properties below are optional
+//   		MaxIterations: jsii.Number(123),
+//   	},
+//   	LoopInput: loopInput,
 //   	Output: output,
 //   	Prompt: &PromptFlowNodeConfigurationProperty{
 //   		SourceConfiguration: &PromptFlowNodeSourceConfigurationProperty{
@@ -170,6 +299,18 @@ type CfnFlow_FlowNodeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-lex
 	//
 	Lex interface{} `field:"optional" json:"lex" yaml:"lex"`
+	// Contains configurations for a DoWhile loop in your flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loop
+	//
+	Loop interface{} `field:"optional" json:"loop" yaml:"loop"`
+	// Contains controller node configurations for a DoWhile loop in your flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loopcontroller
+	//
+	LoopController interface{} `field:"optional" json:"loopController" yaml:"loopController"`
+	// Contains input node configurations for a DoWhile loop in your flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loopinput
+	//
+	LoopInput interface{} `field:"optional" json:"loopInput" yaml:"loopInput"`
 	// Contains configurations for an output flow node in your flow.
 	//
 	// The last node in the flow. `outputs` can't be specified for this node.

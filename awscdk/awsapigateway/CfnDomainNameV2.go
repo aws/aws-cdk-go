@@ -90,7 +90,7 @@ type CfnDomainNameV2 interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY].
+	// The routing mode for this domain name.
 	RoutingMode() *string
 	SetRoutingMode(val *string)
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.

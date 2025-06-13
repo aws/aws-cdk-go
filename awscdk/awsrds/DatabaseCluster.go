@@ -21,23 +21,19 @@ import (
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 //   	}),
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-//   	 // Optional - will default to 'admin' username and generated password
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		PubliclyAccessible: jsii.Boolean(false),
-//   	}),
-//   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
-//   			PromotionTier: jsii.Number(1),
-//   		}),
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
-//   	},
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
+//   	Vpc: Vpc,
+//   })
+//
+//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
+//   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
+//   	Secrets: []iSecret{
+//   		cluster.Secret,
 //   	},
 //   	Vpc: Vpc,
+//   	ClientPasswordAuthType: rds.ClientPasswordAuthType_MYSQL_NATIVE_PASSWORD,
 //   })
 //
 type DatabaseCluster interface {
@@ -107,6 +103,7 @@ type DatabaseCluster interface {
 	// The secret attached to this cluster.
 	Secret() awssecretsmanager.ISecret
 	SecurityGroups() *[]awsec2.ISecurityGroup
+	ServerlessV2AutoPauseDuration() awscdk.Duration
 	ServerlessV2MaxCapacity() *float64
 	ServerlessV2MinCapacity() *float64
 	// Application for single user rotation of the master password to this cluster.
@@ -470,6 +467,16 @@ func (j *jsiiProxy_DatabaseCluster) SecurityGroups() *[]awsec2.ISecurityGroup {
 	_jsii_.Get(
 		j,
 		"securityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) ServerlessV2AutoPauseDuration() awscdk.Duration {
+	var returns awscdk.Duration
+	_jsii_.Get(
+		j,
+		"serverlessV2AutoPauseDuration",
 		&returns,
 	)
 	return returns

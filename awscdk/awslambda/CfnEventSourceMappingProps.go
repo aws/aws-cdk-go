@@ -17,6 +17,21 @@ import (
 //   	// the properties below are optional
 //   	AmazonManagedKafkaEventSourceConfig: &AmazonManagedKafkaEventSourceConfigProperty{
 //   		ConsumerGroupId: jsii.String("consumerGroupId"),
+//   		SchemaRegistryConfig: &SchemaRegistryConfigProperty{
+//   			AccessConfigs: []interface{}{
+//   				&SchemaRegistryAccessConfigProperty{
+//   					Type: jsii.String("type"),
+//   					Uri: jsii.String("uri"),
+//   				},
+//   			},
+//   			EventRecordFormat: jsii.String("eventRecordFormat"),
+//   			SchemaRegistryUri: jsii.String("schemaRegistryUri"),
+//   			SchemaValidationConfigs: []interface{}{
+//   				&SchemaValidationConfigProperty{
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	BatchSize: jsii.Number(123),
 //   	BisectBatchOnFunctionError: jsii.Boolean(false),
@@ -71,6 +86,21 @@ import (
 //   	},
 //   	SelfManagedKafkaEventSourceConfig: &SelfManagedKafkaEventSourceConfigProperty{
 //   		ConsumerGroupId: jsii.String("consumerGroupId"),
+//   		SchemaRegistryConfig: &SchemaRegistryConfigProperty{
+//   			AccessConfigs: []interface{}{
+//   				&SchemaRegistryAccessConfigProperty{
+//   					Type: jsii.String("type"),
+//   					Uri: jsii.String("uri"),
+//   				},
+//   			},
+//   			EventRecordFormat: jsii.String("eventRecordFormat"),
+//   			SchemaRegistryUri: jsii.String("schemaRegistryUri"),
+//   			SchemaValidationConfigs: []interface{}{
+//   				&SchemaValidationConfigProperty{
+//   					Attribute: jsii.String("attribute"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	SourceAccessConfigurations: []interface{}{
 //   		&SourceAccessConfigurationProperty{

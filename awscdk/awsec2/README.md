@@ -997,7 +997,10 @@ If the security group ID is known and configuration details are unknown, use met
 sg := ec2.SecurityGroup_FromLookupById(this, jsii.String("SecurityGroupLookup"), jsii.String("sg-1234"))
 ```
 
-The result of `SecurityGroup.fromLookupByName` and `SecurityGroup.fromLookupById` operations will be written to a file called `cdk.context.json`. You must commit this file to source control so that the lookup values are available in non-privileged environments such as CI build steps, and to ensure your template builds are repeatable.
+The result of `SecurityGroup.fromLookupByName` and `SecurityGroup.fromLookupById` operations will be
+written to a file called `cdk.context.json`.
+You must commit this file to source control so that the lookup values are available in non-privileged
+environments such as CI build steps, and to ensure your template builds are repeatable.
 
 ### Cross Stack Connections
 
@@ -1129,6 +1132,13 @@ genericWindows := ec2.MachineImage_GenericWindows(map[string]*string{
 > `cdk.context.json`, or use the `cdk context` command. For more information, see
 > [Runtime Context](https://docs.aws.amazon.com/cdk/latest/guide/context.html) in the CDK
 > developer guide.
+>
+> To customize the cache key, use the `additionalCacheKey` parameter.
+> This allows you to have multiple lookups with the same parameters
+> cache their values separately. This can be useful if you want to
+> scope the context variable to a construct (ie, using `additionalCacheKey: this.node.path`),
+> so that if the value in the cache needs to be updated, it does not need to be updated
+> for all constructs at the same time.
 >
 > `MachineImage.genericLinux()`, `MachineImage.genericWindows()` will use `CfnMapping` in
 > an agnostic stack.
@@ -1597,6 +1607,32 @@ ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
 	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
 	// context cache is turned on by default
 	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(),
+})
+
+// or
+// or
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.MachineImage_*LatestAmazonLinux2023(&AmazonLinux2023ImageSsmParameterProps{
+		CachedInContext: jsii.Boolean(true),
+		// creates a distinct context variable for this image, instead of resolving to the same
+		// value anywhere this lookup is done in your app
+		AdditionalCacheKey: this.Node.path,
+	}),
+})
+
+// or
+// or
+ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+	// context cache is turned on by default
+	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(&AmazonLinux2023ImageSsmParameterProps{
+		// creates a distinct context variable for this image, instead of resolving to the same
+		// value anywhere this lookup is done in your app
+		AdditionalCacheKey: this.*Node.path,
+	}),
 })
 ```
 
@@ -2101,6 +2137,25 @@ ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
 	Throughput: jsii.Number(125),
 })
 ```
+
+#### Volume initialization rate
+
+When creating an EBS volume from a snapshot, you can specify the [volume initialization rate](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate) at which the snapshot blocks are downloaded from Amazon S3 to the volume.
+Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+
+```go
+ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
+	AvailabilityZone: jsii.String("us-east-1a"),
+	Size: awscdk.Size_Gibibytes(jsii.Number(500)),
+	SnapshotId: jsii.String("snap-1234567890abcdef0"),
+	VolumeInitializationRate: awscdk.Size_Mebibytes(jsii.Number(250)),
+})
+```
+
+The `volumeInitializationRate` must be:
+
+* Between 100 and 300 MiB/s
+* Only specified when creating a volume from a snapshot
 
 ### Configuring Instance Metadata Service (IMDS)
 

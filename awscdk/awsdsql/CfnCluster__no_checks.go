@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCluster) validateSetDeletionProtectionEnabledParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetMultiRegionPropertiesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

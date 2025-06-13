@@ -14,6 +14,14 @@ func validateErrors_IsAssertionErrorParameters(x interface{}) error {
 	return nil
 }
 
+func validateErrors_IsAssumptionErrorParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateErrors_IsCloudAssemblyErrorParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -23,6 +31,14 @@ func validateErrors_IsCloudAssemblyErrorParameters(x interface{}) error {
 }
 
 func validateErrors_IsConstructErrorParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateErrors_IsExecutionErrorParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
 	}

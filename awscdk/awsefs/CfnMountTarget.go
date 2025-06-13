@@ -27,6 +27,8 @@ import (
 //
 //   	// the properties below are optional
 //   	IpAddress: jsii.String("ipAddress"),
+//   	IpAddressType: jsii.String("ipAddressType"),
+//   	Ipv6Address: jsii.String("ipv6Address"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
@@ -54,9 +56,13 @@ type CfnMountTarget interface {
 	// The ID of the file system for which to create the mount target.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
-	// Valid IPv4 address within the address range of the specified subnet.
+	// If the `IpAddressType` for the mount target is IPv4 ( `IPV4_ONLY` or `DUAL_STACK` ), then specify the IPv4 address to use.
 	IpAddress() *string
 	SetIpAddress(val *string)
+	IpAddressType() *string
+	SetIpAddressType(val *string)
+	Ipv6Address() *string
+	SetIpv6Address(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -310,6 +316,26 @@ func (j *jsiiProxy_CfnMountTarget) IpAddress() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMountTarget) IpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipAddressType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMountTarget) Ipv6Address() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6Address",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMountTarget) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -433,6 +459,22 @@ func (j *jsiiProxy_CfnMountTarget)SetIpAddress(val *string) {
 	_jsii_.Set(
 		j,
 		"ipAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMountTarget)SetIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"ipAddressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMountTarget)SetIpv6Address(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv6Address",
 		val,
 	)
 }

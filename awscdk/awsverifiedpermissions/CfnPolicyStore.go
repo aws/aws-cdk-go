@@ -60,6 +60,9 @@ type CfnPolicyStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies whether the policy store can be deleted.
+	//
+	// If enabled, the policy store can't be deleted.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
 	// Descriptive text that you can provide to help with identification of the current policy store.

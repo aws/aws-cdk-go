@@ -25,17 +25,10 @@ import (
 //   	ResultPath: jsii.String("$.mapOutput"),
 //   })
 //
-//   // The Map iterator can contain a IChainable, which can be an individual or multiple steps chained together.
-//   // Below example is with a Choice and Pass step
-//   choice := sfn.NewChoice(this, jsii.String("Choice"))
-//   condition1 := sfn.Condition_StringEquals(jsii.String("$.item.status"), jsii.String("SUCCESS"))
-//   step1 := sfn.NewPass(this, jsii.String("Step1"))
-//   step2 := sfn.NewPass(this, jsii.String("Step2"))
-//   finish := sfn.NewPass(this, jsii.String("Finish"))
-//
-//   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
-//
-//   map.ItemProcessor(definition)
+//   map.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")), &ProcessorConfig{
+//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
+//   	ExecutionType: sfn.ProcessorType_STANDARD,
+//   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
 //
@@ -58,6 +51,7 @@ type Map interface {
 	ItemsPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
+	JsonataItemSelector() *string
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
@@ -270,6 +264,16 @@ func (j *jsiiProxy_Map) Iteration() StateGraph {
 	_jsii_.Get(
 		j,
 		"iteration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) JsonataItemSelector() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jsonataItemSelector",
 		&returns,
 	)
 	return returns

@@ -50,6 +50,14 @@ import (
 //   		},
 //   	},
 //   	BillingMode: jsii.String("billingMode"),
+//   	ContextKeySelectors: []interface{}{
+//   		&ContextKeySelectorProperty{
+//   			EqualTo: []*string{
+//   				jsii.String("equalTo"),
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	FederationEnabled: jsii.Boolean(false),
 //   	FederationRoleArn: jsii.String("federationRoleArn"),
 //   	IngestionEnabled: jsii.Boolean(false),
@@ -60,6 +68,7 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	MaxEventSize: jsii.String("maxEventSize"),
 //   	MultiRegionEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	OrganizationEnabled: jsii.Boolean(false),
@@ -98,6 +107,9 @@ type CfnEventDataStore interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The list of context key selectors that are configured for the event data store.
+	ContextKeySelectors() interface{}
+	SetContextKeySelectors(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -130,6 +142,9 @@ type CfnEventDataStore interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maximum allowed size for events to be stored in the specified event data store.
+	MaxEventSize() *string
+	SetMaxEventSize(val *string)
 	// Specifies whether the event data store includes events from all Regions, or only from the Region in which the event data store is created.
 	MultiRegionEnabled() interface{}
 	SetMultiRegionEnabled(val interface{})
@@ -398,6 +413,16 @@ func (j *jsiiProxy_CfnEventDataStore) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventDataStore) ContextKeySelectors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"contextKeySelectors",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventDataStore) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -473,6 +498,16 @@ func (j *jsiiProxy_CfnEventDataStore) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventDataStore) MaxEventSize() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"maxEventSize",
 		&returns,
 	)
 	return returns
@@ -645,6 +680,17 @@ func (j *jsiiProxy_CfnEventDataStore)SetBillingMode(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnEventDataStore)SetContextKeySelectors(val interface{}) {
+	if err := j.validateSetContextKeySelectorsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"contextKeySelectors",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEventDataStore)SetFederationEnabled(val interface{}) {
 	if err := j.validateSetFederationEnabledParameters(val); err != nil {
 		panic(err)
@@ -698,6 +744,14 @@ func (j *jsiiProxy_CfnEventDataStore)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetMaxEventSize(val *string) {
+	_jsii_.Set(
+		j,
+		"maxEventSize",
 		val,
 	)
 }

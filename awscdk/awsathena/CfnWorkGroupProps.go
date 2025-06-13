@@ -36,6 +36,12 @@ import (
 //   			SelectedEngineVersion: jsii.String("selectedEngineVersion"),
 //   		},
 //   		ExecutionRole: jsii.String("executionRole"),
+//   		ManagedQueryResultsConfiguration: &ManagedQueryResultsConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			EncryptionConfiguration: &ManagedStorageEncryptionConfigurationProperty{
+//   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   		},
 //   		PublishCloudWatchMetricsEnabled: jsii.Boolean(false),
 //   		RequesterPaysEnabled: jsii.Boolean(false),
 //   		ResultConfiguration: &ResultConfigurationProperty{
@@ -64,6 +70,12 @@ import (
 //   			SelectedEngineVersion: jsii.String("selectedEngineVersion"),
 //   		},
 //   		ExecutionRole: jsii.String("executionRole"),
+//   		ManagedQueryResultsConfiguration: &ManagedQueryResultsConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			EncryptionConfiguration: &ManagedStorageEncryptionConfigurationProperty{
+//   				KmsKey: jsii.String("kmsKey"),
+//   			},
+//   		},
 //   		PublishCloudWatchMetricsEnabled: jsii.Boolean(false),
 //   		RemoveBytesScannedCutoffPerQuery: jsii.Boolean(false),
 //   		RemoveCustomerContentEncryptionConfiguration: jsii.Boolean(false),

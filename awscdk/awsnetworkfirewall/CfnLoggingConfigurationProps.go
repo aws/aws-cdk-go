@@ -23,6 +23,7 @@ package awsnetworkfirewall
 //   	},
 //
 //   	// the properties below are optional
+//   	EnableMonitoringDashboard: jsii.Boolean(false),
 //   	FirewallName: jsii.String("firewallName"),
 //   }
 //
@@ -39,6 +40,9 @@ type CfnLoggingConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
 	//
 	LoggingConfiguration interface{} `field:"required" json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-enablemonitoringdashboard
+	//
+	EnableMonitoringDashboard interface{} `field:"optional" json:"enableMonitoringDashboard" yaml:"enableMonitoringDashboard"`
 	// The name of the firewall that the logging configuration is associated with.
 	//
 	// You can't change the firewall specification after you create the logging configuration.

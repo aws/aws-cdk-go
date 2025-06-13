@@ -68,7 +68,7 @@ func validateStringParameter_ValueForTypedStringParameterV2Parameters(scope cons
 	return nil
 }
 
-func validateStringParameter_ValueFromLookupParameters(scope constructs.Construct, parameterName *string) error {
+func validateStringParameter_ValueFromLookupParameters(scope constructs.Construct, parameterName *string, options *StringParameterLookupOptions) error {
 	return nil
 }
 

@@ -145,6 +145,9 @@ import (
 //   			InstanceMarketOptions: &ServiceManagedEc2InstanceMarketOptionsProperty{
 //   				Type: jsii.String("type"),
 //   			},
+//
+//   			// the properties below are optional
+//   			StorageProfileId: jsii.String("storageProfileId"),
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),

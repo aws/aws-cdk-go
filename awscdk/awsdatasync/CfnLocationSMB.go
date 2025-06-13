@@ -58,7 +58,7 @@ type CfnLocationSMB interface {
 	AttrLocationArn() *string
 	// The URI of the specified SMB location.
 	AttrLocationUri() *string
-	// Specifies the authentication protocol that DataSync uses to connect to your SMB file server.
+	// The authentication mode used to determine identity of user.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -76,13 +76,13 @@ type CfnLocationSMB interface {
 	// Specifies the Windows domain name that your SMB file server belongs to.
 	Domain() *string
 	SetDomain(val *string)
-	// Specifies your Kerberos key table (keytab) file, which includes mappings between your Kerberos principal and encryption keys.
+	// The Base64 string representation of the Keytab file.
 	KerberosKeytab() *string
 	SetKerberosKeytab(val *string)
-	// Specifies a Kerberos configuration file ( `krb5.conf` ) that defines your Kerberos realm configuration.
+	// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
 	KerberosKrb5Conf() *string
 	SetKerberosKrb5Conf(val *string)
-	// Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server.
+	// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server.
 	KerberosPrincipal() *string
 	SetKerberosPrincipal(val *string)
 	// The logical ID for this CloudFormation stack element.

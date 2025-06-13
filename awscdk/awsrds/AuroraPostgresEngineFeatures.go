@@ -11,6 +11,7 @@ package awsrds
 //   auroraPostgresEngineFeatures := &AuroraPostgresEngineFeatures{
 //   	S3Export: jsii.Boolean(false),
 //   	S3Import: jsii.Boolean(false),
+//   	ServerlessV2AutoPauseSupported: jsii.Boolean(false),
 //   }
 //
 type AuroraPostgresEngineFeatures struct {
@@ -22,5 +23,11 @@ type AuroraPostgresEngineFeatures struct {
 	// Default: false.
 	//
 	S3Import *bool `field:"optional" json:"s3Import" yaml:"s3Import"`
+	// Whether this version of the Aurora Postgres cluster engine supports the Aurora SeverlessV2 auto-pause feature.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2-auto-pause.html#auto-pause-prereqs
+	//
+	// Default: false.
+	//
+	ServerlessV2AutoPauseSupported *bool `field:"optional" json:"serverlessV2AutoPauseSupported" yaml:"serverlessV2AutoPauseSupported"`
 }
 

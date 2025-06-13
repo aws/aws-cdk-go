@@ -175,7 +175,7 @@ type LaunchTemplateProps struct {
 	// Default: - Instance launched with this template will not be spot instances.
 	//
 	SpotOptions *LaunchTemplateSpotOptions `field:"optional" json:"spotOptions" yaml:"spotOptions"`
-	// The AMI that will be used by instances.
+	// The user data to make available to the instance.
 	// Default: - This Launch Template creates a UserData based on the type of provided
 	// machineImage; no UserData is created if a machineImage is not provided.
 	//

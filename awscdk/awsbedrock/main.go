@@ -831,6 +831,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_ConditionFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FieldForRerankingProperty",
+		reflect.TypeOf((*CfnFlow_FieldForRerankingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowConditionProperty",
 		reflect.TypeOf((*CfnFlow_FlowConditionProperty)(nil)).Elem(),
 	)
@@ -887,12 +891,36 @@ func init() {
 		reflect.TypeOf((*CfnFlow_KnowledgeBaseFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.KnowledgeBaseOrchestrationConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_KnowledgeBaseOrchestrationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.KnowledgeBasePromptTemplateProperty",
+		reflect.TypeOf((*CfnFlow_KnowledgeBasePromptTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.LambdaFunctionFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_LambdaFunctionFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.LexFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_LexFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.LoopControllerFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_LoopControllerFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.LoopFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_LoopFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.MetadataConfigurationForRerankingProperty",
+		reflect.TypeOf((*CfnFlow_MetadataConfigurationForRerankingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PerformanceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PerformanceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptFlowNodeConfigurationProperty",
@@ -927,6 +955,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_PromptTemplateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.RerankingMetadataSelectiveModeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_RerankingMetadataSelectiveModeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.RetrievalFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_RetrievalFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
@@ -957,6 +989,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.TextPromptTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.VectorSearchBedrockRerankingConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_VectorSearchBedrockRerankingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.VectorSearchBedrockRerankingModelConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_VectorSearchBedrockRerankingModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.VectorSearchRerankingConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_VectorSearchRerankingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrock.CfnFlowAlias",
@@ -1090,6 +1134,10 @@ func init() {
 		reflect.TypeOf((*CfnFlowVersion_ConditionFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FieldForRerankingProperty",
+		reflect.TypeOf((*CfnFlowVersion_FieldForRerankingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowConditionProperty",
 		reflect.TypeOf((*CfnFlowVersion_FlowConditionProperty)(nil)).Elem(),
 	)
@@ -1142,12 +1190,36 @@ func init() {
 		reflect.TypeOf((*CfnFlowVersion_KnowledgeBaseFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.KnowledgeBaseOrchestrationConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_KnowledgeBaseOrchestrationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.KnowledgeBasePromptTemplateProperty",
+		reflect.TypeOf((*CfnFlowVersion_KnowledgeBasePromptTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.LambdaFunctionFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlowVersion_LambdaFunctionFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.LexFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlowVersion_LexFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.LoopControllerFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_LoopControllerFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.LoopFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_LoopFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.MetadataConfigurationForRerankingProperty",
+		reflect.TypeOf((*CfnFlowVersion_MetadataConfigurationForRerankingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PerformanceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PerformanceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptFlowNodeConfigurationProperty",
@@ -1182,6 +1254,10 @@ func init() {
 		reflect.TypeOf((*CfnFlowVersion_PromptTemplateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.RerankingMetadataSelectiveModeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_RerankingMetadataSelectiveModeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.RetrievalFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlowVersion_RetrievalFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
@@ -1208,6 +1284,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.TextPromptTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnFlowVersion_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.VectorSearchBedrockRerankingConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_VectorSearchBedrockRerankingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.VectorSearchBedrockRerankingModelConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_VectorSearchBedrockRerankingModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.VectorSearchRerankingConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_VectorSearchRerankingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersionProps",

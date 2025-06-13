@@ -301,6 +301,14 @@ func init() {
 		reflect.TypeOf((*CfnWorkGroup_EngineVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.ManagedQueryResultsConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_ManagedQueryResultsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup.ManagedStorageEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnWorkGroup_ManagedStorageEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_athena.CfnWorkGroup.ResultConfigurationProperty",
 		reflect.TypeOf((*CfnWorkGroup_ResultConfigurationProperty)(nil)).Elem(),
 	)

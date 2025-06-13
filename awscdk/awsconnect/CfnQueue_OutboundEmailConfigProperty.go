@@ -1,7 +1,7 @@
 package awsconnect
 
 
-// The outbound email address Id.
+// The outbound email address ID.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

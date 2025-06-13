@@ -185,10 +185,10 @@ type CfnTask interface {
 	// Specifies the tags that you want to apply to your task.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// Specifies one of the following task modes for your data transfer:.
+	// The task mode that you're using.
 	TaskMode() *string
 	SetTaskMode(val *string)
-	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer.
+	// The configuration of your task report, which provides detailed information about your DataSync transfer.
 	TaskReportConfig() interface{}
 	SetTaskReportConfig(val interface{})
 	// Deprecated.

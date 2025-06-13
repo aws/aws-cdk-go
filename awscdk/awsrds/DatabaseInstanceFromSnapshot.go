@@ -19,21 +19,27 @@ import (
 // Example:
 //   var vpc vpc
 //
-//   var sourceInstance databaseInstance
-//
-//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
-//   	SnapshotIdentifier: jsii.String("my-snapshot"),
-//   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   		Version: rds.PostgresEngineVersion_VER_16_3(),
-//   	}),
-//   	// optional, defaults to m5.large
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
-//   	Vpc: Vpc,
+//   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+//   	Version: rds.PostgresEngineVersion_VER_16_3(),
 //   })
-//   rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &DatabaseInstanceReadReplicaProps{
-//   	SourceDatabaseInstance: sourceInstance,
-//   	InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
+//   myKey := kms.NewKey(this, jsii.String("MyKey"))
+//
+//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &DatabaseInstanceFromSnapshotProps{
+//   	Engine: Engine,
 //   	Vpc: Vpc,
+//   	SnapshotIdentifier: jsii.String("mySnapshot"),
+//   	Credentials: rds.SnapshotCredentials_FromGeneratedSecret(jsii.String("username"), &SnapshotCredentialsFromGeneratedPasswordOptions{
+//   		EncryptionKey: myKey,
+//   		ExcludeCharacters: jsii.String("!&*^#@()"),
+//   		ReplicaRegions: []replicaRegion{
+//   			&replicaRegion{
+//   				Region: jsii.String("eu-west-1"),
+//   			},
+//   			&replicaRegion{
+//   				Region: jsii.String("eu-west-2"),
+//   			},
+//   		},
+//   	}),
 //   })
 //
 type DatabaseInstanceFromSnapshot interface {

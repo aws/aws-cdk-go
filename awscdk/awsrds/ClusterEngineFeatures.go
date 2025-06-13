@@ -11,6 +11,7 @@ package awsrds
 //   clusterEngineFeatures := &ClusterEngineFeatures{
 //   	S3Export: jsii.String("s3Export"),
 //   	S3Import: jsii.String("s3Import"),
+//   	ServerlessV2AutoPauseSupported: jsii.Boolean(false),
 //   }
 //
 type ClusterEngineFeatures struct {
@@ -22,5 +23,9 @@ type ClusterEngineFeatures struct {
 	// Default: - no s3Import feature name.
 	//
 	S3Import *string `field:"optional" json:"s3Import" yaml:"s3Import"`
+	// Whether the DB cluster engine supports the Aurora ServerlessV2 auto-pause feature.
+	// Default: false.
+	//
+	ServerlessV2AutoPauseSupported *bool `field:"optional" json:"serverlessV2AutoPauseSupported" yaml:"serverlessV2AutoPauseSupported"`
 }
 

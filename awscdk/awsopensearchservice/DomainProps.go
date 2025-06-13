@@ -162,7 +162,7 @@ type DomainProps struct {
 	//
 	SuppressLogsResourcePolicy *bool `field:"optional" json:"suppressLogsResourcePolicy" yaml:"suppressLogsResourcePolicy"`
 	// The minimum TLS version required for traffic to the domain.
-	// Default: - TLSSecurityPolicy.TLS_1_0
+	// Default: - TLSSecurityPolicy.TLS_1_2
 	//
 	TlsSecurityPolicy TLSSecurityPolicy `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 	// Configures the domain so that unsigned basic auth is enabled.

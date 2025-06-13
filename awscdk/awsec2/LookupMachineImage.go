@@ -17,6 +17,8 @@ import (
 // will be used on future runs. To refresh the AMI lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+// If `props.additionalCacheKey` is set, the context key uses that value as a discriminator
+// rather than the cached value being global across all lookups.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,6 +31,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AdditionalCacheKey: jsii.String("additionalCacheKey"),
 //   	Filters: map[string][]*string{
 //   		"filtersKey": []*string{
 //   			jsii.String("filters"),
@@ -43,7 +46,7 @@ import (
 //
 type LookupMachineImage interface {
 	IMachineImage
-	// Return the image to use in the given context.
+	// Return the correct image.
 	GetImage(scope constructs.Construct) *MachineImageConfig
 }
 

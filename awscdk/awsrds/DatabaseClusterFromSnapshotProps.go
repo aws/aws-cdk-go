@@ -291,6 +291,14 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Default: - a new security group is created.
 	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Specifies the duration an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
+	//
+	// The duration must be between 300 seconds (5 minutes) and 86,400 seconds (24 hours).
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2-auto-pause.html
+	//
+	// Default: - The default is 300 seconds (5 minutes).
+	//
+	ServerlessV2AutoPauseDuration awscdk.Duration `field:"optional" json:"serverlessV2AutoPauseDuration" yaml:"serverlessV2AutoPauseDuration"`
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
 	//
 	// You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on.

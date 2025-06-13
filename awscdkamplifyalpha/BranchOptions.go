@@ -10,12 +10,9 @@ import (
 // Example:
 //   var amplifyApp app
 //
-//
-//   main := amplifyApp.AddBranch(jsii.String("main")) // `id` will be used as repo branch name
-//   dev := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
-//   	PerformanceMode: jsii.Boolean(true),
+//   amplifyApp.AddBranch(jsii.String("feature/next"), &BranchOptions{
+//   	BasicAuth: amplify.BasicAuth_FromGeneratedPassword(jsii.String("username")),
 //   })
-//   dev.AddEnvironment(jsii.String("STAGE"), jsii.String("dev"))
 //
 // Experimental.
 type BranchOptions struct {
@@ -84,6 +81,16 @@ type BranchOptions struct {
 	//
 	// Experimental.
 	PullRequestPreview *bool `field:"optional" json:"pullRequestPreview" yaml:"pullRequestPreview"`
+	// Specifies whether the skew protection feature is enabled for the branch.
+	//
+	// Deployment skew protection is available to Amplify applications to eliminate version skew issues
+	// between client and servers in web applications.
+	// When you apply skew protection to a branch, you can ensure that your clients always interact
+	// with the correct version of server-side assets, regardless of when a deployment occurs.
+	// Default: None - Default setting is no skew protection.
+	//
+	// Experimental.
+	SkewProtection *bool `field:"optional" json:"skewProtection" yaml:"skewProtection"`
 	// Stage for the branch.
 	// Default: - no stage.
 	//

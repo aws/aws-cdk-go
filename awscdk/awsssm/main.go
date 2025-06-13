@@ -812,6 +812,10 @@ func init() {
 		reflect.TypeOf((*StringParameterAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ssm.StringParameterLookupOptions",
+		reflect.TypeOf((*StringParameterLookupOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ssm.StringParameterProps",
 		reflect.TypeOf((*StringParameterProps)(nil)).Elem(),
 	)

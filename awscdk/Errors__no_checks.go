@@ -8,11 +8,19 @@ func validateErrors_IsAssertionErrorParameters(x interface{}) error {
 	return nil
 }
 
+func validateErrors_IsAssumptionErrorParameters(x interface{}) error {
+	return nil
+}
+
 func validateErrors_IsCloudAssemblyErrorParameters(x interface{}) error {
 	return nil
 }
 
 func validateErrors_IsConstructErrorParameters(x interface{}) error {
+	return nil
+}
+
+func validateErrors_IsExecutionErrorParameters(x interface{}) error {
 	return nil
 }
 

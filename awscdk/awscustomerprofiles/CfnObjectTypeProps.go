@@ -45,6 +45,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	MaxProfileObjectCount: jsii.Number(123),
 //   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -94,6 +95,10 @@ type CfnObjectTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
 	//
 	Keys interface{} `field:"optional" json:"keys" yaml:"keys"`
+	// The maximum number of profile objects for this object type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-maxprofileobjectcount
+	//
+	MaxProfileObjectCount *float64 `field:"optional" json:"maxProfileObjectCount" yaml:"maxProfileObjectCount"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat
 	//

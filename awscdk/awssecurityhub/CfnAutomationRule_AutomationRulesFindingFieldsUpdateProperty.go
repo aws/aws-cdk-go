@@ -8,19 +8,16 @@ package awssecurityhub
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var id interface{}
-//   var updatedBy interface{}
-//
 //   automationRulesFindingFieldsUpdateProperty := &AutomationRulesFindingFieldsUpdateProperty{
 //   	Confidence: jsii.Number(123),
 //   	Criticality: jsii.Number(123),
 //   	Note: &NoteUpdateProperty{
 //   		Text: jsii.String("text"),
-//   		UpdatedBy: updatedBy,
+//   		UpdatedBy: jsii.String("updatedBy"),
 //   	},
 //   	RelatedFindings: []interface{}{
 //   		&RelatedFindingProperty{
-//   			Id: id,
+//   			Id: jsii.String("id"),
 //   			ProductArn: jsii.String("productArn"),
 //   		},
 //   	},

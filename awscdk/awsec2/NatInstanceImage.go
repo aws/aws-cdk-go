@@ -18,7 +18,7 @@ import (
 //
 type NatInstanceImage interface {
 	LookupMachineImage
-	// Return the image to use in the given context.
+	// Return the correct image.
 	GetImage(scope constructs.Construct) *MachineImageConfig
 }
 

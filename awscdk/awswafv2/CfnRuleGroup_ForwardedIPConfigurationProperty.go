@@ -7,7 +7,7 @@ package awswafv2
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
+// This configuration is used for `GeoMatchStatement` , `AsnMatchStatement` , and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
 //
 // AWS WAF only evaluates the first IP address found in the specified HTTP header.
 //

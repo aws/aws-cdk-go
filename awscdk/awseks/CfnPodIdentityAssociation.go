@@ -23,12 +23,14 @@ import (
 //   	ServiceAccount: jsii.String("serviceAccount"),
 //
 //   	// the properties below are optional
+//   	DisableSessionTags: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetRoleArn: jsii.String("targetRoleArn"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html
@@ -41,6 +43,8 @@ type CfnPodIdentityAssociation interface {
 	AttrAssociationArn() *string
 	// The ID of the association.
 	AttrAssociationId() *string
+	// The External Id of the pod identity association.
+	AttrExternalId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -55,6 +59,9 @@ type CfnPodIdentityAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The Disable Session Tags of the pod identity association.
+	DisableSessionTags() interface{}
+	SetDisableSessionTags(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -88,6 +95,9 @@ type CfnPodIdentityAssociation interface {
 	// Metadata that assists with categorization and organization.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The Target Role Arn of the pod identity association.
+	TargetRoleArn() *string
+	SetTargetRoleArn(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +265,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) AttrAssociationId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) AttrExternalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrExternalId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPodIdentityAssociation) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -310,6 +330,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociation) DisableSessionTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"disableSessionTags",
 		&returns,
 	)
 	return returns
@@ -395,6 +425,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) TargetRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPodIdentityAssociation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -454,6 +494,17 @@ func (j *jsiiProxy_CfnPodIdentityAssociation)SetClusterName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation)SetDisableSessionTags(val interface{}) {
+	if err := j.validateSetDisableSessionTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"disableSessionTags",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPodIdentityAssociation)SetNamespace(val *string) {
 	if err := j.validateSetNamespaceParameters(val); err != nil {
 		panic(err)
@@ -494,6 +545,14 @@ func (j *jsiiProxy_CfnPodIdentityAssociation)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociation)SetTargetRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"targetRoleArn",
 		val,
 	)
 }

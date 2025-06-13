@@ -913,7 +913,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
-			_jsii_.MemberProperty{JsiiProperty: "allowedDesignations", GoGetter: "AllowedDesignations"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedBy", GoGetter: "AttrCreatedBy"},
@@ -925,11 +924,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "changeLog", GoGetter: "ChangeLog"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "domainIdentifier", GoGetter: "DomainIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "domainUnitIdentifier", GoGetter: "DomainUnitIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "environmentConfigurations", GoGetter: "EnvironmentConfigurations"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -939,7 +938,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "projectScopes", GoGetter: "ProjectScopes"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -960,12 +958,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_datazone.CfnProjectProfile.DesignationConfigurationProperty",
-		reflect.TypeOf((*CfnProjectProfile_DesignationConfigurationProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_datazone.CfnProjectProfile.AwsAccountProperty",
+		reflect.TypeOf((*CfnProjectProfile_AwsAccountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_datazone.CfnProjectProfile.ProjectScopeProperty",
-		reflect.TypeOf((*CfnProjectProfile_ProjectScopeProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_datazone.CfnProjectProfile.EnvironmentConfigurationParameterProperty",
+		reflect.TypeOf((*CfnProjectProfile_EnvironmentConfigurationParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProjectProfile.EnvironmentConfigurationParametersDetailsProperty",
+		reflect.TypeOf((*CfnProjectProfile_EnvironmentConfigurationParametersDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProjectProfile.EnvironmentConfigurationProperty",
+		reflect.TypeOf((*CfnProjectProfile_EnvironmentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProjectProfile.RegionProperty",
+		reflect.TypeOf((*CfnProjectProfile_RegionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnProjectProfileProps",

@@ -1379,6 +1379,41 @@ NewEcsAppStack(app, jsii.String("EcsStackDeployedInPipeline"), &ecsAppStackProps
 })
 ```
 
+### Amazon EC2
+
+To deploy application code to Amazon EC2 Linux instances or Linux SSM-managed nodes:
+
+> **Note**
+> This action is only supported for V2 type pipelines.
+
+```go
+sourceOutput := codepipeline.NewArtifact()
+
+pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
+	PipelineType: codepipeline.PipelineType_V2,
+})
+deployAction := codepipeline_actions.NewEc2DeployAction(&Ec2DeployActionProps{
+	ActionName: jsii.String("Ec2Deploy"),
+	Input: sourceOutput,
+	InstanceType: codepipeline_actions.Ec2InstanceType_EC2,
+	InstanceTagKey: jsii.String("Name"),
+	InstanceTagValue: jsii.String("MyInstance"),
+	DeploySpecifications: codepipeline_actions.Ec2DeploySpecifications_Inline(&Ec2DeploySpecificationsInlineProps{
+		TargetDirectory: jsii.String("/home/ec2-user/deploy"),
+		PreScript: jsii.String("scripts/pre-deploy.sh"),
+		PostScript: jsii.String("scripts/post-deploy.sh"),
+	}),
+})
+deployStage := pipeline.AddStage(&StageOptions{
+	StageName: jsii.String("Deploy"),
+	Actions: []iAction{
+		deployAction,
+	},
+})
+```
+
+To learn more about using the EC2 deploy action in your pipeline, visit [tutorial](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ec2-deploy.html) and [documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-EC2Deploy.html).
+
 ### AWS S3 Deployment
 
 To use an S3 Bucket as a deployment target in CodePipeline:

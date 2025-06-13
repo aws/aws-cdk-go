@@ -9,11 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The CreateCluster API allows you to create both single-region clusters and multi-Region clusters.
+// The `AWS::DSQL::Cluster` resource specifies an cluster. You can use this resource to create, modify, and manage clusters.
 //
-// With the addition of the *multiRegionProperties* parameter, you can create a cluster with witness Region support and establish peer relationships with clusters in other Regions during creation.
+// This resource supports both single-Region clusters and multi-Region clusters through the `MultiRegionProperties` parameter.
 //
-// > Creating multi-Region clusters requires additional IAM permissions beyond those needed for single-Region clusters, as detailed in the *Required permissions* section below.
+// > Creating multi-Region clusters requires additional IAM permissions beyond those needed for single-Region clusters. > - The witness Region specified in `multiRegionProperties.witnessRegion` cannot be the same as the cluster's Region.
 //
 // *Required permissions*
 //
@@ -23,7 +23,7 @@ import (
 // - **dsql:TagResource** - Permission to add tags to a resource.
 //
 // Resources: `arn:aws:dsql:region:account-id:cluster/*`
-// - **dsql:PutMultiRegionProperties** - Permission to configure multi-region properties for a cluster.
+// - **dsql:PutMultiRegionProperties** - Permission to configure multi-Region properties for a cluster.
 //
 // Resources: `arn:aws:dsql:region:account-id:cluster/*`
 // - **dsql:AddPeerCluster** - When specifying `multiRegionProperties.clusters` , permission to add peer clusters.
@@ -36,9 +36,7 @@ import (
 //
 // Resources: `arn:aws:dsql:region:account-id:cluster/*`
 //
-// Condition Keys: `dsql:WitnessRegion` (matching the specified witness region)
-//
-// > - The witness Region specified in `multiRegionProperties.witnessRegion` cannot be the same as the cluster's Region.
+// Condition Keys: `dsql:WitnessRegion` (matching the specified witness region).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,6 +45,12 @@ import (
 //
 //   cfnCluster := awscdk.Aws_dsql.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
+//   	MultiRegionProperties: &MultiRegionPropertiesProperty{
+//   		Clusters: []*string{
+//   			jsii.String("clusters"),
+//   		},
+//   		WitnessRegion: jsii.String("witnessRegion"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -69,9 +73,15 @@ type CfnCluster interface {
 	//
 	// Used for IAM permissions and resource identification.
 	AttrResourceArn() *string
-	// The current status of the cluster.
+	// The current status of the cluster. Possible values include: CREATING, ACTIVE, DELETING, FAILED.
 	//
-	// Possible values include: CREATING, ACTIVE, DELETING, FAILED.
+	// The cluster can have two additional status values when working with multi-Region clusters:
+	//
+	// `PENDING_SETUP` —Indicates the cluster is being configured
+	//
+	// `PENDING_DELETE` —Indicates the cluster is being deleted
+	//
+	// *Note:* These status values only appear for multi-Region cluster operations.
 	AttrStatus() *string
 	// The VPC Endpoint Service name for the cluster.
 	//
@@ -101,6 +111,9 @@ type CfnCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Defines the structure for multi-Region cluster configurations, containing the witness Region and peered cluster settings.
+	MultiRegionProperties() interface{}
+	SetMultiRegionProperties(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -382,6 +395,16 @@ func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) MultiRegionProperties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"multiRegionProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -477,6 +500,17 @@ func (j *jsiiProxy_CfnCluster)SetDeletionProtectionEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"deletionProtectionEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetMultiRegionProperties(val interface{}) {
+	if err := j.validateSetMultiRegionPropertiesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"multiRegionProperties",
 		val,
 	)
 }

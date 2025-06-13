@@ -62,8 +62,6 @@ type CfnDomainName interface {
 	// The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	AttrDistributionHostedZoneId() *string
 	// The ARN of the domain name.
-	//
-	// Supported only for private custom domain names.
 	AttrDomainNameArn() *string
 	// The domain name associated with the regional endpoint for this custom domain name.
 	//
@@ -115,6 +113,7 @@ type CfnDomainName interface {
 	// The reference to an AWS -managed certificate that will be used for validating the regional domain name.
 	RegionalCertificateArn() *string
 	SetRegionalCertificateArn(val *string)
+	// The routing mode for this domain name.
 	RoutingMode() *string
 	SetRoutingMode(val *string)
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.

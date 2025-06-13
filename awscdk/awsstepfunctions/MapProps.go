@@ -13,17 +13,10 @@ package awsstepfunctions
 //   	ResultPath: jsii.String("$.mapOutput"),
 //   })
 //
-//   // The Map iterator can contain a IChainable, which can be an individual or multiple steps chained together.
-//   // Below example is with a Choice and Pass step
-//   choice := sfn.NewChoice(this, jsii.String("Choice"))
-//   condition1 := sfn.Condition_StringEquals(jsii.String("$.item.status"), jsii.String("SUCCESS"))
-//   step1 := sfn.NewPass(this, jsii.String("Step1"))
-//   step2 := sfn.NewPass(this, jsii.String("Step2"))
-//   finish := sfn.NewPass(this, jsii.String("Finish"))
-//
-//   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
-//
-//   map.ItemProcessor(definition)
+//   map.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")), &ProcessorConfig{
+//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
+//   	ExecutionType: sfn.ProcessorType_STANDARD,
+//   })
 //
 type MapProps struct {
 	// A comment describing this state.
@@ -49,12 +42,18 @@ type MapProps struct {
 	// Default: - Not assign variables.
 	//
 	Assign *map[string]interface{} `field:"optional" json:"assign" yaml:"assign"`
-	// The JSON that you want to override your default iteration input (mutually exclusive  with `parameters`).
+	// The JSON that you want to override your default iteration input (mutually exclusive  with `parameters` and `jsonataItemSelector`).
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
 	//
 	// Default: $.
 	//
 	ItemSelector *map[string]interface{} `field:"optional" json:"itemSelector" yaml:"itemSelector"`
+	// Jsonata expression that evaluates to a JSON array to override your default iteration input (mutually exclusive with `parameters` and `itemSelector`).
+	//
+	// Example value: `{% {\"foo\": \"foo\", \"input\": $states.input} %}`
+	// Default: $.
+	//
+	JsonataItemSelector *string `field:"optional" json:"jsonataItemSelector" yaml:"jsonataItemSelector"`
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.

@@ -4,16 +4,17 @@ package awss3
 // What kind of server-side encryption to apply to this bucket.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var application application
 //
 //
-//   app := awscdk.NewApp(&AppProps{
-//   	DefaultStackSynthesizer: appstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
-//   		AppId: jsii.String("my-app-id"),
-//   		StagingBucketEncryption: awscdk.BucketEncryption_S3_MANAGED,
-//   		FileAssetPublishingRole: appstagingsynthesizeralpha.BootstrapRole_FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/S3Access")),
-//   		ImageAssetPublishingRole: appstagingsynthesizeralpha.BootstrapRole_*FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/ECRAccess")),
-//   	}),
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+//   	Versioned: jsii.Boolean(true),
+//   	Encryption: s3.BucketEncryption_KMS,
+//   })
+//
+//   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
+//   	Application: Application,
+//   	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
 //   })
 //
 type BucketEncryption string

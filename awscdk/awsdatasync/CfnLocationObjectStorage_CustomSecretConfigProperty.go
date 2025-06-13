@@ -1,7 +1,11 @@
 package awsdatasync
 
 
-// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text.
+//
+// This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+//
+// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +20,11 @@ package awsdatasync
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-customsecretconfig.html
 //
 type CfnLocationObjectStorage_CustomSecretConfigProperty struct {
-	// Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+	// Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for `SecretArn` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-customsecretconfig.html#cfn-datasync-locationobjectstorage-customsecretconfig-secretaccessrolearn
 	//
 	SecretAccessRoleArn *string `field:"required" json:"secretAccessRoleArn" yaml:"secretAccessRoleArn"`
-	// Specifies the ARN for a customer created AWS Secrets Manager secret.
+	// Specifies the ARN for an AWS Secrets Manager secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-customsecretconfig.html#cfn-datasync-locationobjectstorage-customsecretconfig-secretarn
 	//
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`

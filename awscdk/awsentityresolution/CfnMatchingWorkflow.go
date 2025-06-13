@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a `MatchingWorkflow` object which stores the configuration of the data processing job to be run.
+// Creates a matching workflow that defines the configuration for a data processing job.
 //
-// It is important to note that there should not be a pre-existing `MatchingWorkflow` with the same name. To modify an existing workflow, utilize the `UpdateMatchingWorkflow` API.
+// The workflow name must be unique. To modify an existing workflow, use `UpdateMatchingWorkflow` .
+//
+// > For workflows where `resolutionType` is ML_MATCHING, incremental processing is not supported.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -115,7 +117,7 @@ type CfnMatchingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
-	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+	// Optional.
 	IncrementalRunConfig() interface{}
 	SetIncrementalRunConfig(val interface{})
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

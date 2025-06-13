@@ -28,25 +28,34 @@ package awscdk
 // ```.
 //
 // Example:
-//   var myRole role
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
-//   	Role: myRole,
-//   	 // must be assumable by the `lambda.amazonaws.com` service principal
-//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	 // defaults to 2 minutes
-//   	MemorySize: jsii.Number(1025),
-//   	 // defaults to 512 if installLatestAwsSdk is true
-//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
-//   		Retention: logs.RetentionDays_ONE_DAY,
-//   	}),
-//   	FunctionName: jsii.String("my-custom-name"),
-//   	 // defaults to a CloudFormation generated name
-//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
-//   	 // defaults to `RemovalPolicy.DESTROY`
-//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
-//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
-//   	}),
+//
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-west-2"),
+//   	},
+//   })
+//
+//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
+//   	},
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	DeletionProtection: jsii.Boolean(true),
+//   	// only the replica in us-east-1 will be deleted during stack deletion
+//   	Replicas: []replicaTableProps{
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   			DeletionProtection: jsii.Boolean(false),
+//   		},
+//   		&replicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   			DeletionProtection: jsii.Boolean(true),
+//   		},
+//   	},
 //   })
 //
 type RemovalPolicy string
