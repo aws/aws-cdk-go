@@ -114,6 +114,19 @@ import (
 //   	Principal: jsii.String("principal"),
 //
 //   	// the properties below are optional
+//   	AuthenticationDetail: &DataAccessorAuthenticationDetailProperty{
+//   		AuthenticationType: jsii.String("authenticationType"),
+//
+//   		// the properties below are optional
+//   		AuthenticationConfiguration: &DataAccessorAuthenticationConfigurationProperty{
+//   			IdcTrustedTokenIssuerConfiguration: &DataAccessorIdcTrustedTokenIssuerConfigurationProperty{
+//   				IdcTrustedTokenIssuerArn: jsii.String("idcTrustedTokenIssuerArn"),
+//   			},
+//   		},
+//   		ExternalIds: []*string{
+//   			jsii.String("externalIds"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -141,6 +154,12 @@ type CfnDataAccessorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-principal
 	//
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
+	// The authentication configuration details for the data accessor.
+	//
+	// This specifies how the ISV authenticates when accessing data through this data accessor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-authenticationdetail
+	//
+	AuthenticationDetail interface{} `field:"optional" json:"authenticationDetail" yaml:"authenticationDetail"`
 	// The tags to associate with the data accessor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-tags
 	//

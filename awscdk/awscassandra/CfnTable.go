@@ -69,6 +69,12 @@ import (
 //   			WriteCapacityUnits: jsii.Number(123),
 //   		},
 //   	},
+//   	CdcSpecification: &CdcSpecificationProperty{
+//   		Status: jsii.String("status"),
+//
+//   		// the properties below are optional
+//   		ViewType: jsii.String("viewType"),
+//   	},
 //   	ClientSideTimestampsEnabled: jsii.Boolean(false),
 //   	ClusteringKeyColumns: []interface{}{
 //   		&ClusteringKeyColumnProperty{
@@ -139,6 +145,9 @@ type CfnTable interface {
 	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
 	BillingMode() interface{}
 	SetBillingMode(val interface{})
+	// The settings for the CDC stream of a table.
+	CdcSpecification() interface{}
+	SetCdcSpecification(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -366,6 +375,16 @@ func (j *jsiiProxy_CfnTable) BillingMode() interface{} {
 	_jsii_.Get(
 		j,
 		"billingMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) CdcSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cdcSpecification",
 		&returns,
 	)
 	return returns
@@ -637,6 +656,17 @@ func (j *jsiiProxy_CfnTable)SetBillingMode(val interface{}) {
 	_jsii_.Set(
 		j,
 		"billingMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetCdcSpecification(val interface{}) {
+	if err := j.validateSetCdcSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cdcSpecification",
 		val,
 	)
 }

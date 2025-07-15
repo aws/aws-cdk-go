@@ -250,6 +250,30 @@ func (j *jsiiProxy_CfnDataAccessor) validateSetApplicationIdParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataAccessor) validateSetAuthenticationDetailParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDataAccessor_DataAccessorAuthenticationDetailProperty:
+		val := val.(*CfnDataAccessor_DataAccessorAuthenticationDetailProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDataAccessor_DataAccessorAuthenticationDetailProperty:
+		val_ := val.(CfnDataAccessor_DataAccessorAuthenticationDetailProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataAccessor_DataAccessorAuthenticationDetailProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataAccessor) validateSetDisplayNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

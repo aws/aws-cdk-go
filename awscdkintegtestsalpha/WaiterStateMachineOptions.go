@@ -64,6 +64,7 @@ import (
 //   		DataOutputPrefix: jsii.String("regularPrefix"),
 //   		ErrorOutputPrefix: jsii.String("errorPrefix"),
 //   		FileExtension: jsii.String(".log.gz"),
+//   		TimeZone: cdk.TimeZone_ASIA_TOKYO(),
 //   		BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
 //   		BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
 //   		EncryptionKey: key,

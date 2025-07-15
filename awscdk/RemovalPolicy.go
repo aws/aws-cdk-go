@@ -61,12 +61,11 @@ package awscdk
 type RemovalPolicy string
 
 const (
-	// This is the default removal policy.
-	//
-	// It means that when the resource is
-	// removed from the app, it will be physically destroyed.
+	// When this removal policy is applied, the resource will be physically destroyed when it is removed from the stack or when the stack is deleted.
 	RemovalPolicy_DESTROY RemovalPolicy = "DESTROY"
 	// This uses the 'Retain' DeletionPolicy, which will cause the resource to be retained in the account, but orphaned from the stack.
+	//
+	// Most resources default to this removal policy.
 	RemovalPolicy_RETAIN RemovalPolicy = "RETAIN"
 	// This retention policy deletes the resource, but saves a snapshot of its data before deleting, so that it can be re-created later.
 	//

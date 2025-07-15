@@ -62,7 +62,7 @@ type CfnCustomerGateway interface {
 	// The name of customer gateway device.
 	DeviceName() *string
 	SetDeviceName(val *string)
-	// IPv4 address for the customer gateway device's outside interface.
+	// The IP address for the customer gateway device's outside interface.
 	IpAddress() *string
 	SetIpAddress(val *string)
 	// The logical ID for this CloudFormation stack element.

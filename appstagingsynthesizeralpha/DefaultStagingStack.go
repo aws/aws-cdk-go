@@ -194,6 +194,11 @@ type DefaultStagingStack interface {
 	//
 	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Configure a stack tag.
+	//
+	// At deploy time, CloudFormation will automatically apply all stack tags to all resources in the stack.
+	// Experimental.
+	AddStackTag(tagName *string, tagValue *string)
 	// Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 	//
 	// Duplicate values are removed when stack is synthesized.
@@ -359,6 +364,11 @@ type DefaultStagingStack interface {
 	// the given region.
 	// Experimental.
 	RegionalFact(factName *string, defaultValue *string) *string
+	// Remove a stack tag.
+	//
+	// At deploy time, CloudFormation will automatically apply all stack tags to all resources in the stack.
+	// Experimental.
+	RemoveStackTag(tagName *string)
 	// Rename a generated logical identities.
 	//
 	// To modify the naming scheme strategy, extend the `Stack` class and
@@ -834,6 +844,17 @@ func (d *jsiiProxy_DefaultStagingStack) AddMetadata(key *string, value interface
 	)
 }
 
+func (d *jsiiProxy_DefaultStagingStack) AddStackTag(tagName *string, tagValue *string) {
+	if err := d.validateAddStackTagParameters(tagName, tagValue); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"addStackTag",
+		[]interface{}{tagName, tagValue},
+	)
+}
+
 func (d *jsiiProxy_DefaultStagingStack) AddTransform(transform *string) {
 	if err := d.validateAddTransformParameters(transform); err != nil {
 		panic(err)
@@ -939,6 +960,17 @@ func (d *jsiiProxy_DefaultStagingStack) RegionalFact(factName *string, defaultVa
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DefaultStagingStack) RemoveStackTag(tagName *string) {
+	if err := d.validateRemoveStackTagParameters(tagName); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"removeStackTag",
+		[]interface{}{tagName},
+	)
 }
 
 func (d *jsiiProxy_DefaultStagingStack) RenameLogicalId(oldId *string, newId *string) {

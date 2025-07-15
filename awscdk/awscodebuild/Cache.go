@@ -12,34 +12,60 @@ import (
 // A cache can store reusable pieces of your build environment and use them across multiple builds.
 //
 // Example:
-//   var myCachingBucket bucket
+//   var vpc vpc
+//   var mySecurityGroup securityGroup
 //
+//   pipelines.NewCodeBuildStep(jsii.String("Synth"), &CodeBuildStepProps{
+//   	// ...standard ShellStep props...
+//   	Commands: []*string{
+//   	},
+//   	Env: map[string]interface{}{
+//   	},
 //
-//   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
-//   	Source: codebuild.Source_BitBucket(&BitBucketSourceProps{
-//   		Owner: jsii.String("awslabs"),
-//   		Repo: jsii.String("aws-cdk"),
-//   	}),
+//   	// If you are using a CodeBuildStep explicitly, set the 'cdk.out' directory
+//   	// to be the synth step's output.
+//   	PrimaryOutputDirectory: jsii.String("cdk.out"),
 //
-//   	Cache: codebuild.Cache_Bucket(myCachingBucket),
+//   	// Control the name of the project
+//   	ProjectName: jsii.String("MyProject"),
 //
-//   	// BuildSpec with a 'cache' section necessary for S3 caching. This can
-//   	// also come from 'buildspec.yml' in your source.
-//   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+//   	// Control parts of the BuildSpec other than the regular 'build' and 'install' commands
+//   	PartialBuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 //   		"version": jsii.String("0.2"),
-//   		"phases": map[string]map[string][]*string{
-//   			"build": map[string][]*string{
-//   				"commands": []*string{
-//   					jsii.String("..."),
-//   				},
-//   			},
-//   		},
-//   		"cache": map[string][]*string{
-//   			"paths": []*string{
-//   				jsii.String("/root/cachedir/**/*"),
-//   			},
-//   		},
 //   	}),
+//
+//   	// Control the build environment
+//   	BuildEnvironment: &BuildEnvironment{
+//   		ComputeType: codebuild.ComputeType_LARGE,
+//   		Privileged: jsii.Boolean(true),
+//   	},
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
+//   	FileSystemLocations: []iFileSystemLocation{
+//   		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
+//   			Identifier: jsii.String("myidentifier2"),
+//   			Location: jsii.String("myclodation.mydnsroot.com:/loc"),
+//   			MountPoint: jsii.String("/media"),
+//   			MountOptions: jsii.String("opts"),
+//   		}),
+//   	},
+//
+//   	// Control Elastic Network Interface creation
+//   	Vpc: vpc,
+//   	SubnetSelection: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
+//   	SecurityGroups: []iSecurityGroup{
+//   		mySecurityGroup,
+//   	},
+//
+//   	// Control caching
+//   	Cache: codebuild.Cache_Bucket(s3.NewBucket(this, jsii.String("Cache"))),
+//
+//   	// Additional policy statements for the execution role
+//   	RolePolicyStatements: []policyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   		}),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html

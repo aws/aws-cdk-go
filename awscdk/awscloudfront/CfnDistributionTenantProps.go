@@ -7,53 +7,99 @@ import (
 // Properties for defining a `CfnDistributionTenant`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   cfnDistributionTenantProps := &CfnDistributionTenantProps{
-//   	DistributionId: jsii.String("distributionId"),
-//   	Domains: []*string{
-//   		jsii.String("domains"),
+//   // Create the simple Origin
+//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+//   	OriginAccessLevels: []accessLevel{
+//   		cloudfront.*accessLevel_READ,
+//   		cloudfront.*accessLevel_LIST,
 //   	},
-//   	Name: jsii.String("name"),
+//   })
 //
+//   // Create the Distribution construct
+//   myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-hosted-distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: s3Origin,
+//   	},
+//   	DefaultRootObject: jsii.String("index.html"),
+//   })
+//
+//   // Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
+//   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+//
+//   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
+//   	TargetOriginId: myBucket.BucketArn,
+//   	ViewerProtocolPolicy: jsii.String("allow-all"),
+//   	Compress: jsii.Boolean(false),
+//   	AllowedMethods: []*string{
+//   		jsii.String("GET"),
+//   		jsii.String("HEAD"),
+//   	},
+//   	CachePolicyId: cloudfront.CachePolicy_CACHING_OPTIMIZED().CachePolicyId,
+//   }
+//   // Create the updated distributionConfig
+//   distributionConfig := &DistributionConfigProperty{
+//   	DefaultCacheBehavior: defaultCacheBehavior,
+//   	Enabled: jsii.Boolean(true),
 //   	// the properties below are optional
-//   	ConnectionGroupId: jsii.String("connectionGroupId"),
-//   	Customizations: &CustomizationsProperty{
-//   		Certificate: &CertificateProperty{
-//   			Arn: jsii.String("arn"),
-//   		},
-//   		GeoRestrictions: &GeoRestrictionCustomizationProperty{
-//   			Locations: []*string{
-//   				jsii.String("locations"),
+//   	ConnectionMode: jsii.String("tenant-only"),
+//   	Origins: []interface{}{
+//   		&OriginProperty{
+//   			Id: myBucket.*BucketArn,
+//   			DomainName: myBucket.BucketDomainName,
+//   			S3OriginConfig: &S3OriginConfigProperty{
 //   			},
-//   			RestrictionType: jsii.String("restrictionType"),
-//   		},
-//   		WebAcl: &WebAclCustomizationProperty{
-//   			Action: jsii.String("action"),
-//   			Arn: jsii.String("arn"),
+//   			OriginPath: jsii.String("/{{tenantName}}"),
 //   		},
 //   	},
-//   	Enabled: jsii.Boolean(false),
-//   	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
-//   		CertificateTransparencyLoggingPreference: jsii.String("certificateTransparencyLoggingPreference"),
-//   		PrimaryDomainName: jsii.String("primaryDomainName"),
-//   		ValidationTokenHost: jsii.String("validationTokenHost"),
-//   	},
-//   	Parameters: []interface{}{
-//   		&ParameterProperty{
-//   			Name: jsii.String("name"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
+//   	TenantConfig: &TenantConfigProperty{
+//   		ParameterDefinitions: []interface{}{
+//   			&ParameterDefinitionProperty{
+//   				Definition: &DefinitionProperty{
+//   					StringSchema: &StringSchemaProperty{
+//   						Required: jsii.Boolean(false),
+//   						// the properties below are optional
+//   						Comment: jsii.String("tenantName"),
+//   						DefaultValue: jsii.String("root"),
+//   					},
+//   				},
+//   				Name: jsii.String("tenantName"),
+//   			},
 //   		},
 //   	},
 //   }
+//
+//   // Override the distribution configuration to enable multi-tenancy.
+//   cfnDistribution.DistributionConfig = distributionConfig
+//
+//   // Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
+//   connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{
+//   	Enabled: jsii.Boolean(true),
+//   	Ipv6Enabled: jsii.Boolean(true),
+//   	Name: jsii.String("self-hosted-connection-group"),
+//   })
+//
+//   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+//   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+//   awscdk.NewCfnOutput(this, jsii.String("RoutingEndpoint"), &CfnOutputProps{
+//   	Value: connectionGroup.AttrRoutingEndpoint,
+//   	Description: jsii.String("CloudFront Routing Endpoint to be added to my hosted zone CNAME records"),
+//   })
+//
+//   // Create a distribution tenant with a self-hosted domain.
+//   selfHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("self-hosted-tenant"), &CfnDistributionTenantProps{
+//   	DistributionId: myMultiTenantDistribution.DistributionId,
+//   	ConnectionGroupId: connectionGroup.AttrId,
+//   	Name: jsii.String("self-hosted-tenant"),
+//   	Domains: []*string{
+//   		jsii.String("self-hosted-tenant.my.domain.com"),
+//   	},
+//   	Enabled: jsii.Boolean(true),
+//   	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
+//   		PrimaryDomainName: jsii.String("self-hosted-tenant.my.domain.com"),
+//   		ValidationTokenHost: jsii.String("self-hosted"),
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html
 //

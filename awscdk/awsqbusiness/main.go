@@ -118,6 +118,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDataAccessorId", GoGetter: "AttrDataAccessorId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIdcApplicationArn", GoGetter: "AttrIdcApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "authenticationDetail", GoGetter: "AuthenticationDetail"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -164,6 +165,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor.AttributeFilterProperty",
 		reflect.TypeOf((*CfnDataAccessor_AttributeFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor.DataAccessorAuthenticationConfigurationProperty",
+		reflect.TypeOf((*CfnDataAccessor_DataAccessorAuthenticationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor.DataAccessorAuthenticationDetailProperty",
+		reflect.TypeOf((*CfnDataAccessor_DataAccessorAuthenticationDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor.DataAccessorIdcTrustedTokenIssuerConfigurationProperty",
+		reflect.TypeOf((*CfnDataAccessor_DataAccessorIdcTrustedTokenIssuerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor.DocumentAttributeProperty",
@@ -380,6 +393,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -408,6 +422,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnPermission.ConditionProperty",
+		reflect.TypeOf((*CfnPermission_ConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnPermissionProps",

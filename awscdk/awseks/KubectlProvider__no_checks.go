@@ -12,6 +12,10 @@ func (k *jsiiProxy_KubectlProvider) validateAddMetadataParameters(key *string, v
 	return nil
 }
 
+func (k *jsiiProxy_KubectlProvider) validateAddStackTagParameters(tagName *string, tagValue *string) error {
+	return nil
+}
+
 func (k *jsiiProxy_KubectlProvider) validateAddTransformParameters(transform *string) error {
 	return nil
 }
@@ -37,6 +41,10 @@ func (k *jsiiProxy_KubectlProvider) validateGetLogicalIdParameters(element awscd
 }
 
 func (k *jsiiProxy_KubectlProvider) validateRegionalFactParameters(factName *string) error {
+	return nil
+}
+
+func (k *jsiiProxy_KubectlProvider) validateRemoveStackTagParameters(tagName *string) error {
 	return nil
 }
 

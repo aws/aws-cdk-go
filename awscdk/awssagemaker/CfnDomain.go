@@ -354,6 +354,7 @@ import (
 //   			EnvironmentId: jsii.String("environmentId"),
 //   			ProjectId: jsii.String("projectId"),
 //   			ProjectS3Path: jsii.String("projectS3Path"),
+//   			SingleSignOnApplicationArn: jsii.String("singleSignOnApplicationArn"),
 //   			StudioWebPortalAccess: jsii.String("studioWebPortalAccess"),
 //   		},
 //   	},

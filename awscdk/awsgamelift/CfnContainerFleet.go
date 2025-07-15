@@ -63,6 +63,7 @@ import (
 //   	},
 //   	LogConfiguration: &LogConfigurationProperty{
 //   		LogDestination: jsii.String("logDestination"),
+//   		LogGroupArn: jsii.String("logGroupArn"),
 //   		S3BucketName: jsii.String("s3BucketName"),
 //   	},
 //   	MetricGroups: []*string{

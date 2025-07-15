@@ -12,6 +12,10 @@ func (i *jsiiProxy_IntegTestCaseStack) validateAddMetadataParameters(key *string
 	return nil
 }
 
+func (i *jsiiProxy_IntegTestCaseStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
+	return nil
+}
+
 func (i *jsiiProxy_IntegTestCaseStack) validateAddTransformParameters(transform *string) error {
 	return nil
 }
@@ -37,6 +41,10 @@ func (i *jsiiProxy_IntegTestCaseStack) validateGetLogicalIdParameters(element aw
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) validateRegionalFactParameters(factName *string) error {
+	return nil
+}
+
+func (i *jsiiProxy_IntegTestCaseStack) validateRemoveStackTagParameters(tagName *string) error {
 	return nil
 }
 

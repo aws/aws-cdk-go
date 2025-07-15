@@ -100,5 +100,11 @@ type S3BucketProps struct {
 	// Default: - The default file extension appended by Data Format Conversion or S3 compression features.
 	//
 	FileExtension *string `field:"optional" json:"fileExtension" yaml:"fileExtension"`
+	// The time zone you prefer.
+	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html#timestamp-namespace
+	//
+	// Default: - UTC.
+	//
+	TimeZone awscdk.TimeZone `field:"optional" json:"timeZone" yaml:"timeZone"`
 }
 

@@ -1,6 +1,10 @@
 package awsb2bi
 
 
+// Contains options for processing inbound EDI files.
+//
+// These options allow for customizing how incoming EDI documents are processed.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,6 +22,7 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-inboundedioptions.html
 //
 type CfnPartnership_InboundEdiOptionsProperty struct {
+	// A structure that contains X12-specific options for processing inbound X12 EDI files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-inboundedioptions.html#cfn-b2bi-partnership-inboundedioptions-x12
 	//
 	X12 interface{} `field:"optional" json:"x12" yaml:"x12"`

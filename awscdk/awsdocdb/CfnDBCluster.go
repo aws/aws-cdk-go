@@ -32,11 +32,13 @@ import (
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
+//   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ManageMasterUserPassword: jsii.Boolean(false),
 //   	MasterUsername: jsii.String("masterUsername"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MasterUserSecretKmsKeyId: jsii.String("masterUserSecretKmsKeyId"),
+//   	NetworkType: jsii.String("networkType"),
 //   	Port: jsii.Number(123),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
@@ -124,6 +126,8 @@ type CfnDBCluster interface {
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	GlobalClusterIdentifier() *string
+	SetGlobalClusterIdentifier(val *string)
 	// The AWS KMS key identifier for an encrypted cluster.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -149,6 +153,8 @@ type CfnDBCluster interface {
 	// The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.
 	MasterUserSecretKmsKeyId() *string
 	SetMasterUserSecretKmsKeyId(val *string)
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the port that the database engine is listening on.
@@ -532,6 +538,16 @@ func (j *jsiiProxy_CfnDBCluster) EngineVersion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) GlobalClusterIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"globalClusterIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -587,6 +603,16 @@ func (j *jsiiProxy_CfnDBCluster) MasterUserSecretKmsKeyId() *string {
 	_jsii_.Get(
 		j,
 		"masterUserSecretKmsKeyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
 		&returns,
 	)
 	return returns
@@ -898,6 +924,14 @@ func (j *jsiiProxy_CfnDBCluster)SetEngineVersion(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster)SetGlobalClusterIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"globalClusterIdentifier",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
@@ -937,6 +971,14 @@ func (j *jsiiProxy_CfnDBCluster)SetMasterUserSecretKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUserSecretKmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

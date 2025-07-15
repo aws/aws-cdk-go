@@ -6,73 +6,99 @@ package awscloudfront
 // You must create exactly one default cache behavior.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   defaultCacheBehaviorProperty := &DefaultCacheBehaviorProperty{
-//   	TargetOriginId: jsii.String("targetOriginId"),
-//   	ViewerProtocolPolicy: jsii.String("viewerProtocolPolicy"),
-//
-//   	// the properties below are optional
-//   	AllowedMethods: []*string{
-//   		jsii.String("allowedMethods"),
+//   // Create the simple Origin
+//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+//   	OriginAccessLevels: []accessLevel{
+//   		cloudfront.*accessLevel_READ,
+//   		cloudfront.*accessLevel_LIST,
 //   	},
-//   	CachedMethods: []*string{
-//   		jsii.String("cachedMethods"),
+//   })
+//
+//   // Create the Distribution construct
+//   myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-hosted-distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: s3Origin,
 //   	},
-//   	CachePolicyId: jsii.String("cachePolicyId"),
+//   	DefaultRootObject: jsii.String("index.html"),
+//   })
+//
+//   // Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
+//   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+//
+//   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
+//   	TargetOriginId: myBucket.BucketArn,
+//   	ViewerProtocolPolicy: jsii.String("allow-all"),
 //   	Compress: jsii.Boolean(false),
-//   	DefaultTtl: jsii.Number(123),
-//   	FieldLevelEncryptionId: jsii.String("fieldLevelEncryptionId"),
-//   	ForwardedValues: &ForwardedValuesProperty{
-//   		QueryString: jsii.Boolean(false),
-//
-//   		// the properties below are optional
-//   		Cookies: &CookiesProperty{
-//   			Forward: jsii.String("forward"),
-//
-//   			// the properties below are optional
-//   			WhitelistedNames: []*string{
-//   				jsii.String("whitelistedNames"),
+//   	AllowedMethods: []*string{
+//   		jsii.String("GET"),
+//   		jsii.String("HEAD"),
+//   	},
+//   	CachePolicyId: cloudfront.CachePolicy_CACHING_OPTIMIZED().CachePolicyId,
+//   }
+//   // Create the updated distributionConfig
+//   distributionConfig := &DistributionConfigProperty{
+//   	DefaultCacheBehavior: defaultCacheBehavior,
+//   	Enabled: jsii.Boolean(true),
+//   	// the properties below are optional
+//   	ConnectionMode: jsii.String("tenant-only"),
+//   	Origins: []interface{}{
+//   		&OriginProperty{
+//   			Id: myBucket.*BucketArn,
+//   			DomainName: myBucket.BucketDomainName,
+//   			S3OriginConfig: &S3OriginConfigProperty{
+//   			},
+//   			OriginPath: jsii.String("/{{tenantName}}"),
+//   		},
+//   	},
+//   	TenantConfig: &TenantConfigProperty{
+//   		ParameterDefinitions: []interface{}{
+//   			&ParameterDefinitionProperty{
+//   				Definition: &DefinitionProperty{
+//   					StringSchema: &StringSchemaProperty{
+//   						Required: jsii.Boolean(false),
+//   						// the properties below are optional
+//   						Comment: jsii.String("tenantName"),
+//   						DefaultValue: jsii.String("root"),
+//   					},
+//   				},
+//   				Name: jsii.String("tenantName"),
 //   			},
 //   		},
-//   		Headers: []*string{
-//   			jsii.String("headers"),
-//   		},
-//   		QueryStringCacheKeys: []*string{
-//   			jsii.String("queryStringCacheKeys"),
-//   		},
-//   	},
-//   	FunctionAssociations: []interface{}{
-//   		&FunctionAssociationProperty{
-//   			EventType: jsii.String("eventType"),
-//   			FunctionArn: jsii.String("functionArn"),
-//   		},
-//   	},
-//   	GrpcConfig: &GrpcConfigProperty{
-//   		Enabled: jsii.Boolean(false),
-//   	},
-//   	LambdaFunctionAssociations: []interface{}{
-//   		&LambdaFunctionAssociationProperty{
-//   			EventType: jsii.String("eventType"),
-//   			IncludeBody: jsii.Boolean(false),
-//   			LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
-//   		},
-//   	},
-//   	MaxTtl: jsii.Number(123),
-//   	MinTtl: jsii.Number(123),
-//   	OriginRequestPolicyId: jsii.String("originRequestPolicyId"),
-//   	RealtimeLogConfigArn: jsii.String("realtimeLogConfigArn"),
-//   	ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
-//   	SmoothStreaming: jsii.Boolean(false),
-//   	TrustedKeyGroups: []*string{
-//   		jsii.String("trustedKeyGroups"),
-//   	},
-//   	TrustedSigners: []*string{
-//   		jsii.String("trustedSigners"),
 //   	},
 //   }
+//
+//   // Override the distribution configuration to enable multi-tenancy.
+//   cfnDistribution.DistributionConfig = distributionConfig
+//
+//   // Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
+//   connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{
+//   	Enabled: jsii.Boolean(true),
+//   	Ipv6Enabled: jsii.Boolean(true),
+//   	Name: jsii.String("self-hosted-connection-group"),
+//   })
+//
+//   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+//   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+//   awscdk.NewCfnOutput(this, jsii.String("RoutingEndpoint"), &CfnOutputProps{
+//   	Value: connectionGroup.AttrRoutingEndpoint,
+//   	Description: jsii.String("CloudFront Routing Endpoint to be added to my hosted zone CNAME records"),
+//   })
+//
+//   // Create a distribution tenant with a self-hosted domain.
+//   selfHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("self-hosted-tenant"), &CfnDistributionTenantProps{
+//   	DistributionId: myMultiTenantDistribution.DistributionId,
+//   	ConnectionGroupId: connectionGroup.AttrId,
+//   	Name: jsii.String("self-hosted-tenant"),
+//   	Domains: []*string{
+//   		jsii.String("self-hosted-tenant.my.domain.com"),
+//   	},
+//   	Enabled: jsii.Boolean(true),
+//   	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
+//   		PrimaryDomainName: jsii.String("self-hosted-tenant.my.domain.com"),
+//   		ValidationTokenHost: jsii.String("self-hosted"),
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
 //
@@ -136,9 +162,11 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// Default: - false.
 	//
 	Compress interface{} `field:"optional" json:"compress" yaml:"compress"`
-	// This field is deprecated.
+	// > This field only supports standard distributions.
 	//
-	// We recommend that you use the `DefaultTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// This field is deprecated. We recommend that you use the `DefaultTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
@@ -180,9 +208,11 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
 	//
 	LambdaFunctionAssociations interface{} `field:"optional" json:"lambdaFunctionAssociations" yaml:"lambdaFunctionAssociations"`
-	// This field is deprecated.
+	// > This field only supports standard distributions.
 	//
-	// We recommend that you use the `MaxTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// This field is deprecated. We recommend that you use the `MaxTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
@@ -190,9 +220,11 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// Default: - 31536000.
 	//
 	MaxTtl *float64 `field:"optional" json:"maxTtl" yaml:"maxTtl"`
-	// This field is deprecated.
+	// > This field only supports standard distributions.
 	//
-	// We recommend that you use the `MinTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// This field is deprecated. We recommend that you use the `MinTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	//
@@ -224,9 +256,11 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// Default: - "".
 	//
 	ResponseHeadersPolicyId *string `field:"optional" json:"responseHeadersPolicyId" yaml:"responseHeadersPolicyId"`
-	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
+	// > This field only supports standard distributions.
 	//
-	// If so, specify `true` ; if not, specify `false` . If you specify `true` for `SmoothStreaming` , you can still distribute other content using this cache behavior if the content matches the value of `PathPattern` .
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify `true` ; if not, specify `false` . If you specify `true` for `SmoothStreaming` , you can still distribute other content using this cache behavior if the content matches the value of `PathPattern` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 	//
 	// Default: - false.
@@ -239,6 +273,8 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	//
 	TrustedKeyGroups *[]*string `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// > We recommend using `TrustedKeyGroups` instead of `TrustedSigners` .
+	//
+	// > This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
 	//
 	// A list of AWS account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//

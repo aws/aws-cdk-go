@@ -1,6 +1,8 @@
 package awslex
 
 
+// Contains specifications for the sample utterance generation feature.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,6 +28,7 @@ package awslex
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterancegenerationspecification.html
 //
 type CfnBot_SampleUtteranceGenerationSpecificationProperty struct {
+	// Specifies whether to enable sample utterance generation or not.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterancegenerationspecification.html#cfn-lex-bot-sampleutterancegenerationspecification-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`

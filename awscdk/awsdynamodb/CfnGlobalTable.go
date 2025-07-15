@@ -19,45 +19,46 @@ import (
 //
 // - The IAM Principal executing the stack operation must have the permissions listed below in all regions where you plan to have a global table replica. The IAM Principal's permissions should not have restrictions based on IP source address. Some global tables operations (for example, adding a replica) are asynchronous, and require that the IAM Principal is valid until they complete. You should not delete the Principal (user or IAM role) until CloudFormation has finished updating your stack.
 //
+// - `application-autoscaling:DeleteScalingPolicy`
+// - `application-autoscaling:DeleteScheduledAction`
+// - `application-autoscaling:DeregisterScalableTarget`
+// - `application-autoscaling:DescribeScalableTargets`
+// - `application-autoscaling:DescribeScalingPolicies`
+// - `application-autoscaling:PutScalingPolicy`
+// - `application-autoscaling:PutScheduledAction`
+// - `application-autoscaling:RegisterScalableTarget`
+// - `dynamodb:BatchWriteItem`
+// - `dynamodb:CreateGlobalTableWitness`
 // - `dynamodb:CreateTable`
-// - `dynamodb:UpdateTable`
+// - `dynamodb:CreateTableReplica`
+// - `dynamodb:DeleteGlobalTableWitness`
+// - `dynamodb:DeleteItem`
 // - `dynamodb:DeleteTable`
+// - `dynamodb:DeleteTableReplica`
 // - `dynamodb:DescribeContinuousBackups`
 // - `dynamodb:DescribeContributorInsights`
 // - `dynamodb:DescribeTable`
 // - `dynamodb:DescribeTableReplicaAutoScaling`
 // - `dynamodb:DescribeTimeToLive`
-// - `dynamodb:ListTables`
-// - `dynamodb:UpdateTimeToLive`
-// - `dynamodb:UpdateContributorInsights`
-// - `dynamodb:UpdateContinuousBackups`
-// - `dynamodb:ListTagsOfResource`
-// - `dynamodb:TagResource`
-// - `dynamodb:UntagResource`
-// - `dynamodb:BatchWriteItem`
-// - `dynamodb:CreateTableReplica`
-// - `dynamodb:DeleteItem`
-// - `dynamodb:DeleteTableReplica`
 // - `dynamodb:DisableKinesisStreamingDestination`
 // - `dynamodb:EnableKinesisStreamingDestination`
 // - `dynamodb:GetItem`
+// - `dynamodb:ListTables`
+// - `dynamodb:ListTagsOfResource`
 // - `dynamodb:PutItem`
 // - `dynamodb:Query`
 // - `dynamodb:Scan`
+// - `dynamodb:TagResource`
+// - `dynamodb:UntagResource`
+// - `dynamodb:UpdateContinuousBackups`
+// - `dynamodb:UpdateContributorInsights`
 // - `dynamodb:UpdateItem`
-// - `dynamodb:DescribeTableReplicaAutoScaling`
+// - `dynamodb:UpdateTable`
 // - `dynamodb:UpdateTableReplicaAutoScaling`
+// - `dynamodb:UpdateTimeToLive`
 // - `iam:CreateServiceLinkedRole`
 // - `kms:CreateGrant`
 // - `kms:DescribeKey`
-// - `application-autoscaling:DeleteScalingPolicy`
-// - `application-autoscaling:DeleteScheduledAction`
-// - `application-autoscaling:DeregisterScalableTarget`
-// - `application-autoscaling:DescribeScalingPolicies`
-// - `application-autoscaling:DescribeScalableTargets`
-// - `application-autoscaling:PutScalingPolicy`
-// - `application-autoscaling:PutScheduledAction`
-// - `application-autoscaling:RegisterScalableTarget`
 // - When using provisioned billing mode, CloudFormation will create an auto scaling policy on each of your replicas to control their write capacities. You must configure this policy using the `WriteProvisionedThroughputSettings` property. CloudFormation will ensure that all replicas have the same write capacity auto scaling property. You cannot directly specify a value for write capacity for a global table.
 // - If your table uses provisioned capacity, you must configure auto scaling directly in the `AWS::DynamoDB::GlobalTable` resource. You should not configure additional auto scaling policies on any of the table replicas or global secondary indexes, either via API or via `AWS::ApplicationAutoScaling::ScalableTarget` or `AWS::ApplicationAutoScaling::ScalingPolicy` . Doing so might result in unexpected behavior and is unsupported.
 // - In AWS CloudFormation , each global table is controlled by a single stack, in a single region, regardless of the number of replicas. When you deploy your template, CloudFormation will create/update all replicas as part of a single stack operation. You should not deploy the same `AWS::DynamoDB::GlobalTable` resource in multiple regions. Doing so will result in errors, and is unsupported. If you deploy your application template in multiple regions, you can use conditions to only create the resource in a single region. Alternatively, you can choose to define your `AWS::DynamoDB::GlobalTable` resources in a stack separate from your application stack, and make sure it is only deployed to a single region.
@@ -219,6 +220,11 @@ import (
 //   			},
 //   		},
 //   	},
+//   	GlobalTableWitnesses: []interface{}{
+//   		&GlobalTableWitnessProperty{
+//   			Region: jsii.String("region"),
+//   		},
+//   	},
 //   	LocalSecondaryIndexes: []interface{}{
 //   		&LocalSecondaryIndexProperty{
 //   			IndexName: jsii.String("indexName"),
@@ -236,6 +242,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -315,6 +322,9 @@ type CfnGlobalTable interface {
 	// Global secondary indexes to be created on the global table.
 	GlobalSecondaryIndexes() interface{}
 	SetGlobalSecondaryIndexes(val interface{})
+	// The list of witnesses of the MRSC global table.
+	GlobalTableWitnesses() interface{}
+	SetGlobalTableWitnesses(val interface{})
 	// Specifies the attributes that make up the primary key for the table.
 	KeySchema() interface{}
 	SetKeySchema(val interface{})
@@ -331,6 +341,9 @@ type CfnGlobalTable interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Specifies the consistency mode for a new global table.
+	MultiRegionConsistency() *string
+	SetMultiRegionConsistency(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -612,6 +625,16 @@ func (j *jsiiProxy_CfnGlobalTable) GlobalSecondaryIndexes() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalTable) GlobalTableWitnesses() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"globalTableWitnesses",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalTable) KeySchema() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -637,6 +660,16 @@ func (j *jsiiProxy_CfnGlobalTable) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalTable) MultiRegionConsistency() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"multiRegionConsistency",
 		&returns,
 	)
 	return returns
@@ -830,6 +863,17 @@ func (j *jsiiProxy_CfnGlobalTable)SetGlobalSecondaryIndexes(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnGlobalTable)SetGlobalTableWitnesses(val interface{}) {
+	if err := j.validateSetGlobalTableWitnessesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"globalTableWitnesses",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnGlobalTable)SetKeySchema(val interface{}) {
 	if err := j.validateSetKeySchemaParameters(val); err != nil {
 		panic(err)
@@ -848,6 +892,14 @@ func (j *jsiiProxy_CfnGlobalTable)SetLocalSecondaryIndexes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"localSecondaryIndexes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetMultiRegionConsistency(val *string) {
+	_jsii_.Set(
+		j,
+		"multiRegionConsistency",
 		val,
 	)
 }

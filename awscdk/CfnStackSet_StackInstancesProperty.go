@@ -43,7 +43,7 @@ type CfnStackSet_StackInstancesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
 	//
 	Regions *[]*string `field:"required" json:"regions" yaml:"regions"`
-	// A list of stack set parameters whose values you want to override in the selected stack instances.
+	// A list of StackSet parameters whose values you want to override in the selected stack instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
 	//
 	ParameterOverrides interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`

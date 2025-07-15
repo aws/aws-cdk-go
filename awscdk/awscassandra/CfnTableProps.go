@@ -62,6 +62,12 @@ import (
 //   			WriteCapacityUnits: jsii.Number(123),
 //   		},
 //   	},
+//   	CdcSpecification: &CdcSpecificationProperty{
+//   		Status: jsii.String("status"),
+//
+//   		// the properties below are optional
+//   		ViewType: jsii.String("viewType"),
+//   	},
 //   	ClientSideTimestampsEnabled: jsii.Boolean(false),
 //   	ClusteringKeyColumns: []interface{}{
 //   		&ClusteringKeyColumnProperty{
@@ -148,6 +154,12 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
 	//
 	BillingMode interface{} `field:"optional" json:"billingMode" yaml:"billingMode"`
+	// The settings for the CDC stream of a table.
+	//
+	// For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-cdcspecification
+	//
+	CdcSpecification interface{} `field:"optional" json:"cdcSpecification" yaml:"cdcSpecification"`
 	// Enables client-side timestamps for the table.
 	//
 	// By default, the setting is disabled. You can enable client-side timestamps with the following option:

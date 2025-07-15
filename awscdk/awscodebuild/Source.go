@@ -10,11 +10,33 @@ import (
 // Source provider definition for a CodeBuild Project.
 //
 // Example:
-//   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
-//   	BuildSpec: codebuild.BuildSpec_FromSourceFilename(jsii.String("my-buildspec.yml")),
-//   	Source: codebuild.Source_GitHub(&GitHubSourceProps{
+//   var myCachingBucket bucket
+//
+//
+//   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+//   	Source: codebuild.Source_BitBucket(&BitBucketSourceProps{
 //   		Owner: jsii.String("awslabs"),
 //   		Repo: jsii.String("aws-cdk"),
+//   	}),
+//
+//   	Cache: codebuild.Cache_Bucket(myCachingBucket),
+//
+//   	// BuildSpec with a 'cache' section necessary for S3 caching. This can
+//   	// also come from 'buildspec.yml' in your source.
+//   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+//   		"version": jsii.String("0.2"),
+//   		"phases": map[string]map[string][]*string{
+//   			"build": map[string][]*string{
+//   				"commands": []*string{
+//   					jsii.String("..."),
+//   				},
+//   			},
+//   		},
+//   		"cache": map[string][]*string{
+//   			"paths": []*string{
+//   				jsii.String("/root/cachedir/**/*"),
+//   			},
+//   		},
 //   	}),
 //   })
 //

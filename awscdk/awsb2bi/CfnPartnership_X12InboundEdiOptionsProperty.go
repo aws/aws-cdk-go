@@ -1,6 +1,8 @@
 package awsb2bi
 
 
+// Contains options specific to processing inbound X12 EDI files.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,6 +18,9 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12inboundedioptions.html
 //
 type CfnPartnership_X12InboundEdiOptionsProperty struct {
+	// Specifies acknowledgment options for inbound X12 EDI files.
+	//
+	// These options control how functional and technical acknowledgments are handled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12inboundedioptions.html#cfn-b2bi-partnership-x12inboundedioptions-acknowledgmentoptions
 	//
 	AcknowledgmentOptions interface{} `field:"optional" json:"acknowledgmentOptions" yaml:"acknowledgmentOptions"`

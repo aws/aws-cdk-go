@@ -17,6 +17,7 @@ type CfnInvestigationGroup_EncryptionConfigMapProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aiops-investigationgroup-encryptionconfigmap.html#cfn-aiops-investigationgroup-encryptionconfigmap-encryptionconfigurationtype
 	//
 	EncryptionConfigurationType *string `field:"optional" json:"encryptionConfigurationType" yaml:"encryptionConfigurationType"`
+	// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aiops-investigationgroup-encryptionconfigmap.html#cfn-aiops-investigationgroup-encryptionconfigmap-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

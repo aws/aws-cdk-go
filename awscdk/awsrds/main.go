@@ -373,6 +373,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "backupRetentionPeriod", GoGetter: "BackupRetentionPeriod"},
+			_jsii_.MemberProperty{JsiiProperty: "backupTarget", GoGetter: "BackupTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "caCertificateIdentifier", GoGetter: "CaCertificateIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateRotationRestart", GoGetter: "CertificateRotationRestart"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -1512,6 +1513,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshotProps",
 		reflect.TypeOf((*DatabaseClusterFromSnapshotProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_rds.DatabaseClusterLookupOptions",
+		reflect.TypeOf((*DatabaseClusterLookupOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.DatabaseClusterProps",

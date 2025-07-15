@@ -25,8 +25,8 @@ package awsec2
 //   	},
 //   	NoRemoveEndDate: jsii.Boolean(false),
 //   	RemoveEndDate: jsii.Boolean(false),
-//   	TagSpecifications: []interface{}{
-//   		&TagSpecificationProperty{
+//   	TagSpecifications: []tagSpecificationProperty{
+//   		&tagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []cfnTag{
 //   				&cfnTag{
@@ -88,7 +88,7 @@ type CfnCapacityReservationFleetProps struct {
 	// The tags are automatically assigned to the Capacity Reservations in the Fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-tagspecifications
 	//
-	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications *[]*CfnCapacityReservationFleet_TagSpecificationProperty `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation Fleet.
 	//
 	// All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:

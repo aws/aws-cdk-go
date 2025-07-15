@@ -66,6 +66,7 @@ import (
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	BackupRetentionPeriod: jsii.Number(123),
+//   	BackupTarget: jsii.String("backupTarget"),
 //   	CaCertificateIdentifier: jsii.String("caCertificateIdentifier"),
 //   	CertificateRotationRestart: jsii.Boolean(false),
 //   	CharacterSetName: jsii.String("characterSetName"),
@@ -238,6 +239,8 @@ type CfnDBInstance interface {
 	// The number of days for which automated backups are retained.
 	BackupRetentionPeriod() *float64
 	SetBackupRetentionPeriod(val *float64)
+	BackupTarget() *string
+	SetBackupTarget(val *string)
 	// The identifier of the CA certificate for this DB instance.
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
@@ -838,6 +841,16 @@ func (j *jsiiProxy_CfnDBInstance) BackupRetentionPeriod() *float64 {
 	_jsii_.Get(
 		j,
 		"backupRetentionPeriod",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) BackupTarget() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"backupTarget",
 		&returns,
 	)
 	return returns
@@ -1769,6 +1782,14 @@ func (j *jsiiProxy_CfnDBInstance)SetBackupRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"backupRetentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetBackupTarget(val *string) {
+	_jsii_.Set(
+		j,
+		"backupTarget",
 		val,
 	)
 }

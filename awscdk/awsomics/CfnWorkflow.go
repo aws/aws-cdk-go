@@ -13,7 +13,7 @@ import (
 //
 // - *Input data* : Input data for the workflow, stored in an S3 bucket or a AWS HealthOmics sequence store.
 // - *Workflow definition files* : Define your workflow in one or more workflow definition files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements.
-// - *Parameter template files* : Define run parameters using a parameter template file (written in JSON).
+// - (Optional) *Parameter template* - You can create a parameter template file that defines the run parameters, or AWS HealthOmics can generate the parameter template for you.
 // - *ECR container images* : Create one or more container images for the workflow. Store the images in a private ECR repository.
 // - (Optional) *Sentieon licenses* : Request a Sentieon license if you plan to use Sentieon software in a private workflow.
 //

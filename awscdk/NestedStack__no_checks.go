@@ -12,6 +12,10 @@ func (n *jsiiProxy_NestedStack) validateAddMetadataParameters(key *string, value
 	return nil
 }
 
+func (n *jsiiProxy_NestedStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
+	return nil
+}
+
 func (n *jsiiProxy_NestedStack) validateAddTransformParameters(transform *string) error {
 	return nil
 }
@@ -37,6 +41,10 @@ func (n *jsiiProxy_NestedStack) validateGetLogicalIdParameters(element CfnElemen
 }
 
 func (n *jsiiProxy_NestedStack) validateRegionalFactParameters(factName *string) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateRemoveStackTagParameters(tagName *string) error {
 	return nil
 }
 

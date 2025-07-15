@@ -37,6 +37,10 @@ type LogQueryWidgetProps struct {
 	// Default: 6.
 	//
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
+	// The query language to use for the query.
+	// Default: LogQueryLanguage.LOGS_INSIGHTS
+	//
+	QueryLanguage LogQueryLanguage `field:"optional" json:"queryLanguage" yaml:"queryLanguage"`
 	// A sequence of lines to use to build the query.
 	//
 	// The query will be built by joining the lines together using `\n|`.

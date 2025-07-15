@@ -303,6 +303,10 @@ const (
 	InstanceClass_COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH"
 	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors and high network bandwidth capabilities.
 	InstanceClass_C7GN InstanceClass = "C7GN"
+	// Compute optimized instances for high performance computing, 8th generation with Graviton4 processors and high network bandwidth capabilities.
+	InstanceClass_COMPUTE8_GRAVITON4_HIGH_NETWORK_BANDWIDTH InstanceClass = "COMPUTE8_GRAVITON4_HIGH_NETWORK_BANDWIDTH"
+	// Compute optimized instances for high performance computing, 8th generation with Graviton4 processors and high network bandwidth capabilities.
+	InstanceClass_C8GN InstanceClass = "C8GN"
 	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
 	InstanceClass_COMPUTE7_INTEL InstanceClass = "COMPUTE7_INTEL"
 	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.

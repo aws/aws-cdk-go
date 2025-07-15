@@ -35,8 +35,8 @@ import (
 //   	},
 //   	NoRemoveEndDate: jsii.Boolean(false),
 //   	RemoveEndDate: jsii.Boolean(false),
-//   	TagSpecifications: []interface{}{
-//   		&TagSpecificationProperty{
+//   	TagSpecifications: []tagSpecificationProperty{
+//   		&tagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []cfnTag{
 //   				&cfnTag{
@@ -55,11 +55,14 @@ import (
 type CfnCapacityReservationFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use.
 	AllocationStrategy() *string
 	SetAllocationStrategy(val *string)
 	// The ID of the Capacity Reservation Fleet.
 	AttrCapacityReservationFleetId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -106,8 +109,8 @@ type CfnCapacityReservationFleet interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags to assign to the Capacity Reservation Fleet.
-	TagSpecifications() interface{}
-	SetTagSpecifications(val interface{})
+	TagSpecifications() *[]*CfnCapacityReservationFleet_TagSpecificationProperty
+	SetTagSpecifications(val *[]*CfnCapacityReservationFleet_TagSpecificationProperty)
 	// Indicates the tenancy of the Capacity Reservation Fleet.
 	Tenancy() *string
 	SetTenancy(val *string)
@@ -258,6 +261,7 @@ type CfnCapacityReservationFleet interface {
 type jsiiProxy_CfnCapacityReservationFleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCapacityReservationFleet) AllocationStrategy() *string {
@@ -275,6 +279,16 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) AttrCapacityReservationFleetId()
 	_jsii_.Get(
 		j,
 		"attrCapacityReservationFleetId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -410,8 +424,8 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) TagSpecifications() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnCapacityReservationFleet) TagSpecifications() *[]*CfnCapacityReservationFleet_TagSpecificationProperty {
+	var returns *[]*CfnCapacityReservationFleet_TagSpecificationProperty
 	_jsii_.Get(
 		j,
 		"tagSpecifications",
@@ -545,7 +559,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet)SetRemoveEndDate(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet)SetTagSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetTagSpecifications(val *[]*CfnCapacityReservationFleet_TagSpecificationProperty) {
 	if err := j.validateSetTagSpecificationsParameters(val); err != nil {
 		panic(err)
 	}

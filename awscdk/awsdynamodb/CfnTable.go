@@ -248,7 +248,7 @@ type CfnTable interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A resource-based policy document that contains permissions to add to the specified table.
+	// An AWS resource-based policy document in JSON format that will be attached to the table.
 	ResourcePolicy() interface{}
 	SetResourcePolicy(val interface{})
 	// Specifies the settings to enable server-side encryption.

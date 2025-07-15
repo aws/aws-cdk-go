@@ -122,9 +122,9 @@ type CfnVPNConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-localipv6networkcidr
 	//
 	LocalIpv6NetworkCidr *string `field:"optional" json:"localIpv6NetworkCidr" yaml:"localIpv6NetworkCidr"`
-	// The type of IPv4 address assigned to the outside interface of the customer gateway device.
+	// The type of IP address assigned to the outside interface of the customer gateway device.
 	//
-	// Valid values: `PrivateIpv4` | `PublicIpv4`
+	// Valid values: `PrivateIpv4` | `PublicIpv4` | `Ipv6`
 	//
 	// Default: `PublicIpv4`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-outsideipaddresstype

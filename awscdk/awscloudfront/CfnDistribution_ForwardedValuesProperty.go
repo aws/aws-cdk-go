@@ -1,9 +1,11 @@
 package awscloudfront
 
 
-// This field is deprecated.
+// > This field only supports standard distributions.
 //
-// We recommend that you use a cache policy or an origin request policy instead of this field.
+// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+//
+// This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
 //
 // If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide* .
 //

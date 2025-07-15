@@ -15,6 +15,17 @@ package awsqbusiness
 //   	ApplicationId: jsii.String("applicationId"),
 //   	Principal: jsii.String("principal"),
 //   	StatementId: jsii.String("statementId"),
+//
+//   	// the properties below are optional
+//   	Conditions: []interface{}{
+//   		&ConditionProperty{
+//   			ConditionKey: jsii.String("conditionKey"),
+//   			ConditionOperator: jsii.String("conditionOperator"),
+//   			ConditionValues: []*string{
+//   				jsii.String("conditionValues"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html
@@ -36,5 +47,8 @@ type CfnPermissionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html#cfn-qbusiness-permission-statementid
 	//
 	StatementId *string `field:"required" json:"statementId" yaml:"statementId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html#cfn-qbusiness-permission-conditions
+	//
+	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 }
 

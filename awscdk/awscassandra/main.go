@@ -77,6 +77,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingSpecifications", GoGetter: "AutoScalingSpecifications"},
 			_jsii_.MemberProperty{JsiiProperty: "billingMode", GoGetter: "BillingMode"},
+			_jsii_.MemberProperty{JsiiProperty: "cdcSpecification", GoGetter: "CdcSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -131,6 +132,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cassandra.CfnTable.BillingModeProperty",
 		reflect.TypeOf((*CfnTable_BillingModeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cassandra.CfnTable.CdcSpecificationProperty",
+		reflect.TypeOf((*CfnTable_CdcSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cassandra.CfnTable.ClusteringKeyColumnProperty",

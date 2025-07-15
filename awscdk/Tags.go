@@ -45,7 +45,24 @@ import (
 //   cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 //
 type Tags interface {
-	// add tags to the node of a construct and all its the taggable children.
+	// Add tags to the node of a construct and all its the taggable children.
+	//
+	// ## Tagging and CloudFormation Stacks
+	//
+	// If the feature flag `@aws-cdk/core:explicitStackTags` is set to `true`
+	// (recommended modern behavior), Stacks will not automatically be tagged.
+	// Stack tags should be configured on Stacks directly (preferred), or
+	// you must explicitly include the resource type `aws:cdk:stack` in the
+	// `includeResourceTypes` array.
+	//
+	// If the feature flag is set to `false` (legacy behavior) then both Stacks
+	// and resources in the indicated scope will both be tagged by default, which
+	// leads to tags being applied twice (once in the template, and then once
+	// again automatically by CloudFormation as part of the stack deployment).
+	// That behavior leads to loss of control as `excludeResourceTypes` will
+	// prevent tags from appearing in the template, but they will still be
+	// applied to the Stack and hence CloudFormation will still apply them
+	// to the resource.
 	Add(key *string, value *string, props *TagProps)
 	// remove tags to the node of a construct and all its the taggable children.
 	Remove(key *string, props *TagProps)

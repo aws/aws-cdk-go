@@ -104,11 +104,14 @@ will be used for files successfully delivered to S3. `errorOutputPrefix` will be
 failed records before writing them to S3.
 
 ```go
+import "github.com/aws/aws-cdk-go/awscdk"
 var bucket bucket
 
 s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	DataOutputPrefix: jsii.String("myFirehose/DeliveredYear=!{timestamp:yyyy}/anyMonth/rand=!{firehose:random-string}"),
 	ErrorOutputPrefix: jsii.String("myFirehoseFailures/!{firehose:error-output-type}/!{timestamp:yyyy}/anyMonth/!{timestamp:dd}"),
+	// The time zone of timestamps (default UTC)
+	TimeZone: awscdk.TimeZone_ASIA_TOKYO(),
 })
 ```
 
@@ -504,6 +507,7 @@ deliveryStream := firehose.NewDeliveryStream(stack, jsii.String("DeliveryStream"
 		DataOutputPrefix: jsii.String("regularPrefix"),
 		ErrorOutputPrefix: jsii.String("errorPrefix"),
 		FileExtension: jsii.String(".log.gz"),
+		TimeZone: cdk.TimeZone_ASIA_TOKYO(),
 		BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
 		BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
 		EncryptionKey: key,

@@ -14,16 +14,24 @@ import (
 // Container for records, and records contain information about how to route traffic for a specific domain, such as example.com and its subdomains (acme.example.com, zenith.example.com).
 //
 // Example:
-//   kmsKey := kms.NewKey(this, jsii.String("KmsCMK"), &KeyProps{
-//   	KeySpec: kms.KeySpec_ECC_NIST_P256,
-//   	KeyUsage: kms.KeyUsage_SIGN_VERIFY,
-//   })
-//   hostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &HostedZoneProps{
+//   exampleCom := route53.NewHostedZone(this, jsii.String("ExampleCom"), &HostedZoneProps{
 //   	ZoneName: jsii.String("example.com"),
 //   })
-//   // Enable DNSSEC signing for the zone
-//   hostedZone.EnableDnssec(&ZoneSigningOptions{
-//   	KmsKey: KmsKey,
+//   exampleNet := route53.NewHostedZone(this, jsii.String("ExampleNet"), &HostedZoneProps{
+//   	ZoneName: jsii.String("example.net"),
+//   })
+//
+//   cert := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
+//   	DomainName: jsii.String("test.example.com"),
+//   	SubjectAlternativeNames: []*string{
+//   		jsii.String("cool.example.com"),
+//   		jsii.String("test.example.net"),
+//   	},
+//   	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]iHostedZone{
+//   		"test.example.com": exampleCom,
+//   		"cool.example.com": exampleCom,
+//   		"test.example.net": exampleNet,
+//   	}),
 //   })
 //
 type HostedZone interface {

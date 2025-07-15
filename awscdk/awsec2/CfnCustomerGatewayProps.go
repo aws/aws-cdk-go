@@ -31,9 +31,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html
 //
 type CfnCustomerGatewayProps struct {
-	// IPv4 address for the customer gateway device's outside interface.
+	// The IP address for the customer gateway device's outside interface.
 	//
-	// The address must be static. If `OutsideIpAddressType` in your VPN connection options is set to `PrivateIpv4` , you can use an RFC6598 or RFC1918 private IPv4 address. If `OutsideIpAddressType` is set to `PublicIpv4` , you can use a public IPv4 address.
+	// The address must be static. If `OutsideIpAddressType` in your VPN connection options is set to `PrivateIpv4` , you can use an RFC6598 or RFC1918 private IPv4 address. If `OutsideIpAddressType` is set to `Ipv6` , you can use an IPv6 address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress
 	//
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`

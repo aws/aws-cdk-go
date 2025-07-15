@@ -1,7 +1,7 @@
 package awscloudformation
 
 
-// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

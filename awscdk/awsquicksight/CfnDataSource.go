@@ -62,6 +62,9 @@ import (
 //   				Database: jsii.String("database"),
 //   				Host: jsii.String("host"),
 //   				Port: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				UseServiceName: jsii.Boolean(false),
 //   			},
 //   			PostgreSqlParameters: &PostgreSqlParametersProperty{
 //   				Database: jsii.String("database"),
@@ -216,6 +219,9 @@ import (
 //   						Database: jsii.String("database"),
 //   						Host: jsii.String("host"),
 //   						Port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						UseServiceName: jsii.Boolean(false),
 //   					},
 //   					PostgreSqlParameters: &PostgreSqlParametersProperty{
 //   						Database: jsii.String("database"),
@@ -365,6 +371,9 @@ import (
 //   			Database: jsii.String("database"),
 //   			Host: jsii.String("host"),
 //   			Port: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			UseServiceName: jsii.Boolean(false),
 //   		},
 //   		PostgreSqlParameters: &PostgreSqlParametersProperty{
 //   			Database: jsii.String("database"),

@@ -12,6 +12,7 @@ package awsgamelift
 //
 //   logConfigurationProperty := &LogConfigurationProperty{
 //   	LogDestination: jsii.String("logDestination"),
+//   	LogGroupArn: jsii.String("logGroupArn"),
 //   	S3BucketName: jsii.String("s3BucketName"),
 //   }
 //
@@ -26,6 +27,10 @@ type CfnContainerFleet_LogConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-logconfiguration.html#cfn-gamelift-containerfleet-logconfiguration-logdestination
 	//
 	LogDestination *string `field:"optional" json:"logDestination" yaml:"logDestination"`
+	// If log destination is `CLOUDWATCH` , logs are sent to the specified log group in Amazon CloudWatch.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-logconfiguration.html#cfn-gamelift-containerfleet-logconfiguration-loggrouparn
+	//
+	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
 	// If log destination is `S3` , logs are sent to the specified Amazon S3 bucket name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-logconfiguration.html#cfn-gamelift-containerfleet-logconfiguration-s3bucketname
 	//

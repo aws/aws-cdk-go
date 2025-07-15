@@ -212,11 +212,15 @@ type CfnFileSystemProps struct {
 	// `SCRATCH_1` and `SCRATCH_2` types are encrypted using the Amazon FSx service AWS KMS key for your account.
 	// - Amazon FSx for NetApp ONTAP
 	// - Amazon FSx for OpenZFS
-	// - Amazon FSx for Windows File Server.
+	// - Amazon FSx for Windows File Server
+	//
+	// If this ID isn't specified, the Amazon FSx-managed key for your account is used. For more information, see [Encrypt](https://docs.aws.amazon.com//kms/latest/APIReference/API_Encrypt.html) in the *AWS Key Management Service API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The Lustre configuration for the file system being created.
+	//
+	// This configuration is required if the `FileSystemType` is set to `LUSTRE` .
 	//
 	// > The following parameters are not supported when creating Lustre file systems with a data repository association.
 	// >
@@ -228,10 +232,14 @@ type CfnFileSystemProps struct {
 	//
 	LustreConfiguration interface{} `field:"optional" json:"lustreConfiguration" yaml:"lustreConfiguration"`
 	// The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.
+	//
+	// This configuration is required if the `FileSystemType` is set to `ONTAP` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-ontapconfiguration
 	//
 	OntapConfiguration interface{} `field:"optional" json:"ontapConfiguration" yaml:"ontapConfiguration"`
 	// The Amazon FSx for OpenZFS configuration properties for the file system that you are creating.
+	//
+	// This configuration is required if the `FileSystemType` is set to `OPENZFS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-openzfsconfiguration
 	//
 	OpenZfsConfiguration interface{} `field:"optional" json:"openZfsConfiguration" yaml:"openZfsConfiguration"`
@@ -284,7 +292,7 @@ type CfnFileSystemProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration object for the Microsoft Windows file system you are creating.
 	//
-	// This value is required if `FileSystemType` is set to `WINDOWS` .
+	// This configuration is required if `FileSystemType` is set to `WINDOWS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration
 	//
 	WindowsConfiguration interface{} `field:"optional" json:"windowsConfiguration" yaml:"windowsConfiguration"`

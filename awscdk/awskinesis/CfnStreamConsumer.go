@@ -25,6 +25,14 @@ import (
 //   cfnStreamConsumer := awscdk.Aws_kinesis.NewCfnStreamConsumer(this, jsii.String("MyCfnStreamConsumer"), &CfnStreamConsumerProps{
 //   	ConsumerName: jsii.String("consumerName"),
 //   	StreamArn: jsii.String("streamArn"),
+//
+//   	// the properties below are optional
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
@@ -32,6 +40,7 @@ import (
 type CfnStreamConsumer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// When you register a consumer, Kinesis Data Streams generates an ARN for it.
 	//
 	// You need this ARN to be able to call [SubscribeToShard](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SubscribeToShard.html) .
@@ -44,9 +53,10 @@ type CfnStreamConsumer interface {
 	AttrConsumerName() *string
 	// A consumer can't read data while in the `CREATING` or `DELETING` states.
 	AttrConsumerStatus() *string
-	AttrId() *string
 	// The ARN of the data stream with which the consumer is registered.
 	AttrStreamArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -83,6 +93,9 @@ type CfnStreamConsumer interface {
 	// The ARN of the stream with which you registered the consumer.
 	StreamArn() *string
 	SetStreamArn(val *string)
+	// An array of tags to be added to a specified Kinesis resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -227,6 +240,7 @@ type CfnStreamConsumer interface {
 type jsiiProxy_CfnStreamConsumer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnStreamConsumer) AttrConsumerArn() *string {
@@ -269,21 +283,21 @@ func (j *jsiiProxy_CfnStreamConsumer) AttrConsumerStatus() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamConsumer) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnStreamConsumer) AttrStreamArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrStreamArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStreamConsumer) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -389,6 +403,16 @@ func (j *jsiiProxy_CfnStreamConsumer) StreamArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStreamConsumer) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStreamConsumer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -455,6 +479,17 @@ func (j *jsiiProxy_CfnStreamConsumer)SetStreamArn(val *string) {
 	_jsii_.Set(
 		j,
 		"streamArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStreamConsumer)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -8,20 +8,21 @@ import (
 // Properties for a Distribution.
 //
 // Example:
-//   // Creates a distribution from an Application Load Balancer
-//   var vpc vpc
-//
-//   // Create an application load balancer in a VPC. 'internetFacing' can be 'false'.
-//   alb := elbv2.NewApplicationLoadBalancer(this, jsii.String("ALB"), &ApplicationLoadBalancerProps{
-//   	Vpc: Vpc,
-//   	InternetFacing: jsii.Boolean(false),
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
-//   	},
+//   var s3Bucket bucket
+//   // Add a cloudfront Function to a Distribution
+//   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+//   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+//   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.VpcOrigin_WithApplicationLoadBalancer(alb),
+//   		Origin: origins.NewS3Origin(s3Bucket),
+//   		FunctionAssociations: []functionAssociation{
+//   			&functionAssociation{
+//   				Function: cfFunction,
+//   				EventType: cloudfront.FunctionEventType_VIEWER_REQUEST,
+//   			},
+//   		},
 //   	},
 //   })
 //

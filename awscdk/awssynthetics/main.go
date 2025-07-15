@@ -264,6 +264,13 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_synthetics.ResourceToReplicateTags",
+		reflect.TypeOf((*ResourceToReplicateTags)(nil)).Elem(),
+		map[string]interface{}{
+			"LAMBDA_FUNCTION": ResourceToReplicateTags_LAMBDA_FUNCTION,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_synthetics.Runtime",
 		reflect.TypeOf((*Runtime)(nil)).Elem(),

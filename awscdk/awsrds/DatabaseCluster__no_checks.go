@@ -108,6 +108,10 @@ func validateDatabaseCluster_FromDatabaseClusterAttributesParameters(scope const
 	return nil
 }
 
+func validateDatabaseCluster_FromLookupParameters(scope constructs.Construct, id *string, options *DatabaseClusterLookupOptions) error {
+	return nil
+}
+
 func validateDatabaseCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }

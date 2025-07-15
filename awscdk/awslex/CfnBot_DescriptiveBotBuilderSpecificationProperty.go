@@ -1,6 +1,8 @@
 package awslex
 
 
+// Contains specifications for the descriptive bot building feature.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,9 +28,11 @@ package awslex
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-descriptivebotbuilderspecification.html
 //
 type CfnBot_DescriptiveBotBuilderSpecificationProperty struct {
+	// Specifies whether the descriptive bot building feature is activated or not.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-descriptivebotbuilderspecification.html#cfn-lex-bot-descriptivebotbuilderspecification-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
+	// An object containing information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-descriptivebotbuilderspecification.html#cfn-lex-bot-descriptivebotbuilderspecification-bedrockmodelspecification
 	//
 	BedrockModelSpecification interface{} `field:"optional" json:"bedrockModelSpecification" yaml:"bedrockModelSpecification"`

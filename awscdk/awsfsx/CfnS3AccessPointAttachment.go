@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for AWS::FSx::S3AccessPointAttachment.
+// An S3 access point attached to an Amazon FSx volume.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,7 +55,9 @@ import (
 type CfnS3AccessPointAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The S3 access point's alias.
 	AttrS3AccessPointAlias() *string
+	// The S3 access point's ARN.
 	AttrS3AccessPointResourceArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -76,11 +78,12 @@ type CfnS3AccessPointAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The Name of the S3AccessPointAttachment.
+	// The name of the S3 access point attachment;.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The OpenZFSConfiguration of the S3 access point attachment.
 	OpenZfsConfiguration() interface{}
 	SetOpenZfsConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -88,12 +91,14 @@ type CfnS3AccessPointAttachment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The S3 access point configuration of the S3 access point attachment.
 	S3AccessPoint() interface{}
 	SetS3AccessPoint(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The type of Amazon FSx volume that the S3 access point is attached to.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::RedshiftServerless::Snapshot Resource Type.
+// A snapshot object that contains databases.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,18 +36,32 @@ type CfnSnapshot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The owner account of the snapshot.
+	// The owner AWS ;
+	//
+	// account of the snapshot.
 	AttrOwnerAccount() *string
 	AttrSnapshot() awscdk.IResolvable
+	// The username of the database within a snapshot.
 	AttrSnapshotAdminUsername() *string
+	// The unique identifier of the KMS key used to encrypt the snapshot.
 	AttrSnapshotKmsKeyId() *string
+	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
 	AttrSnapshotNamespaceArn() *string
+	// The name of the namepsace.
 	AttrSnapshotNamespaceName() *string
+	// The owner AWS ;
+	//
+	// account of the snapshot.
 	AttrSnapshotOwnerAccount() *string
+	// The retention period of the snapshot created by the scheduled action.
 	AttrSnapshotRetentionPeriod() *float64
+	// The Amazon Resource Name (ARN) of the snapshot.
 	AttrSnapshotSnapshotArn() *string
+	// The timestamp of when the snapshot was created.
 	AttrSnapshotSnapshotCreateTime() *string
+	// The name of the snapshot.
 	AttrSnapshotSnapshotName() *string
+	// The status of the snapshot.
 	AttrSnapshotStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -70,7 +84,7 @@ type CfnSnapshot interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The namespace the snapshot is associated with.
+	// The name of the namepsace.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
 	// The tree node.
@@ -80,7 +94,7 @@ type CfnSnapshot interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The retention period of the snapshot.
+	// The retention period of the snapshot created by the scheduled action.
 	RetentionPeriod() *float64
 	SetRetentionPeriod(val *float64)
 	// The name of the snapshot.
@@ -90,7 +104,7 @@ type CfnSnapshot interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// An array of [Tag objects](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html) to associate with the snapshot.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

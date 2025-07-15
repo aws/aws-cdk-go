@@ -11,20 +11,31 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var plan backupPlan
+//   var resource someScalableResource
 //
-//   plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
-//   	CompletionWindow: awscdk.Duration_Hours(jsii.Number(2)),
-//   	StartWindow: awscdk.Duration_*Hours(jsii.Number(1)),
-//   	ScheduleExpression: events.Schedule_Cron(&CronOptions{
-//   		 // Only cron expressions are supported
-//   		Day: jsii.String("15"),
-//   		Hour: jsii.String("3"),
-//   		Minute: jsii.String("30"),
+//
+//   capacity := resource.autoScaleCapacity(&caps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(50),
+//   })
+//
+//   capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
+//   	Schedule: appscaling.Schedule_Cron(&CronOptions{
+//   		Hour: jsii.String("8"),
+//   		Minute: jsii.String("0"),
 //   	}),
-//   	ScheduleExpressionTimezone: awscdk.TimeZone_ETC_UTC(),
-//   	MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
-//   }))
+//   	MinCapacity: jsii.Number(20),
+//   	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
+//   })
+//
+//   capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
+//   	Schedule: appscaling.Schedule_*Cron(&CronOptions{
+//   		Hour: jsii.String("20"),
+//   		Minute: jsii.String("0"),
+//   	}),
+//   	MinCapacity: jsii.Number(1),
+//   	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
+//   })
 //
 type TimeZone interface {
 	// The name of the timezone.

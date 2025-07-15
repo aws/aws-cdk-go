@@ -12,6 +12,9 @@ package awsquicksight
 //   	Database: jsii.String("database"),
 //   	Host: jsii.String("host"),
 //   	Port: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	UseServiceName: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html
@@ -31,5 +34,10 @@ type CfnDataSource_OracleParametersProperty struct {
 	// Default: - 0.
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-useservicename
+	//
+	// Default: - false.
+	//
+	UseServiceName interface{} `field:"optional" json:"useServiceName" yaml:"useServiceName"`
 }
 

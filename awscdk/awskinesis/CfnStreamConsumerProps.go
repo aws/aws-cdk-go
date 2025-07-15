@@ -1,5 +1,8 @@
 package awskinesis
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnStreamConsumer`.
 //
@@ -11,6 +14,14 @@ package awskinesis
 //   cfnStreamConsumerProps := &CfnStreamConsumerProps{
 //   	ConsumerName: jsii.String("consumerName"),
 //   	StreamArn: jsii.String("streamArn"),
+//
+//   	// the properties below are optional
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
@@ -24,5 +35,11 @@ type CfnStreamConsumerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-streamarn
 	//
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
+	// An array of tags to be added to a specified Kinesis resource.
+	//
+	// A tag consists of a required key and an optional value. You can specify up to 50 tag key-value pairs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

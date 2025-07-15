@@ -273,9 +273,78 @@ codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 })
 ```
 
-Note that two different CodeBuild Projects using the same S3 bucket will *not*
-share their cache: each Project will get a unique file in the S3 bucket to store
-the cache in.
+If you want to [share the same cache between multiple projects](https://docs.aws.amazon.com/codebuild/latest/userguide/caching-s3.html#caching-s3-sharing), you must must do the following:
+
+* Use the same `cacheNamespace`.
+* Specify the same cache key.
+* Define identical cache paths.
+* Use the same Amazon S3 buckets and `pathPrefix` if set.
+
+```go
+var sourceBucket bucket
+var myCachingBucket bucket
+
+
+codebuild.NewProject(this, jsii.String("ProjectA"), &ProjectProps{
+	Source: codebuild.Source_S3(&S3SourceProps{
+		Bucket: sourceBucket,
+		Path: jsii.String("path/to/source-a.zip"),
+	}),
+	// configure the same bucket and path prefix
+	Cache: codebuild.Cache_Bucket(myCachingBucket, &BucketCacheOptions{
+		Prefix: jsii.String("cache"),
+		// use the same cache namespace
+		CacheNamespace: jsii.String("cache-namespace"),
+	}),
+	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+		"phases": map[string]map[string][]*string{
+			"build": map[string][]*string{
+				"commands": []*string{
+					jsii.String("..."),
+				},
+			},
+		},
+		// specify the same cache key and paths
+		"cache": map[string]interface{}{
+			"key": jsii.String("unique-key"),
+			"paths": []*string{
+				jsii.String("/root/cachedir/**/*"),
+			},
+		},
+	}),
+})
+
+codebuild.NewProject(this, jsii.String("ProjectB"), &ProjectProps{
+	Source: codebuild.Source_*S3(&S3SourceProps{
+		Bucket: sourceBucket,
+		Path: jsii.String("path/to/source-b.zip"),
+	}),
+	// configure the same bucket and path prefix
+	Cache: codebuild.Cache_*Bucket(myCachingBucket, &BucketCacheOptions{
+		Prefix: jsii.String("cache"),
+		// use the same cache namespace
+		CacheNamespace: jsii.String("cache-namespace"),
+	}),
+	BuildSpec: codebuild.BuildSpec_*FromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+		"phases": map[string]map[string][]*string{
+			"build": map[string][]*string{
+				"commands": []*string{
+					jsii.String("..."),
+				},
+			},
+		},
+		// specify the same cache key and paths
+		"cache": map[string]interface{}{
+			"key": jsii.String("unique-key"),
+			"paths": []*string{
+				jsii.String("/root/cachedir/**/*"),
+			},
+		},
+	}),
+})
+```
 
 ### Local Caching
 

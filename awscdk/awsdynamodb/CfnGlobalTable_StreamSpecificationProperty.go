@@ -1,9 +1,9 @@
 package awsdynamodb
 
 
-// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+// Represents the DynamoDB Streams configuration for a table in DynamoDB .
 //
-// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+// You can only modify this value for a `AWS::DynamoDB::GlobalTable` resource configured for multi-Region eventual consistency (MREC, the default) if that resource contains only one entry in `Replicas` . You must specify a value for this property for a `AWS::DynamoDB::GlobalTable` resource configured for MREC with more than one entry in `Replicas` . For Multi-Region Strong Consistency (MRSC), Streams are not required and can be changed for existing tables.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

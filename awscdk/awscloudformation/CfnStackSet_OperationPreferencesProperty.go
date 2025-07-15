@@ -1,9 +1,9 @@
 package awscloudformation
 
 
-// The user-specified preferences for how CloudFormation performs a stack set operation.
+// The user-specified preferences for how CloudFormation performs a StackSet operation.
 //
-// For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) in the *AWS CloudFormation User Guide* .
+// For more information on maximum concurrent accounts and failure tolerance, see [StackSet operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,11 +30,11 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 	//
 	// If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-concurrencymode
 	//
 	ConcurrencyMode *string `field:"optional" json:"concurrencyMode" yaml:"concurrencyMode"`
-	// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region.
+	// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
@@ -42,7 +42,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
 	//
 	FailureToleranceCount *float64 `field:"optional" json:"failureToleranceCount" yaml:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region.
+	// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//

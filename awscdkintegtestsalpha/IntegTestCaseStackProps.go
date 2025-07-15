@@ -195,7 +195,15 @@ type IntegTestCaseStackProps struct {
 	//
 	// Experimental.
 	Synthesizer awscdk.IStackSynthesizer `field:"optional" json:"synthesizer" yaml:"synthesizer"`
-	// Stack tags that will be applied to all the taggable resources and the stack itself.
+	// Tags that will be applied to the Stack.
+	//
+	// These tags are applied to the CloudFormation Stack itself. They will not
+	// appear in the CloudFormation template.
+	//
+	// However, at deployment time, CloudFormation will apply these tags to all
+	// resources in the stack that support tagging. You will not be able to exempt
+	// resources from tagging (using the `excludeResourceTypes` property of
+	// `Tags.of(...).add()`) for tags applied in this way.
 	// Default: {}.
 	//
 	// Experimental.

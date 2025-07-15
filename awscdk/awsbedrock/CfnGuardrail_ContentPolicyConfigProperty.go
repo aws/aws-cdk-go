@@ -28,6 +28,11 @@ package awsbedrock
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	ContentFiltersTierConfig: &ContentFiltersTierConfigProperty{
+//   		TierName: jsii.String("tierName"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html
@@ -37,5 +42,9 @@ type CfnGuardrail_ContentPolicyConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-filtersconfig
 	//
 	FiltersConfig interface{} `field:"required" json:"filtersConfig" yaml:"filtersConfig"`
+	// Guardrail tier config for content policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-contentfilterstierconfig
+	//
+	ContentFiltersTierConfig interface{} `field:"optional" json:"contentFiltersTierConfig" yaml:"contentFiltersTierConfig"`
 }
 

@@ -4,24 +4,42 @@ package awsroute53
 // Reference to a hosted zone.
 //
 // Example:
-//   var app app
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   stack := awscdk.Newstack(app, jsii.String("Stack"), &StackProps{
-//   	CrossRegionReferences: jsii.Boolean(true),
-//   	Env: &Environment{
-//   		Region: jsii.String("us-east-2"),
+//   // hosted zone and route53 features
+//   var hostedZoneId string
+//   zoneName := "example.com"
+//
+//
+//   myDomainName := "api.example.com"
+//   certificate := acm.NewCertificate(this, jsii.String("cert"), &CertificateProps{
+//   	DomainName: myDomainName,
+//   })
+//   schema := appsync.NewSchemaFile(&SchemaProps{
+//   	FilePath: jsii.String("mySchemaFile"),
+//   })
+//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+//   	Name: jsii.String("myApi"),
+//   	Definition: appsync.Definition_FromSchema(schema),
+//   	DomainName: &DomainOptions{
+//   		Certificate: *Certificate,
+//   		DomainName: myDomainName,
 //   	},
 //   })
 //
-//   patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &HttpsRedirectProps{
-//   	RecordNames: []*string{
-//   		jsii.String("foo.example.com"),
-//   	},
-//   	TargetDomain: jsii.String("bar.example.com"),
-//   	Zone: route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("HostedZone"), &HostedZoneAttributes{
-//   		HostedZoneId: jsii.String("ID"),
-//   		ZoneName: jsii.String("example.com"),
-//   	}),
+//   // hosted zone for adding appsync domain
+//   zone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("HostedZone"), &HostedZoneAttributes{
+//   	HostedZoneId: jsii.String(HostedZoneId),
+//   	ZoneName: jsii.String(ZoneName),
+//   })
+//
+//   // create a cname to the appsync domain. will map to something like xxxx.cloudfront.net
+//   // create a cname to the appsync domain. will map to something like xxxx.cloudfront.net
+//   route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &CnameRecordProps{
+//   	RecordName: jsii.String("api"),
+//   	Zone: Zone,
+//   	DomainName: api.appSyncDomainName,
 //   })
 //
 type HostedZoneAttributes struct {

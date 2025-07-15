@@ -30,7 +30,7 @@ type ScalingInterval struct {
 	Change *float64 `field:"required" json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
-	// The scaling adjustment will be applied if the metric is higher than this value.
+	// The scaling adjustment will be applied if the metric is higher than or equal this value.
 	// Default: Threshold automatically derived from neighbouring intervals.
 	//
 	Lower *float64 `field:"optional" json:"lower" yaml:"lower"`

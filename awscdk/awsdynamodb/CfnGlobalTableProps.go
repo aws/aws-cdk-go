@@ -160,6 +160,11 @@ package awsdynamodb
 //   			},
 //   		},
 //   	},
+//   	GlobalTableWitnesses: []interface{}{
+//   		&GlobalTableWitnessProperty{
+//   			Region: jsii.String("region"),
+//   		},
+//   	},
 //   	LocalSecondaryIndexes: []interface{}{
 //   		&LocalSecondaryIndexProperty{
 //   			IndexName: jsii.String("indexName"),
@@ -177,6 +182,7 @@ package awsdynamodb
 //   			},
 //   		},
 //   	},
+//   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -240,7 +246,7 @@ type CfnGlobalTableProps struct {
 	// >
 	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 	//
-	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
 	Replicas interface{} `field:"required" json:"replicas" yaml:"replicas"`
@@ -261,12 +267,29 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
 	//
 	GlobalSecondaryIndexes interface{} `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// The list of witnesses of the MRSC global table.
+	//
+	// Only one witness Region can be configured per MRSC global table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablewitnesses
+	//
+	GlobalTableWitnesses interface{} `field:"optional" json:"globalTableWitnesses" yaml:"globalTableWitnesses"`
 	// Local secondary indexes to be created on the table.
 	//
 	// You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
 	//
 	LocalSecondaryIndexes interface{} `field:"optional" json:"localSecondaryIndexes" yaml:"localSecondaryIndexes"`
+	// Specifies the consistency mode for a new global table.
+	//
+	// You can specify one of the following consistency modes:
+	//
+	// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+	//
+	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-multiregionconsistency
+	//
+	MultiRegionConsistency *string `field:"optional" json:"multiRegionConsistency" yaml:"multiRegionConsistency"`
 	// Specifies the settings to enable server-side encryption.
 	//
 	// These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
@@ -275,7 +298,7 @@ type CfnGlobalTableProps struct {
 	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
 	// Specifies the streams settings on your global table.
 	//
-	// You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+	// You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
 	//
 	StreamSpecification interface{} `field:"optional" json:"streamSpecification" yaml:"streamSpecification"`

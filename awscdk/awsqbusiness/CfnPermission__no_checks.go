@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPermission) validateSetApplicationIdParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnPermission) validateSetConditionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPermission) validateSetPrincipalParameters(val *string) error {
 	return nil
 }

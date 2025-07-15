@@ -4,300 +4,99 @@ package awscloudfront
 // A distribution configuration.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   distributionConfigProperty := &DistributionConfigProperty{
-//   	DefaultCacheBehavior: &DefaultCacheBehaviorProperty{
-//   		TargetOriginId: jsii.String("targetOriginId"),
-//   		ViewerProtocolPolicy: jsii.String("viewerProtocolPolicy"),
-//
-//   		// the properties below are optional
-//   		AllowedMethods: []*string{
-//   			jsii.String("allowedMethods"),
-//   		},
-//   		CachedMethods: []*string{
-//   			jsii.String("cachedMethods"),
-//   		},
-//   		CachePolicyId: jsii.String("cachePolicyId"),
-//   		Compress: jsii.Boolean(false),
-//   		DefaultTtl: jsii.Number(123),
-//   		FieldLevelEncryptionId: jsii.String("fieldLevelEncryptionId"),
-//   		ForwardedValues: &ForwardedValuesProperty{
-//   			QueryString: jsii.Boolean(false),
-//
-//   			// the properties below are optional
-//   			Cookies: &CookiesProperty{
-//   				Forward: jsii.String("forward"),
-//
-//   				// the properties below are optional
-//   				WhitelistedNames: []*string{
-//   					jsii.String("whitelistedNames"),
-//   				},
-//   			},
-//   			Headers: []*string{
-//   				jsii.String("headers"),
-//   			},
-//   			QueryStringCacheKeys: []*string{
-//   				jsii.String("queryStringCacheKeys"),
-//   			},
-//   		},
-//   		FunctionAssociations: []interface{}{
-//   			&FunctionAssociationProperty{
-//   				EventType: jsii.String("eventType"),
-//   				FunctionArn: jsii.String("functionArn"),
-//   			},
-//   		},
-//   		GrpcConfig: &GrpcConfigProperty{
-//   			Enabled: jsii.Boolean(false),
-//   		},
-//   		LambdaFunctionAssociations: []interface{}{
-//   			&LambdaFunctionAssociationProperty{
-//   				EventType: jsii.String("eventType"),
-//   				IncludeBody: jsii.Boolean(false),
-//   				LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
-//   			},
-//   		},
-//   		MaxTtl: jsii.Number(123),
-//   		MinTtl: jsii.Number(123),
-//   		OriginRequestPolicyId: jsii.String("originRequestPolicyId"),
-//   		RealtimeLogConfigArn: jsii.String("realtimeLogConfigArn"),
-//   		ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
-//   		SmoothStreaming: jsii.Boolean(false),
-//   		TrustedKeyGroups: []*string{
-//   			jsii.String("trustedKeyGroups"),
-//   		},
-//   		TrustedSigners: []*string{
-//   			jsii.String("trustedSigners"),
-//   		},
+//   // Create the simple Origin
+//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+//   	OriginAccessLevels: []accessLevel{
+//   		cloudfront.*accessLevel_READ,
+//   		cloudfront.*accessLevel_LIST,
 //   	},
-//   	Enabled: jsii.Boolean(false),
+//   })
 //
+//   // Create the Distribution construct
+//   myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-hosted-distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: s3Origin,
+//   	},
+//   	DefaultRootObject: jsii.String("index.html"),
+//   })
+//
+//   // Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
+//   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+//
+//   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
+//   	TargetOriginId: myBucket.BucketArn,
+//   	ViewerProtocolPolicy: jsii.String("allow-all"),
+//   	Compress: jsii.Boolean(false),
+//   	AllowedMethods: []*string{
+//   		jsii.String("GET"),
+//   		jsii.String("HEAD"),
+//   	},
+//   	CachePolicyId: cloudfront.CachePolicy_CACHING_OPTIMIZED().CachePolicyId,
+//   }
+//   // Create the updated distributionConfig
+//   distributionConfig := &DistributionConfigProperty{
+//   	DefaultCacheBehavior: defaultCacheBehavior,
+//   	Enabled: jsii.Boolean(true),
 //   	// the properties below are optional
-//   	Aliases: []*string{
-//   		jsii.String("aliases"),
-//   	},
-//   	AnycastIpListId: jsii.String("anycastIpListId"),
-//   	CacheBehaviors: []interface{}{
-//   		&CacheBehaviorProperty{
-//   			PathPattern: jsii.String("pathPattern"),
-//   			TargetOriginId: jsii.String("targetOriginId"),
-//   			ViewerProtocolPolicy: jsii.String("viewerProtocolPolicy"),
-//
-//   			// the properties below are optional
-//   			AllowedMethods: []*string{
-//   				jsii.String("allowedMethods"),
-//   			},
-//   			CachedMethods: []*string{
-//   				jsii.String("cachedMethods"),
-//   			},
-//   			CachePolicyId: jsii.String("cachePolicyId"),
-//   			Compress: jsii.Boolean(false),
-//   			DefaultTtl: jsii.Number(123),
-//   			FieldLevelEncryptionId: jsii.String("fieldLevelEncryptionId"),
-//   			ForwardedValues: &ForwardedValuesProperty{
-//   				QueryString: jsii.Boolean(false),
-//
-//   				// the properties below are optional
-//   				Cookies: &CookiesProperty{
-//   					Forward: jsii.String("forward"),
-//
-//   					// the properties below are optional
-//   					WhitelistedNames: []*string{
-//   						jsii.String("whitelistedNames"),
-//   					},
-//   				},
-//   				Headers: []*string{
-//   					jsii.String("headers"),
-//   				},
-//   				QueryStringCacheKeys: []*string{
-//   					jsii.String("queryStringCacheKeys"),
-//   				},
-//   			},
-//   			FunctionAssociations: []interface{}{
-//   				&FunctionAssociationProperty{
-//   					EventType: jsii.String("eventType"),
-//   					FunctionArn: jsii.String("functionArn"),
-//   				},
-//   			},
-//   			GrpcConfig: &GrpcConfigProperty{
-//   				Enabled: jsii.Boolean(false),
-//   			},
-//   			LambdaFunctionAssociations: []interface{}{
-//   				&LambdaFunctionAssociationProperty{
-//   					EventType: jsii.String("eventType"),
-//   					IncludeBody: jsii.Boolean(false),
-//   					LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
-//   				},
-//   			},
-//   			MaxTtl: jsii.Number(123),
-//   			MinTtl: jsii.Number(123),
-//   			OriginRequestPolicyId: jsii.String("originRequestPolicyId"),
-//   			RealtimeLogConfigArn: jsii.String("realtimeLogConfigArn"),
-//   			ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
-//   			SmoothStreaming: jsii.Boolean(false),
-//   			TrustedKeyGroups: []*string{
-//   				jsii.String("trustedKeyGroups"),
-//   			},
-//   			TrustedSigners: []*string{
-//   				jsii.String("trustedSigners"),
-//   			},
-//   		},
-//   	},
-//   	CnamEs: []*string{
-//   		jsii.String("cnamEs"),
-//   	},
-//   	Comment: jsii.String("comment"),
-//   	ConnectionMode: jsii.String("connectionMode"),
-//   	ContinuousDeploymentPolicyId: jsii.String("continuousDeploymentPolicyId"),
-//   	CustomErrorResponses: []interface{}{
-//   		&CustomErrorResponseProperty{
-//   			ErrorCode: jsii.Number(123),
-//
-//   			// the properties below are optional
-//   			ErrorCachingMinTtl: jsii.Number(123),
-//   			ResponseCode: jsii.Number(123),
-//   			ResponsePagePath: jsii.String("responsePagePath"),
-//   		},
-//   	},
-//   	CustomOrigin: &LegacyCustomOriginProperty{
-//   		DnsName: jsii.String("dnsName"),
-//   		OriginProtocolPolicy: jsii.String("originProtocolPolicy"),
-//   		OriginSslProtocols: []*string{
-//   			jsii.String("originSslProtocols"),
-//   		},
-//
-//   		// the properties below are optional
-//   		HttpPort: jsii.Number(123),
-//   		HttpsPort: jsii.Number(123),
-//   	},
-//   	DefaultRootObject: jsii.String("defaultRootObject"),
-//   	HttpVersion: jsii.String("httpVersion"),
-//   	Ipv6Enabled: jsii.Boolean(false),
-//   	Logging: &LoggingProperty{
-//   		Bucket: jsii.String("bucket"),
-//   		IncludeCookies: jsii.Boolean(false),
-//   		Prefix: jsii.String("prefix"),
-//   	},
-//   	OriginGroups: &OriginGroupsProperty{
-//   		Quantity: jsii.Number(123),
-//
-//   		// the properties below are optional
-//   		Items: []interface{}{
-//   			&OriginGroupProperty{
-//   				FailoverCriteria: &OriginGroupFailoverCriteriaProperty{
-//   					StatusCodes: &StatusCodesProperty{
-//   						Items: []interface{}{
-//   							jsii.Number(123),
-//   						},
-//   						Quantity: jsii.Number(123),
-//   					},
-//   				},
-//   				Id: jsii.String("id"),
-//   				Members: &OriginGroupMembersProperty{
-//   					Items: []interface{}{
-//   						&OriginGroupMemberProperty{
-//   							OriginId: jsii.String("originId"),
-//   						},
-//   					},
-//   					Quantity: jsii.Number(123),
-//   				},
-//
-//   				// the properties below are optional
-//   				SelectionCriteria: jsii.String("selectionCriteria"),
-//   			},
-//   		},
-//   	},
+//   	ConnectionMode: jsii.String("tenant-only"),
 //   	Origins: []interface{}{
 //   		&OriginProperty{
-//   			DomainName: jsii.String("domainName"),
-//   			Id: jsii.String("id"),
-//
-//   			// the properties below are optional
-//   			ConnectionAttempts: jsii.Number(123),
-//   			ConnectionTimeout: jsii.Number(123),
-//   			CustomOriginConfig: &CustomOriginConfigProperty{
-//   				OriginProtocolPolicy: jsii.String("originProtocolPolicy"),
-//
-//   				// the properties below are optional
-//   				HttpPort: jsii.Number(123),
-//   				HttpsPort: jsii.Number(123),
-//   				OriginKeepaliveTimeout: jsii.Number(123),
-//   				OriginReadTimeout: jsii.Number(123),
-//   				OriginSslProtocols: []*string{
-//   					jsii.String("originSslProtocols"),
-//   				},
-//   			},
-//   			OriginAccessControlId: jsii.String("originAccessControlId"),
-//   			OriginCustomHeaders: []interface{}{
-//   				&OriginCustomHeaderProperty{
-//   					HeaderName: jsii.String("headerName"),
-//   					HeaderValue: jsii.String("headerValue"),
-//   				},
-//   			},
-//   			OriginPath: jsii.String("originPath"),
-//   			OriginShield: &OriginShieldProperty{
-//   				Enabled: jsii.Boolean(false),
-//   				OriginShieldRegion: jsii.String("originShieldRegion"),
-//   			},
-//   			ResponseCompletionTimeout: jsii.Number(123),
+//   			Id: myBucket.*BucketArn,
+//   			DomainName: myBucket.BucketDomainName,
 //   			S3OriginConfig: &S3OriginConfigProperty{
-//   				OriginAccessIdentity: jsii.String("originAccessIdentity"),
-//   				OriginReadTimeout: jsii.Number(123),
 //   			},
-//   			VpcOriginConfig: &VpcOriginConfigProperty{
-//   				VpcOriginId: jsii.String("vpcOriginId"),
-//
-//   				// the properties below are optional
-//   				OriginKeepaliveTimeout: jsii.Number(123),
-//   				OriginReadTimeout: jsii.Number(123),
-//   			},
+//   			OriginPath: jsii.String("/{{tenantName}}"),
 //   		},
 //   	},
-//   	PriceClass: jsii.String("priceClass"),
-//   	Restrictions: &RestrictionsProperty{
-//   		GeoRestriction: &GeoRestrictionProperty{
-//   			RestrictionType: jsii.String("restrictionType"),
-//
-//   			// the properties below are optional
-//   			Locations: []*string{
-//   				jsii.String("locations"),
-//   			},
-//   		},
-//   	},
-//   	S3Origin: &LegacyS3OriginProperty{
-//   		DnsName: jsii.String("dnsName"),
-//
-//   		// the properties below are optional
-//   		OriginAccessIdentity: jsii.String("originAccessIdentity"),
-//   	},
-//   	Staging: jsii.Boolean(false),
 //   	TenantConfig: &TenantConfigProperty{
 //   		ParameterDefinitions: []interface{}{
 //   			&ParameterDefinitionProperty{
 //   				Definition: &DefinitionProperty{
 //   					StringSchema: &StringSchemaProperty{
 //   						Required: jsii.Boolean(false),
-//
 //   						// the properties below are optional
-//   						Comment: jsii.String("comment"),
-//   						DefaultValue: jsii.String("defaultValue"),
+//   						Comment: jsii.String("tenantName"),
+//   						DefaultValue: jsii.String("root"),
 //   					},
 //   				},
-//   				Name: jsii.String("name"),
+//   				Name: jsii.String("tenantName"),
 //   			},
 //   		},
 //   	},
-//   	ViewerCertificate: &ViewerCertificateProperty{
-//   		AcmCertificateArn: jsii.String("acmCertificateArn"),
-//   		CloudFrontDefaultCertificate: jsii.Boolean(false),
-//   		IamCertificateId: jsii.String("iamCertificateId"),
-//   		MinimumProtocolVersion: jsii.String("minimumProtocolVersion"),
-//   		SslSupportMethod: jsii.String("sslSupportMethod"),
-//   	},
-//   	WebAclId: jsii.String("webAclId"),
 //   }
+//
+//   // Override the distribution configuration to enable multi-tenancy.
+//   cfnDistribution.DistributionConfig = distributionConfig
+//
+//   // Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
+//   connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{
+//   	Enabled: jsii.Boolean(true),
+//   	Ipv6Enabled: jsii.Boolean(true),
+//   	Name: jsii.String("self-hosted-connection-group"),
+//   })
+//
+//   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+//   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+//   awscdk.NewCfnOutput(this, jsii.String("RoutingEndpoint"), &CfnOutputProps{
+//   	Value: connectionGroup.AttrRoutingEndpoint,
+//   	Description: jsii.String("CloudFront Routing Endpoint to be added to my hosted zone CNAME records"),
+//   })
+//
+//   // Create a distribution tenant with a self-hosted domain.
+//   selfHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("self-hosted-tenant"), &CfnDistributionTenantProps{
+//   	DistributionId: myMultiTenantDistribution.DistributionId,
+//   	ConnectionGroupId: connectionGroup.AttrId,
+//   	Name: jsii.String("self-hosted-tenant"),
+//   	Domains: []*string{
+//   		jsii.String("self-hosted-tenant.my.domain.com"),
+//   	},
+//   	Enabled: jsii.Boolean(true),
+//   	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
+//   		PrimaryDomainName: jsii.String("self-hosted-tenant.my.domain.com"),
+//   		ValidationTokenHost: jsii.String("self-hosted"),
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
 //
@@ -312,10 +111,18 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
+	// > This field only supports standard distributions.
+	//
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
 	// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
 	//
 	Aliases *[]*string `field:"optional" json:"aliases" yaml:"aliases"`
+	// > To use this field for a multi-tenant distribution, use a connection group instead.
+	//
+	// For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html) .
+	//
 	// ID of the Anycast static IP list that is associated with the distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-anycastiplistid
 	//
@@ -338,13 +145,15 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// Default: - "".
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// The connection mode to filter distributions by.
+	// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-connectionmode
 	//
 	ConnectionMode *string `field:"optional" json:"connectionMode" yaml:"connectionMode"`
-	// The identifier of a continuous deployment policy.
+	// > This field only supports standard distributions.
 	//
-	// For more information, see `CreateContinuousDeploymentPolicy` .
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// The identifier of a continuous deployment policy. For more information, see `CreateContinuousDeploymentPolicy` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-continuousdeploymentpolicyid
 	//
 	ContinuousDeploymentPolicyId *string `field:"optional" json:"continuousDeploymentPolicyId" yaml:"continuousDeploymentPolicyId"`
@@ -393,9 +202,11 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// Default: - "http1.1"
 	//
 	HttpVersion *string `field:"optional" json:"httpVersion" yaml:"httpVersion"`
-	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify `true` .
+	// > To use this field for a multi-tenant distribution, use a connection group instead.
 	//
-	// If you specify `false` , CloudFront responds to IPv6 DNS requests with the DNS response code `NOERROR` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+	// For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html) .
+	//
+	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify `true` . If you specify `false` , CloudFront responds to IPv6 DNS requests with the DNS response code `NOERROR` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
 	//
 	// In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the `IpAddress` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide* .
 	//
@@ -428,9 +239,11 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
 	//
 	Origins interface{} `field:"optional" json:"origins" yaml:"origins"`
-	// The price class that corresponds with the maximum price that you want to pay for CloudFront service.
+	// > This field only supports standard distributions.
 	//
-	// If you specify `PriceClass_All` , CloudFront responds to requests for your objects from all CloudFront edge locations.
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify `PriceClass_All` , CloudFront responds to requests for your objects from all CloudFront edge locations.
 	//
 	// If you specify a price class other than `PriceClass_All` , CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
 	//
@@ -450,12 +263,18 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
 	//
 	S3Origin interface{} `field:"optional" json:"s3Origin" yaml:"s3Origin"`
-	// A Boolean that indicates whether this is a staging distribution.
+	// > This field only supports standard distributions.
 	//
-	// When this value is `true` , this is a staging distribution. When this value is `false` , this is not a staging distribution.
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
+	// A Boolean that indicates whether this is a staging distribution. When this value is `true` , this is a staging distribution. When this value is `false` , this is not a staging distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-staging
 	//
 	Staging interface{} `field:"optional" json:"staging" yaml:"staging"`
+	// > This field only supports multi-tenant distributions.
+	//
+	// You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
+	//
 	// A distribution tenant configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-tenantconfig
 	//
@@ -464,9 +283,9 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
 	//
 	ViewerCertificate interface{} `field:"optional" json:"viewerCertificate" yaml:"viewerCertificate"`
-	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.
+	// > Multi-tenant distributions only support AWS WAF V2 web ACLs.
 	//
-	// To specify a web ACL created using the latest version of AWS WAF , use the ACL ARN, for example `arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` . To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF , use the ACL ARN, for example `arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` . To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
 	//
 	// AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about AWS WAF , see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid

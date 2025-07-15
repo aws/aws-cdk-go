@@ -121,6 +121,19 @@ import (
 //   	Principal: jsii.String("principal"),
 //
 //   	// the properties below are optional
+//   	AuthenticationDetail: &DataAccessorAuthenticationDetailProperty{
+//   		AuthenticationType: jsii.String("authenticationType"),
+//
+//   		// the properties below are optional
+//   		AuthenticationConfiguration: &DataAccessorAuthenticationConfigurationProperty{
+//   			IdcTrustedTokenIssuerConfiguration: &DataAccessorIdcTrustedTokenIssuerConfigurationProperty{
+//   				IdcTrustedTokenIssuerArn: jsii.String("idcTrustedTokenIssuerArn"),
+//   			},
+//   		},
+//   		ExternalIds: []*string{
+//   			jsii.String("externalIds"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -151,6 +164,9 @@ type CfnDataAccessor interface {
 	AttrIdcApplicationArn() *string
 	// The timestamp when the data accessor was last updated.
 	AttrUpdatedAt() *string
+	// The authentication configuration details for the data accessor.
+	AuthenticationDetail() interface{}
+	SetAuthenticationDetail(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -409,6 +425,16 @@ func (j *jsiiProxy_CfnDataAccessor) AttrUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataAccessor) AuthenticationDetail() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"authenticationDetail",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataAccessor) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -595,6 +621,17 @@ func (j *jsiiProxy_CfnDataAccessor)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataAccessor)SetAuthenticationDetail(val interface{}) {
+	if err := j.validateSetAuthenticationDetailParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"authenticationDetail",
 		val,
 	)
 }

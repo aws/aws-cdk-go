@@ -164,6 +164,10 @@ type KubectlProvider interface {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
 	AddMetadata(key *string, value interface{})
+	// Configure a stack tag.
+	//
+	// At deploy time, CloudFormation will automatically apply all stack tags to all resources in the stack.
+	AddStackTag(tagName *string, tagValue *string)
 	// Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 	//
 	// Duplicate values are removed when stack is synthesized.
@@ -322,6 +326,10 @@ type KubectlProvider interface {
 	// If `defaultValue` is not given, it is an error if the fact is unknown for
 	// the given region.
 	RegionalFact(factName *string, defaultValue *string) *string
+	// Remove a stack tag.
+	//
+	// At deploy time, CloudFormation will automatically apply all stack tags to all resources in the stack.
+	RemoveStackTag(tagName *string)
 	// Rename a generated logical identities.
 	//
 	// To modify the naming scheme strategy, extend the `Stack` class and
@@ -792,6 +800,17 @@ func (k *jsiiProxy_KubectlProvider) AddMetadata(key *string, value interface{}) 
 	)
 }
 
+func (k *jsiiProxy_KubectlProvider) AddStackTag(tagName *string, tagValue *string) {
+	if err := k.validateAddStackTagParameters(tagName, tagValue); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		k,
+		"addStackTag",
+		[]interface{}{tagName, tagValue},
+	)
+}
+
 func (k *jsiiProxy_KubectlProvider) AddTransform(transform *string) {
 	if err := k.validateAddTransformParameters(transform); err != nil {
 		panic(err)
@@ -897,6 +916,17 @@ func (k *jsiiProxy_KubectlProvider) RegionalFact(factName *string, defaultValue 
 	)
 
 	return returns
+}
+
+func (k *jsiiProxy_KubectlProvider) RemoveStackTag(tagName *string) {
+	if err := k.validateRemoveStackTagParameters(tagName); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		k,
+		"removeStackTag",
+		[]interface{}{tagName},
+	)
 }
 
 func (k *jsiiProxy_KubectlProvider) RenameLogicalId(oldId *string, newId *string) {

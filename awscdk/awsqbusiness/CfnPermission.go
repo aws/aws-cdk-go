@@ -25,6 +25,17 @@ import (
 //   	ApplicationId: jsii.String("applicationId"),
 //   	Principal: jsii.String("principal"),
 //   	StatementId: jsii.String("statementId"),
+//
+//   	// the properties below are optional
+//   	Conditions: []interface{}{
+//   		&ConditionProperty{
+//   			ConditionKey: jsii.String("conditionKey"),
+//   			ConditionOperator: jsii.String("conditionOperator"),
+//   			ConditionValues: []*string{
+//   				jsii.String("conditionValues"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html
@@ -43,6 +54,8 @@ type CfnPermission interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	Conditions() interface{}
+	SetConditions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -270,6 +283,16 @@ func (j *jsiiProxy_CfnPermission) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPermission) Conditions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"conditions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPermission) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -406,6 +429,17 @@ func (j *jsiiProxy_CfnPermission)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPermission)SetConditions(val interface{}) {
+	if err := j.validateSetConditionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"conditions",
 		val,
 	)
 }

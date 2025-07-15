@@ -12,6 +12,7 @@ func init() {
 		reflect.TypeOf((*ApiDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiDestinationArn", GoGetter: "ApiDestinationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiDestinationArnForPolicy", GoGetter: "ApiDestinationArnForPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "apiDestinationName", GoGetter: "ApiDestinationName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
@@ -776,6 +777,7 @@ func init() {
 		reflect.TypeOf((*IApiDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiDestinationArn", GoGetter: "ApiDestinationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiDestinationArnForPolicy", GoGetter: "ApiDestinationArnForPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "apiDestinationName", GoGetter: "ApiDestinationName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

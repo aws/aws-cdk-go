@@ -83,6 +83,7 @@ type CfnPartnershipProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilities
 	//
 	Capabilities *[]*string `field:"required" json:"capabilities" yaml:"capabilities"`
+	// Specifies the email address associated with this trading partner.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-email
 	//
 	Email *string `field:"required" json:"email" yaml:"email"`
@@ -98,6 +99,7 @@ type CfnPartnershipProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilityoptions
 	//
 	CapabilityOptions interface{} `field:"optional" json:"capabilityOptions" yaml:"capabilityOptions"`
+	// Specifies the phone number associated with the partnership.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-phone
 	//
 	Phone *string `field:"optional" json:"phone" yaml:"phone"`

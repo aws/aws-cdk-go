@@ -413,6 +413,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "allocationStrategy", GoGetter: "AllocationStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCapacityReservationFleetId", GoGetter: "AttrCapacityReservationFleetId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -448,6 +449,7 @@ func init() {
 			j := jsiiProxy_CfnCapacityReservationFleet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -4661,7 +4663,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTrafficMirrorFilterRuleId", GoGetter: "AttrTrafficMirrorFilterRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -8137,6 +8138,8 @@ func init() {
 			"C6GN": InstanceClass_C6GN,
 			"COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH": InstanceClass_COMPUTE7_GRAVITON3_HIGH_NETWORK_BANDWIDTH,
 			"C7GN": InstanceClass_C7GN,
+			"COMPUTE8_GRAVITON4_HIGH_NETWORK_BANDWIDTH": InstanceClass_COMPUTE8_GRAVITON4_HIGH_NETWORK_BANDWIDTH,
+			"C8GN": InstanceClass_C8GN,
 			"COMPUTE7_INTEL": InstanceClass_COMPUTE7_INTEL,
 			"C7I": InstanceClass_C7I,
 			"COMPUTE7_INTEL_FLEX": InstanceClass_COMPUTE7_INTEL_FLEX,

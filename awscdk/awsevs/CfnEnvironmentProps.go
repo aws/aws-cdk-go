@@ -108,7 +108,7 @@ type CfnEnvironmentProps struct {
 	ConnectivityInfo interface{} `field:"required" json:"connectivityInfo" yaml:"connectivityInfo"`
 	// The license information that Amazon EVS requires to create an environment.
 	//
-	// Amazon EVS requires two license keys: a VCF solution key and a vSAN license key.
+	// Amazon EVS requires two license keys: a VCF solution key and a vSAN license key. The VCF solution key must cover a minimum of 256 cores. The vSAN license key must provide at least 110 TiB of vSAN capacity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evs-environment.html#cfn-evs-environment-licenseinfo
 	//
 	LicenseInfo interface{} `field:"required" json:"licenseInfo" yaml:"licenseInfo"`

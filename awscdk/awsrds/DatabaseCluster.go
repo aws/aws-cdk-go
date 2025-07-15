@@ -21,23 +21,19 @@ import (
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 //   	}),
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-//   	 // Optional - will default to 'admin' username and generated password
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		PubliclyAccessible: jsii.Boolean(false),
-//   	}),
-//   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
-//   			PromotionTier: jsii.Number(1),
-//   		}),
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
-//   	},
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
+//   	Vpc: Vpc,
+//   })
+//
+//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
+//   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
+//   	Secrets: []iSecret{
+//   		cluster.Secret,
 //   	},
 //   	Vpc: Vpc,
+//   	ClientPasswordAuthType: rds.ClientPasswordAuthType_MYSQL_NATIVE_PASSWORD,
 //   })
 //
 type DatabaseCluster interface {
@@ -613,6 +609,25 @@ func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, i
 		"aws-cdk-lib.aws_rds.DatabaseCluster",
 		"fromDatabaseClusterAttributes",
 		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Lookup an existing DatabaseCluster using clusterIdentifier.
+func DatabaseCluster_FromLookup(scope constructs.Construct, id *string, options *DatabaseClusterLookupOptions) IDatabaseCluster {
+	_init_.Initialize()
+
+	if err := validateDatabaseCluster_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
+	var returns IDatabaseCluster
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"fromLookup",
+		[]interface{}{scope, id, options},
 		&returns,
 	)
 

@@ -11,7 +11,7 @@ import (
 //
 // For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 //
-// You can add output values from a nested stack within the containing template. You use the [GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) function with the nested stack's logical name and the name of the output value in the nested stack in the format `Outputs. *NestedStackOutputName*` .
+// You can add output values from a nested stack within the containing template. You use the [GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-getatt.html) function with the nested stack's logical name and the name of the output value in the nested stack in the format `Outputs. *NestedStackOutputName*` .
 //
 // We strongly recommend that updates to nested stacks are run from the parent stack.
 //
@@ -81,9 +81,9 @@ type CfnStack interface {
 	CfnResource
 	IInspectable
 	ITaggable
-	// Returns the unique ID of the change set.
+	// Returns the unique identifier of the change set.
 	AttrChangeSetId() *string
-	// Returns The time at which the stack was created.
+	// Returns the time the stack was created.
 	AttrCreationTime() *string
 	// Returns the time the stack was last updated.
 	//

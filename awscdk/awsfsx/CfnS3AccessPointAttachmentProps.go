@@ -45,16 +45,21 @@ package awsfsx
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html
 //
 type CfnS3AccessPointAttachmentProps struct {
-	// The Name of the S3AccessPointAttachment.
+	// The name of the S3 access point attachment;
+	//
+	// also used for the name of the S3 access point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The OpenZFSConfiguration of the S3 access point attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-openzfsconfiguration
 	//
 	OpenZfsConfiguration interface{} `field:"required" json:"openZfsConfiguration" yaml:"openZfsConfiguration"`
+	// The type of Amazon FSx volume that the S3 access point is attached to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The S3 access point configuration of the S3 access point attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#cfn-fsx-s3accesspointattachment-s3accesspoint
 	//
 	S3AccessPoint interface{} `field:"optional" json:"s3AccessPoint" yaml:"s3AccessPoint"`

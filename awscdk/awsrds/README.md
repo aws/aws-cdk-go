@@ -2044,6 +2044,26 @@ dbFromLookup := rds.DatabaseInstance_FromLookup(this, jsii.String("dbFromLookup"
 dbFromLookup.GrantConnect(myUserRole, jsii.String("my-user-id"))
 ```
 
+## Importing existing DatabaseCluster
+
+### Lookup DatabaseCluster by clusterIdentifier
+
+You can lookup an existing DatabaseCluster by its clusterIdentifier using `DatabaseCluster.fromLookup()`. This method returns an `IDatabaseCluster`.
+
+Here's how `DatabaseCluster.fromLookup()` can be used:
+
+```go
+var myUserRole role
+
+
+clusterFromLookup := rds.DatabaseCluster_FromLookup(this, jsii.String("ClusterFromLookup"), &DatabaseClusterLookupOptions{
+	ClusterIdentifier: jsii.String("my-cluster-id"),
+})
+
+// Grant a connection
+clusterFromLookup.GrantConnect(myUserRole, jsii.String("my-user-id"))
+```
+
 ## Limitless Database Cluster
 
 Amazon Aurora [PostgreSQL Limitless Database](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/limitless.html) provides automated horizontal scaling to process millions of write transactions per second and manages petabytes of data while maintaining the simplicity of operating inside a single database.

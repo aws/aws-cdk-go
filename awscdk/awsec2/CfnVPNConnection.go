@@ -145,7 +145,7 @@ type CfnVPNConnection interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The type of IPv4 address assigned to the outside interface of the customer gateway device.
+	// The type of IP address assigned to the outside interface of the customer gateway device.
 	OutsideIpAddressType() *string
 	SetOutsideIpAddressType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

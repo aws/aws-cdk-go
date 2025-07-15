@@ -18,7 +18,13 @@ package awsquicksight
 //   	CreateSharedFolders: jsii.String("createSharedFolders"),
 //   	CreateSpiceDataset: jsii.String("createSpiceDataset"),
 //   	ExportToCsv: jsii.String("exportToCsv"),
+//   	ExportToCsvInScheduledReports: jsii.String("exportToCsvInScheduledReports"),
 //   	ExportToExcel: jsii.String("exportToExcel"),
+//   	ExportToExcelInScheduledReports: jsii.String("exportToExcelInScheduledReports"),
+//   	ExportToPdf: jsii.String("exportToPdf"),
+//   	ExportToPdfInScheduledReports: jsii.String("exportToPdfInScheduledReports"),
+//   	IncludeContentInScheduledReportsEmail: jsii.String("includeContentInScheduledReportsEmail"),
+//   	PrintReports: jsii.String("printReports"),
 //   	RenameSharedFolders: jsii.String("renameSharedFolders"),
 //   	ShareAnalyses: jsii.String("shareAnalyses"),
 //   	ShareDashboards: jsii.String("shareDashboards"),
@@ -63,14 +69,38 @@ type CfnCustomPermissions_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createspicedataset
 	//
 	CreateSpiceDataset *string `field:"optional" json:"createSpiceDataset" yaml:"createSpiceDataset"`
-	// The ability to export to CSV files.
+	// The ability to export to CSV files from the UI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttocsv
 	//
 	ExportToCsv *string `field:"optional" json:"exportToCsv" yaml:"exportToCsv"`
-	// The ability to export to Excel files.
+	// The ability to export to CSV files in scheduled email reports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttocsvinscheduledreports
+	//
+	ExportToCsvInScheduledReports *string `field:"optional" json:"exportToCsvInScheduledReports" yaml:"exportToCsvInScheduledReports"`
+	// The ability to export to Excel files from the UI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttoexcel
 	//
 	ExportToExcel *string `field:"optional" json:"exportToExcel" yaml:"exportToExcel"`
+	// The ability to export to Excel files in scheduled email reports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttoexcelinscheduledreports
+	//
+	ExportToExcelInScheduledReports *string `field:"optional" json:"exportToExcelInScheduledReports" yaml:"exportToExcelInScheduledReports"`
+	// The ability to export to PDF files from the UI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttopdf
+	//
+	ExportToPdf *string `field:"optional" json:"exportToPdf" yaml:"exportToPdf"`
+	// The ability to export to PDF files in scheduled email reports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttopdfinscheduledreports
+	//
+	ExportToPdfInScheduledReports *string `field:"optional" json:"exportToPdfInScheduledReports" yaml:"exportToPdfInScheduledReports"`
+	// The ability to include content in scheduled email reports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-includecontentinscheduledreportsemail
+	//
+	IncludeContentInScheduledReportsEmail *string `field:"optional" json:"includeContentInScheduledReportsEmail" yaml:"includeContentInScheduledReportsEmail"`
+	// The ability to print reports.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-printreports
+	//
+	PrintReports *string `field:"optional" json:"printReports" yaml:"printReports"`
 	// The ability to rename shared folders.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-renamesharedfolders
 	//

@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::CloudFormation::StackSet` resource enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template.
+// The `AWS::CloudFormation::StackSet` resource contains information about a StackSet.
 //
-// In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
+// With StackSets, you can provision stacks across AWS accounts and Regions from a single CloudFormation template. Each stack is based on the same CloudFormation template, but you can customize individual stacks using parameters.
 //
 // > Run deployments to nested StackSets from the parent stack, not directly through the StackSet API.
 //
@@ -95,10 +95,10 @@ type CfnStackSet interface {
 	CfnResource
 	IInspectable
 	ITaggable
-	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
+	// The Amazon Resource Number (ARN) of the IAM role to use to create this StackSet.
 	AdministrationRoleArn() *string
 	SetAdministrationRoleArn(val *string)
-	// The ID of the stack that you're creating.
+	// Returns the unique identifier of the resource.
 	AttrStackSetId() *string
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
 	AutoDeployment() interface{}
@@ -106,7 +106,7 @@ type CfnStackSet interface {
 	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.
 	CallAs() *string
 	SetCallAs(val *string)
-	// The capabilities that are allowed in the stack set.
+	// The capabilities that are allowed in the StackSet.
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -118,10 +118,10 @@ type CfnStackSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the stack set.
+	// A description of the StackSet.
 	Description() *string
 	SetDescription(val *string)
-	// The name of the IAM execution role to use to create the stack set.
+	// The name of the IAM execution role to use to create the StackSet.
 	ExecutionRoleName() *string
 	SetExecutionRoleName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -139,13 +139,13 @@ type CfnStackSet interface {
 	SetManagedExecution(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// The user-specified preferences for how CloudFormation performs a stack set operation.
+	// The user-specified preferences for how CloudFormation performs a StackSet operation.
 	OperationPreferences() interface{}
 	SetOperationPreferences(val interface{})
-	// The input parameters for the stack set template.
+	// The input parameters for the StackSet template.
 	Parameters() interface{}
 	SetParameters(val interface{})
-	// Describes how the IAM roles required for stack set operations are created.
+	// Describes how the IAM roles required for StackSet operations are created.
 	PermissionModel() *string
 	SetPermissionModel(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -160,7 +160,7 @@ type CfnStackSet interface {
 	// A group of stack instances with parameters in some specific accounts and Regions.
 	StackInstancesGroup() interface{}
 	SetStackInstancesGroup(val interface{})
-	// The name to associate with the stack set.
+	// The name to associate with the StackSet.
 	StackSetName() *string
 	SetStackSetName(val *string)
 	// Tag Manager which manages the tags for this resource.

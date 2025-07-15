@@ -30,7 +30,7 @@ import (
 type CfnWaitConditionHandle interface {
 	CfnResource
 	IInspectable
-	// A unique identifier for the resource.
+	// Returns a unique identifier for the resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

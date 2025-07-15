@@ -53,8 +53,7 @@ type CfnTrafficMirrorFilterRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	AttrId() *string
-	// The ID of the Traffic Mirror Filter rule.
+	// The ID of the Traffic Mirror rule.
 	AttrTrafficMirrorFilterRuleId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -266,16 +265,6 @@ type jsiiProxy_CfnTrafficMirrorFilterRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggableV2
-}
-
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnTrafficMirrorFilterRule) AttrTrafficMirrorFilterRuleId() *string {

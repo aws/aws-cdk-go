@@ -11,7 +11,7 @@ import (
 
 // Configure logging.
 //
-// > If you already set the log function of AWS IoT Core , you can't deploy the AWS Cloud Development Kit (AWS CDK) to change the logging settings. You can change the logging settings by either:
+// > If you already set the log function of AWS IoT Core , you can't deploy the Cloud Development Kit  to change the logging settings. You can change the logging settings by either:
 // >
 // > - Importing the existing logging resource into your AWS CloudFormation stack, such as with the [infrastructure as code generator (IaC generator)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC.html) .
 // > - Calling `aws iot set-v2-logging-options --disable-all-logs` before creating a new CloudFormation stack. This command disables all AWS IoT logging. As a result, no AWS IoT logs will be delivered to Amazon CloudWatch until you re-enable logging.

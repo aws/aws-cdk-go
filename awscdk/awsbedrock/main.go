@@ -1370,6 +1370,10 @@ func init() {
 		reflect.TypeOf((*CfnGuardrail_ContentFilterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrail.ContentFiltersTierConfigProperty",
+		reflect.TypeOf((*CfnGuardrail_ContentFiltersTierConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail.ContentPolicyConfigProperty",
 		reflect.TypeOf((*CfnGuardrail_ContentPolicyConfigProperty)(nil)).Elem(),
 	)
@@ -1408,6 +1412,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail.TopicPolicyConfigProperty",
 		reflect.TypeOf((*CfnGuardrail_TopicPolicyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrail.TopicsTierConfigProperty",
+		reflect.TypeOf((*CfnGuardrail_TopicsTierConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail.WordConfigProperty",

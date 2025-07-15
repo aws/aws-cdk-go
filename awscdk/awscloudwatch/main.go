@@ -935,6 +935,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudwatch.LogQueryLanguage",
+		reflect.TypeOf((*LogQueryLanguage)(nil)).Elem(),
+		map[string]interface{}{
+			"LOGS_INSIGHTS": LogQueryLanguage_LOGS_INSIGHTS,
+			"SQL": LogQueryLanguage_SQL,
+			"PPL": LogQueryLanguage_PPL,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cloudwatch.LogQueryVisualizationType",
 		reflect.TypeOf((*LogQueryVisualizationType)(nil)).Elem(),
 		map[string]interface{}{

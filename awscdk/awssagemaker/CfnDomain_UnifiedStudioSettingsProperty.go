@@ -15,6 +15,7 @@ package awssagemaker
 //   	EnvironmentId: jsii.String("environmentId"),
 //   	ProjectId: jsii.String("projectId"),
 //   	ProjectS3Path: jsii.String("projectS3Path"),
+//   	SingleSignOnApplicationArn: jsii.String("singleSignOnApplicationArn"),
 //   	StudioWebPortalAccess: jsii.String("studioWebPortalAccess"),
 //   }
 //
@@ -49,6 +50,10 @@ type CfnDomain_UnifiedStudioSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-unifiedstudiosettings.html#cfn-sagemaker-domain-unifiedstudiosettings-projects3path
 	//
 	ProjectS3Path *string `field:"optional" json:"projectS3Path" yaml:"projectS3Path"`
+	// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-unifiedstudiosettings.html#cfn-sagemaker-domain-unifiedstudiosettings-singlesignonapplicationarn
+	//
+	SingleSignOnApplicationArn *string `field:"optional" json:"singleSignOnApplicationArn" yaml:"singleSignOnApplicationArn"`
 	// Sets whether you can access the domain in Amazon SageMaker Studio:.
 	//
 	// - **ENABLED** - You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.

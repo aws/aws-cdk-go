@@ -45,7 +45,7 @@ type CfnDataSource_HookConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-hookconfiguration.html#cfn-qbusiness-datasource-hookconfiguration-invocationcondition
 	//
 	InvocationCondition interface{} `field:"optional" json:"invocationCondition" yaml:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion.
+	// The Amazon Resource Name (ARN) of the Lambda function during ingestion.
 	//
 	// For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-hookconfiguration.html#cfn-qbusiness-datasource-hookconfiguration-lambdaarn

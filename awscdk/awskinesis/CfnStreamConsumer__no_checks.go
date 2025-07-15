@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnStreamConsumer) validateSetStreamArnParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnStreamConsumer) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnStreamConsumerParameters(scope constructs.Construct, id *string, props *CfnStreamConsumerProps) error {
 	return nil
 }

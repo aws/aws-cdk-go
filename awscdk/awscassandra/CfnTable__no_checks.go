@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnTable) validateSetBillingModeParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetCdcSpecificationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetClientSideTimestampsEnabledParameters(val interface{}) error {
 	return nil
 }

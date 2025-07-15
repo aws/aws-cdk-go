@@ -9,6 +9,7 @@ package awstransfer
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   sftpConfigProperty := &SftpConfigProperty{
+//   	MaxConcurrentConnections: jsii.Number(123),
 //   	TrustedHostKeys: []*string{
 //   		jsii.String("trustedHostKeys"),
 //   	},
@@ -18,6 +19,12 @@ package awstransfer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html
 //
 type CfnConnector_SftpConfigProperty struct {
+	// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-maxconcurrentconnections
+	//
+	// Default: - 1.
+	//
+	MaxConcurrentConnections *float64 `field:"optional" json:"maxConcurrentConnections" yaml:"maxConcurrentConnections"`
 	// The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
 	//
 	// You can use the `ssh-keyscan` command against the SFTP server to retrieve the necessary key.

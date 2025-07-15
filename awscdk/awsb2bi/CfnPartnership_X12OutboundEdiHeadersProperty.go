@@ -40,6 +40,9 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html
 //
 type CfnPartnership_X12OutboundEdiHeadersProperty struct {
+	// Specifies control number configuration for outbound X12 EDI headers.
+	//
+	// These settings determine the starting values for interchange, functional group, and transaction set control numbers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-controlnumbers
 	//
 	ControlNumbers interface{} `field:"optional" json:"controlNumbers" yaml:"controlNumbers"`

@@ -31,6 +31,7 @@ import (
 //   	LoggingRole: jsii.String("loggingRole"),
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
+//   		MaxConcurrentConnections: jsii.Number(123),
 //   		TrustedHostKeys: []*string{
 //   			jsii.String("trustedHostKeys"),
 //   		},

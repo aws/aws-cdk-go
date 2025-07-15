@@ -235,7 +235,9 @@ type CfnService interface {
 	awscdk.ITaggable
 	// The name of the Amazon ECS service, such as `sample-webapp` .
 	AttrName() *string
-	// Not currently supported in AWS CloudFormation .
+	// The ARN that identifies the service.
+	//
+	// For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
 	AttrServiceArn() *string
 	// Indicates whether to use Availability Zone rebalancing for the service.
 	AvailabilityZoneRebalancing() *string

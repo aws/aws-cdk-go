@@ -20,6 +20,10 @@ func (d *jsiiProxy_DefaultStagingStack) validateAddMetadataParameters(key *strin
 	return nil
 }
 
+func (d *jsiiProxy_DefaultStagingStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
+	return nil
+}
+
 func (d *jsiiProxy_DefaultStagingStack) validateAddTransformParameters(transform *string) error {
 	return nil
 }
@@ -45,6 +49,10 @@ func (d *jsiiProxy_DefaultStagingStack) validateGetLogicalIdParameters(element a
 }
 
 func (d *jsiiProxy_DefaultStagingStack) validateRegionalFactParameters(factName *string) error {
+	return nil
+}
+
+func (d *jsiiProxy_DefaultStagingStack) validateRemoveStackTagParameters(tagName *string) error {
 	return nil
 }
 

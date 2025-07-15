@@ -13,18 +13,19 @@ import (
 // A S3 Bucket Origin.
 //
 // Example:
-//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
-//   	OriginAccessLevels: []accessLevel{
-//   		cloudfront.*accessLevel_READ,
-//   		cloudfront.*accessLevel_LIST,
-//   	},
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   myKmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
+//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
+//   	Encryption: s3.BucketEncryption_KMS,
+//   	EncryptionKey: myKmsKey,
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("distribution"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: s3Origin,
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
 //   	},
-//   	DefaultRootObject: jsii.String("index.html"),
 //   })
 //
 type S3BucketOrigin interface {

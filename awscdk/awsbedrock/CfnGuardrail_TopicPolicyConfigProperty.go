@@ -25,6 +25,11 @@ package awsbedrock
 //   			OutputEnabled: jsii.Boolean(false),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	TopicsTierConfig: &TopicsTierConfigProperty{
+//   		TierName: jsii.String("tierName"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html
@@ -34,5 +39,9 @@ type CfnGuardrail_TopicPolicyConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicsconfig
 	//
 	TopicsConfig interface{} `field:"required" json:"topicsConfig" yaml:"topicsConfig"`
+	// Guardrail tier config for topic policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicstierconfig
+	//
+	TopicsTierConfig interface{} `field:"optional" json:"topicsTierConfig" yaml:"topicsTierConfig"`
 }
 

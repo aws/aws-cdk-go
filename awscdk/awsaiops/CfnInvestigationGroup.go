@@ -9,7 +9,23 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::AIOps::InvestigationGroup Resource Type.
+// Creates an *investigation group* in your account.
+//
+// Creating an investigation group is a one-time setup task for each Region in your account. It is a necessary task to be able to perform investigations.
+//
+// Settings in the investigation group help you centrally manage the common properties of your investigations, such as the following:
+//
+// - Who can access the investigations
+// - Whether investigation data is encrypted with a customer managed AWS Key Management Service key.
+// - How long investigations and their data are retained by default.
+//
+// Currently, you can have one investigation group in each Region in your account. Each investigation in a Region is a part of the investigation group in that Region
+//
+// To create an investigation group and set up Amazon Q Developer operational investigations, you must be signed in to an IAM principal that has the either the `AIOpsConsoleAdminPolicy` or the `AdministratorAccess` IAM policy attached, or to an account that has similar permissions.
+//
+// > You can optionally configure CloudWatch alarms to start investigations and add events to investigations. The examples section on this page demonstrates creating an investigation group and an alarm at the same time.
+// >
+// > For more information about configuring CloudWatch alarms to work with Amazon Q Developer operational investigations, see.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -58,15 +74,17 @@ type CfnInvestigationGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Investigation Group's ARN.
+	// The Amazon Resource Name (ARN) of the investigation group.
+	//
+	// For example, `arn:aws:aiops: *Region* : *account-id* :investigation-group: *investigation-group-id*`.
 	AttrArn() *string
-	// The timestamp value.
+	// The date and time that the investigation group was created.
 	AttrCreatedAt() *string
-	// User friendly name for resources.
+	// The name of the user who created the investigation group.
 	AttrCreatedBy() *string
-	// User friendly name for resources.
+	// The date and time that the investigation group was most recently modified.
 	AttrLastModifiedAt() *string
-	// User friendly name for resources.
+	// The name of the user who most recently modified the investigation group.
 	AttrLastModifiedBy() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -75,7 +93,7 @@ type CfnInvestigationGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// An array of key-value pairs of notification channels to apply to this resource.
+	// Use this property to integrate Amazon Q Developer operational investigations with Amazon Q in chat applications.
 	ChatbotNotificationChannels() interface{}
 	SetChatbotNotificationChannels(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -85,12 +103,13 @@ type CfnInvestigationGroup interface {
 	// An array of cross account configurations.
 	CrossAccountConfigurations() interface{}
 	SetCrossAccountConfigurations(val interface{})
+	// Use this property to specify a customer managed AWS KMS key to encrypt your investigation data.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
 	// Investigation Group policy.
 	InvestigationGroupPolicy() *string
 	SetInvestigationGroupPolicy(val *string)
-	// Flag to enable cloud trail history.
+	// Specify `true` to enable Amazon Q Developer operational investigations to have access to change events that are recorded by CloudTrail .
 	IsCloudTrailEventHistoryEnabled() interface{}
 	SetIsCloudTrailEventHistoryEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -103,7 +122,7 @@ type CfnInvestigationGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// User friendly name for resources.
+	// A name for the investigation group.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -113,19 +132,22 @@ type CfnInvestigationGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The number of days to retain the investigation group.
+	// Specify how long that investigation data is kept.
+	//
+	// For more information, see [Operational investigation data retention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html) .
 	RetentionInDays() *float64
 	SetRetentionInDays(val *float64)
-	// The Investigation Role's ARN.
+	// Specify the ARN of the IAM role that Amazon Q Developer operational investigations will use when it gathers investigation data.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Enter the existing custom tag keys for custom applications in your system.
 	TagKeyBoundaries() *[]*string
 	SetTagKeyBoundaries(val *[]*string)
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs to associate with the investigation group.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

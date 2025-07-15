@@ -32,6 +32,18 @@ func (k *jsiiProxy_KubectlProvider) validateAddMetadataParameters(key *string, v
 	return nil
 }
 
+func (k *jsiiProxy_KubectlProvider) validateAddStackTagParameters(tagName *string, tagValue *string) error {
+	if tagName == nil {
+		return fmt.Errorf("parameter tagName is required, but nil was provided")
+	}
+
+	if tagValue == nil {
+		return fmt.Errorf("parameter tagValue is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (k *jsiiProxy_KubectlProvider) validateAddTransformParameters(transform *string) error {
 	if transform == nil {
 		return fmt.Errorf("parameter transform is required, but nil was provided")
@@ -94,6 +106,14 @@ func (k *jsiiProxy_KubectlProvider) validateGetLogicalIdParameters(element awscd
 func (k *jsiiProxy_KubectlProvider) validateRegionalFactParameters(factName *string) error {
 	if factName == nil {
 		return fmt.Errorf("parameter factName is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (k *jsiiProxy_KubectlProvider) validateRemoveStackTagParameters(tagName *string) error {
+	if tagName == nil {
+		return fmt.Errorf("parameter tagName is required, but nil was provided")
 	}
 
 	return nil

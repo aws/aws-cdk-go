@@ -162,7 +162,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The IAM IdentityCenter configuration for trusted-identity-propagation on this application.
+	// A configuration specification to be used when provisioning an application.
 	IdentityCenterConfiguration() interface{}
 	SetIdentityCenterConfiguration(val interface{})
 	// The image configuration applied to all worker types.

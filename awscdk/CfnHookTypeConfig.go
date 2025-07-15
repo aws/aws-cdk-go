@@ -30,7 +30,7 @@ import (
 type CfnHookTypeConfig interface {
 	CfnResource
 	IInspectable
-	// The Amazon Resource Number (ARN) of the activated Hook type configuration, in this account and Region.
+	// The Amazon Resource Number (ARN) of the activated Hook type configuration in this account and Region.
 	AttrConfigurationArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

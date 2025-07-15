@@ -82,6 +82,7 @@ type CfnDBInstanceProps struct {
 	// `AWS::Neptune::DBCluster` does support restoring from snapshots.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbsnapshotidentifier
 	//
+	// Deprecated: this property has been deprecated.
 	DbSnapshotIdentifier *string `field:"optional" json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance.
 	//

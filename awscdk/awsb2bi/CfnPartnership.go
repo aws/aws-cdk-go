@@ -116,6 +116,7 @@ type CfnPartnership interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies the email address associated with this trading partner.
 	Email() *string
 	SetEmail(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -133,6 +134,7 @@ type CfnPartnership interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Specifies the phone number associated with the partnership.
 	Phone() *string
 	SetPhone(val *string)
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.

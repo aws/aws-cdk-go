@@ -92,10 +92,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "globalSecondaryIndexes", GoGetter: "GlobalSecondaryIndexes"},
+			_jsii_.MemberProperty{JsiiProperty: "globalTableWitnesses", GoGetter: "GlobalTableWitnesses"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "keySchema", GoGetter: "KeySchema"},
 			_jsii_.MemberProperty{JsiiProperty: "localSecondaryIndexes", GoGetter: "LocalSecondaryIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "multiRegionConsistency", GoGetter: "MultiRegionConsistency"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -141,6 +143,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.GlobalSecondaryIndexProperty",
 		reflect.TypeOf((*CfnGlobalTable_GlobalSecondaryIndexProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.GlobalTableWitnessProperty",
+		reflect.TypeOf((*CfnGlobalTable_GlobalTableWitnessProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.KeySchemaProperty",

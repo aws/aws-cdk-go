@@ -1,6 +1,8 @@
 package awsfsx
 
 
+// Describes the S3 access point configuration of the S3 access point attachment.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,15 +22,19 @@ package awsfsx
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspoint.html
 //
 type CfnS3AccessPointAttachment_S3AccessPointProperty struct {
+	// The S3 access point's alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspoint.html#cfn-fsx-s3accesspointattachment-s3accesspoint-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
+	// The S3 access point's policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspoint.html#cfn-fsx-s3accesspointattachment-s3accesspoint-policy
 	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
+	// The S3 access point's ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspoint.html#cfn-fsx-s3accesspointattachment-s3accesspoint-resourcearn
 	//
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
+	// The S3 access point's virtual private cloud (VPC) configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspoint.html#cfn-fsx-s3accesspointattachment-s3accesspoint-vpcconfiguration
 	//
 	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`

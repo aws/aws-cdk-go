@@ -909,6 +909,22 @@ dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
 }))
 ```
 
+Log Insights QL is the default query language. You may specify an [alternate query language: OpenSearch PPL or SQL](https://aws.amazon.com/blogs/aws/new-amazon-cloudwatch-and-amazon-opensearch-service-launch-an-integrated-analytics-experience/), if desired:
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
+	LogGroupNames: []*string{
+		jsii.String("my-log-group"),
+	},
+	View: cloudwatch.LogQueryVisualizationType_TABLE,
+	QueryString: jsii.String("SELECT count(*) as count FROM 'my-log-group'"),
+	QueryLanguage: cloudwatch.LogQueryLanguage_SQL,
+}))
+```
+
 ### Custom widget
 
 A `CustomWidget` shows the result of an AWS Lambda function:

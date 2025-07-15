@@ -27,6 +27,7 @@ import (
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	BackupRetentionPeriod: jsii.Number(123),
+//   	BackupTarget: jsii.String("backupTarget"),
 //   	CaCertificateIdentifier: jsii.String("caCertificateIdentifier"),
 //   	CertificateRotationRestart: jsii.Boolean(false),
 //   	CharacterSetName: jsii.String("characterSetName"),
@@ -273,6 +274,9 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backupretentionperiod
 	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backuptarget
+	//
+	BackupTarget *string `field:"optional" json:"backupTarget" yaml:"backupTarget"`
 	// The identifier of the CA certificate for this DB instance.
 	//
 	// For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide* .
@@ -930,10 +934,7 @@ type CfnDBInstanceProps struct {
 	//
 	// You can't set the `AvailabilityZone` parameter if the DB instance is a Multi-AZ deployment.
 	//
-	// This setting doesn't apply to the following DB instances:
-	//
-	// - Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-	// - RDS Custom.
+	// This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-multiaz
 	//
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`

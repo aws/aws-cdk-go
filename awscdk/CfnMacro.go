@@ -31,6 +31,7 @@ import (
 type CfnMacro interface {
 	CfnResource
 	IInspectable
+	// Returns a unique identifier for the resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

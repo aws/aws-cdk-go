@@ -32,7 +32,7 @@ import (
 type CfnWaitConditionHandle interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A unique identifier for the resource.
+	// Returns a unique identifier for the resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

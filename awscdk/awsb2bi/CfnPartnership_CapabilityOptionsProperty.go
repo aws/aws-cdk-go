@@ -59,6 +59,7 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html
 //
 type CfnPartnership_CapabilityOptionsProperty struct {
+	// A structure that contains the inbound EDI options for the capability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-inboundedi
 	//
 	InboundEdi interface{} `field:"optional" json:"inboundEdi" yaml:"inboundEdi"`

@@ -33,7 +33,7 @@ import (
 type CfnHookDefaultVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Number (ARN) of the activated Hook, in this account and Region.
+	// The Amazon Resource Number (ARN) of the activated Hook in this account and Region.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

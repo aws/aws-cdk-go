@@ -70,7 +70,6 @@ type CfnDBInstance interface {
 	//
 	// For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com` .
 	AttrEndpoint() *string
-	AttrId() *string
 	// The port number on which the database accepts connections.
 	//
 	// For example: `8182` .
@@ -103,7 +102,9 @@ type CfnDBInstance interface {
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
 	// This parameter is not supported.
+	// Deprecated: this property has been deprecated.
 	DbSnapshotIdentifier() *string
+	// Deprecated: this property has been deprecated.
 	SetDbSnapshotIdentifier(val *string)
 	// A DB subnet group to associate with the DB instance.
 	DbSubnetGroupName() *string
@@ -299,16 +300,6 @@ func (j *jsiiProxy_CfnDBInstance) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDBInstance) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

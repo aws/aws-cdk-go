@@ -55,7 +55,9 @@ type CfnDistribution_ViewerCertificateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
 	//
 	CloudFrontDefaultCertificate interface{} `field:"optional" json:"cloudFrontDefaultCertificate" yaml:"cloudFrontDefaultCertificate"`
-	// > In CloudFormation, this field name is `IamCertificateId` . Note the different capitalization.
+	// > This field only supports standard distributions.
+	//
+	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* . > In CloudFormation, this field name is `IamCertificateId` . Note the different capitalization.
 	//
 	// If the distribution uses `Aliases` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) , provide the ID of the IAM certificate.
 	//

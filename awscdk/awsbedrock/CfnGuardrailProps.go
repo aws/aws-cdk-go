@@ -37,6 +37,11 @@ import (
 //   				},
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		ContentFiltersTierConfig: &ContentFiltersTierConfigProperty{
+//   			TierName: jsii.String("tierName"),
+//   		},
 //   	},
 //   	ContextualGroundingPolicyConfig: &ContextualGroundingPolicyConfigProperty{
 //   		FiltersConfig: []interface{}{
@@ -105,6 +110,11 @@ import (
 //   				OutputAction: jsii.String("outputAction"),
 //   				OutputEnabled: jsii.Boolean(false),
 //   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		TopicsTierConfig: &TopicsTierConfigProperty{
+//   			TierName: jsii.String("tierName"),
 //   		},
 //   	},
 //   	WordPolicyConfig: &WordPolicyConfigProperty{

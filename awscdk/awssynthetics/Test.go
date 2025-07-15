@@ -8,17 +8,16 @@ import (
 // Specify a test that the canary should run.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 //   	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
 //   	Test: synthetics.Test_Custom(&CustomTestOptions{
 //   		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		Handler: jsii.String("index.handler"),
 //   	}),
-//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
-//   	Memory: cdk.Size_Mebibytes(jsii.Number(1024)),
+//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_7_0(),
+//   	ResourcesToReplicateTags: []lAMBDA_FUNCTION{
+//   		synthetics.ResourceToReplicateTags_*lAMBDA_FUNCTION,
+//   	},
 //   })
 //
 type Test interface {

@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// Enable/disable visual-level downloads option.
+// Export to .csv option.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

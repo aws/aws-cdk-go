@@ -74,6 +74,335 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 })
 ```
 
+### CloudFront SaaS Manager resources
+
+#### Multi-tenant distribution and tenant providing ACM certificates
+
+You can use Cloudfront to build multi-tenant distributions to house applications.
+
+To create a multi-tenant distribution w/parameters, create a Distribution construct, and then update DistributionConfig in the CfnDistribution to use connectionMode: "tenant-only"
+
+Then create a tenant
+
+```go
+// Create the simple Origin
+myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+	OriginAccessLevels: []accessLevel{
+		cloudfront.*accessLevel_READ,
+		cloudfront.*accessLevel_LIST,
+	},
+})
+
+// Create the Distribution construct
+myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: s3Origin,
+	},
+	DefaultRootObject: jsii.String("index.html"),
+})
+
+// Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
+cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+
+defaultCacheBehavior := &DefaultCacheBehaviorProperty{
+	TargetOriginId: myBucket.BucketArn,
+	ViewerProtocolPolicy: jsii.String("allow-all"),
+	Compress: jsii.Boolean(false),
+	AllowedMethods: []*string{
+		jsii.String("GET"),
+		jsii.String("HEAD"),
+	},
+	CachePolicyId: cloudfront.CachePolicy_CACHING_OPTIMIZED().CachePolicyId,
+}
+// Create the updated distributionConfig
+distributionConfig := &DistributionConfigProperty{
+	DefaultCacheBehavior: defaultCacheBehavior,
+	Enabled: jsii.Boolean(true),
+	// the properties below are optional
+	ConnectionMode: jsii.String("tenant-only"),
+	Origins: []interface{}{
+		&OriginProperty{
+			Id: myBucket.*BucketArn,
+			DomainName: myBucket.BucketDomainName,
+			S3OriginConfig: &S3OriginConfigProperty{
+			},
+			OriginPath: jsii.String("/{{tenantName}}"),
+		},
+	},
+	TenantConfig: &TenantConfigProperty{
+		ParameterDefinitions: []interface{}{
+			&ParameterDefinitionProperty{
+				Definition: &DefinitionProperty{
+					StringSchema: &StringSchemaProperty{
+						Required: jsii.Boolean(false),
+						// the properties below are optional
+						Comment: jsii.String("tenantName"),
+						DefaultValue: jsii.String("root"),
+					},
+				},
+				Name: jsii.String("tenantName"),
+			},
+		},
+	},
+}
+
+// Override the distribution configuration to enable multi-tenancy.
+cfnDistribution.DistributionConfig = distributionConfig
+
+// Create a distribution tenant using an existing ACM certificate
+cfnDistributionTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("distribution-tenant"), &CfnDistributionTenantProps{
+	DistributionId: myMultiTenantDistribution.DistributionId,
+	Domains: []*string{
+		jsii.String("my-tenant.my.domain.com"),
+	},
+	Name: jsii.String("my-tenant"),
+	Enabled: jsii.Boolean(true),
+	Parameters: []interface{}{
+		&ParameterProperty{
+			Name: jsii.String("tenantName"),
+			Value: jsii.String("app"),
+		},
+	},
+	Customizations: &CustomizationsProperty{
+		Certificate: &CertificateProperty{
+			Arn: jsii.String("REPLACE_WITH_ARN"),
+		},
+	},
+})
+```
+
+#### Multi-tenant distribution and tenant with CloudFront-hosted certificate
+
+A distribution tenant with CloudFront-hosted domain validation is useful if you don't currently have traffic to the domain.
+
+Start by creating a parent multi-tenant distribution, then create the distribution tenant.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// Create the simple Origin
+myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+	OriginAccessLevels: []accessLevel{
+		cloudfront.*accessLevel_READ,
+		cloudfront.*accessLevel_LIST,
+	},
+})
+
+// Create the Distribution construct
+myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-hosted-distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: s3Origin,
+	},
+	DefaultRootObject: jsii.String("index.html"),
+})
+
+// Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
+cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+
+defaultCacheBehavior := &DefaultCacheBehaviorProperty{
+	TargetOriginId: myBucket.BucketArn,
+	ViewerProtocolPolicy: jsii.String("allow-all"),
+	Compress: jsii.Boolean(false),
+	AllowedMethods: []*string{
+		jsii.String("GET"),
+		jsii.String("HEAD"),
+	},
+	CachePolicyId: cloudfront.CachePolicy_CACHING_OPTIMIZED().CachePolicyId,
+}
+// Create the updated distributionConfig
+distributionConfig := &DistributionConfigProperty{
+	DefaultCacheBehavior: defaultCacheBehavior,
+	Enabled: jsii.Boolean(true),
+	// the properties below are optional
+	ConnectionMode: jsii.String("tenant-only"),
+	Origins: []interface{}{
+		&OriginProperty{
+			Id: myBucket.*BucketArn,
+			DomainName: myBucket.BucketDomainName,
+			S3OriginConfig: &S3OriginConfigProperty{
+			},
+			OriginPath: jsii.String("/{{tenantName}}"),
+		},
+	},
+	TenantConfig: &TenantConfigProperty{
+		ParameterDefinitions: []interface{}{
+			&ParameterDefinitionProperty{
+				Definition: &DefinitionProperty{
+					StringSchema: &StringSchemaProperty{
+						Required: jsii.Boolean(false),
+						// the properties below are optional
+						Comment: jsii.String("tenantName"),
+						DefaultValue: jsii.String("root"),
+					},
+				},
+				Name: jsii.String("tenantName"),
+			},
+		},
+	},
+}
+
+// Override the distribution configuration to enable multi-tenancy.
+cfnDistribution.DistributionConfig = distributionConfig
+
+// Create a connection group and a cname record in an existing hosted zone to validate domain ownership
+connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("cf-hosted-connection-group"), &CfnConnectionGroupProps{
+	Enabled: jsii.Boolean(true),
+	Ipv6Enabled: jsii.Boolean(true),
+	Name: jsii.String("my-connection-group"),
+})
+
+// Import the existing hosted zone info, replacing with your hostedZoneId and zoneName
+hostedZoneId := "YOUR_HOSTED_ZONE_ID"
+zoneName := "my.domain.com"
+hostedZone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("hosted-zone"), &HostedZoneAttributes{
+	HostedZoneId: jsii.String(HostedZoneId),
+	ZoneName: jsii.String(ZoneName),
+})
+
+record := route53.NewCnameRecord(this, jsii.String("cname-record"), &CnameRecordProps{
+	DomainName: connectionGroup.AttrRoutingEndpoint,
+	Zone: hostedZone,
+	RecordName: jsii.String("cf-hosted-tenant.my.domain.com"),
+})
+
+// Create the cloudfront-hosted tenant, passing in the previously created connection group
+cloudfrontHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("cf-hosted-tenant"), &CfnDistributionTenantProps{
+	DistributionId: myMultiTenantDistribution.DistributionId,
+	Name: jsii.String("cf-hosted-tenant"),
+	Domains: []*string{
+		jsii.String("cf-hosted-tenant.my.domain.com"),
+	},
+	ConnectionGroupId: connectionGroup.AttrId,
+	Enabled: jsii.Boolean(true),
+	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
+		ValidationTokenHost: jsii.String("cloudfront"),
+	},
+})
+```
+
+#### Multi-tenant distribution and tenant with self-hosted certificate
+
+A tenant with self-hosted domain validation is useful if you already have traffic to the domain and can't tolerate downtime during migration to multi-tenant architecture.
+
+The tenant will be created, and the managed certificate will be awaiting validation of domain ownership.  You can then validate domain ownership via http redirect or token file upload.  [More details here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managed-cloudfront-certificates.html#complete-domain-ownership)
+
+Traffic won't be migrated until you update your hosted zone to point the tenant domain to the CloudFront RoutingEndpoint.
+
+Start by creating a parent multi-tenant distribution
+
+```go
+// Create the simple Origin
+myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+	OriginAccessLevels: []accessLevel{
+		cloudfront.*accessLevel_READ,
+		cloudfront.*accessLevel_LIST,
+	},
+})
+
+// Create the Distribution construct
+myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-hosted-distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: s3Origin,
+	},
+	DefaultRootObject: jsii.String("index.html"),
+})
+
+// Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
+cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+
+defaultCacheBehavior := &DefaultCacheBehaviorProperty{
+	TargetOriginId: myBucket.BucketArn,
+	ViewerProtocolPolicy: jsii.String("allow-all"),
+	Compress: jsii.Boolean(false),
+	AllowedMethods: []*string{
+		jsii.String("GET"),
+		jsii.String("HEAD"),
+	},
+	CachePolicyId: cloudfront.CachePolicy_CACHING_OPTIMIZED().CachePolicyId,
+}
+// Create the updated distributionConfig
+distributionConfig := &DistributionConfigProperty{
+	DefaultCacheBehavior: defaultCacheBehavior,
+	Enabled: jsii.Boolean(true),
+	// the properties below are optional
+	ConnectionMode: jsii.String("tenant-only"),
+	Origins: []interface{}{
+		&OriginProperty{
+			Id: myBucket.*BucketArn,
+			DomainName: myBucket.BucketDomainName,
+			S3OriginConfig: &S3OriginConfigProperty{
+			},
+			OriginPath: jsii.String("/{{tenantName}}"),
+		},
+	},
+	TenantConfig: &TenantConfigProperty{
+		ParameterDefinitions: []interface{}{
+			&ParameterDefinitionProperty{
+				Definition: &DefinitionProperty{
+					StringSchema: &StringSchemaProperty{
+						Required: jsii.Boolean(false),
+						// the properties below are optional
+						Comment: jsii.String("tenantName"),
+						DefaultValue: jsii.String("root"),
+					},
+				},
+				Name: jsii.String("tenantName"),
+			},
+		},
+	},
+}
+
+// Override the distribution configuration to enable multi-tenancy.
+cfnDistribution.DistributionConfig = distributionConfig
+
+// Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
+connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{
+	Enabled: jsii.Boolean(true),
+	Ipv6Enabled: jsii.Boolean(true),
+	Name: jsii.String("self-hosted-connection-group"),
+})
+
+// Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+// Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
+awscdk.NewCfnOutput(this, jsii.String("RoutingEndpoint"), &CfnOutputProps{
+	Value: connectionGroup.AttrRoutingEndpoint,
+	Description: jsii.String("CloudFront Routing Endpoint to be added to my hosted zone CNAME records"),
+})
+
+// Create a distribution tenant with a self-hosted domain.
+selfHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("self-hosted-tenant"), &CfnDistributionTenantProps{
+	DistributionId: myMultiTenantDistribution.DistributionId,
+	ConnectionGroupId: connectionGroup.AttrId,
+	Name: jsii.String("self-hosted-tenant"),
+	Domains: []*string{
+		jsii.String("self-hosted-tenant.my.domain.com"),
+	},
+	Enabled: jsii.Boolean(true),
+	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
+		PrimaryDomainName: jsii.String("self-hosted-tenant.my.domain.com"),
+		ValidationTokenHost: jsii.String("self-hosted"),
+	},
+})
+```
+
+While CDK is deploying, it will attempt to validate domain ownership by confirming that a validation token is served directly from your domain, or via http redirect.
+
+[follow the steps here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managed-cloudfront-certificates.html#complete-domain-ownership) to complete domain setup before deploying this CDK stack, or while CDK is in the waiting state during tenant creation. Refer to the section "I have existing traffic"
+
+A simple option for validating via http redirect, would be to add a rewrite rule like so to your server (Apache in this example)
+
+```
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/\.well-known/pki-validation/(.+)$ [NC]
+RewriteRule ^(.*)$ https://validation.us-east-1.acm-validations.aws/%{ENV:AWS_ACCOUNT_ID}/.well-known/pki-validation/%1 [R=301,L]
+```
+
+Then, when you are ready to accept traffic, follow the steps [here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managed-cloudfront-certificates.html#point-domains-to-cloudfront) using the RoutingEndpoint from above to configure DNS to point to CloudFront.
+
 ### VPC origins
 
 You can use CloudFront to deliver content from applications that are hosted in your virtual private cloud (VPC) private subnets.
@@ -626,7 +955,7 @@ functionVersion := lambda.Version_FromVersionArn(this, jsii.String("Version"), j
 
 cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
-		Origin: origins.NewS3Origin(s3Bucket),
+		Origin: origins.S3BucketOrigin_WithOriginAccessControl(s3Bucket),
 		EdgeLambdas: []edgeLambda{
 			&edgeLambda{
 				FunctionVersion: *FunctionVersion,

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetGlobalSecondaryIndexesParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalTable) validateSetGlobalTableWitnessesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGlobalTable) validateSetKeySchemaParameters(val interface{}) error {
 	return nil
 }

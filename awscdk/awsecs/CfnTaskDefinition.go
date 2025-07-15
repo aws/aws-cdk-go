@@ -345,7 +345,6 @@ type CfnTaskDefinition interface {
 	// The name of a family that this task definition is registered to.
 	Family() *string
 	SetFamily(val *string)
-	// The Elastic Inference accelerators to use for the containers in the task.
 	// Deprecated: this property has been deprecated.
 	InferenceAccelerators() interface{}
 	// Deprecated: this property has been deprecated.

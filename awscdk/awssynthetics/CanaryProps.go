@@ -11,17 +11,16 @@ import (
 // Properties for a canary.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 //   	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
 //   	Test: synthetics.Test_Custom(&CustomTestOptions{
 //   		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		Handler: jsii.String("index.handler"),
 //   	}),
-//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
-//   	Memory: cdk.Size_Mebibytes(jsii.Number(1024)),
+//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_7_0(),
+//   	ResourcesToReplicateTags: []lAMBDA_FUNCTION{
+//   		synthetics.ResourceToReplicateTags_*lAMBDA_FUNCTION,
+//   	},
 //   })
 //
 type CanaryProps struct {
@@ -93,7 +92,7 @@ type CanaryProps struct {
 	//
 	// If set to true, CDK will execute a dry run to validate the changes before applying them to the canary.
 	// If the dry run succeeds, the canary will be updated with the changes.
-	// If the dry run fails, the CloudFormation deployment will fail with the dry run’s failure reason.
+	// If the dry run fails, the CloudFormation deployment will fail with the dry run's failure reason.
 	//
 	// If set to false or omitted, the canary will be updated directly without first performing a dry run.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/performing-safe-canary-upgrades.html
@@ -113,6 +112,15 @@ type CanaryProps struct {
 	// Default: Duration.days(31)
 	//
 	FailureRetentionPeriod awscdk.Duration `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	// The amount of times the canary will automatically retry a failed run.
+	//
+	// This is only supported on the following runtimes or newer: `Runtime.SYNTHETICS_NODEJS_PUPPETEER_10_0`, `Runtime.SYNTHETICS_NODEJS_PLAYWRIGHT_2_0`, `Runtime.SYNTHETICS_PYTHON_SELENIUM_5_1`.
+	// Max retries can be set between 0 and 2. Canaries which time out after 10 minutes are automatically limited to one retry.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_autoretry.html
+	//
+	// Default: 0.
+	//
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// The maximum amount of memory that the canary can use while running.
 	//
 	// This value must be a multiple of 64 Mib.
@@ -124,6 +132,16 @@ type CanaryProps struct {
 	// Default: undefined - the default behavior is to not delete the Lambda functions and layers.
 	//
 	ProvisionedResourceCleanup *bool `field:"optional" json:"provisionedResourceCleanup" yaml:"provisionedResourceCleanup"`
+	// Specifies which resources should have their tags replicated to this canary.
+	//
+	// To have the tags that you apply to this canary also be applied to the Lambda
+	// function that the canary uses, specify this property with the value
+	// ResourceToReplicateTags.LAMBDA_FUNCTION. If you do this, CloudWatch Synthetics will keep the tags of the canary and the
+	// Lambda function synchronized. Any future changes you make to the canary's tags
+	// will also be applied to the function.
+	// Default: - No resources will have their tags replicated to this canary.
+	//
+	ResourcesToReplicateTags *[]ResourceToReplicateTags `field:"optional" json:"resourcesToReplicateTags" yaml:"resourcesToReplicateTags"`
 	// Canary execution role.
 	//
 	// This is the role that will be assumed by the canary upon execution.

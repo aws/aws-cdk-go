@@ -35,6 +35,8 @@ type ApiDestination interface {
 	IApiDestination
 	// The ARN of the Api Destination created.
 	ApiDestinationArn() *string
+	// The Amazon Resource Name (ARN) of an API destination in resource format.
+	ApiDestinationArnForPolicy() *string
 	// The Name of the Api Destination created.
 	ApiDestinationName() *string
 	// The Connection to associate with Api Destination.
@@ -99,6 +101,16 @@ func (j *jsiiProxy_ApiDestination) ApiDestinationArn() *string {
 	_jsii_.Get(
 		j,
 		"apiDestinationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) ApiDestinationArnForPolicy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiDestinationArnForPolicy",
 		&returns,
 	)
 	return returns

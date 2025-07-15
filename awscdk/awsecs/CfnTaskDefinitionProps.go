@@ -344,7 +344,6 @@ type CfnTaskDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
 	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
-	// The Elastic Inference accelerators to use for the containers in the task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
 	//
 	// Deprecated: this property has been deprecated.

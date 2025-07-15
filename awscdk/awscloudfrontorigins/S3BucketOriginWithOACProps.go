@@ -9,17 +9,16 @@ import (
 //
 // Example:
 //   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
-//   	OriginAccessLevels: []accessLevel{
-//   		cloudfront.*accessLevel_READ,
-//   		cloudfront.*accessLevel_LIST,
-//   	},
+//   oac := cloudfront.NewS3OriginAccessControl(this, jsii.String("MyOAC"), &S3OriginAccessControlProps{
+//   	Signing: cloudfront.Signing_SIGV4_NO_OVERRIDE(),
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("distribution"), &DistributionProps{
+//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+//   	OriginAccessControl: oac,
+//   })
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: s3Origin,
 //   	},
-//   	DefaultRootObject: jsii.String("index.html"),
 //   })
 //
 type S3BucketOriginWithOACProps struct {
