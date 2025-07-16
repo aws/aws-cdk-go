@@ -13,6 +13,14 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   loadBalancerProperty := &LoadBalancerProperty{
+//   	AdvancedConfiguration: &AdvancedConfigurationProperty{
+//   		AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
+//
+//   		// the properties below are optional
+//   		ProductionListenerRule: jsii.String("productionListenerRule"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		TestListenerRule: jsii.String("testListenerRule"),
+//   	},
 //   	ContainerName: jsii.String("containerName"),
 //   	ContainerPort: jsii.Number(123),
 //   	LoadBalancerName: jsii.String("loadBalancerName"),
@@ -22,6 +30,9 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
 //
 type CfnService_LoadBalancerProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-advancedconfiguration
+	//
+	AdvancedConfiguration interface{} `field:"optional" json:"advancedConfiguration" yaml:"advancedConfiguration"`
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
 	//
 	// You need to specify the container name when configuring the target group for an Amazon ECS load balancer.

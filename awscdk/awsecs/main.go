@@ -629,6 +629,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.AdvancedConfigurationProperty",
+		reflect.TypeOf((*CfnService_AdvancedConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.AwsVpcConfigurationProperty",
 		reflect.TypeOf((*CfnService_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)
@@ -651,6 +655,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.DeploymentControllerProperty",
 		reflect.TypeOf((*CfnService_DeploymentControllerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.DeploymentLifecycleHookProperty",
+		reflect.TypeOf((*CfnService_DeploymentLifecycleHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.EBSTagSpecificationProperty",
@@ -691,6 +699,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectServiceProperty",
 		reflect.TypeOf((*CfnService_ServiceConnectServiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectTestTrafficRulesHeaderProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectTestTrafficRulesHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectTestTrafficRulesHeaderValueProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectTestTrafficRulesHeaderValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectTestTrafficRulesProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectTestTrafficRulesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectTlsCertificateAuthorityProperty",

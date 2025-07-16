@@ -17,39 +17,35 @@ import (
 // This creates a service using the Fargate launch type on an ECS cluster.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cw "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster cluster
 //   var taskDefinition taskDefinition
+//   var elbAlarm alarm
 //
-//   serviceName := "MyFargateService"
+//
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
-//   	ServiceName: jsii.String(ServiceName),
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   })
-//
-//   cpuMetric := cw.NewMetric(&MetricProps{
-//   	MetricName: jsii.String("CPUUtilization"),
-//   	Namespace: jsii.String("AWS/ECS"),
-//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	Statistic: jsii.String("Average"),
-//   	DimensionsMap: map[string]*string{
-//   		"ClusterName": cluster.clusterName,
-//   		// Using `service.serviceName` here will cause a circular dependency
-//   		"ServiceName": serviceName,
+//   	DeploymentAlarms: &DeploymentAlarmConfig{
+//   		AlarmNames: []*string{
+//   			elbAlarm.AlarmName,
+//   		},
+//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
 //   	},
 //   })
-//   myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: jsii.String("cpuAlarmName"),
-//   	Metric: cpuMetric,
+//
+//   // Defining a deployment alarm after the service has been created
+//   cpuAlarmName := "MyCpuMetricAlarm"
+//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
+//   	AlarmName: cpuAlarmName,
+//   	Metric: service.MetricCpuUtilization(),
 //   	EvaluationPeriods: jsii.Number(2),
 //   	Threshold: jsii.Number(80),
 //   })
-//
 //   service.EnableDeploymentAlarms([]*string{
-//   	myAlarm.AlarmName,
+//   	cpuAlarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })

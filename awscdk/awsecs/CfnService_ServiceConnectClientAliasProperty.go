@@ -17,6 +17,16 @@ package awsecs
 //
 //   	// the properties below are optional
 //   	DnsName: jsii.String("dnsName"),
+//   	TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
+//   		Header: &ServiceConnectTestTrafficRulesHeaderProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
+//   				Exact: jsii.String("exact"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html
@@ -40,5 +50,8 @@ type CfnService_ServiceConnectClientAliasProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html#cfn-ecs-service-serviceconnectclientalias-dnsname
 	//
 	DnsName *string `field:"optional" json:"dnsName" yaml:"dnsName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html#cfn-ecs-service-serviceconnectclientalias-testtrafficrules
+	//
+	TestTrafficRules interface{} `field:"optional" json:"testTrafficRules" yaml:"testTrafficRules"`
 }
 

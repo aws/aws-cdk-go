@@ -48,7 +48,7 @@ type ProviderProps struct {
 	// property must be included in the response.
 	OnEventHandler awslambda.IFunction `field:"required" json:"onEventHandler" yaml:"onEventHandler"`
 	// Whether logging for the waiter state machine is disabled.
-	// Default: - false.
+	// Default: - true.
 	//
 	DisableWaiterStateMachineLogging *bool `field:"optional" json:"disableWaiterStateMachineLogging" yaml:"disableWaiterStateMachineLogging"`
 	// Lambda execution role for provider framework's isComplete/onTimeout Lambda function.
@@ -62,6 +62,10 @@ type ProviderProps struct {
 	// Default: - A default role will be created.
 	//
 	FrameworkCompleteAndTimeoutRole awsiam.IRole `field:"optional" json:"frameworkCompleteAndTimeoutRole" yaml:"frameworkCompleteAndTimeoutRole"`
+	// Log level of the provider framework lambda.
+	// Default: true - Logging is disabled by default.
+	//
+	FrameworkLambdaLoggingLevel awslambda.ApplicationLogLevel `field:"optional" json:"frameworkLambdaLoggingLevel" yaml:"frameworkLambdaLoggingLevel"`
 	// Lambda execution role for provider framework's onEvent Lambda function.
 	//
 	// Note that this role must be assumed

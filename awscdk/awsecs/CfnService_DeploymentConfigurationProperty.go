@@ -16,12 +16,23 @@ package awsecs
 //   		Enable: jsii.Boolean(false),
 //   		Rollback: jsii.Boolean(false),
 //   	},
+//   	BakeTimeInMinutes: jsii.Number(123),
 //   	DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
 //   		Enable: jsii.Boolean(false),
 //   		Rollback: jsii.Boolean(false),
 //   	},
+//   	LifecycleHooks: []interface{}{
+//   		&DeploymentLifecycleHookProperty{
+//   			HookTargetArn: jsii.String("hookTargetArn"),
+//   			LifecycleStages: []*string{
+//   				jsii.String("lifecycleStages"),
+//   			},
+//   			RoleArn: jsii.String("roleArn"),
+//   		},
+//   	},
 //   	MaximumPercent: jsii.Number(123),
 //   	MinimumHealthyPercent: jsii.Number(123),
+//   	Strategy: jsii.String("strategy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
@@ -31,12 +42,18 @@ type CfnService_DeploymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-alarms
 	//
 	Alarms interface{} `field:"optional" json:"alarms" yaml:"alarms"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-baketimeinminutes
+	//
+	BakeTimeInMinutes *float64 `field:"optional" json:"bakeTimeInMinutes" yaml:"bakeTimeInMinutes"`
 	// > The deployment circuit breaker can only be used for services using the rolling update ( `ECS` ) deployment type.
 	//
 	// The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
 	//
 	DeploymentCircuitBreaker interface{} `field:"optional" json:"deploymentCircuitBreaker" yaml:"deploymentCircuitBreaker"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-lifecyclehooks
+	//
+	LifecycleHooks interface{} `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
 	// If a service is using the rolling update ( `ECS` ) deployment type, the `maximumPercent` parameter represents an upper limit on the number of your service's tasks that are allowed in the `RUNNING` or `PENDING` state during a deployment, as a percentage of the `desiredCount` (rounded down to the nearest integer).
 	//
 	// This parameter enables you to define the deployment batch size. For example, if your service is using the `REPLICA` service scheduler and has a `desiredCount` of four tasks and a `maximumPercent` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default `maximumPercent` value for a service using the `REPLICA` service scheduler is 200%.
@@ -80,5 +97,8 @@ type CfnService_DeploymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
 	//
 	MinimumHealthyPercent *float64 `field:"optional" json:"minimumHealthyPercent" yaml:"minimumHealthyPercent"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-strategy
+	//
+	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`
 }
 

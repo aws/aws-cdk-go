@@ -2248,7 +2248,107 @@ service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateSe
 })
 ```
 
-## Daemon scheduling strategy
+## ECS Native Blue/Green Deployment
+
+Amazon ECS supports native blue/green deployments that allow you to deploy new versions of your services with zero downtime. This deployment strategy creates a new set of tasks (green) alongside the existing tasks (blue), then shifts traffic from the old version to the new version.
+
+[Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html)
+
+### Using Escape Hatches for Blue/Green Features
+
+The new blue/green deployment features are added to CloudFormation but not yet available in the CDK L2 constructs, you can use escape hatches to access them through the L1 (CfnService) construct.
+
+#### Load Balancer Advanced Configuration
+
+Configure advanced load balancer settings for blue/green deployments with alternate target groups and listener rules:
+
+```go
+var service fargateService
+
+
+cfnService := service.Node.defaultChild.(cfnService)
+cfnService.LoadBalancers = []interface{}{
+	&LoadBalancerProperty{
+		ContainerName: jsii.String("web"),
+		ContainerPort: jsii.Number(80),
+		TargetGroupArn: jsii.String("arn:aws:elasticloadbalancing:region:account:targetgroup/production"),
+		AdvancedConfiguration: &AdvancedConfigurationProperty{
+			AlternateTargetGroupArn: jsii.String("arn:aws:elasticloadbalancing:region:account:targetgroup/test"),
+			ProductionListenerRule: jsii.String("arn:aws:elasticloadbalancing:region:account:listener-rule/production-rule"),
+			TestListenerRule: jsii.String("arn:aws:elasticloadbalancing:region:account:listener-rule/test-rule"),
+			RoleArn: jsii.String("arn:aws:iam::account:role/ecs-blue-green-role"),
+		},
+	},
+}
+```
+
+#### Blue/Green Deployment Configuration
+
+Configure deployment strategy with bake time and lifecycle hooks:
+
+```go
+var service fargateService
+
+
+cfnService := service.Node.defaultChild.(cfnService)
+cfnService.DeploymentConfiguration = &DeploymentConfigurationProperty{
+	MaximumPercent: jsii.Number(200),
+	MinimumHealthyPercent: jsii.Number(100),
+	Strategy: jsii.String("BLUE_GREEN"),
+	BakeTimeInMinutes: jsii.Number(15),
+	LifecycleHooks: []interface{}{
+		&DeploymentLifecycleHookProperty{
+			HookTargetArn: jsii.String("arn:aws:lambda:region:account:function:pre-deployment-hook"),
+			RoleArn: jsii.String("arn:aws:iam::account:role/deployment-hook-role"),
+			LifecycleStages: []*string{
+				jsii.String("PRE_STOP"),
+				jsii.String("POST_START"),
+			},
+		},
+	},
+}
+```
+
+#### Service Connect Test Traffic Rules
+
+Configure test traffic routing for Service Connect during blue/green deployments:
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+})
+
+cfnService := service.Node.defaultChild.(cfnService)
+cfnService.ServiceConnectConfiguration = &ServiceConnectConfigurationProperty{
+	Enabled: jsii.Boolean(true),
+	Services: []interface{}{
+		&ServiceConnectServiceProperty{
+			PortName: jsii.String("api"),
+			ClientAliases: []interface{}{
+				&ServiceConnectClientAliasProperty{
+					Port: jsii.Number(80),
+					DnsName: jsii.String("my-service"),
+					TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
+						Header: &ServiceConnectTestTrafficRulesHeaderProperty{
+							Name: jsii.String("x-canary-test"),
+							Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
+								Exact: jsii.String("beta-version"),
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+}
+```
+
+## Daemon Scheduling Strategy
 
 You can specify whether service use Daemon scheduling strategy by specifying `daemon` option in Service constructs. See [differences between Daemon and Replica scheduling strategy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
 

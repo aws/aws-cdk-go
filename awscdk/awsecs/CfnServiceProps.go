@@ -29,12 +29,23 @@ import (
 //   			Enable: jsii.Boolean(false),
 //   			Rollback: jsii.Boolean(false),
 //   		},
+//   		BakeTimeInMinutes: jsii.Number(123),
 //   		DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
 //   			Enable: jsii.Boolean(false),
 //   			Rollback: jsii.Boolean(false),
 //   		},
+//   		LifecycleHooks: []interface{}{
+//   			&DeploymentLifecycleHookProperty{
+//   				HookTargetArn: jsii.String("hookTargetArn"),
+//   				LifecycleStages: []*string{
+//   					jsii.String("lifecycleStages"),
+//   				},
+//   				RoleArn: jsii.String("roleArn"),
+//   			},
+//   		},
 //   		MaximumPercent: jsii.Number(123),
 //   		MinimumHealthyPercent: jsii.Number(123),
+//   		Strategy: jsii.String("strategy"),
 //   	},
 //   	DeploymentController: &DeploymentControllerProperty{
 //   		Type: jsii.String("type"),
@@ -46,6 +57,14 @@ import (
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
 //   		&LoadBalancerProperty{
+//   			AdvancedConfiguration: &AdvancedConfigurationProperty{
+//   				AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
+//
+//   				// the properties below are optional
+//   				ProductionListenerRule: jsii.String("productionListenerRule"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				TestListenerRule: jsii.String("testListenerRule"),
+//   			},
 //   			ContainerName: jsii.String("containerName"),
 //   			ContainerPort: jsii.Number(123),
 //   			LoadBalancerName: jsii.String("loadBalancerName"),
@@ -111,6 +130,16 @@ import (
 //
 //   						// the properties below are optional
 //   						DnsName: jsii.String("dnsName"),
+//   						TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
+//   							Header: &ServiceConnectTestTrafficRulesHeaderProperty{
+//   								Name: jsii.String("name"),
+//
+//   								// the properties below are optional
+//   								Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
+//   									Exact: jsii.String("exact"),
+//   								},
+//   							},
+//   						},
 //   					},
 //   				},
 //   				DiscoveryName: jsii.String("discoveryName"),

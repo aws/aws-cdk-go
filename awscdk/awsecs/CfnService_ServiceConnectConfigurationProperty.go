@@ -40,6 +40,16 @@ package awsecs
 //
 //   					// the properties below are optional
 //   					DnsName: jsii.String("dnsName"),
+//   					TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
+//   						Header: &ServiceConnectTestTrafficRulesHeaderProperty{
+//   							Name: jsii.String("name"),
+//
+//   							// the properties below are optional
+//   							Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
+//   								Exact: jsii.String("exact"),
+//   							},
+//   						},
+//   					},
 //   				},
 //   			},
 //   			DiscoveryName: jsii.String("discoveryName"),
