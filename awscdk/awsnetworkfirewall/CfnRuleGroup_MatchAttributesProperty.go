@@ -1,0 +1,99 @@
+package awsnetworkfirewall
+
+
+// Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection.
+//
+// Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   matchAttributesProperty := &MatchAttributesProperty{
+//   	DestinationPorts: []interface{}{
+//   		&PortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   	},
+//   	Destinations: []interface{}{
+//   		&AddressProperty{
+//   			AddressDefinition: jsii.String("addressDefinition"),
+//   		},
+//   	},
+//   	Protocols: []interface{}{
+//   		jsii.Number(123),
+//   	},
+//   	SourcePorts: []interface{}{
+//   		&PortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   	},
+//   	Sources: []interface{}{
+//   		&AddressProperty{
+//   			AddressDefinition: jsii.String("addressDefinition"),
+//   		},
+//   	},
+//   	TcpFlags: []interface{}{
+//   		&TCPFlagFieldProperty{
+//   			Flags: []*string{
+//   				jsii.String("flags"),
+//   			},
+//
+//   			// the properties below are optional
+//   			Masks: []*string{
+//   				jsii.String("masks"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
+//
+type CfnRuleGroup_MatchAttributesProperty struct {
+	// The destination port to inspect for.
+	//
+	// You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+	//
+	// This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
+	//
+	DestinationPorts interface{} `field:"optional" json:"destinationPorts" yaml:"destinationPorts"`
+	// The destination IP addresses and address ranges to inspect for, in CIDR notation.
+	//
+	// If not specified, this matches with any destination address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
+	//
+	Destinations interface{} `field:"optional" json:"destinations" yaml:"destinations"`
+	// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol.
+	//
+	// If not specified, this matches with any protocol.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
+	//
+	Protocols interface{} `field:"optional" json:"protocols" yaml:"protocols"`
+	// The source port to inspect for.
+	//
+	// You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+	//
+	// If not specified, this matches with any source port.
+	//
+	// This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
+	//
+	SourcePorts interface{} `field:"optional" json:"sourcePorts" yaml:"sourcePorts"`
+	// The source IP addresses and address ranges to inspect for, in CIDR notation.
+	//
+	// If not specified, this matches with any source address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
+	//
+	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
+	// The TCP flags and masks to inspect for.
+	//
+	// If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
+	//
+	TcpFlags interface{} `field:"optional" json:"tcpFlags" yaml:"tcpFlags"`
+}
+
