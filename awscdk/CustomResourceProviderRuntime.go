@@ -27,6 +27,7 @@ const (
 	// Deprecated: Use latest version.
 	CustomResourceProviderRuntime_NODEJS_14_X CustomResourceProviderRuntime = "NODEJS_14_X"
 	// Node.js 16.x.
+	// Deprecated: Use latest version.
 	CustomResourceProviderRuntime_NODEJS_16_X CustomResourceProviderRuntime = "NODEJS_16_X"
 	// Node.js 18.x.
 	CustomResourceProviderRuntime_NODEJS_18_X CustomResourceProviderRuntime = "NODEJS_18_X"

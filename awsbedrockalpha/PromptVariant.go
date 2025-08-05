@@ -13,36 +13,28 @@ import (
 // Example:
 //   cmk := kms.NewKey(this, jsii.String("cmk"), &KeyProps{
 //   })
+//   claudeModel := bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_V1_0()
 //
-//   // Assuming you have an existing agent and alias
-//   agent := bedrock.Agent_FromAgentAttributes(this, jsii.String("ImportedAgent"), &AgentAttributes{
-//   	AgentArn: jsii.String("arn:aws:bedrock:region:account:agent/agent-id"),
-//   	RoleArn: jsii.String("arn:aws:iam::account:role/agent-role"),
-//   })
-//
-//   agentAlias := bedrock.AgentAlias_FromAttributes(this, jsii.String("ImportedAlias"), &AgentAliasAttributes{
-//   	AliasId: jsii.String("alias-id"),
-//   	AliasName: jsii.String("my-alias"),
-//   	AgentVersion: jsii.String("1"),
-//   	Agent: agent,
-//   })
-//
-//   agentVariant := bedrock.PromptVariant_Agent(&AgentPromptVariantProps{
-//   	VariantName: jsii.String("agent-variant"),
-//   	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-//   	AgentAlias: agentAlias,
-//   	PromptText: jsii.String("Use the agent to help with: {{task}}. Please be thorough and provide detailed explanations."),
+//   variant1 := bedrock.PromptVariant_Text(&TextPromptVariantProps{
+//   	VariantName: jsii.String("variant1"),
+//   	Model: claudeModel,
 //   	PromptVariables: []*string{
-//   		jsii.String("task"),
+//   		jsii.String("topic"),
 //   	},
+//   	PromptText: jsii.String("This is my first text prompt. Please summarize our conversation on: {{topic}}."),
+//   	InferenceConfiguration: bedrock.PromptInferenceConfiguration_Text(&PromptInferenceConfigurationProps{
+//   		Temperature: jsii.Number(1),
+//   		TopP: jsii.Number(0.999),
+//   		MaxTokens: jsii.Number(2000),
+//   	}),
 //   })
 //
-//   bedrock.NewPrompt(this, jsii.String("agentPrompt"), &PromptProps{
-//   	PromptName: jsii.String("agent-prompt"),
-//   	Description: jsii.String("Prompt for agent interactions"),
-//   	DefaultVariant: agentVariant,
+//   prompt1 := bedrock.NewPrompt(this, jsii.String("prompt1"), &PromptProps{
+//   	PromptName: jsii.String("prompt1"),
+//   	Description: jsii.String("my first prompt"),
+//   	DefaultVariant: variant1,
 //   	Variants: []iPromptVariant{
-//   		agentVariant,
+//   		variant1,
 //   	},
 //   	KmsKey: cmk,
 //   })

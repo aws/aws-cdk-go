@@ -4,34 +4,38 @@ package awsecs
 // Network protocol.
 //
 // Example:
-//   var taskDefinition taskDefinition
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var lambdaHook function
+//   var blueTargetGroup applicationTargetGroup
+//   var greenTargetGroup applicationTargetGroup
+//   var prodListenerRule applicationListenerRule
 //
 //
-//   // Add a container to the task definition
-//   specificContainer := taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("/aws/aws-example-app")),
-//   	MemoryLimitMiB: jsii.Number(2048),
-//   })
-//
-//   // Add a port mapping
-//   specificContainer.AddPortMappings(&PortMapping{
-//   	ContainerPort: jsii.Number(7600),
-//   	Protocol: ecs.Protocol_TCP,
-//   })
-//
-//   ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	MinHealthyPercent: jsii.Number(100),
-//   	CloudMapOptions: &CloudMapOptions{
-//   		// Create SRV records - useful for bridge networking
-//   		DnsRecordType: cloudmap.DnsRecordType_SRV,
-//   		// Targets port TCP port 7600 `specificContainer`
-//   		Container: specificContainer,
-//   		ContainerPort: jsii.Number(7600),
-//   	},
+//   	DeploymentStrategy: ecs.DeploymentStrategy_BLUE_GREEN,
 //   })
+//
+//   service.AddLifecycleHook(ecs.NewDeploymentLifecycleLambdaTarget(lambdaHook, jsii.String("PreScaleHook"), &DeploymentLifecycleLambdaTargetProps{
+//   	LifecycleStages: []deploymentLifecycleStage{
+//   		ecs.*deploymentLifecycleStage_PRE_SCALE_UP,
+//   	},
+//   }))
+//
+//   target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+//   	ContainerName: jsii.String("nginx"),
+//   	ContainerPort: jsii.Number(80),
+//   	Protocol: ecs.Protocol_TCP,
+//   }, ecs.NewAlternateTarget(jsii.String("AlternateTarget"), &AlternateTargetProps{
+//   	AlternateTargetGroup: greenTargetGroup,
+//   	ProductionListener: ecs.ListenerRuleConfiguration_ApplicationListenerRule(prodListenerRule),
+//   }))
+//
+//   target.AttachToApplicationTargetGroup(blueTargetGroup)
 //
 type Protocol string
 

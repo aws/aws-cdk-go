@@ -16,25 +16,26 @@ import (
 // See the *Properties* section below for descriptions of both the required and optional properties.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   cfnApplicationInferenceProfile := awscdk.Aws_bedrock.NewCfnApplicationInferenceProfile(this, jsii.String("MyCfnApplicationInferenceProfile"), &CfnApplicationInferenceProfileProps{
-//   	InferenceProfileName: jsii.String("inferenceProfileName"),
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
+//   // Create or reference an existing L1 CfnApplicationInferenceProfile
+//   cfnProfile := awscdk.Aws_bedrock.NewCfnApplicationInferenceProfile(this, jsii.String("CfnProfile"), &CfnApplicationInferenceProfileProps{
+//   	InferenceProfileName: jsii.String("my-cfn-profile"),
 //   	ModelSource: &InferenceProfileModelSourceProperty{
-//   		CopyFrom: jsii.String("copyFrom"),
+//   		CopyFrom: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0().InvokableArn,
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
+//   	Description: jsii.String("Profile created via L1 construct"),
 //   })
+//
+//   // Import the L1 construct as an L2 ApplicationInferenceProfile
+//   importedFromCfn := bedrock.ApplicationInferenceProfile_FromCfnApplicationInferenceProfile(cfnProfile)
+//
+//   // Grant permissions to use the imported profile
+//   lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Runtime: lambda.Runtime_PYTHON_3_11(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromInline(jsii.String("def handler(event, context): return \"Hello\"")),
+//   })
+//
+//   importedFromCfn.GrantProfileUsage(lambdaFunction)
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html
 //

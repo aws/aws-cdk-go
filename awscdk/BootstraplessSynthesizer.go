@@ -32,6 +32,7 @@ import (
 //   bootstraplessSynthesizer := cdk.NewBootstraplessSynthesizer(&BootstraplessSynthesizerProps{
 //   	CloudFormationExecutionRoleArn: jsii.String("cloudFormationExecutionRoleArn"),
 //   	DeployRoleArn: jsii.String("deployRoleArn"),
+//   	Qualifier: jsii.String("qualifier"),
 //   })
 //
 type BootstraplessSynthesizer interface {

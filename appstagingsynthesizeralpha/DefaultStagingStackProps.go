@@ -284,7 +284,7 @@ type DefaultStagingStackProps struct {
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 	// The qualifier used to specialize strings.
 	//
-	// Shouldn't be necessary but who knows what people might do.
+	// Can be used to specify custom bootstrapped role names.
 	// Experimental.
 	Qualifier *string `field:"required" json:"qualifier" yaml:"qualifier"`
 	// The ARN of the deploy action role, if given.

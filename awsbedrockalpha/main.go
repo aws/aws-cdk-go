@@ -253,6 +253,46 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.ApplicationInferenceProfile",
+		reflect.TypeOf((*ApplicationInferenceProfile)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
+			_jsii_.MemberMethod{JsiiMethod: "grantProfileUsage", GoMethod: "GrantProfileUsage"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileArn", GoGetter: "InferenceProfileArn"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileId", GoGetter: "InferenceProfileId"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileModel", GoGetter: "InferenceProfileModel"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileName", GoGetter: "InferenceProfileName"},
+			_jsii_.MemberProperty{JsiiProperty: "invokableArn", GoGetter: "InvokableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApplicationInferenceProfile{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_InferenceProfileBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBedrockInvokable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.ApplicationInferenceProfileAttributes",
+		reflect.TypeOf((*ApplicationInferenceProfileAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.ApplicationInferenceProfileProps",
+		reflect.TypeOf((*ApplicationInferenceProfileProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.AssetApiSchema",
 		reflect.TypeOf((*AssetApiSchema)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -325,6 +365,38 @@ func init() {
 		"@aws-cdk/aws-bedrock-alpha.CommonPromptVariantProps",
 		reflect.TypeOf((*CommonPromptVariantProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.CrossRegionInferenceProfile",
+		reflect.TypeOf((*CrossRegionInferenceProfile)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
+			_jsii_.MemberMethod{JsiiMethod: "grantProfileUsage", GoMethod: "GrantProfileUsage"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileArn", GoGetter: "InferenceProfileArn"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileId", GoGetter: "InferenceProfileId"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileModel", GoGetter: "InferenceProfileModel"},
+			_jsii_.MemberProperty{JsiiProperty: "invokableArn", GoGetter: "InvokableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CrossRegionInferenceProfile{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBedrockInvokable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInferenceProfile)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.CrossRegionInferenceProfileProps",
+		reflect.TypeOf((*CrossRegionInferenceProfileProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.CrossRegionInferenceProfileRegion",
+		reflect.TypeOf((*CrossRegionInferenceProfileRegion)(nil)).Elem(),
+		map[string]interface{}{
+			"EU": CrossRegionInferenceProfileRegion_EU,
+			"US": CrossRegionInferenceProfileRegion_US,
+			"APAC": CrossRegionInferenceProfileRegion_APAC,
+		},
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-alpha.CustomControl",
 		reflect.TypeOf((*CustomControl)(nil)).Elem(),
@@ -346,6 +418,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-alpha.CustomParserProps",
 		reflect.TypeOf((*CustomParserProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.DefaultPromptRouterIdentifier",
+		reflect.TypeOf((*DefaultPromptRouterIdentifier)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "promptRouterId", GoGetter: "PromptRouterId"},
+			_jsii_.MemberProperty{JsiiProperty: "routingModels", GoGetter: "RoutingModels"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DefaultPromptRouterIdentifier{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.Function",
@@ -457,6 +540,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-alpha.IInferenceProfile",
+		reflect.TypeOf((*IInferenceProfile)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantProfileUsage", GoMethod: "GrantProfileUsage"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileArn", GoGetter: "InferenceProfileArn"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileId", GoGetter: "InferenceProfileId"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IInferenceProfile{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-alpha.IPrompt",
 		reflect.TypeOf((*IPrompt)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -477,6 +573,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-alpha.IPromptRouter",
+		reflect.TypeOf((*IPromptRouter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "promptRouterArn", GoGetter: "PromptRouterArn"},
+			_jsii_.MemberProperty{JsiiProperty: "promptRouterId", GoGetter: "PromptRouterId"},
+			_jsii_.MemberProperty{JsiiProperty: "routingEndpoints", GoGetter: "RoutingEndpoints"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IPromptRouter{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-alpha.IPromptVariant",
 		reflect.TypeOf((*IPromptVariant)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -494,6 +602,39 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-alpha.InferenceConfiguration",
 		reflect.TypeOf((*InferenceConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.InferenceProfileBase",
+		reflect.TypeOf((*InferenceProfileBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantProfileUsage", GoMethod: "GrantProfileUsage"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileArn", GoGetter: "InferenceProfileArn"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceProfileId", GoGetter: "InferenceProfileId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			j := jsiiProxy_InferenceProfileBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInferenceProfile)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.InferenceProfileType",
+		reflect.TypeOf((*InferenceProfileType)(nil)).Elem(),
+		map[string]interface{}{
+			"SYSTEM_DEFINED": InferenceProfileType_SYSTEM_DEFINED,
+			"APPLICATION": InferenceProfileType_APPLICATION,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.InlineApiSchema",
@@ -667,6 +808,27 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-alpha.PromptProps",
 		reflect.TypeOf((*PromptProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.PromptRouter",
+		reflect.TypeOf((*PromptRouter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
+			_jsii_.MemberProperty{JsiiProperty: "invokableArn", GoGetter: "InvokableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "promptRouterArn", GoGetter: "PromptRouterArn"},
+			_jsii_.MemberProperty{JsiiProperty: "promptRouterId", GoGetter: "PromptRouterId"},
+			_jsii_.MemberProperty{JsiiProperty: "routingEndpoints", GoGetter: "RoutingEndpoints"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PromptRouter{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBedrockInvokable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPromptRouter)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.PromptRouterProps",
+		reflect.TypeOf((*PromptRouterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-alpha.PromptRoutingClassifierConfigCustomParser",

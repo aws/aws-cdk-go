@@ -86,6 +86,8 @@ type ExternalService interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Add a deployment lifecycle hook target.
+	AddLifecycleHook(target IDeploymentLifecycleHookTarget)
 	// Adds a volume to the Service.
 	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
@@ -148,8 +150,12 @@ type ExternalService interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Checks if the service is using the ECS deployment controller.
+	//
+	// Returns: true if the service is using the ECS deployment controller or if no deployment controller is specified (defaults to ECS).
+	IsUsingECSDeploymentController() *bool
 	// Overridden method to throw error as `loadBalancerTarget` is not supported for external service.
-	LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	LoadBalancerTarget(_options *LoadBalancerTargetOptions, _alternateOptions IAlternateTarget) IEcsLoadBalancerTarget
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's CPU utilization.
@@ -549,6 +555,17 @@ func ExternalService_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
+func (e *jsiiProxy_ExternalService) AddLifecycleHook(target IDeploymentLifecycleHookTarget) {
+	if err := e.validateAddLifecycleHookParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"addLifecycleHook",
+		[]interface{}{target},
+	)
+}
+
 func (e *jsiiProxy_ExternalService) AddVolume(volume ServiceManagedVolume) {
 	if err := e.validateAddVolumeParameters(volume); err != nil {
 		panic(err)
@@ -735,7 +752,20 @@ func (e *jsiiProxy_ExternalService) GetResourceNameAttribute(nameAttr *string) *
 	return returns
 }
 
-func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+func (e *jsiiProxy_ExternalService) IsUsingECSDeploymentController() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		e,
+		"isUsingECSDeploymentController",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTargetOptions, _alternateOptions IAlternateTarget) IEcsLoadBalancerTarget {
 	if err := e.validateLoadBalancerTargetParameters(_options); err != nil {
 		panic(err)
 	}
@@ -744,7 +774,7 @@ func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTar
 	_jsii_.Invoke(
 		e,
 		"loadBalancerTarget",
-		[]interface{}{_options},
+		[]interface{}{_options, _alternateOptions},
 		&returns,
 	)
 

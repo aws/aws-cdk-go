@@ -152,7 +152,7 @@ type IntegManifest struct {
 	//
 	// If lookups are enabled
 	// then `stackUpdateWorkflow` must be set to false.
-	// Lookups should only be enabled when you are explicitely testing
+	// Lookups should only be enabled when you are explicitly testing
 	// lookups.
 	// Default: false.
 	//

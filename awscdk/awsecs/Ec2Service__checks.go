@@ -16,6 +16,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (e *jsiiProxy_Ec2Service) validateAddLifecycleHookParameters(target IDeploymentLifecycleHookTarget) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Ec2Service) validateAddVolumeParameters(volume ServiceManagedVolume) error {
 	if volume == nil {
 		return fmt.Errorf("parameter volume is required, but nil was provided")

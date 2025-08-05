@@ -92,6 +92,8 @@ type BaseService interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Add a deployment lifecycle hook target.
+	AddLifecycleHook(target IDeploymentLifecycleHookTarget)
 	// Adds a volume to the Service.
 	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
@@ -159,6 +161,10 @@ type BaseService interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Checks if the service is using the ECS deployment controller.
+	//
+	// Returns: true if the service is using the ECS deployment controller or if no deployment controller is specified (defaults to ECS).
+	IsUsingECSDeploymentController() *bool
 	// Return a load balancing target for a specific container and port.
 	//
 	// Use this function to create a load balancer target if you want to load balance to
@@ -182,7 +188,7 @@ type BaseService interface {
 	//   	},
 	//   })
 	//
-	LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	LoadBalancerTarget(options *LoadBalancerTargetOptions, alternateOptions IAlternateTarget) IEcsLoadBalancerTarget
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's CPU utilization.
@@ -534,6 +540,17 @@ func BaseService_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+func (b *jsiiProxy_BaseService) AddLifecycleHook(target IDeploymentLifecycleHookTarget) {
+	if err := b.validateAddLifecycleHookParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"addLifecycleHook",
+		[]interface{}{target},
+	)
+}
+
 func (b *jsiiProxy_BaseService) AddVolume(volume ServiceManagedVolume) {
 	if err := b.validateAddVolumeParameters(volume); err != nil {
 		panic(err)
@@ -720,7 +737,20 @@ func (b *jsiiProxy_BaseService) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
-func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+func (b *jsiiProxy_BaseService) IsUsingECSDeploymentController() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		b,
+		"isUsingECSDeploymentController",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOptions, alternateOptions IAlternateTarget) IEcsLoadBalancerTarget {
 	if err := b.validateLoadBalancerTargetParameters(options); err != nil {
 		panic(err)
 	}
@@ -729,7 +759,7 @@ func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOp
 	_jsii_.Invoke(
 		b,
 		"loadBalancerTarget",
-		[]interface{}{options},
+		[]interface{}{options, alternateOptions},
 		&returns,
 	)
 

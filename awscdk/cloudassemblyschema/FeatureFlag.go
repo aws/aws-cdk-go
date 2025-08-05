@@ -9,11 +9,15 @@ package cloudassemblyschema
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var recommendedValue interface{}
+//   var unconfiguredBehavesLike interface{}
 //   var userValue interface{}
 //
 //   featureFlag := &FeatureFlag{
 //   	Explanation: jsii.String("explanation"),
 //   	RecommendedValue: recommendedValue,
+//   	UnconfiguredBehavesLike: map[string]interface{}{
+//   		"unconfiguredBehavesLikeKey": unconfiguredBehavesLike,
+//   	},
 //   	UserValue: userValue,
 //   }
 //
@@ -28,6 +32,10 @@ type FeatureFlag struct {
 	// Default: - No recommended value.
 	//
 	RecommendedValue interface{} `field:"optional" json:"recommendedValue" yaml:"recommendedValue"`
+	// The value of the flag if it is unconfigured.
+	// Default: - No value.
+	//
+	UnconfiguredBehavesLike *map[string]interface{} `field:"optional" json:"unconfiguredBehavesLike" yaml:"unconfiguredBehavesLike"`
 	// The value configured by the user.
 	//
 	// This is the value configured at the root of the tree. Users may also have

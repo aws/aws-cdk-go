@@ -103,6 +103,8 @@ type FargateService interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Add a deployment lifecycle hook target.
+	AddLifecycleHook(target IDeploymentLifecycleHookTarget)
 	// Adds a volume to the Service.
 	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
@@ -170,6 +172,10 @@ type FargateService interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Checks if the service is using the ECS deployment controller.
+	//
+	// Returns: true if the service is using the ECS deployment controller or if no deployment controller is specified (defaults to ECS).
+	IsUsingECSDeploymentController() *bool
 	// Return a load balancing target for a specific container and port.
 	//
 	// Use this function to create a load balancer target if you want to load balance to
@@ -190,7 +196,7 @@ type FargateService interface {
 	//     })],
 	//   });
 	//
-	LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	LoadBalancerTarget(options *LoadBalancerTargetOptions, alternateOptions IAlternateTarget) IEcsLoadBalancerTarget
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's CPU utilization.
@@ -607,6 +613,17 @@ func FargateService_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
+func (f *jsiiProxy_FargateService) AddLifecycleHook(target IDeploymentLifecycleHookTarget) {
+	if err := f.validateAddLifecycleHookParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"addLifecycleHook",
+		[]interface{}{target},
+	)
+}
+
 func (f *jsiiProxy_FargateService) AddVolume(volume ServiceManagedVolume) {
 	if err := f.validateAddVolumeParameters(volume); err != nil {
 		panic(err)
@@ -793,7 +810,20 @@ func (f *jsiiProxy_FargateService) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+func (f *jsiiProxy_FargateService) IsUsingECSDeploymentController() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		f,
+		"isUsingECSDeploymentController",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTargetOptions, alternateOptions IAlternateTarget) IEcsLoadBalancerTarget {
 	if err := f.validateLoadBalancerTargetParameters(options); err != nil {
 		panic(err)
 	}
@@ -802,7 +832,7 @@ func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTarge
 	_jsii_.Invoke(
 		f,
 		"loadBalancerTarget",
-		[]interface{}{options},
+		[]interface{}{options, alternateOptions},
 		&returns,
 	)
 

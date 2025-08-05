@@ -128,7 +128,7 @@ type ProviderProps struct {
 	// service principal.
 	// Default: - A default role will be created.
 	//
-	// Deprecated: - Use frameworkOnEventLambdaRole, frameworkIsCompleteLambdaRole, frameworkOnTimeoutLambdaRole.
+	// Deprecated: - Use frameworkOnEventRole, frameworkCompleteAndTimeoutRole.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Security groups to attach to the provider functions.
 	//

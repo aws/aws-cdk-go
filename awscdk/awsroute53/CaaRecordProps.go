@@ -68,6 +68,7 @@ type CaaRecordProps struct {
 	// > will delete the record!
 	// Default: false.
 	//
+	// Deprecated: This property is dangerous and can lead to unintended record deletion in case of deployment failure.
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`

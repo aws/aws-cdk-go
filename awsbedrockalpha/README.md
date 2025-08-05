@@ -43,6 +43,13 @@ This construct library facilitates the deployment of Bedrock Agents, enabling yo
   * [Prompt Properties](#prompt-properties)
   * [Prompt Version](#prompt-version)
   * [Import Methods](#import-methods)
+* [Inference Profiles](#inference-profiles)
+
+  * [Using Inference Profiles](#using-inference-profiles)
+  * [Types of Inference Profiles](#types-of-inference-profiles)
+  * [Prompt Routers](#prompt-routers)
+  * [Inference Profile Permissions](#inference-profile-permissions)
+  * [Inference Profiles Import Methods](#inference-profiles-import-methods)
 
 ## Agents
 
@@ -835,4 +842,197 @@ importedPrompt := bedrock.Prompt_FromPromptAttributes(this, jsii.String("Importe
 	 // optional
 	PromptVersion: jsii.String("1"),
 })
+```
+
+## Inference Profiles
+
+Amazon Bedrock Inference Profiles provide a way to manage and optimize inference configurations for your foundation models. They allow you to define reusable configurations that can be applied across different prompts and agents.
+
+### Using Inference Profiles
+
+Inference profiles can be used with prompts and agents to maintain consistent inference configurations across your application.
+
+#### With Agents
+
+```go
+// Create a cross-region inference profile
+crossRegionProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
+	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
+	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+})
+
+// Use the cross-region profile with an agent
+agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
+	FoundationModel: crossRegionProfile,
+	Instruction: jsii.String("You are a helpful and friendly agent that answers questions about agriculture."),
+})
+```
+
+#### With Prompts
+
+```go
+// Create a prompt router for intelligent model selection
+promptRouter := bedrock.PromptRouter_FromDefaultId(bedrock.DefaultPromptRouterIdentifier_ANTHROPIC_CLAUDE_V1(), jsii.String("us-east-1"))
+
+// Use the prompt router with a prompt variant
+variant := bedrock.PromptVariant_Text(&TextPromptVariantProps{
+	VariantName: jsii.String("variant1"),
+	PromptText: jsii.String("What is the capital of France?"),
+	Model: promptRouter,
+})
+
+bedrock.NewPrompt(this, jsii.String("Prompt"), &PromptProps{
+	PromptName: jsii.String("prompt-router-test"),
+	Variants: []iPromptVariant{
+		variant,
+	},
+})
+```
+
+### Types of Inference Profiles
+
+Amazon Bedrock offers two types of inference profiles:
+
+#### Application Inference Profiles
+
+Application inference profiles are user-defined profiles that help you track costs and model usage. They can be created for a single region or for multiple regions using a cross-region inference profile.
+
+##### Single Region Application Profile
+
+```go
+// Create an application inference profile for one Region
+appProfile := bedrock.NewApplicationInferenceProfile(this, jsii.String("MyApplicationProfile"), &ApplicationInferenceProfileProps{
+	ApplicationInferenceProfileName: jsii.String("claude-3-sonnet-v1"),
+	ModelSource: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_V1_0(),
+	Description: jsii.String("Application profile for cost tracking"),
+	Tags: map[string]*string{
+		"Environment": jsii.String("Production"),
+	},
+})
+```
+
+##### Multi-Region Application Profile
+
+```go
+// Create a cross-region inference profile
+crossRegionProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
+	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
+	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V2_0(),
+})
+
+// Create an application inference profile across regions
+appProfile := bedrock.NewApplicationInferenceProfile(this, jsii.String("MyMultiRegionProfile"), &ApplicationInferenceProfileProps{
+	ApplicationInferenceProfileName: jsii.String("claude-35-sonnet-v2-multi-region"),
+	ModelSource: crossRegionProfile,
+	Description: jsii.String("Multi-region application profile for cost tracking"),
+})
+```
+
+#### System Defined Inference Profiles
+
+Cross-region inference enables you to seamlessly manage unplanned traffic bursts by utilizing compute across different AWS Regions. With cross-region inference, you can distribute traffic across multiple AWS Regions, enabling higher throughput and enhanced resilience during periods of peak demands.
+
+Before using a CrossRegionInferenceProfile, ensure that you have access to the models and regions defined in the inference profiles. For instance, if you use the system defined inference profile "us.anthropic.claude-3-5-sonnet-20241022-v2:0", inference requests will be routed to US East (Virginia) us-east-1, US East (Ohio) us-east-2 and US West (Oregon) us-west-2. Thus, you need to have model access enabled in those regions for the model anthropic.claude-3-5-sonnet-20241022-v2:0.
+
+##### System Defined Profile Configuration
+
+```go
+crossRegionProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
+	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
+	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V2_0(),
+})
+```
+
+### Prompt Routers
+
+Amazon Bedrock intelligent prompt routing provides a single serverless endpoint for efficiently routing requests between different foundational models within the same model family. It can help you optimize for response quality and cost. They offer a comprehensive solution for managing multiple AI models through a single serverless endpoint, simplifying the process for you. Intelligent prompt routing predicts the performance of each model for each request, and dynamically routes each request to the model that it predicts is most likely to give the desired response at the lowest cost.
+
+#### Default and Custom Prompt Routers
+
+```go
+// Use a default prompt router
+variant := bedrock.PromptVariant_Text(&TextPromptVariantProps{
+	VariantName: jsii.String("variant1"),
+	PromptText: jsii.String("What is the capital of France?"),
+	Model: bedrock.PromptRouter_FromDefaultId(bedrock.DefaultPromptRouterIdentifier_ANTHROPIC_CLAUDE_V1(), jsii.String("us-east-1")),
+})
+
+bedrock.NewPrompt(this, jsii.String("Prompt"), &PromptProps{
+	PromptName: jsii.String("prompt-router-test"),
+	Variants: []iPromptVariant{
+		variant,
+	},
+})
+```
+
+### Inference Profile Permissions
+
+Use the `grantProfileUsage` method to grant appropriate permissions to resources that need to use the inference profile.
+
+#### Granting Profile Usage Permissions
+
+```go
+// Create an application inference profile
+profile := bedrock.NewApplicationInferenceProfile(this, jsii.String("MyProfile"), &ApplicationInferenceProfileProps{
+	ApplicationInferenceProfileName: jsii.String("my-profile"),
+	ModelSource: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+})
+
+// Create a Lambda function
+lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_11(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String("def handler(event, context): return \"Hello\"")),
+})
+
+// Grant the Lambda function permission to use the inference profile
+profile.GrantProfileUsage(lambdaFunction)
+
+// Use a system defined inference profile
+crossRegionProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
+	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
+	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+})
+
+// Grant permissions to use the cross-region inference profile
+crossRegionProfile.GrantProfileUsage(lambdaFunction)
+```
+
+The `grantProfileUsage` method adds the necessary IAM permissions to the resource, allowing it to use the inference profile. This includes permissions to call `bedrock:GetInferenceProfile` and `bedrock:ListInferenceProfiles` actions on the inference profile resource.
+
+### Inference Profiles Import Methods
+
+You can import existing application inference profiles using the following methods:
+
+```go
+// Import an inference profile through attributes
+importedProfile := bedrock.ApplicationInferenceProfile_FromApplicationInferenceProfileAttributes(this, jsii.String("ImportedProfile"), &ApplicationInferenceProfileAttributes{
+	InferenceProfileArn: jsii.String("arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/my-profile-id"),
+	InferenceProfileIdentifier: jsii.String("my-profile-id"),
+})
+```
+
+You can also import an application inference profile from an existing L1 CloudFormation construct:
+
+```go
+// Create or reference an existing L1 CfnApplicationInferenceProfile
+cfnProfile := awscdk.Aws_bedrock.NewCfnApplicationInferenceProfile(this, jsii.String("CfnProfile"), &CfnApplicationInferenceProfileProps{
+	InferenceProfileName: jsii.String("my-cfn-profile"),
+	ModelSource: &InferenceProfileModelSourceProperty{
+		CopyFrom: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0().InvokableArn,
+	},
+	Description: jsii.String("Profile created via L1 construct"),
+})
+
+// Import the L1 construct as an L2 ApplicationInferenceProfile
+importedFromCfn := bedrock.ApplicationInferenceProfile_FromCfnApplicationInferenceProfile(cfnProfile)
+
+// Grant permissions to use the imported profile
+lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_11(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String("def handler(event, context): return \"Hello\"")),
+})
+
+importedFromCfn.GrantProfileUsage(lambdaFunction)
 ```
