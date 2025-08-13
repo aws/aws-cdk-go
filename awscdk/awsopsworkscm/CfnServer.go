@@ -11,7 +11,7 @@ import (
 
 // The `AWS::OpsWorksCM::Server` resource creates an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise configuration management server.
 //
-// For more information, see [Create a Chef Automate Server in AWS CloudFormation](https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-create-server-cfn.html) or [Create a Puppet Enterprise Master in AWS CloudFormation](https://docs.aws.amazon.com/opsworks/latest/userguide/opspup-create-server-cfn.html) in the *AWS OpsWorks User Guide* , and [CreateServer](https://docs.aws.amazon.com/opsworks-cm/latest/APIReference/API_CreateServer.html) in the *AWS OpsWorks CM API Reference* .
+// For more information, see [Create a Chef Automate Server in AWS CloudFormation](https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-create-server-cfn.html) or [Create a Puppet Enterprise Master in AWS CloudFormation](https://docs.aws.amazon.com/opsworks/latest/userguide/opspup-create-server-cfn.html) in the *OpsWorks User Guide* , and [CreateServer](https://docs.aws.amazon.com/opsworks-cm/latest/APIReference/API_CreateServer.html) in the *AWS OpsWorks CM API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,7 +46,6 @@ import (
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	ServerName: jsii.String("serverName"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -73,8 +72,6 @@ type CfnServer interface {
 	//
 	// Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
 	AttrEndpoint() *string
-	// The ID of the server.
-	AttrId() *string
 	AttrServerName() *string
 	// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
 	BackupId() *string
@@ -150,9 +147,6 @@ type CfnServer interface {
 	// A list of security group IDs to attach to the Amazon EC2 instance.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// The name of the server.
-	ServerName() *string
-	SetServerName(val *string)
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
@@ -340,16 +334,6 @@ func (j *jsiiProxy_CfnServer) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServer) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns
@@ -590,16 +574,6 @@ func (j *jsiiProxy_CfnServer) SecurityGroupIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"securityGroupIds",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServer) ServerName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"serverName",
 		&returns,
 	)
 	return returns
@@ -850,14 +824,6 @@ func (j *jsiiProxy_CfnServer)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnServer)SetServerName(val *string) {
-	_jsii_.Set(
-		j,
-		"serverName",
 		val,
 	)
 }

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnMonitor) validateSetSubdomainParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnMonitor) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnMonitorParameters(scope constructs.Construct, id *string, props *CfnMonitorProps) error {
 	return nil
 }

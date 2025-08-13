@@ -1,8 +1,6 @@
 package awsevs
 
 
-// > Amazon EVS is in public preview release and is subject to change.
-//
 // An object that represents a host.
 //
 // > You cannot use `dedicatedHostId` and `placementGroupId` together in the same `HostInfoForCreate` object. This results in a `ValidationException` response.

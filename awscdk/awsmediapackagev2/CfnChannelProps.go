@@ -19,6 +19,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	InputSwitchConfiguration: &InputSwitchConfigurationProperty{
 //   		MqcsInputSwitching: jsii.Boolean(false),
+//   		PreferredInput: jsii.Number(123),
 //   	},
 //   	InputType: jsii.String("inputType"),
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{

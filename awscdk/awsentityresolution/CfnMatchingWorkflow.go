@@ -13,7 +13,7 @@ import (
 //
 // The workflow name must be unique. To modify an existing workflow, use `UpdateMatchingWorkflow` .
 //
-// > For workflows where `resolutionType` is ML_MATCHING, incremental processing is not supported.
+// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -73,6 +73,14 @@ import (
 //
 //   			// the properties below are optional
 //   			MatchPurpose: jsii.String("matchPurpose"),
+//   		},
+//   		RuleConditionProperties: &RuleConditionPropertiesProperty{
+//   			Rules: []interface{}{
+//   				&RuleConditionProperty{
+//   					Condition: jsii.String("condition"),
+//   					RuleName: jsii.String("ruleName"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
@@ -135,7 +143,7 @@ type CfnMatchingWorkflow interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 	OutputSourceConfig() interface{}
 	SetOutputSourceConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

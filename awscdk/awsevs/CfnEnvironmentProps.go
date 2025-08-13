@@ -126,7 +126,7 @@ type CfnEnvironmentProps struct {
 	SiteId *string `field:"required" json:"siteId" yaml:"siteId"`
 	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment.
 	//
-	// Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+	// Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evs-environment.html#cfn-evs-environment-termsaccepted
 	//
 	TermsAccepted interface{} `field:"required" json:"termsAccepted" yaml:"termsAccepted"`

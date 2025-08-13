@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::DataZone::ProjectProfile Resource Type.
+// The summary of a project profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -76,6 +76,7 @@ type CfnProjectProfile interface {
 	AttrDomainUnitId() *string
 	// The ID of the project profile.
 	AttrId() *string
+	// Project profile ID.
 	AttrIdentifier() *string
 	// The timestamp at which a project profile was last updated.
 	AttrLastUpdatedAt() *string
@@ -91,10 +92,13 @@ type CfnProjectProfile interface {
 	// The description of the project profile.
 	Description() *string
 	SetDescription(val *string)
+	// A domain ID of the project profile.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	// A domain unit ID of the project profile.
 	DomainUnitIdentifier() *string
 	SetDomainUnitIdentifier(val *string)
+	// Environment configurations of a project profile.
 	EnvironmentConfigurations() interface{}
 	SetEnvironmentConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -16,7 +16,7 @@ package awsnetworkfirewall
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html
 //
 type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
-	// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` .
+	// An integer setting that indicates the order in which to run the stateless rule groups in a single firewall policy.
 	//
 	// Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-priority

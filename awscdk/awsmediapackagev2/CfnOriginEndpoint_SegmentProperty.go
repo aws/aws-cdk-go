@@ -28,6 +28,7 @@ package awsmediapackagev2
 //   		},
 //
 //   		// the properties below are optional
+//   		CmafExcludeSegmentDrmMetadata: jsii.Boolean(false),
 //   		ConstantInitializationVector: jsii.String("constantInitializationVector"),
 //   		KeyRotationIntervalSeconds: jsii.Number(123),
 //   	},

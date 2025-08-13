@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnJobQueue) validateSetPriorityParameters(val *float64) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnJobQueue) validateSetServiceEnvironmentOrderParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnJobQueueParameters(scope constructs.Construct, id *string, props *CfnJobQueueProps) error {
 	return nil
 }

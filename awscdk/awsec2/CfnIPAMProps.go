@@ -51,7 +51,14 @@ type CfnIPAMProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-enableprivategua
 	//
 	EnablePrivateGua interface{} `field:"optional" json:"enablePrivateGua" yaml:"enablePrivateGua"`
-	// A metered account is an account that is charged for active IP addresses managed in IPAM.
+	// A metered account is an AWS account that is charged for active IP addresses managed in IPAM.
+	//
+	// For more information, see [Enable cost distribution](https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html) in the *Amazon VPC IPAM User Guide* .
+	//
+	// Possible values:
+	//
+	// - `ipam-owner` (default): The AWS account which owns the IPAM is charged for all active IP addresses managed in IPAM.
+	// - `resource-owner` : The AWS account that owns the IP address is charged for the active IP address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-meteredaccount
 	//
 	MeteredAccount *string `field:"optional" json:"meteredAccount" yaml:"meteredAccount"`

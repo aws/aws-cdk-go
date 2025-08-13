@@ -1,8 +1,6 @@
 package awsevs
 
 
-// > Amazon EVS is in public preview release and is subject to change.
-//
 // A check on the environment to identify environment health and validate VMware VCF licensing compliance.
 //
 // Example:

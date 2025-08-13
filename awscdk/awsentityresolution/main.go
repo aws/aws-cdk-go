@@ -259,6 +259,14 @@ func init() {
 		reflect.TypeOf((*CfnMatchingWorkflow_RuleBasedPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.RuleConditionPropertiesProperty",
+		reflect.TypeOf((*CfnMatchingWorkflow_RuleConditionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.RuleConditionProperty",
+		reflect.TypeOf((*CfnMatchingWorkflow_RuleConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.RuleProperty",
 		reflect.TypeOf((*CfnMatchingWorkflow_RuleProperty)(nil)).Elem(),
 	)

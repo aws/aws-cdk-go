@@ -23,6 +23,30 @@ func init() {
 			"FAIL_ON_ALARM": AlarmBehavior_FAIL_ON_ALARM,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.AlternateTarget",
+		reflect.TypeOf((*AlternateTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AlternateTarget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAlternateTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.AlternateTargetConfig",
+		reflect.TypeOf((*AlternateTargetConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.AlternateTargetOptions",
+		reflect.TypeOf((*AlternateTargetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.AlternateTargetProps",
+		reflect.TypeOf((*AlternateTargetProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecs.AmiHardwareType",
 		reflect.TypeOf((*AmiHardwareType)(nil)).Elem(),
@@ -168,6 +192,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.BaseService",
 		reflect.TypeOf((*BaseService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLifecycleHook", GoMethod: "AddLifecycleHook"},
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
@@ -188,6 +213,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "isUsingECSDeploymentController", GoMethod: "IsUsingECSDeploymentController"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancers", GoGetter: "LoadBalancers"},
 			_jsii_.MemberMethod{JsiiMethod: "loadBalancerTarget", GoMethod: "LoadBalancerTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1255,6 +1281,48 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.DeploymentLifecycleHookTargetConfig",
+		reflect.TypeOf((*DeploymentLifecycleHookTargetConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.DeploymentLifecycleLambdaTarget",
+		reflect.TypeOf((*DeploymentLifecycleLambdaTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DeploymentLifecycleLambdaTarget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeploymentLifecycleHookTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.DeploymentLifecycleLambdaTargetProps",
+		reflect.TypeOf((*DeploymentLifecycleLambdaTargetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.DeploymentLifecycleStage",
+		reflect.TypeOf((*DeploymentLifecycleStage)(nil)).Elem(),
+		map[string]interface{}{
+			"RECONCILE_SERVICE": DeploymentLifecycleStage_RECONCILE_SERVICE,
+			"PRE_SCALE_UP": DeploymentLifecycleStage_PRE_SCALE_UP,
+			"POST_SCALE_UP": DeploymentLifecycleStage_POST_SCALE_UP,
+			"TEST_TRAFFIC_SHIFT": DeploymentLifecycleStage_TEST_TRAFFIC_SHIFT,
+			"POST_TEST_TRAFFIC_SHIFT": DeploymentLifecycleStage_POST_TEST_TRAFFIC_SHIFT,
+			"PRODUCTION_TRAFFIC_SHIFT": DeploymentLifecycleStage_PRODUCTION_TRAFFIC_SHIFT,
+			"POST_PRODUCTION_TRAFFIC_SHIFT": DeploymentLifecycleStage_POST_PRODUCTION_TRAFFIC_SHIFT,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.DeploymentStrategy",
+		reflect.TypeOf((*DeploymentStrategy)(nil)).Elem(),
+		map[string]interface{}{
+			"ROLLING": DeploymentStrategy_ROLLING,
+			"BLUE_GREEN": DeploymentStrategy_BLUE_GREEN,
+		},
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.Device",
 		reflect.TypeOf((*Device)(nil)).Elem(),
 	)
@@ -1315,6 +1383,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.Ec2Service",
 		reflect.TypeOf((*Ec2Service)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLifecycleHook", GoMethod: "AddLifecycleHook"},
 			_jsii_.MemberMethod{JsiiMethod: "addPlacementConstraints", GoMethod: "AddPlacementConstraints"},
 			_jsii_.MemberMethod{JsiiMethod: "addPlacementStrategies", GoMethod: "AddPlacementStrategies"},
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
@@ -1337,6 +1406,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "isUsingECSDeploymentController", GoMethod: "IsUsingECSDeploymentController"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancers", GoGetter: "LoadBalancers"},
 			_jsii_.MemberMethod{JsiiMethod: "loadBalancerTarget", GoMethod: "LoadBalancerTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1503,6 +1573,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.ExternalService",
 		reflect.TypeOf((*ExternalService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLifecycleHook", GoMethod: "AddLifecycleHook"},
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
@@ -1523,6 +1594,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "isUsingECSDeploymentController", GoMethod: "IsUsingECSDeploymentController"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancers", GoGetter: "LoadBalancers"},
 			_jsii_.MemberMethod{JsiiMethod: "loadBalancerTarget", GoMethod: "LoadBalancerTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1626,6 +1698,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.FargateService",
 		reflect.TypeOf((*FargateService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLifecycleHook", GoMethod: "AddLifecycleHook"},
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
@@ -1646,6 +1719,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "isUsingECSDeploymentController", GoMethod: "IsUsingECSDeploymentController"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancers", GoGetter: "LoadBalancers"},
 			_jsii_.MemberMethod{JsiiMethod: "loadBalancerTarget", GoMethod: "LoadBalancerTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1907,6 +1981,16 @@ func init() {
 		reflect.TypeOf((*Host)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ecs.IAlternateTarget",
+		reflect.TypeOf((*IAlternateTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IAlternateTarget{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ecs.IBaseService",
 		reflect.TypeOf((*IBaseService)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1945,6 +2029,16 @@ func init() {
 			j := jsiiProxy_ICluster{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ecs.IDeploymentLifecycleHookTarget",
+		reflect.TypeOf((*IDeploymentLifecycleHookTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IDeploymentLifecycleHookTarget{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -2218,6 +2312,14 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ListenerConfig{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.ListenerRuleConfiguration",
+		reflect.TypeOf((*ListenerRuleConfiguration)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ListenerRuleConfiguration{}
 		},
 	)
 	_jsii_.RegisterStruct(

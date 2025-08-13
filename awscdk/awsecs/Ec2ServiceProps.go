@@ -39,6 +39,10 @@ import (
 type Ec2ServiceProps struct {
 	// The name of the cluster that hosts the service.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
+	// bake time minutes for service.
+	// Default: - none.
+	//
+	BakeTime awscdk.Duration `field:"optional" json:"bakeTime" yaml:"bakeTime"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Default: - undefined.
 	//
@@ -65,6 +69,10 @@ type Ec2ServiceProps struct {
 	// Default: - Rolling update (ECS).
 	//
 	DeploymentController *DeploymentController `field:"optional" json:"deploymentController" yaml:"deploymentController"`
+	// The deployment strategy to use for the service.
+	// Default: ROLLING.
+	//
+	DeploymentStrategy DeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	// Default: - When creating the service, default is 1; when updating the service, default uses
 	// the current task number.
@@ -85,6 +93,10 @@ type Ec2ServiceProps struct {
 	// Default: - defaults to 60 seconds if at least one load balancer is in-use and it is not already set.
 	//
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The lifecycle hooks to execute during deployment stages.
+	// Default: - none;.
+	//
+	LifecycleHooks *[]IDeploymentLifecycleHookTarget `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
 	// Default: - 100 if daemon, otherwise 200.
 	//
@@ -139,7 +151,7 @@ type Ec2ServiceProps struct {
 	// service must not be a target of a Classic Load Balancer.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html
 	//
-	// Default: AvailabilityZoneRebalancing.DISABLED
+	// Default: AvailabilityZoneRebalancing.ENABLED
 	//
 	AvailabilityZoneRebalancing AvailabilityZoneRebalancing `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// Specifies whether the service will use the daemon scheduling strategy.

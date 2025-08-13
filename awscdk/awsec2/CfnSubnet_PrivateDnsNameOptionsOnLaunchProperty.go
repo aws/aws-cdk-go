@@ -1,7 +1,7 @@
 package awsec2
 
 
-// Describes the options for instance hostnames.
+// Specifies the options for instance hostnames.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

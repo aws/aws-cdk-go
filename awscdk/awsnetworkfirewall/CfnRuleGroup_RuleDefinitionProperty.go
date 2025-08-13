@@ -62,7 +62,7 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 	//
 	// You must specify a standard action and you can add custom actions.
 	//
-	// > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` .
+	// > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the firewall policy.
 	//
 	// For every rule, you must specify exactly one of the following standard actions.
 	//

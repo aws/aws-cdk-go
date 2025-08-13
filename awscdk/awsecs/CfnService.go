@@ -43,26 +43,218 @@ import (
 // > If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
 //
 // Example:
-//   var service fargateService
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   cfnService := awscdk.Aws_ecs.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
+//   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
+//   	CapacityProviderStrategy: []interface{}{
+//   		&CapacityProviderStrategyItemProperty{
+//   			Base: jsii.Number(123),
+//   			CapacityProvider: jsii.String("capacityProvider"),
+//   			Weight: jsii.Number(123),
+//   		},
+//   	},
+//   	Cluster: jsii.String("cluster"),
+//   	DeploymentConfiguration: &DeploymentConfigurationProperty{
+//   		Alarms: &DeploymentAlarmsProperty{
+//   			AlarmNames: []*string{
+//   				jsii.String("alarmNames"),
+//   			},
+//   			Enable: jsii.Boolean(false),
+//   			Rollback: jsii.Boolean(false),
+//   		},
+//   		BakeTimeInMinutes: jsii.Number(123),
+//   		DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
+//   			Enable: jsii.Boolean(false),
+//   			Rollback: jsii.Boolean(false),
+//   		},
+//   		LifecycleHooks: []interface{}{
+//   			&DeploymentLifecycleHookProperty{
+//   				HookTargetArn: jsii.String("hookTargetArn"),
+//   				LifecycleStages: []*string{
+//   					jsii.String("lifecycleStages"),
+//   				},
+//   				RoleArn: jsii.String("roleArn"),
+//   			},
+//   		},
+//   		MaximumPercent: jsii.Number(123),
+//   		MinimumHealthyPercent: jsii.Number(123),
+//   		Strategy: jsii.String("strategy"),
+//   	},
+//   	DeploymentController: &DeploymentControllerProperty{
+//   		Type: jsii.String("type"),
+//   	},
+//   	DesiredCount: jsii.Number(123),
+//   	EnableEcsManagedTags: jsii.Boolean(false),
+//   	EnableExecuteCommand: jsii.Boolean(false),
+//   	HealthCheckGracePeriodSeconds: jsii.Number(123),
+//   	LaunchType: jsii.String("launchType"),
+//   	LoadBalancers: []interface{}{
+//   		&LoadBalancerProperty{
+//   			AdvancedConfiguration: &AdvancedConfigurationProperty{
+//   				AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
 //
-//   cfnService := service.Node.defaultChild.(cfnService)
-//   cfnService.DeploymentConfiguration = &DeploymentConfigurationProperty{
-//   	MaximumPercent: jsii.Number(200),
-//   	MinimumHealthyPercent: jsii.Number(100),
-//   	Strategy: jsii.String("BLUE_GREEN"),
-//   	BakeTimeInMinutes: jsii.Number(15),
-//   	LifecycleHooks: []interface{}{
-//   		&DeploymentLifecycleHookProperty{
-//   			HookTargetArn: jsii.String("arn:aws:lambda:region:account:function:pre-deployment-hook"),
-//   			RoleArn: jsii.String("arn:aws:iam::account:role/deployment-hook-role"),
-//   			LifecycleStages: []*string{
-//   				jsii.String("PRE_STOP"),
-//   				jsii.String("POST_START"),
+//   				// the properties below are optional
+//   				ProductionListenerRule: jsii.String("productionListenerRule"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				TestListenerRule: jsii.String("testListenerRule"),
+//   			},
+//   			ContainerName: jsii.String("containerName"),
+//   			ContainerPort: jsii.Number(123),
+//   			LoadBalancerName: jsii.String("loadBalancerName"),
+//   			TargetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		AwsvpcConfiguration: &AwsVpcConfigurationProperty{
+//   			AssignPublicIp: jsii.String("assignPublicIp"),
+//   			SecurityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   			Subnets: []*string{
+//   				jsii.String("subnets"),
 //   			},
 //   		},
 //   	},
-//   }
+//   	PlacementConstraints: []interface{}{
+//   		&PlacementConstraintProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Expression: jsii.String("expression"),
+//   		},
+//   	},
+//   	PlacementStrategies: []interface{}{
+//   		&PlacementStrategyProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Field: jsii.String("field"),
+//   		},
+//   	},
+//   	PlatformVersion: jsii.String("platformVersion"),
+//   	PropagateTags: jsii.String("propagateTags"),
+//   	Role: jsii.String("role"),
+//   	SchedulingStrategy: jsii.String("schedulingStrategy"),
+//   	ServiceConnectConfiguration: &ServiceConnectConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		LogConfiguration: &LogConfigurationProperty{
+//   			LogDriver: jsii.String("logDriver"),
+//   			Options: map[string]*string{
+//   				"optionsKey": jsii.String("options"),
+//   			},
+//   			SecretOptions: []interface{}{
+//   				&SecretProperty{
+//   					Name: jsii.String("name"),
+//   					ValueFrom: jsii.String("valueFrom"),
+//   				},
+//   			},
+//   		},
+//   		Namespace: jsii.String("namespace"),
+//   		Services: []interface{}{
+//   			&ServiceConnectServiceProperty{
+//   				PortName: jsii.String("portName"),
+//
+//   				// the properties below are optional
+//   				ClientAliases: []interface{}{
+//   					&ServiceConnectClientAliasProperty{
+//   						Port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						DnsName: jsii.String("dnsName"),
+//   						TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
+//   							Header: &ServiceConnectTestTrafficRulesHeaderProperty{
+//   								Name: jsii.String("name"),
+//
+//   								// the properties below are optional
+//   								Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
+//   									Exact: jsii.String("exact"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				DiscoveryName: jsii.String("discoveryName"),
+//   				IngressPortOverride: jsii.Number(123),
+//   				Timeout: &TimeoutConfigurationProperty{
+//   					IdleTimeoutSeconds: jsii.Number(123),
+//   					PerRequestTimeoutSeconds: jsii.Number(123),
+//   				},
+//   				Tls: &ServiceConnectTlsConfigurationProperty{
+//   					IssuerCertificateAuthority: &ServiceConnectTlsCertificateAuthorityProperty{
+//   						AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
+//   					},
+//
+//   					// the properties below are optional
+//   					KmsKey: jsii.String("kmsKey"),
+//   					RoleArn: jsii.String("roleArn"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	ServiceName: jsii.String("serviceName"),
+//   	ServiceRegistries: []interface{}{
+//   		&ServiceRegistryProperty{
+//   			ContainerName: jsii.String("containerName"),
+//   			ContainerPort: jsii.Number(123),
+//   			Port: jsii.Number(123),
+//   			RegistryArn: jsii.String("registryArn"),
+//   		},
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	TaskDefinition: jsii.String("taskDefinition"),
+//   	VolumeConfigurations: []interface{}{
+//   		&ServiceVolumeConfigurationProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ManagedEbsVolume: &ServiceManagedEBSVolumeConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				Encrypted: jsii.Boolean(false),
+//   				FilesystemType: jsii.String("filesystemType"),
+//   				Iops: jsii.Number(123),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				SizeInGiB: jsii.Number(123),
+//   				SnapshotId: jsii.String("snapshotId"),
+//   				TagSpecifications: []interface{}{
+//   					&EBSTagSpecificationProperty{
+//   						ResourceType: jsii.String("resourceType"),
+//
+//   						// the properties below are optional
+//   						PropagateTags: jsii.String("propagateTags"),
+//   						Tags: []*cfnTag{
+//   							&cfnTag{
+//   								Key: jsii.String("key"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Throughput: jsii.Number(123),
+//   				VolumeInitializationRate: jsii.Number(123),
+//   				VolumeType: jsii.String("volumeType"),
+//   			},
+//   		},
+//   	},
+//   	VpcLatticeConfigurations: []interface{}{
+//   		&VpcLatticeConfigurationProperty{
+//   			PortName: jsii.String("portName"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			TargetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 //

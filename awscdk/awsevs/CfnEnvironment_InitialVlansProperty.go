@@ -1,9 +1,9 @@
 package awsevs
 
 
-// > Amazon EVS is in public preview release and is subject to change.
+// The initial VLAN subnets for the environment.
 //
-// The initial VLAN subnets for the environment. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
+// Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

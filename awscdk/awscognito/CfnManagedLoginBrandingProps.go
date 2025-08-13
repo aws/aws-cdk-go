@@ -57,6 +57,13 @@ type CfnManagedLoginBrandingProps struct {
 	//
 	ReturnMergedResources interface{} `field:"optional" json:"returnMergedResources" yaml:"returnMergedResources"`
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+	//
+	// The following components are not currently implemented and reserved for future use:
+	//
+	// - `signUp`
+	// - `instructions`
+	// - `sessionTimerDisplay`
+	// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-settings
 	//
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`

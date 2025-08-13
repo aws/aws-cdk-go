@@ -80,6 +80,10 @@ func validateCfnOriginEndpointPolicy_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetCdnAuthConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetChannelGroupNameParameters(val *string) error {
 	return nil
 }

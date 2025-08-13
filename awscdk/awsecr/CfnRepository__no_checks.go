@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnRepository) validateSetImageScanningConfigurationParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnRepository) validateSetImageTagMutabilityExclusionFiltersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRepository) validateSetLifecyclePolicyParameters(val interface{}) error {
 	return nil
 }

@@ -4,6 +4,10 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (e *jsiiProxy_ExternalService) validateAddLifecycleHookParameters(target IDeploymentLifecycleHookTarget) error {
+	return nil
+}
+
 func (e *jsiiProxy_ExternalService) validateAddVolumeParameters(volume ServiceManagedVolume) error {
 	return nil
 }

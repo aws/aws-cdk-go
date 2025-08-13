@@ -32,6 +32,7 @@ import (
 //   	ClusterEndpointEncryptionType: jsii.String("clusterEndpointEncryptionType"),
 //   	ClusterName: jsii.String("clusterName"),
 //   	Description: jsii.String("description"),
+//   	NetworkType: jsii.String("networkType"),
 //   	NotificationTopicArn: jsii.String("notificationTopicArn"),
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
@@ -106,6 +107,8 @@ type CfnCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The node type for the nodes in the cluster.
@@ -433,6 +436,16 @@ func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -650,6 +663,14 @@ func (j *jsiiProxy_CfnCluster)SetIamRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"iamRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

@@ -243,6 +243,7 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-rotatemasteruserpassword
 	//
 	RotateMasterUserPassword interface{} `field:"optional" json:"rotateMasterUserPassword" yaml:"rotateMasterUserPassword"`
+	// Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-serverlessv2scalingconfiguration
 	//
 	ServerlessV2ScalingConfiguration interface{} `field:"optional" json:"serverlessV2ScalingConfiguration" yaml:"serverlessV2ScalingConfiguration"`
@@ -278,7 +279,7 @@ type CfnDBClusterProps struct {
 	//
 	// Default value is `standard`
 	//
-	// > When you create a DocumentDB DB cluster with the storage type set to `iopt1` , the storage type is returned in the response. The storage type isn't returned when you set it to `standard` .
+	// > When you create an Amazon DocumentDB cluster with the storage type set to `iopt1` , the storage type is returned in the response. The storage type isn't returned when you set it to `standard` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`

@@ -1,9 +1,9 @@
 package awsevs
 
 
-// > Amazon EVS is in public preview release and is subject to change.
+// The security groups that allow traffic between the Amazon EVS control plane and your VPC for Amazon EVS service access.
 //
-// The security groups that allow traffic between the Amazon EVS control plane and your VPC for Amazon EVS service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+// If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

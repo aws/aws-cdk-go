@@ -13,6 +13,7 @@ import (
 //
 //   var dataProtectionPolicy interface{}
 //   var fieldIndexPolicies interface{}
+//   var resourcePolicyDocument interface{}
 //
 //   cfnLogGroupProps := &CfnLogGroupProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
@@ -22,6 +23,7 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogGroupClass: jsii.String("logGroupClass"),
 //   	LogGroupName: jsii.String("logGroupName"),
+//   	ResourcePolicyDocument: resourcePolicyDocument,
 //   	RetentionInDays: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -79,6 +81,9 @@ type CfnLogGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
 	//
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-resourcepolicydocument
+	//
+	ResourcePolicyDocument interface{} `field:"optional" json:"resourcePolicyDocument" yaml:"resourcePolicyDocument"`
 	// The number of days to retain the log events in the specified log group.
 	//
 	// Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.

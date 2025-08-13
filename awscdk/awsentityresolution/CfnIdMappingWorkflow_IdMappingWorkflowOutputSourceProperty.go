@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

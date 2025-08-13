@@ -25,19 +25,19 @@ type CfnApp_SourceProperty struct {
 	//
 	// For more information on how to safely handle IAM credentials, see [](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) .
 	//
-	// In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
+	// In responses, OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-source.html#cfn-opsworks-app-source-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The application's version.
 	//
-	// AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+	// OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-source.html#cfn-opsworks-app-source-revision
 	//
 	Revision *string `field:"optional" json:"revision" yaml:"revision"`
 	// In requests, the repository's SSH key.
 	//
-	// In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
+	// In responses, OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-source.html#cfn-opsworks-app-source-sshkey
 	//
 	SshKey *string `field:"optional" json:"sshKey" yaml:"sshKey"`

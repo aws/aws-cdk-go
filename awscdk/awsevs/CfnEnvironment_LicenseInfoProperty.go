@@ -1,9 +1,9 @@
 package awsevs
 
 
-// > Amazon EVS is in public preview release and is subject to change.
+// The license information that Amazon EVS requires to create an environment.
 //
-// The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key.
+// Amazon EVS requires two license keys: a VCF solution key and a vSAN license key.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

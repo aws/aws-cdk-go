@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) validateSetEncryptionConfigura
 	return nil
 }
 
+func (j *jsiiProxy_CfnRepositoryCreationTemplate) validateSetImageTagMutabilityExclusionFiltersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRepositoryCreationTemplate) validateSetPrefixParameters(val *string) error {
 	return nil
 }

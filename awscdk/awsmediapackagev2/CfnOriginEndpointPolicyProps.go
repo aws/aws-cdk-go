@@ -15,6 +15,14 @@ package awsmediapackagev2
 //   	ChannelName: jsii.String("channelName"),
 //   	OriginEndpointName: jsii.String("originEndpointName"),
 //   	Policy: policy,
+//
+//   	// the properties below are optional
+//   	CdnAuthConfiguration: &CdnAuthConfigurationProperty{
+//   		CdnIdentifierSecretArns: []*string{
+//   			jsii.String("cdnIdentifierSecretArns"),
+//   		},
+//   		SecretsRoleArn: jsii.String("secretsRoleArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html
@@ -36,5 +44,9 @@ type CfnOriginEndpointPolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-policy
 	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
+	// The settings to enable CDN authorization headers in MediaPackage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html#cfn-mediapackagev2-originendpointpolicy-cdnauthconfiguration
+	//
+	CdnAuthConfiguration interface{} `field:"optional" json:"cdnAuthConfiguration" yaml:"cdnAuthConfiguration"`
 }
 

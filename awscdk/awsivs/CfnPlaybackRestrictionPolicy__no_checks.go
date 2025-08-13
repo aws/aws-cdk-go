@@ -80,14 +80,6 @@ func validateCfnPlaybackRestrictionPolicy_IsConstructParameters(x interface{}) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) validateSetAllowedCountriesParameters(val *[]*string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) validateSetAllowedOriginsParameters(val *[]*string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) validateSetEnableStrictOriginEnforcementParameters(val interface{}) error {
 	return nil
 }

@@ -16,8 +16,23 @@ import (
 //   		StorageConfigurationArn: jsii.String("storageConfigurationArn"),
 //
 //   		// the properties below are optional
+//   		HlsConfiguration: &HlsConfigurationProperty{
+//   			ParticipantRecordingHlsConfiguration: &ParticipantRecordingHlsConfigurationProperty{
+//   				TargetSegmentDurationSeconds: jsii.Number(123),
+//   			},
+//   		},
 //   		MediaTypes: []*string{
 //   			jsii.String("mediaTypes"),
+//   		},
+//   		RecordingReconnectWindowSeconds: jsii.Number(123),
+//   		ThumbnailConfiguration: &ThumbnailConfigurationProperty{
+//   			ParticipantThumbnailConfiguration: &ParticipantThumbnailConfigurationProperty{
+//   				RecordingMode: jsii.String("recordingMode"),
+//   				Storage: []*string{
+//   					jsii.String("storage"),
+//   				},
+//   				TargetIntervalSeconds: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),

@@ -7588,6 +7588,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configOptions", GoGetter: "ConfigOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customInstructions", GoGetter: "CustomInstructions"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSets", GoGetter: "DataSets"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "folderArns", GoGetter: "FolderArns"},
@@ -7633,6 +7634,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTopic.ComparativeOrderProperty",
 		reflect.TypeOf((*CfnTopic_ComparativeOrderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTopic.CustomInstructionsProperty",
+		reflect.TypeOf((*CfnTopic_CustomInstructionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTopic.DataAggregationProperty",

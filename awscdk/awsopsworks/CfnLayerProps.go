@@ -120,11 +120,11 @@ type CfnLayerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes.
+	// For custom layers only, use this parameter to specify the layer's short name, which is used internally by OpsWorks Stacks and by Chef recipes.
 	//
 	// The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
 	//
-	// Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the [Layer Reference](https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html) .
+	// Built-in layer short names are defined by OpsWorks Stacks. For more information, see the [Layer Reference](https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-shortname
 	//
 	Shortname *string `field:"required" json:"shortname" yaml:"shortname"`
@@ -176,7 +176,7 @@ type CfnLayerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-lifecycleeventconfiguration
 	//
 	LifecycleEventConfiguration interface{} `field:"optional" json:"lifecycleEventConfiguration" yaml:"lifecycleEventConfiguration"`
-	// The load-based scaling configuration for the AWS OpsWorks layer.
+	// The load-based scaling configuration for the OpsWorks layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-loadbasedautoscaling
 	//
 	LoadBasedAutoScaling interface{} `field:"optional" json:"loadBasedAutoScaling" yaml:"loadBasedAutoScaling"`
@@ -184,7 +184,7 @@ type CfnLayerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-packages
 	//
 	Packages *[]*string `field:"optional" json:"packages" yaml:"packages"`
-	// Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer.
+	// Specifies one or more sets of tags (key–value pairs) to associate with this OpsWorks layer.
 	//
 	// Use tags to manage your resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-tags

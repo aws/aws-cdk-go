@@ -15,7 +15,7 @@ package awsopsworks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html
 //
 type CfnStack_RdsDbInstanceProperty struct {
-	// AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
+	// OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html#cfn-opsworks-stack-rdsdbinstance-dbpassword
 	//
 	DbPassword *string `field:"required" json:"dbPassword" yaml:"dbPassword"`

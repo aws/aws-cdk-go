@@ -1308,6 +1308,19 @@ ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &InterfaceVpcEndp
 })
 ```
 
+For cross-region VPC endpoints, specify the `serviceRegion` parameter:
+
+```go
+var vpc vpc
+
+
+ec2.NewInterfaceVpcEndpoint(this, jsii.String("CrossRegionEndpoint"), &InterfaceVpcEndpointProps{
+	Vpc: Vpc,
+	Service: ec2.NewInterfaceVpcEndpointService(jsii.String("com.amazonaws.vpce.us-east-1.vpce-svc-123456"), jsii.Number(443)),
+	ServiceRegion: jsii.String("us-east-1"),
+})
+```
+
 #### Security groups for interface VPC endpoints
 
 By default, interface VPC endpoints create a new security group and all traffic to the endpoint from within the VPC will be automatically allowed.

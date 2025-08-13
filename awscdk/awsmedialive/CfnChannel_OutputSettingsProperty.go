@@ -135,6 +135,12 @@ package awsmedialive
 //   		SegmentModifier: jsii.String("segmentModifier"),
 //   	},
 //   	MediaPackageOutputSettings: &MediaPackageOutputSettingsProperty{
+//   		MediaPackageV2DestinationSettings: &MediaPackageV2DestinationSettingsProperty{
+//   			AudioGroupId: jsii.String("audioGroupId"),
+//   			AudioRenditionSets: jsii.String("audioRenditionSets"),
+//   			HlsAutoSelect: jsii.String("hlsAutoSelect"),
+//   			HlsDefault: jsii.String("hlsDefault"),
+//   		},
 //   	},
 //   	MsSmoothOutputSettings: &MsSmoothOutputSettingsProperty{
 //   		H265PackagingType: jsii.String("h265PackagingType"),

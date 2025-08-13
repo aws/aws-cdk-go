@@ -32,6 +32,12 @@ import (
 //   		KmsKey: jsii.String("kmsKey"),
 //   	},
 //   	ImageTagMutability: jsii.String("imageTagMutability"),
+//   	ImageTagMutabilityExclusionFilters: []interface{}{
+//   		&ImageTagMutabilityExclusionFilterProperty{
+//   			ImageTagMutabilityExclusionFilterType: jsii.String("imageTagMutabilityExclusionFilterType"),
+//   			ImageTagMutabilityExclusionFilterValue: jsii.String("imageTagMutabilityExclusionFilterValue"),
+//   		},
+//   	},
 //   	LifecyclePolicy: jsii.String("lifecyclePolicy"),
 //   	RepositoryPolicy: jsii.String("repositoryPolicy"),
 //   	ResourceTags: []interface{}{
@@ -75,6 +81,9 @@ type CfnRepositoryCreationTemplate interface {
 	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
+	// Defines the image tag mutability exclusion filters to apply when creating repositories from this template.
+	ImageTagMutabilityExclusionFilters() interface{}
+	SetImageTagMutabilityExclusionFilters(val interface{})
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy() *string
 	SetLifecyclePolicy(val *string)
@@ -364,6 +373,16 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) ImageTagMutability() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepositoryCreationTemplate) ImageTagMutabilityExclusionFilters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imageTagMutabilityExclusionFilters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepositoryCreationTemplate) LifecyclePolicy() *string {
 	var returns *string
 	_jsii_.Get(
@@ -534,6 +553,17 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate)SetImageTagMutability(val *stri
 	_jsii_.Set(
 		j,
 		"imageTagMutability",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepositoryCreationTemplate)SetImageTagMutabilityExclusionFilters(val interface{}) {
+	if err := j.validateSetImageTagMutabilityExclusionFiltersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imageTagMutabilityExclusionFilters",
 		val,
 	)
 }

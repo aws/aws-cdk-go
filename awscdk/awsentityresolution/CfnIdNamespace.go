@@ -11,7 +11,7 @@ import (
 
 // Creates an ID namespace object which will help customers provide metadata explaining their dataset and how to use it.
 //
-// Each ID namespace must have a unique name. To modify an existing ID namespace, use the `UpdateIdNamespace` API.
+// Each ID namespace must have a unique name. To modify an existing ID namespace, use the UpdateIdNamespace API.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -90,6 +90,7 @@ import (
 //   	},
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
+//   	SourceDbClusterResourceId: jsii.String("sourceDbClusterResourceId"),
 //   	SourceRegion: jsii.String("sourceRegion"),
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	StorageType: jsii.String("storageType"),
@@ -739,6 +740,10 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusteridentifier
 	//
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
+	// The resource ID of the source DB cluster from which to restore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusterresourceid
+	//
+	SourceDbClusterResourceId *string `field:"optional" json:"sourceDbClusterResourceId" yaml:"sourceDbClusterResourceId"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, `us-east-1` .
 	//
 	// Valid for: Aurora DB clusters only.

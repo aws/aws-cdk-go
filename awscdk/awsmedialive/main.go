@@ -506,6 +506,14 @@ func init() {
 		reflect.TypeOf((*CfnChannel_MediaPackageOutputSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaPackageV2DestinationSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MediaPackageV2DestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaPackageV2GroupSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MediaPackageV2GroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.MotionGraphicsConfigurationProperty",
 		reflect.TypeOf((*CfnChannel_MotionGraphicsConfigurationProperty)(nil)).Elem(),
 	)

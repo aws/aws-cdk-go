@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Use the `RuleGroup` to define a reusable collection of stateless or stateful network traffic filtering rules.
-//
-// You use rule groups in an `FirewallPolicy` to specify the filtering behavior of an `Firewall` .
+// Use the [](https://docs.aws.amazon.com/RuleGroup) to define a reusable collection of stateless or stateful network traffic filtering rules. You use rule groups in an firewall policy to specify the filtering behavior of an firewall.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -157,6 +155,11 @@ import (
 //   			RuleOrder: jsii.String("ruleOrder"),
 //   		},
 //   	},
+//   	SummaryConfiguration: &SummaryConfigurationProperty{
+//   		RuleOptions: []*string{
+//   			jsii.String("ruleOptions"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -171,9 +174,9 @@ type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	// The Amazon Resource Name (ARN) of the rule group.
 	AttrRuleGroupArn() *string
-	// The unique ID of the `RuleGroup` resource.
+	// The unique ID of the rule group resource.
 	AttrRuleGroupId() *string
 	// The maximum operating resources that this rule group can use.
 	Capacity() *float64
@@ -217,6 +220,9 @@ type CfnRuleGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+	SummaryConfiguration() interface{}
+	SetSummaryConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An array of key-value pairs to apply to this resource.
@@ -512,6 +518,16 @@ func (j *jsiiProxy_CfnRuleGroup) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroup) SummaryConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"summaryConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroup) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -627,6 +643,17 @@ func (j *jsiiProxy_CfnRuleGroup)SetRuleGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroup)SetSummaryConfiguration(val interface{}) {
+	if err := j.validateSetSummaryConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"summaryConfiguration",
 		val,
 	)
 }

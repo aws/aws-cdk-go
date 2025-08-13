@@ -1,5 +1,8 @@
 package awsses
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnDedicatedIpPool`.
 //
@@ -11,6 +14,12 @@ package awsses
 //   cfnDedicatedIpPoolProps := &CfnDedicatedIpPoolProps{
 //   	PoolName: jsii.String("poolName"),
 //   	ScalingMode: jsii.String("scalingMode"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html
@@ -33,5 +42,9 @@ type CfnDedicatedIpPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-scalingmode
 	//
 	ScalingMode *string `field:"optional" json:"scalingMode" yaml:"scalingMode"`
+	// An object that defines the tags (keys and values) that you want to associate with the pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

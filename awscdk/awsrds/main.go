@@ -239,6 +239,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "snapshotIdentifier", GoGetter: "SnapshotIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceDbClusterIdentifier", GoGetter: "SourceDbClusterIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceDbClusterResourceId", GoGetter: "SourceDbClusterResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceRegion", GoGetter: "SourceRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageEncrypted", GoGetter: "StorageEncrypted"},
@@ -357,6 +358,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "applyImmediately", GoGetter: "ApplyImmediately"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "associatedRoles", GoGetter: "AssociatedRoles"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAutomaticRestartTime", GoGetter: "AttrAutomaticRestartTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCertificateDetails", GoGetter: "AttrCertificateDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCertificateDetailsCaIdentifier", GoGetter: "AttrCertificateDetailsCaIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCertificateDetailsValidTill", GoGetter: "AttrCertificateDetailsValidTill"},
@@ -376,8 +378,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrListenerEndpointHostedZoneId", GoGetter: "AttrListenerEndpointHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrListenerEndpointPort", GoGetter: "AttrListenerEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMasterUserSecretSecretArn", GoGetter: "AttrMasterUserSecretSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPercentProgress", GoGetter: "AttrPercentProgress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadReplicaDbClusterIdentifiers", GoGetter: "AttrReadReplicaDbClusterIdentifiers"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadReplicaDbInstanceIdentifiers", GoGetter: "AttrReadReplicaDbInstanceIdentifiers"},
+			_jsii_.MemberProperty{JsiiProperty: "attrResumeFullAutomationModeTime", GoGetter: "AttrResumeFullAutomationModeTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSecondaryAvailabilityZone", GoGetter: "AttrSecondaryAvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatusInfos", GoGetter: "AttrStatusInfos"},
 			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationKmsKeyId", GoGetter: "AutomaticBackupReplicationKmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationRegion", GoGetter: "AutomaticBackupReplicationRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationRetentionPeriod", GoGetter: "AutomaticBackupReplicationRetentionPeriod"},
@@ -463,6 +469,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sourceDbiResourceId", GoGetter: "SourceDbiResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceRegion", GoGetter: "SourceRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "statusInfos", GoGetter: "StatusInfos"},
 			_jsii_.MemberProperty{JsiiProperty: "storageEncrypted", GoGetter: "StorageEncrypted"},
 			_jsii_.MemberProperty{JsiiProperty: "storageThroughput", GoGetter: "StorageThroughput"},
 			_jsii_.MemberProperty{JsiiProperty: "storageType", GoGetter: "StorageType"},
@@ -494,6 +501,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CfnDBInstance.DBInstanceRoleProperty",
 		reflect.TypeOf((*CfnDBInstance_DBInstanceRoleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_rds.CfnDBInstance.DBInstanceStatusInfoProperty",
+		reflect.TypeOf((*CfnDBInstance_DBInstanceStatusInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CfnDBInstance.EndpointProperty",

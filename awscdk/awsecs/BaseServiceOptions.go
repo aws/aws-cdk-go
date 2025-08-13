@@ -17,6 +17,7 @@ import (
 //
 //   var cluster cluster
 //   var containerDefinition containerDefinition
+//   var deploymentLifecycleHookTarget iDeploymentLifecycleHookTarget
 //   var key key
 //   var logDriver logDriver
 //   var namespace iNamespace
@@ -28,6 +29,7 @@ import (
 //   	Cluster: cluster,
 //
 //   	// the properties below are optional
+//   	BakeTime: cdk.Duration_Minutes(jsii.Number(30)),
 //   	CapacityProviderStrategies: []capacityProviderStrategy{
 //   		&capacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
@@ -46,7 +48,7 @@ import (
 //   		Container: containerDefinition,
 //   		ContainerPort: jsii.Number(123),
 //   		DnsRecordType: awscdk.Aws_servicediscovery.DnsRecordType_A,
-//   		DnsTtl: cdk.Duration_Minutes(jsii.Number(30)),
+//   		DnsTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   		FailureThreshold: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   	},
@@ -61,10 +63,14 @@ import (
 //   	DeploymentController: &DeploymentController{
 //   		Type: awscdk.*Aws_ecs.DeploymentControllerType_ECS,
 //   	},
+//   	DeploymentStrategy: awscdk.*Aws_ecs.DeploymentStrategy_ROLLING,
 //   	DesiredCount: jsii.Number(123),
 //   	EnableECSManagedTags: jsii.Boolean(false),
 //   	EnableExecuteCommand: jsii.Boolean(false),
 //   	HealthCheckGracePeriod: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	LifecycleHooks: []*iDeploymentLifecycleHookTarget{
+//   		deploymentLifecycleHookTarget,
+//   	},
 //   	MaxHealthyPercent: jsii.Number(123),
 //   	MinHealthyPercent: jsii.Number(123),
 //   	PropagateTags: awscdk.*Aws_ecs.PropagatedTagSource_SERVICE,
@@ -100,6 +106,10 @@ import (
 type BaseServiceOptions struct {
 	// The name of the cluster that hosts the service.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
+	// bake time minutes for service.
+	// Default: - none.
+	//
+	BakeTime awscdk.Duration `field:"optional" json:"bakeTime" yaml:"bakeTime"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Default: - undefined.
 	//
@@ -126,6 +136,10 @@ type BaseServiceOptions struct {
 	// Default: - Rolling update (ECS).
 	//
 	DeploymentController *DeploymentController `field:"optional" json:"deploymentController" yaml:"deploymentController"`
+	// The deployment strategy to use for the service.
+	// Default: ROLLING.
+	//
+	DeploymentStrategy DeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	// Default: - When creating the service, default is 1; when updating the service, default uses
 	// the current task number.
@@ -146,6 +160,10 @@ type BaseServiceOptions struct {
 	// Default: - defaults to 60 seconds if at least one load balancer is in-use and it is not already set.
 	//
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The lifecycle hooks to execute during deployment stages.
+	// Default: - none;.
+	//
+	LifecycleHooks *[]IDeploymentLifecycleHookTarget `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
 	// Default: - 100 if daemon, otherwise 200.
 	//

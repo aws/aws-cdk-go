@@ -80,6 +80,14 @@ func validateCfnFirewall_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewall) validateSetAvailabilityZoneChangeProtectionParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFirewall) validateSetAvailabilityZoneMappingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFirewall) validateSetDeleteProtectionParameters(val interface{}) error {
 	return nil
 }
@@ -105,10 +113,6 @@ func (j *jsiiProxy_CfnFirewall) validateSetSubnetMappingsParameters(val interfac
 }
 
 func (j *jsiiProxy_CfnFirewall) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnFirewall) validateSetVpcIdParameters(val *string) error {
 	return nil
 }
 

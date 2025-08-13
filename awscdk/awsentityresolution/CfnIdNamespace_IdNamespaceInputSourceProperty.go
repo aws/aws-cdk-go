@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `InputSourceARN` and `SchemaName` .
+// An object containing `inputSourceARN` and `schemaName` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -317,6 +317,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "imageScanningConfiguration", GoGetter: "ImageScanningConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "imageTagMutability", GoGetter: "ImageTagMutability"},
+			_jsii_.MemberProperty{JsiiProperty: "imageTagMutabilityExclusionFilters", GoGetter: "ImageTagMutabilityExclusionFilters"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicy", GoGetter: "LifecyclePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -356,6 +357,10 @@ func init() {
 		reflect.TypeOf((*CfnRepository_ImageScanningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecr.CfnRepository.ImageTagMutabilityExclusionFilterProperty",
+		reflect.TypeOf((*CfnRepository_ImageTagMutabilityExclusionFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.CfnRepository.LifecyclePolicyProperty",
 		reflect.TypeOf((*CfnRepository_LifecyclePolicyProperty)(nil)).Elem(),
 	)
@@ -384,6 +389,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "imageTagMutability", GoGetter: "ImageTagMutability"},
+			_jsii_.MemberProperty{JsiiProperty: "imageTagMutabilityExclusionFilters", GoGetter: "ImageTagMutabilityExclusionFilters"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicy", GoGetter: "LifecyclePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -415,6 +421,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.CfnRepositoryCreationTemplate.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnRepositoryCreationTemplate_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecr.CfnRepositoryCreationTemplate.ImageTagMutabilityExclusionFilterProperty",
+		reflect.TypeOf((*CfnRepositoryCreationTemplate_ImageTagMutabilityExclusionFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.CfnRepositoryCreationTemplateProps",

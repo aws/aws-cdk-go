@@ -187,6 +187,20 @@ import (
 //   		},
 //   	},
 //   	AssetModelType: jsii.String("assetModelType"),
+//   	EnforcedAssetModelInterfaceRelationships: []interface{}{
+//   		&EnforcedAssetModelInterfaceRelationshipProperty{
+//   			InterfaceAssetModelId: jsii.String("interfaceAssetModelId"),
+//   			PropertyMappings: []interface{}{
+//   				&EnforcedAssetModelInterfacePropertyMappingProperty{
+//   					InterfaceAssetModelPropertyExternalId: jsii.String("interfaceAssetModelPropertyExternalId"),
+//
+//   					// the properties below are optional
+//   					AssetModelPropertyExternalId: jsii.String("assetModelPropertyExternalId"),
+//   					AssetModelPropertyLogicalId: jsii.String("assetModelPropertyLogicalId"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -243,6 +257,10 @@ type CfnAssetModelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeltype
 	//
 	AssetModelType *string `field:"optional" json:"assetModelType" yaml:"assetModelType"`
+	// a list of asset model and interface relationships.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-enforcedassetmodelinterfacerelationships
+	//
+	EnforcedAssetModelInterfaceRelationships interface{} `field:"optional" json:"enforcedAssetModelInterfaceRelationships" yaml:"enforcedAssetModelInterfaceRelationships"`
 	// A list of key-value pairs that contain metadata for the asset.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .

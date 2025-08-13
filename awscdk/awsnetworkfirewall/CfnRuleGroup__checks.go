@@ -219,6 +219,30 @@ func (j *jsiiProxy_CfnRuleGroup) validateSetRuleGroupNameParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuleGroup) validateSetSummaryConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnRuleGroup_SummaryConfigurationProperty:
+		val := val.(*CfnRuleGroup_SummaryConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnRuleGroup_SummaryConfigurationProperty:
+		val_ := val.(CfnRuleGroup_SummaryConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRuleGroup_SummaryConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuleGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

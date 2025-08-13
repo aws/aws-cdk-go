@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single stateless rule.
 //
-// This is used in `RuleGroup.StatelessRulesAndCustomActions` .
+// This is used in `StatelessRulesAndCustomActions` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

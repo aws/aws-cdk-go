@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnClusterProps := &CfnClusterProps{
+//   	ClusterName: jsii.String("clusterName"),
 //   	InstanceGroups: []interface{}{
 //   		&ClusterInstanceGroupProperty{
 //   			ExecutionRole: jsii.String("executionRole"),
@@ -44,15 +45,50 @@ import (
 //   				},
 //   			},
 //   			ThreadsPerCore: jsii.Number(123),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	ClusterName: jsii.String("clusterName"),
 //   	NodeRecovery: jsii.String("nodeRecovery"),
 //   	Orchestrator: &OrchestratorProperty{
 //   		Eks: &ClusterOrchestratorEksConfigProperty{
 //   			ClusterArn: jsii.String("clusterArn"),
+//   		},
+//   	},
+//   	RestrictedInstanceGroups: []interface{}{
+//   		&ClusterRestrictedInstanceGroupProperty{
+//   			EnvironmentConfig: &EnvironmentConfigProperty{
+//   				FSxLustreConfig: &FSxLustreConfigProperty{
+//   					PerUnitStorageThroughput: jsii.Number(123),
+//   					SizeInGiB: jsii.Number(123),
+//   				},
+//   			},
+//   			ExecutionRole: jsii.String("executionRole"),
+//   			InstanceCount: jsii.Number(123),
+//   			InstanceGroupName: jsii.String("instanceGroupName"),
+//   			InstanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			CurrentCount: jsii.Number(123),
+//   			InstanceStorageConfigs: []interface{}{
+//   				&ClusterInstanceStorageConfigProperty{
+//   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
+//   						VolumeSizeInGb: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			OnStartDeepHealthChecks: []*string{
+//   				jsii.String("onStartDeepHealthChecks"),
+//   			},
+//   			OverrideVpcConfig: &VpcConfigProperty{
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				Subnets: []*string{
+//   					jsii.String("subnets"),
+//   				},
+//   			},
+//   			ThreadsPerCore: jsii.Number(123),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -74,16 +110,16 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html
 //
 type CfnClusterProps struct {
+	// The name of the SageMaker HyperPod cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-clustername
+	//
+	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// The instance groups of the SageMaker HyperPod cluster.
 	//
 	// To delete an instance group, remove it from the array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-instancegroups
 	//
-	InstanceGroups interface{} `field:"required" json:"instanceGroups" yaml:"instanceGroups"`
-	// The name of the SageMaker HyperPod cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-clustername
-	//
-	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
+	InstanceGroups interface{} `field:"optional" json:"instanceGroups" yaml:"instanceGroups"`
 	// Specifies whether to enable or disable the automatic node recovery feature of SageMaker HyperPod.
 	//
 	// Available values are `Automatic` for enabling and `None` for disabling.
@@ -96,6 +132,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-orchestrator
 	//
 	Orchestrator interface{} `field:"optional" json:"orchestrator" yaml:"orchestrator"`
+	// The restricted instance groups of the SageMaker HyperPod cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-restrictedinstancegroups
+	//
+	RestrictedInstanceGroups interface{} `field:"optional" json:"restrictedInstanceGroups" yaml:"restrictedInstanceGroups"`
 	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 	//
 	// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .

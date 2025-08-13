@@ -187,6 +187,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "restrictedInstanceGroups", GoGetter: "RestrictedInstanceGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -223,6 +224,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterOrchestratorEksConfigProperty",
 		reflect.TypeOf((*CfnCluster_ClusterOrchestratorEksConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterRestrictedInstanceGroupProperty",
+		reflect.TypeOf((*CfnCluster_ClusterRestrictedInstanceGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.EnvironmentConfigProperty",
+		reflect.TypeOf((*CfnCluster_EnvironmentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.FSxLustreConfigProperty",
+		reflect.TypeOf((*CfnCluster_FSxLustreConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.OrchestratorProperty",
@@ -688,6 +701,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.ResourceSpecProperty",
 		reflect.TypeOf((*CfnDomain_ResourceSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.S3FileSystemConfigProperty",
+		reflect.TypeOf((*CfnDomain_S3FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.SharingSettingsProperty",
@@ -2737,6 +2754,140 @@ func init() {
 		reflect.TypeOf((*CfnPipelineProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob",
+		reflect.TypeOf((*CfnProcessingJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "appSpecification", GoGetter: "AppSpecification"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAutoMlJobArn", GoGetter: "AttrAutoMlJobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrExitMessage", GoGetter: "AttrExitMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFailureReason", GoGetter: "AttrFailureReason"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedTime", GoGetter: "AttrLastModifiedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMonitoringScheduleArn", GoGetter: "AttrMonitoringScheduleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProcessingEndTime", GoGetter: "AttrProcessingEndTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProcessingJobArn", GoGetter: "AttrProcessingJobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProcessingJobStatus", GoGetter: "AttrProcessingJobStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProcessingStartTime", GoGetter: "AttrProcessingStartTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTrainingJobArn", GoGetter: "AttrTrainingJobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
+			_jsii_.MemberProperty{JsiiProperty: "experimentConfig", GoGetter: "ExperimentConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConfig", GoGetter: "NetworkConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "processingInputs", GoGetter: "ProcessingInputs"},
+			_jsii_.MemberProperty{JsiiProperty: "processingJobName", GoGetter: "ProcessingJobName"},
+			_jsii_.MemberProperty{JsiiProperty: "processingOutputConfig", GoGetter: "ProcessingOutputConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processingResources", GoGetter: "ProcessingResources"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "stoppingCondition", GoGetter: "StoppingCondition"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnProcessingJob{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.AppSpecificationProperty",
+		reflect.TypeOf((*CfnProcessingJob_AppSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.AthenaDatasetDefinitionProperty",
+		reflect.TypeOf((*CfnProcessingJob_AthenaDatasetDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.ClusterConfigProperty",
+		reflect.TypeOf((*CfnProcessingJob_ClusterConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.DatasetDefinitionProperty",
+		reflect.TypeOf((*CfnProcessingJob_DatasetDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.ExperimentConfigProperty",
+		reflect.TypeOf((*CfnProcessingJob_ExperimentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.FeatureStoreOutputProperty",
+		reflect.TypeOf((*CfnProcessingJob_FeatureStoreOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.NetworkConfigProperty",
+		reflect.TypeOf((*CfnProcessingJob_NetworkConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.ProcessingInputsObjectProperty",
+		reflect.TypeOf((*CfnProcessingJob_ProcessingInputsObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.ProcessingOutputConfigProperty",
+		reflect.TypeOf((*CfnProcessingJob_ProcessingOutputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.ProcessingOutputsObjectProperty",
+		reflect.TypeOf((*CfnProcessingJob_ProcessingOutputsObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.ProcessingResourcesProperty",
+		reflect.TypeOf((*CfnProcessingJob_ProcessingResourcesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.RedshiftDatasetDefinitionProperty",
+		reflect.TypeOf((*CfnProcessingJob_RedshiftDatasetDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.S3InputProperty",
+		reflect.TypeOf((*CfnProcessingJob_S3InputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.S3OutputProperty",
+		reflect.TypeOf((*CfnProcessingJob_S3OutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.StoppingConditionProperty",
+		reflect.TypeOf((*CfnProcessingJob_StoppingConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJob.VpcConfigProperty",
+		reflect.TypeOf((*CfnProcessingJob_VpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnProcessingJobProps",
+		reflect.TypeOf((*CfnProcessingJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sagemaker.CfnProject",
 		reflect.TypeOf((*CfnProject)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2910,6 +3061,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.ResourceSpecProperty",
 		reflect.TypeOf((*CfnSpace_ResourceSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.S3FileSystemProperty",
+		reflect.TypeOf((*CfnSpace_S3FileSystemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceAppLifecycleManagementProperty",
@@ -3114,6 +3269,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.ResourceSpecProperty",
 		reflect.TypeOf((*CfnUserProfile_ResourceSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.S3FileSystemConfigProperty",
+		reflect.TypeOf((*CfnUserProfile_S3FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.SharingSettingsProperty",

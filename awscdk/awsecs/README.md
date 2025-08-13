@@ -2254,98 +2254,40 @@ Amazon ECS supports native blue/green deployments that allow you to deploy new v
 
 [Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html)
 
-### Using Escape Hatches for Blue/Green Features
-
-The new blue/green deployment features are added to CloudFormation but not yet available in the CDK L2 constructs, you can use escape hatches to access them through the L1 (CfnService) construct.
-
-#### Load Balancer Advanced Configuration
-
-Configure advanced load balancer settings for blue/green deployments with alternate target groups and listener rules:
-
 ```go
-var service fargateService
+import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-
-cfnService := service.Node.defaultChild.(cfnService)
-cfnService.LoadBalancers = []interface{}{
-	&LoadBalancerProperty{
-		ContainerName: jsii.String("web"),
-		ContainerPort: jsii.Number(80),
-		TargetGroupArn: jsii.String("arn:aws:elasticloadbalancing:region:account:targetgroup/production"),
-		AdvancedConfiguration: &AdvancedConfigurationProperty{
-			AlternateTargetGroupArn: jsii.String("arn:aws:elasticloadbalancing:region:account:targetgroup/test"),
-			ProductionListenerRule: jsii.String("arn:aws:elasticloadbalancing:region:account:listener-rule/production-rule"),
-			TestListenerRule: jsii.String("arn:aws:elasticloadbalancing:region:account:listener-rule/test-rule"),
-			RoleArn: jsii.String("arn:aws:iam::account:role/ecs-blue-green-role"),
-		},
-	},
-}
-```
-
-#### Blue/Green Deployment Configuration
-
-Configure deployment strategy with bake time and lifecycle hooks:
-
-```go
-var service fargateService
-
-
-cfnService := service.Node.defaultChild.(cfnService)
-cfnService.DeploymentConfiguration = &DeploymentConfigurationProperty{
-	MaximumPercent: jsii.Number(200),
-	MinimumHealthyPercent: jsii.Number(100),
-	Strategy: jsii.String("BLUE_GREEN"),
-	BakeTimeInMinutes: jsii.Number(15),
-	LifecycleHooks: []interface{}{
-		&DeploymentLifecycleHookProperty{
-			HookTargetArn: jsii.String("arn:aws:lambda:region:account:function:pre-deployment-hook"),
-			RoleArn: jsii.String("arn:aws:iam::account:role/deployment-hook-role"),
-			LifecycleStages: []*string{
-				jsii.String("PRE_STOP"),
-				jsii.String("POST_START"),
-			},
-		},
-	},
-}
-```
-
-#### Service Connect Test Traffic Rules
-
-Configure test traffic routing for Service Connect during blue/green deployments:
-
-```go
 var cluster cluster
 var taskDefinition taskDefinition
+var lambdaHook function
+var blueTargetGroup applicationTargetGroup
+var greenTargetGroup applicationTargetGroup
+var prodListenerRule applicationListenerRule
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	DeploymentStrategy: ecs.DeploymentStrategy_BLUE_GREEN,
 })
 
-cfnService := service.Node.defaultChild.(cfnService)
-cfnService.ServiceConnectConfiguration = &ServiceConnectConfigurationProperty{
-	Enabled: jsii.Boolean(true),
-	Services: []interface{}{
-		&ServiceConnectServiceProperty{
-			PortName: jsii.String("api"),
-			ClientAliases: []interface{}{
-				&ServiceConnectClientAliasProperty{
-					Port: jsii.Number(80),
-					DnsName: jsii.String("my-service"),
-					TestTrafficRules: &ServiceConnectTestTrafficRulesProperty{
-						Header: &ServiceConnectTestTrafficRulesHeaderProperty{
-							Name: jsii.String("x-canary-test"),
-							Value: &ServiceConnectTestTrafficRulesHeaderValueProperty{
-								Exact: jsii.String("beta-version"),
-							},
-						},
-					},
-				},
-			},
-		},
+service.AddLifecycleHook(ecs.NewDeploymentLifecycleLambdaTarget(lambdaHook, jsii.String("PreScaleHook"), &DeploymentLifecycleLambdaTargetProps{
+	LifecycleStages: []deploymentLifecycleStage{
+		ecs.*deploymentLifecycleStage_PRE_SCALE_UP,
 	},
-}
+}))
+
+target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+	ContainerName: jsii.String("nginx"),
+	ContainerPort: jsii.Number(80),
+	Protocol: ecs.Protocol_TCP,
+	AlternateTarget: ecs.NewAlternateTarget(jsii.String("AlternateTarget"), &AlternateTargetProps{
+		AlternateTargetGroup: greenTargetGroup,
+		ProductionListener: ecs.ListenerRuleConfiguration_ApplicationListenerRule(prodListenerRule),
+	}),
+})
+
+target.AttachToApplicationTargetGroup(blueTargetGroup)
 ```
 
 ## Daemon Scheduling Strategy

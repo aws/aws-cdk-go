@@ -65,6 +65,14 @@ import (
 //   			// the properties below are optional
 //   			MatchPurpose: jsii.String("matchPurpose"),
 //   		},
+//   		RuleConditionProperties: &RuleConditionPropertiesProperty{
+//   			Rules: []interface{}{
+//   				&RuleConditionProperty{
+//   					Condition: jsii.String("condition"),
+//   					RuleName: jsii.String("ruleName"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	WorkflowName: jsii.String("workflowName"),
@@ -89,7 +97,7 @@ type CfnMatchingWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-inputsourceconfig
 	//
 	InputSourceConfig interface{} `field:"required" json:"inputSourceConfig" yaml:"inputSourceConfig"`
-	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-outputsourceconfig
 	//
 	OutputSourceConfig interface{} `field:"required" json:"outputSourceConfig" yaml:"outputSourceConfig"`
@@ -117,7 +125,7 @@ type CfnMatchingWorkflowProps struct {
 	//
 	// An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-incrementalrunconfig
 	//
 	IncrementalRunConfig interface{} `field:"optional" json:"incrementalRunConfig" yaml:"incrementalRunConfig"`

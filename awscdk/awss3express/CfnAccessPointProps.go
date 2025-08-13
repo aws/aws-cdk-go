@@ -1,5 +1,8 @@
 package awss3express
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnAccessPoint`.
 //
@@ -29,6 +32,12 @@ package awss3express
 //   		},
 //   		Prefixes: []*string{
 //   			jsii.String("prefixes"),
+//   		},
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
@@ -67,6 +76,9 @@ type CfnAccessPointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-accesspoint.html#cfn-s3express-accesspoint-scope
 	//
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-accesspoint.html#cfn-s3express-accesspoint-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// If you include this field, Amazon S3 restricts access to this access point to requests from the specified virtual private cloud (VPC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-accesspoint.html#cfn-s3express-accesspoint-vpcconfiguration
 	//

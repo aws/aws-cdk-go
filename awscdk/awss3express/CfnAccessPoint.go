@@ -41,6 +41,12 @@ import (
 //   			jsii.String("prefixes"),
 //   		},
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		VpcId: jsii.String("vpcId"),
 //   	},
@@ -51,6 +57,7 @@ import (
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the access point.
 	AttrArn() *string
 	// The network configuration of the access point.
@@ -61,6 +68,8 @@ type CfnAccessPoint interface {
 	// The AWS account ID that owns the bucket associated with this access point.
 	BucketAccountId() *string
 	SetBucketAccountId(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -103,6 +112,8 @@ type CfnAccessPoint interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -250,6 +261,7 @@ type CfnAccessPoint interface {
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAccessPoint) AttrArn() *string {
@@ -287,6 +299,16 @@ func (j *jsiiProxy_CfnAccessPoint) BucketAccountId() *string {
 	_jsii_.Get(
 		j,
 		"bucketAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessPoint) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -412,6 +434,16 @@ func (j *jsiiProxy_CfnAccessPoint) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessPoint) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessPoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -523,6 +555,17 @@ func (j *jsiiProxy_CfnAccessPoint)SetScope(val interface{}) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessPoint)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

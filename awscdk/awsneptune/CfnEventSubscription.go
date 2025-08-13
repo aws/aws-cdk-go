@@ -32,6 +32,7 @@ import (
 //   		jsii.String("sourceIds"),
 //   	},
 //   	SourceType: jsii.String("sourceType"),
+//   	SubscriptionName: jsii.String("subscriptionName"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html
@@ -83,6 +84,8 @@ type CfnEventSubscription interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	SubscriptionName() *string
+	SetSubscriptionName(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -369,6 +372,16 @@ func (j *jsiiProxy_CfnEventSubscription) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventSubscription) SubscriptionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"subscriptionName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -456,6 +469,14 @@ func (j *jsiiProxy_CfnEventSubscription)SetSourceType(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription)SetSubscriptionName(val *string) {
+	_jsii_.Set(
+		j,
+		"subscriptionName",
 		val,
 	)
 }

@@ -79,6 +79,11 @@ package awsdeadline
 //
 //   	// the properties below are optional
 //   	StorageProfileId: jsii.String("storageProfileId"),
+//   	VpcConfiguration: &VpcConfigurationProperty{
+//   		ResourceConfigurationArns: []*string{
+//   			jsii.String("resourceConfigurationArns"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html
@@ -96,5 +101,8 @@ type CfnFleet_ServiceManagedEc2FleetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
 	//
 	StorageProfileId *string `field:"optional" json:"storageProfileId" yaml:"storageProfileId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-vpcconfiguration
+	//
+	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 

@@ -61,6 +61,10 @@ import (
 //   					// the properties below are optional
 //   					FileSystemPath: jsii.String("fileSystemPath"),
 //   				},
+//   				S3FileSystemConfig: &S3FileSystemConfigProperty{
+//   					MountPath: jsii.String("mountPath"),
+//   					S3Uri: jsii.String("s3Uri"),
+//   				},
 //   			},
 //   		},
 //   		CustomPosixUserConfig: &CustomPosixUserConfigProperty{
@@ -211,6 +215,10 @@ import (
 //
 //   					// the properties below are optional
 //   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
+//   				S3FileSystemConfig: &S3FileSystemConfigProperty{
+//   					MountPath: jsii.String("mountPath"),
+//   					S3Uri: jsii.String("s3Uri"),
 //   				},
 //   			},
 //   		},

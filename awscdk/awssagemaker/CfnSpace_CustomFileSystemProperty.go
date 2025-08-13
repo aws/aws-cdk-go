@@ -17,6 +17,9 @@ package awssagemaker
 //   	FSxLustreFileSystem: &FSxLustreFileSystemProperty{
 //   		FileSystemId: jsii.String("fileSystemId"),
 //   	},
+//   	S3FileSystem: &S3FileSystemProperty{
+//   		S3Uri: jsii.String("s3Uri"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html
@@ -30,5 +33,11 @@ type CfnSpace_CustomFileSystemProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-fsxlustrefilesystem
 	//
 	FSxLustreFileSystem interface{} `field:"optional" json:"fSxLustreFileSystem" yaml:"fSxLustreFileSystem"`
+	// A custom file system in Amazon S3.
+	//
+	// This is only supported in Amazon SageMaker Unified Studio.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-s3filesystem
+	//
+	S3FileSystem interface{} `field:"optional" json:"s3FileSystem" yaml:"s3FileSystem"`
 }
 

@@ -24,7 +24,7 @@ import (
 //
 // You can use AWS Resource Access Manager to share a `Firewall` that you own with other accounts, which gives them the ability to use the firewall to create VPC endpoint associations. For information about sharing a firewall, see `PutResourcePolicy` in this guide and see [Sharing Network Firewall resources](https://docs.aws.amazon.com/network-firewall/latest/developerguide/sharing.html) in the *AWS Network Firewall Developer Guide* .
 //
-// The status of the VPC endpoint association, which indicates whether it's ready to filter network traffic, is provided in the corresponding `VpcEndpointAssociationStatus` . You can retrieve both the association and its status by calling `DescribeVpcEndpointAssociation` .
+// The status of the VPC endpoint association, which indicates whether it's ready to filter network traffic, is provided in the corresponding VPC endpoint association status. You can retrieve both the association and its status by calling `DescribeVpcEndpointAssociation` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,7 +57,7 @@ type CfnVpcEndpointAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// An endpoint Id.
+	// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333".
 	AttrEndpointId() *string
 	// The Amazon Resource Name (ARN) of a VPC endpoint association.
 	AttrVpcEndpointAssociationArn() *string

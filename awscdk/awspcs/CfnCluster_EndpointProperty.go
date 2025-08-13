@@ -14,6 +14,7 @@ package awspcs
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	Ipv6Address: jsii.String("ipv6Address"),
 //   	PublicIpAddress: jsii.String("publicIpAddress"),
 //   }
 //
@@ -32,6 +33,10 @@ type CfnCluster_EndpointProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html#cfn-pcs-cluster-endpoint-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The endpoint's IPv6 address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html#cfn-pcs-cluster-endpoint-ipv6address
+	//
+	Ipv6Address *string `field:"optional" json:"ipv6Address" yaml:"ipv6Address"`
 	// The endpoint's public IP address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html#cfn-pcs-cluster-endpoint-publicipaddress
 	//

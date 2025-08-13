@@ -21,6 +21,9 @@ import (
 //   	ConfigOptions: &TopicConfigOptionsProperty{
 //   		QBusinessInsightsEnabled: jsii.Boolean(false),
 //   	},
+//   	CustomInstructions: &CustomInstructionsProperty{
+//   		CustomInstructionsString: jsii.String("customInstructionsString"),
+//   	},
 //   	DataSets: []interface{}{
 //   		&DatasetMetadataProperty{
 //   			DatasetArn: jsii.String("datasetArn"),
@@ -320,6 +323,8 @@ type CfnTopic interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	CustomInstructions() interface{}
+	SetCustomInstructions(val interface{})
 	// The data sets that the topic is associated with.
 	DataSets() interface{}
 	SetDataSets(val interface{})
@@ -587,6 +592,16 @@ func (j *jsiiProxy_CfnTopic) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) CustomInstructions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customInstructions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) DataSets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -760,6 +775,17 @@ func (j *jsiiProxy_CfnTopic)SetConfigOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"configOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetCustomInstructions(val interface{}) {
+	if err := j.validateSetCustomInstructionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customInstructions",
 		val,
 	)
 }

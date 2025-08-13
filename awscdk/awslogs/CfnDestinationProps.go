@@ -1,5 +1,8 @@
 package awslogs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnDestination`.
 //
@@ -15,6 +18,12 @@ package awslogs
 //
 //   	// the properties below are optional
 //   	DestinationPolicy: jsii.String("destinationPolicy"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
@@ -36,5 +45,9 @@ type CfnDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationpolicy
 	//
 	DestinationPolicy *string `field:"optional" json:"destinationPolicy" yaml:"destinationPolicy"`
+	// The tags that have been assigned to this delivery destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

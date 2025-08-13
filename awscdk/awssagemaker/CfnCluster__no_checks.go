@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCluster) validateSetOrchestratorParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetRestrictedInstanceGroupsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

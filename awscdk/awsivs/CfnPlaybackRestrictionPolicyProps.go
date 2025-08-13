@@ -18,8 +18,6 @@ import (
 //   	AllowedOrigins: []*string{
 //   		jsii.String("allowedOrigins"),
 //   	},
-//
-//   	// the properties below are optional
 //   	EnableStrictOriginEnforcement: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
@@ -38,13 +36,13 @@ type CfnPlaybackRestrictionPolicyProps struct {
 	// Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-allowedcountries
 	//
-	AllowedCountries *[]*string `field:"required" json:"allowedCountries" yaml:"allowedCountries"`
+	AllowedCountries *[]*string `field:"optional" json:"allowedCountries" yaml:"allowedCountries"`
 	// A list of origin sites that control CORS restriction.
 	//
 	// Allowed values are the same as valid values of the Origin header defined at [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-allowedorigins
 	//
-	AllowedOrigins *[]*string `field:"required" json:"allowedOrigins" yaml:"allowedOrigins"`
+	AllowedOrigins *[]*string `field:"optional" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// Whether channel playback is constrained by the origin site.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html#cfn-ivs-playbackrestrictionpolicy-enablestrictoriginenforcement
 	//

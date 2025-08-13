@@ -1,9 +1,9 @@
 package awsevs
 
 
-// > Amazon EVS is in public preview release and is subject to change.
+// The connectivity configuration for the environment.
 //
-// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+// Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

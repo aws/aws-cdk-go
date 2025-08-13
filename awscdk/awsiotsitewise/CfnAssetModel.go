@@ -13,10 +13,11 @@ import (
 //
 // You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *AWS IoT SiteWise User Guide* .
 //
-// You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL` .
+// You can create three types of asset models, `ASSET_MODEL` , `COMPONENT_MODEL` , or an `INTERFACE` .
 //
 // - *ASSET_MODEL* – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.
 // - *COMPONENT_MODEL* – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.
+// - *INTERFACE* – An interface is a type of model that defines a standard structure that can be applied to different asset models.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -199,6 +200,20 @@ import (
 //   		},
 //   	},
 //   	AssetModelType: jsii.String("assetModelType"),
+//   	EnforcedAssetModelInterfaceRelationships: []interface{}{
+//   		&EnforcedAssetModelInterfaceRelationshipProperty{
+//   			InterfaceAssetModelId: jsii.String("interfaceAssetModelId"),
+//   			PropertyMappings: []interface{}{
+//   				&EnforcedAssetModelInterfacePropertyMappingProperty{
+//   					InterfaceAssetModelPropertyExternalId: jsii.String("interfaceAssetModelPropertyExternalId"),
+//
+//   					// the properties below are optional
+//   					AssetModelPropertyExternalId: jsii.String("assetModelPropertyExternalId"),
+//   					AssetModelPropertyLogicalId: jsii.String("assetModelPropertyLogicalId"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -247,6 +262,9 @@ type CfnAssetModel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// a list of asset model and interface relationships.
+	EnforcedAssetModelInterfaceRelationships() interface{}
+	SetEnforcedAssetModelInterfaceRelationships(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -550,6 +568,16 @@ func (j *jsiiProxy_CfnAssetModel) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssetModel) EnforcedAssetModelInterfaceRelationships() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enforcedAssetModelInterfaceRelationships",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssetModel) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -722,6 +750,17 @@ func (j *jsiiProxy_CfnAssetModel)SetAssetModelType(val *string) {
 	_jsii_.Set(
 		j,
 		"assetModelType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssetModel)SetEnforcedAssetModelInterfaceRelationships(val interface{}) {
+	if err := j.validateSetEnforcedAssetModelInterfaceRelationshipsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enforcedAssetModelInterfaceRelationships",
 		val,
 	)
 }

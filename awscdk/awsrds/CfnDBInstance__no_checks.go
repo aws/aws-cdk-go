@@ -144,6 +144,10 @@ func (j *jsiiProxy_CfnDBInstance) validateSetPubliclyAccessibleParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetStatusInfosParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetStorageEncryptedParameters(val interface{}) error {
 	return nil
 }

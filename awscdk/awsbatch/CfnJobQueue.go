@@ -19,16 +19,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnJobQueue := awscdk.Aws_batch.NewCfnJobQueue(this, jsii.String("MyCfnJobQueue"), &CfnJobQueueProps{
+//   	Priority: jsii.Number(123),
+//
+//   	// the properties below are optional
 //   	ComputeEnvironmentOrder: []interface{}{
 //   		&ComputeEnvironmentOrderProperty{
 //   			ComputeEnvironment: jsii.String("computeEnvironment"),
 //   			Order: jsii.Number(123),
 //   		},
 //   	},
-//   	Priority: jsii.Number(123),
-//
-//   	// the properties below are optional
 //   	JobQueueName: jsii.String("jobQueueName"),
+//   	JobQueueType: jsii.String("jobQueueType"),
 //   	JobStateTimeLimitActions: []interface{}{
 //   		&JobStateTimeLimitActionProperty{
 //   			Action: jsii.String("action"),
@@ -38,6 +39,12 @@ import (
 //   		},
 //   	},
 //   	SchedulingPolicyArn: jsii.String("schedulingPolicyArn"),
+//   	ServiceEnvironmentOrder: []interface{}{
+//   		&ServiceEnvironmentOrderProperty{
+//   			Order: jsii.Number(123),
+//   			ServiceEnvironment: jsii.String("serviceEnvironment"),
+//   		},
+//   	},
 //   	State: jsii.String("state"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -67,6 +74,9 @@ type CfnJobQueue interface {
 	// The name of the job queue.
 	JobQueueName() *string
 	SetJobQueueName(val *string)
+	// The type of job queue.
+	JobQueueType() *string
+	SetJobQueueType(val *string)
 	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times.
 	JobStateTimeLimitActions() interface{}
 	SetJobStateTimeLimitActions(val interface{})
@@ -93,6 +103,9 @@ type CfnJobQueue interface {
 	// The Amazon Resource Name (ARN) of the scheduling policy.
 	SchedulingPolicyArn() *string
 	SetSchedulingPolicyArn(val *string)
+	// The order of the service environment associated with the job queue.
+	ServiceEnvironmentOrder() interface{}
+	SetServiceEnvironmentOrder(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -322,6 +335,16 @@ func (j *jsiiProxy_CfnJobQueue) JobQueueName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobQueue) JobQueueType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobQueueType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobQueue) JobStateTimeLimitActions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -377,6 +400,16 @@ func (j *jsiiProxy_CfnJobQueue) SchedulingPolicyArn() *string {
 	_jsii_.Get(
 		j,
 		"schedulingPolicyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobQueue) ServiceEnvironmentOrder() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"serviceEnvironmentOrder",
 		&returns,
 	)
 	return returns
@@ -489,6 +522,14 @@ func (j *jsiiProxy_CfnJobQueue)SetJobQueueName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnJobQueue)SetJobQueueType(val *string) {
+	_jsii_.Set(
+		j,
+		"jobQueueType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnJobQueue)SetJobStateTimeLimitActions(val interface{}) {
 	if err := j.validateSetJobStateTimeLimitActionsParameters(val); err != nil {
 		panic(err)
@@ -515,6 +556,17 @@ func (j *jsiiProxy_CfnJobQueue)SetSchedulingPolicyArn(val *string) {
 	_jsii_.Set(
 		j,
 		"schedulingPolicyArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobQueue)SetServiceEnvironmentOrder(val interface{}) {
+	if err := j.validateSetServiceEnvironmentOrderParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"serviceEnvironmentOrder",
 		val,
 	)
 }

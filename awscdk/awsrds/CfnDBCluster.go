@@ -122,6 +122,7 @@ import (
 //   	},
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
+//   	SourceDbClusterResourceId: jsii.String("sourceDbClusterResourceId"),
 //   	SourceRegion: jsii.String("sourceRegion"),
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	StorageType: jsii.String("storageType"),
@@ -370,6 +371,9 @@ type CfnDBCluster interface {
 	// When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
+	// The resource ID of the source DB cluster from which to restore.
+	SourceDbClusterResourceId() *string
+	SetSourceDbClusterResourceId(val *string)
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster.
 	//
 	// For example, `us-east-1` .
@@ -1233,6 +1237,16 @@ func (j *jsiiProxy_CfnDBCluster) SourceDbClusterIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) SourceDbClusterResourceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceDbClusterResourceId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) SourceRegion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1826,6 +1840,14 @@ func (j *jsiiProxy_CfnDBCluster)SetSourceDbClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceDbClusterIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetSourceDbClusterResourceId(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceDbClusterResourceId",
 		val,
 	)
 }

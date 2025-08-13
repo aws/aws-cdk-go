@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Use the `Firewall` to provide stateful, managed, network firewall and intrusion detection and prevention filtering for your VPCs in Amazon VPC .
+// Use the firewall to provide stateful, managed, network firewall and intrusion detection and prevention filtering for your VPCs in Amazon VPC .
 //
 // The firewall defines the configuration settings for an AWS Network Firewall firewall. The settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource.
 //
@@ -21,6 +21,21 @@ import (
 //   cfnFirewall := awscdk.Aws_networkfirewall.NewCfnFirewall(this, jsii.String("MyCfnFirewall"), &CfnFirewallProps{
 //   	FirewallName: jsii.String("firewallName"),
 //   	FirewallPolicyArn: jsii.String("firewallPolicyArn"),
+//
+//   	// the properties below are optional
+//   	AvailabilityZoneChangeProtection: jsii.Boolean(false),
+//   	AvailabilityZoneMappings: []interface{}{
+//   		&AvailabilityZoneMappingProperty{
+//   			AvailabilityZone: jsii.String("availabilityZone"),
+//   		},
+//   	},
+//   	DeleteProtection: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
+//   	EnabledAnalysisTypes: []*string{
+//   		jsii.String("enabledAnalysisTypes"),
+//   	},
+//   	FirewallPolicyChangeProtection: jsii.Boolean(false),
+//   	SubnetChangeProtection: jsii.Boolean(false),
 //   	SubnetMappings: []interface{}{
 //   		&SubnetMappingProperty{
 //   			SubnetId: jsii.String("subnetId"),
@@ -29,22 +44,14 @@ import (
 //   			IpAddressType: jsii.String("ipAddressType"),
 //   		},
 //   	},
-//   	VpcId: jsii.String("vpcId"),
-//
-//   	// the properties below are optional
-//   	DeleteProtection: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
-//   	EnabledAnalysisTypes: []*string{
-//   		jsii.String("enabledAnalysisTypes"),
-//   	},
-//   	FirewallPolicyChangeProtection: jsii.Boolean(false),
-//   	SubnetChangeProtection: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	VpcId: jsii.String("vpcId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
@@ -57,10 +64,16 @@ type CfnFirewall interface {
 	//
 	// The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
 	AttrEndpointIds() *[]*string
-	// The Amazon Resource Name (ARN) of the `Firewall` .
+	// The Amazon Resource Name (ARN) of the firewall.
 	AttrFirewallArn() *string
-	// The name of the `Firewall` resource.
+	// The name of the firewallresource.
 	AttrFirewallId() *string
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration.
+	AvailabilityZoneChangeProtection() interface{}
+	SetAvailabilityZoneChangeProtection(val interface{})
+	// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
+	AvailabilityZoneMappings() interface{}
+	SetAvailabilityZoneMappings(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -120,6 +133,9 @@ type CfnFirewall interface {
 	// An array of key-value pairs to apply to this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The unique identifier of the transit gateway associated with this firewall.
+	TransitGatewayId() *string
+	SetTransitGatewayId(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -295,6 +311,26 @@ func (j *jsiiProxy_CfnFirewall) AttrFirewallId() *string {
 	_jsii_.Get(
 		j,
 		"attrFirewallId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) AvailabilityZoneChangeProtection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availabilityZoneChangeProtection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) AvailabilityZoneMappings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availabilityZoneMappings",
 		&returns,
 	)
 	return returns
@@ -480,6 +516,16 @@ func (j *jsiiProxy_CfnFirewall) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewall) TransitGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"transitGatewayId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewall) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -535,6 +581,28 @@ func NewCfnFirewall_Override(c CfnFirewall, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetAvailabilityZoneChangeProtection(val interface{}) {
+	if err := j.validateSetAvailabilityZoneChangeProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"availabilityZoneChangeProtection",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetAvailabilityZoneMappings(val interface{}) {
+	if err := j.validateSetAvailabilityZoneMappingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"availabilityZoneMappings",
+		val,
 	)
 }
 
@@ -631,10 +699,15 @@ func (j *jsiiProxy_CfnFirewall)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func (j *jsiiProxy_CfnFirewall)SetTransitGatewayId(val *string) {
+	_jsii_.Set(
+		j,
+		"transitGatewayId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFirewall)SetVpcId(val *string) {
-	if err := j.validateSetVpcIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"vpcId",

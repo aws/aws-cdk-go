@@ -14,6 +14,21 @@ import (
 //   cfnFirewallProps := &CfnFirewallProps{
 //   	FirewallName: jsii.String("firewallName"),
 //   	FirewallPolicyArn: jsii.String("firewallPolicyArn"),
+//
+//   	// the properties below are optional
+//   	AvailabilityZoneChangeProtection: jsii.Boolean(false),
+//   	AvailabilityZoneMappings: []interface{}{
+//   		&AvailabilityZoneMappingProperty{
+//   			AvailabilityZone: jsii.String("availabilityZone"),
+//   		},
+//   	},
+//   	DeleteProtection: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
+//   	EnabledAnalysisTypes: []*string{
+//   		jsii.String("enabledAnalysisTypes"),
+//   	},
+//   	FirewallPolicyChangeProtection: jsii.Boolean(false),
+//   	SubnetChangeProtection: jsii.Boolean(false),
 //   	SubnetMappings: []interface{}{
 //   		&SubnetMappingProperty{
 //   			SubnetId: jsii.String("subnetId"),
@@ -22,22 +37,14 @@ import (
 //   			IpAddressType: jsii.String("ipAddressType"),
 //   		},
 //   	},
-//   	VpcId: jsii.String("vpcId"),
-//
-//   	// the properties below are optional
-//   	DeleteProtection: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
-//   	EnabledAnalysisTypes: []*string{
-//   		jsii.String("enabledAnalysisTypes"),
-//   	},
-//   	FirewallPolicyChangeProtection: jsii.Boolean(false),
-//   	SubnetChangeProtection: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	VpcId: jsii.String("vpcId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
@@ -55,22 +62,18 @@ type CfnFirewallProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
 	//
 	FirewallPolicyArn *string `field:"required" json:"firewallPolicyArn" yaml:"firewallPolicyArn"`
-	// The primary public subnets that Network Firewall is using for the firewall.
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration.
 	//
-	// Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+	// When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-availabilityzonechangeprotection
 	//
-	// These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+	AvailabilityZoneChangeProtection interface{} `field:"optional" json:"availabilityZoneChangeProtection" yaml:"availabilityZoneChangeProtection"`
+	// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
 	//
-	// In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
+	// Each mapping specifies an Availability Zone where the firewall processes traffic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-availabilityzonemappings
 	//
-	SubnetMappings interface{} `field:"required" json:"subnetMappings" yaml:"subnetMappings"`
-	// The unique identifier of the VPC where the firewall is in use.
-	//
-	// You can't change the VPC of a firewall after you create the firewall.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-	//
-	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	AvailabilityZoneMappings interface{} `field:"optional" json:"availabilityZoneMappings" yaml:"availabilityZoneMappings"`
 	// A flag indicating whether it is possible to delete the firewall.
 	//
 	// A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
@@ -97,11 +100,33 @@ type CfnFirewallProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
 	//
 	SubnetChangeProtection interface{} `field:"optional" json:"subnetChangeProtection" yaml:"subnetChangeProtection"`
+	// The primary public subnets that Network Firewall is using for the firewall.
+	//
+	// Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+	//
+	// These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+	//
+	// In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
+	//
+	SubnetMappings interface{} `field:"optional" json:"subnetMappings" yaml:"subnetMappings"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The unique identifier of the transit gateway associated with this firewall.
+	//
+	// This field is only present for transit gateway-attached firewalls.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-transitgatewayid
+	//
+	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
+	// The unique identifier of the VPC where the firewall is in use.
+	//
+	// You can't change the VPC of a firewall after you create the firewall.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
+	//
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

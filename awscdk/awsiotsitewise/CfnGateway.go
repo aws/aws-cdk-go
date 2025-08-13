@@ -79,7 +79,7 @@ type CfnGateway interface {
 	// The gateway's platform.
 	GatewayPlatform() interface{}
 	SetGatewayPlatform(val interface{})
-	// The version of the gateway you want to create.
+	// The version of the gateway.
 	GatewayVersion() *string
 	SetGatewayVersion(val *string)
 	// The logical ID for this CloudFormation stack element.

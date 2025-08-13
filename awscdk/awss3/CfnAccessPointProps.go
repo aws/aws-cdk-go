@@ -1,5 +1,8 @@
 package awss3
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnAccessPoint`.
 //
@@ -22,6 +25,12 @@ package awss3
 //   		BlockPublicPolicy: jsii.Boolean(false),
 //   		IgnorePublicAcls: jsii.Boolean(false),
 //   		RestrictPublicBuckets: jsii.Boolean(false),
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		VpcId: jsii.String("vpcId"),
@@ -55,6 +64,12 @@ type CfnAccessPointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
 	//
 	PublicAccessBlockConfiguration interface{} `field:"optional" json:"publicAccessBlockConfiguration" yaml:"publicAccessBlockConfiguration"`
+	// An array of tags that you can apply to access points.
+	//
+	// Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The Virtual Private Cloud (VPC) configuration for this access point, if one exists.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
 	//

@@ -191,6 +191,7 @@ package awsec2
 //   			DeleteOnTermination: jsii.Boolean(false),
 //   			Description: jsii.String("description"),
 //   			DeviceIndex: jsii.Number(123),
+//   			EnaQueueCount: jsii.Number(123),
 //   			EnaSrdSpecification: &EnaSrdSpecificationProperty{
 //   				EnaSrdEnabled: jsii.Boolean(false),
 //   				EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{

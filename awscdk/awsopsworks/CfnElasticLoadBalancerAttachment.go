@@ -39,7 +39,7 @@ type CfnElasticLoadBalancerAttachment interface {
 	// The Elastic Load Balancing instance name.
 	ElasticLoadBalancerName() *string
 	SetElasticLoadBalancerName(val *string)
-	// The AWS OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
+	// The OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
 	LayerId() *string
 	SetLayerId(val *string)
 	// The logical ID for this CloudFormation stack element.

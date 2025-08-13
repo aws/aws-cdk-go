@@ -80,6 +80,12 @@ type InterfaceVpcEndpointOptions struct {
 	// Default: - a new security group is created.
 	//
 	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The region where the VPC endpoint service is located.
+	//
+	// Only needs to be specified for cross-region VPC endpoints.
+	// Default: - Same region as the interface VPC endpoint.
+	//
+	ServiceRegion *string `field:"optional" json:"serviceRegion" yaml:"serviceRegion"`
 	// The subnets in which to create an endpoint network interface.
 	//
 	// At most one

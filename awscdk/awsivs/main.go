@@ -472,6 +472,22 @@ func init() {
 		reflect.TypeOf((*CfnStage_AutoParticipantRecordingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ivs.CfnStage.HlsConfigurationProperty",
+		reflect.TypeOf((*CfnStage_HlsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ivs.CfnStage.ParticipantRecordingHlsConfigurationProperty",
+		reflect.TypeOf((*CfnStage_ParticipantRecordingHlsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ivs.CfnStage.ParticipantThumbnailConfigurationProperty",
+		reflect.TypeOf((*CfnStage_ParticipantThumbnailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ivs.CfnStage.ThumbnailConfigurationProperty",
+		reflect.TypeOf((*CfnStage_ThumbnailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ivs.CfnStageProps",
 		reflect.TypeOf((*CfnStageProps)(nil)).Elem(),
 	)

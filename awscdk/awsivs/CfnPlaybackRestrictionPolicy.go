@@ -25,8 +25,6 @@ import (
 //   	AllowedOrigins: []*string{
 //   		jsii.String("allowedOrigins"),
 //   	},
-//
-//   	// the properties below are optional
 //   	EnableStrictOriginEnforcement: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
@@ -440,9 +438,6 @@ func NewCfnPlaybackRestrictionPolicy_Override(c CfnPlaybackRestrictionPolicy, sc
 }
 
 func (j *jsiiProxy_CfnPlaybackRestrictionPolicy)SetAllowedCountries(val *[]*string) {
-	if err := j.validateSetAllowedCountriesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"allowedCountries",
@@ -451,9 +446,6 @@ func (j *jsiiProxy_CfnPlaybackRestrictionPolicy)SetAllowedCountries(val *[]*stri
 }
 
 func (j *jsiiProxy_CfnPlaybackRestrictionPolicy)SetAllowedOrigins(val *[]*string) {
-	if err := j.validateSetAllowedOriginsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"allowedOrigins",

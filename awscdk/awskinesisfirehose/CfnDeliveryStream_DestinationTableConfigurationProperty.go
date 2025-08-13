@@ -3,6 +3,8 @@ package awskinesisfirehose
 
 // Describes the configuration of a destination in Apache Iceberg Tables.
 //
+// This section is only needed for tables where you want to update or delete data.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

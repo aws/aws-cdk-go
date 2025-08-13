@@ -49,6 +49,12 @@ import (
 //   			jsii.String("suppressedReasons"),
 //   		},
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TrackingOptions: &TrackingOptionsProperty{
 //   		CustomRedirectDomain: jsii.String("customRedirectDomain"),
 //   		HttpsPolicy: jsii.String("httpsPolicy"),
@@ -68,6 +74,9 @@ import (
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -115,6 +124,9 @@ type CfnConfigurationSet interface {
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions() interface{}
 	SetSuppressionOptions(val interface{})
+	// An array of objects that define the tags (keys and values) that are associated with the configuration set.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions() interface{}
 	SetTrackingOptions(val interface{})
@@ -265,6 +277,17 @@ type CfnConfigurationSet interface {
 type jsiiProxy_CfnConfigurationSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnConfigurationSet) CfnOptions() awscdk.ICfnResourceOptions {
@@ -397,6 +420,16 @@ func (j *jsiiProxy_CfnConfigurationSet) SuppressionOptions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) TrackingOptions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -513,6 +546,17 @@ func (j *jsiiProxy_CfnConfigurationSet)SetSuppressionOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"suppressionOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationSet)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

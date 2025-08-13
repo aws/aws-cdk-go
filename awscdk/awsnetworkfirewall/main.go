@@ -22,6 +22,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointIds", GoGetter: "AttrEndpointIds"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFirewallArn", GoGetter: "AttrFirewallArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFirewallId", GoGetter: "AttrFirewallId"},
+			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneChangeProtection", GoGetter: "AvailabilityZoneChangeProtection"},
+			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneMappings", GoGetter: "AvailabilityZoneMappings"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -51,6 +53,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -63,6 +66,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.AvailabilityZoneMappingProperty",
+		reflect.TypeOf((*CfnFirewall_AvailabilityZoneMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.SubnetMappingProperty",
@@ -268,6 +275,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ruleGroupName", GoGetter: "RuleGroupName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "summaryConfiguration", GoGetter: "SummaryConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -371,6 +379,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup.StatelessRulesAndCustomActionsProperty",
 		reflect.TypeOf((*CfnRuleGroup_StatelessRulesAndCustomActionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup.SummaryConfigurationProperty",
+		reflect.TypeOf((*CfnRuleGroup_SummaryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup.TCPFlagFieldProperty",

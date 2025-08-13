@@ -19,6 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCluster := awscdk.Aws_sagemaker.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
+//   	ClusterName: jsii.String("clusterName"),
 //   	InstanceGroups: []interface{}{
 //   		&ClusterInstanceGroupProperty{
 //   			ExecutionRole: jsii.String("executionRole"),
@@ -51,15 +52,50 @@ import (
 //   				},
 //   			},
 //   			ThreadsPerCore: jsii.Number(123),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	ClusterName: jsii.String("clusterName"),
 //   	NodeRecovery: jsii.String("nodeRecovery"),
 //   	Orchestrator: &OrchestratorProperty{
 //   		Eks: &ClusterOrchestratorEksConfigProperty{
 //   			ClusterArn: jsii.String("clusterArn"),
+//   		},
+//   	},
+//   	RestrictedInstanceGroups: []interface{}{
+//   		&ClusterRestrictedInstanceGroupProperty{
+//   			EnvironmentConfig: &EnvironmentConfigProperty{
+//   				FSxLustreConfig: &FSxLustreConfigProperty{
+//   					PerUnitStorageThroughput: jsii.Number(123),
+//   					SizeInGiB: jsii.Number(123),
+//   				},
+//   			},
+//   			ExecutionRole: jsii.String("executionRole"),
+//   			InstanceCount: jsii.Number(123),
+//   			InstanceGroupName: jsii.String("instanceGroupName"),
+//   			InstanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			CurrentCount: jsii.Number(123),
+//   			InstanceStorageConfigs: []interface{}{
+//   				&ClusterInstanceStorageConfigProperty{
+//   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
+//   						VolumeSizeInGb: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			OnStartDeepHealthChecks: []*string{
+//   				jsii.String("onStartDeepHealthChecks"),
+//   			},
+//   			OverrideVpcConfig: &VpcConfigProperty{
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				Subnets: []*string{
+//   					jsii.String("subnets"),
+//   				},
+//   			},
+//   			ThreadsPerCore: jsii.Number(123),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -132,6 +168,9 @@ type CfnCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The restricted instance groups of the SageMaker HyperPod cluster.
+	RestrictedInstanceGroups() interface{}
+	SetRestrictedInstanceGroups(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -449,6 +488,16 @@ func (j *jsiiProxy_CfnCluster) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) RestrictedInstanceGroups() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"restrictedInstanceGroups",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -561,6 +610,17 @@ func (j *jsiiProxy_CfnCluster)SetOrchestrator(val interface{}) {
 	_jsii_.Set(
 		j,
 		"orchestrator",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetRestrictedInstanceGroups(val interface{}) {
+	if err := j.validateSetRestrictedInstanceGroupsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"restrictedInstanceGroups",
 		val,
 	)
 }

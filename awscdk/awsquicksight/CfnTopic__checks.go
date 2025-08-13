@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnTopic) validateSetConfigOptionsParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnTopic) validateSetCustomInstructionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTopic_CustomInstructionsProperty:
+		val := val.(*CfnTopic_CustomInstructionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTopic_CustomInstructionsProperty:
+		val_ := val.(CfnTopic_CustomInstructionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTopic_CustomInstructionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTopic) validateSetDataSetsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

@@ -32,6 +32,12 @@ import (
 //   		ScanOnPush: jsii.Boolean(false),
 //   	},
 //   	ImageTagMutability: jsii.String("imageTagMutability"),
+//   	ImageTagMutabilityExclusionFilters: []interface{}{
+//   		&ImageTagMutabilityExclusionFilterProperty{
+//   			ImageTagMutabilityExclusionFilterType: jsii.String("imageTagMutabilityExclusionFilterType"),
+//   			ImageTagMutabilityExclusionFilterValue: jsii.String("imageTagMutabilityExclusionFilterValue"),
+//   		},
+//   	},
 //   	LifecyclePolicy: &LifecyclePolicyProperty{
 //   		LifecyclePolicyText: jsii.String("lifecyclePolicyText"),
 //   		RegistryId: jsii.String("registryId"),
@@ -81,6 +87,9 @@ type CfnRepository interface {
 	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
+	// The image tag mutability exclusion filters associated with the repository.
+	ImageTagMutabilityExclusionFilters() interface{}
+	SetImageTagMutabilityExclusionFilters(val interface{})
 	// Creates or updates a lifecycle policy.
 	LifecyclePolicy() interface{}
 	SetLifecyclePolicy(val interface{})
@@ -363,6 +372,16 @@ func (j *jsiiProxy_CfnRepository) ImageTagMutability() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepository) ImageTagMutabilityExclusionFilters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imageTagMutabilityExclusionFilters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepository) LifecyclePolicy() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -538,6 +557,17 @@ func (j *jsiiProxy_CfnRepository)SetImageTagMutability(val *string) {
 	_jsii_.Set(
 		j,
 		"imageTagMutability",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepository)SetImageTagMutabilityExclusionFilters(val interface{}) {
+	if err := j.validateSetImageTagMutabilityExclusionFiltersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imageTagMutabilityExclusionFilters",
 		val,
 	)
 }

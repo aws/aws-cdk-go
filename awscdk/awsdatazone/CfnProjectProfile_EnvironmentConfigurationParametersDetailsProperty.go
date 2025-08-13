@@ -1,6 +1,8 @@
 package awsdatazone
 
 
+// The details of the environment configuration parameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,12 +29,15 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparametersdetails.html
 //
 type CfnProjectProfile_EnvironmentConfigurationParametersDetailsProperty struct {
+	// The parameter overrides.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparametersdetails.html#cfn-datazone-projectprofile-environmentconfigurationparametersdetails-parameteroverrides
 	//
 	ParameterOverrides interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
+	// The resolved environment configuration parameters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparametersdetails.html#cfn-datazone-projectprofile-environmentconfigurationparametersdetails-resolvedparameters
 	//
 	ResolvedParameters interface{} `field:"optional" json:"resolvedParameters" yaml:"resolvedParameters"`
+	// Ssm path environment configuration parameters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparametersdetails.html#cfn-datazone-projectprofile-environmentconfigurationparametersdetails-ssmpath
 	//
 	SsmPath *string `field:"optional" json:"ssmPath" yaml:"ssmPath"`

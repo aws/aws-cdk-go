@@ -148,7 +148,7 @@ type CfnLayer interface {
 	// A `LifeCycleEventConfiguration` object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
 	LifecycleEventConfiguration() interface{}
 	SetLifecycleEventConfiguration(val interface{})
-	// The load-based scaling configuration for the AWS OpsWorks layer.
+	// The load-based scaling configuration for the OpsWorks layer.
 	LoadBasedAutoScaling() interface{}
 	SetLoadBasedAutoScaling(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -174,7 +174,7 @@ type CfnLayer interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes.
+	// For custom layers only, use this parameter to specify the layer's short name, which is used internally by OpsWorks Stacks and by Chef recipes.
 	Shortname() *string
 	SetShortname(val *string)
 	// The stack in which this element is defined.
@@ -186,7 +186,7 @@ type CfnLayer interface {
 	SetStackId(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer.
+	// Specifies one or more sets of tags (key–value pairs) to associate with this OpsWorks layer.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The layer type.

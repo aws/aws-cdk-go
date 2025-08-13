@@ -20,7 +20,7 @@ type CfnElasticLoadBalancerAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elasticloadbalancerattachment.html#cfn-opsworks-elasticloadbalancerattachment-elasticloadbalancername
 	//
 	ElasticLoadBalancerName *string `field:"required" json:"elasticLoadBalancerName" yaml:"elasticLoadBalancerName"`
-	// The AWS OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
+	// The OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elasticloadbalancerattachment.html#cfn-opsworks-elasticloadbalancerattachment-layerid
 	//
 	LayerId *string `field:"required" json:"layerId" yaml:"layerId"`

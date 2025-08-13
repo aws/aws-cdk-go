@@ -18,6 +18,7 @@ package awsneptune
 //   		jsii.String("sourceIds"),
 //   	},
 //   	SourceType: jsii.String("sourceType"),
+//   	SubscriptionName: jsii.String("subscriptionName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html
@@ -43,5 +44,8 @@ type CfnEventSubscriptionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-sourcetype
 	//
 	SourceType *string `field:"optional" json:"sourceType" yaml:"sourceType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html#cfn-neptune-eventsubscription-subscriptionname
+	//
+	SubscriptionName *string `field:"optional" json:"subscriptionName" yaml:"subscriptionName"`
 }
 

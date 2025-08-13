@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetSuppressionOptionsParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) validateSetTrackingOptionsParameters(val interface{}) error {
 	return nil
 }

@@ -11,12 +11,16 @@ package awsverifiedpermissions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   schemaDefinitionProperty := &SchemaDefinitionProperty{
+//   	CedarFormat: jsii.String("cedarFormat"),
 //   	CedarJson: jsii.String("cedarJson"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html
 //
 type CfnPolicyStore_SchemaDefinitionProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html#cfn-verifiedpermissions-policystore-schemadefinition-cedarformat
+	//
+	CedarFormat *string `field:"optional" json:"cedarFormat" yaml:"cedarFormat"`
 	// A JSON string representation of the schema supported by applications that use this policy store.
 	//
 	// For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.

@@ -183,6 +183,7 @@ type CfnDBCluster interface {
 	// Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password.
 	RotateMasterUserPassword() interface{}
 	SetRotateMasterUserPassword(val interface{})
+	// Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.
 	ServerlessV2ScalingConfiguration() interface{}
 	SetServerlessV2ScalingConfiguration(val interface{})
 	// The identifier for the snapshot or cluster snapshot to restore from.

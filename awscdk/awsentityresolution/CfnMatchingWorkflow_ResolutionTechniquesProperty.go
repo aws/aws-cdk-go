@@ -35,6 +35,14 @@ package awsentityresolution
 //   		// the properties below are optional
 //   		MatchPurpose: jsii.String("matchPurpose"),
 //   	},
+//   	RuleConditionProperties: &RuleConditionPropertiesProperty{
+//   		Rules: []interface{}{
+//   			&RuleConditionProperty{
+//   				Condition: jsii.String("condition"),
+//   				RuleName: jsii.String("ruleName"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html
@@ -44,15 +52,21 @@ type CfnMatchingWorkflow_ResolutionTechniquesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-providerproperties
 	//
 	ProviderProperties interface{} `field:"optional" json:"providerProperties" yaml:"providerProperties"`
-	// The type of matching.
+	// The type of matching workflow to create. Specify one of the following types:.
 	//
-	// There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+	// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+	// - `ML_MATCHING` : Match records using machine learning models
+	// - `PROVIDER` : Match records using a third-party matching provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-resolutiontype
 	//
 	ResolutionType *string `field:"optional" json:"resolutionType" yaml:"resolutionType"`
-	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+	// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-rulebasedproperties
 	//
 	RuleBasedProperties interface{} `field:"optional" json:"ruleBasedProperties" yaml:"ruleBasedProperties"`
+	// An object containing the `rules` for a matching workflow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-ruleconditionproperties
+	//
+	RuleConditionProperties interface{} `field:"optional" json:"ruleConditionProperties" yaml:"ruleConditionProperties"`
 }
 

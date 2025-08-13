@@ -23,6 +23,14 @@ import (
 //   	ChannelName: jsii.String("channelName"),
 //   	OriginEndpointName: jsii.String("originEndpointName"),
 //   	Policy: policy,
+//
+//   	// the properties below are optional
+//   	CdnAuthConfiguration: &CdnAuthConfigurationProperty{
+//   		CdnIdentifierSecretArns: []*string{
+//   			jsii.String("cdnIdentifierSecretArns"),
+//   		},
+//   		SecretsRoleArn: jsii.String("secretsRoleArn"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html
@@ -30,6 +38,9 @@ import (
 type CfnOriginEndpointPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The settings to enable CDN authorization headers in MediaPackage.
+	CdnAuthConfiguration() interface{}
+	SetCdnAuthConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -218,6 +229,16 @@ type jsiiProxy_CfnOriginEndpointPolicy struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnOriginEndpointPolicy) CdnAuthConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cdnAuthConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOriginEndpointPolicy) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -383,6 +404,17 @@ func NewCfnOriginEndpointPolicy_Override(c CfnOriginEndpointPolicy, scope constr
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpointPolicy",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicy)SetCdnAuthConfiguration(val interface{}) {
+	if err := j.validateSetCdnAuthConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cdnAuthConfiguration",
+		val,
 	)
 }
 

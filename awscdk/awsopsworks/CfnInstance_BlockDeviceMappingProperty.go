@@ -24,7 +24,7 @@ package awsopsworks
 type CfnInstance_BlockDeviceMappingProperty struct {
 	// The device name that is exposed to the instance, such as `/dev/sdh` .
 	//
-	// For the root device, you can use the explicit device name or you can set this parameter to `ROOT_DEVICE` and AWS OpsWorks Stacks will provide the correct device name.
+	// For the root device, you can use the explicit device name or you can set this parameter to `ROOT_DEVICE` and OpsWorks Stacks will provide the correct device name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html#cfn-opsworks-instance-blockdevicemapping-devicename
 	//
 	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`

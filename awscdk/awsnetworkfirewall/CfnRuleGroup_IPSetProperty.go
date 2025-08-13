@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A list of IP addresses and address ranges, in CIDR notation.
 //
-// This is part of a `RuleGroup.RuleVariables` .
+// This is part of a `RuleVariables` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

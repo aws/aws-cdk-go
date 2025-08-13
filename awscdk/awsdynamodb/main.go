@@ -504,6 +504,14 @@ func init() {
 		reflect.TypeOf((*MaxThroughputProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_dynamodb.MultiRegionConsistency",
+		reflect.TypeOf((*MultiRegionConsistency)(nil)).Elem(),
+		map[string]interface{}{
+			"EVENTUAL": MultiRegionConsistency_EVENTUAL,
+			"STRONG": MultiRegionConsistency_STRONG,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.Operation",
 		reflect.TypeOf((*Operation)(nil)).Elem(),
 		map[string]interface{}{

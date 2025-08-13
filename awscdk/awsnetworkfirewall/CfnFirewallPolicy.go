@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Use the `FirewallPolicy` to define the stateless and stateful network traffic filtering behavior for your `Firewall` .
+// Use the firewall policy to define the stateless and stateful network traffic filtering behavior for your firewall.
 //
 // You can use one firewall policy for multiple firewalls.
 //
@@ -52,6 +52,7 @@ import (
 //   				ResourceArn: jsii.String("resourceArn"),
 //
 //   				// the properties below are optional
+//   				DeepThreatInspection: jsii.Boolean(false),
 //   				Override: &StatefulRuleGroupOverrideProperty{
 //   					Action: jsii.String("action"),
 //   				},
@@ -98,9 +99,9 @@ type CfnFirewallPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+	// The Amazon Resource Name (ARN) of the firewall policy.
 	AttrFirewallPolicyArn() *string
-	// The unique ID of the `FirewallPolicy` resource.
+	// The unique ID of the firewall policy resource.
 	AttrFirewallPolicyId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

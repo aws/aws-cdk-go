@@ -25,6 +25,12 @@ import (
 //
 //   	// the properties below are optional
 //   	DestinationPolicy: jsii.String("destinationPolicy"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
@@ -32,8 +38,11 @@ import (
 type CfnDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -73,6 +82,9 @@ type CfnDestination interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags that have been assigned to this delivery destination.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
 	TargetArn() *string
 	SetTargetArn(val *string)
@@ -220,6 +232,7 @@ type CfnDestination interface {
 type jsiiProxy_CfnDestination struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDestination) AttrArn() *string {
@@ -227,6 +240,16 @@ func (j *jsiiProxy_CfnDestination) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDestination) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -342,6 +365,16 @@ func (j *jsiiProxy_CfnDestination) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDestination) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDestination) TargetArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -426,6 +459,17 @@ func (j *jsiiProxy_CfnDestination)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDestination)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

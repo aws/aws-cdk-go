@@ -22,6 +22,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	Schema: &SchemaDefinitionProperty{
+//   		CedarFormat: jsii.String("cedarFormat"),
 //   		CedarJson: jsii.String("cedarJson"),
 //   	},
 //   	Tags: []cfnTag{

@@ -111,7 +111,11 @@ type CfnPatchBaselineProps struct {
 	// Default: - false.
 	//
 	ApprovedPatchesEnableNonSecurity interface{} `field:"optional" json:"approvedPatchesEnableNonSecurity" yaml:"approvedPatchesEnableNonSecurity"`
-	// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+	// Indicates the status you want to assign to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline.
+	//
+	// Example scenario: Security patches that you might want installed can be skipped if you have specified a long period to wait after a patch is released before installation. If an update to the patch is released during your specified waiting period, the waiting period for installing the patch starts over. If the waiting period is too long, multiple versions of the patch could be released but never installed.
+	//
+	// Supported for Windows Server managed nodes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-availablesecurityupdatescompliancestatus
 	//
 	AvailableSecurityUpdatesComplianceStatus *string `field:"optional" json:"availableSecurityUpdatesComplianceStatus" yaml:"availableSecurityUpdatesComplianceStatus"`

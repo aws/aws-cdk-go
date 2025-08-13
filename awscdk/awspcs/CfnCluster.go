@@ -18,6 +18,7 @@ import (
 //
 //   cfnCluster := awscdk.Aws_pcs.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
 //   	Networking: &NetworkingProperty{
+//   		NetworkType: jsii.String("networkType"),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},

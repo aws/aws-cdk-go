@@ -1,9 +1,7 @@
 package awsnetworkfirewall
 
 
-// Settings that are available for use in the rules in the `RuleGroup` where this is defined.
-//
-// See `CreateRuleGroup` or `UpdateRuleGroup` for usage.
+// Settings that are available for use in the rules in the rule group where this is defined.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

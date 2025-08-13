@@ -59,13 +59,13 @@ type CfnProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-glossaryterms
 	//
 	GlossaryTerms *[]*string `field:"optional" json:"glossaryTerms" yaml:"glossaryTerms"`
-	// The project profile ID.
+	// The ID of the project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectprofileid
 	//
 	ProjectProfileId *string `field:"optional" json:"projectProfileId" yaml:"projectProfileId"`
 	// The project profile version to which the project should be updated.
 	//
-	// You can only specify the following string for this parameter: latest.
+	// You can only specify the following string for this parameter: `latest` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectprofileversion
 	//
 	ProjectProfileVersion *string `field:"optional" json:"projectProfileVersion" yaml:"projectProfileVersion"`

@@ -24,6 +24,12 @@ package awsecr
 //   		KmsKey: jsii.String("kmsKey"),
 //   	},
 //   	ImageTagMutability: jsii.String("imageTagMutability"),
+//   	ImageTagMutabilityExclusionFilters: []interface{}{
+//   		&ImageTagMutabilityExclusionFilterProperty{
+//   			ImageTagMutabilityExclusionFilterType: jsii.String("imageTagMutabilityExclusionFilterType"),
+//   			ImageTagMutabilityExclusionFilterValue: jsii.String("imageTagMutabilityExclusionFilterValue"),
+//   		},
+//   	},
 //   	LifecyclePolicy: jsii.String("lifecyclePolicy"),
 //   	RepositoryPolicy: jsii.String("repositoryPolicy"),
 //   	ResourceTags: []interface{}{
@@ -67,6 +73,12 @@ type CfnRepositoryCreationTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-imagetagmutability
 	//
 	ImageTagMutability *string `field:"optional" json:"imageTagMutability" yaml:"imageTagMutability"`
+	// Defines the image tag mutability exclusion filters to apply when creating repositories from this template.
+	//
+	// These filters specify which image tags can override the repository's default image tag mutability setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-imagetagmutabilityexclusionfilters
+	//
+	ImageTagMutabilityExclusionFilters interface{} `field:"optional" json:"imageTagMutabilityExclusionFilters" yaml:"imageTagMutabilityExclusionFilters"`
 	// The lifecycle policy to use for repositories created using the template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-lifecyclepolicy
 	//

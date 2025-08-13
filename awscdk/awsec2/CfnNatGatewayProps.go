@@ -12,9 +12,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnNatGatewayProps := &CfnNatGatewayProps{
-//   	SubnetId: jsii.String("subnetId"),
-//
-//   	// the properties below are optional
 //   	AllocationId: jsii.String("allocationId"),
 //   	ConnectivityType: jsii.String("connectivityType"),
 //   	MaxDrainDurationSeconds: jsii.Number(123),
@@ -26,6 +23,7 @@ import (
 //   	SecondaryPrivateIpAddresses: []*string{
 //   		jsii.String("secondaryPrivateIpAddresses"),
 //   	},
+//   	SubnetId: jsii.String("subnetId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -37,10 +35,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
 //
 type CfnNatGatewayProps struct {
-	// The ID of the subnet in which the NAT gateway is located.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
-	//
-	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 	//
 	// This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
@@ -87,6 +81,10 @@ type CfnNatGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryprivateipaddresses
 	//
 	SecondaryPrivateIpAddresses *[]*string `field:"optional" json:"secondaryPrivateIpAddresses" yaml:"secondaryPrivateIpAddresses"`
+	// The ID of the subnet in which the NAT gateway is located.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
+	//
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags for the NAT gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags
 	//

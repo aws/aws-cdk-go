@@ -17,35 +17,39 @@ import (
 // This creates a service using the Fargate launch type on an ECS cluster.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var elbAlarm alarm
 //
-//
+//   serviceName := "MyFargateService"
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	ServiceName: jsii.String(ServiceName),
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	DeploymentAlarms: &DeploymentAlarmConfig{
-//   		AlarmNames: []*string{
-//   			elbAlarm.AlarmName,
-//   		},
-//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
-//   	},
 //   })
 //
-//   // Defining a deployment alarm after the service has been created
-//   cpuAlarmName := "MyCpuMetricAlarm"
-//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: cpuAlarmName,
-//   	Metric: service.MetricCpuUtilization(),
+//   cpuMetric := cw.NewMetric(&MetricProps{
+//   	MetricName: jsii.String("CPUUtilization"),
+//   	Namespace: jsii.String("AWS/ECS"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Statistic: jsii.String("Average"),
+//   	DimensionsMap: map[string]*string{
+//   		"ClusterName": cluster.clusterName,
+//   		// Using `service.serviceName` here will cause a circular dependency
+//   		"ServiceName": serviceName,
+//   	},
+//   })
+//   myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
+//   	AlarmName: jsii.String("cpuAlarmName"),
+//   	Metric: cpuMetric,
 //   	EvaluationPeriods: jsii.Number(2),
 //   	Threshold: jsii.Number(80),
 //   })
+//
 //   service.EnableDeploymentAlarms([]*string{
-//   	cpuAlarmName,
+//   	myAlarm.AlarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })
@@ -103,6 +107,8 @@ type FargateService interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Add a deployment lifecycle hook target.
+	AddLifecycleHook(target IDeploymentLifecycleHookTarget)
 	// Adds a volume to the Service.
 	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
@@ -170,6 +176,10 @@ type FargateService interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Checks if the service is using the ECS deployment controller.
+	//
+	// Returns: true if the service is using the ECS deployment controller or if no deployment controller is specified (defaults to ECS).
+	IsUsingECSDeploymentController() *bool
 	// Return a load balancing target for a specific container and port.
 	//
 	// Use this function to create a load balancer target if you want to load balance to
@@ -607,6 +617,17 @@ func FargateService_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
+func (f *jsiiProxy_FargateService) AddLifecycleHook(target IDeploymentLifecycleHookTarget) {
+	if err := f.validateAddLifecycleHookParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"addLifecycleHook",
+		[]interface{}{target},
+	)
+}
+
 func (f *jsiiProxy_FargateService) AddVolume(volume ServiceManagedVolume) {
 	if err := f.validateAddVolumeParameters(volume); err != nil {
 		panic(err)
@@ -787,6 +808,19 @@ func (f *jsiiProxy_FargateService) GetResourceNameAttribute(nameAttr *string) *s
 		f,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateService) IsUsingECSDeploymentController() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		f,
+		"isUsingECSDeploymentController",
+		nil, // no parameters
 		&returns,
 	)
 

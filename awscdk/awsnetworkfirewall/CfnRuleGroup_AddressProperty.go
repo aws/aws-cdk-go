@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single IP address specification.
 //
-// This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
+// This is used in the match attributes source and destination specifications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

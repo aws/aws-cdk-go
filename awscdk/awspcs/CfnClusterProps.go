@@ -10,6 +10,7 @@ package awspcs
 //
 //   cfnClusterProps := &CfnClusterProps{
 //   	Networking: &NetworkingProperty{
+//   		NetworkType: jsii.String("networkType"),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},

@@ -10,6 +10,7 @@ package awsmediapackagev2
 //
 //   inputSwitchConfigurationProperty := &InputSwitchConfigurationProperty{
 //   	MqcsInputSwitching: jsii.Boolean(false),
+//   	PreferredInput: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html
@@ -21,5 +22,11 @@ type CfnChannel_InputSwitchConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html#cfn-mediapackagev2-channel-inputswitchconfiguration-mqcsinputswitching
 	//
 	MqcsInputSwitching interface{} `field:"optional" json:"mqcsInputSwitching" yaml:"mqcsInputSwitching"`
+	// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores.
+	//
+	// Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html#cfn-mediapackagev2-channel-inputswitchconfiguration-preferredinput
+	//
+	PreferredInput *float64 `field:"optional" json:"preferredInput" yaml:"preferredInput"`
 }
 

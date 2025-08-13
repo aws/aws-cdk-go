@@ -24,6 +24,7 @@ import (
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
 //   	MaxConcurrentSessions: jsii.Number(123),
 //   	NetworkSettingsArn: jsii.String("networkSettingsArn"),
+//   	SessionLoggerArn: jsii.String("sessionLoggerArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -92,6 +93,9 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-networksettingsarn
 	//
 	NetworkSettingsArn *string `field:"optional" json:"networkSettingsArn" yaml:"networkSettingsArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-sessionloggerarn
+	//
+	SessionLoggerArn *string `field:"optional" json:"sessionLoggerArn" yaml:"sessionLoggerArn"`
 	// The tags to add to the web portal.
 	//
 	// A tag is a key-value pair.

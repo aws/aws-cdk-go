@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `RuleName` , and `MatchingKeys` .
+// An object containing the `ruleName` and `matchingKeys` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

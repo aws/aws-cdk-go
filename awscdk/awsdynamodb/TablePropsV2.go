@@ -19,21 +19,18 @@ import (
 //   	},
 //   })
 //
-//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+//   mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	// applies to all replicas, i.e., us-west-2, us-east-1, us-east-2
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
 //   	Replicas: []replicaTableProps{
 //   		&replicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&replicaTableProps{
-//   			Region: jsii.String("us-east-2"),
-//   		},
 //   	},
+//   	WitnessRegion: jsii.String("us-east-2"),
 //   })
 //
 type TablePropsV2 struct {
@@ -100,6 +97,10 @@ type TablePropsV2 struct {
 	// Default: - no local secondary indexes.
 	//
 	LocalSecondaryIndexes *[]*LocalSecondaryIndexProps `field:"optional" json:"localSecondaryIndexes" yaml:"localSecondaryIndexes"`
+	// Specifies the consistency mode for a new global table.
+	// Default: MultiRegionConsistency.EVENTUAL
+	//
+	MultiRegionConsistency MultiRegionConsistency `field:"optional" json:"multiRegionConsistency" yaml:"multiRegionConsistency"`
 	// The removal policy applied to the table.
 	// Default: RemovalPolicy.RETAIN
 	//
@@ -128,5 +129,14 @@ type TablePropsV2 struct {
 	// Default: - no warm throughput is configured.
 	//
 	WarmThroughput *WarmThroughput `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
+	// The witness Region for the MRSC global table.
+	//
+	// A MRSC global table can be configured with either three replicas, or with two replicas and one witness.
+	//
+	// Note: Witness region cannot be specified for a Multi-Region Eventual Consistency (MREC) Global Table.
+	// Witness regions are only supported for Multi-Region Strong Consistency (MRSC) Global Tables.
+	// Default: - no witness region.
+	//
+	WitnessRegion *string `field:"optional" json:"witnessRegion" yaml:"witnessRegion"`
 }
 

@@ -26,6 +26,7 @@ import (
 //
 //   var dataProtectionPolicy interface{}
 //   var fieldIndexPolicies interface{}
+//   var resourcePolicyDocument interface{}
 //
 //   cfnLogGroup := awscdk.Aws_logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &CfnLogGroupProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
@@ -35,6 +36,7 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogGroupClass: jsii.String("logGroupClass"),
 //   	LogGroupName: jsii.String("logGroupName"),
+//   	ResourcePolicyDocument: resourcePolicyDocument,
 //   	RetentionInDays: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -95,6 +97,8 @@ type CfnLogGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ResourcePolicyDocument() interface{}
+	SetResourcePolicyDocument(val interface{})
 	// The number of days to retain the log events in the specified log group.
 	RetentionInDays() *float64
 	SetRetentionInDays(val *float64)
@@ -384,6 +388,16 @@ func (j *jsiiProxy_CfnLogGroup) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogGroup) ResourcePolicyDocument() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourcePolicyDocument",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLogGroup) RetentionInDays() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -511,6 +525,14 @@ func (j *jsiiProxy_CfnLogGroup)SetLogGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"logGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogGroup)SetResourcePolicyDocument(val interface{}) {
+	_jsii_.Set(
+		j,
+		"resourcePolicyDocument",
 		val,
 	)
 }

@@ -61,6 +61,7 @@ import (
 //   		},
 //   		NodeRoleArn: jsii.String("nodeRoleArn"),
 //   	},
+//   	DeletionProtection: jsii.Boolean(false),
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -187,6 +188,9 @@ type CfnCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Set this value to true to enable deletion protection for the cluster.
+	DeletionProtection() interface{}
+	SetDeletionProtection(val interface{})
 	// The encryption configuration for the cluster.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
@@ -549,6 +553,16 @@ func (j *jsiiProxy_CfnCluster) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) DeletionProtection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deletionProtection",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) EncryptionConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -816,6 +830,17 @@ func (j *jsiiProxy_CfnCluster)SetComputeConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"computeConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetDeletionProtection(val interface{}) {
+	if err := j.validateSetDeletionProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deletionProtection",
 		val,
 	)
 }

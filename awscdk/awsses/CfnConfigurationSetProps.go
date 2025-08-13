@@ -1,5 +1,8 @@
 package awsses
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnConfigurationSet`.
 //
@@ -24,6 +27,12 @@ package awsses
 //   	SuppressionOptions: &SuppressionOptionsProperty{
 //   		SuppressedReasons: []*string{
 //   			jsii.String("suppressedReasons"),
+//   		},
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   	TrackingOptions: &TrackingOptionsProperty{
@@ -66,6 +75,10 @@ type CfnConfigurationSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-suppressionoptions
 	//
 	SuppressionOptions interface{} `field:"optional" json:"suppressionOptions" yaml:"suppressionOptions"`
+	// An array of objects that define the tags (keys and values) that are associated with the configuration set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-trackingoptions
 	//

@@ -23,6 +23,12 @@ import (
 //   cfnDedicatedIpPool := awscdk.Aws_ses.NewCfnDedicatedIpPool(this, jsii.String("MyCfnDedicatedIpPool"), &CfnDedicatedIpPoolProps{
 //   	PoolName: jsii.String("poolName"),
 //   	ScalingMode: jsii.String("scalingMode"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html
@@ -30,6 +36,9 @@ import (
 type CfnDedicatedIpPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -66,6 +75,9 @@ type CfnDedicatedIpPool interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An object that defines the tags (keys and values) that you want to associate with the pool.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -210,6 +222,17 @@ type CfnDedicatedIpPool interface {
 type jsiiProxy_CfnDedicatedIpPool struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnDedicatedIpPool) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDedicatedIpPool) CfnOptions() awscdk.ICfnResourceOptions {
@@ -312,6 +335,16 @@ func (j *jsiiProxy_CfnDedicatedIpPool) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDedicatedIpPool) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDedicatedIpPool) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -372,6 +405,17 @@ func (j *jsiiProxy_CfnDedicatedIpPool)SetScalingMode(val *string) {
 	_jsii_.Set(
 		j,
 		"scalingMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDedicatedIpPool)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

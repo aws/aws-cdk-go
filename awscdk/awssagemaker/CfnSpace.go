@@ -48,6 +48,9 @@ import (
 //   				FSxLustreFileSystem: &FSxLustreFileSystemProperty{
 //   					FileSystemId: jsii.String("fileSystemId"),
 //   				},
+//   				S3FileSystem: &S3FileSystemProperty{
+//   					S3Uri: jsii.String("s3Uri"),
+//   				},
 //   			},
 //   		},
 //   		JupyterLabAppSettings: &SpaceJupyterLabAppSettingsProperty{

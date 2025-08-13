@@ -97,7 +97,7 @@ type CfnProject interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The project profile ID.
+	// The ID of the project profile.
 	ProjectProfileId() *string
 	SetProjectProfileId(val *string)
 	// The project profile version to which the project should be updated.

@@ -16,6 +16,9 @@ import (
 //   	ConfigOptions: &TopicConfigOptionsProperty{
 //   		QBusinessInsightsEnabled: jsii.Boolean(false),
 //   	},
+//   	CustomInstructions: &CustomInstructionsProperty{
+//   		CustomInstructionsString: jsii.String("customInstructionsString"),
+//   	},
 //   	DataSets: []interface{}{
 //   		&DatasetMetadataProperty{
 //   			DatasetArn: jsii.String("datasetArn"),
@@ -301,6 +304,9 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-configoptions
 	//
 	ConfigOptions interface{} `field:"optional" json:"configOptions" yaml:"configOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-custominstructions
+	//
+	CustomInstructions interface{} `field:"optional" json:"customInstructions" yaml:"customInstructions"`
 	// The data sets that the topic is associated with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-datasets
 	//

@@ -73,6 +73,12 @@ import (
 //   		Status: jsii.String("status"),
 //
 //   		// the properties below are optional
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		ViewType: jsii.String("viewType"),
 //   	},
 //   	ClientSideTimestampsEnabled: jsii.Boolean(false),
@@ -125,7 +131,7 @@ import (
 //   		},
 //   	},
 //   	TableName: jsii.String("tableName"),
-//   	Tags: []cfnTag{
+//   	Tags: []*cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),

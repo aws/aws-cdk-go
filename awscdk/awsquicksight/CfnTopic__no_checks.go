@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTopic) validateSetConfigOptionsParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnTopic) validateSetCustomInstructionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTopic) validateSetDataSetsParameters(val interface{}) error {
 	return nil
 }

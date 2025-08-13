@@ -14,6 +14,15 @@ package awsmedialive
 //   	Destination: &OutputLocationRefProperty{
 //   		DestinationRefId: jsii.String("destinationRefId"),
 //   	},
+//   	MediapackageV2GroupSettings: &MediaPackageV2GroupSettingsProperty{
+//   		CaptionLanguageMappings: []interface{}{
+//   			&CaptionLanguageMappingProperty{
+//   				CaptionChannel: jsii.Number(123),
+//   				LanguageCode: jsii.String("languageCode"),
+//   				LanguageDescription: jsii.String("languageDescription"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html
@@ -23,5 +32,8 @@ type CfnChannel_MediaPackageGroupSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-destination
 	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-mediapackagev2groupsettings
+	//
+	MediapackageV2GroupSettings interface{} `field:"optional" json:"mediapackageV2GroupSettings" yaml:"mediapackageV2GroupSettings"`
 }
 

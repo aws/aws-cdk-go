@@ -23,6 +23,14 @@ import (
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Subdomain: jsii.String("subdomain"),
+//
+//   	// the properties below are optional
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html
@@ -30,6 +38,7 @@ import (
 type CfnMonitor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the monitor.
 	AttrArn() *string
 	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
@@ -40,6 +49,8 @@ type CfnMonitor interface {
 	//
 	// The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	AttrUrl() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -82,6 +93,9 @@ type CfnMonitor interface {
 	// The subdomain used for the monitor URL.
 	Subdomain() *string
 	SetSubdomain(val *string)
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -226,6 +240,7 @@ type CfnMonitor interface {
 type jsiiProxy_CfnMonitor struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnMonitor) AttrArn() *string {
@@ -263,6 +278,16 @@ func (j *jsiiProxy_CfnMonitor) AttrUrl() *string {
 	_jsii_.Get(
 		j,
 		"attrUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMonitor) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -388,6 +413,16 @@ func (j *jsiiProxy_CfnMonitor) Subdomain() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMonitor) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMonitor) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -476,6 +511,17 @@ func (j *jsiiProxy_CfnMonitor)SetSubdomain(val *string) {
 	_jsii_.Set(
 		j,
 		"subdomain",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMonitor)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

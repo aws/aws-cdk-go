@@ -29,7 +29,7 @@ type CfnSecurityConfig_SamlConfigOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-groupattribute
 	//
 	GroupAttribute *string `field:"optional" json:"groupAttribute" yaml:"groupAttribute"`
-	// Custom entity id attribute to override default entity id for this saml integration.
+	// Custom entity ID attribute to override the default entity ID for this SAML integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-opensearchserverlessentityid
 	//
 	OpenSearchServerlessEntityId *string `field:"optional" json:"openSearchServerlessEntityId" yaml:"openSearchServerlessEntityId"`

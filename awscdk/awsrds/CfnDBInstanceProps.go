@@ -102,6 +102,14 @@ import (
 //   	SourceDbInstanceIdentifier: jsii.String("sourceDbInstanceIdentifier"),
 //   	SourceDbiResourceId: jsii.String("sourceDbiResourceId"),
 //   	SourceRegion: jsii.String("sourceRegion"),
+//   	StatusInfos: []interface{}{
+//   		&DBInstanceStatusInfoProperty{
+//   			Message: jsii.String("message"),
+//   			Normal: jsii.Boolean(false),
+//   			Status: jsii.String("status"),
+//   			StatusType: jsii.String("statusType"),
+//   		},
+//   	},
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	StorageThroughput: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
@@ -1150,6 +1158,12 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-sourceregion
 	//
 	SourceRegion *string `field:"optional" json:"sourceRegion" yaml:"sourceRegion"`
+	// The status of a read replica.
+	//
+	// If the DB instance isn't a read replica, the value is blank.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-statusinfos
+	//
+	StatusInfos interface{} `field:"optional" json:"statusInfos" yaml:"statusInfos"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.

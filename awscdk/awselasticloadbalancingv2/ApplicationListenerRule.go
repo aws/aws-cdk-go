@@ -11,28 +11,39 @@ import (
 // Define a new listener rule.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationListener applicationListener
-//   var applicationTargetGroup applicationTargetGroup
-//   var listenerAction listenerAction
-//   var listenerCondition listenerCondition
+//   var cluster cluster
+//   var taskDefinition taskDefinition
+//   var lambdaHook function
+//   var blueTargetGroup applicationTargetGroup
+//   var greenTargetGroup applicationTargetGroup
+//   var prodListenerRule applicationListenerRule
 //
-//   applicationListenerRule := awscdk.Aws_elasticloadbalancingv2.NewApplicationListenerRule(this, jsii.String("MyApplicationListenerRule"), &ApplicationListenerRuleProps{
-//   	Listener: applicationListener,
-//   	Priority: jsii.Number(123),
 //
-//   	// the properties below are optional
-//   	Action: listenerAction,
-//   	Conditions: []*listenerCondition{
-//   		listenerCondition,
-//   	},
-//   	TargetGroups: []iApplicationTargetGroup{
-//   		applicationTargetGroup,
-//   	},
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	DeploymentStrategy: ecs.DeploymentStrategy_BLUE_GREEN,
 //   })
+//
+//   service.AddLifecycleHook(ecs.NewDeploymentLifecycleLambdaTarget(lambdaHook, jsii.String("PreScaleHook"), &DeploymentLifecycleLambdaTargetProps{
+//   	LifecycleStages: []deploymentLifecycleStage{
+//   		ecs.*deploymentLifecycleStage_PRE_SCALE_UP,
+//   	},
+//   }))
+//
+//   target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+//   	ContainerName: jsii.String("nginx"),
+//   	ContainerPort: jsii.Number(80),
+//   	Protocol: ecs.Protocol_TCP,
+//   	AlternateTarget: ecs.NewAlternateTarget(jsii.String("AlternateTarget"), &AlternateTargetProps{
+//   		AlternateTargetGroup: greenTargetGroup,
+//   		ProductionListener: ecs.ListenerRuleConfiguration_ApplicationListenerRule(prodListenerRule),
+//   	}),
+//   })
+//
+//   target.AttachToApplicationTargetGroup(blueTargetGroup)
 //
 type ApplicationListenerRule interface {
 	constructs.Construct

@@ -42,6 +42,7 @@ import (
 //   		},
 //   		NodeRoleArn: jsii.String("nodeRoleArn"),
 //   	},
+//   	DeletionProtection: jsii.Boolean(false),
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -153,6 +154,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig
 	//
 	ComputeConfig interface{} `field:"optional" json:"computeConfig" yaml:"computeConfig"`
+	// Set this value to true to enable deletion protection for the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-deletionprotection
+	//
+	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The encryption configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	//

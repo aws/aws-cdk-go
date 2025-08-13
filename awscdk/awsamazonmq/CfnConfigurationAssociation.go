@@ -33,6 +33,7 @@ import (
 type CfnConfigurationAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the ConfigurationAssociation Resource.
 	AttrId() *string
 	// The broker to associate with a configuration.
 	Broker() *string

@@ -137,6 +137,11 @@ package awsdeadline
 //
 //   		// the properties below are optional
 //   		StorageProfileId: jsii.String("storageProfileId"),
+//   		VpcConfiguration: &VpcConfigurationProperty{
+//   			ResourceConfigurationArns: []*string{
+//   				jsii.String("resourceConfigurationArns"),
+//   			},
+//   		},
 //   	},
 //   }
 //

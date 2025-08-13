@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+// An object containing `inputSourceARN` , `schemaName` , and `applyNormalization` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +19,7 @@ package awsentityresolution
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html
 //
 type CfnMatchingWorkflow_InputSourceProperty struct {
-	// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+	// An object containing `inputSourceARN` , `schemaName` , and `applyNormalization` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html#cfn-entityresolution-matchingworkflow-inputsource-inputsourcearn
 	//
 	InputSourceArn *string `field:"required" json:"inputSourceArn" yaml:"inputSourceArn"`

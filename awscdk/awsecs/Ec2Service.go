@@ -98,6 +98,8 @@ type Ec2Service interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Add a deployment lifecycle hook target.
+	AddLifecycleHook(target IDeploymentLifecycleHookTarget)
 	// Adds one or more placement constraints to use for tasks in the service.
 	//
 	// For more information, see
@@ -175,6 +177,10 @@ type Ec2Service interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Checks if the service is using the ECS deployment controller.
+	//
+	// Returns: true if the service is using the ECS deployment controller or if no deployment controller is specified (defaults to ECS).
+	IsUsingECSDeploymentController() *bool
 	// Return a load balancing target for a specific container and port.
 	//
 	// Use this function to create a load balancer target if you want to load balance to
@@ -612,6 +618,17 @@ func Ec2Service_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
+func (e *jsiiProxy_Ec2Service) AddLifecycleHook(target IDeploymentLifecycleHookTarget) {
+	if err := e.validateAddLifecycleHookParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"addLifecycleHook",
+		[]interface{}{target},
+	)
+}
+
 func (e *jsiiProxy_Ec2Service) AddPlacementConstraints(constraints ...PlacementConstraint) {
 	args := []interface{}{}
 	for _, a := range constraints {
@@ -818,6 +835,19 @@ func (e *jsiiProxy_Ec2Service) GetResourceNameAttribute(nameAttr *string) *strin
 		e,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_Ec2Service) IsUsingECSDeploymentController() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		e,
+		"isUsingECSDeploymentController",
+		nil, // no parameters
 		&returns,
 	)
 

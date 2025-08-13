@@ -107,7 +107,7 @@ type CfnPatchBaseline interface {
 	SetApprovedPatchesEnableNonSecurity(val interface{})
 	// The ID of the patch baseline.
 	AttrId() *string
-	// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+	// Indicates the status you want to assign to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline.
 	AvailableSecurityUpdatesComplianceStatus() *string
 	SetAvailableSecurityUpdatesComplianceStatus(val *string)
 	// Options for this resource, such as condition, update policy etc.

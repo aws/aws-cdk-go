@@ -80,6 +80,10 @@ func validateCfnDedicatedIpPool_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDedicatedIpPool) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDedicatedIpPoolParameters(scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) error {
 	return nil
 }

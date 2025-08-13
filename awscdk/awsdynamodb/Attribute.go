@@ -14,21 +14,18 @@ package awsdynamodb
 //   	},
 //   })
 //
-//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
+//   mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	// applies to all replicas, i.e., us-west-2, us-east-1, us-east-2
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
 //   	Replicas: []replicaTableProps{
 //   		&replicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&replicaTableProps{
-//   			Region: jsii.String("us-east-2"),
-//   		},
 //   	},
+//   	WitnessRegion: jsii.String("us-east-2"),
 //   })
 //
 type Attribute struct {

@@ -89,7 +89,7 @@ type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The default AWS OpsWorks Stacks agent version.
+	// The default OpsWorks Stacks agent version.
 	//
 	// You have the following options:.
 	AgentVersion() *string
@@ -106,10 +106,10 @@ type CfnStack interface {
 	// A `ChefConfiguration` object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see [Create a New Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html) .
 	ChefConfiguration() interface{}
 	SetChefConfiguration(val interface{})
-	// If you're cloning an AWS OpsWorks stack, a list of AWS OpsWorks application stack IDs from the source stack to include in the cloned stack.
+	// If you're cloning an OpsWorks stack, a list of OpsWorks application stack IDs from the source stack to include in the cloned stack.
 	CloneAppIds() *[]*string
 	SetCloneAppIds(val *[]*string)
-	// If you're cloning an AWS OpsWorks stack, indicates whether to clone the source stack's permissions.
+	// If you're cloning an OpsWorks stack, indicates whether to clone the source stack's permissions.
 	ClonePermissions() interface{}
 	SetClonePermissions(val interface{})
 	// The configuration manager.
@@ -143,10 +143,10 @@ type CfnStack interface {
 	// The stack's default subnet ID.
 	DefaultSubnetId() *string
 	SetDefaultSubnetId(val *string)
-	// The Amazon Resource Name (ARN) of the Amazon Elastic Container Service ( Amazon ECS ) cluster to register with the AWS OpsWorks stack.
+	// The Amazon Resource Name (ARN) of the Amazon Elastic Container Service ( Amazon ECS ) cluster to register with the OpsWorks stack.
 	EcsClusterArn() *string
 	SetEcsClusterArn(val *string)
-	// A list of Elastic IP addresses to register with the AWS OpsWorks stack.
+	// A list of Elastic IP addresses to register with the OpsWorks stack.
 	ElasticIps() interface{}
 	SetElasticIps(val interface{})
 	// The stack's host name theme, with spaces replaced by underscores.
@@ -167,7 +167,7 @@ type CfnStack interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The Amazon Relational Database Service ( Amazon RDS ) database instance to register with the AWS OpsWorks stack.
+	// The Amazon Relational Database Service ( Amazon RDS ) database instance to register with the OpsWorks stack.
 	RdsDbInstances() interface{}
 	SetRdsDbInstances(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -175,10 +175,10 @@ type CfnStack interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The stack's IAM role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf.
+	// The stack's IAM role, which allows OpsWorks Stacks to work with AWS resources on your behalf.
 	ServiceRoleArn() *string
 	SetServiceRoleArn(val *string)
-	// If you're cloning an AWS OpsWorks stack, the stack ID of the source AWS OpsWorks stack to clone.
+	// If you're cloning an OpsWorks stack, the stack ID of the source OpsWorks stack to clone.
 	SourceStackId() *string
 	SetSourceStackId(val *string)
 	// The stack in which this element is defined.
@@ -206,7 +206,7 @@ type CfnStack interface {
 	// Whether the stack uses custom cookbooks.
 	UseCustomCookbooks() interface{}
 	SetUseCustomCookbooks(val interface{})
-	// Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+	// Whether to associate the OpsWorks Stacks built-in security groups with the stack's layers.
 	UseOpsworksSecurityGroups() interface{}
 	SetUseOpsworksSecurityGroups(val interface{})
 	// The ID of the VPC that the stack is to be launched into.

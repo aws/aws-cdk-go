@@ -50,7 +50,7 @@ type CfnDomain_UnifiedStudioSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-unifiedstudiosettings.html#cfn-sagemaker-domain-unifiedstudiosettings-projects3path
 	//
 	ProjectS3Path *string `field:"optional" json:"projectS3Path" yaml:"projectS3Path"`
-	// The ARN of the application managed by SageMaker AI and SageMaker Unified Studio in the AWS IAM Identity Center.
+	// The ARN of the Amazon DataZone application managed by Amazon SageMaker Unified Studio in the AWS IAM Identity Center.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-unifiedstudiosettings.html#cfn-sagemaker-domain-unifiedstudiosettings-singlesignonapplicationarn
 	//
 	SingleSignOnApplicationArn *string `field:"optional" json:"singleSignOnApplicationArn" yaml:"singleSignOnApplicationArn"`

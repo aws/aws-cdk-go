@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+// An object containing `providerConfiguration` and `providerServiceArn` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

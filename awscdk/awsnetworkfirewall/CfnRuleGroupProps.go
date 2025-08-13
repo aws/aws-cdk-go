@@ -150,6 +150,11 @@ import (
 //   			RuleOrder: jsii.String("ruleOrder"),
 //   		},
 //   	},
+//   	SummaryConfiguration: &SummaryConfigurationProperty{
+//   		RuleOptions: []*string{
+//   			jsii.String("ruleOptions"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -188,6 +193,13 @@ type CfnRuleGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
 	//
 	RuleGroup interface{} `field:"optional" json:"ruleGroup" yaml:"ruleGroup"`
+	// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+	//
+	// - The `RuleOptions` specified in `SummaryConfiguration`
+	// - Rule metadata organization preferences.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-summaryconfiguration
+	//
+	SummaryConfiguration interface{} `field:"optional" json:"summaryConfiguration" yaml:"summaryConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

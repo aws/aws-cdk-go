@@ -1,7 +1,7 @@
 package awsnetworkfirewall
 
 
-// Configures the `ReferenceSets` for a stateful rule group.
+// Configures the reference sets for a stateful rule group.
 //
 // For more information, see the [Using IP set references in Suricata compatible rule groups](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html) in the *Network Firewall User Guide* .
 //

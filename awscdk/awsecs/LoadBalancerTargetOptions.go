@@ -30,6 +30,10 @@ package awsecs
 type LoadBalancerTargetOptions struct {
 	// The name of the container.
 	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
+	// Alternate target configuration for blue/green deployments.
+	// Default: - No alternate target configuration.
+	//
+	AlternateTarget IAlternateTarget `field:"optional" json:"alternateTarget" yaml:"alternateTarget"`
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.

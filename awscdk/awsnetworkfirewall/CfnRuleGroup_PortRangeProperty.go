@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single port range specification.
 //
-// This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
+// This is used for source and destination port ranges in the stateless match attributes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

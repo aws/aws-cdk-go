@@ -23,6 +23,10 @@ package awssagemaker
 //   		// the properties below are optional
 //   		FileSystemPath: jsii.String("fileSystemPath"),
 //   	},
+//   	S3FileSystemConfig: &S3FileSystemConfigProperty{
+//   		MountPath: jsii.String("mountPath"),
+//   		S3Uri: jsii.String("s3Uri"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html
@@ -36,5 +40,9 @@ type CfnUserProfile_CustomFileSystemConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html#cfn-sagemaker-userprofile-customfilesystemconfig-fsxlustrefilesystemconfig
 	//
 	FSxLustreFileSystemConfig interface{} `field:"optional" json:"fSxLustreFileSystemConfig" yaml:"fSxLustreFileSystemConfig"`
+	// Configuration settings for a custom Amazon S3 file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html#cfn-sagemaker-userprofile-customfilesystemconfig-s3filesystemconfig
+	//
+	S3FileSystemConfig interface{} `field:"optional" json:"s3FileSystemConfig" yaml:"s3FileSystemConfig"`
 }
 

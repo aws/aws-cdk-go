@@ -9,11 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Use the `LoggingConfiguration` to define the destinations and logging options for an `Firewall` .
+// Use the logging configuration to define the destinations and logging options for an firewall.
 //
 // You must change the logging configuration by changing one `LogDestinationConfig` setting at a time in your `LogDestinationConfigs` .
 //
-// You can make only one of the following changes to your `LoggingConfiguration` resource:
+// You can make only one of the following changes to your logging configuration resource:
 //
 // - Create a new log destination object by adding a single `LogDestinationConfig` array element to `LogDestinationConfigs` .
 // - Delete a log destination object by removing a single `LogDestinationConfig` array element from `LogDestinationConfigs` .
@@ -61,13 +61,13 @@ type CfnLoggingConfiguration interface {
 	CreationStack() *[]*string
 	EnableMonitoringDashboard() interface{}
 	SetEnableMonitoringDashboard(val interface{})
-	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with.
+	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
 	// The name of the firewall that the logging configuration is associated with.
 	FirewallName() *string
 	SetFirewallName(val *string)
-	// Defines how AWS Network Firewall performs logging for a `Firewall` .
+	// Defines how AWS Network Firewall performs logging for a firewall.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

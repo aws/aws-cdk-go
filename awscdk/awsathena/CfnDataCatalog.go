@@ -77,7 +77,7 @@ type CfnDataCatalog interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the Lambda function or functions to use for the data catalog.
+	// Specifies the Lambda function or functions to use for creating the data catalog.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -9,6 +9,7 @@ package awspcs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   networkingProperty := &NetworkingProperty{
+//   	NetworkType: jsii.String("networkType"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -20,6 +21,10 @@ package awspcs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-networking.html
 //
 type CfnCluster_NetworkingProperty struct {
+	// The IP of the cluster (IPV4 or IPV6).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-networking.html#cfn-pcs-cluster-networking-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-networking.html#cfn-pcs-cluster-networking-securitygroupids
 	//

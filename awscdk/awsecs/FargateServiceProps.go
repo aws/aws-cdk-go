@@ -8,35 +8,39 @@ import (
 // The properties for defining a service using the Fargate launch type.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var elbAlarm alarm
 //
-//
+//   serviceName := "MyFargateService"
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	ServiceName: jsii.String(ServiceName),
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	DeploymentAlarms: &DeploymentAlarmConfig{
-//   		AlarmNames: []*string{
-//   			elbAlarm.AlarmName,
-//   		},
-//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
-//   	},
 //   })
 //
-//   // Defining a deployment alarm after the service has been created
-//   cpuAlarmName := "MyCpuMetricAlarm"
-//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: cpuAlarmName,
-//   	Metric: service.MetricCpuUtilization(),
+//   cpuMetric := cw.NewMetric(&MetricProps{
+//   	MetricName: jsii.String("CPUUtilization"),
+//   	Namespace: jsii.String("AWS/ECS"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Statistic: jsii.String("Average"),
+//   	DimensionsMap: map[string]*string{
+//   		"ClusterName": cluster.clusterName,
+//   		// Using `service.serviceName` here will cause a circular dependency
+//   		"ServiceName": serviceName,
+//   	},
+//   })
+//   myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
+//   	AlarmName: jsii.String("cpuAlarmName"),
+//   	Metric: cpuMetric,
 //   	EvaluationPeriods: jsii.Number(2),
 //   	Threshold: jsii.Number(80),
 //   })
+//
 //   service.EnableDeploymentAlarms([]*string{
-//   	cpuAlarmName,
+//   	myAlarm.AlarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })
@@ -44,6 +48,10 @@ import (
 type FargateServiceProps struct {
 	// The name of the cluster that hosts the service.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
+	// bake time minutes for service.
+	// Default: - none.
+	//
+	BakeTime awscdk.Duration `field:"optional" json:"bakeTime" yaml:"bakeTime"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Default: - undefined.
 	//
@@ -70,6 +78,10 @@ type FargateServiceProps struct {
 	// Default: - Rolling update (ECS).
 	//
 	DeploymentController *DeploymentController `field:"optional" json:"deploymentController" yaml:"deploymentController"`
+	// The deployment strategy to use for the service.
+	// Default: ROLLING.
+	//
+	DeploymentStrategy DeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	// Default: - When creating the service, default is 1; when updating the service, default uses
 	// the current task number.
@@ -90,6 +102,10 @@ type FargateServiceProps struct {
 	// Default: - defaults to 60 seconds if at least one load balancer is in-use and it is not already set.
 	//
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The lifecycle hooks to execute during deployment stages.
+	// Default: - none;.
+	//
+	LifecycleHooks *[]IDeploymentLifecycleHookTarget `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
 	// Default: - 100 if daemon, otherwise 200.
 	//
@@ -140,7 +156,7 @@ type FargateServiceProps struct {
 	// of a Classic Load Balancer.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html
 	//
-	// Default: AvailabilityZoneRebalancing.DISABLED
+	// Default: AvailabilityZoneRebalancing.ENABLED
 	//
 	AvailabilityZoneRebalancing AvailabilityZoneRebalancing `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// The platform version on which to run your service.

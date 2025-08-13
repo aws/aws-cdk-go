@@ -1,7 +1,7 @@
 package awsnetworkfirewall
 
 
-// TCP flags and masks to inspect packets for. This is used in the `RuleGroup.MatchAttributes` specification.
+// TCP flags and masks to inspect packets for. This is used in the match attributes specification.
 //
 // For example:
 //

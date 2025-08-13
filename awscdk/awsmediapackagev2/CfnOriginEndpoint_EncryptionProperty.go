@@ -27,6 +27,7 @@ package awsmediapackagev2
 //   	},
 //
 //   	// the properties below are optional
+//   	CmafExcludeSegmentDrmMetadata: jsii.Boolean(false),
 //   	ConstantInitializationVector: jsii.String("constantInitializationVector"),
 //   	KeyRotationIntervalSeconds: jsii.Number(123),
 //   }
@@ -42,6 +43,23 @@ type CfnOriginEndpoint_EncryptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-spekekeyprovider
 	//
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	// Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.
+	//
+	// When set to `true` , MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.
+	//
+	// Important considerations:
+	//
+	// - This setting only affects CMAF container formats
+	// - Key rotation can still be handled through media playlist signaling
+	// - PSSH and TENC boxes remain unaffected
+	// - Default behavior is preserved when this setting is disabled
+	//
+	// Valid values: `true` | `false`
+	//
+	// Default: `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-cmafexcludesegmentdrmmetadata
+	//
+	CmafExcludeSegmentDrmMetadata interface{} `field:"optional" json:"cmafExcludeSegmentDrmMetadata" yaml:"cmafExcludeSegmentDrmMetadata"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content.
 	//
 	// If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).

@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnEmailIdentity) validateSetMailFromAttributesParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnEmailIdentity) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEmailIdentityParameters(scope constructs.Construct, id *string, props *CfnEmailIdentityProps) error {
 	return nil
 }

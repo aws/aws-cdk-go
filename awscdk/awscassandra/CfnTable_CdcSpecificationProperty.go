@@ -1,5 +1,8 @@
 package awscassandra
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // The settings for the CDC stream of a table.
 //
@@ -14,6 +17,12 @@ package awscassandra
 //   	Status: jsii.String("status"),
 //
 //   	// the properties below are optional
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	ViewType: jsii.String("viewType"),
 //   }
 //
@@ -26,6 +35,10 @@ type CfnTable_CdcSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-cdcspecification.html#cfn-cassandra-table-cdcspecification-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
+	// The tags (key-value pairs) that you want to apply to the stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-cdcspecification.html#cfn-cassandra-table-cdcspecification-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream.
 	//
 	// After you create the stream, you can't make changes to this selection.

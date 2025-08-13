@@ -46,6 +46,12 @@ import (
 //   		BehaviorOnMxFailure: jsii.String("behaviorOnMxFailure"),
 //   		MailFromDomain: jsii.String("mailFromDomain"),
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html
@@ -53,6 +59,7 @@ import (
 type CfnEmailIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The host name for the first token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenName1() *string
 	// The host name for the second token that you have to add to the DNS configuration for your domain.
@@ -65,6 +72,8 @@ type CfnEmailIdentity interface {
 	AttrDkimDnsTokenValue2() *string
 	// The record value for the third token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenValue3() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -113,6 +122,9 @@ type CfnEmailIdentity interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of objects that define the tags (keys and values) to associate with the email identity.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -257,6 +269,7 @@ type CfnEmailIdentity interface {
 type jsiiProxy_CfnEmailIdentity struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnEmailIdentity) AttrDkimDnsTokenName1() *string {
@@ -314,6 +327,16 @@ func (j *jsiiProxy_CfnEmailIdentity) AttrDkimDnsTokenValue3() *string {
 	_jsii_.Get(
 		j,
 		"attrDkimDnsTokenValue3",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailIdentity) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -459,6 +482,16 @@ func (j *jsiiProxy_CfnEmailIdentity) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEmailIdentity) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEmailIdentity) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -569,6 +602,17 @@ func (j *jsiiProxy_CfnEmailIdentity)SetMailFromAttributes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"mailFromAttributes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEmailIdentity)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAccessPoint) validateSetScopeParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccessPoint) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAccessPoint) validateSetVpcConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -33,6 +33,7 @@ import (
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
 //   	MaxConcurrentSessions: jsii.Number(123),
 //   	NetworkSettingsArn: jsii.String("networkSettingsArn"),
+//   	SessionLoggerArn: jsii.String("sessionLoggerArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -126,6 +127,8 @@ type CfnPortal interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	SessionLoggerArn() *string
+	SetSessionLoggerArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -549,6 +552,16 @@ func (j *jsiiProxy_CfnPortal) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortal) SessionLoggerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sessionLoggerArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortal) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -726,6 +739,14 @@ func (j *jsiiProxy_CfnPortal)SetNetworkSettingsArn(val *string) {
 	_jsii_.Set(
 		j,
 		"networkSettingsArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortal)SetSessionLoggerArn(val *string) {
+	_jsii_.Set(
+		j,
+		"sessionLoggerArn",
 		val,
 	)
 }

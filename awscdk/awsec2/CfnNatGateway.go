@@ -25,9 +25,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnNatGateway := awscdk.Aws_ec2.NewCfnNatGateway(this, jsii.String("MyCfnNatGateway"), &CfnNatGatewayProps{
-//   	SubnetId: jsii.String("subnetId"),
-//
-//   	// the properties below are optional
 //   	AllocationId: jsii.String("allocationId"),
 //   	ConnectivityType: jsii.String("connectivityType"),
 //   	MaxDrainDurationSeconds: jsii.Number(123),
@@ -39,6 +36,7 @@ import (
 //   	SecondaryPrivateIpAddresses: []*string{
 //   		jsii.String("secondaryPrivateIpAddresses"),
 //   	},
+//   	SubnetId: jsii.String("subnetId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -556,9 +554,6 @@ func (j *jsiiProxy_CfnNatGateway)SetSecondaryPrivateIpAddresses(val *[]*string) 
 }
 
 func (j *jsiiProxy_CfnNatGateway)SetSubnetId(val *string) {
-	if err := j.validateSetSubnetIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"subnetId",

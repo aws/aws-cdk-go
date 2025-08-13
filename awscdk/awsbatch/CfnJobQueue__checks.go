@@ -180,9 +180,6 @@ func validateCfnJobQueue_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnJobQueue) validateSetComputeEnvironmentOrderParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -305,6 +302,66 @@ func (j *jsiiProxy_CfnJobQueue) validateSetJobStateTimeLimitActionsParameters(va
 func (j *jsiiProxy_CfnJobQueue) validateSetPriorityParameters(val *float64) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnJobQueue) validateSetServiceEnvironmentOrderParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnJobQueue_ServiceEnvironmentOrderProperty:
+				v := v.(*CfnJobQueue_ServiceEnvironmentOrderProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnJobQueue_ServiceEnvironmentOrderProperty:
+				v_ := v.(CfnJobQueue_ServiceEnvironmentOrderProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnJobQueue_ServiceEnvironmentOrderProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnJobQueue_ServiceEnvironmentOrderProperty:
+				v := v.(*CfnJobQueue_ServiceEnvironmentOrderProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnJobQueue_ServiceEnvironmentOrderProperty:
+				v_ := v.(CfnJobQueue_ServiceEnvironmentOrderProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnJobQueue_ServiceEnvironmentOrderProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

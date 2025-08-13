@@ -88,7 +88,7 @@ import (
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The default AWS OpsWorks Stacks agent version.
+	// The default OpsWorks Stacks agent version.
 	//
 	// You have the following options:.
 	AgentVersion() *string
@@ -99,23 +99,23 @@ type CfnInstance interface {
 	// The instance architecture.
 	Architecture() *string
 	SetArchitecture(val *string)
-	// The Availability Zone of the AWS OpsWorks instance, such as `us-east-2a` .
+	// The Availability Zone of the OpsWorks instance, such as `us-east-2a` .
 	AttrAvailabilityZone() *string
 	AttrId() *string
-	// The private DNS name of the AWS OpsWorks instance.
+	// The private DNS name of the OpsWorks instance.
 	AttrPrivateDnsName() *string
-	// The private IP address of the AWS OpsWorks instance, such as `192.0.2.0` .
+	// The private IP address of the OpsWorks instance, such as `192.0.2.0` .
 	AttrPrivateIp() *string
-	// The public DNS name of the AWS OpsWorks instance.
+	// The public DNS name of the OpsWorks instance.
 	AttrPublicDnsName() *string
-	// The public IP address of the AWS OpsWorks instance, such as `192.0.2.0` .
+	// The public IP address of the OpsWorks instance, such as `192.0.2.0` .
 	//
-	// > Use this attribute only when the AWS OpsWorks instance is in an AWS OpsWorks layer that auto-assigns public IP addresses.
+	// > Use this attribute only when the OpsWorks instance is in an OpsWorks layer that auto-assigns public IP addresses.
 	AttrPublicIp() *string
 	// For load-based or time-based instances, the type.
 	AutoScalingType() *string
 	SetAutoScalingType(val *string)
-	// The Availability Zone of the AWS OpsWorks instance, such as `us-east-2a` .
+	// The Availability Zone of the OpsWorks instance, such as `us-east-2a` .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// An array of `BlockDeviceMapping` objects that specify the instance's block devices.
@@ -208,7 +208,7 @@ type CfnInstance interface {
 	// The instance's virtualization type, `paravirtual` or `hvm` .
 	VirtualizationType() *string
 	SetVirtualizationType(val *string)
-	// A list of AWS OpsWorks volume IDs to associate with the instance.
+	// A list of OpsWorks volume IDs to associate with the instance.
 	Volumes() *[]*string
 	SetVolumes(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -35,10 +35,6 @@ type CfnEC2Fleet_EbsBlockDeviceProperty struct {
 	//
 	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
 	//
-	// This parameter is not returned by `DescribeImageAttribute` .
-	//
-	// For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
-	//
 	// - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
 	// - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
 	// - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.

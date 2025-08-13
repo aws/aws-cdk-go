@@ -45,6 +45,7 @@ import (
 //   				ResourceArn: jsii.String("resourceArn"),
 //
 //   				// the properties below are optional
+//   				DeepThreatInspection: jsii.Boolean(false),
 //   				Override: &StatefulRuleGroupOverrideProperty{
 //   					Action: jsii.String("action"),
 //   				},

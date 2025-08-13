@@ -11,7 +11,9 @@ import (
 
 // Creates an `IdMappingWorkflow` object which stores the configuration of the data processing job to be run.
 //
-// Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing workflow, use the `UpdateIdMappingWorkflow` API.
+// Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.
+//
+// > Incremental processing is not supported for ID mapping workflows.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -122,7 +124,7 @@ type CfnIdMappingWorkflow interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 	OutputSourceConfig() interface{}
 	SetOutputSourceConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

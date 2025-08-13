@@ -22,6 +22,7 @@ package awsdax
 //   	ClusterEndpointEncryptionType: jsii.String("clusterEndpointEncryptionType"),
 //   	ClusterName: jsii.String("clusterName"),
 //   	Description: jsii.String("description"),
+//   	NetworkType: jsii.String("networkType"),
 //   	NotificationTopicArn: jsii.String("notificationTopicArn"),
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
@@ -81,6 +82,9 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
 	//
 	// > The Amazon SNS topic owner must be same as the DAX cluster owner.

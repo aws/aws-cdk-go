@@ -214,6 +214,91 @@ barStack := NewBarStack(app, jsii.String("BarStack"), &barStackProps{
 
 Note: You can create an instance of the `TableV2` construct with as many `replicas` as needed as long as there is only one replica per region. After table creation you can add or remove `replicas`, but you can only add or remove a single replica in each update.
 
+## Multi-Region Strong Consistency (MRSC)
+
+By default, DynamoDB global tables provide eventual consistency across regions. For applications requiring strong consistency across regions, you can configure Multi-Region Strong Consistency (MRSC) using the `multiRegionConsistency` property.
+
+MRSC global tables can be configured in two ways:
+
+* **Three replicas**: Deploy your table across three regions within the same region set
+* **Two replicas + one witness**: Deploy your table across two regions with a witness region for consensus
+
+### Region Sets
+
+MRSC global tables must be deployed within the same region set. The supported region sets are:
+
+* **US Region set**: `us-east-1`, `us-east-2`, `us-west-2`
+* **EU Region set**: `eu-west-1`, `eu-west-2`, `eu-west-3`, `eu-central-1`
+* **AP Region set**: `ap-northeast-1`, `ap-northeast-2`, `ap-northeast-3`
+
+### Three Replicas Configuration
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+		&replicaTableProps{
+			Region: jsii.String("us-east-2"),
+		},
+	},
+})
+```
+
+### Two Replicas + Witness Configuration
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
+	Replicas: []replicaTableProps{
+		&replicaTableProps{
+			Region: jsii.String("us-east-1"),
+		},
+	},
+	WitnessRegion: jsii.String("us-east-2"),
+})
+```
+
+### Important Considerations
+
+* **Witness regions** can only be used with `MultiRegionConsistency.STRONG`. Attempting to specify a witness region with eventual consistency will result in a validation error.
+* **Region validation**: All regions (primary, replicas, and witness) must be within the same region set.
+* **Replica count**: When using a witness region, you must have exactly 2 replicas (including the primary). Without a witness region, you must have exactly 3 replicas.
+* **Performance**: MRSC provides strong consistency but may have higher latency compared to eventual consistency.
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes-mrsc
+
 ## Billing
 
 The `TableV2` construct can be configured with on-demand or provisioned billing:

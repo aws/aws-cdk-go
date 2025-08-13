@@ -1,7 +1,7 @@
 package awsnetworkfirewall
 
 
-// Defines how AWS Network Firewall performs logging for a `Firewall` .
+// Defines how AWS Network Firewall performs logging for a firewall.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

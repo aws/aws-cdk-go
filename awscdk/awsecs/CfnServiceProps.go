@@ -228,7 +228,7 @@ type CfnServiceProps struct {
 	// For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the **Amazon Elastic Container Service Developer Guide** .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-availabilityzonerebalancing
 	//
-	// Default: - "DISABLED".
+	// Default: - "ENABLED".
 	//
 	AvailabilityZoneRebalancing *string `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.

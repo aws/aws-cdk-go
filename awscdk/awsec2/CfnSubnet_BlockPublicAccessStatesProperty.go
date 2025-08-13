@@ -1,7 +1,7 @@
 package awsec2
 
 
-// The state of VPC Block Public Access (BPA).
+// Specifies the state of VPC Block Public Access (BPA).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

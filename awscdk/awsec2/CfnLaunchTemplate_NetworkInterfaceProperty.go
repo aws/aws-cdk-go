@@ -21,6 +21,7 @@ package awsec2
 //   	DeleteOnTermination: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DeviceIndex: jsii.Number(123),
+//   	EnaQueueCount: jsii.Number(123),
 //   	EnaSrdSpecification: &EnaSrdSpecificationProperty{
 //   		EnaSrdEnabled: jsii.Boolean(false),
 //   		EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
@@ -98,6 +99,9 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
 	//
 	DeviceIndex *float64 `field:"optional" json:"deviceIndex" yaml:"deviceIndex"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enaqueuecount
+	//
+	EnaQueueCount *float64 `field:"optional" json:"enaQueueCount" yaml:"enaQueueCount"`
 	// The ENA Express configuration for the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enasrdspecification
 	//

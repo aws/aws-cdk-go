@@ -20,7 +20,7 @@ type CfnLayer_ShutdownEventConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-shutdowneventconfiguration.html#cfn-opsworks-layer-shutdowneventconfiguration-delayuntilelbconnectionsdrained
 	//
 	DelayUntilElbConnectionsDrained interface{} `field:"optional" json:"delayUntilElbConnectionsDrained" yaml:"delayUntilElbConnectionsDrained"`
-	// The time, in seconds, that AWS OpsWorks Stacks waits after triggering a Shutdown event before shutting down an instance.
+	// The time, in seconds, that OpsWorks Stacks waits after triggering a Shutdown event before shutting down an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-shutdowneventconfiguration.html#cfn-opsworks-layer-shutdowneventconfiguration-executiontimeout
 	//
 	ExecutionTimeout *float64 `field:"optional" json:"executionTimeout" yaml:"executionTimeout"`

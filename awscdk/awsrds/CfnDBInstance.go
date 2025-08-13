@@ -141,6 +141,14 @@ import (
 //   	SourceDbInstanceIdentifier: jsii.String("sourceDbInstanceIdentifier"),
 //   	SourceDbiResourceId: jsii.String("sourceDbiResourceId"),
 //   	SourceRegion: jsii.String("sourceRegion"),
+//   	StatusInfos: []interface{}{
+//   		&DBInstanceStatusInfoProperty{
+//   			Message: jsii.String("message"),
+//   			Normal: jsii.Boolean(false),
+//   			Status: jsii.String("status"),
+//   			StatusType: jsii.String("statusType"),
+//   		},
+//   	},
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	StorageThroughput: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
@@ -178,6 +186,8 @@ type CfnDBInstance interface {
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
 	AssociatedRoles() interface{}
 	SetAssociatedRoles(val interface{})
+	// The time when a stopped DB instance is restarted automatically.
+	AttrAutomaticRestartTime() *string
 	// The details of the DB instance’s server certificate.
 	//
 	// For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -244,10 +254,22 @@ type CfnDBInstance interface {
 	//
 	// This parameter is a return value that you can retrieve using the `Fn::GetAtt` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values) .
 	AttrMasterUserSecretSecretArn() *string
+	// The progress of the storage optimization operation as a percentage.
+	AttrPercentProgress() *string
 	// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
 	AttrReadReplicaDbClusterIdentifiers() *[]*string
 	// The identifiers of the read replicas associated with this DB instance.
 	AttrReadReplicaDbInstanceIdentifiers() *[]*string
+	// The number of minutes to pause the automation.
+	//
+	// When the time period ends, RDS Custom resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
+	AttrResumeFullAutomationModeTime() *string
+	// If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+	AttrSecondaryAvailabilityZone() *string
+	// The status of a read replica.
+	//
+	// If the DB instance isn't a read replica, the value is blank.
+	AttrStatusInfos() awscdk.IResolvable
 	// The AWS KMS key identifier for encryption of the replicated automated backups.
 	AutomaticBackupReplicationKmsKeyId() *string
 	SetAutomaticBackupReplicationKmsKeyId(val *string)
@@ -481,6 +503,9 @@ type CfnDBInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The status of a read replica.
+	StatusInfos() interface{}
+	SetStatusInfos(val interface{})
 	// A value that indicates whether the DB instance is encrypted.
 	//
 	// By default, it isn't encrypted.
@@ -704,6 +729,16 @@ func (j *jsiiProxy_CfnDBInstance) AssociatedRoles() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) AttrAutomaticRestartTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAutomaticRestartTime",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) AttrCertificateDetails() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
@@ -894,6 +929,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrMasterUserSecretSecretArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) AttrPercentProgress() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPercentProgress",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) AttrReadReplicaDbClusterIdentifiers() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -909,6 +954,36 @@ func (j *jsiiProxy_CfnDBInstance) AttrReadReplicaDbInstanceIdentifiers() *[]*str
 	_jsii_.Get(
 		j,
 		"attrReadReplicaDbInstanceIdentifiers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrResumeFullAutomationModeTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrResumeFullAutomationModeTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrSecondaryAvailabilityZone() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSecondaryAvailabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrStatusInfos() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStatusInfos",
 		&returns,
 	)
 	return returns
@@ -1659,6 +1734,16 @@ func (j *jsiiProxy_CfnDBInstance) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) StatusInfos() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"statusInfos",
 		&returns,
 	)
 	return returns
@@ -2434,6 +2519,17 @@ func (j *jsiiProxy_CfnDBInstance)SetSourceRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceRegion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetStatusInfos(val interface{}) {
+	if err := j.validateSetStatusInfosParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"statusInfos",
 		val,
 	)
 }

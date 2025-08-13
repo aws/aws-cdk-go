@@ -25,6 +25,12 @@ import (
 //   		ScanOnPush: jsii.Boolean(false),
 //   	},
 //   	ImageTagMutability: jsii.String("imageTagMutability"),
+//   	ImageTagMutabilityExclusionFilters: []interface{}{
+//   		&ImageTagMutabilityExclusionFilterProperty{
+//   			ImageTagMutabilityExclusionFilterType: jsii.String("imageTagMutabilityExclusionFilterType"),
+//   			ImageTagMutabilityExclusionFilterValue: jsii.String("imageTagMutabilityExclusionFilterValue"),
+//   		},
+//   	},
 //   	LifecyclePolicy: &LifecyclePolicyProperty{
 //   		LifecyclePolicyText: jsii.String("lifecyclePolicyText"),
 //   		RegistryId: jsii.String("registryId"),
@@ -66,6 +72,12 @@ type CfnRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
 	//
 	ImageTagMutability *string `field:"optional" json:"imageTagMutability" yaml:"imageTagMutability"`
+	// The image tag mutability exclusion filters associated with the repository.
+	//
+	// These filters specify which image tags can override the repository's default image tag mutability setting.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutabilityexclusionfilters
+	//
+	ImageTagMutabilityExclusionFilters interface{} `field:"optional" json:"imageTagMutabilityExclusionFilters" yaml:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy.
 	//
 	// For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) .

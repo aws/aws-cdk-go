@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnRuleGroup) validateSetRuleGroupNameParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuleGroup) validateSetSummaryConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuleGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
