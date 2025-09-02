@@ -238,6 +238,16 @@ type BucketDeploymentProps struct {
 	// Default: - the Vpc default strategy if not specified.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
+	// In case of using a cloudfront distribtuion, if this property is set to false then the custom resource will not wait and verify for Cloudfront invalidation to complete.
+	//
+	// This may speed up deployment and avoid
+	// intermittent Cloudfront issues. However, this is risky and not recommended as cache invalidation
+	// can silently fail.
+	// See: https://github.com/aws/aws-cdk/issues/15891
+	//
+	// Default: true.
+	//
+	WaitForDistributionInvalidation *bool `field:"optional" json:"waitForDistributionInvalidation" yaml:"waitForDistributionInvalidation"`
 	// System-defined x-amz-website-redirect-location metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//

@@ -30,6 +30,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "idMappingIncrementalRunConfig", GoGetter: "IdMappingIncrementalRunConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "idMappingTechniques", GoGetter: "IdMappingTechniques"},
 			_jsii_.MemberProperty{JsiiProperty: "inputSourceConfig", GoGetter: "InputSourceConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -60,6 +61,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow.IdMappingIncrementalRunConfigProperty",
+		reflect.TypeOf((*CfnIdMappingWorkflow_IdMappingIncrementalRunConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow.IdMappingRuleBasedPropertiesProperty",

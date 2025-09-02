@@ -1,6 +1,8 @@
 package awssynthetics
 
 
+// A structure that contains information about a dependency for a canary.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,11 +18,15 @@ package awssynthetics
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-dependency.html
 //
 type CfnCanary_DependencyProperty struct {
-	// ARN of the Lambda layer.
+	// The dependency reference.
+	//
+	// For Lambda layers, this is the ARN of the Lambda layer. For more information about Lambda ARN format, see [Lambda](https://docs.aws.amazon.com/lambda/latest/api/API_Layer.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-dependency.html#cfn-synthetics-canary-dependency-reference
 	//
 	Reference *string `field:"required" json:"reference" yaml:"reference"`
-	// Type of dependency.
+	// The type of dependency.
+	//
+	// Valid value is `LambdaLayer` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-dependency.html#cfn-synthetics-canary-dependency-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

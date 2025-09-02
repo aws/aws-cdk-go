@@ -111,6 +111,22 @@ func SubscriptionFilter_ExistsFilter() SubscriptionFilter {
 	return returns
 }
 
+// Returns a subscription filter for absence of attribute key.
+func SubscriptionFilter_NotExistsFilter() SubscriptionFilter {
+	_init_.Initialize()
+
+	var returns SubscriptionFilter
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.SubscriptionFilter",
+		"notExistsFilter",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a subscription filter for a numeric attribute.
 func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) SubscriptionFilter {
 	_init_.Initialize()

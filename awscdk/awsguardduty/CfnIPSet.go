@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::GuardDuty::IPSet` resource specifies a new `IPSet` .
+// The `AWS::GuardDuty::IPSet` resource helps you create a list of trusted IP addresses that you can use for secure communication with AWS infrastructure and applications.
 //
-// An `IPSet` is a list of trusted IP addresses from which secure communication is allowed with AWS infrastructure and applications.
+// Once you activate this list, GuardDuty will not generate findings when there is an activity associated with these safe IP addresses.
+//
+// Only the users of the GuardDuty administrator account can manage this list. These settings are also applied to the member accounts.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,7 +43,7 @@ type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Indicates whether or not GuardDuty uses the `IPSet` .
+	// A boolean value that determines if GuardDuty can start using this list for custom threat detection.
 	Activate() interface{}
 	SetActivate(val interface{})
 	AttrId() *string
@@ -92,7 +94,7 @@ type CfnIPSet interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The tags to be added to a new IP set resource.
+	// The tags to be added to a new threat entity set resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -1,7 +1,7 @@
 package awsivs
 
 
-// An object representing a configuration of participant HLS recordings for individual participant recording.
+// Object specifying a configuration of participant HLS recordings for individual participant recording.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

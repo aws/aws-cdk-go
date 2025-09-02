@@ -9,16 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A complex type that contains information about a service, which defines the configuration of the following entities:.
-//
-// - For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:
-//
-// - A
-// - AAAA
-// - A and AAAA
-// - SRV
-// - CNAME
-// - Optionally, a health check.
+// A complex type that contains information about the specified service.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -109,7 +100,7 @@ type CfnService interface {
 	// The name of the service.
 	Name() *string
 	SetName(val *string)
-	// The ID of the namespace that was used to create the service.
+	// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service.
 	NamespaceId() *string
 	SetNamespaceId(val *string)
 	// The tree node.
@@ -119,7 +110,7 @@ type CfnService interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A string map that contains the following information for the service:.
+	// A complex type that contains information about attributes associated with a specific service.
 	ServiceAttributes() interface{}
 	SetServiceAttributes(val interface{})
 	// The stack in which this element is defined.

@@ -1,7 +1,7 @@
 package awsdynamodb
 
 
-// The settings used to enable or disable CloudWatch Contributor Insights.
+// Configures contributor insights settings for a table or one of its indexes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,9 @@ type CfnTable_ContributorInsightsSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html#cfn-dynamodb-table-contributorinsightsspecification-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
+	// Specifies the CloudWatch Contributor Insights mode for a table.
+	//
+	// Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html#cfn-dynamodb-table-contributorinsightsspecification-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`

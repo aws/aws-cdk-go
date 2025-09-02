@@ -9,7 +9,6 @@ import (
 // Properties for creating a CDK managed Bedrock Agent.
 //
 // TODO: Knowledge bases configuration will be added in a future update
-// TODO: Guardrails configuration will be added in a future update
 // TODO: Inference profile configuration will be added in a future update.
 //
 // Example:
@@ -94,6 +93,11 @@ type AgentProps struct {
 	//
 	// Experimental.
 	ForceDelete *bool `field:"optional" json:"forceDelete" yaml:"forceDelete"`
+	// The guardrail that will be associated with the agent.
+	// Default: - No guardrail is provided.
+	//
+	// Experimental.
+	Guardrail IGuardrail `field:"optional" json:"guardrail" yaml:"guardrail"`
 	// How long sessions should be kept open for the agent.
 	//
 	// If no conversation occurs

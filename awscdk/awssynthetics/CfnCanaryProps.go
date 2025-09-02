@@ -51,6 +51,11 @@ import (
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		},
 //   	},
+//   	BrowserConfigs: []interface{}{
+//   		&BrowserConfigProperty{
+//   			BrowserType: jsii.String("browserType"),
+//   		},
+//   	},
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	DryRunAndUpdate: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
@@ -88,6 +93,25 @@ import (
 //   					jsii.String("ignoreCoordinates"),
 //   				},
 //   			},
+//   		},
+//   		BrowserType: jsii.String("browserType"),
+//   	},
+//   	VisualReferences: []interface{}{
+//   		&VisualReferenceProperty{
+//   			BaseCanaryRunId: jsii.String("baseCanaryRunId"),
+//
+//   			// the properties below are optional
+//   			BaseScreenshots: []interface{}{
+//   				&BaseScreenshotProperty{
+//   					ScreenshotName: jsii.String("screenshotName"),
+//
+//   					// the properties below are optional
+//   					IgnoreCoordinates: []*string{
+//   						jsii.String("ignoreCoordinates"),
+//   					},
+//   				},
+//   			},
+//   			BrowserType: jsii.String("browserType"),
 //   		},
 //   	},
 //   	VpcConfig: &VPCConfigProperty{
@@ -155,6 +179,10 @@ type CfnCanaryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifactconfig
 	//
 	ArtifactConfig interface{} `field:"optional" json:"artifactConfig" yaml:"artifactConfig"`
+	// List of browser configurations for the canary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-browserconfigs
+	//
+	BrowserConfigs interface{} `field:"optional" json:"browserConfigs" yaml:"browserConfigs"`
 	// Deletes associated lambda resources created by Synthetics if set to True.
 	//
 	// Default is False.
@@ -221,7 +249,12 @@ type CfnCanaryProps struct {
 	// If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates of any parts of the screen to ignore during the visual monitoring comparison.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
 	//
+	// Deprecated: this property has been deprecated.
 	VisualReference interface{} `field:"optional" json:"visualReference" yaml:"visualReference"`
+	// List of visual references for the canary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreferences
+	//
+	VisualReferences interface{} `field:"optional" json:"visualReferences" yaml:"visualReferences"`
 	// If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint.
 	//
 	// For more information, see [Running a Canary in a VPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html) .

@@ -15,6 +15,10 @@ package awssagemaker
 //
 //   	// the properties below are optional
 //   	AcceleratorType: jsii.String("acceleratorType"),
+//   	CapacityReservationConfig: &CapacityReservationConfigProperty{
+//   		CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   		MlReservationArn: jsii.String("mlReservationArn"),
+//   	},
 //   	ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   	EnableSsmAccess: jsii.Boolean(false),
 //   	InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
@@ -54,6 +58,9 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
 	//
 	AcceleratorType *string `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-capacityreservationconfig
+	//
+	CapacityReservationConfig interface{} `field:"optional" json:"capacityReservationConfig" yaml:"capacityReservationConfig"`
 	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
 	//
 	// For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests) .

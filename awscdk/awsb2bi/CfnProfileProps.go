@@ -42,6 +42,7 @@ type CfnProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Specifies the phone number associated with the profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-phone
 	//
 	Phone *string `field:"required" json:"phone" yaml:"phone"`

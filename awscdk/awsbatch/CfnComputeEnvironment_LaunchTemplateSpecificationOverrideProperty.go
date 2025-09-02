@@ -48,7 +48,7 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationOverrideProperty struct {
 	// Information included in this parameter must meet the following requirements:
 	//
 	// - Must be a valid Amazon EC2 instance type or family.
-	// - `optimal` isn't allowed.
+	// - The following AWS Batch `InstanceTypes` are not allowed: `optimal` , `default_x86_64` , and `default_arm64` .
 	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
 	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-targetinstancetypes

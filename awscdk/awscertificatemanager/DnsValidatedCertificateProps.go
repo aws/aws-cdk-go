@@ -24,6 +24,7 @@ import (
 //   	HostedZone: hostedZone,
 //
 //   	// the properties below are optional
+//   	AllowExport: jsii.Boolean(false),
 //   	CertificateName: jsii.String("certificateName"),
 //   	CleanupRoute53Records: jsii.Boolean(false),
 //   	CustomResourceRole: role,
@@ -42,6 +43,13 @@ type DnsValidatedCertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	// Enable or disable export of this certificate.
+	//
+	// If you issue an exportable public certificate, there is a charge at certificate issuance and again when the certificate renews.
+	// Ref: https://aws.amazon.com/certificate-manager/pricing
+	// Default: false.
+	//
+	AllowExport *bool `field:"optional" json:"allowExport" yaml:"allowExport"`
 	// The Certificate name.
 	//
 	// Since the Certificate resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.

@@ -119,7 +119,7 @@ type CfnLambdaHookProps struct {
 	//
 	// Example target filter in JSON:
 	//
-	// `"TargetFilters": {"Actions": [ "Create", "Update", "Delete" ]}`
+	// `"TargetFilters": {"Actions": [ "CREATE", "UPDATE", "DELETE" ]}`
 	//
 	// Example target filter in YAML:
 	//

@@ -179,6 +179,30 @@ func validateCfnWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkflow) validateSetDefinitionRepositoryParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnWorkflow_DefinitionRepositoryProperty:
+		val := val.(*CfnWorkflow_DefinitionRepositoryProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWorkflow_DefinitionRepositoryProperty:
+		val_ := val.(CfnWorkflow_DefinitionRepositoryProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkflow_DefinitionRepositoryProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkflow) validateSetParameterTemplateParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

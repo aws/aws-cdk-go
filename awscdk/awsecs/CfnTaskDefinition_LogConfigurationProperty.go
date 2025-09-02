@@ -107,7 +107,7 @@ type CfnTaskDefinition_LogConfigurationProperty struct {
 	// > - Set the `defaultLogDriverMode` account setting to `blocking` .
 	// - **max-buffer-size** - Required: No
 	//
-	// Default value: `1m`
+	// Default value: `10m`
 	//
 	// When `non-blocking` mode is used, the `max-buffer-size` log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 	//

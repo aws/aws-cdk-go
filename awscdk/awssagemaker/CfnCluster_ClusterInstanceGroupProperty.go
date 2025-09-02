@@ -39,6 +39,31 @@ package awssagemaker
 //   			jsii.String("subnets"),
 //   		},
 //   	},
+//   	ScheduledUpdateConfig: &ScheduledUpdateConfigProperty{
+//   		ScheduleExpression: jsii.String("scheduleExpression"),
+//
+//   		// the properties below are optional
+//   		DeploymentConfig: &DeploymentConfigProperty{
+//   			AutoRollbackConfiguration: []interface{}{
+//   				&AlarmDetailsProperty{
+//   					AlarmName: jsii.String("alarmName"),
+//   				},
+//   			},
+//   			RollingUpdatePolicy: &RollingUpdatePolicyProperty{
+//   				MaximumBatchSize: &CapacitySizeConfigProperty{
+//   					Type: jsii.String("type"),
+//   					Value: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				RollbackMaximumBatchSize: &CapacitySizeConfigProperty{
+//   					Type: jsii.String("type"),
+//   					Value: jsii.Number(123),
+//   				},
+//   			},
+//   			WaitIntervalInSeconds: jsii.Number(123),
+//   		},
+//   	},
 //   	ThreadsPerCore: jsii.Number(123),
 //   	TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   }
@@ -88,6 +113,10 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-overridevpcconfig
 	//
 	OverrideVpcConfig interface{} `field:"optional" json:"overrideVpcConfig" yaml:"overrideVpcConfig"`
+	// The configuration object of the schedule that SageMaker follows when updating the AMI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-scheduledupdateconfig
+	//
+	ScheduledUpdateConfig interface{} `field:"optional" json:"scheduledUpdateConfig" yaml:"scheduledUpdateConfig"`
 	// The number of threads per CPU core you specified under `CreateCluster` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-threadspercore
 	//

@@ -2145,6 +2145,9 @@ volumeFromSnapshot := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume")
 		SnapShotId: jsii.String("snap-066877671789bd71b"),
 		VolumeType: ec2.EbsDeviceVolumeType_GP3,
 		FileSystemType: ecs.FileSystemType_XFS,
+		// Specifies the Amazon EBS Provisioned Rate for Volume Initialization.
+		// Valid range is between 100 and 300 MiB/s.
+		VolumeInitializationRate: awscdk.Size_Mebibytes(jsii.Number(200)),
 	},
 })
 

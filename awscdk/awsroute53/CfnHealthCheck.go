@@ -63,8 +63,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	HealthCheckTags: []interface{}{
-//   		&HealthCheckTagProperty{
+//   	HealthCheckTags: []healthCheckTagProperty{
+//   		&healthCheckTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -76,10 +76,13 @@ import (
 type CfnHealthCheck interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The identifier that Amazon Route 53 assigned to the health check when you created it.
 	//
 	// When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 	AttrHealthCheckId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -93,8 +96,8 @@ type CfnHealthCheck interface {
 	HealthCheckConfig() interface{}
 	SetHealthCheckConfig(val interface{})
 	// The `HealthCheckTags` property describes key-value pairs that are associated with an `AWS::Route53::HealthCheck` resource.
-	HealthCheckTags() interface{}
-	SetHealthCheckTags(val interface{})
+	HealthCheckTags() *[]*CfnHealthCheck_HealthCheckTagProperty
+	SetHealthCheckTags(val *[]*CfnHealthCheck_HealthCheckTagProperty)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -260,6 +263,7 @@ type CfnHealthCheck interface {
 type jsiiProxy_CfnHealthCheck struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnHealthCheck) AttrHealthCheckId() *string {
@@ -267,6 +271,16 @@ func (j *jsiiProxy_CfnHealthCheck) AttrHealthCheckId() *string {
 	_jsii_.Get(
 		j,
 		"attrHealthCheckId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHealthCheck) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -322,8 +336,8 @@ func (j *jsiiProxy_CfnHealthCheck) HealthCheckConfig() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHealthCheck) HealthCheckTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnHealthCheck) HealthCheckTags() *[]*CfnHealthCheck_HealthCheckTagProperty {
+	var returns *[]*CfnHealthCheck_HealthCheckTagProperty
 	_jsii_.Get(
 		j,
 		"healthCheckTags",
@@ -431,7 +445,7 @@ func (j *jsiiProxy_CfnHealthCheck)SetHealthCheckConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnHealthCheck)SetHealthCheckTags(val interface{}) {
+func (j *jsiiProxy_CfnHealthCheck)SetHealthCheckTags(val *[]*CfnHealthCheck_HealthCheckTagProperty) {
 	if err := j.validateSetHealthCheckTagsParameters(val); err != nil {
 		panic(err)
 	}

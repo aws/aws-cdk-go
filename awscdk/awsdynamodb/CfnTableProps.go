@@ -195,7 +195,7 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode
 	//
 	BillingMode *string `field:"optional" json:"billingMode" yaml:"billingMode"`
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-contributorinsightsspecification
 	//
 	ContributorInsightsSpecification interface{} `field:"optional" json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
@@ -266,7 +266,9 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
 	//
 	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
-	// The settings for the DynamoDB table stream, which capture changes to items stored in the table.
+	// The settings for the DynamoDB table stream, which captures changes to items stored in the table.
+	//
+	// Including this property in your AWS CloudFormation template automatically enables streaming.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
 	//
 	StreamSpecification interface{} `field:"optional" json:"streamSpecification" yaml:"streamSpecification"`

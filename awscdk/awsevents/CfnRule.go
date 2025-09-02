@@ -46,6 +46,12 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	State: jsii.String("state"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Targets: []interface{}{
 //   		&TargetProperty{
 //   			Arn: jsii.String("arn"),
@@ -116,7 +122,7 @@ import (
 //   				PropagateTags: jsii.String("propagateTags"),
 //   				ReferenceId: jsii.String("referenceId"),
 //   				TagList: []interface{}{
-//   					&CfnTag{
+//   					&cfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},
@@ -195,8 +201,11 @@ import (
 type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the rule, such as `arn:aws:events:us-east-2:123456789012:rule/example` .
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -248,6 +257,9 @@ type CfnRule interface {
 	// The state of the rule.
 	State() *string
 	SetState(val *string)
+	// Any tags assigned to the event rule.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -395,6 +407,7 @@ type CfnRule interface {
 type jsiiProxy_CfnRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnRule) AttrArn() *string {
@@ -402,6 +415,16 @@ func (j *jsiiProxy_CfnRule) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRule) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -557,6 +580,16 @@ func (j *jsiiProxy_CfnRule) State() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRule) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRule) Targets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -667,6 +700,17 @@ func (j *jsiiProxy_CfnRule)SetState(val *string) {
 	_jsii_.Set(
 		j,
 		"state",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRule)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

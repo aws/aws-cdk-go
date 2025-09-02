@@ -63,7 +63,7 @@ type GaugeWidgetProps struct {
 	//
 	End *string `field:"optional" json:"end" yaml:"end"`
 	// Left Y axis.
-	// Default: - None.
+	// Default: {min:0,max:100}.
 	//
 	LeftYAxis *YAxisProps `field:"optional" json:"leftYAxis" yaml:"leftYAxis"`
 	// Position of the legend.

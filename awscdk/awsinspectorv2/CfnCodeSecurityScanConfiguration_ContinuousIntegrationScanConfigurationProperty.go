@@ -1,6 +1,8 @@
 package awsinspectorv2
 
 
+// Configuration settings for continuous integration scans that run automatically when code changes are made.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,6 +17,7 @@ package awsinspectorv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-continuousintegrationscanconfiguration.html
 //
 type CfnCodeSecurityScanConfiguration_ContinuousIntegrationScanConfigurationProperty struct {
+	// The repository events that trigger continuous integration scans, such as pull requests or commits.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-continuousintegrationscanconfiguration.html#cfn-inspectorv2-codesecurityscanconfiguration-continuousintegrationscanconfiguration-supportedevents
 	//
 	SupportedEvents *[]*string `field:"required" json:"supportedEvents" yaml:"supportedEvents"`

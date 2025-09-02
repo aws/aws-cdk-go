@@ -1,6 +1,8 @@
 package awsb2bi
 
 
+// A structure that contains the X12 transaction set and version.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

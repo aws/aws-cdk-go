@@ -11,7 +11,7 @@ import (
 
 // Creates a trust store.
 //
-// You must specify `CaCertificatesBundleS3Bucket` and `CaCertificatesBundleS3Key` .
+// You must specify `CaCertificatesBundleS3Bucket` and `CaCertificatesBundleS3Key` . When you create a trust store, you must specify `Name` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,7 +39,9 @@ type CfnTrustStore interface {
 	awscdk.ITaggableV2
 	// The number of ca certificates in the trust store.
 	AttrNumberOfCaCertificates() *float64
-	// The current status of the trust store.
+	// The status of the trust store.
+	//
+	// The possible values are `CREATING` and `ACTIVE` .
 	AttrStatus() *string
 	// The Amazon Resource Name (ARN) of the trust store.
 	AttrTrustStoreArn() *string

@@ -67,7 +67,7 @@ type CfnTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-projection
 	//
 	Projection interface{} `field:"required" json:"projection" yaml:"projection"`
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification
 	//
 	ContributorInsightsSpecification interface{} `field:"optional" json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`

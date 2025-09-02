@@ -80,6 +80,10 @@ func validateCfnRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRule) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRule) validateSetTargetsParameters(val interface{}) error {
 	return nil
 }

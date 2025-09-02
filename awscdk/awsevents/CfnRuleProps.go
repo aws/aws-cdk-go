@@ -1,5 +1,8 @@
 package awsevents
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnRule`.
 //
@@ -18,6 +21,12 @@ package awsevents
 //   	RoleArn: jsii.String("roleArn"),
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	State: jsii.String("state"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Targets: []interface{}{
 //   		&TargetProperty{
 //   			Arn: jsii.String("arn"),
@@ -88,7 +97,7 @@ package awsevents
 //   				PropagateTags: jsii.String("propagateTags"),
 //   				ReferenceId: jsii.String("referenceId"),
 //   				TagList: []interface{}{
-//   					&CfnTag{
+//   					&cfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},
@@ -211,6 +220,10 @@ type CfnRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
 	//
 	State *string `field:"optional" json:"state" yaml:"state"`
+	// Any tags assigned to the event rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	//
 	// Targets are the resources that are invoked when a rule is triggered.

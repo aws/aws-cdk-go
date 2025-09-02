@@ -47,7 +47,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html
 //
 type CfnStageProps struct {
-	// Configuration object for individual participant recording, to attach to the new stage.
+	// Configuration object for individual participant recording.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-autoparticipantrecordingconfiguration
 	//
 	AutoParticipantRecordingConfiguration interface{} `field:"optional" json:"autoParticipantRecordingConfiguration" yaml:"autoParticipantRecordingConfiguration"`

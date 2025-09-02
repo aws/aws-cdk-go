@@ -31,6 +31,12 @@ import (
 //   			},
 //   			CodeContentType: jsii.String("codeContentType"),
 //   		},
+//   		ApplicationEncryptionConfiguration: &ApplicationEncryptionConfigurationProperty{
+//   			KeyType: jsii.String("keyType"),
+//
+//   			// the properties below are optional
+//   			KeyId: jsii.String("keyId"),
+//   		},
 //   		ApplicationSnapshotConfiguration: &ApplicationSnapshotConfigurationProperty{
 //   			SnapshotsEnabled: jsii.Boolean(false),
 //   		},

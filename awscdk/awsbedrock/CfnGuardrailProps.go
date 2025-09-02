@@ -7,141 +7,23 @@ import (
 // Properties for defining a `CfnGuardrail`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import bedrockl1 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnGuardrailProps := &CfnGuardrailProps{
+//   // Import a guardrail created through the L1 CDK CfnGuardrail construct
+//   l1guardrail := bedrockl1.NewCfnGuardrail(this, jsii.String("MyCfnGuardrail"), &CfnGuardrailProps{
 //   	BlockedInputMessaging: jsii.String("blockedInputMessaging"),
 //   	BlockedOutputsMessaging: jsii.String("blockedOutputsMessaging"),
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
-//   	ContentPolicyConfig: &ContentPolicyConfigProperty{
-//   		FiltersConfig: []interface{}{
-//   			&ContentFilterConfigProperty{
-//   				InputStrength: jsii.String("inputStrength"),
-//   				OutputStrength: jsii.String("outputStrength"),
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				InputAction: jsii.String("inputAction"),
-//   				InputEnabled: jsii.Boolean(false),
-//   				InputModalities: []*string{
-//   					jsii.String("inputModalities"),
-//   				},
-//   				OutputAction: jsii.String("outputAction"),
-//   				OutputEnabled: jsii.Boolean(false),
-//   				OutputModalities: []*string{
-//   					jsii.String("outputModalities"),
-//   				},
-//   			},
-//   		},
-//
-//   		// the properties below are optional
-//   		ContentFiltersTierConfig: &ContentFiltersTierConfigProperty{
-//   			TierName: jsii.String("tierName"),
-//   		},
-//   	},
-//   	ContextualGroundingPolicyConfig: &ContextualGroundingPolicyConfigProperty{
-//   		FiltersConfig: []interface{}{
-//   			&ContextualGroundingFilterConfigProperty{
-//   				Threshold: jsii.Number(123),
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				Action: jsii.String("action"),
-//   				Enabled: jsii.Boolean(false),
-//   			},
-//   		},
-//   	},
-//   	CrossRegionConfig: &GuardrailCrossRegionConfigProperty{
-//   		GuardrailProfileArn: jsii.String("guardrailProfileArn"),
-//   	},
-//   	Description: jsii.String("description"),
-//   	KmsKeyArn: jsii.String("kmsKeyArn"),
-//   	SensitiveInformationPolicyConfig: &SensitiveInformationPolicyConfigProperty{
-//   		PiiEntitiesConfig: []interface{}{
-//   			&PiiEntityConfigProperty{
-//   				Action: jsii.String("action"),
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				InputAction: jsii.String("inputAction"),
-//   				InputEnabled: jsii.Boolean(false),
-//   				OutputAction: jsii.String("outputAction"),
-//   				OutputEnabled: jsii.Boolean(false),
-//   			},
-//   		},
-//   		RegexesConfig: []interface{}{
-//   			&RegexConfigProperty{
-//   				Action: jsii.String("action"),
-//   				Name: jsii.String("name"),
-//   				Pattern: jsii.String("pattern"),
-//
-//   				// the properties below are optional
-//   				Description: jsii.String("description"),
-//   				InputAction: jsii.String("inputAction"),
-//   				InputEnabled: jsii.Boolean(false),
-//   				OutputAction: jsii.String("outputAction"),
-//   				OutputEnabled: jsii.Boolean(false),
-//   			},
-//   		},
-//   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	TopicPolicyConfig: &TopicPolicyConfigProperty{
-//   		TopicsConfig: []interface{}{
-//   			&TopicConfigProperty{
-//   				Definition: jsii.String("definition"),
-//   				Name: jsii.String("name"),
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				Examples: []*string{
-//   					jsii.String("examples"),
-//   				},
-//   				InputAction: jsii.String("inputAction"),
-//   				InputEnabled: jsii.Boolean(false),
-//   				OutputAction: jsii.String("outputAction"),
-//   				OutputEnabled: jsii.Boolean(false),
-//   			},
-//   		},
-//
-//   		// the properties below are optional
-//   		TopicsTierConfig: &TopicsTierConfigProperty{
-//   			TierName: jsii.String("tierName"),
-//   		},
-//   	},
+//   	Name: jsii.String("namemycfnguardrails"),
 //   	WordPolicyConfig: &WordPolicyConfigProperty{
-//   		ManagedWordListsConfig: []interface{}{
-//   			&ManagedWordsConfigProperty{
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				InputAction: jsii.String("inputAction"),
-//   				InputEnabled: jsii.Boolean(false),
-//   				OutputAction: jsii.String("outputAction"),
-//   				OutputEnabled: jsii.Boolean(false),
-//   			},
-//   		},
 //   		WordsConfig: []interface{}{
 //   			&WordConfigProperty{
-//   				Text: jsii.String("text"),
-//
-//   				// the properties below are optional
-//   				InputAction: jsii.String("inputAction"),
-//   				InputEnabled: jsii.Boolean(false),
-//   				OutputAction: jsii.String("outputAction"),
-//   				OutputEnabled: jsii.Boolean(false),
+//   				Text: jsii.String("drugs"),
 //   			},
 //   		},
 //   	},
-//   }
+//   })
+//
+//   importedGuardrail := bedrock.Guardrail_FromCfnGuardrail(l1guardrail)
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html
 //

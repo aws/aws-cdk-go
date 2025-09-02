@@ -2,56 +2,31 @@ package awsevents
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // The event archive properties.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var detail interface{}
-//   var eventBus eventBus
+//   var kmsKey iKey
 //
-//   archiveProps := &ArchiveProps{
+//
+//   stack := awscdk.Newstack()
+//
+//   eventBus := awscdk.NewEventBus(stack, jsii.String("Bus"))
+//
+//   archive := awscdk.NewArchive(stack, jsii.String("Archive"), &ArchiveProps{
+//   	KmsKey: kmsKey,
+//   	SourceEventBus: eventBus,
 //   	EventPattern: &EventPattern{
-//   		Account: []*string{
-//   			jsii.String("account"),
-//   		},
-//   		Detail: map[string]interface{}{
-//   			"detailKey": detail,
-//   		},
-//   		DetailType: []*string{
-//   			jsii.String("detailType"),
-//   		},
-//   		Id: []*string{
-//   			jsii.String("id"),
-//   		},
-//   		Region: []*string{
-//   			jsii.String("region"),
-//   		},
-//   		Resources: []*string{
-//   			jsii.String("resources"),
-//   		},
 //   		Source: []*string{
-//   			jsii.String("source"),
-//   		},
-//   		Time: []*string{
-//   			jsii.String("time"),
-//   		},
-//   		Version: []*string{
-//   			jsii.String("version"),
+//   			jsii.String("aws.ec2"),
 //   		},
 //   	},
-//   	SourceEventBus: eventBus,
-//
-//   	// the properties below are optional
-//   	ArchiveName: jsii.String("archiveName"),
-//   	Description: jsii.String("description"),
-//   	Retention: cdk.Duration_Minutes(jsii.Number(30)),
-//   }
+//   })
 //
 type ArchiveProps struct {
 	// An event pattern to use to filter events sent to the archive.
@@ -64,6 +39,10 @@ type ArchiveProps struct {
 	// Default: - none.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The customer managed key that encrypts this archive.
+	// Default: - Use an AWS managed key.
+	//
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.

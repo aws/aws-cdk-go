@@ -2,6 +2,7 @@ package awsevents
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // The event archive base properties.
@@ -34,6 +35,10 @@ type BaseArchiveProps struct {
 	// Default: - none.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The customer managed key that encrypts this archive.
+	// Default: - Use an AWS managed key.
+	//
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.

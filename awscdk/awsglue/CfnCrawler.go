@@ -47,6 +47,8 @@ import (
 //   		DynamoDbTargets: []interface{}{
 //   			&DynamoDBTargetProperty{
 //   				Path: jsii.String("path"),
+//   				ScanAll: jsii.Boolean(false),
+//   				ScanRate: jsii.Number(123),
 //   			},
 //   		},
 //   		HudiTargets: []interface{}{

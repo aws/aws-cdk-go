@@ -12,14 +12,14 @@ package awsrds
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
 //   	}),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
+//   			CaCertificate: rds.CaCertificate_Of(jsii.String("custom-ca")),
+//   		}),
 //   	},
-//   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
-//   	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
 //   	Vpc: Vpc,
 //   })
 //

@@ -57,6 +57,7 @@ import (
 //   		ThroughputCapacity: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   	},
+//   	NetworkType: jsii.String("networkType"),
 //   	OntapConfiguration: &OntapConfigurationProperty{
 //   		DeploymentType: jsii.String("deploymentType"),
 //
@@ -91,6 +92,7 @@ import (
 //   			Mode: jsii.String("mode"),
 //   		},
 //   		EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
+//   		EndpointIpv6AddressRange: jsii.String("endpointIpv6AddressRange"),
 //   		Options: []*string{
 //   			jsii.String("options"),
 //   		},
@@ -238,6 +240,9 @@ type CfnFileSystem interface {
 	// The Lustre configuration for the file system being created.
 	LustreConfiguration() interface{}
 	SetLustreConfiguration(val interface{})
+	// The network type of the file system.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.
@@ -572,6 +577,16 @@ func (j *jsiiProxy_CfnFileSystem) LustreConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFileSystem) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFileSystem) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -782,6 +797,14 @@ func (j *jsiiProxy_CfnFileSystem)SetLustreConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"lustreConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFileSystem)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

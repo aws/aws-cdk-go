@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::IoT::EncryptionConfiguration.
+// Retrieves the encryption configuration for resources and data of your AWS account in AWS IoT Core .
+//
+// For more information, see [Data encryption at rest](https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html) in the *AWS IoT Core Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,8 +31,10 @@ import (
 type CfnEncryptionConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique identifier (ID) of an AWS account.
 	AttrAccountId() *string
 	AttrConfigurationDetails() awscdk.IResolvable
+	// The date when encryption configuration is last updated.
 	AttrLastModifiedDate() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -41,10 +45,13 @@ type CfnEncryptionConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The type of the KMS key.
 	EncryptionType() *string
 	SetEncryptionType(val *string)
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
 	KmsAccessRoleArn() *string
 	SetKmsAccessRoleArn(val *string)
+	// The ARN of the customer managed KMS key.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.

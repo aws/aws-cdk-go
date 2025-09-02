@@ -20,6 +20,7 @@ import (
 //
 //   // Lambda should receive only message matching the following conditions on message body:
 //   // color: 'red' or 'orange'
+//   // store: property must not be present
 //   myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
 //   	FilterPolicyWithMessageBody: map[string]filterOrPolicy{
 //   		"background": sns.*filterOrPolicy_policy(map[string]*filterOrPolicy{
@@ -30,6 +31,7 @@ import (
 //   				},
 //   			})),
 //   		}),
+//   		"store": sns.*filterOrPolicy_filter(sns.SubscriptionFilter_notExistsFilter()),
 //   	},
 //   }))
 //

@@ -25,11 +25,11 @@ type YAxisProps struct {
 	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The max value.
-	// Default: - No maximum value.
+	// Default: - Auto.
 	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The min value.
-	// Default: 0.
+	// Default: - Auto.
 	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 	// Whether to show units.

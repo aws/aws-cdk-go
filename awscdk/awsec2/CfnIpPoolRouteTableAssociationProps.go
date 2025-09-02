@@ -16,11 +16,11 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ippoolroutetableassociation.html
 //
 type CfnIpPoolRouteTableAssociationProps struct {
-	// The ID of the public IPv4 pool.
+	// The ID of a public IPv4 address pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ippoolroutetableassociation.html#cfn-ec2-ippoolroutetableassociation-publicipv4pool
 	//
 	PublicIpv4Pool *string `field:"required" json:"publicIpv4Pool" yaml:"publicIpv4Pool"`
-	// The ID of the route table.
+	// The ID of a route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ippoolroutetableassociation.html#cfn-ec2-ippoolroutetableassociation-routetableid
 	//
 	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`

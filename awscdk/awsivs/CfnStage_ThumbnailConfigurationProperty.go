@@ -21,7 +21,7 @@ package awsivs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-thumbnailconfiguration.html
 //
 type CfnStage_ThumbnailConfigurationProperty struct {
-	// An object representing a configuration of thumbnails for recorded video from an individual participant.
+	// Object specifying a configuration of thumbnails for recorded video from an individual participant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-thumbnailconfiguration.html#cfn-ivs-stage-thumbnailconfiguration-participantthumbnailconfiguration
 	//
 	ParticipantThumbnailConfiguration interface{} `field:"optional" json:"participantThumbnailConfiguration" yaml:"participantThumbnailConfiguration"`

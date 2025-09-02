@@ -254,6 +254,7 @@ type CfnAssetModelProps struct {
 	//
 	// - *ASSET_MODEL* – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.
 	// - *COMPONENT_MODEL* – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.
+	// - *INTERFACE* – An interface is a type of model that defines a standard structure that can be applied to different asset models.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeltype
 	//
 	AssetModelType *string `field:"optional" json:"assetModelType" yaml:"assetModelType"`

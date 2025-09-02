@@ -1260,6 +1260,10 @@ func init() {
 		reflect.TypeOf((*CfnTableOptimizer_IcebergConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTableOptimizer.IcebergRetentionConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizer_IcebergRetentionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTableOptimizer.OrphanFileDeletionConfigurationProperty",
 		reflect.TypeOf((*CfnTableOptimizer_OrphanFileDeletionConfigurationProperty)(nil)).Elem(),
 	)

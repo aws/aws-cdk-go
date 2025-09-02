@@ -54,6 +54,20 @@ type CfnPartnership_X12OutboundEdiHeadersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-functionalgroupheaders
 	//
 	FunctionalGroupHeaders interface{} `field:"optional" json:"functionalGroupHeaders" yaml:"functionalGroupHeaders"`
+	// Specifies the time format in the GS05 element (time) of the functional group header.
+	//
+	// The following formats use 24-hour clock time:
+	//
+	// - `HHMM` - Hours and minutes
+	// - `HHMMSS` - Hours, minutes, and seconds
+	// - `HHMMSSDD` - Hours, minutes, seconds, and decimal seconds
+	//
+	// Where:
+	//
+	// - `HH` - Hours (00-23)
+	// - `MM` - Minutes (00-59)
+	// - `SS` - Seconds (00-59)
+	// - `DD` - Hundredths of seconds (00-99).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-gs05timeformat
 	//
 	Gs05TimeFormat *string `field:"optional" json:"gs05TimeFormat" yaml:"gs05TimeFormat"`
@@ -62,6 +76,8 @@ type CfnPartnership_X12OutboundEdiHeadersProperty struct {
 	//
 	InterchangeControlHeaders interface{} `field:"optional" json:"interchangeControlHeaders" yaml:"interchangeControlHeaders"`
 	// Specifies whether or not to validate the EDI for this X12 object: `TRUE` or `FALSE` .
+	//
+	// When enabled, this performs both standard EDI validation and applies any configured custom validation rules including element length constraints, code list validations, and element requirement checks. Validation results are returned in the response validation messages.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-validateedi
 	//
 	ValidateEdi interface{} `field:"optional" json:"validateEdi" yaml:"validateEdi"`

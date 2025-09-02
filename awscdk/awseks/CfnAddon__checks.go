@@ -195,6 +195,30 @@ func (j *jsiiProxy_CfnAddon) validateSetClusterNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnAddon) validateSetNamespaceConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAddon_NamespaceConfigProperty:
+		val := val.(*CfnAddon_NamespaceConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAddon_NamespaceConfigProperty:
+		val_ := val.(CfnAddon_NamespaceConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAddon_NamespaceConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAddon) validateSetPodIdentityAssociationsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

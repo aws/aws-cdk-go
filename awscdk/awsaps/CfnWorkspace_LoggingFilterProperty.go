@@ -15,7 +15,9 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingfilter.html
 //
 type CfnWorkspace_LoggingFilterProperty struct {
-	// Query logs with QSP above this limit are vended.
+	// The Query Samples Processed (QSP) threshold above which queries will be logged.
+	//
+	// Queries processing more samples than this threshold will be captured in logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingfilter.html#cfn-aps-workspace-loggingfilter-qspthreshold
 	//
 	QspThreshold *float64 `field:"required" json:"qspThreshold" yaml:"qspThreshold"`

@@ -31,6 +31,7 @@ import (
 //   	LocalIpv4NetworkCidr: jsii.String("localIpv4NetworkCidr"),
 //   	LocalIpv6NetworkCidr: jsii.String("localIpv6NetworkCidr"),
 //   	OutsideIpAddressType: jsii.String("outsideIpAddressType"),
+//   	PreSharedKeyStorage: jsii.String("preSharedKeyStorage"),
 //   	RemoteIpv4NetworkCidr: jsii.String("remoteIpv4NetworkCidr"),
 //   	RemoteIpv6NetworkCidr: jsii.String("remoteIpv6NetworkCidr"),
 //   	StaticRoutesOnly: jsii.Boolean(false),
@@ -148,6 +149,9 @@ type CfnVPNConnection interface {
 	// The type of IP address assigned to the outside interface of the customer gateway device.
 	OutsideIpAddressType() *string
 	SetOutsideIpAddressType(val *string)
+	// Describes the storage location for an instance store-backed AMI.
+	PreSharedKeyStorage() *string
+	SetPreSharedKeyStorage(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -456,6 +460,16 @@ func (j *jsiiProxy_CfnVPNConnection) OutsideIpAddressType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNConnection) PreSharedKeyStorage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"preSharedKeyStorage",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNConnection) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -676,6 +690,14 @@ func (j *jsiiProxy_CfnVPNConnection)SetOutsideIpAddressType(val *string) {
 	_jsii_.Set(
 		j,
 		"outsideIpAddressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetPreSharedKeyStorage(val *string) {
+	_jsii_.Set(
+		j,
+		"preSharedKeyStorage",
 		val,
 	)
 }

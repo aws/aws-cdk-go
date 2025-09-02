@@ -31,6 +31,7 @@ package awsbudgets
 //   			BudgetAdjustmentPeriod: jsii.Number(123),
 //   		},
 //   	},
+//   	BillingViewArn: jsii.String("billingViewArn"),
 //   	BudgetLimit: &SpendProperty{
 //   		Amount: jsii.Number(123),
 //   		Unit: jsii.String("unit"),
@@ -113,6 +114,9 @@ type CfnBudget_BudgetDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-autoadjustdata
 	//
 	AutoAdjustData interface{} `field:"optional" json:"autoAdjustData" yaml:"autoAdjustData"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-billingviewarn
+	//
+	BillingViewArn *string `field:"optional" json:"billingViewArn" yaml:"billingViewArn"`
 	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
 	//
 	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.

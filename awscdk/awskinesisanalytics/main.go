@@ -521,6 +521,10 @@ func init() {
 		reflect.TypeOf((*CfnApplicationV2_ApplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ApplicationEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_ApplicationEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ApplicationMaintenanceConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_ApplicationMaintenanceConfigurationProperty)(nil)).Elem(),
 	)

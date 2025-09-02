@@ -45,6 +45,7 @@ import (
 //   		ThroughputCapacity: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   	},
+//   	NetworkType: jsii.String("networkType"),
 //   	OntapConfiguration: &OntapConfigurationProperty{
 //   		DeploymentType: jsii.String("deploymentType"),
 //
@@ -79,6 +80,7 @@ import (
 //   			Mode: jsii.String("mode"),
 //   		},
 //   		EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
+//   		EndpointIpv6AddressRange: jsii.String("endpointIpv6AddressRange"),
 //   		Options: []*string{
 //   			jsii.String("options"),
 //   		},
@@ -231,6 +233,10 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration
 	//
 	LustreConfiguration interface{} `field:"optional" json:"lustreConfiguration" yaml:"lustreConfiguration"`
+	// The network type of the file system.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.
 	//
 	// This configuration is required if the `FileSystemType` is set to `ONTAP` .

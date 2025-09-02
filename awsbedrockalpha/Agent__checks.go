@@ -22,6 +22,14 @@ func (a *jsiiProxy_Agent) validateAddActionGroupParameters(actionGroup AgentActi
 	return nil
 }
 
+func (a *jsiiProxy_Agent) validateAddGuardrailParameters(guardrail IGuardrail) error {
+	if guardrail == nil {
+		return fmt.Errorf("parameter guardrail is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_Agent) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

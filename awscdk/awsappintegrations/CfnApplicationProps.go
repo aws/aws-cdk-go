@@ -84,7 +84,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-initializationtimeout
 	//
 	InitializationTimeout *float64 `field:"optional" json:"initializationTimeout" yaml:"initializationTimeout"`
-	// Indicates if the application is a service.
+	// Indicates whether the application is a service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-isservice
 	//
 	// Default: - false.

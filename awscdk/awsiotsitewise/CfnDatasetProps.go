@@ -43,6 +43,7 @@ type CfnDatasetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html#cfn-iotsitewise-dataset-datasetname
 	//
 	DatasetName *string `field:"required" json:"datasetName" yaml:"datasetName"`
+	// The data source for the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html#cfn-iotsitewise-dataset-datasetsource
 	//
 	DatasetSource interface{} `field:"required" json:"datasetSource" yaml:"datasetSource"`
@@ -50,7 +51,9 @@ type CfnDatasetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html#cfn-iotsitewise-dataset-datasetdescription
 	//
 	DatasetDescription *string `field:"optional" json:"datasetDescription" yaml:"datasetDescription"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs that contain metadata for the access policy.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html#cfn-iotsitewise-dataset-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

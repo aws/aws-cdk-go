@@ -104,7 +104,7 @@ type CfnLicenseEndpoint interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	// The VPC (virtual private cloud) ID associated with the license endpoint.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

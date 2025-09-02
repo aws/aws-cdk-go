@@ -32,6 +32,7 @@ import (
 //   	HostedZone: hostedZone,
 //
 //   	// the properties below are optional
+//   	AllowExport: jsii.Boolean(false),
 //   	CertificateName: jsii.String("certificateName"),
 //   	CleanupRoute53Records: jsii.Boolean(false),
 //   	CustomResourceRole: role,

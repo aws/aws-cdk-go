@@ -11,32 +11,30 @@ import (
 // An alarm on a CloudWatch metric.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
 //
-//   var alias alias
-//
-//   // or add alarms to an existing group
-//   var blueGreenAlias alias
-//
-//   alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &AlarmProps{
-//   	ComparisonOperator: cloudwatch.ComparisonOperator_GREATER_THAN_THRESHOLD,
-//   	Threshold: jsii.Number(1),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Metric: alias.metricErrors(),
-//   })
-//   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
-//   	Alias: Alias,
-//   	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
-//   	Alarms: []iAlarm{
-//   		alarm,
+//   mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
+//   	LogGroup: LogGroup,
+//   	MetricNamespace: jsii.String("MyApp"),
+//   	MetricName: jsii.String("Latency"),
+//   	FilterPattern: logs.FilterPattern_Exists(jsii.String("$.latency")),
+//   	MetricValue: jsii.String("$.latency"),
+//   	Dimensions: map[string]*string{
+//   		"ErrorCode": jsii.String("$.errorCode"),
 //   	},
+//   	Unit: cloudwatch.Unit_MILLISECONDS,
 //   })
-//   deploymentGroup.AddAlarm(cloudwatch.NewAlarm(this, jsii.String("BlueGreenErrors"), &AlarmProps{
-//   	ComparisonOperator: cloudwatch.ComparisonOperator_GREATER_THAN_THRESHOLD,
-//   	Threshold: jsii.Number(1),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Metric: blueGreenAlias.metricErrors(),
-//   }))
+//
+//   //expose a metric from the metric filter
+//   metric := mf.Metric()
+//
+//   //you can use the metric to create a new alarm
+//   //you can use the metric to create a new alarm
+//   cloudwatch.NewAlarm(this, jsii.String("alarm from metric filter"), &AlarmProps{
+//   	Metric: Metric,
+//   	Threshold: jsii.Number(100),
+//   	EvaluationPeriods: jsii.Number(2),
+//   })
 //
 type Alarm interface {
 	AlarmBase

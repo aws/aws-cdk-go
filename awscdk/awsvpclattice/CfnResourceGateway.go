@@ -27,6 +27,7 @@ import (
 //
 //   	// the properties below are optional
 //   	IpAddressType: jsii.String("ipAddressType"),
+//   	Ipv4AddressesPerEni: jsii.Number(123),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -62,6 +63,9 @@ type CfnResourceGateway interface {
 	// The type of IP address used by the resource gateway.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
+	// The number of IPv4 addresses to allocate per ENI for the resource gateway.
+	Ipv4AddressesPerEni() *float64
+	SetIpv4AddressesPerEni(val *float64)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -325,6 +329,16 @@ func (j *jsiiProxy_CfnResourceGateway) IpAddressType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceGateway) Ipv4AddressesPerEni() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv4AddressesPerEni",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceGateway) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -467,6 +481,14 @@ func (j *jsiiProxy_CfnResourceGateway)SetIpAddressType(val *string) {
 	_jsii_.Set(
 		j,
 		"ipAddressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceGateway)SetIpv4AddressesPerEni(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv4AddressesPerEni",
 		val,
 	)
 }

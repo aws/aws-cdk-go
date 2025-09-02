@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnHealthCheck) validateSetHealthCheckConfigParameters(val in
 	return nil
 }
 
-func (j *jsiiProxy_CfnHealthCheck) validateSetHealthCheckTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnHealthCheck) validateSetHealthCheckTagsParameters(val *[]*CfnHealthCheck_HealthCheckTagProperty) error {
 	return nil
 }
 

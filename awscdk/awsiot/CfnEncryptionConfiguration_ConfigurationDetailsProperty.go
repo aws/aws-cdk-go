@@ -1,6 +1,8 @@
 package awsiot
 
 
+// The encryption configuration details that include the status information of the AWS Key Management Service ( AWS KMS ) key and the AWS KMS access role.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,12 +17,19 @@ package awsiot
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-encryptionconfiguration-configurationdetails.html
 //
 type CfnEncryptionConfiguration_ConfigurationDetailsProperty struct {
+	// The health status of KMS key and AWS KMS access role.
+	//
+	// If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-encryptionconfiguration-configurationdetails.html#cfn-iot-encryptionconfiguration-configurationdetails-configurationstatus
 	//
 	ConfigurationStatus *string `field:"optional" json:"configurationStatus" yaml:"configurationStatus"`
+	// The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` .
+	//
+	// Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-encryptionconfiguration-configurationdetails.html#cfn-iot-encryptionconfiguration-configurationdetails-errorcode
 	//
 	ErrorCode *string `field:"optional" json:"errorCode" yaml:"errorCode"`
+	// The detailed error message that corresponds to the `errorCode` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-encryptionconfiguration-configurationdetails.html#cfn-iot-encryptionconfiguration-configurationdetails-errormessage
 	//
 	ErrorMessage *string `field:"optional" json:"errorMessage" yaml:"errorMessage"`

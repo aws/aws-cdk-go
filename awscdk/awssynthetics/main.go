@@ -82,6 +82,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCodeSourceLocationArn", GoGetter: "AttrCodeSourceLocationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "browserConfigs", GoGetter: "BrowserConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -120,6 +121,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "visualReference", GoGetter: "VisualReference"},
+			_jsii_.MemberProperty{JsiiProperty: "visualReferences", GoGetter: "VisualReferences"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
 		},
 		func() interface{} {
@@ -137,6 +139,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_synthetics.CfnCanary.BaseScreenshotProperty",
 		reflect.TypeOf((*CfnCanary_BaseScreenshotProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_synthetics.CfnCanary.BrowserConfigProperty",
+		reflect.TypeOf((*CfnCanary_BrowserConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_synthetics.CfnCanary.CodeProperty",

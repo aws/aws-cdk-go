@@ -34,19 +34,23 @@ package awsinspectorv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html
 //
 type CfnCodeSecurityIntegrationProps struct {
+	// Contains details required to create a code security integration with a specific repository provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html#cfn-inspectorv2-codesecurityintegration-createintegrationdetails
 	//
 	CreateIntegrationDetails interface{} `field:"optional" json:"createIntegrationDetails" yaml:"createIntegrationDetails"`
-	// Code Security Integration name.
+	// The name of the code security integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html#cfn-inspectorv2-codesecurityintegration-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The tags to apply to the code security integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html#cfn-inspectorv2-codesecurityintegration-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// The type of repository provider for the integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html#cfn-inspectorv2-codesecurityintegration-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// The updated integration details specific to the repository provider type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html#cfn-inspectorv2-codesecurityintegration-updateintegrationdetails
 	//
 	UpdateIntegrationDetails interface{} `field:"optional" json:"updateIntegrationDetails" yaml:"updateIntegrationDetails"`

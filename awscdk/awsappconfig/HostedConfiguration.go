@@ -39,7 +39,10 @@ type HostedConfiguration interface {
 	ConfigurationProfileId() *string
 	// The content of the hosted configuration.
 	Content() *string
-	// The content type of the hosted configuration.
+	// The configuration content type, specified as a standard MIME type. Supported examples include: - `text/plain` - `application/json` - `application/octet-stream` - `application/x-yaml`.
+	//
+	// For an up-to-date list of valid MIME types, see:
+	// https://www.iana.org/assignments/media-types/media-types.xhtml
 	ContentType() *string
 	DeletionProtectionCheck() DeletionProtectionCheck
 	SetDeletionProtectionCheck(val DeletionProtectionCheck)

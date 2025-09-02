@@ -24,7 +24,10 @@ import (
 type ConfigurationContent interface {
 	// The configuration content.
 	Content() *string
-	// The configuration content type.
+	// The configuration content type, specified as a standard MIME type. Supported examples include: - `text/plain` - `application/json` - `application/octet-stream` - `application/x-yaml`.
+	//
+	// For an up-to-date list of valid MIME types, see:
+	// https://www.iana.org/assignments/media-types/media-types.xhtml
 	ContentType() *string
 }
 

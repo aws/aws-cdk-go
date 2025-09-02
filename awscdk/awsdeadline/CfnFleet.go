@@ -190,6 +190,7 @@ type CfnFleet interface {
 	AttrFleetId() *string
 	// The status of the fleet.
 	AttrStatus() *string
+	// A message that communicates a suspended status of the fleet.
 	AttrStatusMessage() *string
 	// The number of workers in the fleet summary.
 	AttrWorkerCount() *float64

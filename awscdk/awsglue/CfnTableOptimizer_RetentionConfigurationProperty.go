@@ -9,9 +9,10 @@ package awsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   retentionConfigurationProperty := &RetentionConfigurationProperty{
-//   	IcebergConfiguration: &IcebergConfigurationProperty{
-//   		Location: jsii.String("location"),
-//   		OrphanFileRetentionPeriodInDays: jsii.Number(123),
+//   	IcebergConfiguration: &IcebergRetentionConfigurationProperty{
+//   		CleanExpiredFiles: jsii.Boolean(false),
+//   		NumberOfSnapshotsToRetain: jsii.Number(123),
+//   		SnapshotRetentionPeriodInDays: jsii.Number(123),
 //   	},
 //   }
 //

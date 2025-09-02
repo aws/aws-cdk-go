@@ -169,6 +169,8 @@ type CfnDataSourceProps struct {
 	//
 	MediaExtractionConfiguration interface{} `field:"optional" json:"mediaExtractionConfiguration" yaml:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	//
+	// This field is required for all connector types except custom connectors, where it is optional.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

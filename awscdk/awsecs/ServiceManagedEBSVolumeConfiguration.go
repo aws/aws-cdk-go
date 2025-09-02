@@ -126,6 +126,12 @@ type ServiceManagedEBSVolumeConfiguration struct {
 	// Default: - No throughput.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// Valid range is between 100 and 300 MiB/s.
+	// Default: undefined - The volume initialization rate is not set.
+	//
+	VolumeInitializationRate awscdk.Size `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The volume type.
 	// Default: - ec2.EbsDeviceVolumeType.GP2
 	//

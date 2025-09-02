@@ -44,6 +44,10 @@ type DockerBuildOptions struct {
 	// Default: `Dockerfile`.
 	//
 	File *string `field:"optional" json:"file" yaml:"file"`
+	// Docker [Networking options](https://docs.docker.com/reference/cli/docker/buildx/build/#network).
+	// Default: - no networking options.
+	//
+	Network *string `field:"optional" json:"network" yaml:"network"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`.

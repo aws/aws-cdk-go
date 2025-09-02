@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Inspector CodeSecurityScanConfiguration resource schema.
+// Creates a scan configuration for code security scanning.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,7 +49,7 @@ type CfnCodeSecurityScanConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Code Security Scan Configuration ARN.
+	// The Amazon Resource Name (ARN) of the scan configuration.
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -58,12 +58,14 @@ type CfnCodeSecurityScanConfiguration interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The configuration settings for the code security scan.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The security level for the scan configuration.
 	Level() *string
 	SetLevel(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -76,7 +78,7 @@ type CfnCodeSecurityScanConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Code Security Scan Configuration name.
+	// The name of the scan configuration.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -86,12 +88,14 @@ type CfnCodeSecurityScanConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The scope settings that define which repositories will be scanned.
 	ScopeSettings() interface{}
 	SetScopeSettings(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to apply to the scan configuration.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

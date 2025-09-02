@@ -62,6 +62,11 @@ type Agent interface {
 	// The principal to grant permissions to.
 	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
+	// The guardrail that will be associated with the agent.
+	// Experimental.
+	Guardrail() IGuardrail
+	// Experimental.
+	SetGuardrail(val IGuardrail)
 	// Optional KMS encryption key associated with this agent.
 	// Experimental.
 	KmsKey() awskms.IKey
@@ -104,6 +109,9 @@ type Agent interface {
 	//
 	// Experimental.
 	AddActionGroups(actionGroups ...AgentActionGroup)
+	// Add guardrail to the agent.
+	// Experimental.
+	AddGuardrail(guardrail IGuardrail)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -239,6 +247,16 @@ func (j *jsiiProxy_Agent) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
+func (j *jsiiProxy_Agent) Guardrail() IGuardrail {
+	var returns IGuardrail
+	_jsii_.Get(
+		j,
+		"guardrail",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Agent) KmsKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -346,6 +364,14 @@ func NewAgent_Override(a Agent, scope constructs.Construct, id *string, props *A
 		"@aws-cdk/aws-bedrock-alpha.Agent",
 		[]interface{}{scope, id, props},
 		a,
+	)
+}
+
+func (j *jsiiProxy_Agent)SetGuardrail(val IGuardrail) {
+	_jsii_.Set(
+		j,
+		"guardrail",
+		val,
 	)
 }
 
@@ -481,6 +507,17 @@ func (a *jsiiProxy_Agent) AddActionGroups(actionGroups ...AgentActionGroup) {
 		a,
 		"addActionGroups",
 		args,
+	)
+}
+
+func (a *jsiiProxy_Agent) AddGuardrail(guardrail IGuardrail) {
+	if err := a.validateAddGuardrailParameters(guardrail); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"addGuardrail",
+		[]interface{}{guardrail},
 	)
 }
 

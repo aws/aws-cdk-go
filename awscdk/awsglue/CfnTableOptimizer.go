@@ -32,9 +32,10 @@ import (
 //   			},
 //   		},
 //   		RetentionConfiguration: &RetentionConfigurationProperty{
-//   			IcebergConfiguration: &IcebergConfigurationProperty{
-//   				Location: jsii.String("location"),
-//   				OrphanFileRetentionPeriodInDays: jsii.Number(123),
+//   			IcebergConfiguration: &IcebergRetentionConfigurationProperty{
+//   				CleanExpiredFiles: jsii.Boolean(false),
+//   				NumberOfSnapshotsToRetain: jsii.Number(123),
+//   				SnapshotRetentionPeriodInDays: jsii.Number(123),
 //   			},
 //   		},
 //   		VpcConfiguration: &VpcConfigurationProperty{

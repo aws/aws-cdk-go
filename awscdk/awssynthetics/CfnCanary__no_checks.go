@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCanary) validateSetArtifactS3LocationParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnCanary) validateSetBrowserConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCanary) validateSetCodeParameters(val interface{}) error {
 	return nil
 }
@@ -129,6 +133,10 @@ func (j *jsiiProxy_CfnCanary) validateSetTagsRawParameters(val *[]*awscdk.CfnTag
 }
 
 func (j *jsiiProxy_CfnCanary) validateSetVisualReferenceParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCanary) validateSetVisualReferencesParameters(val interface{}) error {
 	return nil
 }
 

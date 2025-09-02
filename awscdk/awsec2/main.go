@@ -6295,6 +6295,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "outsideIpAddressType", GoGetter: "OutsideIpAddressType"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "preSharedKeyStorage", GoGetter: "PreSharedKeyStorage"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "remoteIpv4NetworkCidr", GoGetter: "RemoteIpv4NetworkCidr"},
 			_jsii_.MemberProperty{JsiiProperty: "remoteIpv6NetworkCidr", GoGetter: "RemoteIpv6NetworkCidr"},

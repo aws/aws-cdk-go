@@ -1,7 +1,7 @@
 package awsivs
 
 
-// An object representing a configuration of thumbnails for recorded video from an individual participant.
+// Object specifying a configuration of thumbnails for recorded video from an individual participant.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,7 @@ package awsivs
 type CfnStage_ParticipantThumbnailConfigurationProperty struct {
 	// Thumbnail recording mode.
 	//
-	// Default: DISABLED.
+	// Default: `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantthumbnailconfiguration.html#cfn-ivs-stage-participantthumbnailconfiguration-recordingmode
 	//
 	// Default: - "INTERVAL".
@@ -29,13 +29,13 @@ type CfnStage_ParticipantThumbnailConfigurationProperty struct {
 	RecordingMode *string `field:"optional" json:"recordingMode" yaml:"recordingMode"`
 	// Indicates the format in which thumbnails are recorded.
 	//
-	// SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+	// `SEQUENTIAL` records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. `LATEST` saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by `targetIntervalSeconds` . You can enable both `SEQUENTIAL` and `LATEST` . Default: `SEQUENTIAL` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantthumbnailconfiguration.html#cfn-ivs-stage-participantthumbnailconfiguration-storage
 	//
 	Storage *[]*string `field:"optional" json:"storage" yaml:"storage"`
 	// The targeted thumbnail-generation interval in seconds.
 	//
-	// This is configurable only if recordingMode is INTERVAL. Default: 60.
+	// This is configurable only if `recordingMode` is `INTERVAL` . Default: 60.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantthumbnailconfiguration.html#cfn-ivs-stage-participantthumbnailconfiguration-targetintervalseconds
 	//
 	// Default: - 60.

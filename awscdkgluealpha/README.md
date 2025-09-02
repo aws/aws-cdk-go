@@ -67,7 +67,7 @@ for more granular details.
 
 ### Spark Jobs
 
-1. **ETL Jobs**
+#### ETL Jobs
 
 ETL jobs support pySpark and Scala languages, for which there are separate but
 similar constructors. ETL jobs default to the G2 worker type, but you can
@@ -135,7 +135,7 @@ glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 })
 ```
 
-**Streaming Jobs**
+#### Streaming Jobs
 
 Streaming jobs are similar to ETL jobs, except that they perform ETL on data
 streams using the Apache Spark Structured Streaming framework. Some Spark
@@ -200,7 +200,7 @@ glue.NewPySparkStreamingJob(stack, jsii.String("PySparkStreamingJob"), &PySparkS
 })
 ```
 
-**Flex Jobs**
+#### Flex Jobs
 
 The flexible execution class is appropriate for non-urgent jobs such as
 pre-production jobs, testing, and one-time data loads. Flexible jobs default
@@ -461,14 +461,14 @@ override it if you prefer for your trigger not to start on creation.
 Reference the workflow-triggers.test.ts unit tests for examples of creating
 workflows and triggers.
 
-1. **On-Demand Triggers**
+#### **1. On-Demand Triggers**
 
 On-demand triggers can start glue jobs or crawlers. This construct provides
 convenience functions to create on-demand crawler or job triggers. The constructor
 takes an optional description parameter, but abstracts the requirement of an
 actions list using the job or crawler objects using conditional types.
 
-1. **Scheduled Triggers**
+#### **2. Scheduled Triggers**
 
 You can create scheduled triggers using cron expressions. This construct
 provides daily, weekly, and monthly convenience functions,
@@ -496,13 +496,12 @@ The trigger actions are executed when the predicateCondition is true.
 A `Connection` allows Glue jobs, crawlers and development endpoints to access
 certain types of data stores.
 
-***Secrets Management
-**You must specify JDBC connection credentials in Secrets Manager and
-provide the Secrets Manager Key name as a property to the job connection.
-
+* **Secrets Management**
+  You must specify JDBC connection credentials in Secrets Manager and
+  provide the Secrets Manager Key name as a property to the job connection.
 * **Networking - the CDK determines the best fit subnet for Glue connection
-  configuration
-  **The prior version of the glue-alpha-module requires the developer to
+  configuration**
+  The prior version of the glue-alpha-module requires the developer to
   specify the subnet of the Connection when it’s defined. Now, you can still
   specify the specific subnet you want to use, but are no longer required
   to. You are only required to provide a VPC and either a public or private

@@ -127,6 +127,7 @@ type CfnPortal interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARN of the session logger that is assocaited with the portal.
 	SessionLoggerArn() *string
 	SetSessionLoggerArn(val *string)
 	// The stack in which this element is defined.

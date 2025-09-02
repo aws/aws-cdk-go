@@ -609,6 +609,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "desiredCount", GoGetter: "DesiredCount"},
 			_jsii_.MemberProperty{JsiiProperty: "enableEcsManagedTags", GoGetter: "EnableEcsManagedTags"},
 			_jsii_.MemberProperty{JsiiProperty: "enableExecuteCommand", GoGetter: "EnableExecuteCommand"},
+			_jsii_.MemberProperty{JsiiProperty: "forceNewDeployment", GoGetter: "ForceNewDeployment"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckGracePeriodSeconds", GoGetter: "HealthCheckGracePeriodSeconds"},
@@ -689,6 +690,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.EBSTagSpecificationProperty",
 		reflect.TypeOf((*CfnService_EBSTagSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ForceNewDeploymentProperty",
+		reflect.TypeOf((*CfnService_ForceNewDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.LoadBalancerProperty",

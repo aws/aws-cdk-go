@@ -95,7 +95,7 @@ type CfnWorkspace interface {
 	// (optional) The ARN for a customer managed AWS KMS key to use for encrypting data within your workspace.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
-	// Contains information about the current rules and alerting logging configuration for the workspace.
+	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

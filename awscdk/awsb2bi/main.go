@@ -347,12 +347,32 @@ func init() {
 		reflect.TypeOf((*CfnTransformer_X12AdvancedOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12CodeListValidationRuleProperty",
+		reflect.TypeOf((*CfnTransformer_X12CodeListValidationRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12DetailsProperty",
 		reflect.TypeOf((*CfnTransformer_X12DetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12ElementLengthValidationRuleProperty",
+		reflect.TypeOf((*CfnTransformer_X12ElementLengthValidationRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12ElementRequirementValidationRuleProperty",
+		reflect.TypeOf((*CfnTransformer_X12ElementRequirementValidationRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12SplitOptionsProperty",
 		reflect.TypeOf((*CfnTransformer_X12SplitOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12ValidationOptionsProperty",
+		reflect.TypeOf((*CfnTransformer_X12ValidationOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12ValidationRuleProperty",
+		reflect.TypeOf((*CfnTransformer_X12ValidationRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_b2bi.CfnTransformerProps",

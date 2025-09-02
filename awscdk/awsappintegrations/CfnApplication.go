@@ -92,7 +92,7 @@ type CfnApplication interface {
 	// The initialization timeout in milliseconds.
 	InitializationTimeout() *float64
 	SetInitializationTimeout(val *float64)
-	// Indicates if the application is a service.
+	// Indicates whether the application is a service.
 	IsService() interface{}
 	SetIsService(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -6,7 +6,7 @@ package awscdkeks-v2alpha
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	// ...
-//   	Version: eks.KubernetesVersion_V1_32(),
+//   	Version: eks.KubernetesVersion_V1_33(),
 //   	ClusterLogging: []clusterLoggingTypes{
 //   		eks.*clusterLoggingTypes_API,
 //   		eks.*clusterLoggingTypes_AUTHENTICATOR,

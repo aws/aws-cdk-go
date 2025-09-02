@@ -64,6 +64,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	IdMappingIncrementalRunConfig: &IdMappingIncrementalRunConfigProperty{
+//   		IncrementalRunType: jsii.String("incrementalRunType"),
+//   	},
 //   	OutputSourceConfig: []interface{}{
 //   		&IdMappingWorkflowOutputSourceProperty{
 //   			OutputS3Path: jsii.String("outputS3Path"),
@@ -106,6 +109,8 @@ type CfnIdMappingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
+	IdMappingIncrementalRunConfig() interface{}
+	SetIdMappingIncrementalRunConfig(val interface{})
 	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques() interface{}
 	SetIdMappingTechniques(val interface{})
@@ -382,6 +387,16 @@ func (j *jsiiProxy_CfnIdMappingWorkflow) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIdMappingWorkflow) IdMappingIncrementalRunConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"idMappingIncrementalRunConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIdMappingWorkflow) IdMappingTechniques() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -534,6 +549,17 @@ func (j *jsiiProxy_CfnIdMappingWorkflow)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIdMappingWorkflow)SetIdMappingIncrementalRunConfig(val interface{}) {
+	if err := j.validateSetIdMappingIncrementalRunConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"idMappingIncrementalRunConfig",
 		val,
 	)
 }

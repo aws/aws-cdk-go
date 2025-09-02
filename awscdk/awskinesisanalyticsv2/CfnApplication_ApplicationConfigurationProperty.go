@@ -23,6 +23,12 @@ package awskinesisanalyticsv2
 //   		},
 //   		CodeContentType: jsii.String("codeContentType"),
 //   	},
+//   	ApplicationEncryptionConfiguration: &ApplicationEncryptionConfigurationProperty{
+//   		KeyType: jsii.String("keyType"),
+//
+//   		// the properties below are optional
+//   		KeyId: jsii.String("keyId"),
+//   	},
 //   	ApplicationSnapshotConfiguration: &ApplicationSnapshotConfigurationProperty{
 //   		SnapshotsEnabled: jsii.Boolean(false),
 //   	},
@@ -171,6 +177,10 @@ type CfnApplication_ApplicationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationcodeconfiguration
 	//
 	ApplicationCodeConfiguration interface{} `field:"optional" json:"applicationCodeConfiguration" yaml:"applicationCodeConfiguration"`
+	// The configuration to manage encryption at rest.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationencryptionconfiguration
+	//
+	ApplicationEncryptionConfiguration interface{} `field:"optional" json:"applicationEncryptionConfiguration" yaml:"applicationEncryptionConfiguration"`
 	// Describes whether snapshots are enabled for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
 	//

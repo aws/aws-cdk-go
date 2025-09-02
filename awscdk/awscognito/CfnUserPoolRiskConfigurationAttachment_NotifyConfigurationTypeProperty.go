@@ -65,6 +65,8 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 	//
 	NoActionEmail interface{} `field:"optional" json:"noActionEmail" yaml:"noActionEmail"`
 	// The reply-to email address of an email template.
+	//
+	// Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-replyto
 	//
 	ReplyTo *string `field:"optional" json:"replyTo" yaml:"replyTo"`

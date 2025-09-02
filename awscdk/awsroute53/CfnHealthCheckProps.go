@@ -39,8 +39,8 @@ package awsroute53
 //   	},
 //
 //   	// the properties below are optional
-//   	HealthCheckTags: []interface{}{
-//   		&HealthCheckTagProperty{
+//   	HealthCheckTags: []healthCheckTagProperty{
+//   		&healthCheckTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -59,6 +59,6 @@ type CfnHealthCheckProps struct {
 	// The `HealthCheckTags` property describes key-value pairs that are associated with an `AWS::Route53::HealthCheck` resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
 	//
-	HealthCheckTags interface{} `field:"optional" json:"healthCheckTags" yaml:"healthCheckTags"`
+	HealthCheckTags *[]*CfnHealthCheck_HealthCheckTagProperty `field:"optional" json:"healthCheckTags" yaml:"healthCheckTags"`
 }
 

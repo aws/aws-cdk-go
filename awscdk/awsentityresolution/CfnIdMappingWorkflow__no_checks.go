@@ -80,6 +80,10 @@ func validateCfnIdMappingWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdMappingWorkflow) validateSetIdMappingIncrementalRunConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIdMappingWorkflow) validateSetIdMappingTechniquesParameters(val interface{}) error {
 	return nil
 }

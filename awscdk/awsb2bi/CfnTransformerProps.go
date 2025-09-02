@@ -32,6 +32,32 @@ import (
 //   				SplitOptions: &X12SplitOptionsProperty{
 //   					SplitBy: jsii.String("splitBy"),
 //   				},
+//   				ValidationOptions: &X12ValidationOptionsProperty{
+//   					ValidationRules: []interface{}{
+//   						&X12ValidationRuleProperty{
+//   							CodeListValidationRule: &X12CodeListValidationRuleProperty{
+//   								ElementId: jsii.String("elementId"),
+//
+//   								// the properties below are optional
+//   								CodesToAdd: []*string{
+//   									jsii.String("codesToAdd"),
+//   								},
+//   								CodesToRemove: []*string{
+//   									jsii.String("codesToRemove"),
+//   								},
+//   							},
+//   							ElementLengthValidationRule: &X12ElementLengthValidationRuleProperty{
+//   								ElementId: jsii.String("elementId"),
+//   								MaxLength: jsii.Number(123),
+//   								MinLength: jsii.Number(123),
+//   							},
+//   							ElementRequirementValidationRule: &X12ElementRequirementValidationRuleProperty{
+//   								ElementPosition: jsii.String("elementPosition"),
+//   								Requirement: jsii.String("requirement"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   			},
 //   		},
 //   		FormatOptions: &FormatOptionsProperty{
@@ -52,6 +78,39 @@ import (
 //   		ToFormat: jsii.String("toFormat"),
 //
 //   		// the properties below are optional
+//   		AdvancedOptions: &AdvancedOptionsProperty{
+//   			X12: &X12AdvancedOptionsProperty{
+//   				SplitOptions: &X12SplitOptionsProperty{
+//   					SplitBy: jsii.String("splitBy"),
+//   				},
+//   				ValidationOptions: &X12ValidationOptionsProperty{
+//   					ValidationRules: []interface{}{
+//   						&X12ValidationRuleProperty{
+//   							CodeListValidationRule: &X12CodeListValidationRuleProperty{
+//   								ElementId: jsii.String("elementId"),
+//
+//   								// the properties below are optional
+//   								CodesToAdd: []*string{
+//   									jsii.String("codesToAdd"),
+//   								},
+//   								CodesToRemove: []*string{
+//   									jsii.String("codesToRemove"),
+//   								},
+//   							},
+//   							ElementLengthValidationRule: &X12ElementLengthValidationRuleProperty{
+//   								ElementId: jsii.String("elementId"),
+//   								MaxLength: jsii.Number(123),
+//   								MinLength: jsii.Number(123),
+//   							},
+//   							ElementRequirementValidationRule: &X12ElementRequirementValidationRuleProperty{
+//   								ElementPosition: jsii.String("elementPosition"),
+//   								Requirement: jsii.String("requirement"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
 //   		FormatOptions: &FormatOptionsProperty{
 //   			X12: &X12DetailsProperty{
 //   				TransactionSet: jsii.String("transactionSet"),

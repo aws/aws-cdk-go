@@ -179,6 +179,30 @@ func validateCfnIdMappingWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdMappingWorkflow) validateSetIdMappingIncrementalRunConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnIdMappingWorkflow_IdMappingIncrementalRunConfigProperty:
+		val := val.(*CfnIdMappingWorkflow_IdMappingIncrementalRunConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnIdMappingWorkflow_IdMappingIncrementalRunConfigProperty:
+		val_ := val.(CfnIdMappingWorkflow_IdMappingIncrementalRunConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnIdMappingWorkflow_IdMappingIncrementalRunConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnIdMappingWorkflow) validateSetIdMappingTechniquesParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

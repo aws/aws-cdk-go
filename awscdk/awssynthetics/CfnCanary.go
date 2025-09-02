@@ -64,6 +64,11 @@ import (
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		},
 //   	},
+//   	BrowserConfigs: []interface{}{
+//   		&BrowserConfigProperty{
+//   			BrowserType: jsii.String("browserType"),
+//   		},
+//   	},
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	DryRunAndUpdate: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
@@ -102,6 +107,25 @@ import (
 //   				},
 //   			},
 //   		},
+//   		BrowserType: jsii.String("browserType"),
+//   	},
+//   	VisualReferences: []interface{}{
+//   		&VisualReferenceProperty{
+//   			BaseCanaryRunId: jsii.String("baseCanaryRunId"),
+//
+//   			// the properties below are optional
+//   			BaseScreenshots: []interface{}{
+//   				&BaseScreenshotProperty{
+//   					ScreenshotName: jsii.String("screenshotName"),
+//
+//   					// the properties below are optional
+//   					IgnoreCoordinates: []*string{
+//   						jsii.String("ignoreCoordinates"),
+//   					},
+//   				},
+//   			},
+//   			BrowserType: jsii.String("browserType"),
+//   		},
 //   	},
 //   	VpcConfig: &VPCConfigProperty{
 //   		SecurityGroupIds: []*string{
@@ -137,6 +161,9 @@ type CfnCanary interface {
 	//
 	// For example, `RUNNING` .
 	AttrState() *string
+	// List of browser configurations for the canary.
+	BrowserConfigs() interface{}
+	SetBrowserConfigs(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -227,8 +254,13 @@ type CfnCanary interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates of any parts of the screen to ignore during the visual monitoring comparison.
+	// Deprecated: this property has been deprecated.
 	VisualReference() interface{}
+	// Deprecated: this property has been deprecated.
 	SetVisualReference(val interface{})
+	// List of visual references for the canary.
+	VisualReferences() interface{}
+	SetVisualReferences(val interface{})
 	// If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
@@ -411,6 +443,16 @@ func (j *jsiiProxy_CfnCanary) AttrState() *string {
 	_jsii_.Get(
 		j,
 		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCanary) BrowserConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"browserConfigs",
 		&returns,
 	)
 	return returns
@@ -676,6 +718,16 @@ func (j *jsiiProxy_CfnCanary) VisualReference() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCanary) VisualReferences() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"visualReferences",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCanary) VpcConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -732,6 +784,17 @@ func (j *jsiiProxy_CfnCanary)SetArtifactS3Location(val *string) {
 	_jsii_.Set(
 		j,
 		"artifactS3Location",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary)SetBrowserConfigs(val interface{}) {
+	if err := j.validateSetBrowserConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"browserConfigs",
 		val,
 	)
 }
@@ -885,6 +948,17 @@ func (j *jsiiProxy_CfnCanary)SetVisualReference(val interface{}) {
 	_jsii_.Set(
 		j,
 		"visualReference",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary)SetVisualReferences(val interface{}) {
+	if err := j.validateSetVisualReferencesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"visualReferences",
 		val,
 	)
 }

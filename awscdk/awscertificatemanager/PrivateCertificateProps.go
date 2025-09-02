@@ -28,6 +28,13 @@ type PrivateCertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	// Enable or disable export of this certificate.
+	//
+	// If you issue an exportable public certificate, there is a charge at certificate issuance and again when the certificate renews.
+	// Ref: https://aws.amazon.com/certificate-manager/pricing
+	// Default: false.
+	//
+	AllowExport *bool `field:"optional" json:"allowExport" yaml:"allowExport"`
 	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	//
 	// When you request a private PKI certificate signed by a CA from AWS Private CA, the specified signing algorithm family

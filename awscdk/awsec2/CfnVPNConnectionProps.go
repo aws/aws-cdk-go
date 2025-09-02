@@ -20,6 +20,7 @@ import (
 //   	LocalIpv4NetworkCidr: jsii.String("localIpv4NetworkCidr"),
 //   	LocalIpv6NetworkCidr: jsii.String("localIpv6NetworkCidr"),
 //   	OutsideIpAddressType: jsii.String("outsideIpAddressType"),
+//   	PreSharedKeyStorage: jsii.String("preSharedKeyStorage"),
 //   	RemoteIpv4NetworkCidr: jsii.String("remoteIpv4NetworkCidr"),
 //   	RemoteIpv6NetworkCidr: jsii.String("remoteIpv6NetworkCidr"),
 //   	StaticRoutesOnly: jsii.Boolean(false),
@@ -130,6 +131,10 @@ type CfnVPNConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-outsideipaddresstype
 	//
 	OutsideIpAddressType *string `field:"optional" json:"outsideIpAddressType" yaml:"outsideIpAddressType"`
+	// Describes the storage location for an instance store-backed AMI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-presharedkeystorage
+	//
+	PreSharedKeyStorage *string `field:"optional" json:"preSharedKeyStorage" yaml:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//
 	// Default: `0.0.0.0/0`

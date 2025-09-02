@@ -108,7 +108,7 @@ type CfnBucketProps struct {
 	//
 	// > - The `DefaultRetention` settings require both a mode and a period.
 	// > - The `DefaultRetention` period can be either `Days` or `Years` but you must select one. You cannot specify `Days` and `Years` at the same time.
-	// > - You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html) .
+	// > - You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html) . > You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt` , containing two spaces after `my` , you must URL encode this value to `my%20%20file.txt` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration
 	//
 	ObjectLockConfiguration interface{} `field:"optional" json:"objectLockConfiguration" yaml:"objectLockConfiguration"`

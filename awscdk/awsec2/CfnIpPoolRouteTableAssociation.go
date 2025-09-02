@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::IpPoolRouteTableAssociation.
+// A route server association is the connection established between a route server and a VPC.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,7 +26,7 @@ import (
 type CfnIpPoolRouteTableAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The route table association ID.
+	// The ID of a route table association.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -49,7 +49,7 @@ type CfnIpPoolRouteTableAssociation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The ID of the public IPv4 pool.
+	// The ID of a public IPv4 address pool.
 	PublicIpv4Pool() *string
 	SetPublicIpv4Pool(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -57,7 +57,7 @@ type CfnIpPoolRouteTableAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the route table.
+	// The ID of a route table.
 	RouteTableId() *string
 	SetRouteTableId(val *string)
 	// The stack in which this element is defined.

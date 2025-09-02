@@ -785,6 +785,137 @@ func init() {
 		reflect.TypeOf((*CfnOwnerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant",
+		reflect.TypeOf((*CfnPolicyGrant)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedBy", GoGetter: "AttrCreatedBy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrGrantId", GoGetter: "AttrGrantId"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "detail", GoGetter: "Detail"},
+			_jsii_.MemberProperty{JsiiProperty: "domainIdentifier", GoGetter: "DomainIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "entityIdentifier", GoGetter: "EntityIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "entityType", GoGetter: "EntityType"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyType", GoGetter: "PolicyType"},
+			_jsii_.MemberProperty{JsiiProperty: "principal", GoGetter: "Principal"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPolicyGrant{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.AddToProjectMemberPoolPolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_AddToProjectMemberPoolPolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateAssetTypePolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateAssetTypePolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateDomainUnitPolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateDomainUnitPolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateEnvironmentProfilePolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateEnvironmentProfilePolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateFormTypePolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateFormTypePolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateGlossaryPolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateGlossaryPolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateProjectFromProjectProfilePolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateProjectFromProjectProfilePolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.CreateProjectPolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_CreateProjectPolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.DomainUnitFilterForProjectProperty",
+		reflect.TypeOf((*CfnPolicyGrant_DomainUnitFilterForProjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.DomainUnitGrantFilterProperty",
+		reflect.TypeOf((*CfnPolicyGrant_DomainUnitGrantFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.DomainUnitPolicyGrantPrincipalProperty",
+		reflect.TypeOf((*CfnPolicyGrant_DomainUnitPolicyGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.GroupPolicyGrantPrincipalProperty",
+		reflect.TypeOf((*CfnPolicyGrant_GroupPolicyGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.OverrideDomainUnitOwnersPolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_OverrideDomainUnitOwnersPolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.OverrideProjectOwnersPolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_OverrideProjectOwnersPolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.PolicyGrantDetailProperty",
+		reflect.TypeOf((*CfnPolicyGrant_PolicyGrantDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.PolicyGrantPrincipalProperty",
+		reflect.TypeOf((*CfnPolicyGrant_PolicyGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.ProjectGrantFilterProperty",
+		reflect.TypeOf((*CfnPolicyGrant_ProjectGrantFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.ProjectPolicyGrantPrincipalProperty",
+		reflect.TypeOf((*CfnPolicyGrant_ProjectPolicyGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrant.UserPolicyGrantPrincipalProperty",
+		reflect.TypeOf((*CfnPolicyGrant_UserPolicyGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnPolicyGrantProps",
+		reflect.TypeOf((*CfnPolicyGrantProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_datazone.CfnProject",
 		reflect.TypeOf((*CfnProject)(nil)).Elem(),
 		[]_jsii_.Member{

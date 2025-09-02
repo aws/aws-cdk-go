@@ -26,6 +26,7 @@ package awssynthetics
 //   			},
 //   		},
 //   	},
+//   	BrowserType: jsii.String("browserType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
@@ -41,5 +42,8 @@ type CfnCanary_VisualReferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
 	//
 	BaseScreenshots interface{} `field:"optional" json:"baseScreenshots" yaml:"baseScreenshots"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-browsertype
+	//
+	BrowserType *string `field:"optional" json:"browserType" yaml:"browserType"`
 }
 

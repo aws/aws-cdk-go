@@ -30,7 +30,7 @@ type CfnJobDefinition_LogConfigurationProperty struct {
 	//
 	// The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
 	//
-	// The supported log drivers are `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
+	// The supported log drivers are `awsfirelens` , `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
 	//
 	// > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 	//

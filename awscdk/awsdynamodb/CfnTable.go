@@ -201,7 +201,7 @@ type CfnTable interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
 	ContributorInsightsSpecification() interface{}
 	SetContributorInsightsSpecification(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -264,7 +264,7 @@ type CfnTable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The settings for the DynamoDB table stream, which capture changes to items stored in the table.
+	// The settings for the DynamoDB table stream, which captures changes to items stored in the table.
 	StreamSpecification() interface{}
 	SetStreamSpecification(val interface{})
 	// The table class of the new table.

@@ -21,6 +21,13 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AttributeConfiguration: &AttributeConfigurationProperty{
+//   		EnableValueValidationOnAssociation: jsii.Boolean(false),
+//   		IsReadOnly: jsii.Boolean(false),
+//   	},
+//   	Purposes: []*string{
+//   		jsii.String("purposes"),
+//   	},
 //   	Values: &ValuesProperty{
 //   		StringList: []*string{
 //   			jsii.String("stringList"),
@@ -33,6 +40,9 @@ import (
 type CfnPredefinedAttribute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	AttributeConfiguration() interface{}
+	SetAttributeConfiguration(val interface{})
 	// Last modified region.
 	AttrLastModifiedRegion() *string
 	// Last modified time.
@@ -64,6 +74,9 @@ type CfnPredefinedAttribute interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The assigned purposes of the predefined attribute.
+	Purposes() *[]*string
+	SetPurposes(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -222,6 +235,16 @@ type jsiiProxy_CfnPredefinedAttribute struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnPredefinedAttribute) AttributeConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"attributeConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPredefinedAttribute) AttrLastModifiedRegion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -322,6 +345,16 @@ func (j *jsiiProxy_CfnPredefinedAttribute) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPredefinedAttribute) Purposes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"purposes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPredefinedAttribute) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -400,6 +433,17 @@ func NewCfnPredefinedAttribute_Override(c CfnPredefinedAttribute, scope construc
 	)
 }
 
+func (j *jsiiProxy_CfnPredefinedAttribute)SetAttributeConfiguration(val interface{}) {
+	if err := j.validateSetAttributeConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"attributeConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPredefinedAttribute)SetInstanceArn(val *string) {
 	if err := j.validateSetInstanceArnParameters(val); err != nil {
 		panic(err)
@@ -418,6 +462,14 @@ func (j *jsiiProxy_CfnPredefinedAttribute)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPredefinedAttribute)SetPurposes(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"purposes",
 		val,
 	)
 }

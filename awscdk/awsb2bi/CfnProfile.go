@@ -83,6 +83,7 @@ type CfnProfile interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Specifies the phone number associated with the profile.
 	Phone() *string
 	SetPhone(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

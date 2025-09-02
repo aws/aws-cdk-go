@@ -380,6 +380,29 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &Bucke
 })
 ```
 
+By default, the deployment will wait for invalidation to succeed to complete. This will poll Cloudfront for a maximum of 13 minutes to check for a successful invalidation. The drawback to this is that the deployment will fail if invalidation fails or if it takes longer than 13 minutes. As a workaround, there is the option `waitForDistributionInvalidation`, which can be set to false to skip waiting for the invalidation, but this can be risky as invalidation errors will not be reported.
+
+```go
+import cloudfront "github.com/aws/aws-cdk-go/awscdk"
+
+var bucket iBucket
+var distribution iDistribution
+
+
+s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(jsii.String("./website-dist")),
+	},
+	DestinationBucket: bucket,
+	Distribution: Distribution,
+	DistributionPaths: []*string{
+		jsii.String("/images/*.png"),
+	},
+	// Invalidate cache but don't wait or verify that invalidation has completed successfully.
+	WaitForDistributionInvalidation: jsii.Boolean(false),
+})
+```
+
 ## Signed Content Payloads
 
 By default, deployment uses streaming uploads which set the `x-amz-content-sha256`

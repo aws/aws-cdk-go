@@ -8,6 +8,10 @@ func (a *jsiiProxy_Agent) validateAddActionGroupParameters(actionGroup AgentActi
 	return nil
 }
 
+func (a *jsiiProxy_Agent) validateAddGuardrailParameters(guardrail IGuardrail) error {
+	return nil
+}
+
 func (a *jsiiProxy_Agent) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

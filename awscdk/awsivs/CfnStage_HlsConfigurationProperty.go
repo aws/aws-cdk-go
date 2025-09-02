@@ -1,7 +1,7 @@
 package awsivs
 
 
-// HLS configuration object for individual participant recording.
+// Object specifying an HLS configuration for individual participant recording.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awsivs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-hlsconfiguration.html
 //
 type CfnStage_HlsConfigurationProperty struct {
-	// An object representing a configuration of participant HLS recordings for individual participant recording.
+	// Object specifying a configuration of participant HLS recordings for individual participant recording.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-hlsconfiguration.html#cfn-ivs-stage-hlsconfiguration-participantrecordinghlsconfiguration
 	//
 	ParticipantRecordingHlsConfiguration interface{} `field:"optional" json:"participantRecordingHlsConfiguration" yaml:"participantRecordingHlsConfiguration"`

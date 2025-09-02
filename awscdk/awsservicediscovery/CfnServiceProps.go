@@ -78,18 +78,13 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The ID of the namespace that was used to create the service.
+	// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service.
 	//
-	// > You must specify a value for `NamespaceId` either for the service properties or for [DnsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html) . Don't specify a value in both places.
+	// For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid
 	//
 	NamespaceId *string `field:"optional" json:"namespaceId" yaml:"namespaceId"`
-	// A string map that contains the following information for the service:.
-	//
-	// - The attributes that apply to the service
-	// - For each attribute, the applicable value.
-	//
-	// You can specify a total of 30 attributes.
+	// A complex type that contains information about attributes associated with a specific service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-serviceattributes
 	//
 	ServiceAttributes interface{} `field:"optional" json:"serviceAttributes" yaml:"serviceAttributes"`

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnService) validateSetEnableExecuteCommandParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetForceNewDeploymentParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetLoadBalancersParameters(val interface{}) error {
 	return nil
 }

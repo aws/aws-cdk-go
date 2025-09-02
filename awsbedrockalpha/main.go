@@ -26,6 +26,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "actionGroups", GoGetter: "ActionGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "addActionGroup", GoMethod: "AddActionGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "addActionGroups", GoMethod: "AddActionGroups"},
+			_jsii_.MemberMethod{JsiiMethod: "addGuardrail", GoMethod: "AddGuardrail"},
 			_jsii_.MemberProperty{JsiiProperty: "agentArn", GoGetter: "AgentArn"},
 			_jsii_.MemberProperty{JsiiProperty: "agentId", GoGetter: "AgentId"},
 			_jsii_.MemberProperty{JsiiProperty: "agentVersion", GoGetter: "AgentVersion"},
@@ -36,6 +37,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrail", GoGetter: "Guardrail"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
 			_jsii_.MemberProperty{JsiiProperty: "lastUpdated", GoGetter: "LastUpdated"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCount", GoMethod: "MetricCount"},
@@ -335,6 +337,19 @@ func init() {
 		reflect.TypeOf((*BedrockFoundationModelProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.CanadaSpecificPIIType",
+		reflect.TypeOf((*CanadaSpecificPIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CanadaSpecificPIIType{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PIIType)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.ChatMessage",
 		reflect.TypeOf((*ChatMessage)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -364,6 +379,44 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-alpha.CommonPromptVariantProps",
 		reflect.TypeOf((*CommonPromptVariantProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.ContentFilter",
+		reflect.TypeOf((*ContentFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.ContentFilterStrength",
+		reflect.TypeOf((*ContentFilterStrength)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": ContentFilterStrength_NONE,
+			"LOW": ContentFilterStrength_LOW,
+			"MEDIUM": ContentFilterStrength_MEDIUM,
+			"HIGH": ContentFilterStrength_HIGH,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.ContentFilterType",
+		reflect.TypeOf((*ContentFilterType)(nil)).Elem(),
+		map[string]interface{}{
+			"SEXUAL": ContentFilterType_SEXUAL,
+			"VIOLENCE": ContentFilterType_VIOLENCE,
+			"HATE": ContentFilterType_HATE,
+			"INSULTS": ContentFilterType_INSULTS,
+			"MISCONDUCT": ContentFilterType_MISCONDUCT,
+			"PROMPT_ATTACK": ContentFilterType_PROMPT_ATTACK,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.ContextualGroundingFilter",
+		reflect.TypeOf((*ContextualGroundingFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.ContextualGroundingFilterType",
+		reflect.TypeOf((*ContextualGroundingFilterType)(nil)).Elem(),
+		map[string]interface{}{
+			"GROUNDING": ContextualGroundingFilterType_GROUNDING,
+			"RELEVANCE": ContextualGroundingFilterType_RELEVANCE,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.CrossRegionInferenceProfile",
@@ -419,6 +472,10 @@ func init() {
 		"@aws-cdk/aws-bedrock-alpha.CustomParserProps",
 		reflect.TypeOf((*CustomParserProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.CustomTopicProps",
+		reflect.TypeOf((*CustomTopicProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.DefaultPromptRouterIdentifier",
 		reflect.TypeOf((*DefaultPromptRouterIdentifier)(nil)).Elem(),
@@ -428,6 +485,19 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_DefaultPromptRouterIdentifier{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.FinancePIIType",
+		reflect.TypeOf((*FinancePIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_FinancePIIType{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PIIType)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -480,6 +550,136 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-alpha.FunctionToolProps",
 		reflect.TypeOf((*FunctionToolProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.GeneralPIIType",
+		reflect.TypeOf((*GeneralPIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_GeneralPIIType{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PIIType)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.Guardrail",
+		reflect.TypeOf((*Guardrail)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addContentFilter", GoMethod: "AddContentFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addContextualGroundingFilter", GoMethod: "AddContextualGroundingFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addDeniedTopicFilter", GoMethod: "AddDeniedTopicFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addManagedWordListFilter", GoMethod: "AddManagedWordListFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addPIIFilter", GoMethod: "AddPIIFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addRegexFilter", GoMethod: "AddRegexFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addWordFilter", GoMethod: "AddWordFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addWordFilterFromFile", GoMethod: "AddWordFilterFromFile"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "blockedInputMessaging", GoGetter: "BlockedInputMessaging"},
+			_jsii_.MemberProperty{JsiiProperty: "blockedOutputsMessaging", GoGetter: "BlockedOutputsMessaging"},
+			_jsii_.MemberProperty{JsiiProperty: "contentFilters", GoGetter: "ContentFilters"},
+			_jsii_.MemberProperty{JsiiProperty: "contentFiltersTierConfig", GoGetter: "ContentFiltersTierConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "contextualGroundingFilters", GoGetter: "ContextualGroundingFilters"},
+			_jsii_.MemberMethod{JsiiMethod: "createVersion", GoMethod: "CreateVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "crossRegionConfig", GoGetter: "CrossRegionConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "deniedTopics", GoGetter: "DeniedTopics"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantApply", GoMethod: "GrantApply"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailArn", GoGetter: "GuardrailArn"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailId", GoGetter: "GuardrailId"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailVersion", GoGetter: "GuardrailVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "hash", GoGetter: "Hash"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdated", GoGetter: "LastUpdated"},
+			_jsii_.MemberProperty{JsiiProperty: "managedWordListFilters", GoGetter: "ManagedWordListFilters"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationClientErrors", GoMethod: "MetricInvocationClientErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationLatency", GoMethod: "MetricInvocationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocations", GoMethod: "MetricInvocations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationServerErrors", GoMethod: "MetricInvocationServerErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationsIntervened", GoMethod: "MetricInvocationsIntervened"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationThrottles", GoMethod: "MetricInvocationThrottles"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTextUnitCount", GoMethod: "MetricTextUnitCount"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "piiFilters", GoGetter: "PiiFilters"},
+			_jsii_.MemberProperty{JsiiProperty: "regexFilters", GoGetter: "RegexFilters"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "topicsTierConfig", GoGetter: "TopicsTierConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "updateVersion", GoMethod: "UpdateVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "wordFilters", GoGetter: "WordFilters"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Guardrail{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_GuardrailBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.GuardrailAction",
+		reflect.TypeOf((*GuardrailAction)(nil)).Elem(),
+		map[string]interface{}{
+			"BLOCK": GuardrailAction_BLOCK,
+			"ANONYMIZE": GuardrailAction_ANONYMIZE,
+			"NONE": GuardrailAction_NONE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.GuardrailAttributes",
+		reflect.TypeOf((*GuardrailAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.GuardrailBase",
+		reflect.TypeOf((*GuardrailBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantApply", GoMethod: "GrantApply"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailArn", GoGetter: "GuardrailArn"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailId", GoGetter: "GuardrailId"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailVersion", GoGetter: "GuardrailVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdated", GoGetter: "LastUpdated"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationClientErrors", GoMethod: "MetricInvocationClientErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationLatency", GoMethod: "MetricInvocationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocations", GoMethod: "MetricInvocations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationServerErrors", GoMethod: "MetricInvocationServerErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationsIntervened", GoMethod: "MetricInvocationsIntervened"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationThrottles", GoMethod: "MetricInvocationThrottles"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTextUnitCount", GoMethod: "MetricTextUnitCount"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "updateVersion", GoMethod: "UpdateVersion"},
+		},
+		func() interface{} {
+			j := jsiiProxy_GuardrailBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGuardrail)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.GuardrailCrossRegionConfigProperty",
+		reflect.TypeOf((*GuardrailCrossRegionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.GuardrailProps",
+		reflect.TypeOf((*GuardrailProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-alpha.IAgent",
@@ -537,6 +737,36 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IBedrockInvokable{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-alpha.IGuardrail",
+		reflect.TypeOf((*IGuardrail)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantApply", GoMethod: "GrantApply"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailArn", GoGetter: "GuardrailArn"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailId", GoGetter: "GuardrailId"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailVersion", GoGetter: "GuardrailVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdated", GoGetter: "LastUpdated"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationClientErrors", GoMethod: "MetricInvocationClientErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationLatency", GoMethod: "MetricInvocationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocations", GoMethod: "MetricInvocations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationServerErrors", GoMethod: "MetricInvocationServerErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationsIntervened", GoMethod: "MetricInvocationsIntervened"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInvocationThrottles", GoMethod: "MetricInvocationThrottles"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTextUnitCount", GoMethod: "MetricTextUnitCount"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IGuardrail{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -637,6 +867,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.InformationTechnologyPIIType",
+		reflect.TypeOf((*InformationTechnologyPIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_InformationTechnologyPIIType{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PIIType)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.InlineApiSchema",
 		reflect.TypeOf((*InlineApiSchema)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -649,6 +892,17 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.ManagedWordFilter",
+		reflect.TypeOf((*ManagedWordFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.ManagedWordFilterType",
+		reflect.TypeOf((*ManagedWordFilterType)(nil)).Elem(),
+		map[string]interface{}{
+			"PROFANITY": ManagedWordFilterType_PROFANITY,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.Memory",
 		reflect.TypeOf((*Memory)(nil)).Elem(),
@@ -658,11 +912,34 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.ModalityType",
+		reflect.TypeOf((*ModalityType)(nil)).Elem(),
+		map[string]interface{}{
+			"TEXT": ModalityType_TEXT,
+			"IMAGE": ModalityType_IMAGE,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-alpha.OrchestrationType",
 		reflect.TypeOf((*OrchestrationType)(nil)).Elem(),
 		map[string]interface{}{
 			"DEFAULT": OrchestrationType_DEFAULT,
 			"CUSTOM_ORCHESTRATION": OrchestrationType_CUSTOM_ORCHESTRATION,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.PIIFilter",
+		reflect.TypeOf((*PIIFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.PIIType",
+		reflect.TypeOf((*PIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PIIType{}
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -883,6 +1160,10 @@ func init() {
 		"@aws-cdk/aws-bedrock-alpha.PromptVersionProps",
 		reflect.TypeOf((*PromptVersionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.RegexFilter",
+		reflect.TypeOf((*RegexFilter)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-alpha.RequireConfirmation",
 		reflect.TypeOf((*RequireConfirmation)(nil)).Elem(),
@@ -916,6 +1197,14 @@ func init() {
 		"@aws-cdk/aws-bedrock-alpha.TextTemplateConfigurationProps",
 		reflect.TypeOf((*TextTemplateConfigurationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-alpha.TierConfig",
+		reflect.TypeOf((*TierConfig)(nil)).Elem(),
+		map[string]interface{}{
+			"CLASSIC": TierConfig_CLASSIC,
+			"STANDARD": TierConfig_STANDARD,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-alpha.Tool",
 		reflect.TypeOf((*Tool)(nil)).Elem(),
@@ -940,6 +1229,48 @@ func init() {
 		"@aws-cdk/aws-bedrock-alpha.ToolConfiguration",
 		reflect.TypeOf((*ToolConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.Topic",
+		reflect.TypeOf((*Topic)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
+			_jsii_.MemberProperty{JsiiProperty: "examples", GoGetter: "Examples"},
+			_jsii_.MemberProperty{JsiiProperty: "inputAction", GoGetter: "InputAction"},
+			_jsii_.MemberProperty{JsiiProperty: "inputEnabled", GoGetter: "InputEnabled"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "outputAction", GoGetter: "OutputAction"},
+			_jsii_.MemberProperty{JsiiProperty: "outputEnabled", GoGetter: "OutputEnabled"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Topic{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.UKSpecificPIIType",
+		reflect.TypeOf((*UKSpecificPIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_UKSpecificPIIType{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PIIType)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-alpha.USASpecificPIIType",
+		reflect.TypeOf((*USASpecificPIIType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			j := jsiiProxy_USASpecificPIIType{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PIIType)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-alpha.VectorType",
 		reflect.TypeOf((*VectorType)(nil)).Elem(),
@@ -947,5 +1278,9 @@ func init() {
 			"FLOATING_POINT": VectorType_FLOATING_POINT,
 			"BINARY": VectorType_BINARY,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-alpha.WordFilter",
+		reflect.TypeOf((*WordFilter)(nil)).Elem(),
 	)
 }

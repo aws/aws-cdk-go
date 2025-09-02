@@ -1382,8 +1382,14 @@ func init() {
 			"G_2X": WorkerType_G_2X,
 			"G_4X": WorkerType_G_4X,
 			"G_8X": WorkerType_G_8X,
+			"G_12X": WorkerType_G_12X,
+			"G_16X": WorkerType_G_16X,
 			"G_025X": WorkerType_G_025X,
 			"Z_2X": WorkerType_Z_2X,
+			"R_1X": WorkerType_R_1X,
+			"R_2X": WorkerType_R_2X,
+			"R_4X": WorkerType_R_4X,
+			"R_8X": WorkerType_R_8X,
 		},
 	)
 	_jsii_.RegisterClass(

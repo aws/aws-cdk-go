@@ -18,6 +18,9 @@ import (
 //   	// the properties below are optional
 //   	AddonVersion: jsii.String("addonVersion"),
 //   	ConfigurationValues: jsii.String("configurationValues"),
+//   	NamespaceConfig: &NamespaceConfigProperty{
+//   		Namespace: jsii.String("namespace"),
+//   	},
 //   	PodIdentityAssociations: []interface{}{
 //   		&PodIdentityAssociationProperty{
 //   			RoleArn: jsii.String("roleArn"),
@@ -54,6 +57,12 @@ type CfnAddonProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-configurationvalues
 	//
 	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
+	// The namespace configuration for the addon.
+	//
+	// This specifies the Kubernetes namespace where the addon is installed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-namespaceconfig
+	//
+	NamespaceConfig interface{} `field:"optional" json:"namespaceConfig" yaml:"namespaceConfig"`
 	// An array of EKS Pod Identity associations owned by the add-on.
 	//
 	// Each association maps a role to a service account in a namespace in the cluster.

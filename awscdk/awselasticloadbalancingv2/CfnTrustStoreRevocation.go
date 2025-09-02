@@ -38,6 +38,8 @@ type CfnTrustStoreRevocation interface {
 	// The revocation ID of the revocation file.
 	AttrRevocationId() *float64
 	// Information about the revocation file in the trust store.
+	//
+	// For more information, see [TrustStoreRevocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-truststorerevocation-truststorerevocation.html) .
 	AttrTrustStoreRevocations() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -25,6 +25,9 @@ import (
 //   	// the properties below are optional
 //   	AddonVersion: jsii.String("addonVersion"),
 //   	ConfigurationValues: jsii.String("configurationValues"),
+//   	NamespaceConfig: &NamespaceConfigProperty{
+//   		Namespace: jsii.String("namespace"),
+//   	},
 //   	PodIdentityAssociations: []interface{}{
 //   		&PodIdentityAssociationProperty{
 //   			RoleArn: jsii.String("roleArn"),
@@ -81,6 +84,9 @@ type CfnAddon interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The namespace configuration for the addon.
+	NamespaceConfig() interface{}
+	SetNamespaceConfig(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// An array of EKS Pod Identity associations owned by the add-on.
@@ -356,6 +362,16 @@ func (j *jsiiProxy_CfnAddon) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAddon) NamespaceConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"namespaceConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAddon) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -528,6 +544,17 @@ func (j *jsiiProxy_CfnAddon)SetConfigurationValues(val *string) {
 	_jsii_.Set(
 		j,
 		"configurationValues",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAddon)SetNamespaceConfig(val interface{}) {
+	if err := j.validateSetNamespaceConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"namespaceConfig",
 		val,
 	)
 }

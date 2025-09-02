@@ -16,6 +16,7 @@ Currently supported are:
   * [Start a StepFunctions state machine](#start-a-stepfunctions-state-machine)
   * [Queue a Batch job](#queue-a-batch-job)
   * [Invoke an API Gateway REST API](#invoke-an-api-gateway-rest-api)
+  * [Invoke an AWS API](#invoke-an-aws-api)
   * [Invoke an API Destination](#invoke-an-api-destination)
   * [Invoke an AppSync GraphQL API](#invoke-an-appsync-graphql-api)
   * [Put an event on an EventBridge bus](#put-an-event-on-an-eventbridge-bus)
@@ -357,6 +358,72 @@ var rule rule
 
 
 rule.AddTarget(targets.NewApiGatewayV2(httpApi))
+```
+
+## Invoke an AWS API
+
+Use the `AwsApi` target to make direct AWS API calls from EventBridge rules. This is useful for invoking AWS services that don't have a dedicated EventBridge target.
+
+### Basic Usage
+
+The following example shows how to update an ECS service when a rule is triggered:
+
+```go
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(targets.NewAwsApi(&AwsApiProps{
+	Service: jsii.String("ECS"),
+	Action: jsii.String("updateService"),
+	Parameters: map[string]interface{}{
+		"service": jsii.String("my-service"),
+		"forceNewDeployment": jsii.Boolean(true),
+	},
+}))
+```
+
+### IAM Permissions
+
+By default, the AwsApi target automatically creates the necessary IAM permissions based on the service and action you specify. The permission format follows the pattern: `service:Action`.
+
+For example:
+
+* `ECS` service with `updateService` action → `ecs:UpdateService` permission
+* `RDS` service with `createDBSnapshot` action → `rds:CreateDBSnapshot` permission
+
+### Custom IAM Policy
+
+In some cases, you may need to provide a custom IAM policy statement, especially when:
+
+* You need to restrict permissions to specific resources (instead of `*`)
+* The service requires additional permissions beyond the main action
+* You want more granular control over the permissions
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+var rule rule
+var bucket bucket
+
+
+rule.AddTarget(targets.NewAwsApi(&AwsApiProps{
+	Service: jsii.String("s3"),
+	Action: jsii.String("GetBucketEncryption"),
+	Parameters: map[string]*string{
+		"Bucket": bucket.bucketName,
+	},
+	PolicyStatement: iam.NewPolicyStatement(&PolicyStatementProps{
+		Effect: iam.Effect_ALLOW,
+		Actions: []*string{
+			jsii.String("s3:GetEncryptionConfiguration"),
+		},
+		Resources: []*string{
+			bucket.BucketArn,
+		},
+	}),
+}))
 ```
 
 ## Invoke an API Destination

@@ -65,7 +65,7 @@ type CfnInstance interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the service that you want to use for settings for the instance.
+	// The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance.
 	ServiceId() *string
 	SetServiceId(val *string)
 	// The stack in which this element is defined.

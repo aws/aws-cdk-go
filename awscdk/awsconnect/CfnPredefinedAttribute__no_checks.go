@@ -80,6 +80,10 @@ func validateCfnPredefinedAttribute_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPredefinedAttribute) validateSetAttributeConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPredefinedAttribute) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }

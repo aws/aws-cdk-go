@@ -52,6 +52,31 @@ import (
 //   					jsii.String("subnets"),
 //   				},
 //   			},
+//   			ScheduledUpdateConfig: &ScheduledUpdateConfigProperty{
+//   				ScheduleExpression: jsii.String("scheduleExpression"),
+//
+//   				// the properties below are optional
+//   				DeploymentConfig: &DeploymentConfigProperty{
+//   					AutoRollbackConfiguration: []interface{}{
+//   						&AlarmDetailsProperty{
+//   							AlarmName: jsii.String("alarmName"),
+//   						},
+//   					},
+//   					RollingUpdatePolicy: &RollingUpdatePolicyProperty{
+//   						MaximumBatchSize: &CapacitySizeConfigProperty{
+//   							Type: jsii.String("type"),
+//   							Value: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						RollbackMaximumBatchSize: &CapacitySizeConfigProperty{
+//   							Type: jsii.String("type"),
+//   							Value: jsii.Number(123),
+//   						},
+//   					},
+//   					WaitIntervalInSeconds: jsii.Number(123),
+//   				},
+//   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},

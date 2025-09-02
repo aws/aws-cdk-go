@@ -89,6 +89,12 @@ import (
 //   	DesiredCount: jsii.Number(123),
 //   	EnableEcsManagedTags: jsii.Boolean(false),
 //   	EnableExecuteCommand: jsii.Boolean(false),
+//   	ForceNewDeployment: &ForceNewDeploymentProperty{
+//   		EnableForceNewDeployment: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		ForceNewDeploymentNonce: jsii.String("forceNewDeploymentNonce"),
+//   	},
 //   	HealthCheckGracePeriodSeconds: jsii.Number(123),
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
@@ -301,6 +307,9 @@ type CfnService interface {
 	// Determines whether the execute command functionality is turned on for the service.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
+	// Determines whether to force a new deployment of the service.
+	ForceNewDeployment() interface{}
+	SetForceNewDeployment(val interface{})
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	HealthCheckGracePeriodSeconds() *float64
 	SetHealthCheckGracePeriodSeconds(val *float64)
@@ -666,6 +675,16 @@ func (j *jsiiProxy_CfnService) EnableExecuteCommand() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) ForceNewDeployment() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"forceNewDeployment",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) HealthCheckGracePeriodSeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -1009,6 +1028,17 @@ func (j *jsiiProxy_CfnService)SetEnableExecuteCommand(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enableExecuteCommand",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetForceNewDeployment(val interface{}) {
+	if err := j.validateSetForceNewDeploymentParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"forceNewDeployment",
 		val,
 	)
 }

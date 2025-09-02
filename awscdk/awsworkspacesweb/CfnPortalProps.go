@@ -93,6 +93,7 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-networksettingsarn
 	//
 	NetworkSettingsArn *string `field:"optional" json:"networkSettingsArn" yaml:"networkSettingsArn"`
+	// The ARN of the session logger that is assocaited with the portal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-sessionloggerarn
 	//
 	SessionLoggerArn *string `field:"optional" json:"sessionLoggerArn" yaml:"sessionLoggerArn"`

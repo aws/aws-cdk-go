@@ -17,7 +17,7 @@ import (
 //
 // > As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy explicitly denies the root user the ability to perform this action.
 //
-// When using the `AWS::S3::BucketPolicy` resource, you can create, update, and delete bucket policies for S3 buckets located in regions different from the stack's region. This cross-region bucket policy modification functionality is supported for backward compatibility with existing workflows.
+// When using the `AWS::S3::BucketPolicy` resource, you can create, update, and delete bucket policies for S3 buckets located in Regions that are different from the stack's Region. However, the CloudFormation stacks should be deployed in the US East (N. Virginia) or `us-east-1` Region. This cross-region bucket policy modification functionality is supported for backward compatibility with existing workflows.
 //
 // > If the [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) is not specified or set to `Delete` , the bucket policy will be removed when the stack is deleted. If set to `Retain` , the bucket policy will be preserved even after the stack is deleted.
 //

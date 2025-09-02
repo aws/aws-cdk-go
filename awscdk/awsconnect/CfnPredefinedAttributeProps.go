@@ -13,6 +13,13 @@ package awsconnect
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AttributeConfiguration: &AttributeConfigurationProperty{
+//   		EnableValueValidationOnAssociation: jsii.Boolean(false),
+//   		IsReadOnly: jsii.Boolean(false),
+//   	},
+//   	Purposes: []*string{
+//   		jsii.String("purposes"),
+//   	},
 //   	Values: &ValuesProperty{
 //   		StringList: []*string{
 //   			jsii.String("stringList"),
@@ -31,6 +38,14 @@ type CfnPredefinedAttributeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-attributeconfiguration
+	//
+	AttributeConfiguration interface{} `field:"optional" json:"attributeConfiguration" yaml:"attributeConfiguration"`
+	// The assigned purposes of the predefined attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-purposes
+	//
+	Purposes *[]*string `field:"optional" json:"purposes" yaml:"purposes"`
 	// The values of a predefined attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-values
 	//

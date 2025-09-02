@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type.
+// The session logger resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,10 +57,14 @@ type CfnSessionLogger interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The additional encryption context of the session logger.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
+	// The associated portal ARN.
 	AttrAssociatedPortalArns() *[]*string
+	// The date the session logger resource was created.
 	AttrCreationDate() *string
+	// The ARN of the session logger resource.
 	AttrSessionLoggerArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -73,12 +77,16 @@ type CfnSessionLogger interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The custom managed key of the session logger.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
+	// The human-readable display name.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// The filter that specifies which events to monitor.
 	EventFilter() interface{}
 	SetEventFilter(val interface{})
+	// The configuration that specifies where logs are fowarded.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

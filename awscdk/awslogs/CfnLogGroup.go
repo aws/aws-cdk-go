@@ -97,6 +97,7 @@ type CfnLogGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account.
 	ResourcePolicyDocument() interface{}
 	SetResourcePolicyDocument(val interface{})
 	// The number of days to retain the log events in the specified log group.

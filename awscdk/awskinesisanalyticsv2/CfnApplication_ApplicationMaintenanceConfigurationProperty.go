@@ -1,7 +1,7 @@
 package awskinesisanalyticsv2
 
 
-// Describes the maintenance configuration for the application.
+// Specifies the maintenance configuration for a AKAlong .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,9 @@ package awskinesisanalyticsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html
 //
 type CfnApplication_ApplicationMaintenanceConfigurationProperty struct {
-	// The start time for the maintenance window.
+	// The UTC timestamp of a day from which the eight-hour maintenance window will begin every day of the week.
+	//
+	// Maintenance of the application happens only during this eight-hour window.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration-applicationmaintenancewindowstarttime
 	//
 	ApplicationMaintenanceWindowStartTime *string `field:"required" json:"applicationMaintenanceWindowStartTime" yaml:"applicationMaintenanceWindowStartTime"`

@@ -26,6 +26,7 @@ package awsbudgets
 //   				BudgetAdjustmentPeriod: jsii.Number(123),
 //   			},
 //   		},
+//   		BillingViewArn: jsii.String("billingViewArn"),
 //   		BudgetLimit: &SpendProperty{
 //   			Amount: jsii.Number(123),
 //   			Unit: jsii.String("unit"),

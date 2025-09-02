@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::IoTSiteWise::Dataset.
+// Creates a dataset to connect an external datasource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,7 +47,9 @@ type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The ARN of the dataset.
+	// The ARN of the dataset, which has the following format.
+	//
+	// `arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}`.
 	AttrDatasetArn() *string
 	// The ID of the dataset.
 	AttrDatasetId() *string
@@ -68,6 +70,7 @@ type CfnDataset interface {
 	// The name of the dataset.
 	DatasetName() *string
 	SetDatasetName(val *string)
+	// The data source for the dataset.
 	DatasetSource() interface{}
 	SetDatasetSource(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -91,7 +94,7 @@ type CfnDataset interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs that contain metadata for the access policy.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

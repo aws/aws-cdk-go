@@ -30,9 +30,9 @@ type CfnService_DnsConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-dnsrecords
 	//
 	DnsRecords interface{} `field:"required" json:"dnsRecords" yaml:"dnsRecords"`
-	// The ID of the namespace to use for DNS configuration.
+	// *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*.
 	//
-	// > You must specify a value for `NamespaceId` either for `DnsConfig` or for the [service properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html) . Don't specify a value in both places.
+	// The ID of the namespace to use for DNS configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid
 	//
 	NamespaceId *string `field:"optional" json:"namespaceId" yaml:"namespaceId"`

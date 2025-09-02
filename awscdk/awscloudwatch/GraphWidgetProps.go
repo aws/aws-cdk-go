@@ -55,6 +55,12 @@ type GraphWidgetProps struct {
 	// Default: 6.
 	//
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
+	// Whether the graph should show labels on the chart.
+	//
+	// Currently only applicable for Pie charts.
+	// Default: false.
+	//
+	DisplayLabelsOnChart *bool `field:"optional" json:"displayLabelsOnChart" yaml:"displayLabelsOnChart"`
 	// The end of the time range to use for each widget independently from those of the dashboard.
 	//
 	// If you specify a value for end, you must also specify a value for start.

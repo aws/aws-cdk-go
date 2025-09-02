@@ -108,6 +108,10 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Default: - Database is not created in cluster.
 	//
 	DefaultDatabaseName *string `field:"optional" json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted.
+	// Default: undefined - AWS RDS default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+	//
+	DeleteAutomatedBackups *bool `field:"optional" json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
 	// Default: - true if `removalPolicy` is RETAIN, `undefined` otherwise, which will not enable deletion protection.
 	// To disable deletion protection after it has been enabled, you must explicitly set this value to `false`.

@@ -25,6 +25,17 @@ import (
 //
 //   cfnWorkflow := awscdk.Aws_omics.NewCfnWorkflow(this, jsii.String("MyCfnWorkflow"), &CfnWorkflowProps{
 //   	Accelerators: jsii.String("accelerators"),
+//   	DefinitionRepository: &DefinitionRepositoryProperty{
+//   		ConnectionArn: jsii.String("connectionArn"),
+//   		ExcludeFilePatterns: []*string{
+//   			jsii.String("excludeFilePatterns"),
+//   		},
+//   		FullRepositoryId: jsii.String("fullRepositoryId"),
+//   		SourceReference: &SourceReferenceProperty{
+//   			Type: jsii.String("type"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Description: jsii.String("description"),
 //   	Engine: jsii.String("engine"),
@@ -36,11 +47,16 @@ import (
 //   			"optional": jsii.Boolean(false),
 //   		},
 //   	},
+//   	ParameterTemplatePath: jsii.String("parameterTemplatePath"),
+//   	ReadmeMarkdown: jsii.String("readmeMarkdown"),
+//   	ReadmePath: jsii.String("readmePath"),
+//   	ReadmeUri: jsii.String("readmeUri"),
 //   	StorageCapacity: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	WorkflowBucketOwnerId: jsii.String("workflowBucketOwnerId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html
@@ -71,6 +87,9 @@ type CfnWorkflow interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Contains information about a source code repository that hosts the workflow definition files.
+	DefinitionRepository() interface{}
+	SetDefinitionRepository(val interface{})
 	// The URI of a definition for the workflow.
 	DefinitionUri() *string
 	SetDefinitionUri(val *string)
@@ -101,6 +120,18 @@ type CfnWorkflow interface {
 	// The workflow's parameter template.
 	ParameterTemplate() interface{}
 	SetParameterTemplate(val interface{})
+	// Path to the primary workflow parameter template JSON file inside the repository.
+	ParameterTemplatePath() *string
+	SetParameterTemplatePath(val *string)
+	// The markdown content for the workflow's README file.
+	ReadmeMarkdown() *string
+	SetReadmeMarkdown(val *string)
+	// The path to the workflow README markdown file within the repository.
+	ReadmePath() *string
+	SetReadmePath(val *string)
+	// The S3 URI of the README file for the workflow.
+	ReadmeUri() *string
+	SetReadmeUri(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -133,6 +164,9 @@ type CfnWorkflow interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Optional workflow bucket owner ID to verify the workflow bucket.
+	WorkflowBucketOwnerId() *string
+	SetWorkflowBucketOwnerId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -377,6 +411,16 @@ func (j *jsiiProxy_CfnWorkflow) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) DefinitionRepository() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"definitionRepository",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) DefinitionUri() *string {
 	var returns *string
 	_jsii_.Get(
@@ -452,6 +496,46 @@ func (j *jsiiProxy_CfnWorkflow) ParameterTemplate() interface{} {
 	_jsii_.Get(
 		j,
 		"parameterTemplate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) ParameterTemplatePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"parameterTemplatePath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) ReadmeMarkdown() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"readmeMarkdown",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) ReadmePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"readmePath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) ReadmeUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"readmeUri",
 		&returns,
 	)
 	return returns
@@ -537,6 +621,16 @@ func (j *jsiiProxy_CfnWorkflow) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) WorkflowBucketOwnerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"workflowBucketOwnerId",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnWorkflow(scope constructs.Construct, id *string, props *CfnWorkflowProps) CfnWorkflow {
 	_init_.Initialize()
@@ -569,6 +663,17 @@ func (j *jsiiProxy_CfnWorkflow)SetAccelerators(val *string) {
 	_jsii_.Set(
 		j,
 		"accelerators",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetDefinitionRepository(val interface{}) {
+	if err := j.validateSetDefinitionRepositoryParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"definitionRepository",
 		val,
 	)
 }
@@ -624,6 +729,38 @@ func (j *jsiiProxy_CfnWorkflow)SetParameterTemplate(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnWorkflow)SetParameterTemplatePath(val *string) {
+	_jsii_.Set(
+		j,
+		"parameterTemplatePath",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetReadmeMarkdown(val *string) {
+	_jsii_.Set(
+		j,
+		"readmeMarkdown",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetReadmePath(val *string) {
+	_jsii_.Set(
+		j,
+		"readmePath",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetReadmeUri(val *string) {
+	_jsii_.Set(
+		j,
+		"readmeUri",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnWorkflow)SetStorageCapacity(val *float64) {
 	_jsii_.Set(
 		j,
@@ -644,6 +781,14 @@ func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetWorkflowBucketOwnerId(val *string) {
+	_jsii_.Set(
+		j,
+		"workflowBucketOwnerId",
 		val,
 	)
 }

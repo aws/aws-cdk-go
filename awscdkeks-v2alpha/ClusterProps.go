@@ -10,7 +10,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("EksAutoCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_32(),
+//   	Version: eks.KubernetesVersion_V1_33(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_AUTOMODE,
 //   	Compute: &ComputeConfig{
 //   		NodePools: []*string{

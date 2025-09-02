@@ -1,6 +1,8 @@
 package awsinspectorv2
 
 
+// Contains details required to create a code security integration with a specific repository provider.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,6 +18,7 @@ package awsinspectorv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-createdetails.html
 //
 type CfnCodeSecurityIntegration_CreateDetailsProperty struct {
+	// Details specific to creating an integration with a self-managed GitLab instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-createdetails.html#cfn-inspectorv2-codesecurityintegration-createdetails-gitlabselfmanaged
 	//
 	GitlabSelfManaged interface{} `field:"required" json:"gitlabSelfManaged" yaml:"gitlabSelfManaged"`

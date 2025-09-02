@@ -40,7 +40,7 @@ type CfnLicenseEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
-	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	// The VPC (virtual private cloud) ID associated with the license endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html#cfn-deadline-licenseendpoint-vpcid
 	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`

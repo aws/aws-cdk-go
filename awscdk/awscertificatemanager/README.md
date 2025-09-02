@@ -155,6 +155,17 @@ acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &PrivateCerti
 })
 ```
 
+## Requesting public SSL/TLS certificates exportable to use anywhere
+
+AWS Certificate Manager can issue an exportable public certificate. There is a charge at certificate issuance and again when the certificate renews. See [opting out of certificate transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html) for details.
+
+```go
+acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
+	DomainName: jsii.String("test.example.com"),
+	AllowExport: jsii.Boolean(true),
+})
+```
+
 ## Requesting certificates without transparency logging
 
 Transparency logging can be opted out of for AWS Certificate Manager certificates. See [opting out of certificate transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency) for limits.

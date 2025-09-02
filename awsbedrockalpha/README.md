@@ -34,6 +34,22 @@ This construct library facilitates the deployment of Bedrock Agents, enabling yo
   * [Agent Collaboration](#agent-collaboration)
   * [Custom Orchestration](#custom-orchestration)
   * [Agent Alias](#agent-alias)
+* [Guardrails](#guardrails)
+
+  * [Guardrail Properties](#guardrail-properties)
+  * [Filter Types](#filter-types)
+
+    * [Content Filters](#content-filters)
+    * [Denied Topics](#denied-topics)
+    * [Word Filters](#word-filters)
+    * [PII Filters](#pii-filters)
+    * [Regex Filters](#regex-filters)
+    * [Contextual Grounding Filters](#contextual-grounding-filters)
+  * [Guardrail Methods](#guardrail-methods)
+  * [Guardrail Permissions](#guardrail-permissions)
+  * [Guardrail Metrics](#guardrail-metrics)
+  * [Importing Guardrails](#importing-guardrails)
+  * [Guardrail Versioning](#guardrail-versioning)
 * [Prompts](#prompts)
 
   * [Prompt Variants](#prompt-variants)
@@ -67,6 +83,29 @@ agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 })
 ```
 
+You can also create an agent with a guardrail:
+
+```go
+// Create a guardrail to filter inappropriate content
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+	Description: jsii.String("Legal ethical guardrails."),
+})
+
+guardrail.AddContentFilter(&ContentFilter{
+	Type: bedrock.ContentFilterType_SEXUAL,
+	InputStrength: bedrock.ContentFilterStrength_HIGH,
+	OutputStrength: bedrock.ContentFilterStrength_MEDIUM,
+})
+
+// Create an agent with the guardrail
+agentWithGuardrail := bedrock.NewAgent(this, jsii.String("AgentWithGuardrail"), &AgentProps{
+	FoundationModel: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_V1_0(),
+	Instruction: jsii.String("You are a helpful and friendly agent that answers questions about literature."),
+	Guardrail: guardrail,
+})
+```
+
 ### Agent Properties
 
 The Bedrock Agent class supports the following properties.
@@ -82,6 +121,8 @@ The Bedrock Agent class supports the following properties.
 | kmsKey | kms.IKey | No | The KMS key of the agent if custom encryption is configured. Defaults to AWS managed key |
 | description | string | No | A description of the agent. Defaults to no description |
 | actionGroups | AgentActionGroup[] | No | The Action Groups associated with the agent |
+| guardrail | IGuardrail | No | The guardrail that will be associated with the agent. Defaults to no guardrail |
+| memory | Memory | No | The type and configuration of the memory to maintain context across multiple sessions and recall past interactions. Defaults to no memory |
 | promptOverrideConfiguration | PromptOverrideConfiguration | No | Overrides some prompt templates in different parts of an agent sequence configuration |
 | userInputEnabled | boolean | No | Select whether the agent can prompt additional information from the user when it lacks enough information. Defaults to false |
 | codeInterpreterEnabled | boolean | No | Select whether the agent can generate, run, and troubleshoot code when trying to complete a task. Defaults to false |
@@ -627,6 +668,519 @@ agentAlias := bedrock.NewAgentAlias(this, jsii.String("myAlias"), &AgentAliasPro
 	Agent: agent,
 	Description: fmt.Sprintf("Production version of my agent. Created at %v", agent.LastUpdated),
 })
+```
+
+## Guardrails
+
+Amazon Bedrock's Guardrails feature enables you to implement robust governance and control mechanisms for your generative AI applications, ensuring alignment with your specific use cases and responsible AI policies. Guardrails empowers you to create multiple tailored policy configurations, each designed to address the unique requirements and constraints of different use cases. These policy configurations can then be seamlessly applied across multiple foundation models (FMs) and Agents, ensuring a consistent user experience and standardizing safety, security, and privacy controls throughout your generative AI ecosystem.
+
+With Guardrails, you can define and enforce granular, customizable policies to precisely govern the behavior of your generative AI applications. You can configure the following policies in a guardrail to avoid undesirable and harmful content and remove sensitive information for privacy protection.
+
+Content filters – Adjust filter strengths to block input prompts or model responses containing harmful content.
+Denied topics – Define a set of topics that are undesirable in the context of your application. These topics will be blocked if detected in user queries or model responses.
+Word filters – Configure filters to block undesirable words, phrases, and profanity. Such words can include offensive terms, competitor names etc.
+Sensitive information filters – Block or mask sensitive information such as personally identifiable information (PII) or custom regex in user inputs and model responses.
+You can create a Guardrail with a minimum blockedInputMessaging, blockedOutputsMessaging and default content filter policy.
+
+### Basic Guardrail Creation
+
+#### TypeScript
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+	Description: jsii.String("Legal ethical guardrails."),
+})
+```
+
+### Guardrail Properties
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| guardrailName | string | Yes | The name of the guardrail |
+| description | string | No | The description of the guardrail |
+| blockedInputMessaging | string | No | The message to return when the guardrail blocks a prompt. Default: "Sorry, your query violates our usage policy." |
+| blockedOutputsMessaging | string | No | The message to return when the guardrail blocks a model response. Default: "Sorry, I am unable to answer your question because of our usage policy." |
+| kmsKey | IKey | No | A custom KMS key to use for encrypting data. Default: Your data is encrypted by default with a key that AWS owns and manages for you. |
+| crossRegionConfig | GuardrailCrossRegionConfigProperty | No | The cross-region configuration for the guardrail. This enables cross-region inference for enhanced language support and filtering capabilities. Default: No cross-region configuration |
+| contentFilters | ContentFilter[] | No | The content filters to apply to the guardrail |
+| contentFiltersTierConfig | TierConfig | No | The tier configuration to apply to content filters. Default: TierConfig.CLASSIC |
+| deniedTopics | Topic[] | No | Up to 30 denied topics to block user inputs or model responses associated with the topic |
+| topicsTierConfig | TierConfig | No | The tier configuration to apply to topic filters. Default: TierConfig.CLASSIC |
+| wordFilters | string[] | No | The word filters to apply to the guardrail |
+| managedWordListFilters | ManagedWordFilterType[] | No | The managed word filters to apply to the guardrail |
+| piiFilters | PIIFilter[] | No | The PII filters to apply to the guardrail |
+| regexFilters | RegexFilter[] | No | The regular expression (regex) filters to apply to the guardrail |
+| contextualGroundingFilters | ContextualGroundingFilter[] | No | The contextual grounding filters to apply to the guardrail |
+
+### Filter Types
+
+#### Content Filters
+
+Content filters allow you to block input prompts or model responses containing harmful content. You can adjust the filter strength and configure separate actions for input and output.
+
+##### Content Filter Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+	// Configure tier for content filters (optional)
+	ContentFiltersTierConfig: bedrock.TierConfig_STANDARD,
+})
+
+guardrail.AddContentFilter(&ContentFilter{
+	Type: bedrock.ContentFilterType_SEXUAL,
+	InputStrength: bedrock.ContentFilterStrength_HIGH,
+	OutputStrength: bedrock.ContentFilterStrength_MEDIUM,
+	// props below are optional
+	InputAction: bedrock.GuardrailAction_BLOCK,
+	InputEnabled: jsii.Boolean(true),
+	OutputAction: bedrock.GuardrailAction_NONE,
+	OutputEnabled: jsii.Boolean(true),
+	InputModalities: []modalityType{
+		bedrock.*modalityType_TEXT,
+		bedrock.*modalityType_IMAGE,
+	},
+	OutputModalities: []*modalityType{
+		bedrock.*modalityType_TEXT,
+	},
+})
+```
+
+Available content filter types:
+
+* `SEXUAL`: Describes input prompts and model responses that indicates sexual interest, activity, or arousal
+* `VIOLENCE`: Describes input prompts and model responses that includes glorification of or threats to inflict physical pain
+* `HATE`: Describes input prompts and model responses that discriminate, criticize, insult, denounce, or dehumanize a person or group
+* `INSULTS`: Describes input prompts and model responses that includes demeaning, humiliating, mocking, insulting, or belittling language
+* `MISCONDUCT`: Describes input prompts and model responses that seeks or provides information about engaging in misconduct activity
+* `PROMPT_ATTACK`: Enable to detect and block user inputs attempting to override system instructions
+
+Available content filter strengths:
+
+* `NONE`: No filtering
+* `LOW`: Light filtering
+* `MEDIUM`: Moderate filtering
+* `HIGH`: Strict filtering
+
+Available guardrail actions:
+
+* `BLOCK`: Blocks the content from being processed
+* `ANONYMIZE`: Masks the content with an identifier tag
+* `NONE`: Takes no action
+
+> Warning: the ANONYMIZE action is not available in all configurations. Please refer to the documentation of each filter to see which ones
+> support
+
+Available modality types:
+
+* `TEXT`: Text modality for content filters
+* `IMAGE`: Image modality for content filters
+
+#### Tier Configuration
+
+Guardrails support tier configurations that determine the level of language support and robustness for content and topic filters. You can configure separate tier settings for content filters and topic filters.
+
+##### Tier Configuration Options
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+	// Configure tier for content filters
+	ContentFiltersTierConfig: bedrock.TierConfig_STANDARD,
+	// Configure tier for topic filters
+	TopicsTierConfig: bedrock.TierConfig_CLASSIC,
+})
+```
+
+Available tier configurations:
+
+* `CLASSIC`: Provides established guardrails functionality supporting English, French, and Spanish languages
+* `STANDARD`: Provides a more robust solution than the CLASSIC tier and has more comprehensive language support. This tier requires that your guardrail use cross-Region inference
+
+> Note: The STANDARD tier provides enhanced language support and more comprehensive filtering capabilities, but requires cross-Region inference to be enabled for your guardrail.
+
+#### Cross-Region Configuration
+
+You can configure a system-defined guardrail profile to use with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+
+##### Cross-Region Configuration Properties
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| guardrailProfileArn | string | Yes | The ARN of the system-defined guardrail profile that defines the destination AWS Regions where guardrail inference requests can be automatically routed |
+
+##### Cross-Region Configuration Example
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+	Description: jsii.String("Guardrail with cross-region configuration for enhanced language support"),
+	CrossRegionConfig: &GuardrailCrossRegionConfigProperty{
+		GuardrailProfileArn: jsii.String("arn:aws:bedrock:us-east-1:123456789012:guardrail-profile/my-profile"),
+	},
+	// Use STANDARD tier for enhanced capabilities
+	ContentFiltersTierConfig: bedrock.TierConfig_STANDARD,
+	TopicsTierConfig: bedrock.TierConfig_STANDARD,
+})
+```
+
+> Note: Cross-region configuration is required when using the STANDARD tier for content and topic filters. It helps maintain guardrail performance and reliability when demand increases by automatically routing inference requests to appropriate regions.
+
+You will need to provide the necessary permissions for cross region: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrail-profiles-permissions.html .
+
+#### Denied Topics
+
+Denied topics allow you to define a set of topics that are undesirable in the context of your application. These topics will be blocked if detected in user queries or model responses. You can configure separate actions for input and output.
+
+##### Denied Topic Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+	// Configure tier for topic filters (optional)
+	TopicsTierConfig: bedrock.TierConfig_STANDARD,
+})
+
+// Use a predefined topic
+guardrail.AddDeniedTopicFilter(bedrock.Topic_FINANCIAL_ADVICE())
+
+// Create a custom topic with input/output actions
+guardrail.AddDeniedTopicFilter(bedrock.Topic_Custom(&CustomTopicProps{
+	Name: jsii.String("Legal_Advice"),
+	Definition: jsii.String("Offering guidance or suggestions on legal matters, legal actions, interpretation of laws, or legal rights and responsibilities."),
+	Examples: []*string{
+		jsii.String("Can I sue someone for this?"),
+		jsii.String("What are my legal rights in this situation?"),
+		jsii.String("Is this action against the law?"),
+		jsii.String("What should I do to file a legal complaint?"),
+		jsii.String("Can you explain this law to me?"),
+	},
+	// props below are optional
+	InputAction: bedrock.GuardrailAction_BLOCK,
+	InputEnabled: jsii.Boolean(true),
+	OutputAction: bedrock.GuardrailAction_NONE,
+	OutputEnabled: jsii.Boolean(true),
+}))
+```
+
+#### Word Filters
+
+Word filters allow you to block specific words, phrases, or profanity in user inputs and model responses. You can configure separate actions for input and output.
+
+##### Word Filter Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+
+// Add managed word list with input/output actions
+guardrail.AddManagedWordListFilter(&ManagedWordFilter{
+	Type: bedrock.ManagedWordFilterType_PROFANITY,
+	InputAction: bedrock.GuardrailAction_BLOCK,
+	InputEnabled: jsii.Boolean(true),
+	OutputAction: bedrock.GuardrailAction_NONE,
+	OutputEnabled: jsii.Boolean(true),
+})
+
+// Add individual words
+guardrail.AddWordFilter(&WordFilter{
+	Text: jsii.String("drugs"),
+})
+guardrail.AddWordFilter(&WordFilter{
+	Text: jsii.String("competitor"),
+})
+
+// Add words from a file
+guardrail.AddWordFilterFromFile(jsii.String("./scripts/wordsPolicy.csv"))
+```
+
+#### PII Filters
+
+PII filters allow you to detect and handle personally identifiable information in user inputs and model responses. You can configure separate actions for input and output.
+
+The PII types are organized into enum-like classes for better type safety and transpilation compatibility:
+
+* **GeneralPIIType**: General PII types like addresses, emails, names, phone numbers
+* **FinancePIIType**: Financial information like credit card numbers, PINs, SWIFT codes
+* **InformationTechnologyPIIType**: IT-related data like URLs, IP addresses, AWS keys
+* **USASpecificPIIType**: US-specific identifiers like SSNs, passport numbers
+* **CanadaSpecificPIIType**: Canada-specific identifiers like health numbers, SINs
+* **UKSpecificPIIType**: UK-specific identifiers like NHS numbers, NI numbers
+
+##### PII Filter Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+
+// Add PII filter for addresses with input/output actions
+guardrail.AddPIIFilter(&PIIFilter{
+	Type: bedrock.GeneralPIIType_ADDRESS(),
+	Action: bedrock.GuardrailAction_BLOCK,
+	// below props are optional
+	InputAction: bedrock.GuardrailAction_BLOCK,
+	InputEnabled: jsii.Boolean(true),
+	OutputAction: bedrock.GuardrailAction_ANONYMIZE,
+	OutputEnabled: jsii.Boolean(true),
+})
+
+// Add PII filter for credit card numbers with input/output actions
+guardrail.AddPIIFilter(&PIIFilter{
+	Type: bedrock.FinancePIIType_CREDIT_DEBIT_CARD_NUMBER(),
+	Action: bedrock.GuardrailAction_BLOCK,
+	// below props are optional
+	InputAction: bedrock.GuardrailAction_BLOCK,
+	InputEnabled: jsii.Boolean(true),
+	OutputAction: bedrock.GuardrailAction_ANONYMIZE,
+	OutputEnabled: jsii.Boolean(true),
+})
+
+// Add PII filter for email addresses
+guardrail.AddPIIFilter(&PIIFilter{
+	Type: bedrock.GeneralPIIType_EMAIL(),
+	Action: bedrock.GuardrailAction_ANONYMIZE,
+})
+
+// Add PII filter for US Social Security Numbers
+guardrail.AddPIIFilter(&PIIFilter{
+	Type: bedrock.USASpecificPIIType_US_SOCIAL_SECURITY_NUMBER(),
+	Action: bedrock.GuardrailAction_BLOCK,
+})
+
+// Add PII filter for IP addresses
+guardrail.AddPIIFilter(&PIIFilter{
+	Type: bedrock.InformationTechnologyPIIType_IP_ADDRESS(),
+	Action: bedrock.GuardrailAction_ANONYMIZE,
+})
+```
+
+##### Available PII Types
+
+**GeneralPIIType:**
+
+* `ADDRESS`: Physical addresses
+* `AGE`: Individual's age
+* `DRIVER_ID`: Driver's license numbers
+* `EMAIL`: Email addresses
+* `LICENSE_PLATE`: Vehicle license plates
+* `NAME`: Individual names
+* `PASSWORD`: Passwords
+* `PHONE`: Phone numbers
+* `USERNAME`: User account names
+* `VEHICLE_IDENTIFICATION_NUMBER`: Vehicle VINs
+
+**FinancePIIType:**
+
+* `CREDIT_DEBIT_CARD_CVV`: Card verification codes
+* `CREDIT_DEBIT_CARD_EXPIRY`: Card expiration dates
+* `CREDIT_DEBIT_CARD_NUMBER`: Credit/debit card numbers
+* `PIN`: Personal identification numbers
+* `SWIFT_CODE`: Bank SWIFT codes
+* `INTERNATIONAL_BANK_ACCOUNT_NUMBER`: IBAN numbers
+
+**InformationTechnologyPIIType:**
+
+* `URL`: Web addresses
+* `IP_ADDRESS`: IPv4 addresses
+* `MAC_ADDRESS`: Network interface MAC addresses
+* `AWS_ACCESS_KEY`: AWS access key IDs
+* `AWS_SECRET_KEY`: AWS secret access keys
+
+**USASpecificPIIType:**
+
+* `US_BANK_ACCOUNT_NUMBER`: US bank account numbers
+* `US_BANK_ROUTING_NUMBER`: US bank routing numbers
+* `US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER`: US ITINs
+* `US_PASSPORT_NUMBER`: US passport numbers
+* `US_SOCIAL_SECURITY_NUMBER`: US Social Security Numbers
+
+**CanadaSpecificPIIType:**
+
+* `CA_HEALTH_NUMBER`: Canadian Health Service Numbers
+* `CA_SOCIAL_INSURANCE_NUMBER`: Canadian Social Insurance Numbers
+
+**UKSpecificPIIType:**
+
+* `UK_NATIONAL_HEALTH_SERVICE_NUMBER`: UK NHS numbers
+* `UK_NATIONAL_INSURANCE_NUMBER`: UK National Insurance numbers
+* `UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER`: UK UTR numbers
+
+#### Regex Filters
+
+Regex filters allow you to detect and handle custom patterns in user inputs and model responses. You can configure separate actions for input and output.
+
+##### Regex Filter Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+// Add regex filter with input/output actions
+guardrail.AddRegexFilter(&RegexFilter{
+	Name: jsii.String("TestRegexFilter"),
+	Pattern: jsii.String("test-pattern"),
+	Action: bedrock.GuardrailAction_ANONYMIZE,
+	// below props are optional
+	Description: jsii.String("This is a test regex filter"),
+	InputAction: bedrock.GuardrailAction_BLOCK,
+	InputEnabled: jsii.Boolean(true),
+	OutputAction: bedrock.GuardrailAction_ANONYMIZE,
+	OutputEnabled: jsii.Boolean(true),
+})
+```
+
+#### Contextual Grounding Filters
+
+Contextual grounding filters allow you to ensure that model responses are factually correct and relevant to the user's query. You can configure the action and enable/disable the filter.
+
+##### Contextual Grounding Filter Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+// Add contextual grounding filter with action and enabled flag
+guardrail.AddContextualGroundingFilter(&ContextualGroundingFilter{
+	Type: bedrock.ContextualGroundingFilterType_GROUNDING,
+	Threshold: jsii.Number(0.8),
+	// the properties below are optional
+	Action: bedrock.GuardrailAction_BLOCK,
+	Enabled: jsii.Boolean(true),
+})
+```
+
+### Guardrail Methods
+
+| Method | Description |
+|--------|-------------|
+| `addContentFilter()` | Adds a content filter to the guardrail |
+| `addDeniedTopicFilter()` | Adds a denied topic filter to the guardrail |
+| `addWordFilter()` | Adds a word filter to the guardrail |
+| `addManagedWordListFilter()` | Adds a managed word list filter to the guardrail |
+| `addWordFilterFromFile()` | Adds word filters from a file to the guardrail |
+| `addPIIFilter()` | Adds a PII filter to the guardrail |
+| `addRegexFilter()` | Adds a regex filter to the guardrail |
+| `addContextualGroundingFilter()` | Adds a contextual grounding filter to the guardrail |
+| `createVersion()` | Creates a new version of the guardrail |
+
+### Guardrail Permissions
+
+Guardrails provide methods to grant permissions to other resources that need to interact with the guardrail.
+
+#### Permission Methods
+
+| Method | Description | Parameters |
+|--------|-------------|------------|
+| `grant(grantee, ...actions)` | Grants the given principal identity permissions to perform actions on this guardrail | `grantee`: The principal to grant permissions to<br>`actions`: The actions to grant (e.g., `bedrock:GetGuardrail`, `bedrock:ListGuardrails`) |
+| `grantApply(grantee)` | Grants the given identity permissions to apply the guardrail | `grantee`: The principal to grant permissions to |
+
+#### Permission Examples
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+
+lambdaFunction := lambda.NewFunction(this, jsii.String("testLambda"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("../lambda/my-code"))),
+})
+
+// Grant specific permissions to a Lambda function
+guardrail.Grant(lambdaFunction, jsii.String("bedrock:GetGuardrail"), jsii.String("bedrock:ListGuardrails"))
+
+// Grant permissions to apply the guardrail
+guardrail.GrantApply(lambdaFunction)
+```
+
+### Guardrail Metrics
+
+Amazon Bedrock provides metrics for your guardrails, allowing you to monitor their effectiveness and usage. These metrics are available in CloudWatch and can be used to create dashboards and alarms.
+
+#### Metrics Examples
+
+```go
+import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+
+
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+// Get a specific metric for this guardrail
+invocationsMetric := guardrail.MetricInvocations(&MetricOptions{
+	Statistic: jsii.String("Sum"),
+	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+})
+
+// Create a CloudWatch alarm for high invocation latency
+// Create a CloudWatch alarm for high invocation latency
+cloudwatch.NewAlarm(this, jsii.String("HighLatencyAlarm"), &AlarmProps{
+	Metric: guardrail.MetricInvocationLatency(),
+	Threshold: jsii.Number(1000),
+	 // 1 second
+	EvaluationPeriods: jsii.Number(3),
+})
+
+// Get metrics for all guardrails
+allInvocationsMetric := bedrock.Guardrail_MetricAllInvocations()
+```
+
+### Importing Guardrails
+
+You can import existing guardrails using the `fromGuardrailAttributes` or `fromCfnGuardrail` methods.
+
+#### Import Configuration
+
+```go
+var stack stack
+
+cmk := kms.NewKey(this, jsii.String("cmk"), &KeyProps{
+})
+// Import an existing guardrail by ARN
+importedGuardrail := bedrock.Guardrail_FromGuardrailAttributes(stack, jsii.String("TestGuardrail"), &GuardrailAttributes{
+	GuardrailArn: jsii.String("arn:aws:bedrock:us-east-1:123456789012:guardrail/oygh3o8g7rtl"),
+	GuardrailVersion: jsii.String("1"),
+	 //optional
+	KmsKey: cmk,
+})
+```
+
+```go
+import bedrockl1 "github.com/aws/aws-cdk-go/awscdk"
+
+// Import a guardrail created through the L1 CDK CfnGuardrail construct
+l1guardrail := bedrockl1.NewCfnGuardrail(this, jsii.String("MyCfnGuardrail"), &CfnGuardrailProps{
+	BlockedInputMessaging: jsii.String("blockedInputMessaging"),
+	BlockedOutputsMessaging: jsii.String("blockedOutputsMessaging"),
+	Name: jsii.String("namemycfnguardrails"),
+	WordPolicyConfig: &WordPolicyConfigProperty{
+		WordsConfig: []interface{}{
+			&WordConfigProperty{
+				Text: jsii.String("drugs"),
+			},
+		},
+	},
+})
+
+importedGuardrail := bedrock.Guardrail_FromCfnGuardrail(l1guardrail)
+```
+
+### Guardrail Versioning
+
+Guardrails support versioning, allowing you to track changes and maintain multiple versions of your guardrail configurations.
+
+#### Version Configuration
+
+```go
+guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
+	GuardrailName: jsii.String("my-BedrockGuardrails"),
+})
+// Create a new version of the guardrail
+guardrail.CreateVersion(jsii.String("testversion"))
 ```
 
 ## Prompts

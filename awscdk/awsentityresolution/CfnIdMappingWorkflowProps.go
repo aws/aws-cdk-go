@@ -55,6 +55,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	IdMappingIncrementalRunConfig: &IdMappingIncrementalRunConfigProperty{
+//   		IncrementalRunType: jsii.String("incrementalRunType"),
+//   	},
 //   	OutputSourceConfig: []interface{}{
 //   		&IdMappingWorkflowOutputSourceProperty{
 //   			OutputS3Path: jsii.String("outputS3Path"),
@@ -98,6 +101,9 @@ type CfnIdMappingWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-idmappingincrementalrunconfig
+	//
+	IdMappingIncrementalRunConfig interface{} `field:"optional" json:"idMappingIncrementalRunConfig" yaml:"idMappingIncrementalRunConfig"`
 	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-outputsourceconfig
 	//

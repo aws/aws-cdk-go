@@ -4,26 +4,24 @@ package awscertificatemanager
 // Properties for your certificate.
 //
 // Example:
-//   // To use your own domain name in a Distribution, you must associate a certificate
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import route53 "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var hostedZone hostedZone
-//
-//   var myBucket bucket
-//
-//   myCertificate := acm.NewCertificate(this, jsii.String("mySiteCert"), &CertificateProps{
-//   	DomainName: jsii.String("www.example.com"),
-//   	Validation: acm.CertificateValidation_FromDns(hostedZone),
+//   exampleCom := route53.NewHostedZone(this, jsii.String("ExampleCom"), &HostedZoneProps{
+//   	ZoneName: jsii.String("example.com"),
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewS3Origin(myBucket),
+//   exampleNet := route53.NewHostedZone(this, jsii.String("ExampleNet"), &HostedZoneProps{
+//   	ZoneName: jsii.String("example.net"),
+//   })
+//
+//   cert := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
+//   	DomainName: jsii.String("test.example.com"),
+//   	SubjectAlternativeNames: []*string{
+//   		jsii.String("cool.example.com"),
+//   		jsii.String("test.example.net"),
 //   	},
-//   	DomainNames: []*string{
-//   		jsii.String("www.example.com"),
-//   	},
-//   	Certificate: myCertificate,
+//   	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]iHostedZone{
+//   		"test.example.com": exampleCom,
+//   		"cool.example.com": exampleCom,
+//   		"test.example.net": exampleNet,
+//   	}),
 //   })
 //
 type CertificateProps struct {
@@ -31,6 +29,13 @@ type CertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	// Enable or disable export of this certificate.
+	//
+	// If you issue an exportable public certificate, there is a charge at certificate issuance and again when the certificate renews.
+	// Ref: https://aws.amazon.com/certificate-manager/pricing
+	// Default: false.
+	//
+	AllowExport *bool `field:"optional" json:"allowExport" yaml:"allowExport"`
 	// The Certificate name.
 	//
 	// Since the Certificate resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.

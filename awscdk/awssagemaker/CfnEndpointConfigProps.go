@@ -18,6 +18,10 @@ import (
 //
 //   			// the properties below are optional
 //   			AcceleratorType: jsii.String("acceleratorType"),
+//   			CapacityReservationConfig: &CapacityReservationConfigProperty{
+//   				CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   				MlReservationArn: jsii.String("mlReservationArn"),
+//   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
@@ -138,6 +142,10 @@ import (
 //
 //   			// the properties below are optional
 //   			AcceleratorType: jsii.String("acceleratorType"),
+//   			CapacityReservationConfig: &CapacityReservationConfigProperty{
+//   				CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   				MlReservationArn: jsii.String("mlReservationArn"),
+//   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),

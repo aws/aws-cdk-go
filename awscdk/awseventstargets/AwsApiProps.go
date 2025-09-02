@@ -7,24 +7,18 @@ import (
 // Properties for an AwsApi target.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+//   })
 //
-//   var parameters interface{}
-//   var policyStatement policyStatement
-//
-//   awsApiProps := &AwsApiProps{
-//   	Action: jsii.String("action"),
-//   	Service: jsii.String("service"),
-//
-//   	// the properties below are optional
-//   	ApiVersion: jsii.String("apiVersion"),
-//   	CatchErrorPattern: jsii.String("catchErrorPattern"),
-//   	Parameters: parameters,
-//   	PolicyStatement: policyStatement,
-//   }
+//   rule.AddTarget(targets.NewAwsApi(&AwsApiProps{
+//   	Service: jsii.String("ECS"),
+//   	Action: jsii.String("updateService"),
+//   	Parameters: map[string]interface{}{
+//   		"service": jsii.String("my-service"),
+//   		"forceNewDeployment": jsii.Boolean(true),
+//   	},
+//   }))
 //
 type AwsApiProps struct {
 	// The service action to call.

@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::GuardDuty::ThreatEntitySet.
+// The `AWS::GuardDuty::ThreatEntitySet` resource helps you create a list of known malicious IP addresses and domain names in your AWS environment.
+//
+// Once you activate this list, GuardDuty will use the entries in this list as an additional source of threat detection and generate findings when there is an activity associated with these known malicious IP addresses and domain names. GuardDuty continues to monitor independently of this custom threat entity set.
+//
+// Only the users of the GuardDuty administrator account can manage this list. These settings automatically apply to the member accounts.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,12 +43,20 @@ type CfnThreatEntitySet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A boolean value that determines if GuardDuty can start using this list for custom threat detection.
 	Activate() interface{}
 	SetActivate(val interface{})
+	// The timestamp when the threat entity set was created.
 	AttrCreatedAt() *string
+	// The details associated with the *Error* status of your threat entity list.
 	AttrErrorDetails() *string
+	// Returns the unique ID associated with the newly created threat entity set.
 	AttrId() *string
+	// The status of your `ThreatEntitySet` .
+	//
+	// For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
 	AttrStatus() *string
+	// The timestamp when the threat entity set was updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -57,12 +69,16 @@ type CfnThreatEntitySet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The unique regional detector ID of the GuardDuty account for which you want to create a threat entity set.
 	DetectorId() *string
 	SetDetectorId(val *string)
+	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 	ExpectedBucketOwner() *string
 	SetExpectedBucketOwner(val *string)
+	// The format of the file that contains the threat entity set.
 	Format() *string
 	SetFormat(val *string)
+	// The URI of the file that contains the threat entity set.
 	Location() *string
 	SetLocation(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,6 +91,7 @@ type CfnThreatEntitySet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The user-friendly name to identify the threat entity set.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -88,6 +105,7 @@ type CfnThreatEntitySet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to be added to a new threat entity set resource.
 	Tags() *[]*CfnThreatEntitySet_TagItemProperty
 	SetTags(val *[]*CfnThreatEntitySet_TagItemProperty)
 	// Deprecated.

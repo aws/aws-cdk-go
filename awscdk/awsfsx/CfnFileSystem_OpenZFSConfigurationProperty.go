@@ -21,6 +21,7 @@ package awsfsx
 //   		Mode: jsii.String("mode"),
 //   	},
 //   	EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
+//   	EndpointIpv6AddressRange: jsii.String("endpointIpv6AddressRange"),
 //   	Options: []*string{
 //   		jsii.String("options"),
 //   	},
@@ -112,6 +113,12 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-endpointipaddressrange
 	//
 	EndpointIpAddressRange *string `field:"optional" json:"endpointIpAddressRange" yaml:"endpointIpAddressRange"`
+	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+	//
+	// By default in the Amazon FSx API and Amazon FSx console, Amazon FSx selects an available /118 IP address range for you from one of the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed in the same VPC/route tables, as long as they don't overlap with any subnet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-endpointipv6addressrange
+	//
+	EndpointIpv6AddressRange *string `field:"optional" json:"endpointIpv6AddressRange" yaml:"endpointIpv6AddressRange"`
 	// To delete a file system if there are child volumes present below the root volume, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
 	//
 	// If your file system has child volumes and you don't use this option, the delete request will fail.

@@ -12,9 +12,6 @@ import (
 // Implementation of Kubectl Lambda.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
-//
-//
 //   handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
 //   // get the serivceToken from the custom resource provider
 //   functionArn := lambda.Function_FromFunctionName(this, jsii.String("ProviderOnEventFunc"), jsii.String("ProviderframeworkonEvent-XXX")).FunctionArn

@@ -5,7 +5,7 @@ package awscdkeks-v2alpha
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_32(),
+//   	Version: eks.KubernetesVersion_V1_33(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_8_2(),
 //   	},

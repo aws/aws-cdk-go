@@ -53,6 +53,12 @@ import (
 //   	DesiredCount: jsii.Number(123),
 //   	EnableEcsManagedTags: jsii.Boolean(false),
 //   	EnableExecuteCommand: jsii.Boolean(false),
+//   	ForceNewDeployment: &ForceNewDeploymentProperty{
+//   		EnableForceNewDeployment: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		ForceNewDeploymentNonce: jsii.String("forceNewDeploymentNonce"),
+//   	},
 //   	HealthCheckGracePeriodSeconds: jsii.Number(123),
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
@@ -228,7 +234,7 @@ type CfnServiceProps struct {
 	// For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the **Amazon Elastic Container Service Developer Guide** .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-availabilityzonerebalancing
 	//
-	// Default: - "ENABLED".
+	// Default: - "DISABLED".
 	//
 	AvailabilityZoneRebalancing *string `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
@@ -277,6 +283,12 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
 	//
 	EnableExecuteCommand interface{} `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	// Determines whether to force a new deployment of the service.
+	//
+	// By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-forcenewdeployment
+	//
+	ForceNewDeployment interface{} `field:"optional" json:"forceNewDeployment" yaml:"forceNewDeployment"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	//
 	// If you don't specify a health check grace period value, the default value of `0` is used. If you don't use any of the health checks, then `healthCheckGracePeriodSeconds` is unused.

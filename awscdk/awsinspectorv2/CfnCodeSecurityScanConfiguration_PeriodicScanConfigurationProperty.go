@@ -1,6 +1,8 @@
 package awsinspectorv2
 
 
+// Configuration settings for periodic scans that run on a scheduled basis.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,13 @@ package awsinspectorv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-periodicscanconfiguration.html
 //
 type CfnCodeSecurityScanConfiguration_PeriodicScanConfigurationProperty struct {
+	// The frequency at which periodic scans are performed (such as weekly or monthly).
+	//
+	// If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-periodicscanconfiguration.html#cfn-inspectorv2-codesecurityscanconfiguration-periodicscanconfiguration-frequency
 	//
 	Frequency *string `field:"optional" json:"frequency" yaml:"frequency"`
+	// The schedule expression for periodic scans, in cron format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-periodicscanconfiguration.html#cfn-inspectorv2-codesecurityscanconfiguration-periodicscanconfiguration-frequencyexpression
 	//
 	FrequencyExpression *string `field:"optional" json:"frequencyExpression" yaml:"frequencyExpression"`

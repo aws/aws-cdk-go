@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Inspector CodeSecurityIntegration resource schema.
+// Creates a code security integration with a source code repository provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,16 +45,17 @@ type CfnCodeSecurityIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Code Security Integration ARN.
+	// The Amazon Resource Name (ARN) of the code security integration.
 	AttrArn() *string
-	// Authorization URL for OAuth flow.
+	// The URL used to authorize the integration with the repository provider.
 	AttrAuthorizationUrl() *string
-	// Creation timestamp.
+	// The timestamp when the code security integration was created.
 	AttrCreatedAt() *string
-	// Last update timestamp.
+	// The timestamp when the code security integration was last updated.
 	AttrLastUpdatedAt() *string
+	// The current status of the integration.
 	AttrStatus() *string
-	// Reason for the current status.
+	// The reason for the current status of the code security integration.
 	AttrStatusReason() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -63,6 +64,7 @@ type CfnCodeSecurityIntegration interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Contains details required to create a code security integration with a specific repository provider.
 	CreateIntegrationDetails() interface{}
 	SetCreateIntegrationDetails(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -79,7 +81,7 @@ type CfnCodeSecurityIntegration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Code Security Integration name.
+	// The name of the code security integration.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -93,8 +95,10 @@ type CfnCodeSecurityIntegration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to apply to the code security integration.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
+	// The type of repository provider for the integration.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -110,6 +114,7 @@ type CfnCodeSecurityIntegration interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The updated integration details specific to the repository provider type.
 	UpdateIntegrationDetails() interface{}
 	SetUpdateIntegrationDetails(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

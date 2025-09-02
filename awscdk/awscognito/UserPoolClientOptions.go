@@ -101,6 +101,14 @@ type UserPoolClientOptions struct {
 	// Default: - all standard and custom attributes.
 	//
 	ReadAttributes ClientAttributes `field:"optional" json:"readAttributes" yaml:"readAttributes"`
+	// Enables refresh token rotation when set.
+	//
+	// Defines the grace period for the original refresh token (0-60 seconds).
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html#using-the-refresh-token-rotation
+	//
+	// Default: - undefined (refresh token rotation is disabled).
+	//
+	RefreshTokenRotationGracePeriod awscdk.Duration `field:"optional" json:"refreshTokenRotationGracePeriod" yaml:"refreshTokenRotationGracePeriod"`
 	// Validity of the refresh token.
 	//
 	// Values between 60 minutes and 10 years are valid.

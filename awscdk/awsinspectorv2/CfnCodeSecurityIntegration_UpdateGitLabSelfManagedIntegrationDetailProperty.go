@@ -1,6 +1,8 @@
 package awsinspectorv2
 
 
+// Contains details required to update an integration with a self-managed GitLab instance.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awsinspectorv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-updategitlabselfmanagedintegrationdetail.html
 //
 type CfnCodeSecurityIntegration_UpdateGitLabSelfManagedIntegrationDetailProperty struct {
+	// The authorization code received from the self-managed GitLab instance to update the integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-updategitlabselfmanagedintegrationdetail.html#cfn-inspectorv2-codesecurityintegration-updategitlabselfmanagedintegrationdetail-authcode
 	//
 	AuthCode *string `field:"required" json:"authCode" yaml:"authCode"`

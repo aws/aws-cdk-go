@@ -207,6 +207,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.AlarmDetailsProperty",
+		reflect.TypeOf((*CfnCluster_AlarmDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.CapacitySizeConfigProperty",
+		reflect.TypeOf((*CfnCluster_CapacitySizeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterEbsVolumeConfigProperty",
 		reflect.TypeOf((*CfnCluster_ClusterEbsVolumeConfigProperty)(nil)).Elem(),
 	)
@@ -231,6 +239,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_ClusterRestrictedInstanceGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.DeploymentConfigProperty",
+		reflect.TypeOf((*CfnCluster_DeploymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.EnvironmentConfigProperty",
 		reflect.TypeOf((*CfnCluster_EnvironmentConfigProperty)(nil)).Elem(),
 	)
@@ -241,6 +253,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.OrchestratorProperty",
 		reflect.TypeOf((*CfnCluster_OrchestratorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.RollingUpdatePolicyProperty",
+		reflect.TypeOf((*CfnCluster_RollingUpdatePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ScheduledUpdateConfigProperty",
+		reflect.TypeOf((*CfnCluster_ScheduledUpdateConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.VpcConfigProperty",
@@ -885,6 +905,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceOutputConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceOutputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.CapacityReservationConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_CapacityReservationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.CaptureContentTypeHeaderProperty",

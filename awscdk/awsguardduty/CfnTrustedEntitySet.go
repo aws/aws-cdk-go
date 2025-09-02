@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::GuardDuty::TrustedEntitySet.
+// The `AWS::GuardDuty::TrustedEntitySet` resource helps you create a list of IP addresses and domain names that you can use for secure communication with your AWS infrastructure and applications.
+//
+// Once you activate this list, GuardDuty will not generate findings when there is an activity associated with these safe IP addresses and domain names. At any given time, you can have only one trusted entity set.
+//
+// Only the users of the GuardDuty administrator account can manage the entity sets. These settings automatically apply member accounts.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,12 +43,19 @@ type CfnTrustedEntitySet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A boolean value that determines if GuardDuty can start using this list for custom threat detection.
 	Activate() interface{}
 	SetActivate(val interface{})
+	// The timestamp when the trusted entity set was created.
 	AttrCreatedAt() *string
+	// Specifies the error details when the status of the trusted entity set shows as *Error* .
 	AttrErrorDetails() *string
 	AttrId() *string
+	// The status of your `TrustedEntitySet` .
+	//
+	// For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
 	AttrStatus() *string
+	// The timestamp when the trusted entity set was updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -57,12 +68,16 @@ type CfnTrustedEntitySet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The unique regional detector ID of the GuardDuty account for which you want to create a trusted entity set.
 	DetectorId() *string
 	SetDetectorId(val *string)
+	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 	ExpectedBucketOwner() *string
 	SetExpectedBucketOwner(val *string)
+	// The format of the file that contains the trusted entity set.
 	Format() *string
 	SetFormat(val *string)
+	// The URI of the file that contains the trusted entity set.
 	Location() *string
 	SetLocation(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,6 +90,7 @@ type CfnTrustedEntitySet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A user-friendly name to identify the trusted entity set.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -88,6 +104,7 @@ type CfnTrustedEntitySet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to be added to a new trusted entity set resource.
 	Tags() *[]*CfnTrustedEntitySet_TagItemProperty
 	SetTags(val *[]*CfnTrustedEntitySet_TagItemProperty)
 	// Deprecated.

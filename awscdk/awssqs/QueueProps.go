@@ -95,9 +95,9 @@ type QueueProps struct {
 	FifoThroughputLimit FifoThroughputLimit `field:"optional" json:"fifoThroughputLimit" yaml:"fifoThroughputLimit"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
-	// You can specify an integer value from 1024 bytes (1 KiB) to 262144 bytes
-	// (256 KiB). The default value is 262144 (256 KiB).
-	// Default: 256KiB.
+	// You can specify an integer value from 1024 bytes (1 KiB) to 1048576 bytes
+	// (1 MiB). The default value is 1048576 (1 MiB).
+	// Default: 1MiB.
 	//
 	MaxMessageSizeBytes *float64 `field:"optional" json:"maxMessageSizeBytes" yaml:"maxMessageSizeBytes"`
 	// A name for the queue.

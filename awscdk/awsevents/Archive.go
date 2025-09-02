@@ -12,50 +12,24 @@ import (
 // Define an EventBridge Archive.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var detail interface{}
-//   var eventBus eventBus
+//   var kmsKey iKey
 //
-//   archive := awscdk.Aws_events.NewArchive(this, jsii.String("MyArchive"), &ArchiveProps{
+//
+//   stack := awscdk.Newstack()
+//
+//   eventBus := awscdk.NewEventBus(stack, jsii.String("Bus"))
+//
+//   archive := awscdk.NewArchive(stack, jsii.String("Archive"), &ArchiveProps{
+//   	KmsKey: kmsKey,
+//   	SourceEventBus: eventBus,
 //   	EventPattern: &EventPattern{
-//   		Account: []*string{
-//   			jsii.String("account"),
-//   		},
-//   		Detail: map[string]interface{}{
-//   			"detailKey": detail,
-//   		},
-//   		DetailType: []*string{
-//   			jsii.String("detailType"),
-//   		},
-//   		Id: []*string{
-//   			jsii.String("id"),
-//   		},
-//   		Region: []*string{
-//   			jsii.String("region"),
-//   		},
-//   		Resources: []*string{
-//   			jsii.String("resources"),
-//   		},
 //   		Source: []*string{
-//   			jsii.String("source"),
-//   		},
-//   		Time: []*string{
-//   			jsii.String("time"),
-//   		},
-//   		Version: []*string{
-//   			jsii.String("version"),
+//   			jsii.String("aws.ec2"),
 //   		},
 //   	},
-//   	SourceEventBus: eventBus,
-//
-//   	// the properties below are optional
-//   	ArchiveName: jsii.String("archiveName"),
-//   	Description: jsii.String("description"),
-//   	Retention: cdk.Duration_Minutes(jsii.Number(30)),
 //   })
 //
 type Archive interface {
