@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnServiceProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnServiceProfile_FromServiceProfileArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnServiceProfile_FromServiceProfileIdParameters(scope constructs.Construct, id *string, serviceProfileId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if serviceProfileId == nil {
+		return fmt.Errorf("parameter serviceProfileId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnServiceProfile_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

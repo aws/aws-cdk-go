@@ -466,6 +466,25 @@ func (j *jsiiProxy_CfnSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ISubnetGroupRef from a cacheSubnetGroupName.
+func CfnSubnetGroup_FromCacheSubnetGroupName(scope constructs.Construct, id *string, cacheSubnetGroupName *string) ISubnetGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnSubnetGroup_FromCacheSubnetGroupNameParameters(scope, id, cacheSubnetGroupName); err != nil {
+		panic(err)
+	}
+	var returns ISubnetGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
+		"fromCacheSubnetGroupName",
+		[]interface{}{scope, id, cacheSubnetGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

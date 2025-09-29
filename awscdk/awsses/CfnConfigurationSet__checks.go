@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnConfigurationSet) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnConfigurationSet_FromConfigurationSetNameParameters(scope constructs.Construct, id *string, configurationSetName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if configurationSetName == nil {
+		return fmt.Errorf("parameter configurationSetName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConfigurationSet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

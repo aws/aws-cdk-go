@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnCampaign) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnCampaign_FromCampaignArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnCampaign_FromCampaignNameParameters(scope constructs.Construct, id *string, campaignName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if campaignName == nil {
+		return fmt.Errorf("parameter campaignName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCampaign_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

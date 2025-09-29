@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnSdiSource) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnSdiSource_FromSdiSourceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnSdiSource_FromSdiSourceIdParameters(scope constructs.Construct, id *string, sdiSourceId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if sdiSourceId == nil {
+		return fmt.Errorf("parameter sdiSourceId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSdiSource_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

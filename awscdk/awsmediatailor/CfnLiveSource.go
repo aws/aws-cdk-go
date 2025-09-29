@@ -481,6 +481,25 @@ func (j *jsiiProxy_CfnLiveSource)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ILiveSourceRef from an ARN.
+func CfnLiveSource_FromLiveSourceArn(scope constructs.Construct, id *string, arn *string) ILiveSourceRef {
+	_init_.Initialize()
+
+	if err := validateCfnLiveSource_FromLiveSourceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ILiveSourceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediatailor.CfnLiveSource",
+		"fromLiveSourceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

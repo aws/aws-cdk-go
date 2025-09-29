@@ -647,6 +647,25 @@ func (j *jsiiProxy_CfnFeatureGroup)SetThroughputConfig(val interface{}) {
 	)
 }
 
+// Creates a new IFeatureGroupRef from a featureGroupName.
+func CfnFeatureGroup_FromFeatureGroupName(scope constructs.Construct, id *string, featureGroupName *string) IFeatureGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnFeatureGroup_FromFeatureGroupNameParameters(scope, id, featureGroupName); err != nil {
+		panic(err)
+	}
+	var returns IFeatureGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup",
+		"fromFeatureGroupName",
+		[]interface{}{scope, id, featureGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

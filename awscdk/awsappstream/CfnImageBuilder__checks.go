@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnImageBuilder) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnImageBuilder_FromImageBuilderNameParameters(scope constructs.Construct, id *string, imageBuilderName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if imageBuilderName == nil {
+		return fmt.Errorf("parameter imageBuilderName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnImageBuilder_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -625,6 +625,25 @@ func (j *jsiiProxy_CfnBotAlias)SetSentimentAnalysisSettings(val interface{}) {
 	)
 }
 
+// Creates a new IBotAliasRef from an ARN.
+func CfnBotAlias_FromBotAliasArn(scope constructs.Construct, id *string, arn *string) IBotAliasRef {
+	_init_.Initialize()
+
+	if err := validateCfnBotAlias_FromBotAliasArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IBotAliasRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"fromBotAliasArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

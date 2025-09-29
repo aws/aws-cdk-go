@@ -684,6 +684,25 @@ func (j *jsiiProxy_CfnReportDefinition)SetTimeUnit(val *string) {
 	)
 }
 
+// Creates a new IReportDefinitionRef from a reportName.
+func CfnReportDefinition_FromReportName(scope constructs.Construct, id *string, reportName *string) IReportDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnReportDefinition_FromReportNameParameters(scope, id, reportName); err != nil {
+		panic(err)
+	}
+	var returns IReportDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cur.CfnReportDefinition",
+		"fromReportName",
+		[]interface{}{scope, id, reportName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

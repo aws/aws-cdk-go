@@ -571,6 +571,25 @@ func (j *jsiiProxy_CfnApp)SetUserProfileName(val *string) {
 	)
 }
 
+// Creates a new IAppRef from an ARN.
+func CfnApp_FromAppArn(scope constructs.Construct, id *string, arn *string) IAppRef {
+	_init_.Initialize()
+
+	if err := validateCfnApp_FromAppArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAppRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnApp",
+		"fromAppArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

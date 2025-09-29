@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVPC) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnVPC_FromVpcIdParameters(scope constructs.Construct, id *string, vpcId *string) error {
+	return nil
+}
+
 func validateCfnVPC_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

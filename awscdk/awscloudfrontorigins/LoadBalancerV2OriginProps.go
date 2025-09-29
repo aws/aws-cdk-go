@@ -80,6 +80,12 @@ type LoadBalancerV2OriginProps struct {
 	// Default: 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
+	// Specifies which IP protocol CloudFront uses when connecting to your origin.
+	//
+	// If your origin uses both IPv4 and IPv6 protocols, you can choose dualstack to help optimize reliability.
+	// Default: undefined - AWS Cloudfront default is IPv4.
+	//
+	IpAddressType awscloudfront.OriginIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 180 seconds, inclusive.

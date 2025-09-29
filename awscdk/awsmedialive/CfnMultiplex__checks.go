@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnMultiplex) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnMultiplex_FromMultiplexArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnMultiplex_FromMultiplexIdParameters(scope constructs.Construct, id *string, multiplexId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if multiplexId == nil {
+		return fmt.Errorf("parameter multiplexId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnMultiplex_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

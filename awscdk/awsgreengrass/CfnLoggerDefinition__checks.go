@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnLoggerDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnLoggerDefinition_FromLoggerDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnLoggerDefinition_FromLoggerDefinitionIdParameters(scope constructs.Construct, id *string, loggerDefinitionId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if loggerDefinitionId == nil {
+		return fmt.Errorf("parameter loggerDefinitionId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLoggerDefinition_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnFeatureGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnFeatureGroup_FromFeatureGroupNameParameters(scope constructs.Construct, id *string, featureGroupName *string) error {
+	return nil
+}
+
 func validateCfnFeatureGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

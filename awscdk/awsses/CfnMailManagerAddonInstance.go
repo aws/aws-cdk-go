@@ -451,6 +451,25 @@ func (j *jsiiProxy_CfnMailManagerAddonInstance)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IMailManagerAddonInstanceRef from a addonInstanceId.
+func CfnMailManagerAddonInstance_FromAddonInstanceId(scope constructs.Construct, id *string, addonInstanceId *string) IMailManagerAddonInstanceRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddonInstance_FromAddonInstanceIdParameters(scope, id, addonInstanceId); err != nil {
+		panic(err)
+	}
+	var returns IMailManagerAddonInstanceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonInstance",
+		"fromAddonInstanceId",
+		[]interface{}{scope, id, addonInstanceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

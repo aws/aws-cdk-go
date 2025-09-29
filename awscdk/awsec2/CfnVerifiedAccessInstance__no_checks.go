@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnVerifiedAccessInstance) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnVerifiedAccessInstance_FromVerifiedAccessInstanceIdParameters(scope constructs.Construct, id *string, verifiedAccessInstanceId *string) error {
+	return nil
+}
+
 func validateCfnVerifiedAccessInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

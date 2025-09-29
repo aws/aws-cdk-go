@@ -1425,6 +1425,25 @@ func (j *jsiiProxy_CfnReplicationGroup)SetUserGroupIds(val *[]*string) {
 	)
 }
 
+// Creates a new IReplicationGroupRef from a replicationGroupId.
+func CfnReplicationGroup_FromReplicationGroupId(scope constructs.Construct, id *string, replicationGroupId *string) IReplicationGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationGroup_FromReplicationGroupIdParameters(scope, id, replicationGroupId); err != nil {
+		panic(err)
+	}
+	var returns IReplicationGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
+		"fromReplicationGroupId",
+		[]interface{}{scope, id, replicationGroupId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

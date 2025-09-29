@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMailManagerArchive) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnMailManagerArchive_FromArchiveIdParameters(scope constructs.Construct, id *string, archiveId *string) error {
+	return nil
+}
+
 func validateCfnMailManagerArchive_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

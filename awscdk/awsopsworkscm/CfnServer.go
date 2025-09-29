@@ -872,6 +872,25 @@ func (j *jsiiProxy_CfnServer)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IServerRef from an ARN.
+func CfnServer_FromServerArn(scope constructs.Construct, id *string, arn *string) IServerRef {
+	_init_.Initialize()
+
+	if err := validateCfnServer_FromServerArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IServerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opsworkscm.CfnServer",
+		"fromServerArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

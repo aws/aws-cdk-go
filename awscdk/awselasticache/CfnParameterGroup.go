@@ -479,6 +479,25 @@ func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IParameterGroupRef from a cacheParameterGroupName.
+func CfnParameterGroup_FromCacheParameterGroupName(scope constructs.Construct, id *string, cacheParameterGroupName *string) IParameterGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_FromCacheParameterGroupNameParameters(scope, id, cacheParameterGroupName); err != nil {
+		panic(err)
+	}
+	var returns IParameterGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
+		"fromCacheParameterGroupName",
+		[]interface{}{scope, id, cacheParameterGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

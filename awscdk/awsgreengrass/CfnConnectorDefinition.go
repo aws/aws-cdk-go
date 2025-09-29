@@ -499,6 +499,44 @@ func (j *jsiiProxy_CfnConnectorDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+// Creates a new IConnectorDefinitionRef from an ARN.
+func CfnConnectorDefinition_FromConnectorDefinitionArn(scope constructs.Construct, id *string, arn *string) IConnectorDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnConnectorDefinition_FromConnectorDefinitionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IConnectorDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"fromConnectorDefinitionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IConnectorDefinitionRef from a connectorDefinitionId.
+func CfnConnectorDefinition_FromConnectorDefinitionId(scope constructs.Construct, id *string, connectorDefinitionId *string) IConnectorDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnConnectorDefinition_FromConnectorDefinitionIdParameters(scope, id, connectorDefinitionId); err != nil {
+		panic(err)
+	}
+	var returns IConnectorDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"fromConnectorDefinitionId",
+		[]interface{}{scope, id, connectorDefinitionId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

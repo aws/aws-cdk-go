@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnBucket) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnBucket_FromBucketArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnBucket_FromBucketNameParameters(scope constructs.Construct, id *string, bucketName *string) error {
+	return nil
+}
+
 func validateCfnBucket_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

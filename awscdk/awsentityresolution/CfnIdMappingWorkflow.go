@@ -644,6 +644,25 @@ func (j *jsiiProxy_CfnIdMappingWorkflow)SetWorkflowName(val *string) {
 	)
 }
 
+// Creates a new IIdMappingWorkflowRef from a workflowName.
+func CfnIdMappingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) IIdMappingWorkflowRef {
+	_init_.Initialize()
+
+	if err := validateCfnIdMappingWorkflow_FromWorkflowNameParameters(scope, id, workflowName); err != nil {
+		panic(err)
+	}
+	var returns IIdMappingWorkflowRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow",
+		"fromWorkflowName",
+		[]interface{}{scope, id, workflowName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

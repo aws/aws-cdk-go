@@ -498,6 +498,25 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation)Set
 	)
 }
 
+// Creates a new ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef from a localGatewayRouteTableVirtualInterfaceGroupAssociationId.
+func CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationId(scope constructs.Construct, id *string, localGatewayRouteTableVirtualInterfaceGroupAssociationId *string) ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef {
+	_init_.Initialize()
+
+	if err := validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdParameters(scope, id, localGatewayRouteTableVirtualInterfaceGroupAssociationId); err != nil {
+		panic(err)
+	}
+	var returns ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+		"fromLocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
+		[]interface{}{scope, id, localGatewayRouteTableVirtualInterfaceGroupAssociationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

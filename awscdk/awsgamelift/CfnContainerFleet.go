@@ -925,6 +925,25 @@ func (j *jsiiProxy_CfnContainerFleet)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IContainerFleetRef from a fleetId.
+func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IContainerFleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnContainerFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
+		panic(err)
+	}
+	var returns IContainerFleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
+		"fromFleetId",
+		[]interface{}{scope, id, fleetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

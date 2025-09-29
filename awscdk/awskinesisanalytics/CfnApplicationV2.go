@@ -804,6 +804,26 @@ func (j *jsiiProxy_CfnApplicationV2)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IApplicationV2Ref from a applicationName.
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
+func CfnApplicationV2_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) IApplicationV2Ref {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationV2_FromApplicationNameParameters(scope, id, applicationName); err != nil {
+		panic(err)
+	}
+	var returns IApplicationV2Ref
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2",
+		"fromApplicationName",
+		[]interface{}{scope, id, applicationName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

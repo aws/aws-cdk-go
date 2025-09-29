@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnAccessPolicy) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnAccessPolicy_FromAccessPolicyArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnAccessPolicy_FromAccessPolicyIdParameters(scope constructs.Construct, id *string, accessPolicyId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if accessPolicyId == nil {
+		return fmt.Errorf("parameter accessPolicyId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAccessPolicy_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

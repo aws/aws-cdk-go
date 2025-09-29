@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnAnnotationStore) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnAnnotationStore_FromAnnotationStoreNameParameters(scope constructs.Construct, id *string, annotationStoreName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if annotationStoreName == nil {
+		return fmt.Errorf("parameter annotationStoreName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAnnotationStore_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

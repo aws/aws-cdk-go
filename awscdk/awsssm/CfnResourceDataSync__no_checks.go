@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnResourceDataSync) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnResourceDataSync_FromSyncNameParameters(scope constructs.Construct, id *string, syncName *string) error {
+	return nil
+}
+
 func validateCfnResourceDataSync_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

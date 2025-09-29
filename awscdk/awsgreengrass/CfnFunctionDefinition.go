@@ -534,6 +534,44 @@ func (j *jsiiProxy_CfnFunctionDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+// Creates a new IFunctionDefinitionRef from an ARN.
+func CfnFunctionDefinition_FromFunctionDefinitionArn(scope constructs.Construct, id *string, arn *string) IFunctionDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnFunctionDefinition_FromFunctionDefinitionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IFunctionDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"fromFunctionDefinitionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IFunctionDefinitionRef from a functionDefinitionId.
+func CfnFunctionDefinition_FromFunctionDefinitionId(scope constructs.Construct, id *string, functionDefinitionId *string) IFunctionDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnFunctionDefinition_FromFunctionDefinitionIdParameters(scope, id, functionDefinitionId); err != nil {
+		panic(err)
+	}
+	var returns IFunctionDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"fromFunctionDefinitionId",
+		[]interface{}{scope, id, functionDefinitionId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -1559,6 +1559,25 @@ func (j *jsiiProxy_CfnInstance)SetVolumes(val interface{}) {
 	)
 }
 
+// Creates a new IInstanceRef from a instanceId.
+func CfnInstance_FromInstanceId(scope constructs.Construct, id *string, instanceId *string) IInstanceRef {
+	_init_.Initialize()
+
+	if err := validateCfnInstance_FromInstanceIdParameters(scope, id, instanceId); err != nil {
+		panic(err)
+	}
+	var returns IInstanceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInstance",
+		"fromInstanceId",
+		[]interface{}{scope, id, instanceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

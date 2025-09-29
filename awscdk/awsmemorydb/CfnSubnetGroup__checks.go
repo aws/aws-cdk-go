@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnSubnetGroup) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnSubnetGroup_FromSubnetGroupNameParameters(scope constructs.Construct, id *string, subnetGroupName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if subnetGroupName == nil {
+		return fmt.Errorf("parameter subnetGroupName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSubnetGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

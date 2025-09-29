@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnDashboard) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDashboard_FromDashboardNameParameters(scope constructs.Construct, id *string, dashboardName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if dashboardName == nil {
+		return fmt.Errorf("parameter dashboardName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDashboard_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

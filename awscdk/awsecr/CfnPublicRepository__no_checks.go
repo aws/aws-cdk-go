@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnPublicRepository) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnPublicRepository_FromPublicRepositoryArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnPublicRepository_FromRepositoryNameParameters(scope constructs.Construct, id *string, repositoryName *string) error {
+	return nil
+}
+
 func validateCfnPublicRepository_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

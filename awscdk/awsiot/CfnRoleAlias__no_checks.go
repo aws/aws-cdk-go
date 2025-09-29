@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnRoleAlias) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnRoleAlias_FromRoleAliasParameters(scope constructs.Construct, id *string, roleAlias *string) error {
+	return nil
+}
+
+func validateCfnRoleAlias_FromRoleAliasArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnRoleAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

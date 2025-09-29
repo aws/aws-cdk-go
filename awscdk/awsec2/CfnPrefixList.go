@@ -550,6 +550,44 @@ func (j *jsiiProxy_CfnPrefixList)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IPrefixListRef from an ARN.
+func CfnPrefixList_FromPrefixListArn(scope constructs.Construct, id *string, arn *string) IPrefixListRef {
+	_init_.Initialize()
+
+	if err := validateCfnPrefixList_FromPrefixListArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IPrefixListRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnPrefixList",
+		"fromPrefixListArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPrefixListRef from a prefixListId.
+func CfnPrefixList_FromPrefixListId(scope constructs.Construct, id *string, prefixListId *string) IPrefixListRef {
+	_init_.Initialize()
+
+	if err := validateCfnPrefixList_FromPrefixListIdParameters(scope, id, prefixListId); err != nil {
+		panic(err)
+	}
+	var returns IPrefixListRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnPrefixList",
+		"fromPrefixListId",
+		[]interface{}{scope, id, prefixListId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

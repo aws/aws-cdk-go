@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnApiDestination) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnApiDestination_FromApiDestinationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnApiDestination_FromApiDestinationNameParameters(scope constructs.Construct, id *string, apiDestinationName *string) error {
+	return nil
+}
+
 func validateCfnApiDestination_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -722,6 +722,44 @@ func (j *jsiiProxy_CfnFileSystem)SetThroughputMode(val *string) {
 	)
 }
 
+// Creates a new IFileSystemRef from an ARN.
+func CfnFileSystem_FromFileSystemArn(scope constructs.Construct, id *string, arn *string) IFileSystemRef {
+	_init_.Initialize()
+
+	if err := validateCfnFileSystem_FromFileSystemArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IFileSystemRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_efs.CfnFileSystem",
+		"fromFileSystemArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IFileSystemRef from a fileSystemId.
+func CfnFileSystem_FromFileSystemId(scope constructs.Construct, id *string, fileSystemId *string) IFileSystemRef {
+	_init_.Initialize()
+
+	if err := validateCfnFileSystem_FromFileSystemIdParameters(scope, id, fileSystemId); err != nil {
+		panic(err)
+	}
+	var returns IFileSystemRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_efs.CfnFileSystem",
+		"fromFileSystemId",
+		[]interface{}{scope, id, fileSystemId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

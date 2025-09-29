@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnInferenceExperiment) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnInferenceExperiment_FromInferenceExperimentArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnInferenceExperiment_FromInferenceExperimentNameParameters(scope constructs.Construct, id *string, inferenceExperimentName *string) error {
+	return nil
+}
+
 func validateCfnInferenceExperiment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

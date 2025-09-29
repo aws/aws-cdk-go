@@ -677,6 +677,44 @@ func (j *jsiiProxy_CfnMetricStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IMetricStreamRef from an ARN.
+func CfnMetricStream_FromMetricStreamArn(scope constructs.Construct, id *string, arn *string) IMetricStreamRef {
+	_init_.Initialize()
+
+	if err := validateCfnMetricStream_FromMetricStreamArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IMetricStreamRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",
+		"fromMetricStreamArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IMetricStreamRef from a metricStreamName.
+func CfnMetricStream_FromMetricStreamName(scope constructs.Construct, id *string, metricStreamName *string) IMetricStreamRef {
+	_init_.Initialize()
+
+	if err := validateCfnMetricStream_FromMetricStreamNameParameters(scope, id, metricStreamName); err != nil {
+		panic(err)
+	}
+	var returns IMetricStreamRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",
+		"fromMetricStreamName",
+		[]interface{}{scope, id, metricStreamName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

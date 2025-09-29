@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope constructs.Construct, id *string, remediationConfigurationId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if remediationConfigurationId == nil {
+		return fmt.Errorf("parameter remediationConfigurationId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnRemediationConfiguration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

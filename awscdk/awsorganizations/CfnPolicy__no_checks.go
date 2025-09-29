@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPolicy) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnPolicy_FromPolicyArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

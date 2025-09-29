@@ -30,6 +30,12 @@ package awscodebuild
 //   	BuildEnvironment: &BuildEnvironment{
 //   		ComputeType: codebuild.ComputeType_LARGE,
 //   		Privileged: jsii.Boolean(true),
+//   		DockerServer: &DockerServerOptions{
+//   			ComputeType: codebuild.DockerServerComputeType_SMALL,
+//   			SecurityGroups: []iSecurityGroup{
+//   				mySecurityGroup,
+//   			},
+//   		},
 //   	},
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
 //   	FileSystemLocations: []iFileSystemLocation{
@@ -46,7 +52,7 @@ package awscodebuild
 //   	SubnetSelection: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   	},
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []*iSecurityGroup{
 //   		mySecurityGroup,
 //   	},
 //

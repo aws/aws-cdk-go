@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnGameSessionQueue_FromGameSessionQueueArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnGameSessionQueue_FromGameSessionQueueNameParameters(scope constructs.Construct, id *string, gameSessionQueueName *string) error {
+	return nil
+}
+
 func validateCfnGameSessionQueue_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

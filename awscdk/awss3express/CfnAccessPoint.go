@@ -596,6 +596,44 @@ func (j *jsiiProxy_CfnAccessPoint)SetVpcConfiguration(val interface{}) {
 	)
 }
 
+// Creates a new IAccessPointRef from an ARN.
+func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) IAccessPointRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_FromAccessPointArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAccessPointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3express.CfnAccessPoint",
+		"fromAccessPointArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAccessPointRef from a accessPointName.
+func CfnAccessPoint_FromAccessPointName(scope constructs.Construct, id *string, accessPointName *string) IAccessPointRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_FromAccessPointNameParameters(scope, id, accessPointName); err != nil {
+		panic(err)
+	}
+	var returns IAccessPointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3express.CfnAccessPoint",
+		"fromAccessPointName",
+		[]interface{}{scope, id, accessPointName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

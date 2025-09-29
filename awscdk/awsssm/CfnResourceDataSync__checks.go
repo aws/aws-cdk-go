@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnResourceDataSync) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnResourceDataSync_FromSyncNameParameters(scope constructs.Construct, id *string, syncName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if syncName == nil {
+		return fmt.Errorf("parameter syncName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnResourceDataSync_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

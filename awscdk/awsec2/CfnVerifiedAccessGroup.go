@@ -572,6 +572,44 @@ func (j *jsiiProxy_CfnVerifiedAccessGroup)SetVerifiedAccessInstanceId(val *strin
 	)
 }
 
+// Creates a new IVerifiedAccessGroupRef from an ARN.
+func CfnVerifiedAccessGroup_FromVerifiedAccessGroupArn(scope constructs.Construct, id *string, arn *string) IVerifiedAccessGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnVerifiedAccessGroup_FromVerifiedAccessGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IVerifiedAccessGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroup",
+		"fromVerifiedAccessGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IVerifiedAccessGroupRef from a verifiedAccessGroupId.
+func CfnVerifiedAccessGroup_FromVerifiedAccessGroupId(scope constructs.Construct, id *string, verifiedAccessGroupId *string) IVerifiedAccessGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnVerifiedAccessGroup_FromVerifiedAccessGroupIdParameters(scope, id, verifiedAccessGroupId); err != nil {
+		panic(err)
+	}
+	var returns IVerifiedAccessGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessGroup",
+		"fromVerifiedAccessGroupId",
+		[]interface{}{scope, id, verifiedAccessGroupId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

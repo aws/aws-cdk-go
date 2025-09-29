@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnClientVpnEndpoint_FromClientVpnEndpointIdParameters(scope constructs.Construct, id *string, clientVpnEndpointId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if clientVpnEndpointId == nil {
+		return fmt.Errorf("parameter clientVpnEndpointId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnClientVpnEndpoint_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMailManagerTrafficPolicy) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnMailManagerTrafficPolicy_FromTrafficPolicyIdParameters(scope constructs.Construct, id *string, trafficPolicyId *string) error {
+	return nil
+}
+
 func validateCfnMailManagerTrafficPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

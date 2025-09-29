@@ -770,6 +770,44 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetTags(val *map[string]*string) {
 	)
 }
 
+// Creates a new IKnowledgeBaseRef from an ARN.
+func CfnKnowledgeBase_FromKnowledgeBaseArn(scope constructs.Construct, id *string, arn *string) IKnowledgeBaseRef {
+	_init_.Initialize()
+
+	if err := validateCfnKnowledgeBase_FromKnowledgeBaseArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IKnowledgeBaseRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase",
+		"fromKnowledgeBaseArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IKnowledgeBaseRef from a knowledgeBaseId.
+func CfnKnowledgeBase_FromKnowledgeBaseId(scope constructs.Construct, id *string, knowledgeBaseId *string) IKnowledgeBaseRef {
+	_init_.Initialize()
+
+	if err := validateCfnKnowledgeBase_FromKnowledgeBaseIdParameters(scope, id, knowledgeBaseId); err != nil {
+		panic(err)
+	}
+	var returns IKnowledgeBaseRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase",
+		"fromKnowledgeBaseId",
+		[]interface{}{scope, id, knowledgeBaseId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

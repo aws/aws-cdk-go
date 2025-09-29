@@ -938,6 +938,44 @@ func (j *jsiiProxy_CfnCapacityReservation)SetUnusedReservationBillingOwnerId(val
 	)
 }
 
+// Creates a new ICapacityReservationRef from an ARN.
+func CfnCapacityReservation_FromCapacityReservationArn(scope constructs.Construct, id *string, arn *string) ICapacityReservationRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityReservation_FromCapacityReservationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ICapacityReservationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservation",
+		"fromCapacityReservationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ICapacityReservationRef from a capacityReservationId.
+func CfnCapacityReservation_FromCapacityReservationId(scope constructs.Construct, id *string, capacityReservationId *string) ICapacityReservationRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityReservation_FromCapacityReservationIdParameters(scope, id, capacityReservationId); err != nil {
+		panic(err)
+	}
+	var returns ICapacityReservationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservation",
+		"fromCapacityReservationId",
+		[]interface{}{scope, id, capacityReservationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

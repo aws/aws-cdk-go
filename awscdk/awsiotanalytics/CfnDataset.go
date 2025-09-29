@@ -666,6 +666,25 @@ func (j *jsiiProxy_CfnDataset)SetVersioningConfiguration(val interface{}) {
 	)
 }
 
+// Creates a new IDatasetRef from a datasetName.
+func CfnDataset_FromDatasetName(scope constructs.Construct, id *string, datasetName *string) IDatasetRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataset_FromDatasetNameParameters(scope, id, datasetName); err != nil {
+		panic(err)
+	}
+	var returns IDatasetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnDataset",
+		"fromDatasetName",
+		[]interface{}{scope, id, datasetName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

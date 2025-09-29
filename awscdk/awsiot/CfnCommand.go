@@ -683,6 +683,44 @@ func (j *jsiiProxy_CfnCommand)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ICommandRef from an ARN.
+func CfnCommand_FromCommandArn(scope constructs.Construct, id *string, arn *string) ICommandRef {
+	_init_.Initialize()
+
+	if err := validateCfnCommand_FromCommandArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ICommandRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCommand",
+		"fromCommandArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ICommandRef from a commandId.
+func CfnCommand_FromCommandId(scope constructs.Construct, id *string, commandId *string) ICommandRef {
+	_init_.Initialize()
+
+	if err := validateCfnCommand_FromCommandIdParameters(scope, id, commandId); err != nil {
+		panic(err)
+	}
+	var returns ICommandRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCommand",
+		"fromCommandId",
+		[]interface{}{scope, id, commandId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

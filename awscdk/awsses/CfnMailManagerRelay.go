@@ -514,6 +514,25 @@ func (j *jsiiProxy_CfnMailManagerRelay)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IMailManagerRelayRef from a relayId.
+func CfnMailManagerRelay_FromRelayId(scope constructs.Construct, id *string, relayId *string) IMailManagerRelayRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRelay_FromRelayIdParameters(scope, id, relayId); err != nil {
+		panic(err)
+	}
+	var returns IMailManagerRelayRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",
+		"fromRelayId",
+		[]interface{}{scope, id, relayId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -543,6 +543,44 @@ func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IWorkflowRef from an ARN.
+func CfnWorkflow_FromWorkflowArn(scope constructs.Construct, id *string, arn *string) IWorkflowRef {
+	_init_.Initialize()
+
+	if err := validateCfnWorkflow_FromWorkflowArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IWorkflowRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow",
+		"fromWorkflowArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IWorkflowRef from a workflowId.
+func CfnWorkflow_FromWorkflowId(scope constructs.Construct, id *string, workflowId *string) IWorkflowRef {
+	_init_.Initialize()
+
+	if err := validateCfnWorkflow_FromWorkflowIdParameters(scope, id, workflowId); err != nil {
+		panic(err)
+	}
+	var returns IWorkflowRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow",
+		"fromWorkflowId",
+		[]interface{}{scope, id, workflowId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

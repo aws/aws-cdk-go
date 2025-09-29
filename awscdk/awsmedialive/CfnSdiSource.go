@@ -508,6 +508,44 @@ func (j *jsiiProxy_CfnSdiSource)SetType(val *string) {
 	)
 }
 
+// Creates a new ISdiSourceRef from an ARN.
+func CfnSdiSource_FromSdiSourceArn(scope constructs.Construct, id *string, arn *string) ISdiSourceRef {
+	_init_.Initialize()
+
+	if err := validateCfnSdiSource_FromSdiSourceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ISdiSourceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnSdiSource",
+		"fromSdiSourceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ISdiSourceRef from a sdiSourceId.
+func CfnSdiSource_FromSdiSourceId(scope constructs.Construct, id *string, sdiSourceId *string) ISdiSourceRef {
+	_init_.Initialize()
+
+	if err := validateCfnSdiSource_FromSdiSourceIdParameters(scope, id, sdiSourceId); err != nil {
+		panic(err)
+	}
+	var returns ISdiSourceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnSdiSource",
+		"fromSdiSourceId",
+		[]interface{}{scope, id, sdiSourceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

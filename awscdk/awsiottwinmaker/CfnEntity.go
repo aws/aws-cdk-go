@@ -734,6 +734,25 @@ func (j *jsiiProxy_CfnEntity)SetWorkspaceId(val *string) {
 	)
 }
 
+// Creates a new IEntityRef from an ARN.
+func CfnEntity_FromEntityArn(scope constructs.Construct, id *string, arn *string) IEntityRef {
+	_init_.Initialize()
+
+	if err := validateCfnEntity_FromEntityArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IEntityRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
+		"fromEntityArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

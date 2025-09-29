@@ -400,6 +400,25 @@ func (j *jsiiProxy_CfnInternetGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IInternetGatewayRef from a internetGatewayId.
+func CfnInternetGateway_FromInternetGatewayId(scope constructs.Construct, id *string, internetGatewayId *string) IInternetGatewayRef {
+	_init_.Initialize()
+
+	if err := validateCfnInternetGateway_FromInternetGatewayIdParameters(scope, id, internetGatewayId); err != nil {
+		panic(err)
+	}
+	var returns IInternetGatewayRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInternetGateway",
+		"fromInternetGatewayId",
+		[]interface{}{scope, id, internetGatewayId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -813,6 +813,44 @@ func (j *jsiiProxy_CfnStudio)SetWorkspaceSecurityGroupId(val *string) {
 	)
 }
 
+// Creates a new IStudioRef from an ARN.
+func CfnStudio_FromStudioArn(scope constructs.Construct, id *string, arn *string) IStudioRef {
+	_init_.Initialize()
+
+	if err := validateCfnStudio_FromStudioArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IStudioRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnStudio",
+		"fromStudioArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IStudioRef from a studioId.
+func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) IStudioRef {
+	_init_.Initialize()
+
+	if err := validateCfnStudio_FromStudioIdParameters(scope, id, studioId); err != nil {
+		panic(err)
+	}
+	var returns IStudioRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnStudio",
+		"fromStudioId",
+		[]interface{}{scope, id, studioId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

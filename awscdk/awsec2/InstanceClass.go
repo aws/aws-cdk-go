@@ -231,6 +231,10 @@ const (
 	InstanceClass_MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH InstanceClass = "MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH"
 	// Memory optimized instances, 8th generation with Graviton4 processors and high network bandwidth capabilities.
 	InstanceClass_R8GN InstanceClass = "R8GN"
+	// Memory and EBS optimized instances, 8th generation with Graviton4 processors.
+	InstanceClass_MEMORY8_GRAVITON4_EBS_OPTIMIZED InstanceClass = "MEMORY8_GRAVITON4_EBS_OPTIMIZED"
+	// Memory and EBS optimized instances, 8th generation with Graviton4 processors.
+	InstanceClass_R8GB InstanceClass = "R8GB"
 	// Compute optimized instances, 3rd generation.
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	// Compute optimized instances, 3rd generation.

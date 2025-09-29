@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnPortfolio) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnPortfolio_FromPortfolioIdParameters(scope constructs.Construct, id *string, portfolioId *string) error {
+	return nil
+}
+
 func validateCfnPortfolio_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

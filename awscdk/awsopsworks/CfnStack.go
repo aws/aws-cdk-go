@@ -997,6 +997,25 @@ func (j *jsiiProxy_CfnStack)SetVpcId(val *string) {
 	)
 }
 
+// Creates a new IStackRef from a stackId.
+func CfnStack_FromStackId(scope constructs.Construct, id *string, stackId *string) IStackRef {
+	_init_.Initialize()
+
+	if err := validateCfnStack_FromStackIdParameters(scope, id, stackId); err != nil {
+		panic(err)
+	}
+	var returns IStackRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_opsworks.CfnStack",
+		"fromStackId",
+		[]interface{}{scope, id, stackId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

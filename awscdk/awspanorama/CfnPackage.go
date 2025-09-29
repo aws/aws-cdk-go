@@ -545,6 +545,44 @@ func (j *jsiiProxy_CfnPackage)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IPackageRef from an ARN.
+func CfnPackage_FromPackageArn(scope constructs.Construct, id *string, arn *string) IPackageRef {
+	_init_.Initialize()
+
+	if err := validateCfnPackage_FromPackageArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IPackageRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnPackage",
+		"fromPackageArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPackageRef from a packageId.
+func CfnPackage_FromPackageId(scope constructs.Construct, id *string, packageId *string) IPackageRef {
+	_init_.Initialize()
+
+	if err := validateCfnPackage_FromPackageIdParameters(scope, id, packageId); err != nil {
+		panic(err)
+	}
+	var returns IPackageRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnPackage",
+		"fromPackageId",
+		[]interface{}{scope, id, packageId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

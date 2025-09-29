@@ -2407,6 +2407,15 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.OriginFailoverConfig",
 		reflect.TypeOf((*OriginFailoverConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.OriginIpAddressType",
+		reflect.TypeOf((*OriginIpAddressType)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": OriginIpAddressType_IPV4,
+			"IPV6": OriginIpAddressType_IPV6,
+			"DUALSTACK": OriginIpAddressType_DUALSTACK,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.OriginOptions",
 		reflect.TypeOf((*OriginOptions)(nil)).Elem(),

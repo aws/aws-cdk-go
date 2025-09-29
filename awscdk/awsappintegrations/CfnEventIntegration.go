@@ -501,6 +501,44 @@ func (j *jsiiProxy_CfnEventIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IEventIntegrationRef from an ARN.
+func CfnEventIntegration_FromEventIntegrationArn(scope constructs.Construct, id *string, arn *string) IEventIntegrationRef {
+	_init_.Initialize()
+
+	if err := validateCfnEventIntegration_FromEventIntegrationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IEventIntegrationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appintegrations.CfnEventIntegration",
+		"fromEventIntegrationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IEventIntegrationRef from a eventIntegrationName.
+func CfnEventIntegration_FromEventIntegrationName(scope constructs.Construct, id *string, eventIntegrationName *string) IEventIntegrationRef {
+	_init_.Initialize()
+
+	if err := validateCfnEventIntegration_FromEventIntegrationNameParameters(scope, id, eventIntegrationName); err != nil {
+		panic(err)
+	}
+	var returns IEventIntegrationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appintegrations.CfnEventIntegration",
+		"fromEventIntegrationName",
+		[]interface{}{scope, id, eventIntegrationName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -552,6 +552,44 @@ func (j *jsiiProxy_CfnRouteServerPeer)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IRouteServerPeerRef from an ARN.
+func CfnRouteServerPeer_FromRouteServerPeerArn(scope constructs.Construct, id *string, arn *string) IRouteServerPeerRef {
+	_init_.Initialize()
+
+	if err := validateCfnRouteServerPeer_FromRouteServerPeerArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IRouteServerPeerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteServerPeer",
+		"fromRouteServerPeerArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IRouteServerPeerRef from a routeServerPeerId.
+func CfnRouteServerPeer_FromRouteServerPeerId(scope constructs.Construct, id *string, routeServerPeerId *string) IRouteServerPeerRef {
+	_init_.Initialize()
+
+	if err := validateCfnRouteServerPeer_FromRouteServerPeerIdParameters(scope, id, routeServerPeerId); err != nil {
+		panic(err)
+	}
+	var returns IRouteServerPeerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteServerPeer",
+		"fromRouteServerPeerId",
+		[]interface{}{scope, id, routeServerPeerId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

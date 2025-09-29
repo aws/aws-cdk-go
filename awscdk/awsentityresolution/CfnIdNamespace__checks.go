@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnIdNamespace) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnIdNamespace_FromIdNamespaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnIdNamespace_FromIdNamespaceNameParameters(scope constructs.Construct, id *string, idNamespaceName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if idNamespaceName == nil {
+		return fmt.Errorf("parameter idNamespaceName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnIdNamespace_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

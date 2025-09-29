@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
+func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_FromLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdParameters(scope constructs.Construct, id *string, localGatewayRouteTableVirtualInterfaceGroupAssociationId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if localGatewayRouteTableVirtualInterfaceGroupAssociationId == nil {
+		return fmt.Errorf("parameter localGatewayRouteTableVirtualInterfaceGroupAssociationId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

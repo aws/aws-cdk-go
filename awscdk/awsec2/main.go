@@ -9909,6 +9909,8 @@ func init() {
 			"R8GD": InstanceClass_R8GD,
 			"MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH": InstanceClass_MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH,
 			"R8GN": InstanceClass_R8GN,
+			"MEMORY8_GRAVITON4_EBS_OPTIMIZED": InstanceClass_MEMORY8_GRAVITON4_EBS_OPTIMIZED,
+			"R8GB": InstanceClass_R8GB,
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"C3": InstanceClass_C3,
 			"COMPUTE4": InstanceClass_COMPUTE4,

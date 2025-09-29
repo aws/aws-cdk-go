@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnGroup) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnGroup_FromGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnGroup_FromGroupNameParameters(scope constructs.Construct, id *string, groupName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if groupName == nil {
+		return fmt.Errorf("parameter groupName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

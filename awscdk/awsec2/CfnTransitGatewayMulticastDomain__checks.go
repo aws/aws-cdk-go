@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainIdParameters(scope constructs.Construct, id *string, transitGatewayMulticastDomainId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if transitGatewayMulticastDomainId == nil {
+		return fmt.Errorf("parameter transitGatewayMulticastDomainId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTransitGatewayMulticastDomain_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

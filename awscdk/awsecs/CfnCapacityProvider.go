@@ -450,6 +450,25 @@ func (j *jsiiProxy_CfnCapacityProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ICapacityProviderRef from a capacityProviderName.
+func CfnCapacityProvider_FromCapacityProviderName(scope constructs.Construct, id *string, capacityProviderName *string) ICapacityProviderRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope, id, capacityProviderName); err != nil {
+		panic(err)
+	}
+	var returns ICapacityProviderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"fromCapacityProviderName",
+		[]interface{}{scope, id, capacityProviderName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

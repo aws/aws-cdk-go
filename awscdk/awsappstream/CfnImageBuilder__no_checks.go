@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnImageBuilder) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnImageBuilder_FromImageBuilderNameParameters(scope constructs.Construct, id *string, imageBuilderName *string) error {
+	return nil
+}
+
 func validateCfnImageBuilder_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

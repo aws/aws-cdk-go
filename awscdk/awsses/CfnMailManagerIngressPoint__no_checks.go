@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMailManagerIngressPoint) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnMailManagerIngressPoint_FromIngressPointIdParameters(scope constructs.Construct, id *string, ingressPointId *string) error {
+	return nil
+}
+
 func validateCfnMailManagerIngressPoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

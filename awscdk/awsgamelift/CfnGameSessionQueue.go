@@ -627,6 +627,44 @@ func (j *jsiiProxy_CfnGameSessionQueue)SetTimeoutInSeconds(val *float64) {
 	)
 }
 
+// Creates a new IGameSessionQueueRef from an ARN.
+func CfnGameSessionQueue_FromGameSessionQueueArn(scope constructs.Construct, id *string, arn *string) IGameSessionQueueRef {
+	_init_.Initialize()
+
+	if err := validateCfnGameSessionQueue_FromGameSessionQueueArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IGameSessionQueueRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"fromGameSessionQueueArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IGameSessionQueueRef from a gameSessionQueueName.
+func CfnGameSessionQueue_FromGameSessionQueueName(scope constructs.Construct, id *string, gameSessionQueueName *string) IGameSessionQueueRef {
+	_init_.Initialize()
+
+	if err := validateCfnGameSessionQueue_FromGameSessionQueueNameParameters(scope, id, gameSessionQueueName); err != nil {
+		panic(err)
+	}
+	var returns IGameSessionQueueRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue",
+		"fromGameSessionQueueName",
+		[]interface{}{scope, id, gameSessionQueueName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

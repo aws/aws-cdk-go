@@ -465,6 +465,25 @@ func (j *jsiiProxy_CfnInput)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IInputRef from a inputName.
+func CfnInput_FromInputName(scope constructs.Construct, id *string, inputName *string) IInputRef {
+	_init_.Initialize()
+
+	if err := validateCfnInput_FromInputNameParameters(scope, id, inputName); err != nil {
+		panic(err)
+	}
+	var returns IInputRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotevents.CfnInput",
+		"fromInputName",
+		[]interface{}{scope, id, inputName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

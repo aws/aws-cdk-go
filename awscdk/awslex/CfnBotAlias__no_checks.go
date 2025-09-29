@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnBotAlias) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnBotAlias_FromBotAliasArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnBotAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

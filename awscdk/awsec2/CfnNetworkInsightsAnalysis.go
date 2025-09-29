@@ -619,6 +619,44 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis)SetTagsRaw(val *[]*awscdk.CfnTag) 
 	)
 }
 
+// Creates a new INetworkInsightsAnalysisRef from an ARN.
+func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArn(scope constructs.Construct, id *string, arn *string) INetworkInsightsAnalysisRef {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns INetworkInsightsAnalysisRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis",
+		"fromNetworkInsightsAnalysisArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new INetworkInsightsAnalysisRef from a networkInsightsAnalysisId.
+func CfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisId(scope constructs.Construct, id *string, networkInsightsAnalysisId *string) INetworkInsightsAnalysisRef {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisIdParameters(scope, id, networkInsightsAnalysisId); err != nil {
+		panic(err)
+	}
+	var returns INetworkInsightsAnalysisRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis",
+		"fromNetworkInsightsAnalysisId",
+		[]interface{}{scope, id, networkInsightsAnalysisId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

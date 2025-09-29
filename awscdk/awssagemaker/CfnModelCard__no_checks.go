@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnModelCard) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnModelCard_FromModelCardArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnModelCard_FromModelCardNameParameters(scope constructs.Construct, id *string, modelCardName *string) error {
+	return nil
+}
+
 func validateCfnModelCard_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

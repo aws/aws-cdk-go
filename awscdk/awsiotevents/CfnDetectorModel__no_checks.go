@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDetectorModel) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnDetectorModel_FromDetectorModelNameParameters(scope constructs.Construct, id *string, detectorModelName *string) error {
+	return nil
+}
+
 func validateCfnDetectorModel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

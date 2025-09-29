@@ -511,6 +511,44 @@ func (j *jsiiProxy_CfnDashboard)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDashboardRef from an ARN.
+func CfnDashboard_FromDashboardArn(scope constructs.Construct, id *string, arn *string) IDashboardRef {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_FromDashboardArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDashboardRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"fromDashboardArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDashboardRef from a dashboardId.
+func CfnDashboard_FromDashboardId(scope constructs.Construct, id *string, dashboardId *string) IDashboardRef {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_FromDashboardIdParameters(scope, id, dashboardId); err != nil {
+		panic(err)
+	}
+	var returns IDashboardRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"fromDashboardId",
+		[]interface{}{scope, id, dashboardId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

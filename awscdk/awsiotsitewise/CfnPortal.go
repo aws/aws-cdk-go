@@ -662,6 +662,44 @@ func (j *jsiiProxy_CfnPortal)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IPortalRef from an ARN.
+func CfnPortal_FromPortalArn(scope constructs.Construct, id *string, arn *string) IPortalRef {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_FromPortalArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IPortalRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"fromPortalArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPortalRef from a portalId.
+func CfnPortal_FromPortalId(scope constructs.Construct, id *string, portalId *string) IPortalRef {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_FromPortalIdParameters(scope, id, portalId); err != nil {
+		panic(err)
+	}
+	var returns IPortalRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"fromPortalId",
+		[]interface{}{scope, id, portalId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

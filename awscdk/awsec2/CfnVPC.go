@@ -615,6 +615,25 @@ func (j *jsiiProxy_CfnVPC)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IVPCRef from a vpcId.
+func CfnVPC_FromVpcId(scope constructs.Construct, id *string, vpcId *string) IVPCRef {
+	_init_.Initialize()
+
+	if err := validateCfnVPC_FromVpcIdParameters(scope, id, vpcId); err != nil {
+		panic(err)
+	}
+	var returns IVPCRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPC",
+		"fromVpcId",
+		[]interface{}{scope, id, vpcId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

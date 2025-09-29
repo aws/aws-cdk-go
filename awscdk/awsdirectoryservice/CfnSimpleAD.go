@@ -593,6 +593,25 @@ func (j *jsiiProxy_CfnSimpleAD)SetVpcSettings(val interface{}) {
 	)
 }
 
+// Creates a new ISimpleADRef from a directoryId.
+func CfnSimpleAD_FromDirectoryId(scope constructs.Construct, id *string, directoryId *string) ISimpleADRef {
+	_init_.Initialize()
+
+	if err := validateCfnSimpleAD_FromDirectoryIdParameters(scope, id, directoryId); err != nil {
+		panic(err)
+	}
+	var returns ISimpleADRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
+		"fromDirectoryId",
+		[]interface{}{scope, id, directoryId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnCell) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
+func validateCfnCell_FromCellArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnCell_FromCellNameParameters(scope constructs.Construct, id *string, cellName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if cellName == nil {
+		return fmt.Errorf("parameter cellName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCell_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -566,6 +566,25 @@ func (j *jsiiProxy_CfnSecret)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ISecretRef from a secretId.
+func CfnSecret_FromSecretId(scope constructs.Construct, id *string, secretId *string) ISecretRef {
+	_init_.Initialize()
+
+	if err := validateCfnSecret_FromSecretIdParameters(scope, id, secretId); err != nil {
+		panic(err)
+	}
+	var returns ISecretRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
+		"fromSecretId",
+		[]interface{}{scope, id, secretId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

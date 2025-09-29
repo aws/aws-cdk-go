@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnEventSubscription) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnEventSubscription_FromSubscriptionNameParameters(scope constructs.Construct, id *string, subscriptionName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if subscriptionName == nil {
+		return fmt.Errorf("parameter subscriptionName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEventSubscription_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

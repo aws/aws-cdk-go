@@ -757,6 +757,25 @@ func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IRestApiRef from a restApiId.
+func CfnRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApiRef {
+	_init_.Initialize()
+
+	if err := validateCfnRestApi_FromRestApiIdParameters(scope, id, restApiId); err != nil {
+		panic(err)
+	}
+	var returns IRestApiRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.CfnRestApi",
+		"fromRestApiId",
+		[]interface{}{scope, id, restApiId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

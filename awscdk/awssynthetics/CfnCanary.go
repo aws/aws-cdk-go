@@ -987,6 +987,25 @@ func (j *jsiiProxy_CfnCanary)SetVpcConfig(val interface{}) {
 	)
 }
 
+// Creates a new ICanaryRef from a canaryName.
+func CfnCanary_FromCanaryName(scope constructs.Construct, id *string, canaryName *string) ICanaryRef {
+	_init_.Initialize()
+
+	if err := validateCfnCanary_FromCanaryNameParameters(scope, id, canaryName); err != nil {
+		panic(err)
+	}
+	var returns ICanaryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
+		"fromCanaryName",
+		[]interface{}{scope, id, canaryName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

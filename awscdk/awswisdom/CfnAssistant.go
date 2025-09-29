@@ -511,6 +511,44 @@ func (j *jsiiProxy_CfnAssistant)SetType(val *string) {
 	)
 }
 
+// Creates a new IAssistantRef from an ARN.
+func CfnAssistant_FromAssistantArn(scope constructs.Construct, id *string, arn *string) IAssistantRef {
+	_init_.Initialize()
+
+	if err := validateCfnAssistant_FromAssistantArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAssistantRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"fromAssistantArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAssistantRef from a assistantId.
+func CfnAssistant_FromAssistantId(scope constructs.Construct, id *string, assistantId *string) IAssistantRef {
+	_init_.Initialize()
+
+	if err := validateCfnAssistant_FromAssistantIdParameters(scope, id, assistantId); err != nil {
+		panic(err)
+	}
+	var returns IAssistantRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"fromAssistantId",
+		[]interface{}{scope, id, assistantId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -461,6 +461,44 @@ func (j *jsiiProxy_CfnBillingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IBillingGroupRef from an ARN.
+func CfnBillingGroup_FromBillingGroupArn(scope constructs.Construct, id *string, arn *string) IBillingGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnBillingGroup_FromBillingGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IBillingGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnBillingGroup",
+		"fromBillingGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IBillingGroupRef from a billingGroupName.
+func CfnBillingGroup_FromBillingGroupName(scope constructs.Construct, id *string, billingGroupName *string) IBillingGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnBillingGroup_FromBillingGroupNameParameters(scope, id, billingGroupName); err != nil {
+		panic(err)
+	}
+	var returns IBillingGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnBillingGroup",
+		"fromBillingGroupName",
+		[]interface{}{scope, id, billingGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

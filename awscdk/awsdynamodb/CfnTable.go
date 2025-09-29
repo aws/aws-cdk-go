@@ -1035,6 +1035,44 @@ func (j *jsiiProxy_CfnTable)SetWarmThroughput(val interface{}) {
 	)
 }
 
+// Creates a new ITableRef from an ARN.
+func CfnTable_FromTableArn(scope constructs.Construct, id *string, arn *string) ITableRef {
+	_init_.Initialize()
+
+	if err := validateCfnTable_FromTableArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ITableRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"fromTableArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ITableRef from a tableName.
+func CfnTable_FromTableName(scope constructs.Construct, id *string, tableName *string) ITableRef {
+	_init_.Initialize()
+
+	if err := validateCfnTable_FromTableNameParameters(scope, id, tableName); err != nil {
+		panic(err)
+	}
+	var returns ITableRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"fromTableName",
+		[]interface{}{scope, id, tableName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

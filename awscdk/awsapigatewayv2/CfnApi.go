@@ -819,6 +819,25 @@ func (j *jsiiProxy_CfnApi)SetVersion(val *string) {
 	)
 }
 
+// Creates a new IApiRef from a apiId.
+func CfnApi_FromApiId(scope constructs.Construct, id *string, apiId *string) IApiRef {
+	_init_.Initialize()
+
+	if err := validateCfnApi_FromApiIdParameters(scope, id, apiId); err != nil {
+		panic(err)
+	}
+	var returns IApiRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigatewayv2.CfnApi",
+		"fromApiId",
+		[]interface{}{scope, id, apiId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

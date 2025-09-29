@@ -491,6 +491,25 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ITrafficMirrorTargetRef from a trafficMirrorTargetId.
+func CfnTrafficMirrorTarget_FromTrafficMirrorTargetId(scope constructs.Construct, id *string, trafficMirrorTargetId *string) ITrafficMirrorTargetRef {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficMirrorTarget_FromTrafficMirrorTargetIdParameters(scope, id, trafficMirrorTargetId); err != nil {
+		panic(err)
+	}
+	var returns ITrafficMirrorTargetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorTarget",
+		"fromTrafficMirrorTargetId",
+		[]interface{}{scope, id, trafficMirrorTargetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

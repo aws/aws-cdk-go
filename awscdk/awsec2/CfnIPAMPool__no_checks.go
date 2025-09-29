@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnIPAMPool) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnIPAMPool_FromIPAMPoolArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnIPAMPool_FromIpamPoolIdParameters(scope constructs.Construct, id *string, ipamPoolId *string) error {
+	return nil
+}
+
 func validateCfnIPAMPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

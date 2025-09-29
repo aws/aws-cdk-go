@@ -22,6 +22,7 @@ import (
 //   	},
 //   	HttpPort: jsii.Number(123),
 //   	HttpsPort: jsii.Number(123),
+//   	IpAddressType: awscdk.Aws_cloudfront.OriginIpAddressType_IPV4,
 //   	KeepaliveTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	OriginAccessControlId: jsii.String("originAccessControlId"),
 //   	OriginId: jsii.String("originId"),
@@ -29,7 +30,7 @@ import (
 //   	OriginShieldEnabled: jsii.Boolean(false),
 //   	OriginShieldRegion: jsii.String("originShieldRegion"),
 //   	OriginSslProtocols: []originSslPolicy{
-//   		awscdk.Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   		awscdk.*Aws_cloudfront.*originSslPolicy_SSL_V3,
 //   	},
 //   	ProtocolPolicy: awscdk.*Aws_cloudfront.OriginProtocolPolicy_HTTP_ONLY,
 //   	ReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
@@ -97,6 +98,12 @@ type S3StaticWebsiteOriginProps struct {
 	// Default: 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
+	// Specifies which IP protocol CloudFront uses when connecting to your origin.
+	//
+	// If your origin uses both IPv4 and IPv6 protocols, you can choose dualstack to help optimize reliability.
+	// Default: undefined - AWS Cloudfront default is IPv4.
+	//
+	IpAddressType awscloudfront.OriginIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 180 seconds, inclusive.

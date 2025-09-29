@@ -629,6 +629,22 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 })
 ```
 
+You can specify the IP address type for connecting to the origin:
+
+```go
+origin := origins.NewHttpOrigin(jsii.String("www.example.com"), &HttpOriginProps{
+	IpAddressType: cloudfront.OriginIpAddressType_IPV6,
+})
+
+cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: *Origin,
+	},
+})
+```
+
+The `ipAddressType` property allows you to specify whether CloudFront should use IPv4, IPv6, or both (dual-stack) when connecting to your origin.
+
 The origin can be customized with timeout settings to handle different response scenarios:
 
 ```go

@@ -500,6 +500,44 @@ func (j *jsiiProxy_CfnLoggerDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
+// Creates a new ILoggerDefinitionRef from an ARN.
+func CfnLoggerDefinition_FromLoggerDefinitionArn(scope constructs.Construct, id *string, arn *string) ILoggerDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnLoggerDefinition_FromLoggerDefinitionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ILoggerDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"fromLoggerDefinitionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ILoggerDefinitionRef from a loggerDefinitionId.
+func CfnLoggerDefinition_FromLoggerDefinitionId(scope constructs.Construct, id *string, loggerDefinitionId *string) ILoggerDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnLoggerDefinition_FromLoggerDefinitionIdParameters(scope, id, loggerDefinitionId); err != nil {
+		panic(err)
+	}
+	var returns ILoggerDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"fromLoggerDefinitionId",
+		[]interface{}{scope, id, loggerDefinitionId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

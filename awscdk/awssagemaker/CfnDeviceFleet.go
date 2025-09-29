@@ -492,6 +492,25 @@ func (j *jsiiProxy_CfnDeviceFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDeviceFleetRef from a deviceFleetName.
+func CfnDeviceFleet_FromDeviceFleetName(scope constructs.Construct, id *string, deviceFleetName *string) IDeviceFleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnDeviceFleet_FromDeviceFleetNameParameters(scope, id, deviceFleetName); err != nil {
+		panic(err)
+	}
+	var returns IDeviceFleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnDeviceFleet",
+		"fromDeviceFleetName",
+		[]interface{}{scope, id, deviceFleetName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

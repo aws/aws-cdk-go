@@ -737,6 +737,44 @@ func (j *jsiiProxy_CfnChannel)SetVpc(val interface{}) {
 	)
 }
 
+// Creates a new IChannelRef from an ARN.
+func CfnChannel_FromChannelArn(scope constructs.Construct, id *string, arn *string) IChannelRef {
+	_init_.Initialize()
+
+	if err := validateCfnChannel_FromChannelArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IChannelRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"fromChannelArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IChannelRef from a channelId.
+func CfnChannel_FromChannelId(scope constructs.Construct, id *string, channelId *string) IChannelRef {
+	_init_.Initialize()
+
+	if err := validateCfnChannel_FromChannelIdParameters(scope, id, channelId); err != nil {
+		panic(err)
+	}
+	var returns IChannelRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"fromChannelId",
+		[]interface{}{scope, id, channelId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

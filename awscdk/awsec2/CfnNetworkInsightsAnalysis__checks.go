@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnNetworkInsightsAnalysis_FromNetworkInsightsAnalysisIdParameters(scope constructs.Construct, id *string, networkInsightsAnalysisId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if networkInsightsAnalysisId == nil {
+		return fmt.Errorf("parameter networkInsightsAnalysisId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnNetworkInsightsAnalysis_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

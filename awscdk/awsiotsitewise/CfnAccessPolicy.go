@@ -462,6 +462,44 @@ func (j *jsiiProxy_CfnAccessPolicy)SetAccessPolicyResource(val interface{}) {
 	)
 }
 
+// Creates a new IAccessPolicyRef from an ARN.
+func CfnAccessPolicy_FromAccessPolicyArn(scope constructs.Construct, id *string, arn *string) IAccessPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPolicy_FromAccessPolicyArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAccessPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"fromAccessPolicyArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAccessPolicyRef from a accessPolicyId.
+func CfnAccessPolicy_FromAccessPolicyId(scope constructs.Construct, id *string, accessPolicyId *string) IAccessPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPolicy_FromAccessPolicyIdParameters(scope, id, accessPolicyId); err != nil {
+		panic(err)
+	}
+	var returns IAccessPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"fromAccessPolicyId",
+		[]interface{}{scope, id, accessPolicyId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

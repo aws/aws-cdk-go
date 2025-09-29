@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAssetModel) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAssetModel_FromAssetModelArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAssetModel_FromAssetModelIdParameters(scope constructs.Construct, id *string, assetModelId *string) error {
+	return nil
+}
+
 func validateCfnAssetModel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

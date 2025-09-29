@@ -594,6 +594,25 @@ func (j *jsiiProxy_CfnTrafficMirrorSession)SetVirtualNetworkId(val *float64) {
 	)
 }
 
+// Creates a new ITrafficMirrorSessionRef from a trafficMirrorSessionId.
+func CfnTrafficMirrorSession_FromTrafficMirrorSessionId(scope constructs.Construct, id *string, trafficMirrorSessionId *string) ITrafficMirrorSessionRef {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficMirrorSession_FromTrafficMirrorSessionIdParameters(scope, id, trafficMirrorSessionId); err != nil {
+		panic(err)
+	}
+	var returns ITrafficMirrorSessionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorSession",
+		"fromTrafficMirrorSessionId",
+		[]interface{}{scope, id, trafficMirrorSessionId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

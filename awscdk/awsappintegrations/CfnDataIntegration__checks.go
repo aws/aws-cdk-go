@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnDataIntegration) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnDataIntegration_FromDataIntegrationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnDataIntegration_FromDataIntegrationIdParameters(scope constructs.Construct, id *string, dataIntegrationId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if dataIntegrationId == nil {
+		return fmt.Errorf("parameter dataIntegrationId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDataIntegration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

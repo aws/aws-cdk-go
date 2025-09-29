@@ -855,6 +855,25 @@ func (j *jsiiProxy_CfnServerlessCache)SetUserGroupId(val *string) {
 	)
 }
 
+// Creates a new IServerlessCacheRef from a serverlessCacheName.
+func CfnServerlessCache_FromServerlessCacheName(scope constructs.Construct, id *string, serverlessCacheName *string) IServerlessCacheRef {
+	_init_.Initialize()
+
+	if err := validateCfnServerlessCache_FromServerlessCacheNameParameters(scope, id, serverlessCacheName); err != nil {
+		panic(err)
+	}
+	var returns IServerlessCacheRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCache",
+		"fromServerlessCacheName",
+		[]interface{}{scope, id, serverlessCacheName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

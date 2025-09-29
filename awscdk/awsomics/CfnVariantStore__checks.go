@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnVariantStore) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnVariantStore_FromVariantStoreNameParameters(scope constructs.Construct, id *string, variantStoreName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if variantStoreName == nil {
+		return fmt.Errorf("parameter variantStoreName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVariantStore_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

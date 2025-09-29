@@ -630,6 +630,25 @@ func (j *jsiiProxy_CfnAnnotationStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+// Creates a new IAnnotationStoreRef from a annotationStoreName.
+func CfnAnnotationStore_FromAnnotationStoreName(scope constructs.Construct, id *string, annotationStoreName *string) IAnnotationStoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnAnnotationStore_FromAnnotationStoreNameParameters(scope, id, annotationStoreName); err != nil {
+		panic(err)
+	}
+	var returns IAnnotationStoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnAnnotationStore",
+		"fromAnnotationStoreName",
+		[]interface{}{scope, id, annotationStoreName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -579,6 +579,44 @@ func (j *jsiiProxy_CfnConnector)SetUrl(val *string) {
 	)
 }
 
+// Creates a new IConnectorRef from an ARN.
+func CfnConnector_FromConnectorArn(scope constructs.Construct, id *string, arn *string) IConnectorRef {
+	_init_.Initialize()
+
+	if err := validateCfnConnector_FromConnectorArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IConnectorRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnConnector",
+		"fromConnectorArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IConnectorRef from a connectorId.
+func CfnConnector_FromConnectorId(scope constructs.Construct, id *string, connectorId *string) IConnectorRef {
+	_init_.Initialize()
+
+	if err := validateCfnConnector_FromConnectorIdParameters(scope, id, connectorId); err != nil {
+		panic(err)
+	}
+	var returns IConnectorRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_transfer.CfnConnector",
+		"fromConnectorId",
+		[]interface{}{scope, id, connectorId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

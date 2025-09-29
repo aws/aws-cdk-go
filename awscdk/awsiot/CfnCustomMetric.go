@@ -475,6 +475,25 @@ func (j *jsiiProxy_CfnCustomMetric)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ICustomMetricRef from a metricName.
+func CfnCustomMetric_FromMetricName(scope constructs.Construct, id *string, metricName *string) ICustomMetricRef {
+	_init_.Initialize()
+
+	if err := validateCfnCustomMetric_FromMetricNameParameters(scope, id, metricName); err != nil {
+		panic(err)
+	}
+	var returns ICustomMetricRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCustomMetric",
+		"fromMetricName",
+		[]interface{}{scope, id, metricName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -464,6 +464,25 @@ func (j *jsiiProxy_CfnContactList)SetTopics(val interface{}) {
 	)
 }
 
+// Creates a new IContactListRef from a contactListName.
+func CfnContactList_FromContactListName(scope constructs.Construct, id *string, contactListName *string) IContactListRef {
+	_init_.Initialize()
+
+	if err := validateCfnContactList_FromContactListNameParameters(scope, id, contactListName); err != nil {
+		panic(err)
+	}
+	var returns IContactListRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnContactList",
+		"fromContactListName",
+		[]interface{}{scope, id, contactListName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

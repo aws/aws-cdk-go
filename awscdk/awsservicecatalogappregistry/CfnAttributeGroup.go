@@ -482,6 +482,44 @@ func (j *jsiiProxy_CfnAttributeGroup)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+// Creates a new IAttributeGroupRef from an ARN.
+func CfnAttributeGroup_FromAttributeGroupArn(scope constructs.Construct, id *string, arn *string) IAttributeGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnAttributeGroup_FromAttributeGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAttributeGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalogappregistry.CfnAttributeGroup",
+		"fromAttributeGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAttributeGroupRef from a attributeGroupId.
+func CfnAttributeGroup_FromAttributeGroupId(scope constructs.Construct, id *string, attributeGroupId *string) IAttributeGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnAttributeGroup_FromAttributeGroupIdParameters(scope, id, attributeGroupId); err != nil {
+		panic(err)
+	}
+	var returns IAttributeGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalogappregistry.CfnAttributeGroup",
+		"fromAttributeGroupId",
+		[]interface{}{scope, id, attributeGroupId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

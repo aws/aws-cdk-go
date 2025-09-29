@@ -471,6 +471,44 @@ func (j *jsiiProxy_CfnRoleAlias)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IRoleAliasRef from a roleAlias.
+func CfnRoleAlias_FromRoleAlias(scope constructs.Construct, id *string, roleAlias *string) IRoleAliasRef {
+	_init_.Initialize()
+
+	if err := validateCfnRoleAlias_FromRoleAliasParameters(scope, id, roleAlias); err != nil {
+		panic(err)
+	}
+	var returns IRoleAliasRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnRoleAlias",
+		"fromRoleAlias",
+		[]interface{}{scope, id, roleAlias},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IRoleAliasRef from an ARN.
+func CfnRoleAlias_FromRoleAliasArn(scope constructs.Construct, id *string, arn *string) IRoleAliasRef {
+	_init_.Initialize()
+
+	if err := validateCfnRoleAlias_FromRoleAliasArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IRoleAliasRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnRoleAlias",
+		"fromRoleAliasArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

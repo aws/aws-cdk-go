@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnSuiteDefinition) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnSuiteDefinition_FromSuiteDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnSuiteDefinition_FromSuiteDefinitionIdParameters(scope constructs.Construct, id *string, suiteDefinitionId *string) error {
+	return nil
+}
+
 func validateCfnSuiteDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

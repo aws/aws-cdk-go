@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainIdParameters(scope constructs.Construct, id *string, transitGatewayMulticastDomainId *string) error {
+	return nil
+}
+
 func validateCfnTransitGatewayMulticastDomain_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

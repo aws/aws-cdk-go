@@ -569,6 +569,44 @@ func (j *jsiiProxy_CfnPlaceIndex)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IPlaceIndexRef from a indexName.
+func CfnPlaceIndex_FromIndexName(scope constructs.Construct, id *string, indexName *string) IPlaceIndexRef {
+	_init_.Initialize()
+
+	if err := validateCfnPlaceIndex_FromIndexNameParameters(scope, id, indexName); err != nil {
+		panic(err)
+	}
+	var returns IPlaceIndexRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnPlaceIndex",
+		"fromIndexName",
+		[]interface{}{scope, id, indexName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPlaceIndexRef from an ARN.
+func CfnPlaceIndex_FromPlaceIndexArn(scope constructs.Construct, id *string, arn *string) IPlaceIndexRef {
+	_init_.Initialize()
+
+	if err := validateCfnPlaceIndex_FromPlaceIndexArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IPlaceIndexRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnPlaceIndex",
+		"fromPlaceIndexArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

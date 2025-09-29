@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnMetricStream) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnMetricStream_FromMetricStreamArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnMetricStream_FromMetricStreamNameParameters(scope constructs.Construct, id *string, metricStreamName *string) error {
+	return nil
+}
+
 func validateCfnMetricStream_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
