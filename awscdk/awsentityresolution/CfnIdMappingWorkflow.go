@@ -23,7 +23,6 @@ import (
 //   cfnIdMappingWorkflow := awscdk.Aws_entityresolution.NewCfnIdMappingWorkflow(this, jsii.String("MyCfnIdMappingWorkflow"), &CfnIdMappingWorkflowProps{
 //   	IdMappingTechniques: &IdMappingTechniquesProperty{
 //   		IdMappingType: jsii.String("idMappingType"),
-//   		NormalizationVersion: jsii.String("normalizationVersion"),
 //   		ProviderProperties: &ProviderPropertiesProperty{
 //   			ProviderServiceArn: jsii.String("providerServiceArn"),
 //
@@ -643,25 +642,6 @@ func (j *jsiiProxy_CfnIdMappingWorkflow)SetWorkflowName(val *string) {
 		"workflowName",
 		val,
 	)
-}
-
-// Creates a new IIdMappingWorkflowRef from a workflowName.
-func CfnIdMappingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) IIdMappingWorkflowRef {
-	_init_.Initialize()
-
-	if err := validateCfnIdMappingWorkflow_FromWorkflowNameParameters(scope, id, workflowName); err != nil {
-		panic(err)
-	}
-	var returns IIdMappingWorkflowRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow",
-		"fromWorkflowName",
-		[]interface{}{scope, id, workflowName},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

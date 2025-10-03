@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-func (i *jsiiProxy_IUsagePlan) validateAddApiKeyParameters(apiKey IApiKeyRef, options *AddApiKeyOptions) error {
+func (i *jsiiProxy_IUsagePlan) validateAddApiKeyParameters(apiKey IApiKey, options *AddApiKeyOptions) error {
 	if apiKey == nil {
 		return fmt.Errorf("parameter apiKey is required, but nil was provided")
 	}

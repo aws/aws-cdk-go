@@ -1,6 +1,8 @@
 package awsiotsitewise
 
 
+// The source details for the Kendra dataset source.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,11 +16,11 @@ package awsiotsitewise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-kendrasourcedetail.html
 //
 type CfnDataset_KendraSourceDetailProperty struct {
-	// The knowledgeBaseArn details for the Kendra dataset source.
+	// The `knowledgeBaseArn` details for the Kendra dataset source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-kendrasourcedetail.html#cfn-iotsitewise-dataset-kendrasourcedetail-knowledgebasearn
 	//
 	KnowledgeBaseArn *string `field:"required" json:"knowledgeBaseArn" yaml:"knowledgeBaseArn"`
-	// The roleARN details for the Kendra dataset source.
+	// The `roleARN` details for the Kendra dataset source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-kendrasourcedetail.html#cfn-iotsitewise-dataset-kendrasourcedetail-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

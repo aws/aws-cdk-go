@@ -72,7 +72,7 @@ type CheckConfiguration struct {
 	DeviceCertificateAgeCheck *bool `field:"optional" json:"deviceCertificateAgeCheck" yaml:"deviceCertificateAgeCheck"`
 	// The duration used to check if a device certificate has been active for a number of days greater than or equal to the number you specify.
 	//
-	// Valid values range from 30 days (minimum) to 3650 days (10 years, maximum).
+	// Valid values range from 30 days (minimum) to 3652 days (10 years, maximum).
 	//
 	// You cannot specify a value for this check if `deviceCertificateAgeCheck` is set to `false`.
 	// Default: - 365 days.

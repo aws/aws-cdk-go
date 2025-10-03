@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnMap) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
-func validateCfnMap_FromMapArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnMap_FromMapNameParameters(scope constructs.Construct, id *string, mapName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if mapName == nil {
-		return fmt.Errorf("parameter mapName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnMap_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

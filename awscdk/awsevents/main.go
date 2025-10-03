@@ -840,7 +840,6 @@ func init() {
 		"aws-cdk-lib.aws_events.IApiDestinationRef",
 		reflect.TypeOf((*IApiDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "apiDestinationRef", GoGetter: "ApiDestinationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -853,7 +852,6 @@ func init() {
 		"aws-cdk-lib.aws_events.IArchiveRef",
 		reflect.TypeOf((*IArchiveRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "archiveRef", GoGetter: "ArchiveRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -884,7 +882,6 @@ func init() {
 		"aws-cdk-lib.aws_events.IConnectionRef",
 		reflect.TypeOf((*IConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectionRef", GoGetter: "ConnectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -897,7 +894,6 @@ func init() {
 		"aws-cdk-lib.aws_events.IEndpointRef",
 		reflect.TypeOf((*IEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointRef", GoGetter: "EndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -931,7 +927,6 @@ func init() {
 		"aws-cdk-lib.aws_events.IEventBusPolicyRef",
 		reflect.TypeOf((*IEventBusPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventBusPolicyRef", GoGetter: "EventBusPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -944,7 +939,6 @@ func init() {
 		"aws-cdk-lib.aws_events.IEventBusRef",
 		reflect.TypeOf((*IEventBusRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventBusRef", GoGetter: "EventBusRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -975,7 +969,6 @@ func init() {
 		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleRef{}
@@ -992,28 +985,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_IRuleTarget{}
 		},
-	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_events.IncludeDetail",
-		reflect.TypeOf((*IncludeDetail)(nil)).Elem(),
-		map[string]interface{}{
-			"FULL": IncludeDetail_FULL,
-			"NONE": IncludeDetail_NONE,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_events.Level",
-		reflect.TypeOf((*Level)(nil)).Elem(),
-		map[string]interface{}{
-			"INFO": Level_INFO,
-			"ERROR": Level_ERROR,
-			"TRACE": Level_TRACE,
-			"OFF": Level_OFF,
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.LogConfig",
-		reflect.TypeOf((*LogConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.Match",

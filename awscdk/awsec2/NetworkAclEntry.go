@@ -46,7 +46,6 @@ type NetworkAclEntry interface {
 	Env() *awscdk.ResourceEnvironment
 	// The network ACL.
 	NetworkAcl() INetworkAcl
-	// A reference to a NetworkAclEntry resource.
 	NetworkAclEntryRef() *NetworkAclEntryReference
 	// The tree node.
 	Node() constructs.Node

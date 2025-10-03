@@ -80,7 +80,6 @@ func init() {
 		"aws-cdk-lib.aws_codestar.IGitHubRepositoryRef",
 		reflect.TypeOf((*IGitHubRepositoryRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "gitHubRepositoryRef", GoGetter: "GitHubRepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -558,7 +558,6 @@ func init() {
 		"aws-cdk-lib.aws_networkfirewall.IFirewallPolicyRef",
 		reflect.TypeOf((*IFirewallPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "firewallPolicyRef", GoGetter: "FirewallPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -571,7 +570,6 @@ func init() {
 		"aws-cdk-lib.aws_networkfirewall.IFirewallRef",
 		reflect.TypeOf((*IFirewallRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "firewallRef", GoGetter: "FirewallRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -584,7 +582,6 @@ func init() {
 		"aws-cdk-lib.aws_networkfirewall.ILoggingConfigurationRef",
 		reflect.TypeOf((*ILoggingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "loggingConfigurationRef", GoGetter: "LoggingConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -598,7 +595,6 @@ func init() {
 		reflect.TypeOf((*IRuleGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "ruleGroupRef", GoGetter: "RuleGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleGroupRef{}
@@ -611,7 +607,6 @@ func init() {
 		reflect.TypeOf((*ITLSInspectionConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tlsInspectionConfigurationRef", GoGetter: "TlsInspectionConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITLSInspectionConfigurationRef{}
@@ -624,7 +619,6 @@ func init() {
 		reflect.TypeOf((*IVpcEndpointAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointAssociationRef", GoGetter: "VpcEndpointAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcEndpointAssociationRef{}

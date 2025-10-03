@@ -50,9 +50,13 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html
 //
 type CfnComputationModelProps struct {
+	// The configuration for the computation model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html#cfn-iotsitewise-computationmodel-computationmodelconfiguration
 	//
 	ComputationModelConfiguration interface{} `field:"required" json:"computationModelConfiguration" yaml:"computationModelConfiguration"`
+	// The data binding for the computation model.
+	//
+	// Key is a variable name defined in configuration. Value is a `ComputationModelDataBindingValue` referenced by the variable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html#cfn-iotsitewise-computationmodel-computationmodeldatabinding
 	//
 	ComputationModelDataBinding interface{} `field:"required" json:"computationModelDataBinding" yaml:"computationModelDataBinding"`
@@ -60,11 +64,13 @@ type CfnComputationModelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html#cfn-iotsitewise-computationmodel-computationmodelname
 	//
 	ComputationModelName *string `field:"required" json:"computationModelName" yaml:"computationModelName"`
-	// A description about the computation model.
+	// The description of the computation model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html#cfn-iotsitewise-computationmodel-computationmodeldescription
 	//
 	ComputationModelDescription *string `field:"optional" json:"computationModelDescription" yaml:"computationModelDescription"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs that contain metadata for the asset.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html#cfn-iotsitewise-computationmodel-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

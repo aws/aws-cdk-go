@@ -56,7 +56,6 @@ import (
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ManageMasterUserPassword: jsii.Boolean(false),
-//   	MasterUserAuthenticationType: jsii.String("masterUserAuthenticationType"),
 //   	MasterUsername: jsii.String("masterUsername"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MasterUserSecret: &MasterUserSecretProperty{
@@ -486,21 +485,6 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-managemasteruserpassword
 	//
 	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
-	// Specifies the authentication type for the master user.
-	//
-	// With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
-	//
-	// You can specify one of the following values:
-	//
-	// - `password` - Use standard database authentication with a password.
-	// - `iam-db-auth` - Use IAM database authentication for the master user.
-	//
-	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-	//
-	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserauthenticationtype
-	//
-	MasterUserAuthenticationType *string `field:"optional" json:"masterUserAuthenticationType" yaml:"masterUserAuthenticationType"`
 	// The name of the master user for the DB cluster.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.

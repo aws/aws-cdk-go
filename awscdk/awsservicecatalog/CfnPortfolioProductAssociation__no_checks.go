@@ -80,6 +80,14 @@ func validateCfnPortfolioProductAssociation_IsConstructParameters(x interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnPortfolioProductAssociation) validateSetPortfolioIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPortfolioProductAssociation) validateSetProductIdParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnPortfolioProductAssociationParameters(scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) error {
 	return nil
 }

@@ -503,44 +503,6 @@ func (j *jsiiProxy_CfnProfilingGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IProfilingGroupRef from an ARN.
-func CfnProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, arn *string) IProfilingGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnProfilingGroup_FromProfilingGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IProfilingGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
-		"fromProfilingGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IProfilingGroupRef from a profilingGroupName.
-func CfnProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *string, profilingGroupName *string) IProfilingGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnProfilingGroup_FromProfilingGroupNameParameters(scope, id, profilingGroupName); err != nil {
-		panic(err)
-	}
-	var returns IProfilingGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
-		"fromProfilingGroupName",
-		[]interface{}{scope, id, profilingGroupName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

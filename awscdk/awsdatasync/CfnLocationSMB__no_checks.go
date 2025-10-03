@@ -84,14 +84,6 @@ func (j *jsiiProxy_CfnLocationSMB) validateSetAgentArnsParameters(val *[]*string
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationSMB) validateSetCmkSecretConfigParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationSMB) validateSetCustomSecretConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLocationSMB) validateSetMountOptionsParameters(val interface{}) error {
 	return nil
 }

@@ -103,7 +103,6 @@ type CachePolicy interface {
 	ICachePolicy
 	// The ID of the cache policy.
 	CachePolicyId() *string
-	// A reference to a CachePolicy resource.
 	CachePolicyRef() *CachePolicyReference
 	// The environment this resource belongs to.
 	//

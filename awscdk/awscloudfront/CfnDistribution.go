@@ -509,25 +509,6 @@ func (j *jsiiProxy_CfnDistribution)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDistributionRef from a distributionId.
-func CfnDistribution_FromDistributionId(scope constructs.Construct, id *string, distributionId *string) IDistributionRef {
-	_init_.Initialize()
-
-	if err := validateCfnDistribution_FromDistributionIdParameters(scope, id, distributionId); err != nil {
-		panic(err)
-	}
-	var returns IDistributionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CfnDistribution",
-		"fromDistributionId",
-		[]interface{}{scope, id, distributionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

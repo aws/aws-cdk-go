@@ -1101,44 +1101,6 @@ func (j *jsiiProxy_CfnEnvironment)SetWorkerReplacementStrategy(val *string) {
 	)
 }
 
-// Creates a new IEnvironmentRef from an ARN.
-func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) IEnvironmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnEnvironment_FromEnvironmentArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IEnvironmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
-		"fromEnvironmentArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IEnvironmentRef from a environmentName.
-func CfnEnvironment_FromEnvironmentName(scope constructs.Construct, id *string, environmentName *string) IEnvironmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnEnvironment_FromEnvironmentNameParameters(scope, id, environmentName); err != nil {
-		panic(err)
-	}
-	var returns IEnvironmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
-		"fromEnvironmentName",
-		[]interface{}{scope, id, environmentName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

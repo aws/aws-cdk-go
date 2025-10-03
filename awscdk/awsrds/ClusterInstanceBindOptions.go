@@ -14,12 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var roleRef iRoleRef
+//   var role role
 //   var subnetGroup subnetGroup
 //
 //   clusterInstanceBindOptions := &ClusterInstanceBindOptions{
 //   	MonitoringInterval: cdk.Duration_Minutes(jsii.Number(30)),
-//   	MonitoringRole: roleRef,
+//   	MonitoringRole: role,
 //   	PromotionTier: jsii.Number(123),
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	SubnetGroup: subnetGroup,
@@ -33,7 +33,7 @@ type ClusterInstanceBindOptions struct {
 	// Role that will be used to manage DB instances monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// The promotion tier of the cluster instance.
 	//
 	// This matters more for serverlessV2 instances. If a serverless

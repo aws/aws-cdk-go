@@ -586,25 +586,6 @@ func (j *jsiiProxy_CfnNatGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new INatGatewayRef from a natGatewayId.
-func CfnNatGateway_FromNatGatewayId(scope constructs.Construct, id *string, natGatewayId *string) INatGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnNatGateway_FromNatGatewayIdParameters(scope, id, natGatewayId); err != nil {
-		panic(err)
-	}
-	var returns INatGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnNatGateway",
-		"fromNatGatewayId",
-		[]interface{}{scope, id, natGatewayId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -36,10 +36,6 @@ type CfnOwner interface {
 	awscdk.CfnResource
 	IOwnerRef
 	awscdk.IInspectable
-	// The ID of the entity to which you want to add an owner.
-	AttrOwnerIdentifier() *string
-	// The owner that you want to add to the entity.
-	AttrOwnerType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -229,26 +225,6 @@ type jsiiProxy_CfnOwner struct {
 	internal.Type__awscdkCfnResource
 	jsiiProxy_IOwnerRef
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnOwner) AttrOwnerIdentifier() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrOwnerIdentifier",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnOwner) AttrOwnerType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrOwnerType",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnOwner) CfnOptions() awscdk.ICfnResourceOptions {

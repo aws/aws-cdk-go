@@ -41,16 +41,6 @@ func (j *jsiiProxy_IGatewayResponse) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IGatewayResponse) GatewayResponseRef() *GatewayResponseReference {
-	var returns *GatewayResponseReference
-	_jsii_.Get(
-		j,
-		"gatewayResponseRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IGatewayResponse) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

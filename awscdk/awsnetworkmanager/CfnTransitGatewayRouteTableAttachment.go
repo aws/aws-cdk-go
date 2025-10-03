@@ -73,8 +73,6 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	AttrCreatedAt() *string
 	// The Region where the core network edge is located.
 	AttrEdgeLocation() *string
-	// Errors from the last modification of the attachment.
-	AttrLastModificationErrors() *[]*string
 	// The ID of the transit gateway route table attachment owner.
 	AttrOwnerAccountId() *string
 	// The resource ARN for the transit gateway route table attachment.
@@ -352,16 +350,6 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) AttrEdgeLocation() *st
 	_jsii_.Get(
 		j,
 		"attrEdgeLocation",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) AttrLastModificationErrors() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns

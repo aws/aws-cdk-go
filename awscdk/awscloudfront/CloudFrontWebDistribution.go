@@ -77,7 +77,6 @@ type CloudFrontWebDistribution interface {
 	// The distribution ID for this distribution.
 	// Deprecated: Use `Distribution` instead.
 	DistributionId() *string
-	// A reference to a Distribution resource.
 	// Deprecated: Use `Distribution` instead.
 	DistributionRef() *DistributionReference
 	// The environment this resource belongs to.

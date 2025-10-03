@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnFlowLog) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnFlowLog_FromFlowLogIdParameters(scope constructs.Construct, id *string, flowLogId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if flowLogId == nil {
-		return fmt.Errorf("parameter flowLogId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnFlowLog_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

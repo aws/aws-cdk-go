@@ -37,7 +37,6 @@ type InstanceProfile interface {
 	InstanceProfileArn() *string
 	// Returns the name of this InstanceProfile.
 	InstanceProfileName() *string
-	// A reference to a InstanceProfile resource.
 	InstanceProfileRef() *InstanceProfileReference
 	// The tree node.
 	Node() constructs.Node

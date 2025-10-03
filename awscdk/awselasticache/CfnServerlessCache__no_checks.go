@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnServerlessCache) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
-func validateCfnServerlessCache_FromServerlessCacheNameParameters(scope constructs.Construct, id *string, serverlessCacheName *string) error {
-	return nil
-}
-
 func validateCfnServerlessCache_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

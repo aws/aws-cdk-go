@@ -66,16 +66,6 @@ func (j *jsiiProxy_IDomainName) DomainNameAliasHostedZoneId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IDomainName) DomainNameRef() *DomainNameReference {
-	var returns *DomainNameReference
-	_jsii_.Get(
-		j,
-		"domainNameRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IDomainName) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(

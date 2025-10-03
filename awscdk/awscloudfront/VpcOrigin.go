@@ -64,8 +64,6 @@ type VpcOrigin interface {
 	VpcOriginArn() *string
 	// The VPC origin ID.
 	VpcOriginId() *string
-	// A reference to a VpcOrigin resource.
-	VpcOriginRef() *VpcOriginReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -176,16 +174,6 @@ func (j *jsiiProxy_VpcOrigin) VpcOriginId() *string {
 	_jsii_.Get(
 		j,
 		"vpcOriginId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_VpcOrigin) VpcOriginRef() *VpcOriginReference {
-	var returns *VpcOriginReference
-	_jsii_.Get(
-		j,
-		"vpcOriginRef",
 		&returns,
 	)
 	return returns

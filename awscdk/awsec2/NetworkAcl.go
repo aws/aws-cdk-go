@@ -58,7 +58,6 @@ type NetworkAcl interface {
 	Env() *awscdk.ResourceEnvironment
 	// The ID of the NetworkACL.
 	NetworkAclId() *string
-	// A reference to a NetworkAcl resource.
 	NetworkAclRef() *NetworkAclReference
 	// The VPC ID for this NetworkACL.
 	NetworkAclVpcId() *string

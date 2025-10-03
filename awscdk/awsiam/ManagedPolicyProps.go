@@ -80,7 +80,7 @@ type ManagedPolicyProps struct {
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
 	// Default: - No groups.
 	//
-	Groups *[]IGroupRef `field:"optional" json:"groups" yaml:"groups"`
+	Groups *[]IGroup `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the managed policy.
 	//
 	// If you specify multiple policies for an entity,

@@ -238,16 +238,6 @@ func (j *jsiiProxy_IAlias) AliasTargetKey() IKey {
 	return returns
 }
 
-func (j *jsiiProxy_IAlias) AliasRef() *AliasReference {
-	var returns *AliasReference
-	_jsii_.Get(
-		j,
-		"aliasRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IAlias) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
@@ -273,16 +263,6 @@ func (j *jsiiProxy_IAlias) KeyId() *string {
 	_jsii_.Get(
 		j,
 		"keyId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IAlias) KeyRef() *KeyReference {
-	var returns *KeyReference
-	_jsii_.Get(
-		j,
-		"keyRef",
 		&returns,
 	)
 	return returns

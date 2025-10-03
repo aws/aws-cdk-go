@@ -735,44 +735,6 @@ func (j *jsiiProxy_CfnMonitor)SetTrafficPercentageToMonitor(val *float64) {
 	)
 }
 
-// Creates a new IMonitorRef from an ARN.
-func CfnMonitor_FromMonitorArn(scope constructs.Construct, id *string, arn *string) IMonitorRef {
-	_init_.Initialize()
-
-	if err := validateCfnMonitor_FromMonitorArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IMonitorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",
-		"fromMonitorArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IMonitorRef from a monitorName.
-func CfnMonitor_FromMonitorName(scope constructs.Construct, id *string, monitorName *string) IMonitorRef {
-	_init_.Initialize()
-
-	if err := validateCfnMonitor_FromMonitorNameParameters(scope, id, monitorName); err != nil {
-		panic(err)
-	}
-	var returns IMonitorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_internetmonitor.CfnMonitor",
-		"fromMonitorName",
-		[]interface{}{scope, id, monitorName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

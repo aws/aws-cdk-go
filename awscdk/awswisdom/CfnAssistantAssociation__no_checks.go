@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnAssistantAssociation) validateValidatePropertiesParameters
 	return nil
 }
 
-func validateCfnAssistantAssociation_FromAssistantAssociationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnAssistantAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

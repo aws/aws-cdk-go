@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnSimulation) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
-func validateCfnSimulation_FromSimulationNameParameters(scope constructs.Construct, id *string, simulationName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if simulationName == nil {
-		return fmt.Errorf("parameter simulationName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnSimulation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

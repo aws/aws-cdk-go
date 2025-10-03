@@ -41,7 +41,7 @@ import (
 type CfnDomainNameProps struct {
 	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.
 	//
-	// Certificate Manager is the only supported source.
+	// AWS Certificate Manager is the only supported source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
@@ -67,7 +67,7 @@ type CfnDomainNameProps struct {
 	OwnershipVerificationCertificateArn *string `field:"optional" json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
 	// The reference to an AWS -managed certificate that will be used for validating the regional domain name.
 	//
-	// Certificate Manager is the only supported source.
+	// AWS Certificate Manager is the only supported source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 	//
 	RegionalCertificateArn *string `field:"optional" json:"regionalCertificateArn" yaml:"regionalCertificateArn"`

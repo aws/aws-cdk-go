@@ -395,25 +395,6 @@ func (j *jsiiProxy_CfnDashboard)SetDashboardName(val *string) {
 	)
 }
 
-// Creates a new IDashboardRef from a dashboardName.
-func CfnDashboard_FromDashboardName(scope constructs.Construct, id *string, dashboardName *string) IDashboardRef {
-	_init_.Initialize()
-
-	if err := validateCfnDashboard_FromDashboardNameParameters(scope, id, dashboardName); err != nil {
-		panic(err)
-	}
-	var returns IDashboardRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.CfnDashboard",
-		"fromDashboardName",
-		[]interface{}{scope, id, dashboardName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

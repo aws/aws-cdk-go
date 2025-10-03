@@ -237,7 +237,6 @@ func init() {
 		"aws-cdk-lib.aws_cassandra.IKeyspaceRef",
 		reflect.TypeOf((*IKeyspaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "keyspaceRef", GoGetter: "KeyspaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -251,7 +250,6 @@ func init() {
 		reflect.TypeOf((*ITableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableRef{}
@@ -264,7 +262,6 @@ func init() {
 		reflect.TypeOf((*ITypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "typeRef", GoGetter: "TypeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITypeRef{}

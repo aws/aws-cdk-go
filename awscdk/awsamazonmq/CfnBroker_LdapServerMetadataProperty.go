@@ -16,6 +16,7 @@ package awsamazonmq
 //   	},
 //   	RoleBase: jsii.String("roleBase"),
 //   	RoleSearchMatching: jsii.String("roleSearchMatching"),
+//   	ServiceAccountPassword: jsii.String("serviceAccountPassword"),
 //   	ServiceAccountUsername: jsii.String("serviceAccountUsername"),
 //   	UserBase: jsii.String("userBase"),
 //   	UserSearchMatching: jsii.String("userSearchMatching"),
@@ -23,7 +24,6 @@ package awsamazonmq
 //   	// the properties below are optional
 //   	RoleName: jsii.String("roleName"),
 //   	RoleSearchSubtree: jsii.Boolean(false),
-//   	ServiceAccountPassword: jsii.String("serviceAccountPassword"),
 //   	UserRoleName: jsii.String("userRoleName"),
 //   	UserSearchSubtree: jsii.Boolean(false),
 //   }
@@ -49,6 +49,12 @@ type CfnBroker_LdapServerMetadataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchmatching
 	//
 	RoleSearchMatching *string `field:"required" json:"roleSearchMatching" yaml:"roleSearchMatching"`
+	// Service account password.
+	//
+	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
+	//
+	ServiceAccountPassword *string `field:"required" json:"serviceAccountPassword" yaml:"serviceAccountPassword"`
 	// Service account username.
 	//
 	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
@@ -79,12 +85,6 @@ type CfnBroker_LdapServerMetadataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree
 	//
 	RoleSearchSubtree interface{} `field:"optional" json:"roleSearchSubtree" yaml:"roleSearchSubtree"`
-	// Service account password.
-	//
-	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword
-	//
-	ServiceAccountPassword *string `field:"optional" json:"serviceAccountPassword" yaml:"serviceAccountPassword"`
 	// The name of the LDAP attribute in the user's directory entry for the user's group membership.
 	//
 	// In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.

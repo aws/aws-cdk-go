@@ -516,25 +516,6 @@ func (j *jsiiProxy_CfnTransitGatewayConnectPeer)SetTransitGatewayAttachmentId(va
 	)
 }
 
-// Creates a new ITransitGatewayConnectPeerRef from a transitGatewayConnectPeerId.
-func CfnTransitGatewayConnectPeer_FromTransitGatewayConnectPeerId(scope constructs.Construct, id *string, transitGatewayConnectPeerId *string) ITransitGatewayConnectPeerRef {
-	_init_.Initialize()
-
-	if err := validateCfnTransitGatewayConnectPeer_FromTransitGatewayConnectPeerIdParameters(scope, id, transitGatewayConnectPeerId); err != nil {
-		panic(err)
-	}
-	var returns ITransitGatewayConnectPeerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnectPeer",
-		"fromTransitGatewayConnectPeerId",
-		[]interface{}{scope, id, transitGatewayConnectPeerId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

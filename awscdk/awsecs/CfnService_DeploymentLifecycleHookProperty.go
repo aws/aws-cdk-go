@@ -12,17 +12,12 @@ package awsecs
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var hookDetails interface{}
-//
 //   deploymentLifecycleHookProperty := &DeploymentLifecycleHookProperty{
 //   	HookTargetArn: jsii.String("hookTargetArn"),
 //   	LifecycleStages: []*string{
 //   		jsii.String("lifecycleStages"),
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
-//
-//   	// the properties below are optional
-//   	HookDetails: hookDetails,
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html
@@ -82,11 +77,5 @@ type CfnService_DeploymentLifecycleHookProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-	//
-	// This field must be a JSON object as a string.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-hookdetails
-	//
-	HookDetails interface{} `field:"optional" json:"hookDetails" yaml:"hookDetails"`
 }
 

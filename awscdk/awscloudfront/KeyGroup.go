@@ -22,7 +22,7 @@ import (
 //   })
 //
 //   keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-//   	Items: []iPublicKeyRef{
+//   	Items: []iPublicKey{
 //   		pubKey,
 //   	},
 //   })
@@ -30,7 +30,7 @@ import (
 //   cloudfront.NewDistribution(this, jsii.String("Dist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-//   		TrustedKeyGroups: []iKeyGroupRef{
+//   		TrustedKeyGroups: []iKeyGroup{
 //   			keyGroup,
 //   		},
 //   	},
@@ -50,7 +50,6 @@ type KeyGroup interface {
 	Env() *awscdk.ResourceEnvironment
 	// The ID of the key group.
 	KeyGroupId() *string
-	// A reference to a KeyGroup resource.
 	KeyGroupRef() *KeyGroupReference
 	// The tree node.
 	Node() constructs.Node

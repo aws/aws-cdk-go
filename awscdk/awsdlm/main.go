@@ -159,7 +159,6 @@ func init() {
 		"aws-cdk-lib.aws_dlm.ILifecyclePolicyRef",
 		reflect.TypeOf((*ILifecyclePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyRef", GoGetter: "LifecyclePolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

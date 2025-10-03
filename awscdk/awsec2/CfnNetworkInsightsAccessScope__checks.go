@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScope) validateValidatePropertiesPara
 	return nil
 }
 
-func validateCfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeIdParameters(scope constructs.Construct, id *string, networkInsightsAccessScopeId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if networkInsightsAccessScopeId == nil {
-		return fmt.Errorf("parameter networkInsightsAccessScopeId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnNetworkInsightsAccessScope_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

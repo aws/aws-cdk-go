@@ -2889,20 +2889,12 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_DataPointTooltipOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataQAEnabledOptionProperty",
-		reflect.TypeOf((*CfnDashboard_DataQAEnabledOptionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataSetIdentifierDeclarationProperty",
 		reflect.TypeOf((*CfnDashboard_DataSetIdentifierDeclarationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataSetReferenceProperty",
 		reflect.TypeOf((*CfnDashboard_DataSetReferenceProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataStoriesSharingOptionProperty",
-		reflect.TypeOf((*CfnDashboard_DataStoriesSharingOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DateAxisOptionsProperty",
@@ -3063,10 +3055,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ExcludePeriodConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_ExcludePeriodConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.ExecutiveSummaryOptionProperty",
-		reflect.TypeOf((*CfnDashboard_ExecutiveSummaryOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ExplicitHierarchyProperty",
@@ -7864,7 +7852,6 @@ func init() {
 		"aws-cdk-lib.aws_quicksight.IAnalysisRef",
 		reflect.TypeOf((*IAnalysisRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "analysisRef", GoGetter: "AnalysisRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7877,7 +7864,6 @@ func init() {
 		"aws-cdk-lib.aws_quicksight.ICustomPermissionsRef",
 		reflect.TypeOf((*ICustomPermissionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customPermissionsRef", GoGetter: "CustomPermissionsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7890,7 +7876,6 @@ func init() {
 		"aws-cdk-lib.aws_quicksight.IDashboardRef",
 		reflect.TypeOf((*IDashboardRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dashboardRef", GoGetter: "DashboardRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7903,7 +7888,6 @@ func init() {
 		"aws-cdk-lib.aws_quicksight.IDataSetRef",
 		reflect.TypeOf((*IDataSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataSetRef", GoGetter: "DataSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7916,7 +7900,6 @@ func init() {
 		"aws-cdk-lib.aws_quicksight.IDataSourceRef",
 		reflect.TypeOf((*IDataSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataSourceRef", GoGetter: "DataSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7929,7 +7912,6 @@ func init() {
 		"aws-cdk-lib.aws_quicksight.IFolderRef",
 		reflect.TypeOf((*IFolderRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "folderRef", GoGetter: "FolderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7943,7 +7925,6 @@ func init() {
 		reflect.TypeOf((*IRefreshScheduleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "refreshScheduleRef", GoGetter: "RefreshScheduleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRefreshScheduleRef{}
@@ -7956,7 +7937,6 @@ func init() {
 		reflect.TypeOf((*ITemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateRef", GoGetter: "TemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITemplateRef{}
@@ -7969,7 +7949,6 @@ func init() {
 		reflect.TypeOf((*IThemeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "themeRef", GoGetter: "ThemeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThemeRef{}
@@ -7982,7 +7961,6 @@ func init() {
 		reflect.TypeOf((*ITopicRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopicRef{}
@@ -7995,7 +7973,6 @@ func init() {
 		reflect.TypeOf((*IVPCConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcConnectionRef", GoGetter: "VpcConnectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCConnectionRef{}

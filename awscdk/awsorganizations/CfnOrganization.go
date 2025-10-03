@@ -448,25 +448,6 @@ func (j *jsiiProxy_CfnOrganization)SetFeatureSet(val *string) {
 	)
 }
 
-// Creates a new IOrganizationRef from an ARN.
-func CfnOrganization_FromOrganizationArn(scope constructs.Construct, id *string, arn *string) IOrganizationRef {
-	_init_.Initialize()
-
-	if err := validateCfnOrganization_FromOrganizationArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IOrganizationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_organizations.CfnOrganization",
-		"fromOrganizationArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

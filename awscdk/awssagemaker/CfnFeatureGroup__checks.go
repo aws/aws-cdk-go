@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnFeatureGroup) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
-func validateCfnFeatureGroup_FromFeatureGroupNameParameters(scope constructs.Construct, id *string, featureGroupName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if featureGroupName == nil {
-		return fmt.Errorf("parameter featureGroupName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnFeatureGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

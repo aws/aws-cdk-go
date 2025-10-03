@@ -31,6 +31,6 @@ type ManagedStorageConfiguration struct {
 	//
 	// Default: - Encrypted using AWS-managed key.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

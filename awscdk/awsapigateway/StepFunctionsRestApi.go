@@ -68,7 +68,6 @@ type StepFunctionsRestApi interface {
 	//
 	// Note that this is different from `restApiId`.
 	RestApiName() *string
-	// A reference to a RestApi resource.
 	RestApiRef() *RestApiReference
 	// The resource ID of the root resource.
 	RestApiRootResourceId() *string

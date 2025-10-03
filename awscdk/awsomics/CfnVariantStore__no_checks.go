@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnVariantStore) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
-func validateCfnVariantStore_FromVariantStoreNameParameters(scope constructs.Construct, id *string, variantStoreName *string) error {
-	return nil
-}
-
 func validateCfnVariantStore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

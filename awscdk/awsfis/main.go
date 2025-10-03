@@ -179,7 +179,6 @@ func init() {
 		"aws-cdk-lib.aws_fis.IExperimentTemplateRef",
 		reflect.TypeOf((*IExperimentTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "experimentTemplateRef", GoGetter: "ExperimentTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -193,7 +192,6 @@ func init() {
 		reflect.TypeOf((*ITargetAccountConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "targetAccountConfigurationRef", GoGetter: "TargetAccountConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITargetAccountConfigurationRef{}

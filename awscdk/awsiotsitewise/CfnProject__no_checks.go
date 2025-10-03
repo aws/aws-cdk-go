@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnProject) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnProject_FromProjectArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnProject_FromProjectIdParameters(scope constructs.Construct, id *string, projectId *string) error {
-	return nil
-}
-
 func validateCfnProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

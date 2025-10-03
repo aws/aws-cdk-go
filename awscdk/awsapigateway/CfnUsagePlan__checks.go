@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnUsagePlan) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnUsagePlan_FromUsagePlanIdParameters(scope constructs.Construct, id *string, usagePlanId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if usagePlanId == nil {
-		return fmt.Errorf("parameter usagePlanId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnUsagePlan_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

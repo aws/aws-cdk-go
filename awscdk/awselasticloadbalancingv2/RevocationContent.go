@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucketRef iBucketRef
+//   var bucket bucket
 //
 //   revocationContent := &RevocationContent{
-//   	Bucket: bucketRef,
+//   	Bucket: bucket,
 //   	Key: jsii.String("key"),
 //
 //   	// the properties below are optional
@@ -25,7 +25,7 @@ import (
 //
 type RevocationContent struct {
 	// The Amazon S3 bucket for the revocation file.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The Amazon S3 path for the revocation file.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The type of revocation file.

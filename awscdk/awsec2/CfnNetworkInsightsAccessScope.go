@@ -650,44 +650,6 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope)SetTagsRaw(val *[]*awscdk.CfnTa
 	)
 }
 
-// Creates a new INetworkInsightsAccessScopeRef from an ARN.
-func CfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeArn(scope constructs.Construct, id *string, arn *string) INetworkInsightsAccessScopeRef {
-	_init_.Initialize()
-
-	if err := validateCfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns INetworkInsightsAccessScopeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope",
-		"fromNetworkInsightsAccessScopeArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new INetworkInsightsAccessScopeRef from a networkInsightsAccessScopeId.
-func CfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeId(scope constructs.Construct, id *string, networkInsightsAccessScopeId *string) INetworkInsightsAccessScopeRef {
-	_init_.Initialize()
-
-	if err := validateCfnNetworkInsightsAccessScope_FromNetworkInsightsAccessScopeIdParameters(scope, id, networkInsightsAccessScopeId); err != nil {
-		panic(err)
-	}
-	var returns INetworkInsightsAccessScopeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope",
-		"fromNetworkInsightsAccessScopeId",
-		[]interface{}{scope, id, networkInsightsAccessScopeId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

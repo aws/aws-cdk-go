@@ -563,44 +563,6 @@ func (j *jsiiProxy_CfnMultiplex)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IMultiplexRef from an ARN.
-func CfnMultiplex_FromMultiplexArn(scope constructs.Construct, id *string, arn *string) IMultiplexRef {
-	_init_.Initialize()
-
-	if err := validateCfnMultiplex_FromMultiplexArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IMultiplexRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnMultiplex",
-		"fromMultiplexArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IMultiplexRef from a multiplexId.
-func CfnMultiplex_FromMultiplexId(scope constructs.Construct, id *string, multiplexId *string) IMultiplexRef {
-	_init_.Initialize()
-
-	if err := validateCfnMultiplex_FromMultiplexIdParameters(scope, id, multiplexId); err != nil {
-		panic(err)
-	}
-	var returns IMultiplexRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnMultiplex",
-		"fromMultiplexId",
-		[]interface{}{scope, id, multiplexId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

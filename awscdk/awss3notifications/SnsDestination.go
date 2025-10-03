@@ -24,7 +24,7 @@ type SnsDestination interface {
 	// This method will only be called once for each destination/bucket
 	// pair and the result will be cached, so there is no need to implement
 	// idempotency in each destination.
-	Bind(scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig
+	Bind(scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for SnsDestination
@@ -59,7 +59,7 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 	)
 }
 
-func (s *jsiiProxy_SnsDestination) Bind(scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig {
+func (s *jsiiProxy_SnsDestination) Bind(scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	if err := s.validateBindParameters(scope, bucket); err != nil {
 		panic(err)
 	}

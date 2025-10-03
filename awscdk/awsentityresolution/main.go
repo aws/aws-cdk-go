@@ -405,7 +405,6 @@ func init() {
 		"aws-cdk-lib.aws_entityresolution.IIdMappingWorkflowRef",
 		reflect.TypeOf((*IIdMappingWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "idMappingWorkflowRef", GoGetter: "IdMappingWorkflowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -418,7 +417,6 @@ func init() {
 		"aws-cdk-lib.aws_entityresolution.IIdNamespaceRef",
 		reflect.TypeOf((*IIdNamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "idNamespaceRef", GoGetter: "IdNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -431,7 +429,6 @@ func init() {
 		"aws-cdk-lib.aws_entityresolution.IMatchingWorkflowRef",
 		reflect.TypeOf((*IMatchingWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "matchingWorkflowRef", GoGetter: "MatchingWorkflowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -445,7 +442,6 @@ func init() {
 		reflect.TypeOf((*IPolicyStatementRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyStatementRef", GoGetter: "PolicyStatementRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyStatementRef{}
@@ -458,7 +454,6 @@ func init() {
 		reflect.TypeOf((*ISchemaMappingRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schemaMappingRef", GoGetter: "SchemaMappingRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchemaMappingRef{}

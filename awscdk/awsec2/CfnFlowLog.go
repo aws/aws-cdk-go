@@ -656,25 +656,6 @@ func (j *jsiiProxy_CfnFlowLog)SetTrafficType(val *string) {
 	)
 }
 
-// Creates a new IFlowLogRef from a flowLogId.
-func CfnFlowLog_FromFlowLogId(scope constructs.Construct, id *string, flowLogId *string) IFlowLogRef {
-	_init_.Initialize()
-
-	if err := validateCfnFlowLog_FromFlowLogIdParameters(scope, id, flowLogId); err != nil {
-		panic(err)
-	}
-	var returns IFlowLogRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
-		"fromFlowLogId",
-		[]interface{}{scope, id, flowLogId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

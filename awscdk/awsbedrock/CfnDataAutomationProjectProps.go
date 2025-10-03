@@ -69,16 +69,6 @@ import (
 //   					State: jsii.String("state"),
 //
 //   					// the properties below are optional
-//   					TypeConfiguration: &AudioExtractionCategoryTypeConfigurationProperty{
-//   						Transcript: &TranscriptConfigurationProperty{
-//   							ChannelLabeling: &ChannelLabelingConfigurationProperty{
-//   								State: jsii.String("state"),
-//   							},
-//   							SpeakerLabeling: &SpeakerLabelingConfigurationProperty{
-//   								State: jsii.String("state"),
-//   							},
-//   						},
-//   					},
 //   					Types: []*string{
 //   						jsii.String("types"),
 //   					},

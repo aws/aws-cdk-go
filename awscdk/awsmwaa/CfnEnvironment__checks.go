@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnEnvironment) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnEnvironment_FromEnvironmentArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnEnvironment_FromEnvironmentNameParameters(scope constructs.Construct, id *string, environmentName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if environmentName == nil {
-		return fmt.Errorf("parameter environmentName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnEnvironment_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -195,7 +195,6 @@ func init() {
 		"aws-cdk-lib.aws_controltower.IEnabledBaselineRef",
 		reflect.TypeOf((*IEnabledBaselineRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "enabledBaselineRef", GoGetter: "EnabledBaselineRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -208,7 +207,6 @@ func init() {
 		"aws-cdk-lib.aws_controltower.IEnabledControlRef",
 		reflect.TypeOf((*IEnabledControlRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "enabledControlRef", GoGetter: "EnabledControlRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -221,7 +219,6 @@ func init() {
 		"aws-cdk-lib.aws_controltower.ILandingZoneRef",
 		reflect.TypeOf((*ILandingZoneRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "landingZoneRef", GoGetter: "LandingZoneRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTable) validateValidatePropertiesParame
 	return nil
 }
 
-func validateCfnTransitGatewayRouteTable_FromTransitGatewayRouteTableIdParameters(scope constructs.Construct, id *string, transitGatewayRouteTableId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if transitGatewayRouteTableId == nil {
-		return fmt.Errorf("parameter transitGatewayRouteTableId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnTransitGatewayRouteTable_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

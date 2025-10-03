@@ -1384,25 +1384,6 @@ func (j *jsiiProxy_CfnEndpoint)SetUsername(val *string) {
 	)
 }
 
-// Creates a new IEndpointRef from a endpointId.
-func CfnEndpoint_FromEndpointId(scope constructs.Construct, id *string, endpointId *string) IEndpointRef {
-	_init_.Initialize()
-
-	if err := validateCfnEndpoint_FromEndpointIdParameters(scope, id, endpointId); err != nil {
-		panic(err)
-	}
-	var returns IEndpointRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
-		"fromEndpointId",
-		[]interface{}{scope, id, endpointId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

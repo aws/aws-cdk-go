@@ -517,25 +517,6 @@ func (j *jsiiProxy_CfnDetectorModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDetectorModelRef from a detectorModelName.
-func CfnDetectorModel_FromDetectorModelName(scope constructs.Construct, id *string, detectorModelName *string) IDetectorModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnDetectorModel_FromDetectorModelNameParameters(scope, id, detectorModelName); err != nil {
-		panic(err)
-	}
-	var returns IDetectorModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotevents.CfnDetectorModel",
-		"fromDetectorModelName",
-		[]interface{}{scope, id, detectorModelName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

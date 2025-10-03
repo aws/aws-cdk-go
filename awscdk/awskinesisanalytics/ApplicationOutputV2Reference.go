@@ -12,10 +12,8 @@ package awskinesisanalytics
 //   	ApplicationOutputId: jsii.String("applicationOutputId"),
 //   }
 //
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type ApplicationOutputV2Reference struct {
 	// The Id of the ApplicationOutput resource.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationOutputId *string `field:"required" json:"applicationOutputId" yaml:"applicationOutputId"`
 }
 

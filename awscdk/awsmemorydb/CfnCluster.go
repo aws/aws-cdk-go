@@ -1093,25 +1093,6 @@ func (j *jsiiProxy_CfnCluster)SetTlsEnabled(val interface{}) {
 	)
 }
 
-// Creates a new IClusterRef from a clusterName.
-func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) IClusterRef {
-	_init_.Initialize()
-
-	if err := validateCfnCluster_FromClusterNameParameters(scope, id, clusterName); err != nil {
-		panic(err)
-	}
-	var returns IClusterRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_memorydb.CfnCluster",
-		"fromClusterName",
-		[]interface{}{scope, id, clusterName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

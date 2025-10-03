@@ -34,7 +34,7 @@ type EndpointConfigProps struct {
 	// Default: - none.
 	//
 	// Experimental.
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the endpoint configuration.
 	// Default: - AWS CloudFormation generates a unique physical ID and uses that ID for the endpoint
 	// configuration's name.

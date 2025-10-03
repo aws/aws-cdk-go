@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) validateValidatePropertiesParame
 	return nil
 }
 
-func validateCfnMatchmakingConfiguration_FromMatchmakingConfigurationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnMatchmakingConfiguration_FromMatchmakingConfigurationNameParameters(scope constructs.Construct, id *string, matchmakingConfigurationName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if matchmakingConfigurationName == nil {
-		return fmt.Errorf("parameter matchmakingConfigurationName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnMatchmakingConfiguration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

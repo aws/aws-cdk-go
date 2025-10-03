@@ -36,7 +36,6 @@ type Function interface {
 	FunctionArn() *string
 	// the name of the CloudFront function.
 	FunctionName() *string
-	// A reference to a Function resource.
 	FunctionRef() *FunctionReference
 	// the runtime of the CloudFront function.
 	FunctionRuntime() *string

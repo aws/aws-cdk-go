@@ -25,7 +25,7 @@ package awss3tables
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html
 //
 type CfnTable_IcebergMetadataProperty struct {
-	// The schema for an Iceberg table.
+	// Contains details about the schema for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergschema
 	//
 	IcebergSchema interface{} `field:"required" json:"icebergSchema" yaml:"icebergSchema"`

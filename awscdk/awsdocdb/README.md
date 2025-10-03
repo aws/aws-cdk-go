@@ -30,29 +30,6 @@ By default, the master password will be generated and stored in AWS Secrets Mana
 
 Your cluster will be empty by default.
 
-## Serverless Clusters
-
-DocumentDB supports serverless clusters that automatically scale capacity based on your application's needs.
-To create a serverless cluster, specify the `serverlessV2ScalingConfiguration` instead of `instanceType`:
-
-```go
-var vpc vpc
-
-cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-	MasterUser: &Login{
-		Username: jsii.String("myuser"),
-	},
-	Vpc: Vpc,
-	ServerlessV2ScalingConfiguration: &ServerlessV2ScalingConfiguration{
-		MinCapacity: jsii.Number(0.5),
-		MaxCapacity: jsii.Number(2),
-	},
-	EngineVersion: jsii.String("5.0.0"),
-})
-```
-
-**Note**: DocumentDB serverless requires engine version 5.0.0 or higher and is not compatible with all features. See the [AWS documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-serverless-limitations.html) for limitations.
-
 ## Connecting
 
 To control who can access the cluster, use the `.connections` attribute. DocumentDB databases have a default port, so
@@ -332,5 +309,3 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 ```
 
 **Note**: `StorageType.IOPT1` is supported starting with engine version 5.0.0.
-
-**Note**: For serverless clusters, storage type is managed automatically and cannot be specified.

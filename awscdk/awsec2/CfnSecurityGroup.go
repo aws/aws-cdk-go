@@ -583,25 +583,6 @@ func (j *jsiiProxy_CfnSecurityGroup)SetVpcId(val *string) {
 	)
 }
 
-// Creates a new ISecurityGroupRef from a securityGroupId.
-func CfnSecurityGroup_FromSecurityGroupId(scope constructs.Construct, id *string, securityGroupId *string) ISecurityGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnSecurityGroup_FromSecurityGroupIdParameters(scope, id, securityGroupId); err != nil {
-		panic(err)
-	}
-	var returns ISecurityGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnSecurityGroup",
-		"fromSecurityGroupId",
-		[]interface{}{scope, id, securityGroupId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

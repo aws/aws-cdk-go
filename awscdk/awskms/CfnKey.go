@@ -713,44 +713,6 @@ func (j *jsiiProxy_CfnKey)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IKeyRef from an ARN.
-func CfnKey_FromKeyArn(scope constructs.Construct, id *string, arn *string) IKeyRef {
-	_init_.Initialize()
-
-	if err := validateCfnKey_FromKeyArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IKeyRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
-		"fromKeyArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IKeyRef from a keyId.
-func CfnKey_FromKeyId(scope constructs.Construct, id *string, keyId *string) IKeyRef {
-	_init_.Initialize()
-
-	if err := validateCfnKey_FromKeyIdParameters(scope, id, keyId); err != nil {
-		panic(err)
-	}
-	var returns IKeyRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
-		"fromKeyId",
-		[]interface{}{scope, id, keyId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

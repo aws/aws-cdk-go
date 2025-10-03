@@ -233,7 +233,6 @@ func init() {
 		reflect.TypeOf((*INotificationChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "notificationChannelRef", GoGetter: "NotificationChannelRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INotificationChannelRef{}
@@ -246,7 +245,6 @@ func init() {
 		reflect.TypeOf((*IPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyRef{}
@@ -259,7 +257,6 @@ func init() {
 		reflect.TypeOf((*IResourceSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceSetRef", GoGetter: "ResourceSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceSetRef{}

@@ -568,44 +568,6 @@ func (j *jsiiProxy_CfnMulticastGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IMulticastGroupRef from an ARN.
-func CfnMulticastGroup_FromMulticastGroupArn(scope constructs.Construct, id *string, arn *string) IMulticastGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnMulticastGroup_FromMulticastGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IMulticastGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
-		"fromMulticastGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IMulticastGroupRef from a multicastGroupId.
-func CfnMulticastGroup_FromMulticastGroupId(scope constructs.Construct, id *string, multicastGroupId *string) IMulticastGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnMulticastGroup_FromMulticastGroupIdParameters(scope, id, multicastGroupId); err != nil {
-		panic(err)
-	}
-	var returns IMulticastGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
-		"fromMulticastGroupId",
-		[]interface{}{scope, id, multicastGroupId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

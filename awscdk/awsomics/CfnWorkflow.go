@@ -11,12 +11,10 @@ import (
 
 // Creates a private workflow. Before you create a private workflow, you must create and configure these required resources:.
 //
-// - *Workflow definition file:* A workflow definition file written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements. The workflow definition file must be in `.zip` format. For more information, see [Workflow definition files](https://docs.aws.amazon.com/omics/latest/dev/workflow-definition-files.html) in AWS HealthOmics.
-//
-// - You can use Amazon Q CLI to build and validate your workflow definition files in WDL, Nextflow, and CWL. For more information, see [Example prompts for Amazon Q CLI](https://docs.aws.amazon.com/omics/latest/dev/getting-started.html#omics-q-prompts) and the [AWS HealthOmics Agentic generative AI tutorial](https://docs.aws.amazon.com/https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai) on GitHub.
-// - *(Optional) Parameter template file:* A parameter template file written in JSON. Create the file to define the run parameters, or AWS HealthOmics generates the parameter template for you. For more information, see [Parameter template files for HealthOmics workflows](https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html) .
-// - *ECR container images:* Create container images for the workflow in a private ECR repository, or synchronize images from a supported upstream registry with your Amazon ECR private repository.
-// - *(Optional) Sentieon licenses:* Request a Sentieon license to use the Sentieon software in private workflows.
+// - *Workflow definition files* : Define your workflow in one or more workflow definition files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs and outputs for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow, including compute and memory requirements. The workflow definition file must be in .zip format.
+// - (Optional) *Parameter template* : You can create a parameter template file that defines the run parameters, or AWS HealthOmics can generate the parameter template for you.
+// - *ECR container images* : Create one or more container images for the workflow. Store the images in a private ECR repository.
+// - (Optional) *Sentieon licenses* : Request a Sentieon license if using the Sentieon software in a private workflow.
 //
 // For more information, see [Creating or updating a private workflow in AWS HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html) in the *AWS HealthOmics User Guide* .
 //
@@ -27,23 +25,6 @@ import (
 //
 //   cfnWorkflow := awscdk.Aws_omics.NewCfnWorkflow(this, jsii.String("MyCfnWorkflow"), &CfnWorkflowProps{
 //   	Accelerators: jsii.String("accelerators"),
-//   	ContainerRegistryMap: &ContainerRegistryMapProperty{
-//   		ImageMappings: []interface{}{
-//   			&ImageMappingProperty{
-//   				DestinationImage: jsii.String("destinationImage"),
-//   				SourceImage: jsii.String("sourceImage"),
-//   			},
-//   		},
-//   		RegistryMappings: []interface{}{
-//   			&RegistryMappingProperty{
-//   				EcrAccountId: jsii.String("ecrAccountId"),
-//   				EcrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
-//   				UpstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
-//   				UpstreamRepositoryPrefix: jsii.String("upstreamRepositoryPrefix"),
-//   			},
-//   		},
-//   	},
-//   	ContainerRegistryMapUri: jsii.String("containerRegistryMapUri"),
 //   	DefinitionRepository: &DefinitionRepositoryProperty{
 //   		ConnectionArn: jsii.String("connectionArn"),
 //   		ExcludeFilePatterns: []*string{
@@ -103,11 +84,6 @@ type CfnWorkflow interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries.
-	ContainerRegistryMap() interface{}
-	SetContainerRegistryMap(val interface{})
-	ContainerRegistryMapUri() *string
-	SetContainerRegistryMapUri(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -429,26 +405,6 @@ func (j *jsiiProxy_CfnWorkflow) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflow) ContainerRegistryMap() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"containerRegistryMap",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflow) ContainerRegistryMapUri() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"containerRegistryMapUri",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnWorkflow) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -721,25 +677,6 @@ func (j *jsiiProxy_CfnWorkflow)SetAccelerators(val *string) {
 	_jsii_.Set(
 		j,
 		"accelerators",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflow)SetContainerRegistryMap(val interface{}) {
-	if err := j.validateSetContainerRegistryMapParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"containerRegistryMap",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflow)SetContainerRegistryMapUri(val *string) {
-	_jsii_.Set(
-		j,
-		"containerRegistryMapUri",
 		val,
 	)
 }

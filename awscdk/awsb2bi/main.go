@@ -394,7 +394,6 @@ func init() {
 		"aws-cdk-lib.aws_b2bi.ICapabilityRef",
 		reflect.TypeOf((*ICapabilityRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "capabilityRef", GoGetter: "CapabilityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -408,7 +407,6 @@ func init() {
 		reflect.TypeOf((*IPartnershipRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "partnershipRef", GoGetter: "PartnershipRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPartnershipRef{}
@@ -421,7 +419,6 @@ func init() {
 		reflect.TypeOf((*IProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "profileRef", GoGetter: "ProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfileRef{}
@@ -434,7 +431,6 @@ func init() {
 		reflect.TypeOf((*ITransformerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transformerRef", GoGetter: "TransformerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransformerRef{}

@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnWirelessGateway) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
-func validateCfnWirelessGateway_FromWirelessGatewayArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnWirelessGateway_FromWirelessGatewayIdParameters(scope constructs.Construct, id *string, wirelessGatewayId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if wirelessGatewayId == nil {
-		return fmt.Errorf("parameter wirelessGatewayId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnWirelessGateway_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

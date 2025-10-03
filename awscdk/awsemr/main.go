@@ -732,7 +732,6 @@ func init() {
 		"aws-cdk-lib.aws_emr.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -745,7 +744,6 @@ func init() {
 		"aws-cdk-lib.aws_emr.IInstanceFleetConfigRef",
 		reflect.TypeOf((*IInstanceFleetConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "instanceFleetConfigRef", GoGetter: "InstanceFleetConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -758,7 +756,6 @@ func init() {
 		"aws-cdk-lib.aws_emr.IInstanceGroupConfigRef",
 		reflect.TypeOf((*IInstanceGroupConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "instanceGroupConfigRef", GoGetter: "InstanceGroupConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -772,7 +769,6 @@ func init() {
 		reflect.TypeOf((*ISecurityConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "securityConfigurationRef", GoGetter: "SecurityConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityConfigurationRef{}
@@ -785,7 +781,6 @@ func init() {
 		reflect.TypeOf((*IStepRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stepRef", GoGetter: "StepRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStepRef{}
@@ -798,7 +793,6 @@ func init() {
 		reflect.TypeOf((*IStudioRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "studioRef", GoGetter: "StudioRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStudioRef{}
@@ -811,7 +805,6 @@ func init() {
 		reflect.TypeOf((*IStudioSessionMappingRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "studioSessionMappingRef", GoGetter: "StudioSessionMappingRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStudioSessionMappingRef{}
@@ -824,7 +817,6 @@ func init() {
 		reflect.TypeOf((*IWALWorkspaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "walWorkspaceRef", GoGetter: "WalWorkspaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWALWorkspaceRef{}

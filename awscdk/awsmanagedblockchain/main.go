@@ -218,7 +218,6 @@ func init() {
 		"aws-cdk-lib.aws_managedblockchain.IAccessorRef",
 		reflect.TypeOf((*IAccessorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessorRef", GoGetter: "AccessorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -231,7 +230,6 @@ func init() {
 		"aws-cdk-lib.aws_managedblockchain.IMemberRef",
 		reflect.TypeOf((*IMemberRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "memberRef", GoGetter: "MemberRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -245,7 +243,6 @@ func init() {
 		reflect.TypeOf((*INodeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "nodeRef", GoGetter: "NodeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INodeRef{}

@@ -41,10 +41,6 @@ package awsevs
 //   	VTep: &InitialVlanInfoProperty{
 //   		Cidr: jsii.String("cidr"),
 //   	},
-//
-//   	// the properties below are optional
-//   	HcxNetworkAclId: jsii.String("hcxNetworkAclId"),
-//   	IsHcxPublic: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs-environment-initialvlans.html
@@ -71,12 +67,6 @@ type CfnEnvironment_InitialVlansProperty struct {
 	// The HCX VLAN subnet.
 	//
 	// This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
-	//
-	// If you plan to use a public HCX VLAN subnet, the following requirements must be met:
-	//
-	// - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
-	// - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
-	// - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs-environment-initialvlans.html#cfn-evs-environment-initialvlans-hcx
 	//
 	Hcx interface{} `field:"required" json:"hcx" yaml:"hcx"`
@@ -116,15 +106,5 @@ type CfnEnvironment_InitialVlansProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs-environment-initialvlans.html#cfn-evs-environment-initialvlans-vtep
 	//
 	VTep interface{} `field:"required" json:"vTep" yaml:"vTep"`
-	// A unique ID for a network access control list that the HCX VLAN uses.
-	//
-	// Required when `isHcxPublic` is set to `true` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs-environment-initialvlans.html#cfn-evs-environment-initialvlans-hcxnetworkaclid
-	//
-	HcxNetworkAclId *string `field:"optional" json:"hcxNetworkAclId" yaml:"hcxNetworkAclId"`
-	// Determines if the HCX VLAN that Amazon EVS provisions is public or private.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs-environment-initialvlans.html#cfn-evs-environment-initialvlans-ishcxpublic
-	//
-	IsHcxPublic interface{} `field:"optional" json:"isHcxPublic" yaml:"isHcxPublic"`
 }
 

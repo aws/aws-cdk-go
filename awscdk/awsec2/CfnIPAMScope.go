@@ -511,44 +511,6 @@ func (j *jsiiProxy_CfnIPAMScope)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IIPAMScopeRef from an ARN.
-func CfnIPAMScope_FromIPAMScopeArn(scope constructs.Construct, id *string, arn *string) IIPAMScopeRef {
-	_init_.Initialize()
-
-	if err := validateCfnIPAMScope_FromIPAMScopeArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IIPAMScopeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnIPAMScope",
-		"fromIPAMScopeArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IIPAMScopeRef from a ipamScopeId.
-func CfnIPAMScope_FromIpamScopeId(scope constructs.Construct, id *string, ipamScopeId *string) IIPAMScopeRef {
-	_init_.Initialize()
-
-	if err := validateCfnIPAMScope_FromIpamScopeIdParameters(scope, id, ipamScopeId); err != nil {
-		panic(err)
-	}
-	var returns IIPAMScopeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnIPAMScope",
-		"fromIpamScopeId",
-		[]interface{}{scope, id, ipamScopeId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnConnector) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnConnector_FromConnectorArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnConnector_FromConnectorIdParameters(scope constructs.Construct, id *string, connectorId *string) error {
-	return nil
-}
-
 func validateCfnConnector_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

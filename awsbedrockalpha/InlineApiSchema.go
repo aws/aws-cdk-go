@@ -163,7 +163,7 @@ func InlineApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 
 // Creates an API Schema from an S3 File.
 // Experimental.
-func InlineApiSchema_FromS3File(bucket awss3.IBucketRef, objectKey *string) S3ApiSchema {
+func InlineApiSchema_FromS3File(bucket awss3.IBucket, objectKey *string) S3ApiSchema {
 	_init_.Initialize()
 
 	if err := validateInlineApiSchema_FromS3FileParameters(bucket, objectKey); err != nil {

@@ -105,7 +105,7 @@ type ServiceProps struct {
 	// Default: - Use an AWS managed key.
 	//
 	// Experimental.
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The amount of memory reserved for each instance of your App Runner service.
 	// Default: Memory.TWO_GB
 	//

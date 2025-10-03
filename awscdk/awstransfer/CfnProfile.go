@@ -486,44 +486,6 @@ func (j *jsiiProxy_CfnProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IProfileRef from an ARN.
-func CfnProfile_FromProfileArn(scope constructs.Construct, id *string, arn *string) IProfileRef {
-	_init_.Initialize()
-
-	if err := validateCfnProfile_FromProfileArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IProfileRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_transfer.CfnProfile",
-		"fromProfileArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IProfileRef from a profileId.
-func CfnProfile_FromProfileId(scope constructs.Construct, id *string, profileId *string) IProfileRef {
-	_init_.Initialize()
-
-	if err := validateCfnProfile_FromProfileIdParameters(scope, id, profileId); err != nil {
-		panic(err)
-	}
-	var returns IProfileRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_transfer.CfnProfile",
-		"fromProfileId",
-		[]interface{}{scope, id, profileId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

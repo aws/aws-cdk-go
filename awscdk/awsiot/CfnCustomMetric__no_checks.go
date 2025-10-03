@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnCustomMetric) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
-func validateCfnCustomMetric_FromMetricNameParameters(scope constructs.Construct, id *string, metricName *string) error {
-	return nil
-}
-
 func validateCfnCustomMetric_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

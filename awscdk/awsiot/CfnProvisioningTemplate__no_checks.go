@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnProvisioningTemplate) validateValidatePropertiesParameters
 	return nil
 }
 
-func validateCfnProvisioningTemplate_FromTemplateNameParameters(scope constructs.Construct, id *string, templateName *string) error {
-	return nil
-}
-
 func validateCfnProvisioningTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

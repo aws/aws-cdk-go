@@ -27,7 +27,6 @@ import (
 type ClientVpnEndpoint interface {
 	awscdk.Resource
 	IClientVpnEndpoint
-	// A reference to a ClientVpnEndpoint resource.
 	ClientVpnEndpointRef() *ClientVpnEndpointReference
 	// Allows specify security group connections for the endpoint.
 	Connections() Connections

@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
 )
 
-func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(stage IStageRef) error {
+func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(stage IStage) error {
 	if stage == nil {
 		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnDeviceFleet) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnDeviceFleet_FromDeviceFleetNameParameters(scope constructs.Construct, id *string, deviceFleetName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if deviceFleetName == nil {
-		return fmt.Errorf("parameter deviceFleetName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDeviceFleet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

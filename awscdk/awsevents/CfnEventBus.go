@@ -597,44 +597,6 @@ func (j *jsiiProxy_CfnEventBus)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IEventBusRef from an ARN.
-func CfnEventBus_FromEventBusArn(scope constructs.Construct, id *string, arn *string) IEventBusRef {
-	_init_.Initialize()
-
-	if err := validateCfnEventBus_FromEventBusArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IEventBusRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.CfnEventBus",
-		"fromEventBusArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IEventBusRef from a eventBusName.
-func CfnEventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusName *string) IEventBusRef {
-	_init_.Initialize()
-
-	if err := validateCfnEventBus_FromEventBusNameParameters(scope, id, eventBusName); err != nil {
-		panic(err)
-	}
-	var returns IEventBusRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.CfnEventBus",
-		"fromEventBusName",
-		[]interface{}{scope, id, eventBusName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

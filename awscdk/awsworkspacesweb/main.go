@@ -654,7 +654,6 @@ func init() {
 		"aws-cdk-lib.aws_workspacesweb.IBrowserSettingsRef",
 		reflect.TypeOf((*IBrowserSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "browserSettingsRef", GoGetter: "BrowserSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -667,7 +666,6 @@ func init() {
 		"aws-cdk-lib.aws_workspacesweb.IDataProtectionSettingsRef",
 		reflect.TypeOf((*IDataProtectionSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataProtectionSettingsRef", GoGetter: "DataProtectionSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -680,7 +678,6 @@ func init() {
 		"aws-cdk-lib.aws_workspacesweb.IIdentityProviderRef",
 		reflect.TypeOf((*IIdentityProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "identityProviderRef", GoGetter: "IdentityProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -693,7 +690,6 @@ func init() {
 		"aws-cdk-lib.aws_workspacesweb.IIpAccessSettingsRef",
 		reflect.TypeOf((*IIpAccessSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "ipAccessSettingsRef", GoGetter: "IpAccessSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -706,7 +702,6 @@ func init() {
 		"aws-cdk-lib.aws_workspacesweb.INetworkSettingsRef",
 		reflect.TypeOf((*INetworkSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "networkSettingsRef", GoGetter: "NetworkSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -720,7 +715,6 @@ func init() {
 		reflect.TypeOf((*IPortalRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "portalRef", GoGetter: "PortalRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortalRef{}
@@ -733,7 +727,6 @@ func init() {
 		reflect.TypeOf((*ISessionLoggerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sessionLoggerRef", GoGetter: "SessionLoggerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISessionLoggerRef{}
@@ -746,7 +739,6 @@ func init() {
 		reflect.TypeOf((*ITrustStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "trustStoreRef", GoGetter: "TrustStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrustStoreRef{}
@@ -759,7 +751,6 @@ func init() {
 		reflect.TypeOf((*IUserAccessLoggingSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userAccessLoggingSettingsRef", GoGetter: "UserAccessLoggingSettingsRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserAccessLoggingSettingsRef{}
@@ -772,7 +763,6 @@ func init() {
 		reflect.TypeOf((*IUserSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userSettingsRef", GoGetter: "UserSettingsRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserSettingsRef{}

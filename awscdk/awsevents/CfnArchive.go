@@ -499,44 +499,6 @@ func (j *jsiiProxy_CfnArchive)SetSourceArn(val *string) {
 	)
 }
 
-// Creates a new IArchiveRef from an ARN.
-func CfnArchive_FromArchiveArn(scope constructs.Construct, id *string, arn *string) IArchiveRef {
-	_init_.Initialize()
-
-	if err := validateCfnArchive_FromArchiveArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IArchiveRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.CfnArchive",
-		"fromArchiveArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IArchiveRef from a archiveName.
-func CfnArchive_FromArchiveName(scope constructs.Construct, id *string, archiveName *string) IArchiveRef {
-	_init_.Initialize()
-
-	if err := validateCfnArchive_FromArchiveNameParameters(scope, id, archiveName); err != nil {
-		panic(err)
-	}
-	var returns IArchiveRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.CfnArchive",
-		"fromArchiveName",
-		[]interface{}{scope, id, archiveName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

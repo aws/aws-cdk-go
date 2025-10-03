@@ -1,8 +1,6 @@
 package awswafregional
 
 import (
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,23 +9,10 @@ import (
 // Experimental.
 type IGeoMatchSetRef interface {
 	constructs.IConstruct
-	// A reference to a GeoMatchSet resource.
-	// Experimental.
-	GeoMatchSetRef() *GeoMatchSetReference
 }
 
 // The jsii proxy for IGeoMatchSetRef
 type jsiiProxy_IGeoMatchSetRef struct {
 	internal.Type__constructsIConstruct
-}
-
-func (j *jsiiProxy_IGeoMatchSetRef) GeoMatchSetRef() *GeoMatchSetReference {
-	var returns *GeoMatchSetReference
-	_jsii_.Get(
-		j,
-		"geoMatchSetRef",
-		&returns,
-	)
-	return returns
 }
 

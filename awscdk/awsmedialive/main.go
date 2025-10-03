@@ -80,10 +80,6 @@ func init() {
 		reflect.TypeOf((*CfnChannel_Ac3SettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_medialive.CfnChannel.AdditionalDestinationsProperty",
-		reflect.TypeOf((*CfnChannel_AdditionalDestinationsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AncillarySourceSettingsProperty",
 		reflect.TypeOf((*CfnChannel_AncillarySourceSettingsProperty)(nil)).Elem(),
 	)
@@ -1753,7 +1749,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IChannelPlacementGroupRef",
 		reflect.TypeOf((*IChannelPlacementGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelPlacementGroupRef", GoGetter: "ChannelPlacementGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1766,7 +1761,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IChannelRef",
 		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1779,7 +1773,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.ICloudWatchAlarmTemplateGroupRef",
 		reflect.TypeOf((*ICloudWatchAlarmTemplateGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudWatchAlarmTemplateGroupRef", GoGetter: "CloudWatchAlarmTemplateGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1792,7 +1785,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.ICloudWatchAlarmTemplateRef",
 		reflect.TypeOf((*ICloudWatchAlarmTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudWatchAlarmTemplateRef", GoGetter: "CloudWatchAlarmTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1805,7 +1797,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1818,7 +1809,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IEventBridgeRuleTemplateGroupRef",
 		reflect.TypeOf((*IEventBridgeRuleTemplateGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventBridgeRuleTemplateGroupRef", GoGetter: "EventBridgeRuleTemplateGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1831,7 +1821,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IEventBridgeRuleTemplateRef",
 		reflect.TypeOf((*IEventBridgeRuleTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventBridgeRuleTemplateRef", GoGetter: "EventBridgeRuleTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1844,7 +1833,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IInputRef",
 		reflect.TypeOf((*IInputRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "inputRef", GoGetter: "InputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1857,7 +1845,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IInputSecurityGroupRef",
 		reflect.TypeOf((*IInputSecurityGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "inputSecurityGroupRef", GoGetter: "InputSecurityGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1870,7 +1857,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IMultiplexRef",
 		reflect.TypeOf((*IMultiplexRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "multiplexRef", GoGetter: "MultiplexRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1883,7 +1869,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.IMultiplexprogramRef",
 		reflect.TypeOf((*IMultiplexprogramRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "multiplexprogramRef", GoGetter: "MultiplexprogramRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1896,7 +1881,6 @@ func init() {
 		"aws-cdk-lib.aws_medialive.INetworkRef",
 		reflect.TypeOf((*INetworkRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "networkRef", GoGetter: "NetworkRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1910,7 +1894,6 @@ func init() {
 		reflect.TypeOf((*ISdiSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sdiSourceRef", GoGetter: "SdiSourceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISdiSourceRef{}
@@ -1923,7 +1906,6 @@ func init() {
 		reflect.TypeOf((*ISignalMapRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "signalMapRef", GoGetter: "SignalMapRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISignalMapRef{}

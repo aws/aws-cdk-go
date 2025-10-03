@@ -557,44 +557,6 @@ func (j *jsiiProxy_CfnGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IGroupRef from an ARN.
-func CfnGroup_FromGroupArn(scope constructs.Construct, id *string, arn *string) IGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnGroup_FromGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
-		"fromGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IGroupRef from a groupName.
-func CfnGroup_FromGroupName(scope constructs.Construct, id *string, groupName *string) IGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnGroup_FromGroupNameParameters(scope, id, groupName); err != nil {
-		panic(err)
-	}
-	var returns IGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
-		"fromGroupName",
-		[]interface{}{scope, id, groupName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

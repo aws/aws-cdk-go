@@ -15,10 +15,8 @@ import (
 //
 // There are two types of stream capacity: always-on and on-demand.
 //
-// - *Always-on* : The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
+// - *Always-on* : The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
 // - *On-demand* : The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
-//
-// Values for capacity must be whole number multiples of the tenancy value of the stream group's stream class.
 //
 // > Application association is not currently supported in AWS CloudFormation . To link additional applications to a stream group, use the Amazon GameLift Streams console or the AWS CLI .
 //

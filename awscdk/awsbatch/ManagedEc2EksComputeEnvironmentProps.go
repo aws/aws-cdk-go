@@ -22,7 +22,7 @@ import (
 //   var instanceType instanceType
 //   var launchTemplate launchTemplate
 //   var machineImage iMachineImage
-//   var placementGroupRef iPlacementGroupRef
+//   var placementGroup placementGroup
 //   var role role
 //   var securityGroup securityGroup
 //   var subnet subnet
@@ -54,7 +54,7 @@ import (
 //   	LaunchTemplate: launchTemplate,
 //   	MaxvCpus: jsii.Number(123),
 //   	MinvCpus: jsii.Number(123),
-//   	PlacementGroup: placementGroupRef,
+//   	PlacementGroup: placementGroup,
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
 //   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,
@@ -245,7 +245,7 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	//
 	// Default: - no placement group.
 	//
-	PlacementGroup awsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup awsec2.IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
 	//
 	// For example, if your maximum percentage is 20%, the Spot price must be

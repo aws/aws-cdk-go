@@ -558,25 +558,6 @@ func (j *jsiiProxy_CfnStudio)SetUserRoleArn(val *string) {
 	)
 }
 
-// Creates a new IStudioRef from a studioId.
-func CfnStudio_FromStudioId(scope constructs.Construct, id *string, studioId *string) IStudioRef {
-	_init_.Initialize()
-
-	if err := validateCfnStudio_FromStudioIdParameters(scope, id, studioId); err != nil {
-		panic(err)
-	}
-	var returns IStudioRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_nimblestudio.CfnStudio",
-		"fromStudioId",
-		[]interface{}{scope, id, studioId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

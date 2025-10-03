@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnChannel) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnChannel_FromChannelNameParameters(scope constructs.Construct, id *string, channelName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if channelName == nil {
-		return fmt.Errorf("parameter channelName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnChannel_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

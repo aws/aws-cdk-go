@@ -141,7 +141,6 @@ func init() {
 		"aws-cdk-lib.aws_pcaconnectorscep.IChallengeRef",
 		reflect.TypeOf((*IChallengeRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "challengeRef", GoGetter: "ChallengeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -154,7 +153,6 @@ func init() {
 		"aws-cdk-lib.aws_pcaconnectorscep.IConnectorRef",
 		reflect.TypeOf((*IConnectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

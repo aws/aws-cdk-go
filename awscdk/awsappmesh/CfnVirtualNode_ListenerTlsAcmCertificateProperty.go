@@ -1,7 +1,7 @@
 package awsappmesh
 
 
-// An object that represents an Certificate Manager certificate.
+// An object that represents an AWS Certificate Manager certificate.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

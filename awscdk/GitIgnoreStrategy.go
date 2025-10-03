@@ -20,10 +20,10 @@ type GitIgnoreStrategy interface {
 	IgnoreStrategy
 	// Adds another pattern.
 	Add(pattern *string)
-	// Determines whether a given directory path should be ignored and have all of its children ignored.
+	// Determines whether a given file path should be ignored and have all of its children ignored if its a directory.
 	//
-	// Returns: `true` if the directory and all of its children should be ignored.
-	CompletelyIgnores(absoluteDirectoryPath *string) *bool
+	// Returns: `true` if the file should be ignored.
+	CompletelyIgnores(absoluteFilePath *string) *bool
 	// Determines whether a given file path should be ignored or not.
 	//
 	// Returns: `true` if the file should be ignored.
@@ -157,8 +157,8 @@ func (g *jsiiProxy_GitIgnoreStrategy) Add(pattern *string) {
 	)
 }
 
-func (g *jsiiProxy_GitIgnoreStrategy) CompletelyIgnores(absoluteDirectoryPath *string) *bool {
-	if err := g.validateCompletelyIgnoresParameters(absoluteDirectoryPath); err != nil {
+func (g *jsiiProxy_GitIgnoreStrategy) CompletelyIgnores(absoluteFilePath *string) *bool {
+	if err := g.validateCompletelyIgnoresParameters(absoluteFilePath); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -166,7 +166,7 @@ func (g *jsiiProxy_GitIgnoreStrategy) CompletelyIgnores(absoluteDirectoryPath *s
 	_jsii_.Invoke(
 		g,
 		"completelyIgnores",
-		[]interface{}{absoluteDirectoryPath},
+		[]interface{}{absoluteFilePath},
 		&returns,
 	)
 

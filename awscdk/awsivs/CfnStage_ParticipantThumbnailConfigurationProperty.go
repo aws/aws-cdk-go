@@ -24,7 +24,7 @@ type CfnStage_ParticipantThumbnailConfigurationProperty struct {
 	// Default: `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantthumbnailconfiguration.html#cfn-ivs-stage-participantthumbnailconfiguration-recordingmode
 	//
-	// Default: - "DISABLED".
+	// Default: - "INTERVAL".
 	//
 	RecordingMode *string `field:"optional" json:"recordingMode" yaml:"recordingMode"`
 	// Indicates the format in which thumbnails are recorded.

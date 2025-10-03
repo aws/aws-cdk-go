@@ -447,7 +447,6 @@ func init() {
 		"aws-cdk-lib.aws_mediapackage.IAssetRef",
 		reflect.TypeOf((*IAssetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assetRef", GoGetter: "AssetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -460,7 +459,6 @@ func init() {
 		"aws-cdk-lib.aws_mediapackage.IChannelRef",
 		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -474,7 +472,6 @@ func init() {
 		reflect.TypeOf((*IOriginEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "originEndpointRef", GoGetter: "OriginEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginEndpointRef{}
@@ -487,7 +484,6 @@ func init() {
 		reflect.TypeOf((*IPackagingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "packagingConfigurationRef", GoGetter: "PackagingConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPackagingConfigurationRef{}
@@ -500,7 +496,6 @@ func init() {
 		reflect.TypeOf((*IPackagingGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "packagingGroupRef", GoGetter: "PackagingGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPackagingGroupRef{}

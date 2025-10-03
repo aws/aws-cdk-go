@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnClientCertificate) validateValidatePropertiesParameters(_p
 	return nil
 }
 
-func validateCfnClientCertificate_FromClientCertificateIdParameters(scope constructs.Construct, id *string, clientCertificateId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if clientCertificateId == nil {
-		return fmt.Errorf("parameter clientCertificateId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnClientCertificate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

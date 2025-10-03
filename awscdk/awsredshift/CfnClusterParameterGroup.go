@@ -492,25 +492,6 @@ func (j *jsiiProxy_CfnClusterParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IClusterParameterGroupRef from a parameterGroupName.
-func CfnClusterParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IClusterParameterGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnClusterParameterGroup_FromParameterGroupNameParameters(scope, id, parameterGroupName); err != nil {
-		panic(err)
-	}
-	var returns IClusterParameterGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_redshift.CfnClusterParameterGroup",
-		"fromParameterGroupName",
-		[]interface{}{scope, id, parameterGroupName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

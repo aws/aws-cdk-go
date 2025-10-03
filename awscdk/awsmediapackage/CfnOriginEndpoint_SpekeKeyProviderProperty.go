@@ -47,7 +47,7 @@ type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
 	//
 	Url *string `field:"required" json:"url" yaml:"url"`
-	// The Amazon Resource Name (ARN) for the certificate that you imported to Certificate Manager to add content key encryption to this endpoint.
+	// The Amazon Resource Name (ARN) for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint.
 	//
 	// For this feature to work, your DRM key provider must support content key encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn

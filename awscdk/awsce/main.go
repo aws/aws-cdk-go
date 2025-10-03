@@ -216,7 +216,6 @@ func init() {
 		"aws-cdk-lib.aws_ce.IAnomalyMonitorRef",
 		reflect.TypeOf((*IAnomalyMonitorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "anomalyMonitorRef", GoGetter: "AnomalyMonitorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -229,7 +228,6 @@ func init() {
 		"aws-cdk-lib.aws_ce.IAnomalySubscriptionRef",
 		reflect.TypeOf((*IAnomalySubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "anomalySubscriptionRef", GoGetter: "AnomalySubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -242,7 +240,6 @@ func init() {
 		"aws-cdk-lib.aws_ce.ICostCategoryRef",
 		reflect.TypeOf((*ICostCategoryRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "costCategoryRef", GoGetter: "CostCategoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

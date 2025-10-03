@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateValidatePropertiesParameters
 	return nil
 }
 
-func validateCfnVPCPeeringConnection_FromVpcPeeringConnectionIdParameters(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) error {
-	return nil
-}
-
 func validateCfnVPCPeeringConnection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

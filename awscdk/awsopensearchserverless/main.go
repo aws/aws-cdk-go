@@ -274,7 +274,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
-			_jsii_.MemberProperty{JsiiProperty: "iamFederationOptions", GoGetter: "IamFederationOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "iamIdentityCenterOptions", GoGetter: "IamIdentityCenterOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -304,10 +303,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchserverless.CfnSecurityConfig.IamFederationConfigOptionsProperty",
-		reflect.TypeOf((*CfnSecurityConfig_IamFederationConfigOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchserverless.CfnSecurityConfig.IamIdentityCenterConfigOptionsProperty",
@@ -434,7 +429,6 @@ func init() {
 		"aws-cdk-lib.aws_opensearchserverless.IAccessPolicyRef",
 		reflect.TypeOf((*IAccessPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPolicyRef", GoGetter: "AccessPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -447,7 +441,6 @@ func init() {
 		"aws-cdk-lib.aws_opensearchserverless.ICollectionRef",
 		reflect.TypeOf((*ICollectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "collectionRef", GoGetter: "CollectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -460,7 +453,6 @@ func init() {
 		"aws-cdk-lib.aws_opensearchserverless.IIndexRef",
 		reflect.TypeOf((*IIndexRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "indexRef", GoGetter: "IndexRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -473,7 +465,6 @@ func init() {
 		"aws-cdk-lib.aws_opensearchserverless.ILifecyclePolicyRef",
 		reflect.TypeOf((*ILifecyclePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyRef", GoGetter: "LifecyclePolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -487,7 +478,6 @@ func init() {
 		reflect.TypeOf((*ISecurityConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "securityConfigRef", GoGetter: "SecurityConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityConfigRef{}
@@ -500,7 +490,6 @@ func init() {
 		reflect.TypeOf((*ISecurityPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "securityPolicyRef", GoGetter: "SecurityPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityPolicyRef{}
@@ -513,7 +502,6 @@ func init() {
 		reflect.TypeOf((*IVpcEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointRef", GoGetter: "VpcEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcEndpointRef{}

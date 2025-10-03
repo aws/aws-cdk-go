@@ -16,7 +16,7 @@ func validateClientVpnUserBasedAuthentication_ActiveDirectoryParameters(director
 	return nil
 }
 
-func validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider awsiam.ISAMLProviderRef) error {
+func validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider awsiam.ISamlProvider) error {
 	if samlProvider == nil {
 		return fmt.Errorf("parameter samlProvider is required, but nil was provided")
 	}

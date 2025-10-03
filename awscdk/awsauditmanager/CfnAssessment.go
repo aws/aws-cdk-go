@@ -676,44 +676,6 @@ func (j *jsiiProxy_CfnAssessment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAssessmentRef from an ARN.
-func CfnAssessment_FromAssessmentArn(scope constructs.Construct, id *string, arn *string) IAssessmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnAssessment_FromAssessmentArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAssessmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
-		"fromAssessmentArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAssessmentRef from a assessmentId.
-func CfnAssessment_FromAssessmentId(scope constructs.Construct, id *string, assessmentId *string) IAssessmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnAssessment_FromAssessmentIdParameters(scope, id, assessmentId); err != nil {
-		panic(err)
-	}
-	var returns IAssessmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
-		"fromAssessmentId",
-		[]interface{}{scope, id, assessmentId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

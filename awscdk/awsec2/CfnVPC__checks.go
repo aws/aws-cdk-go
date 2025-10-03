@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnVPC) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
-func validateCfnVPC_FromVpcIdParameters(scope constructs.Construct, id *string, vpcId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if vpcId == nil {
-		return fmt.Errorf("parameter vpcId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnVPC_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

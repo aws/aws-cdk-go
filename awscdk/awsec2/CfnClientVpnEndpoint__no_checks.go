@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) validateValidatePropertiesParameters(_p
 	return nil
 }
 
-func validateCfnClientVpnEndpoint_FromClientVpnEndpointIdParameters(scope constructs.Construct, id *string, clientVpnEndpointId *string) error {
-	return nil
-}
-
 func validateCfnClientVpnEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -85,6 +81,10 @@ func validateCfnClientVpnEndpoint_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientCidrBlockParameters(val *string) error {
 	return nil
 }
 

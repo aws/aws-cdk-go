@@ -12,7 +12,7 @@ func validateCode_FromAssetParameters(assetPath *string, options *awss3assets.As
 	return nil
 }
 
-func validateCode_FromBucketParameters(bucket awss3.IBucketRef, key *string) error {
+func validateCode_FromBucketParameters(bucket awss3.IBucket, key *string) error {
 	return nil
 }
 

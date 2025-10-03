@@ -9,10 +9,6 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   assetOptionsProperty := &AssetOptionsProperty{
-//   	ExcludedDataSetArns: []*string{
-//   		jsii.String("excludedDataSetArns"),
-//   	},
-//   	QBusinessInsightsStatus: jsii.String("qBusinessInsightsStatus"),
 //   	Timezone: jsii.String("timezone"),
 //   	WeekStart: jsii.String("weekStart"),
 //   }
@@ -20,14 +16,6 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html
 //
 type CfnDashboard_AssetOptionsProperty struct {
-	// A list of dataset ARNS to exclude from Dashboard Q&A.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-excludeddatasetarns
-	//
-	ExcludedDataSetArns *[]*string `field:"optional" json:"excludedDataSetArns" yaml:"excludedDataSetArns"`
-	// Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&A.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-qbusinessinsightsstatus
-	//
-	QBusinessInsightsStatus *string `field:"optional" json:"qBusinessInsightsStatus" yaml:"qBusinessInsightsStatus"`
 	// Determines the timezone for the analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-timezone
 	//

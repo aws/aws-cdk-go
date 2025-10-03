@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnDetectorModel) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
-func validateCfnDetectorModel_FromDetectorModelNameParameters(scope constructs.Construct, id *string, detectorModelName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if detectorModelName == nil {
-		return fmt.Errorf("parameter detectorModelName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDetectorModel_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

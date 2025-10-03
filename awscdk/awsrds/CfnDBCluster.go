@@ -88,7 +88,6 @@ import (
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ManageMasterUserPassword: jsii.Boolean(false),
-//   	MasterUserAuthenticationType: jsii.String("masterUserAuthenticationType"),
 //   	MasterUsername: jsii.String("masterUsername"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MasterUserSecret: &MasterUserSecretProperty{
@@ -306,9 +305,6 @@ type CfnDBCluster interface {
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	ManageMasterUserPassword() interface{}
 	SetManageMasterUserPassword(val interface{})
-	// Specifies the authentication type for the master user.
-	MasterUserAuthenticationType() *string
-	SetMasterUserAuthenticationType(val *string)
 	// The name of the master user for the DB cluster.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
@@ -1035,16 +1031,6 @@ func (j *jsiiProxy_CfnDBCluster) ManageMasterUserPassword() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) MasterUserAuthenticationType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"masterUserAuthenticationType",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDBCluster) MasterUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1693,14 +1679,6 @@ func (j *jsiiProxy_CfnDBCluster)SetManageMasterUserPassword(val interface{}) {
 	_jsii_.Set(
 		j,
 		"manageMasterUserPassword",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDBCluster)SetMasterUserAuthenticationType(val *string) {
-	_jsii_.Set(
-		j,
-		"masterUserAuthenticationType",
 		val,
 	)
 }

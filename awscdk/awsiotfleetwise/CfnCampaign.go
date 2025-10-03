@@ -952,44 +952,6 @@ func (j *jsiiProxy_CfnCampaign)SetTargetArn(val *string) {
 	)
 }
 
-// Creates a new ICampaignRef from an ARN.
-func CfnCampaign_FromCampaignArn(scope constructs.Construct, id *string, arn *string) ICampaignRef {
-	_init_.Initialize()
-
-	if err := validateCfnCampaign_FromCampaignArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ICampaignRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign",
-		"fromCampaignArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICampaignRef from a campaignName.
-func CfnCampaign_FromCampaignName(scope constructs.Construct, id *string, campaignName *string) ICampaignRef {
-	_init_.Initialize()
-
-	if err := validateCfnCampaign_FromCampaignNameParameters(scope, id, campaignName); err != nil {
-		panic(err)
-	}
-	var returns ICampaignRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign",
-		"fromCampaignName",
-		[]interface{}{scope, id, campaignName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

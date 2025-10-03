@@ -603,25 +603,6 @@ func (j *jsiiProxy_CfnRemediationConfiguration)SetTargetVersion(val *string) {
 	)
 }
 
-// Creates a new IRemediationConfigurationRef from a remediationConfigurationId.
-func CfnRemediationConfiguration_FromRemediationConfigurationId(scope constructs.Construct, id *string, remediationConfigurationId *string) IRemediationConfigurationRef {
-	_init_.Initialize()
-
-	if err := validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope, id, remediationConfigurationId); err != nil {
-		panic(err)
-	}
-	var returns IRemediationConfigurationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
-		"fromRemediationConfigurationId",
-		[]interface{}{scope, id, remediationConfigurationId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

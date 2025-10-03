@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnIdentityPool) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
-func validateCfnIdentityPool_FromIdentityPoolIdParameters(scope constructs.Construct, id *string, identityPoolId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if identityPoolId == nil {
-		return fmt.Errorf("parameter identityPoolId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnIdentityPool_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

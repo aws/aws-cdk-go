@@ -47,11 +47,11 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-namespace
 	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
-	// The format of the table.
+	// Format of the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-opentableformat
 	//
 	OpenTableFormat *string `field:"required" json:"openTableFormat" yaml:"openTableFormat"`
-	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
+	// The Amazon Resource Name (ARN) of the specified table bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-tablebucketarn
 	//
 	TableBucketArn *string `field:"required" json:"tableBucketArn" yaml:"tableBucketArn"`
@@ -59,6 +59,8 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-tablename
 	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
+	// Settings governing the Compaction maintenance action.
+	//
 	// Contains details about the compaction settings for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-compaction
 	//
@@ -67,13 +69,15 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-icebergmetadata
 	//
 	IcebergMetadata interface{} `field:"optional" json:"icebergMetadata" yaml:"icebergMetadata"`
-	// Contains details about the Iceberg snapshot management settings for the table.
+	// Contains details about the snapshot management settings for an Iceberg table.
+	//
+	// A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-snapshotmanagement
 	//
 	SnapshotManagement interface{} `field:"optional" json:"snapshotManagement" yaml:"snapshotManagement"`
 	// Indicates that you don't want to specify a schema for the table.
 	//
-	// This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+	// This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html#cfn-s3tables-table-withoutmetadata
 	//
 	WithoutMetadata *string `field:"optional" json:"withoutMetadata" yaml:"withoutMetadata"`

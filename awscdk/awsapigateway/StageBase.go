@@ -46,7 +46,6 @@ type StageBase interface {
 	StageArn() *string
 	// Name of this stage.
 	StageName() *string
-	// A reference to a Stage resource.
 	StageRef() *StageReference
 	// Add an ApiKey to this stage.
 	AddApiKey(id *string, options *ApiKeyOptions) IApiKey

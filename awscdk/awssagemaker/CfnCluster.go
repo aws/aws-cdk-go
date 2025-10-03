@@ -19,14 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCluster := awscdk.Aws_sagemaker.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
-//   	AutoScaling: &ClusterAutoScalingConfigProperty{
-//   		Mode: jsii.String("mode"),
-//
-//   		// the properties below are optional
-//   		AutoScalerType: jsii.String("autoScalerType"),
-//   	},
 //   	ClusterName: jsii.String("clusterName"),
-//   	ClusterRole: jsii.String("clusterRole"),
 //   	InstanceGroups: []interface{}{
 //   		&ClusterInstanceGroupProperty{
 //   			ExecutionRole: jsii.String("executionRole"),
@@ -44,8 +37,6 @@ import (
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
-//   						RootVolume: jsii.Boolean(false),
-//   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
 //   				},
@@ -115,8 +106,6 @@ import (
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
-//   						RootVolume: jsii.Boolean(false),
-//   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
 //   				},
@@ -167,9 +156,6 @@ type CfnCluster interface {
 	AttrCreationTime() *string
 	// The failure message of the SageMaker HyperPod cluster.
 	AttrFailureMessage() *string
-	// Configuration for cluster auto-scaling.
-	AutoScaling() interface{}
-	SetAutoScaling(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -182,9 +168,6 @@ type CfnCluster interface {
 	SetClusterName(val *string)
 	// A reference to a Cluster resource.
 	ClusterRef() *ClusterReference
-	// The cluster role for the autoscaler to assume.
-	ClusterRole() *string
-	SetClusterRole(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -419,16 +402,6 @@ func (j *jsiiProxy_CfnCluster) AttrFailureMessage() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) AutoScaling() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"autoScaling",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnCluster) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -484,16 +457,6 @@ func (j *jsiiProxy_CfnCluster) ClusterRef() *ClusterReference {
 	_jsii_.Get(
 		j,
 		"clusterRef",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCluster) ClusterRole() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"clusterRole",
 		&returns,
 	)
 	return returns
@@ -667,29 +630,10 @@ func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CfnCluster)SetAutoScaling(val interface{}) {
-	if err := j.validateSetAutoScalingParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"autoScaling",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnCluster)SetClusterName(val *string) {
 	_jsii_.Set(
 		j,
 		"clusterName",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnCluster)SetClusterRole(val *string) {
-	_jsii_.Set(
-		j,
-		"clusterRole",
 		val,
 	)
 }

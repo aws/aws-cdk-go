@@ -171,7 +171,6 @@ func init() {
 		"aws-cdk-lib.aws_detective.IGraphRef",
 		reflect.TypeOf((*IGraphRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "graphRef", GoGetter: "GraphRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -184,7 +183,6 @@ func init() {
 		"aws-cdk-lib.aws_detective.IMemberInvitationRef",
 		reflect.TypeOf((*IMemberInvitationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "memberInvitationRef", GoGetter: "MemberInvitationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -198,7 +196,6 @@ func init() {
 		reflect.TypeOf((*IOrganizationAdminRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationAdminRef", GoGetter: "OrganizationAdminRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationAdminRef{}

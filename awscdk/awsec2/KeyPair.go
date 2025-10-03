@@ -43,7 +43,6 @@ type KeyPair interface {
 	KeyPairId() *string
 	// The unique name of the key pair.
 	KeyPairName() *string
-	// A reference to a KeyPair resource.
 	KeyPairRef() *KeyPairReference
 	// The tree node.
 	Node() constructs.Node

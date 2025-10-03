@@ -297,7 +297,6 @@ func init() {
 		"aws-cdk-lib.aws_groundstation.IConfigRef",
 		reflect.TypeOf((*IConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configRef", GoGetter: "ConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -310,7 +309,6 @@ func init() {
 		"aws-cdk-lib.aws_groundstation.IDataflowEndpointGroupRef",
 		reflect.TypeOf((*IDataflowEndpointGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataflowEndpointGroupRef", GoGetter: "DataflowEndpointGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -323,7 +321,6 @@ func init() {
 		"aws-cdk-lib.aws_groundstation.IMissionProfileRef",
 		reflect.TypeOf((*IMissionProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "missionProfileRef", GoGetter: "MissionProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

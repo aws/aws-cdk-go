@@ -8,7 +8,7 @@ func (m *jsiiProxy_ManagedPolicy) validateApplyRemovalPolicyParameters(policy aw
 	return nil
 }
 
-func (m *jsiiProxy_ManagedPolicy) validateAttachToGroupParameters(group IGroupRef) error {
+func (m *jsiiProxy_ManagedPolicy) validateAttachToGroupParameters(group IGroup) error {
 	return nil
 }
 
@@ -16,7 +16,7 @@ func (m *jsiiProxy_ManagedPolicy) validateAttachToRoleParameters(role IRole) err
 	return nil
 }
 
-func (m *jsiiProxy_ManagedPolicy) validateAttachToUserParameters(user IUserRef) error {
+func (m *jsiiProxy_ManagedPolicy) validateAttachToUserParameters(user IUser) error {
 	return nil
 }
 

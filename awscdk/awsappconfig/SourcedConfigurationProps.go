@@ -72,7 +72,7 @@ type SourcedConfigurationProps struct {
 	// The IAM role to retrieve the configuration.
 	// Default: - Auto generated if location type is not ConfigurationSourceType.CODE_PIPELINE otherwise no role specified.
 	//
-	RetrievalRole awsiam.IRoleRef `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
+	RetrievalRole awsiam.IRole `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
 	// The version number of the sourced configuration to deploy.
 	//
 	// If this is not specified,

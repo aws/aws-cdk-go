@@ -701,25 +701,6 @@ func (j *jsiiProxy_CfnImageBuilder)SetVpcConfig(val interface{}) {
 	)
 }
 
-// Creates a new IImageBuilderRef from a imageBuilderName.
-func CfnImageBuilder_FromImageBuilderName(scope constructs.Construct, id *string, imageBuilderName *string) IImageBuilderRef {
-	_init_.Initialize()
-
-	if err := validateCfnImageBuilder_FromImageBuilderNameParameters(scope, id, imageBuilderName); err != nil {
-		panic(err)
-	}
-	var returns IImageBuilderRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appstream.CfnImageBuilder",
-		"fromImageBuilderName",
-		[]interface{}{scope, id, imageBuilderName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

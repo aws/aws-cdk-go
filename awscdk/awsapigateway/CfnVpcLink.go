@@ -478,25 +478,6 @@ func (j *jsiiProxy_CfnVpcLink)SetTargetArns(val *[]*string) {
 	)
 }
 
-// Creates a new IVpcLinkRef from a vpcLinkId.
-func CfnVpcLink_FromVpcLinkId(scope constructs.Construct, id *string, vpcLinkId *string) IVpcLinkRef {
-	_init_.Initialize()
-
-	if err := validateCfnVpcLink_FromVpcLinkIdParameters(scope, id, vpcLinkId); err != nil {
-		panic(err)
-	}
-	var returns IVpcLinkRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.CfnVpcLink",
-		"fromVpcLinkId",
-		[]interface{}{scope, id, vpcLinkId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

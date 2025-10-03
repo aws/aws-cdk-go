@@ -548,44 +548,6 @@ func (j *jsiiProxy_CfnAppImageConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAppImageConfigRef from an ARN.
-func CfnAppImageConfig_FromAppImageConfigArn(scope constructs.Construct, id *string, arn *string) IAppImageConfigRef {
-	_init_.Initialize()
-
-	if err := validateCfnAppImageConfig_FromAppImageConfigArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAppImageConfigRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig",
-		"fromAppImageConfigArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAppImageConfigRef from a appImageConfigName.
-func CfnAppImageConfig_FromAppImageConfigName(scope constructs.Construct, id *string, appImageConfigName *string) IAppImageConfigRef {
-	_init_.Initialize()
-
-	if err := validateCfnAppImageConfig_FromAppImageConfigNameParameters(scope, id, appImageConfigName); err != nil {
-		panic(err)
-	}
-	var returns IAppImageConfigRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig",
-		"fromAppImageConfigName",
-		[]interface{}{scope, id, appImageConfigName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

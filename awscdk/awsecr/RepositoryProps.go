@@ -38,7 +38,7 @@ type RepositoryProps struct {
 	// Default: - If encryption is set to `KMS` and this property is undefined,
 	// an AWS managed KMS key is used.
 	//
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Enable the scan on push when creating the repository.
 	// Default: false.
 	//

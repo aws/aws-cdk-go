@@ -553,7 +553,6 @@ func init() {
 		"aws-cdk-lib.aws_databrew.IDatasetRef",
 		reflect.TypeOf((*IDatasetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datasetRef", GoGetter: "DatasetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -566,7 +565,6 @@ func init() {
 		"aws-cdk-lib.aws_databrew.IJobRef",
 		reflect.TypeOf((*IJobRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -580,7 +578,6 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}
@@ -593,7 +590,6 @@ func init() {
 		reflect.TypeOf((*IRecipeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "recipeRef", GoGetter: "RecipeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRecipeRef{}
@@ -606,7 +602,6 @@ func init() {
 		reflect.TypeOf((*IRulesetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "rulesetRef", GoGetter: "RulesetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRulesetRef{}
@@ -619,7 +614,6 @@ func init() {
 		reflect.TypeOf((*IScheduleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scheduleRef", GoGetter: "ScheduleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduleRef{}

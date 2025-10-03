@@ -544,44 +544,6 @@ func (j *jsiiProxy_CfnRouteCalculator)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IRouteCalculatorRef from a calculatorName.
-func CfnRouteCalculator_FromCalculatorName(scope constructs.Construct, id *string, calculatorName *string) IRouteCalculatorRef {
-	_init_.Initialize()
-
-	if err := validateCfnRouteCalculator_FromCalculatorNameParameters(scope, id, calculatorName); err != nil {
-		panic(err)
-	}
-	var returns IRouteCalculatorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_location.CfnRouteCalculator",
-		"fromCalculatorName",
-		[]interface{}{scope, id, calculatorName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IRouteCalculatorRef from an ARN.
-func CfnRouteCalculator_FromRouteCalculatorArn(scope constructs.Construct, id *string, arn *string) IRouteCalculatorRef {
-	_init_.Initialize()
-
-	if err := validateCfnRouteCalculator_FromRouteCalculatorArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IRouteCalculatorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_location.CfnRouteCalculator",
-		"fromRouteCalculatorArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

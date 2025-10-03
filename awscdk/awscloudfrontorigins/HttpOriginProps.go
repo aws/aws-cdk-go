@@ -8,15 +8,32 @@ import (
 // Properties for an Origin backed by an S3 website-configured bucket, load balancer, or custom HTTP server.
 //
 // Example:
-//   origin := origins.NewHttpOrigin(jsii.String("www.example.com"), &HttpOriginProps{
-//   	IpAddressType: cloudfront.OriginIpAddressType_IPV6,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: *Origin,
+//   httpOriginProps := &HttpOriginProps{
+//   	ConnectionAttempts: jsii.Number(123),
+//   	ConnectionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	CustomHeaders: map[string]*string{
+//   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
-//   })
+//   	HttpPort: jsii.Number(123),
+//   	HttpsPort: jsii.Number(123),
+//   	KeepaliveTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	OriginAccessControlId: jsii.String("originAccessControlId"),
+//   	OriginId: jsii.String("originId"),
+//   	OriginPath: jsii.String("originPath"),
+//   	OriginShieldEnabled: jsii.Boolean(false),
+//   	OriginShieldRegion: jsii.String("originShieldRegion"),
+//   	OriginSslProtocols: []originSslPolicy{
+//   		awscdk.Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   	},
+//   	ProtocolPolicy: awscdk.*Aws_cloudfront.OriginProtocolPolicy_HTTP_ONLY,
+//   	ReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   }
 //
 type HttpOriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -55,16 +72,6 @@ type HttpOriginProps struct {
 	// Default: - origin shield not enabled.
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
-	// The time that a request from CloudFront to the origin can stay open and wait for a response.
-	//
-	// If the complete response isn't received from the origin by this time, CloudFront ends the connection.
-	//
-	// Valid values are 1-3600 seconds, inclusive.
-	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout
-	//
-	// Default: undefined -  AWS CloudFront default is not enforcing a maximum value.
-	//
-	ResponseCompletionTimeout awscdk.Duration `field:"optional" json:"responseCompletionTimeout" yaml:"responseCompletionTimeout"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
@@ -79,12 +86,6 @@ type HttpOriginProps struct {
 	// Default: 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
-	// Specifies which IP protocol CloudFront uses when connecting to your origin.
-	//
-	// If your origin uses both IPv4 and IPv6 protocols, you can choose dualstack to help optimize reliability.
-	// Default: undefined - AWS Cloudfront default is IPv4.
-	//
-	IpAddressType awscloudfront.OriginIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 180 seconds, inclusive.

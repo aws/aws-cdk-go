@@ -370,7 +370,6 @@ func init() {
 		"aws-cdk-lib.aws_devicefarm.IDevicePoolRef",
 		reflect.TypeOf((*IDevicePoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "devicePoolRef", GoGetter: "DevicePoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -383,7 +382,6 @@ func init() {
 		"aws-cdk-lib.aws_devicefarm.IInstanceProfileRef",
 		reflect.TypeOf((*IInstanceProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "instanceProfileRef", GoGetter: "InstanceProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -396,7 +394,6 @@ func init() {
 		"aws-cdk-lib.aws_devicefarm.INetworkProfileRef",
 		reflect.TypeOf((*INetworkProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "networkProfileRef", GoGetter: "NetworkProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -410,7 +407,6 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}
@@ -423,7 +419,6 @@ func init() {
 		reflect.TypeOf((*ITestGridProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "testGridProjectRef", GoGetter: "TestGridProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITestGridProjectRef{}
@@ -436,7 +431,6 @@ func init() {
 		reflect.TypeOf((*IVPCEConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpceConfigurationRef", GoGetter: "VpceConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCEConfigurationRef{}

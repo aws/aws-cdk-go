@@ -29,25 +29,6 @@ import (
 //   	},
 //   	DatabaseServerType: jsii.String("databaseServerType"),
 //   	DisplayName: jsii.String("displayName"),
-//   	MaintenanceWindow: &MaintenanceWindowProperty{
-//   		CustomActionTimeoutInMins: jsii.Number(123),
-//   		DaysOfWeek: []*string{
-//   			jsii.String("daysOfWeek"),
-//   		},
-//   		HoursOfDay: []interface{}{
-//   			jsii.Number(123),
-//   		},
-//   		IsCustomActionTimeoutEnabled: jsii.Boolean(false),
-//   		LeadTimeInWeeks: jsii.Number(123),
-//   		Months: []*string{
-//   			jsii.String("months"),
-//   		},
-//   		PatchingMode: jsii.String("patchingMode"),
-//   		Preference: jsii.String("preference"),
-//   		WeeksOfMonth: []interface{}{
-//   			jsii.Number(123),
-//   		},
-//   	},
 //   	Shape: jsii.String("shape"),
 //   	StorageCount: jsii.Number(123),
 //   	StorageServerType: jsii.String("storageServerType"),
@@ -151,9 +132,6 @@ type CfnCloudExadataInfrastructure interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The scheduling details for the maintenance window.
-	MaintenanceWindow() interface{}
-	SetMaintenanceWindow(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -665,16 +643,6 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCloudExadataInfrastructure) MaintenanceWindow() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"maintenanceWindow",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnCloudExadataInfrastructure) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -840,17 +808,6 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure)SetDisplayName(val *string) {
 	_jsii_.Set(
 		j,
 		"displayName",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnCloudExadataInfrastructure)SetMaintenanceWindow(val interface{}) {
-	if err := j.validateSetMaintenanceWindowParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"maintenanceWindow",
 		val,
 	)
 }

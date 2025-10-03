@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnDocument) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnDocument_FromDocumentNameParameters(scope constructs.Construct, id *string, documentName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if documentName == nil {
-		return fmt.Errorf("parameter documentName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDocument_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

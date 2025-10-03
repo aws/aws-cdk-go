@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnMissionProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnMissionProfile_FromMissionProfileIdParameters(scope constructs.Construct, id *string, missionProfileId *string) error {
-	return nil
-}
-
 func validateCfnMissionProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

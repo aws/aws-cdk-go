@@ -665,25 +665,6 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetUserTrustProviderType(val *
 	)
 }
 
-// Creates a new IVerifiedAccessTrustProviderRef from a verifiedAccessTrustProviderId.
-func CfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderId(scope constructs.Construct, id *string, verifiedAccessTrustProviderId *string) IVerifiedAccessTrustProviderRef {
-	_init_.Initialize()
-
-	if err := validateCfnVerifiedAccessTrustProvider_FromVerifiedAccessTrustProviderIdParameters(scope, id, verifiedAccessTrustProviderId); err != nil {
-		panic(err)
-	}
-	var returns IVerifiedAccessTrustProviderRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProvider",
-		"fromVerifiedAccessTrustProviderId",
-		[]interface{}{scope, id, verifiedAccessTrustProviderId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

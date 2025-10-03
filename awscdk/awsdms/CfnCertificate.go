@@ -419,25 +419,6 @@ func (j *jsiiProxy_CfnCertificate)SetCertificateWallet(val *string) {
 	)
 }
 
-// Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) ICertificateRef {
-	_init_.Initialize()
-
-	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
-		panic(err)
-	}
-	var returns ICertificateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
-		"fromCertificateId",
-		[]interface{}{scope, id, certificateId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

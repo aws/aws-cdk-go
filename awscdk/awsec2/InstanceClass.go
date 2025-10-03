@@ -207,14 +207,6 @@ const (
 	InstanceClass_MEMORY7_INTEL InstanceClass = "MEMORY7_INTEL"
 	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation, with sustained 3.9GHz turbo frequency.
 	InstanceClass_R7IZ InstanceClass = "R7IZ"
-	// Memory optimized instances based on custom Intel Xeon Scalable 6 processors, available only on AWS.
-	InstanceClass_MEMORY8_INTEL_BASE InstanceClass = "MEMORY8_INTEL_BASE"
-	// Memory optimized instances based on custom Intel Xeon Scalable 6 processors, available only on AWS.
-	InstanceClass_R8I InstanceClass = "R8I"
-	// Memory optimized flexible instances based on custom Intel Xeon Scalable 6 processors, available only on AWS Provide up to 20% higher performance, 2.5x more memory throughput, and can scale up to full CPU performance 95% of the time.
-	InstanceClass_MEMORY8_INTEL_FLEX InstanceClass = "MEMORY8_INTEL_FLEX"
-	// Memory optimized flexible instances based on custom Intel Xeon Scalable 6 processors, available only on AWS Provide up to 20% higher performance, 2.5x more memory throughput, and can scale up to full CPU performance 95% of the time.
-	InstanceClass_R8I_FLEX InstanceClass = "R8I_FLEX"
 	// Memory optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
 	InstanceClass_MEMORY7_AMD InstanceClass = "MEMORY7_AMD"
 	// Memory optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
@@ -227,14 +219,6 @@ const (
 	InstanceClass_MEMORY8_GRAVITON4_NVME_DRIVE InstanceClass = "MEMORY8_GRAVITON4_NVME_DRIVE"
 	// Memory optimized instances, 8th generation with Graviton4 processors and local NVME drive.
 	InstanceClass_R8GD InstanceClass = "R8GD"
-	// Memory optimized instances, 8th generation with Graviton4 processors and high network bandwidth capabilities.
-	InstanceClass_MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH InstanceClass = "MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH"
-	// Memory optimized instances, 8th generation with Graviton4 processors and high network bandwidth capabilities.
-	InstanceClass_R8GN InstanceClass = "R8GN"
-	// Memory and EBS optimized instances, 8th generation with Graviton4 processors.
-	InstanceClass_MEMORY8_GRAVITON4_EBS_OPTIMIZED InstanceClass = "MEMORY8_GRAVITON4_EBS_OPTIMIZED"
-	// Memory and EBS optimized instances, 8th generation with Graviton4 processors.
-	InstanceClass_R8GB InstanceClass = "R8GB"
 	// Compute optimized instances, 3rd generation.
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	// Compute optimized instances, 3rd generation.
@@ -403,10 +387,6 @@ const (
 	InstanceClass_STORAGE8_GRAVITON InstanceClass = "STORAGE8_GRAVITON"
 	// Storage optimized instances powered by Graviton4 processor, 8th generation.
 	InstanceClass_I8G InstanceClass = "I8G"
-	// Storage optimized instances powered by Graviton4 processor, 8th generation.
-	InstanceClass_STORAGE8_GRAVITON_STORAGE_OPTIMIZED InstanceClass = "STORAGE8_GRAVITON_STORAGE_OPTIMIZED"
-	// Storage optimized instances powered by Graviton4 processor, 8th generation.
-	InstanceClass_I8GE InstanceClass = "I8GE"
 	// Burstable instances, 2nd generation.
 	InstanceClass_BURSTABLE2 InstanceClass = "BURSTABLE2"
 	// Burstable instances, 2nd generation.
@@ -599,14 +579,6 @@ const (
 	InstanceClass_STANDARD8_GRAVITON4_NVME_DRIVE InstanceClass = "STANDARD8_GRAVITON4_NVME_DRIVE"
 	// Standard instances, 8th generation with Graviton4 processors and local NVME drive.
 	InstanceClass_M8GD InstanceClass = "M8GD"
-	// Standard instances based on custom Intel Xeon Scalable 6 processors, available only on AWS.
-	InstanceClass_STANDARD8_INTEL InstanceClass = "STANDARD8_INTEL"
-	// Standard instances based on custom Intel Xeon Scalable 6 processors, available only on AWS.
-	InstanceClass_M8I InstanceClass = "M8I"
-	// Flexible instances based on custom Intel Xeon Scalable 6 processors, available only on AWS Provide up to 20% higher performance, 2.5x more memory throughput, and can scale up to full CPU performance 95% of the time.
-	InstanceClass_STANDARD8_INTEL_FLEX InstanceClass = "STANDARD8_INTEL_FLEX"
-	// Flexible instances based on custom Intel Xeon Scalable 6 processors, available only on AWS Provide up to 20% higher performance, 2.5x more memory throughput, and can scale up to full CPU performance 95% of the time.
-	InstanceClass_M8I_FLEX InstanceClass = "M8I_FLEX"
 	// Standard instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
 	InstanceClass_STANDARD7_INTEL InstanceClass = "STANDARD7_INTEL"
 	// Standard instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.

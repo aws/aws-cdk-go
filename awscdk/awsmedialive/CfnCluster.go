@@ -533,44 +533,6 @@ func (j *jsiiProxy_CfnCluster)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IClusterRef from an ARN.
-func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) IClusterRef {
-	_init_.Initialize()
-
-	if err := validateCfnCluster_FromClusterArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IClusterRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnCluster",
-		"fromClusterArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IClusterRef from a clusterId.
-func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) IClusterRef {
-	_init_.Initialize()
-
-	if err := validateCfnCluster_FromClusterIdParameters(scope, id, clusterId); err != nil {
-		panic(err)
-	}
-	var returns IClusterRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnCluster",
-		"fromClusterId",
-		[]interface{}{scope, id, clusterId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -83,7 +83,7 @@ type Secret interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a replica region for the secret.
-	AddReplicaRegion(region *string, encryptionKey awskms.IKeyRef)
+	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	// Adds a rotation schedule to the secret.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
@@ -477,7 +477,7 @@ func Secret_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms.IKeyRef) {
+func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
 	if err := s.validateAddReplicaRegionParameters(region); err != nil {
 		panic(err)
 	}

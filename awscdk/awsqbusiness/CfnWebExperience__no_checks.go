@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnWebExperience) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
-func validateCfnWebExperience_FromWebExperienceArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnWebExperience_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

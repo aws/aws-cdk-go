@@ -52,11 +52,9 @@ import (
 //
 //   			// the properties below are optional
 //   			LocationCapacity: &LocationCapacityProperty{
+//   				DesiredEc2Instances: jsii.Number(123),
 //   				MaxSize: jsii.Number(123),
 //   				MinSize: jsii.Number(123),
-//
-//   				// the properties below are optional
-//   				DesiredEc2Instances: jsii.Number(123),
 //   			},
 //   			StoppedActions: []*string{
 //   				jsii.String("stoppedActions"),
@@ -923,25 +921,6 @@ func (j *jsiiProxy_CfnContainerFleet)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IContainerFleetRef from a fleetId.
-func CfnContainerFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IContainerFleetRef {
-	_init_.Initialize()
-
-	if err := validateCfnContainerFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
-		panic(err)
-	}
-	var returns IContainerFleetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
-		"fromFleetId",
-		[]interface{}{scope, id, fleetId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

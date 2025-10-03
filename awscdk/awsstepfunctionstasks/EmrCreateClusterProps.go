@@ -9,40 +9,36 @@ import (
 // Properties for calling an AWS service's API action from your state machine across regions.
 //
 // Example:
-//   tasks.NewEmrCreateCluster(this, jsii.String("CreateCluster"), &EmrCreateClusterProps{
+//   clusterRole := iam.NewRole(this, jsii.String("ClusterRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+//   })
+//
+//   serviceRole := iam.NewRole(this, jsii.String("ServiceRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
+//   })
+//
+//   autoScalingRole := iam.NewRole(this, jsii.String("AutoScalingRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
+//   })
+//
+//   autoScalingRole.AssumeRolePolicy.AddStatements(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Effect: iam.Effect_ALLOW,
+//   	Principals: []iPrincipal{
+//   		iam.NewServicePrincipal(jsii.String("application-autoscaling.amazonaws.com")),
+//   	},
+//   	Actions: []*string{
+//   		jsii.String("sts:AssumeRole"),
+//   	},
+//   }))
+//
+//   tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
 //   	Instances: &InstancesConfigProperty{
-//   		InstanceFleets: []instanceFleetConfigProperty{
-//   			&instanceFleetConfigProperty{
-//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_CORE,
-//   				InstanceTypeConfigs: []instanceTypeConfigProperty{
-//   					&instanceTypeConfigProperty{
-//   						InstanceType: jsii.String("m5.xlarge"),
-//   					},
-//   				},
-//   				TargetOnDemandCapacity: jsii.Number(1),
-//   			},
-//   			&instanceFleetConfigProperty{
-//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
-//   				InstanceTypeConfigs: []*instanceTypeConfigProperty{
-//   					&instanceTypeConfigProperty{
-//   						InstanceType: jsii.String("m5.xlarge"),
-//   					},
-//   				},
-//   				TargetOnDemandCapacity: jsii.Number(1),
-//   			},
-//   		},
 //   	},
-//   	Name: jsii.String("ClusterName"),
-//   	ReleaseLabel: jsii.String("emr-7.9.0"),
-//   	ManagedScalingPolicy: &ManagedScalingPolicyProperty{
-//   		ComputeLimits: &ManagedScalingComputeLimitsProperty{
-//   			UnitType: tasks.EmrCreateCluster.ComputeLimitsUnitType_INSTANCE_FLEET_UNITS,
-//   			MaximumCapacityUnits: jsii.Number(4),
-//   			MinimumCapacityUnits: jsii.Number(1),
-//   			MaximumOnDemandCapacityUnits: jsii.Number(4),
-//   			MaximumCoreCapacityUnits: jsii.Number(2),
-//   		},
-//   	},
+//   	ClusterRole: ClusterRole,
+//   	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
+//   	ServiceRole: ServiceRole,
+//   	AutoScalingRole: AutoScalingRole,
 //   })
 //
 type EmrCreateClusterProps struct {
@@ -197,28 +193,10 @@ type EmrCreateClusterProps struct {
 	// Default: - None.
 	//
 	CustomAmiId *string `field:"optional" json:"customAmiId" yaml:"customAmiId"`
-	// The IOPS of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
-	//
-	// Requires EMR release label 6.15.0 or above.
-	// Must be in range [3000, 16000].
-	// See: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami-root-volume-size.html#emr-root-volume-overview
-	//
-	// Default: - EMR selected default.
-	//
-	EbsRootVolumeIops *float64 `field:"optional" json:"ebsRootVolumeIops" yaml:"ebsRootVolumeIops"`
 	// The size of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
 	// Default: - EMR selected default.
 	//
 	EbsRootVolumeSize awscdk.Size `field:"optional" json:"ebsRootVolumeSize" yaml:"ebsRootVolumeSize"`
-	// The throughput, in MiB/s, of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
-	//
-	// Requires EMR release label 6.15.0 or above.
-	// Must be in range [125, 1000].
-	// See: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami-root-volume-size.html#emr-root-volume-overview
-	//
-	// Default: - EMR selected default.
-	//
-	EbsRootVolumeThroughput *float64 `field:"optional" json:"ebsRootVolumeThroughput" yaml:"ebsRootVolumeThroughput"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
 	// Default: - None.
 	//
@@ -227,10 +205,6 @@ type EmrCreateClusterProps struct {
 	// Default: - None.
 	//
 	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
-	// The specified managed scaling policy for an Amazon EMR cluster.
-	// Default: - None.
-	//
-	ManagedScalingPolicy *EmrCreateCluster_ManagedScalingPolicyProperty `field:"optional" json:"managedScalingPolicy" yaml:"managedScalingPolicy"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	// Default: - EMR selected default.
 	//

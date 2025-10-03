@@ -52,7 +52,7 @@ type FileSystemProps struct {
 	// This is required to encrypt the data at rest if.
 	// Default: - if 'encrypted' is true, the default key for EFS (/aws/elasticfilesystem) is used.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.
 	// Default: - None. EFS will not transition files to the IA storage class.
 	//

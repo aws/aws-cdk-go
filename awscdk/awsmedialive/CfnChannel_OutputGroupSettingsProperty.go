@@ -23,13 +23,6 @@ package awsmedialive
 //   		RolloverInterval: jsii.Number(123),
 //   	},
 //   	CmafIngestGroupSettings: &CmafIngestGroupSettingsProperty{
-//   		AdditionalDestinations: []interface{}{
-//   			&AdditionalDestinationsProperty{
-//   				Destination: &OutputLocationRefProperty{
-//   					DestinationRefId: jsii.String("destinationRefId"),
-//   				},
-//   			},
-//   		},
 //   		CaptionLanguageMappings: []interface{}{
 //   			&CmafIngestCaptionLanguageMappingProperty{
 //   				CaptionChannel: jsii.Number(123),

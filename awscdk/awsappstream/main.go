@@ -878,7 +878,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IAppBlockBuilderRef",
 		reflect.TypeOf((*IAppBlockBuilderRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "appBlockBuilderRef", GoGetter: "AppBlockBuilderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -891,7 +890,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IAppBlockRef",
 		reflect.TypeOf((*IAppBlockRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "appBlockRef", GoGetter: "AppBlockRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -904,7 +902,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IApplicationEntitlementAssociationRef",
 		reflect.TypeOf((*IApplicationEntitlementAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationEntitlementAssociationRef", GoGetter: "ApplicationEntitlementAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -917,7 +914,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IApplicationFleetAssociationRef",
 		reflect.TypeOf((*IApplicationFleetAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationFleetAssociationRef", GoGetter: "ApplicationFleetAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -930,7 +926,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -943,7 +938,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IDirectoryConfigRef",
 		reflect.TypeOf((*IDirectoryConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "directoryConfigRef", GoGetter: "DirectoryConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -956,7 +950,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IEntitlementRef",
 		reflect.TypeOf((*IEntitlementRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "entitlementRef", GoGetter: "EntitlementRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -969,7 +962,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IFleetRef",
 		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -982,7 +974,6 @@ func init() {
 		"aws-cdk-lib.aws_appstream.IImageBuilderRef",
 		reflect.TypeOf((*IImageBuilderRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "imageBuilderRef", GoGetter: "ImageBuilderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -996,7 +987,6 @@ func init() {
 		reflect.TypeOf((*IStackFleetAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stackFleetAssociationRef", GoGetter: "StackFleetAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackFleetAssociationRef{}
@@ -1009,7 +999,6 @@ func init() {
 		reflect.TypeOf((*IStackRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stackRef", GoGetter: "StackRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackRef{}
@@ -1022,7 +1011,6 @@ func init() {
 		reflect.TypeOf((*IStackUserAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stackUserAssociationRef", GoGetter: "StackUserAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackUserAssociationRef{}
@@ -1035,7 +1023,6 @@ func init() {
 		reflect.TypeOf((*IUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserRef{}

@@ -52,6 +52,6 @@ type UserPoolGroupOptions struct {
 	// The role for the group.
 	// Default: - no description.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

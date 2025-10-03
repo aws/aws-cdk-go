@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnPrefixList) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
-func validateCfnPrefixList_FromPrefixListArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnPrefixList_FromPrefixListIdParameters(scope constructs.Construct, id *string, prefixListId *string) error {
-	return nil
-}
-
 func validateCfnPrefixList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

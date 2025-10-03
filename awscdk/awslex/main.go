@@ -44,7 +44,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataPrivacy", GoGetter: "DataPrivacy"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
-			_jsii_.MemberProperty{JsiiProperty: "errorLogSettings", GoGetter: "ErrorLogSettings"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "idleSessionTtlInSeconds", GoGetter: "IdleSessionTtlInSeconds"},
@@ -229,10 +228,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ElicitationCodeHookInvocationSettingProperty",
 		reflect.TypeOf((*CfnBot_ElicitationCodeHookInvocationSettingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ErrorLogSettingsProperty",
-		reflect.TypeOf((*CfnBot_ErrorLogSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ExactResponseFieldsProperty",
@@ -741,7 +736,6 @@ func init() {
 		"aws-cdk-lib.aws_lex.IBotAliasRef",
 		reflect.TypeOf((*IBotAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "botAliasRef", GoGetter: "BotAliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -754,7 +748,6 @@ func init() {
 		"aws-cdk-lib.aws_lex.IBotRef",
 		reflect.TypeOf((*IBotRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "botRef", GoGetter: "BotRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -767,7 +760,6 @@ func init() {
 		"aws-cdk-lib.aws_lex.IBotVersionRef",
 		reflect.TypeOf((*IBotVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "botVersionRef", GoGetter: "BotVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -781,7 +773,6 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}

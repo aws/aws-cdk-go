@@ -543,44 +543,6 @@ func (j *jsiiProxy_CfnSourceLocation)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new ISourceLocationRef from an ARN.
-func CfnSourceLocation_FromSourceLocationArn(scope constructs.Construct, id *string, arn *string) ISourceLocationRef {
-	_init_.Initialize()
-
-	if err := validateCfnSourceLocation_FromSourceLocationArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ISourceLocationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediatailor.CfnSourceLocation",
-		"fromSourceLocationArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ISourceLocationRef from a sourceLocationName.
-func CfnSourceLocation_FromSourceLocationName(scope constructs.Construct, id *string, sourceLocationName *string) ISourceLocationRef {
-	_init_.Initialize()
-
-	if err := validateCfnSourceLocation_FromSourceLocationNameParameters(scope, id, sourceLocationName); err != nil {
-		panic(err)
-	}
-	var returns ISourceLocationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediatailor.CfnSourceLocation",
-		"fromSourceLocationName",
-		[]interface{}{scope, id, sourceLocationName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

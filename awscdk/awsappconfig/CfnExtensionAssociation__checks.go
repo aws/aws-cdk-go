@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnExtensionAssociation) validateValidatePropertiesParameters
 	return nil
 }
 
-func validateCfnExtensionAssociation_FromExtensionAssociationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnExtensionAssociation_FromExtensionAssociationIdParameters(scope constructs.Construct, id *string, extensionAssociationId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if extensionAssociationId == nil {
-		return fmt.Errorf("parameter extensionAssociationId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnExtensionAssociation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

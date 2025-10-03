@@ -23,9 +23,6 @@ type CfnComputeNodeGroup_SlurmCustomSettingProperty struct {
 	// - [`Prolog`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1)
 	// - [`Epilog`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1)
 	// - [`SelectTypeParameters`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters)
-	// - [`AccountingStorageEnforce`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce)
-	//
-	// > AWS PCS supports a subset of the options for `AccountingStorageEnforce` . For more information, see [Slurm accounting in AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/slurm-accounting.html) in the *AWS PCS User Guide* .
 	// - For *compute node groups*
 	//
 	// - [`Weight`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Weight)

@@ -642,7 +642,6 @@ func init() {
 		"aws-cdk-lib.aws_wafregional.IByteMatchSetRef",
 		reflect.TypeOf((*IByteMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "byteMatchSetRef", GoGetter: "ByteMatchSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -655,7 +654,6 @@ func init() {
 		"aws-cdk-lib.aws_wafregional.IGeoMatchSetRef",
 		reflect.TypeOf((*IGeoMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "geoMatchSetRef", GoGetter: "GeoMatchSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -668,7 +666,6 @@ func init() {
 		"aws-cdk-lib.aws_wafregional.IIPSetRef",
 		reflect.TypeOf((*IIPSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "ipSetRef", GoGetter: "IpSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -686,7 +683,6 @@ func init() {
 		reflect.TypeOf((*IRateBasedRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "rateBasedRuleRef", GoGetter: "RateBasedRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRateBasedRuleRef{}
@@ -699,7 +695,6 @@ func init() {
 		reflect.TypeOf((*IRegexPatternSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "regexPatternSetRef", GoGetter: "RegexPatternSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegexPatternSetRef{}
@@ -712,7 +707,6 @@ func init() {
 		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleRef{}
@@ -725,7 +719,6 @@ func init() {
 		reflect.TypeOf((*ISizeConstraintSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sizeConstraintSetRef", GoGetter: "SizeConstraintSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISizeConstraintSetRef{}
@@ -738,7 +731,6 @@ func init() {
 		reflect.TypeOf((*ISqlInjectionMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sqlInjectionMatchSetRef", GoGetter: "SqlInjectionMatchSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISqlInjectionMatchSetRef{}
@@ -751,7 +743,6 @@ func init() {
 		reflect.TypeOf((*IWebACLAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "webAclAssociationRef", GoGetter: "WebAclAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebACLAssociationRef{}
@@ -764,7 +755,6 @@ func init() {
 		reflect.TypeOf((*IWebACLRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "webAclRef", GoGetter: "WebAclRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebACLRef{}
@@ -777,7 +767,6 @@ func init() {
 		reflect.TypeOf((*IXssMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "xssMatchSetRef", GoGetter: "XssMatchSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IXssMatchSetRef{}

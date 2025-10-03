@@ -13,7 +13,7 @@ type IUsagePlan interface {
 	awscdk.IResource
 	IUsagePlanRef
 	// Adds an ApiKey.
-	AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions)
+	AddApiKey(apiKey IApiKey, options *AddApiKeyOptions)
 	// Id of the usage plan.
 	UsagePlanId() *string
 }
@@ -24,7 +24,7 @@ type jsiiProxy_IUsagePlan struct {
 	jsiiProxy_IUsagePlanRef
 }
 
-func (i *jsiiProxy_IUsagePlan) AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions) {
+func (i *jsiiProxy_IUsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
 	if err := i.validateAddApiKeyParameters(apiKey, options); err != nil {
 		panic(err)
 	}
@@ -81,16 +81,6 @@ func (j *jsiiProxy_IUsagePlan) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IUsagePlan) UsagePlanRef() *UsagePlanReference {
-	var returns *UsagePlanReference
-	_jsii_.Get(
-		j,
-		"usagePlanRef",
 		&returns,
 	)
 	return returns

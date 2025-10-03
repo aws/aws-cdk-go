@@ -580,25 +580,6 @@ func (j *jsiiProxy_CfnDeploymentStrategy)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDeploymentStrategyRef from a deploymentStrategyId.
-func CfnDeploymentStrategy_FromDeploymentStrategyId(scope constructs.Construct, id *string, deploymentStrategyId *string) IDeploymentStrategyRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeploymentStrategy_FromDeploymentStrategyIdParameters(scope, id, deploymentStrategyId); err != nil {
-		panic(err)
-	}
-	var returns IDeploymentStrategyRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appconfig.CfnDeploymentStrategy",
-		"fromDeploymentStrategyId",
-		[]interface{}{scope, id, deploymentStrategyId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -7,13 +7,6 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cmafIngestGroupSettingsProperty := &CmafIngestGroupSettingsProperty{
-//   	AdditionalDestinations: []interface{}{
-//   		&AdditionalDestinationsProperty{
-//   			Destination: &OutputLocationRefProperty{
-//   				DestinationRefId: jsii.String("destinationRefId"),
-//   			},
-//   		},
-//   	},
 //   	CaptionLanguageMappings: []interface{}{
 //   		&CmafIngestCaptionLanguageMappingProperty{
 //   			CaptionChannel: jsii.Number(123),
@@ -42,9 +35,6 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html
 //
 type CfnChannel_CmafIngestGroupSettingsProperty struct {
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-additionaldestinations
-	//
-	AdditionalDestinations interface{} `field:"optional" json:"additionalDestinations" yaml:"additionalDestinations"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html#cfn-medialive-channel-cmafingestgroupsettings-captionlanguagemappings
 	//
 	CaptionLanguageMappings interface{} `field:"optional" json:"captionLanguageMappings" yaml:"captionLanguageMappings"`

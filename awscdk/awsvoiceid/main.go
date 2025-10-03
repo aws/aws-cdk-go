@@ -74,7 +74,6 @@ func init() {
 		"aws-cdk-lib.aws_voiceid.IDomainRef",
 		reflect.TypeOf((*IDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -20,7 +20,7 @@ import (
 //
 //   var assign interface{}
 //   var instanceType instanceType
-//   var keyRef iKeyRef
+//   var key key
 //   var resultSelector interface{}
 //   var role role
 //   var size size
@@ -51,7 +51,7 @@ import (
 //   		// the properties below are optional
 //   		Accept: jsii.String("accept"),
 //   		AssembleWith: awscdk.*Aws_stepfunctions_tasks.AssembleWith_NONE,
-//   		EncryptionKey: keyRef,
+//   		EncryptionKey: key,
 //   	},
 //
 //   	// the properties below are optional
@@ -94,7 +94,7 @@ import (
 //   		InstanceType: instanceType,
 //
 //   		// the properties below are optional
-//   		VolumeEncryptionKey: keyRef,
+//   		VolumeEncryptionKey: key,
 //   	},
 //   }
 //

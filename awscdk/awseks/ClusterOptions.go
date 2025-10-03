@@ -22,7 +22,7 @@ import (
 //
 //   var albControllerVersion albControllerVersion
 //   var endpointAccess endpointAccess
-//   var keyRef iKeyRef
+//   var key key
 //   var kubernetesVersion kubernetesVersion
 //   var layerVersion layerVersion
 //   var policy interface{}
@@ -88,7 +88,7 @@ import (
 //   		},
 //   	},
 //   	Role: role,
-//   	SecretsEncryptionKey: keyRef,
+//   	SecretsEncryptionKey: key,
 //   	SecurityGroup: securityGroup,
 //   	ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   	Vpc: vpc,
@@ -283,7 +283,7 @@ type ClusterOptions struct {
 	//   all etcd volumes used by Amazon EKS are encrypted at the disk-level
 	//   using AWS-Managed encryption keys.
 	//
-	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKey `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//

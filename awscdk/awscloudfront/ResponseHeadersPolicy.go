@@ -124,7 +124,6 @@ type ResponseHeadersPolicy interface {
 	PhysicalName() *string
 	// The ID of the response headers policy.
 	ResponseHeadersPolicyId() *string
-	// A reference to a ResponseHeadersPolicy resource.
 	ResponseHeadersPolicyRef() *ResponseHeadersPolicyReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

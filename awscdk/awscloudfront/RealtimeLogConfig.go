@@ -65,7 +65,6 @@ type RealtimeLogConfig interface {
 	RealtimeLogConfigArn() *string
 	// The name of the realtime log config.
 	RealtimeLogConfigName() *string
-	// A reference to a RealtimeLogConfig resource.
 	RealtimeLogConfigRef() *RealtimeLogConfigReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

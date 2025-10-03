@@ -35,14 +35,6 @@ import (
 //
 //   	// the properties below are optional
 //   	AgentAvailabilityTimer: jsii.String("agentAvailabilityTimer"),
-//   	ManualAssignmentQueueConfigs: []interface{}{
-//   		&RoutingProfileManualAssignmentQueueConfigProperty{
-//   			QueueReference: &RoutingProfileQueueReferenceProperty{
-//   				Channel: jsii.String("channel"),
-//   				QueueArn: jsii.String("queueArn"),
-//   			},
-//   		},
-//   	},
 //   	QueueConfigs: []interface{}{
 //   		&RoutingProfileQueueConfigProperty{
 //   			Delay: jsii.Number(123),
@@ -103,9 +95,6 @@ type CfnRoutingProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Contains information about the queue and channel for manual assignment behaviour can be enabled.
-	ManualAssignmentQueueConfigs() interface{}
-	SetManualAssignmentQueueConfigs(val interface{})
 	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 	MediaConcurrencies() interface{}
 	SetMediaConcurrencies(val interface{})
@@ -389,16 +378,6 @@ func (j *jsiiProxy_CfnRoutingProfile) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingProfile) ManualAssignmentQueueConfigs() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"manualAssignmentQueueConfigs",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnRoutingProfile) MediaConcurrencies() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -564,17 +543,6 @@ func (j *jsiiProxy_CfnRoutingProfile)SetInstanceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceArn",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnRoutingProfile)SetManualAssignmentQueueConfigs(val interface{}) {
-	if err := j.validateSetManualAssignmentQueueConfigsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"manualAssignmentQueueConfigs",
 		val,
 	)
 }

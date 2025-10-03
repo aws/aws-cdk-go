@@ -61,7 +61,6 @@ type VpcLink interface {
 	Stack() awscdk.Stack
 	// Physical ID of the VpcLink resource.
 	VpcLinkId() *string
-	// A reference to a VpcLink resource.
 	VpcLinkRef() *VpcLinkReference
 	AddTargets(targets ...awselasticloadbalancingv2.INetworkLoadBalancer)
 	// Apply the given removal policy to this resource.

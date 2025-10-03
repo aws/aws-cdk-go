@@ -278,7 +278,6 @@ func init() {
 		"aws-cdk-lib.aws_personalize.IDatasetGroupRef",
 		reflect.TypeOf((*IDatasetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datasetGroupRef", GoGetter: "DatasetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -291,7 +290,6 @@ func init() {
 		"aws-cdk-lib.aws_personalize.IDatasetRef",
 		reflect.TypeOf((*IDatasetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datasetRef", GoGetter: "DatasetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -305,7 +303,6 @@ func init() {
 		reflect.TypeOf((*ISchemaRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schemaRef", GoGetter: "SchemaRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchemaRef{}
@@ -318,7 +315,6 @@ func init() {
 		reflect.TypeOf((*ISolutionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "solutionRef", GoGetter: "SolutionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISolutionRef{}

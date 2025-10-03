@@ -204,58 +204,48 @@ import (
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
 //
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationV2Props struct {
 	// The runtime environment for the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runtimeenvironment
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	RuntimeEnvironment *string `field:"required" json:"runtimeEnvironment" yaml:"runtimeEnvironment"`
 	// Specifies the IAM role that the application uses to access external resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ServiceExecutionRole *string `field:"required" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
 	// Use this parameter to configure the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationConfiguration interface{} `field:"optional" json:"applicationConfiguration" yaml:"applicationConfiguration"`
 	// The description of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationdescription
 	//
 	// Default: - "".
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationDescription *string `field:"optional" json:"applicationDescription" yaml:"applicationDescription"`
 	// Specifies the maintenance window parameters for a Kinesis Data Analytics application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmaintenanceconfiguration
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationMaintenanceConfiguration interface{} `field:"optional" json:"applicationMaintenanceConfiguration" yaml:"applicationMaintenanceConfiguration"`
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
 	//
 	// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationmode
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationMode *string `field:"optional" json:"applicationMode" yaml:"applicationMode"`
 	// The name of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationname
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// Describes the starting parameters for an Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-runconfiguration
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	RunConfiguration interface{} `field:"optional" json:"runConfiguration" yaml:"runConfiguration"`
 	// A list of one or more tags to assign to the application.
 	//
 	// A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

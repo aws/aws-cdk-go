@@ -851,25 +851,6 @@ func (j *jsiiProxy_CfnNetworkInterface)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new INetworkInterfaceRef from a networkInterfaceId.
-func CfnNetworkInterface_FromNetworkInterfaceId(scope constructs.Construct, id *string, networkInterfaceId *string) INetworkInterfaceRef {
-	_init_.Initialize()
-
-	if err := validateCfnNetworkInterface_FromNetworkInterfaceIdParameters(scope, id, networkInterfaceId); err != nil {
-		panic(err)
-	}
-	var returns INetworkInterfaceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnNetworkInterface",
-		"fromNetworkInterfaceId",
-		[]interface{}{scope, id, networkInterfaceId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

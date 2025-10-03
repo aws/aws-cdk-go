@@ -243,7 +243,6 @@ func init() {
 		"aws-cdk-lib.aws_shield.IDRTAccessRef",
 		reflect.TypeOf((*IDRTAccessRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "drtAccessRef", GoGetter: "DrtAccessRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -257,7 +256,6 @@ func init() {
 		reflect.TypeOf((*IProactiveEngagementRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "proactiveEngagementRef", GoGetter: "ProactiveEngagementRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProactiveEngagementRef{}
@@ -270,7 +268,6 @@ func init() {
 		reflect.TypeOf((*IProtectionGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "protectionGroupRef", GoGetter: "ProtectionGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProtectionGroupRef{}
@@ -283,7 +280,6 @@ func init() {
 		reflect.TypeOf((*IProtectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "protectionRef", GoGetter: "ProtectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProtectionRef{}

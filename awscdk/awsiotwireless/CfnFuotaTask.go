@@ -648,44 +648,6 @@ func (j *jsiiProxy_CfnFuotaTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IFuotaTaskRef from an ARN.
-func CfnFuotaTask_FromFuotaTaskArn(scope constructs.Construct, id *string, arn *string) IFuotaTaskRef {
-	_init_.Initialize()
-
-	if err := validateCfnFuotaTask_FromFuotaTaskArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IFuotaTaskRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
-		"fromFuotaTaskArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IFuotaTaskRef from a fuotaTaskId.
-func CfnFuotaTask_FromFuotaTaskId(scope constructs.Construct, id *string, fuotaTaskId *string) IFuotaTaskRef {
-	_init_.Initialize()
-
-	if err := validateCfnFuotaTask_FromFuotaTaskIdParameters(scope, id, fuotaTaskId); err != nil {
-		panic(err)
-	}
-	var returns IFuotaTaskRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
-		"fromFuotaTaskId",
-		[]interface{}{scope, id, fuotaTaskId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

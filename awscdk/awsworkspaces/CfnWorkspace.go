@@ -580,25 +580,6 @@ func (j *jsiiProxy_CfnWorkspace)SetWorkspaceProperties(val interface{}) {
 	)
 }
 
-// Creates a new IWorkspaceRef from a workspaceId.
-func CfnWorkspace_FromWorkspaceId(scope constructs.Construct, id *string, workspaceId *string) IWorkspaceRef {
-	_init_.Initialize()
-
-	if err := validateCfnWorkspace_FromWorkspaceIdParameters(scope, id, workspaceId); err != nil {
-		panic(err)
-	}
-	var returns IWorkspaceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
-		"fromWorkspaceId",
-		[]interface{}{scope, id, workspaceId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

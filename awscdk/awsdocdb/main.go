@@ -535,7 +535,6 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IDBClusterParameterGroupRef",
 		reflect.TypeOf((*IDBClusterParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbClusterParameterGroupRef", GoGetter: "DbClusterParameterGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -548,7 +547,6 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IDBClusterRef",
 		reflect.TypeOf((*IDBClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbClusterRef", GoGetter: "DbClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -561,7 +559,6 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IDBInstanceRef",
 		reflect.TypeOf((*IDBInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbInstanceRef", GoGetter: "DbInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -574,7 +571,6 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IDBSubnetGroupRef",
 		reflect.TypeOf((*IDBSubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbSubnetGroupRef", GoGetter: "DbSubnetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -632,7 +628,6 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IEventSubscriptionRef",
 		reflect.TypeOf((*IEventSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventSubscriptionRef", GoGetter: "EventSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -648,10 +643,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_docdb.RotationMultiUserOptions",
 		reflect.TypeOf((*RotationMultiUserOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_docdb.ServerlessV2ScalingConfiguration",
-		reflect.TypeOf((*ServerlessV2ScalingConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_docdb.StorageType",

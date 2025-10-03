@@ -144,7 +144,6 @@ func init() {
 		reflect.TypeOf((*IOrganizationTelemetryRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationTelemetryRuleRef", GoGetter: "OrganizationTelemetryRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationTelemetryRuleRef{}
@@ -157,7 +156,6 @@ func init() {
 		reflect.TypeOf((*ITelemetryRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "telemetryRuleRef", GoGetter: "TelemetryRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITelemetryRuleRef{}

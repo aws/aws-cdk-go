@@ -44,7 +44,6 @@ type Key interface {
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
 	KeyId() *string
-	// A reference to a Key resource.
 	KeyRef() *KeyReference
 	// The tree node.
 	Node() constructs.Node
@@ -379,7 +378,7 @@ func Key_IsConstruct(x interface{}) *bool {
 //
 // This method can only be used if the `returnDummyKeyOnMissing` option
 // is set to `true` in the `options` for the `Key.fromLookup()` method.
-func Key_IsLookupDummy(key IKeyRef) *bool {
+func Key_IsLookupDummy(key IKey) *bool {
 	_init_.Initialize()
 
 	if err := validateKey_IsLookupDummyParameters(key); err != nil {

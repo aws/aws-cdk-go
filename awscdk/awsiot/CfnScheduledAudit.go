@@ -520,44 +520,6 @@ func (j *jsiiProxy_CfnScheduledAudit)SetTargetCheckNames(val *[]*string) {
 	)
 }
 
-// Creates a new IScheduledAuditRef from an ARN.
-func CfnScheduledAudit_FromScheduledAuditArn(scope constructs.Construct, id *string, arn *string) IScheduledAuditRef {
-	_init_.Initialize()
-
-	if err := validateCfnScheduledAudit_FromScheduledAuditArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IScheduledAuditRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnScheduledAudit",
-		"fromScheduledAuditArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IScheduledAuditRef from a scheduledAuditName.
-func CfnScheduledAudit_FromScheduledAuditName(scope constructs.Construct, id *string, scheduledAuditName *string) IScheduledAuditRef {
-	_init_.Initialize()
-
-	if err := validateCfnScheduledAudit_FromScheduledAuditNameParameters(scope, id, scheduledAuditName); err != nil {
-		panic(err)
-	}
-	var returns IScheduledAuditRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnScheduledAudit",
-		"fromScheduledAuditName",
-		[]interface{}{scope, id, scheduledAuditName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

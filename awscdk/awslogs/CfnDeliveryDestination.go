@@ -522,44 +522,6 @@ func (j *jsiiProxy_CfnDeliveryDestination)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDeliveryDestinationRef from an ARN.
-func CfnDeliveryDestination_FromDeliveryDestinationArn(scope constructs.Construct, id *string, arn *string) IDeliveryDestinationRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeliveryDestination_FromDeliveryDestinationArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDeliveryDestinationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnDeliveryDestination",
-		"fromDeliveryDestinationArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDeliveryDestinationRef from a deliveryDestinationName.
-func CfnDeliveryDestination_FromDeliveryDestinationName(scope constructs.Construct, id *string, deliveryDestinationName *string) IDeliveryDestinationRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeliveryDestination_FromDeliveryDestinationNameParameters(scope, id, deliveryDestinationName); err != nil {
-		panic(err)
-	}
-	var returns IDeliveryDestinationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnDeliveryDestination",
-		"fromDeliveryDestinationName",
-		[]interface{}{scope, id, deliveryDestinationName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

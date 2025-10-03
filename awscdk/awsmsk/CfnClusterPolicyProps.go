@@ -23,8 +23,6 @@ type CfnClusterPolicyProps struct {
 	//
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
 	// Resource policy for the cluster.
-	//
-	// The maximum size supported for a resource-based policy document is 20 KB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html#cfn-msk-clusterpolicy-policy
 	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`

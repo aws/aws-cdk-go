@@ -491,44 +491,6 @@ func (j *jsiiProxy_CfnUserGroup)SetUserIds(val *[]*string) {
 	)
 }
 
-// Creates a new IUserGroupRef from an ARN.
-func CfnUserGroup_FromUserGroupArn(scope constructs.Construct, id *string, arn *string) IUserGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnUserGroup_FromUserGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IUserGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
-		"fromUserGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IUserGroupRef from a userGroupId.
-func CfnUserGroup_FromUserGroupId(scope constructs.Construct, id *string, userGroupId *string) IUserGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnUserGroup_FromUserGroupIdParameters(scope, id, userGroupId); err != nil {
-		panic(err)
-	}
-	var returns IUserGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
-		"fromUserGroupId",
-		[]interface{}{scope, id, userGroupId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

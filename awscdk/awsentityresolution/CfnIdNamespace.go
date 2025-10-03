@@ -610,44 +610,6 @@ func (j *jsiiProxy_CfnIdNamespace)SetType(val *string) {
 	)
 }
 
-// Creates a new IIdNamespaceRef from an ARN.
-func CfnIdNamespace_FromIdNamespaceArn(scope constructs.Construct, id *string, arn *string) IIdNamespaceRef {
-	_init_.Initialize()
-
-	if err := validateCfnIdNamespace_FromIdNamespaceArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IIdNamespaceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace",
-		"fromIdNamespaceArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IIdNamespaceRef from a idNamespaceName.
-func CfnIdNamespace_FromIdNamespaceName(scope constructs.Construct, id *string, idNamespaceName *string) IIdNamespaceRef {
-	_init_.Initialize()
-
-	if err := validateCfnIdNamespace_FromIdNamespaceNameParameters(scope, id, idNamespaceName); err != nil {
-		panic(err)
-	}
-	var returns IIdNamespaceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace",
-		"fromIdNamespaceName",
-		[]interface{}{scope, id, idNamespaceName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -113,6 +113,6 @@ type AssetOptions struct {
 	// The ARN of the KMS key used to encrypt the handler code.
 	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
 	//
-	SourceKMSKey awskms.IKeyRef `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
+	SourceKMSKey awskms.IKey `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 }
 

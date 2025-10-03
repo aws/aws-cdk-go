@@ -344,7 +344,6 @@ func init() {
 		"aws-cdk-lib.aws_inspectorv2.ICisScanConfigurationRef",
 		reflect.TypeOf((*ICisScanConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cisScanConfigurationRef", GoGetter: "CisScanConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -357,7 +356,6 @@ func init() {
 		"aws-cdk-lib.aws_inspectorv2.ICodeSecurityIntegrationRef",
 		reflect.TypeOf((*ICodeSecurityIntegrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "codeSecurityIntegrationRef", GoGetter: "CodeSecurityIntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -370,7 +368,6 @@ func init() {
 		"aws-cdk-lib.aws_inspectorv2.ICodeSecurityScanConfigurationRef",
 		reflect.TypeOf((*ICodeSecurityScanConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "codeSecurityScanConfigurationRef", GoGetter: "CodeSecurityScanConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -383,7 +380,6 @@ func init() {
 		"aws-cdk-lib.aws_inspectorv2.IFilterRef",
 		reflect.TypeOf((*IFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "filterRef", GoGetter: "FilterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -19,7 +19,7 @@ package awscloudfront
 type CfnDistributionTenant_ManagedCertificateRequestProperty struct {
 	// You can opt out of certificate transparency logging by specifying the `disabled` option.
 	//
-	// Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *Certificate Manager User Guide* .
+	// Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-managedcertificaterequest.html#cfn-cloudfront-distributiontenant-managedcertificaterequest-certificatetransparencyloggingpreference
 	//
 	CertificateTransparencyLoggingPreference *string `field:"optional" json:"certificateTransparencyLoggingPreference" yaml:"certificateTransparencyLoggingPreference"`

@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var keyRef iKeyRef
+//   var key key
 //   var securityGroup securityGroup
 //   var vpc vpc
 //
@@ -26,7 +26,7 @@ import (
 //
 //   	// the properties below are optional
 //   	BackupId: jsii.String("backupId"),
-//   	KmsKey: keyRef,
+//   	KmsKey: key,
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	SecurityGroup: securityGroup,
 //   	StorageType: awscdk.Aws_fsx.StorageType_SSD,
@@ -53,7 +53,7 @@ type FileSystemProps struct {
 	// The KMS key used for encryption to protect your data at rest.
 	// Default: - the aws/fsx default KMS key for the AWS account being deployed into.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
 	// Default: RemovalPolicy.RETAIN
 	//

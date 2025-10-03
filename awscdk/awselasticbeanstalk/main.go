@@ -285,7 +285,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticbeanstalk.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -298,7 +297,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticbeanstalk.IApplicationVersionRef",
 		reflect.TypeOf((*IApplicationVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationVersionRef", GoGetter: "ApplicationVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -311,7 +309,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticbeanstalk.IConfigurationTemplateRef",
 		reflect.TypeOf((*IConfigurationTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationTemplateRef", GoGetter: "ConfigurationTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -324,7 +321,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticbeanstalk.IEnvironmentRef",
 		reflect.TypeOf((*IEnvironmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "environmentRef", GoGetter: "EnvironmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -550,44 +550,6 @@ func (j *jsiiProxy_CfnWirelessGateway)SetThingName(val *string) {
 	)
 }
 
-// Creates a new IWirelessGatewayRef from an ARN.
-func CfnWirelessGateway_FromWirelessGatewayArn(scope constructs.Construct, id *string, arn *string) IWirelessGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnWirelessGateway_FromWirelessGatewayArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IWirelessGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
-		"fromWirelessGatewayArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IWirelessGatewayRef from a wirelessGatewayId.
-func CfnWirelessGateway_FromWirelessGatewayId(scope constructs.Construct, id *string, wirelessGatewayId *string) IWirelessGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnWirelessGateway_FromWirelessGatewayIdParameters(scope, id, wirelessGatewayId); err != nil {
-		panic(err)
-	}
-	var returns IWirelessGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
-		"fromWirelessGatewayId",
-		[]interface{}{scope, id, wirelessGatewayId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

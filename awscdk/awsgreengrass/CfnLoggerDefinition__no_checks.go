@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnLoggerDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnLoggerDefinition_FromLoggerDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnLoggerDefinition_FromLoggerDefinitionIdParameters(scope constructs.Construct, id *string, loggerDefinitionId *string) error {
-	return nil
-}
-
 func validateCfnLoggerDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

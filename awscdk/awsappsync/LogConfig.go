@@ -42,6 +42,6 @@ type LogConfig struct {
 	// The role for CloudWatch Logs.
 	// Default: - None.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

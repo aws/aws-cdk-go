@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnAIAgent) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnAIAgent_FromAIAgentArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnAIAgent_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

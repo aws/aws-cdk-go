@@ -63,16 +63,6 @@ func (j *jsiiProxy_ISamlProvider) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_ISamlProvider) SamlProviderRef() *SAMLProviderReference {
-	var returns *SAMLProviderReference
-	_jsii_.Get(
-		j,
-		"samlProviderRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ISamlProvider) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

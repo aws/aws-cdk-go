@@ -996,7 +996,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IAggregatorV2Ref",
 		reflect.TypeOf((*IAggregatorV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aggregatorV2Ref", GoGetter: "AggregatorV2Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1009,7 +1008,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IAutomationRuleRef",
 		reflect.TypeOf((*IAutomationRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "automationRuleRef", GoGetter: "AutomationRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1022,7 +1020,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IAutomationRuleV2Ref",
 		reflect.TypeOf((*IAutomationRuleV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "automationRuleV2Ref", GoGetter: "AutomationRuleV2Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1035,7 +1032,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IConfigurationPolicyRef",
 		reflect.TypeOf((*IConfigurationPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationPolicyRef", GoGetter: "ConfigurationPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1048,7 +1044,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IDelegatedAdminRef",
 		reflect.TypeOf((*IDelegatedAdminRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "delegatedAdminRef", GoGetter: "DelegatedAdminRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1061,7 +1056,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IFindingAggregatorRef",
 		reflect.TypeOf((*IFindingAggregatorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "findingAggregatorRef", GoGetter: "FindingAggregatorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1074,7 +1068,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IHubRef",
 		reflect.TypeOf((*IHubRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "hubRef", GoGetter: "HubRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1087,7 +1080,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IHubV2Ref",
 		reflect.TypeOf((*IHubV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "hubV2Ref", GoGetter: "HubV2Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1100,7 +1092,6 @@ func init() {
 		"aws-cdk-lib.aws_securityhub.IInsightRef",
 		reflect.TypeOf((*IInsightRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "insightRef", GoGetter: "InsightRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1114,7 +1105,6 @@ func init() {
 		reflect.TypeOf((*IOrganizationConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "organizationConfigurationRef", GoGetter: "OrganizationConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationConfigurationRef{}
@@ -1127,7 +1117,6 @@ func init() {
 		reflect.TypeOf((*IPolicyAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyAssociationRef", GoGetter: "PolicyAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyAssociationRef{}
@@ -1140,7 +1129,6 @@ func init() {
 		reflect.TypeOf((*IProductSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "productSubscriptionRef", GoGetter: "ProductSubscriptionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProductSubscriptionRef{}
@@ -1153,7 +1141,6 @@ func init() {
 		reflect.TypeOf((*ISecurityControlRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "securityControlRef", GoGetter: "SecurityControlRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityControlRef{}
@@ -1166,7 +1153,6 @@ func init() {
 		reflect.TypeOf((*IStandardRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "standardRef", GoGetter: "StandardRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStandardRef{}

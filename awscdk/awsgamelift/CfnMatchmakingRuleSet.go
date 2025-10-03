@@ -488,44 +488,6 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IMatchmakingRuleSetRef from an ARN.
-func CfnMatchmakingRuleSet_FromMatchmakingRuleSetArn(scope constructs.Construct, id *string, arn *string) IMatchmakingRuleSetRef {
-	_init_.Initialize()
-
-	if err := validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IMatchmakingRuleSetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
-		"fromMatchmakingRuleSetArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IMatchmakingRuleSetRef from a matchmakingRuleSetName.
-func CfnMatchmakingRuleSet_FromMatchmakingRuleSetName(scope constructs.Construct, id *string, matchmakingRuleSetName *string) IMatchmakingRuleSetRef {
-	_init_.Initialize()
-
-	if err := validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetNameParameters(scope, id, matchmakingRuleSetName); err != nil {
-		panic(err)
-	}
-	var returns IMatchmakingRuleSetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
-		"fromMatchmakingRuleSetName",
-		[]interface{}{scope, id, matchmakingRuleSetName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

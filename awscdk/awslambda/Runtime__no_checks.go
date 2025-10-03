@@ -8,10 +8,6 @@ func (r *jsiiProxy_Runtime) validateRuntimeEqualsParameters(other Runtime) error
 	return nil
 }
 
-func validateRuntime_DetermineLatestPythonRuntimeParameters(scope constructs.Construct) error {
-	return nil
-}
-
 func validateNewRuntimeParameters(name *string, props *LambdaRuntimeProps) error {
 	return nil
 }

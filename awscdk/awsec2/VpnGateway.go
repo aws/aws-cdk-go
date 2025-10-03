@@ -49,7 +49,6 @@ type VpnGateway interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// A reference to a VPNGateway resource.
 	VpnGatewayRef() *VPNGatewayReference
 	// Apply the given removal policy to this resource.
 	//

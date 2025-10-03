@@ -69,18 +69,6 @@ type CanaryProps struct {
 	// Default: - A new s3 bucket will be created without a prefix.
 	//
 	ArtifactsBucketLocation *ArtifactsBucketLocation `field:"optional" json:"artifactsBucketLocation" yaml:"artifactsBucketLocation"`
-	// Browser configurations for the canary.
-	//
-	// Specifies which browser(s) to use for running the canary tests.
-	// You can specify up to 2 browser configurations.
-	//
-	// Firefox is supported with Node.js Puppeteer and Playwright runtimes,
-	// but not with Python Selenium runtimes.
-	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html
-	//
-	// Default: undefined - AWS CloudWatch default is using only Chrome browser.
-	//
-	BrowserConfigs *[]BrowserType `field:"optional" json:"browserConfigs" yaml:"browserConfigs"`
 	// The name of the canary.
 	//
 	// Be sure to give it a descriptive name that distinguishes it from

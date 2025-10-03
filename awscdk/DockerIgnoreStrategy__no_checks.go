@@ -8,7 +8,7 @@ func (d *jsiiProxy_DockerIgnoreStrategy) validateAddParameters(pattern *string) 
 	return nil
 }
 
-func (d *jsiiProxy_DockerIgnoreStrategy) validateCompletelyIgnoresParameters(absoluteDirectoryPath *string) error {
+func (d *jsiiProxy_DockerIgnoreStrategy) validateCompletelyIgnoresParameters(absoluteFilePath *string) error {
 	return nil
 }
 

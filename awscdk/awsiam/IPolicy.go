@@ -65,16 +65,6 @@ func (j *jsiiProxy_IPolicy) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IPolicy) PolicyRef() *PolicyReference {
-	var returns *PolicyReference
-	_jsii_.Get(
-		j,
-		"policyRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IPolicy) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

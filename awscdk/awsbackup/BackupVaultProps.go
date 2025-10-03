@@ -39,7 +39,7 @@ type BackupVaultProps struct {
 	// The server-side encryption key to use to protect your backups.
 	// Default: - an Amazon managed KMS key.
 	//
-	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Configuration for AWS Backup Vault Lock.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html
 	//

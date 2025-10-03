@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnCell) validateValidatePropertiesParameters(_properties int
 	return nil
 }
 
-func validateCfnCell_FromCellArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnCell_FromCellNameParameters(scope constructs.Construct, id *string, cellName *string) error {
-	return nil
-}
-
 func validateCfnCell_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

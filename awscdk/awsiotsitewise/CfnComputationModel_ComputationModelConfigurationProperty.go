@@ -1,6 +1,8 @@
 package awsiotsitewise
 
 
+// The configuration for the computation model.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,6 +18,7 @@ package awsiotsitewise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-computationmodelconfiguration.html
 //
 type CfnComputationModel_ComputationModelConfigurationProperty struct {
+	// The configuration for the anomaly detection type of computation model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-computationmodelconfiguration.html#cfn-iotsitewise-computationmodel-computationmodelconfiguration-anomalydetection
 	//
 	AnomalyDetection interface{} `field:"optional" json:"anomalyDetection" yaml:"anomalyDetection"`

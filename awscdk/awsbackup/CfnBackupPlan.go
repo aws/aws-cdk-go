@@ -503,44 +503,6 @@ func (j *jsiiProxy_CfnBackupPlan)SetBackupPlanTags(val *map[string]*string) {
 	)
 }
 
-// Creates a new IBackupPlanRef from an ARN.
-func CfnBackupPlan_FromBackupPlanArn(scope constructs.Construct, id *string, arn *string) IBackupPlanRef {
-	_init_.Initialize()
-
-	if err := validateCfnBackupPlan_FromBackupPlanArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IBackupPlanRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan",
-		"fromBackupPlanArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IBackupPlanRef from a backupPlanId.
-func CfnBackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, backupPlanId *string) IBackupPlanRef {
-	_init_.Initialize()
-
-	if err := validateCfnBackupPlan_FromBackupPlanIdParameters(scope, id, backupPlanId); err != nil {
-		panic(err)
-	}
-	var returns IBackupPlanRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan",
-		"fromBackupPlanId",
-		[]interface{}{scope, id, backupPlanId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

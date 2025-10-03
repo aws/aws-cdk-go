@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnPrefixList) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
-func validateCfnPrefixList_FromPrefixListArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnPrefixList_FromPrefixListIdParameters(scope constructs.Construct, id *string, prefixListId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if prefixListId == nil {
-		return fmt.Errorf("parameter prefixListId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnPrefixList_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

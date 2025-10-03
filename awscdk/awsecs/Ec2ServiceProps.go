@@ -8,33 +8,32 @@ import (
 // The properties for defining a service using the EC2 launch type.
 //
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var vpc vpc
 //
 //
-//   // Add a container to the task definition
-//   specificContainer := taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("/aws/aws-example-app")),
-//   	MemoryLimitMiB: jsii.Number(2048),
+//   // Create an ECS cluster
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   	Vpc: Vpc,
 //   })
 //
-//   // Add a port mapping
-//   specificContainer.AddPortMappings(&PortMapping{
-//   	ContainerPort: jsii.Number(7600),
-//   	Protocol: ecs.Protocol_TCP,
+//   // Add capacity to it
+//   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
+//   	DesiredCapacity: jsii.Number(3),
 //   })
 //
-//   ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.AddContainer(jsii.String("DefaultContainer"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	MemoryLimitMiB: jsii.Number(512),
+//   })
+//
+//   // Instantiate an Amazon ECS Service
+//   ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	CloudMapOptions: &CloudMapOptions{
-//   		// Create SRV records - useful for bridge networking
-//   		DnsRecordType: cloudmap.DnsRecordType_SRV,
-//   		// Targets port TCP port 7600 `specificContainer`
-//   		Container: specificContainer,
-//   		ContainerPort: jsii.Number(7600),
-//   	},
 //   })
 //
 type Ec2ServiceProps struct {
@@ -152,7 +151,7 @@ type Ec2ServiceProps struct {
 	// service must not be a target of a Classic Load Balancer.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html
 	//
-	// Default: AvailabilityZoneRebalancing.ENABLED
+	// Default: AvailabilityZoneRebalancing.DISABLED
 	//
 	AvailabilityZoneRebalancing AvailabilityZoneRebalancing `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// Specifies whether the service will use the daemon scheduling strategy.

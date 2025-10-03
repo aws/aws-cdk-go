@@ -55,7 +55,6 @@ import (
 //   		"parametersKey": jsii.String("parameters"),
 //   	},
 //   	Policy: policy,
-//   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -145,8 +144,6 @@ type CfnRestApi interface {
 	Ref() *string
 	// A reference to a RestApi resource.
 	RestApiRef() *RestApiReference
-	SecurityPolicy() *string
-	SetSecurityPolicy(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -544,16 +541,6 @@ func (j *jsiiProxy_CfnRestApi) RestApiRef() *RestApiReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRestApi) SecurityPolicy() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"securityPolicy",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnRestApi) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -759,14 +746,6 @@ func (j *jsiiProxy_CfnRestApi)SetPolicy(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRestApi)SetSecurityPolicy(val *string) {
-	_jsii_.Set(
-		j,
-		"securityPolicy",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
@@ -776,25 +755,6 @@ func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-// Creates a new IRestApiRef from a restApiId.
-func CfnRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApiRef {
-	_init_.Initialize()
-
-	if err := validateCfnRestApi_FromRestApiIdParameters(scope, id, restApiId); err != nil {
-		panic(err)
-	}
-	var returns IRestApiRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.CfnRestApi",
-		"fromRestApiId",
-		[]interface{}{scope, id, restApiId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

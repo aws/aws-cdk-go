@@ -51,17 +51,14 @@ package awskinesisanalytics
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html
 //
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationReferenceDataSourceV2Props struct {
 	// The name of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-applicationname
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html#cfn-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ReferenceDataSource interface{} `field:"required" json:"referenceDataSource" yaml:"referenceDataSource"`
 }
 

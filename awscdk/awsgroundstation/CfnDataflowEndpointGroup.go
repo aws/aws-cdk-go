@@ -527,44 +527,6 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDataflowEndpointGroupRef from an ARN.
-func CfnDataflowEndpointGroup_FromDataflowEndpointGroupArn(scope constructs.Construct, id *string, arn *string) IDataflowEndpointGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDataflowEndpointGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",
-		"fromDataflowEndpointGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDataflowEndpointGroupRef from a dataflowEndpointGroupId.
-func CfnDataflowEndpointGroup_FromDataflowEndpointGroupId(scope constructs.Construct, id *string, dataflowEndpointGroupId *string) IDataflowEndpointGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupIdParameters(scope, id, dataflowEndpointGroupId); err != nil {
-		panic(err)
-	}
-	var returns IDataflowEndpointGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",
-		"fromDataflowEndpointGroupId",
-		[]interface{}{scope, id, dataflowEndpointGroupId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

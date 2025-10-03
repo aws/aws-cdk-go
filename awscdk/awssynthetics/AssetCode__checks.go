@@ -40,7 +40,7 @@ func validateAssetCode_FromAssetParameters(assetPath *string, options *awss3asse
 	return nil
 }
 
-func validateAssetCode_FromBucketParameters(bucket awss3.IBucketRef, key *string) error {
+func validateAssetCode_FromBucketParameters(bucket awss3.IBucket, key *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnConnectAttachment) validateValidatePropertiesParameters(_p
 	return nil
 }
 
-func validateCfnConnectAttachment_FromAttachmentIdParameters(scope constructs.Construct, id *string, attachmentId *string) error {
-	return nil
-}
-
 func validateCfnConnectAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -616,7 +616,6 @@ func init() {
 		"aws-cdk-lib.aws_transfer.IAgreementRef",
 		reflect.TypeOf((*IAgreementRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "agreementRef", GoGetter: "AgreementRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -629,7 +628,6 @@ func init() {
 		"aws-cdk-lib.aws_transfer.ICertificateRef",
 		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -642,7 +640,6 @@ func init() {
 		"aws-cdk-lib.aws_transfer.IConnectorRef",
 		reflect.TypeOf((*IConnectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -656,7 +653,6 @@ func init() {
 		reflect.TypeOf((*IProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "profileRef", GoGetter: "ProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfileRef{}
@@ -669,7 +665,6 @@ func init() {
 		reflect.TypeOf((*IServerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serverRef", GoGetter: "ServerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServerRef{}
@@ -682,7 +677,6 @@ func init() {
 		reflect.TypeOf((*IUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserRef{}
@@ -695,7 +689,6 @@ func init() {
 		reflect.TypeOf((*IWebAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "webAppRef", GoGetter: "WebAppRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebAppRef{}
@@ -708,7 +701,6 @@ func init() {
 		reflect.TypeOf((*IWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workflowRef", GoGetter: "WorkflowRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkflowRef{}

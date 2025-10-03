@@ -63,7 +63,6 @@ type VpcEndpointService interface {
 	VpcEndpointServiceLoadBalancers() *[]IVpcEndpointServiceLoadBalancer
 	// The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx.
 	VpcEndpointServiceName() *string
-	// A reference to a VPCEndpointService resource.
 	VpcEndpointServiceRef() *VPCEndpointServiceReference
 	// Apply the given removal policy to this resource.
 	//

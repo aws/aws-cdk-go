@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnMulticastGroup) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnMulticastGroup_FromMulticastGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnMulticastGroup_FromMulticastGroupIdParameters(scope constructs.Construct, id *string, multicastGroupId *string) error {
-	return nil
-}
-
 func validateCfnMulticastGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

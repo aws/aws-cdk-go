@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnDistribution) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
-func validateCfnDistribution_FromDistributionIdParameters(scope constructs.Construct, id *string, distributionId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if distributionId == nil {
-		return fmt.Errorf("parameter distributionId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDistribution_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

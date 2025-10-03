@@ -1,8 +1,6 @@
 package awsconnect
 
 import (
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconnect/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,23 +9,10 @@ import (
 // Experimental.
 type IEmailAddressRef interface {
 	constructs.IConstruct
-	// A reference to a EmailAddress resource.
-	// Experimental.
-	EmailAddressRef() *EmailAddressReference
 }
 
 // The jsii proxy for IEmailAddressRef
 type jsiiProxy_IEmailAddressRef struct {
 	internal.Type__constructsIConstruct
-}
-
-func (j *jsiiProxy_IEmailAddressRef) EmailAddressRef() *EmailAddressReference {
-	var returns *EmailAddressReference
-	_jsii_.Get(
-		j,
-		"emailAddressRef",
-		&returns,
-	)
-	return returns
 }
 

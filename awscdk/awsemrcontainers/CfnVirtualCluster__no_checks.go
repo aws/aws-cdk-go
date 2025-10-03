@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnVirtualCluster) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnVirtualCluster_FromVirtualClusterArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnVirtualCluster_FromVirtualClusterIdParameters(scope constructs.Construct, id *string, virtualClusterId *string) error {
-	return nil
-}
-
 func validateCfnVirtualCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

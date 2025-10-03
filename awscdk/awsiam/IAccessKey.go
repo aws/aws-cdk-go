@@ -57,16 +57,6 @@ func (j *jsiiProxy_IAccessKey) SecretAccessKey() awscdk.SecretValue {
 	return returns
 }
 
-func (j *jsiiProxy_IAccessKey) AccessKeyRef() *AccessKeyReference {
-	var returns *AccessKeyReference
-	_jsii_.Get(
-		j,
-		"accessKeyRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IAccessKey) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(

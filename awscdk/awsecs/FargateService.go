@@ -16,9 +16,6 @@ import (
 
 // This creates a service using the Fargate launch type on an ECS cluster.
 //
-// Can also be used with Managed Instances compatible task definitions when using
-// capacity provider strategies.
-//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //

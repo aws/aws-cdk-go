@@ -9,7 +9,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   originOptions := &OriginOptions{
@@ -22,7 +22,6 @@ import (
 //   	OriginId: jsii.String("originId"),
 //   	OriginShieldEnabled: jsii.Boolean(false),
 //   	OriginShieldRegion: jsii.String("originShieldRegion"),
-//   	ResponseCompletionTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   }
 //
 type OriginOptions struct {
@@ -62,15 +61,5 @@ type OriginOptions struct {
 	// Default: - origin shield not enabled.
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
-	// The time that a request from CloudFront to the origin can stay open and wait for a response.
-	//
-	// If the complete response isn't received from the origin by this time, CloudFront ends the connection.
-	//
-	// Valid values are 1-3600 seconds, inclusive.
-	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout
-	//
-	// Default: undefined -  AWS CloudFront default is not enforcing a maximum value.
-	//
-	ResponseCompletionTimeout awscdk.Duration `field:"optional" json:"responseCompletionTimeout" yaml:"responseCompletionTimeout"`
 }
 

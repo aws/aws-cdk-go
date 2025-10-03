@@ -422,25 +422,6 @@ func (j *jsiiProxy_CfnClientCertificate)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IClientCertificateRef from a clientCertificateId.
-func CfnClientCertificate_FromClientCertificateId(scope constructs.Construct, id *string, clientCertificateId *string) IClientCertificateRef {
-	_init_.Initialize()
-
-	if err := validateCfnClientCertificate_FromClientCertificateIdParameters(scope, id, clientCertificateId); err != nil {
-		panic(err)
-	}
-	var returns IClientCertificateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.CfnClientCertificate",
-		"fromClientCertificateId",
-		[]interface{}{scope, id, clientCertificateId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

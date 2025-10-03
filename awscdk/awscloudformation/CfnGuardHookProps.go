@@ -142,7 +142,7 @@ type CfnGuardHookProps struct {
 	//
 	// Example target filter in JSON:
 	//
-	// `"TargetFilters": {"Actions": [ "CREATE", "UPDATE", "DELETE" ]}`
+	// `"TargetFilters": {"Actions": [ "Create", "Update", "Delete" ]}`
 	//
 	// Example target filter in YAML:
 	//

@@ -179,30 +179,6 @@ func validateCfnSecurityConfig_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnSecurityConfig) validateSetIamFederationOptionsParameters(val interface{}) error {
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *CfnSecurityConfig_IamFederationConfigOptionsProperty:
-		val := val.(*CfnSecurityConfig_IamFederationConfigOptionsProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnSecurityConfig_IamFederationConfigOptionsProperty:
-		val_ := val.(CfnSecurityConfig_IamFederationConfigOptionsProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSecurityConfig_IamFederationConfigOptionsProperty; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnSecurityConfig) validateSetIamIdentityCenterOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

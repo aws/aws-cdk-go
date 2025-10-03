@@ -35,7 +35,7 @@ type ListenerProps struct {
 	// If you have stateful applications, client affinity lets you direct all
 	// requests from a user to the same endpoint.
 	//
-	// By default, each connection from each client is routed to separate
+	// By default, each connection from each client is routed to seperate
 	// endpoints. Set client affinity to SOURCE_IP to route all connections from
 	// a single client to the same endpoint.
 	// Default: ClientAffinity.NONE

@@ -79,7 +79,7 @@ func Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetC
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-func Code_FromBucket(bucket awss3.IBucketRef, key *string, objectVersion *string) S3Code {
+func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	if err := validateCode_FromBucketParameters(bucket, key); err != nil {

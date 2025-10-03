@@ -461,25 +461,6 @@ func (j *jsiiProxy_CfnCustomEntityType)SetTags(val interface{}) {
 	)
 }
 
-// Creates a new ICustomEntityTypeRef from a customEntityTypeId.
-func CfnCustomEntityType_FromCustomEntityTypeId(scope constructs.Construct, id *string, customEntityTypeId *string) ICustomEntityTypeRef {
-	_init_.Initialize()
-
-	if err := validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope, id, customEntityTypeId); err != nil {
-		panic(err)
-	}
-	var returns ICustomEntityTypeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_glue.CfnCustomEntityType",
-		"fromCustomEntityTypeId",
-		[]interface{}{scope, id, customEntityTypeId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

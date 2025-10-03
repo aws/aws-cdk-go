@@ -432,25 +432,6 @@ func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IApplicationRef from a applicationName.
-func CfnApplication_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) IApplicationRef {
-	_init_.Initialize()
-
-	if err := validateCfnApplication_FromApplicationNameParameters(scope, id, applicationName); err != nil {
-		panic(err)
-	}
-	var returns IApplicationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.CfnApplication",
-		"fromApplicationName",
-		[]interface{}{scope, id, applicationName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

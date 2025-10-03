@@ -783,25 +783,6 @@ func (j *jsiiProxy_CfnCrawler)SetTargets(val interface{}) {
 	)
 }
 
-// Creates a new ICrawlerRef from a crawlerName.
-func CfnCrawler_FromCrawlerName(scope constructs.Construct, id *string, crawlerName *string) ICrawlerRef {
-	_init_.Initialize()
-
-	if err := validateCfnCrawler_FromCrawlerNameParameters(scope, id, crawlerName); err != nil {
-		panic(err)
-	}
-	var returns ICrawlerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_glue.CfnCrawler",
-		"fromCrawlerName",
-		[]interface{}{scope, id, crawlerName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

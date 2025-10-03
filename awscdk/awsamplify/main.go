@@ -276,7 +276,6 @@ func init() {
 		"aws-cdk-lib.aws_amplify.IAppRef",
 		reflect.TypeOf((*IAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "appRef", GoGetter: "AppRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -289,7 +288,6 @@ func init() {
 		"aws-cdk-lib.aws_amplify.IBranchRef",
 		reflect.TypeOf((*IBranchRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "branchRef", GoGetter: "BranchRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -302,7 +300,6 @@ func init() {
 		"aws-cdk-lib.aws_amplify.IDomainRef",
 		reflect.TypeOf((*IDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

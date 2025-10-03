@@ -7,7 +7,7 @@ import (
 // Access log destination for a RestApi Stage.
 type IAccessLogDestination interface {
 	// Binds this destination to the RestApi Stage.
-	Bind(stage IStageRef) *AccessLogDestinationConfig
+	Bind(stage IStage) *AccessLogDestinationConfig
 }
 
 // The jsii proxy for IAccessLogDestination
@@ -15,7 +15,7 @@ type jsiiProxy_IAccessLogDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IAccessLogDestination) Bind(stage IStageRef) *AccessLogDestinationConfig {
+func (i *jsiiProxy_IAccessLogDestination) Bind(stage IStage) *AccessLogDestinationConfig {
 	if err := i.validateBindParameters(stage); err != nil {
 		panic(err)
 	}

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnCrawler) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnCrawler_FromCrawlerNameParameters(scope constructs.Construct, id *string, crawlerName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if crawlerName == nil {
-		return fmt.Errorf("parameter crawlerName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnCrawler_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

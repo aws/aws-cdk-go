@@ -23,7 +23,6 @@ import (
 //   	// the properties below are optional
 //   	Capabilities: &CapabilitiesProperty{
 //   		AddOrRunAnomalyDetectionForAnalyses: jsii.String("addOrRunAnomalyDetectionForAnalyses"),
-//   		Analysis: jsii.String("analysis"),
 //   		CreateAndUpdateDashboardEmailReports: jsii.String("createAndUpdateDashboardEmailReports"),
 //   		CreateAndUpdateDatasets: jsii.String("createAndUpdateDatasets"),
 //   		CreateAndUpdateDataSources: jsii.String("createAndUpdateDataSources"),
@@ -31,7 +30,6 @@ import (
 //   		CreateAndUpdateThresholdAlerts: jsii.String("createAndUpdateThresholdAlerts"),
 //   		CreateSharedFolders: jsii.String("createSharedFolders"),
 //   		CreateSpiceDataset: jsii.String("createSpiceDataset"),
-//   		Dashboard: jsii.String("dashboard"),
 //   		ExportToCsv: jsii.String("exportToCsv"),
 //   		ExportToCsvInScheduledReports: jsii.String("exportToCsvInScheduledReports"),
 //   		ExportToExcel: jsii.String("exportToExcel"),

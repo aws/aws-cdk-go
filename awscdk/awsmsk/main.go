@@ -595,7 +595,6 @@ func init() {
 		"aws-cdk-lib.aws_msk.IBatchScramSecretRef",
 		reflect.TypeOf((*IBatchScramSecretRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "batchScramSecretRef", GoGetter: "BatchScramSecretRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -608,7 +607,6 @@ func init() {
 		"aws-cdk-lib.aws_msk.IClusterPolicyRef",
 		reflect.TypeOf((*IClusterPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterPolicyRef", GoGetter: "ClusterPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -621,7 +619,6 @@ func init() {
 		"aws-cdk-lib.aws_msk.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -634,7 +631,6 @@ func init() {
 		"aws-cdk-lib.aws_msk.IConfigurationRef",
 		reflect.TypeOf((*IConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationRef", GoGetter: "ConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -648,7 +644,6 @@ func init() {
 		reflect.TypeOf((*IReplicatorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "replicatorRef", GoGetter: "ReplicatorRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicatorRef{}
@@ -661,7 +656,6 @@ func init() {
 		reflect.TypeOf((*IServerlessClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serverlessClusterRef", GoGetter: "ServerlessClusterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServerlessClusterRef{}
@@ -674,7 +668,6 @@ func init() {
 		reflect.TypeOf((*IVpcConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcConnectionRef", GoGetter: "VpcConnectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcConnectionRef{}

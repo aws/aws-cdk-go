@@ -65,7 +65,6 @@ type Instance interface {
 	//
 	// (May be an empty string if the instance does not have a public IP).
 	InstancePublicIp() *string
-	// A reference to a Instance resource.
 	InstanceRef() *InstanceReference
 	// The tree node.
 	Node() constructs.Node

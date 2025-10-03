@@ -548,44 +548,6 @@ func (j *jsiiProxy_CfnResourceDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
-// Creates a new IResourceDefinitionRef from an ARN.
-func CfnResourceDefinition_FromResourceDefinitionArn(scope constructs.Construct, id *string, arn *string) IResourceDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnResourceDefinition_FromResourceDefinitionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IResourceDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
-		"fromResourceDefinitionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IResourceDefinitionRef from a resourceDefinitionId.
-func CfnResourceDefinition_FromResourceDefinitionId(scope constructs.Construct, id *string, resourceDefinitionId *string) IResourceDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnResourceDefinition_FromResourceDefinitionIdParameters(scope, id, resourceDefinitionId); err != nil {
-		panic(err)
-	}
-	var returns IResourceDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
-		"fromResourceDefinitionId",
-		[]interface{}{scope, id, resourceDefinitionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

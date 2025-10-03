@@ -38,7 +38,6 @@ type OriginRequestPolicy interface {
 	Node() constructs.Node
 	// The ID of the origin request policy.
 	OriginRequestPolicyId() *string
-	// A reference to a OriginRequestPolicy resource.
 	OriginRequestPolicyRef() *OriginRequestPolicyReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//

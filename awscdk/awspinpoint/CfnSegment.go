@@ -654,25 +654,6 @@ func (j *jsiiProxy_CfnSegment)SetTagsRaw(val interface{}) {
 	)
 }
 
-// Creates a new ISegmentRef from an ARN.
-func CfnSegment_FromSegmentArn(scope constructs.Construct, id *string, arn *string) ISegmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnSegment_FromSegmentArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ISegmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_pinpoint.CfnSegment",
-		"fromSegmentArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

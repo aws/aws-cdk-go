@@ -29,8 +29,6 @@ import (
 type OriginAccessIdentity interface {
 	awscdk.Resource
 	IOriginAccessIdentity
-	// A reference to a CloudFrontOriginAccessIdentity resource.
-	CloudFrontOriginAccessIdentityRef() *CloudFrontOriginAccessIdentityReference
 	// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3.
 	CloudFrontOriginAccessIdentityS3CanonicalUserId() *string
 	// The environment this resource belongs to.
@@ -95,16 +93,6 @@ type OriginAccessIdentity interface {
 type jsiiProxy_OriginAccessIdentity struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IOriginAccessIdentity
-}
-
-func (j *jsiiProxy_OriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *CloudFrontOriginAccessIdentityReference {
-	var returns *CloudFrontOriginAccessIdentityReference
-	_jsii_.Get(
-		j,
-		"cloudFrontOriginAccessIdentityRef",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_OriginAccessIdentity) CloudFrontOriginAccessIdentityS3CanonicalUserId() *string {

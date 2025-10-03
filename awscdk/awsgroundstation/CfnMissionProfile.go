@@ -624,25 +624,6 @@ func (j *jsiiProxy_CfnMissionProfile)SetTrackingConfigArn(val *string) {
 	)
 }
 
-// Creates a new IMissionProfileRef from a missionProfileId.
-func CfnMissionProfile_FromMissionProfileId(scope constructs.Construct, id *string, missionProfileId *string) IMissionProfileRef {
-	_init_.Initialize()
-
-	if err := validateCfnMissionProfile_FromMissionProfileIdParameters(scope, id, missionProfileId); err != nil {
-		panic(err)
-	}
-	var returns IMissionProfileRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_groundstation.CfnMissionProfile",
-		"fromMissionProfileId",
-		[]interface{}{scope, id, missionProfileId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

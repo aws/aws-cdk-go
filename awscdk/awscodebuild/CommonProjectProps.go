@@ -50,14 +50,6 @@ import (
 //   			ObjectKey: jsii.String("objectKey"),
 //   		},
 //   		ComputeType: awscdk.Aws_codebuild.ComputeType_SMALL,
-//   		DockerServer: &DockerServerOptions{
-//   			ComputeType: awscdk.*Aws_codebuild.DockerServerComputeType_SMALL,
-//
-//   			// the properties below are optional
-//   			SecurityGroups: []iSecurityGroup{
-//   				securityGroup,
-//   			},
-//   		},
 //   		EnvironmentVariables: map[string]buildEnvironmentVariable{
 //   			"environmentVariablesKey": &buildEnvironmentVariable{
 //   				"value": value,
@@ -99,7 +91,7 @@ import (
 //   	ProjectName: jsii.String("projectName"),
 //   	QueuedTimeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Role: role,
-//   	SecurityGroups: []*iSecurityGroup{
+//   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
 //   	SsmSessionPermissions: jsii.Boolean(false),

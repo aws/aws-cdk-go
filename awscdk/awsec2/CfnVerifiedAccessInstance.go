@@ -602,25 +602,6 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance)SetVerifiedAccessTrustProviders(val
 	)
 }
 
-// Creates a new IVerifiedAccessInstanceRef from a verifiedAccessInstanceId.
-func CfnVerifiedAccessInstance_FromVerifiedAccessInstanceId(scope constructs.Construct, id *string, verifiedAccessInstanceId *string) IVerifiedAccessInstanceRef {
-	_init_.Initialize()
-
-	if err := validateCfnVerifiedAccessInstance_FromVerifiedAccessInstanceIdParameters(scope, id, verifiedAccessInstanceId); err != nil {
-		panic(err)
-	}
-	var returns IVerifiedAccessInstanceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessInstance",
-		"fromVerifiedAccessInstanceId",
-		[]interface{}{scope, id, verifiedAccessInstanceId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

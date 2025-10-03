@@ -15,9 +15,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var roleRef iRoleRef
+//   var role role
 //
-//   integrationCredentials := awscdk.Aws_apigatewayv2.IntegrationCredentials_FromRole(roleRef)
+//   integrationCredentials := awscdk.Aws_apigatewayv2.IntegrationCredentials_FromRole(role)
 //
 type IntegrationCredentials interface {
 	// The ARN of the credentials.
@@ -51,7 +51,7 @@ func NewIntegrationCredentials_Override(i IntegrationCredentials) {
 }
 
 // Use the specified role for integration requests.
-func IntegrationCredentials_FromRole(role awsiam.IRoleRef) IntegrationCredentials {
+func IntegrationCredentials_FromRole(role awsiam.IRole) IntegrationCredentials {
 	_init_.Initialize()
 
 	if err := validateIntegrationCredentials_FromRoleParameters(role); err != nil {

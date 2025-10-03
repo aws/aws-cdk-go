@@ -14,7 +14,6 @@ import (
 //   cfnIdMappingWorkflowProps := &CfnIdMappingWorkflowProps{
 //   	IdMappingTechniques: &IdMappingTechniquesProperty{
 //   		IdMappingType: jsii.String("idMappingType"),
-//   		NormalizationVersion: jsii.String("normalizationVersion"),
 //   		ProviderProperties: &ProviderPropertiesProperty{
 //   			ProviderServiceArn: jsii.String("providerServiceArn"),
 //

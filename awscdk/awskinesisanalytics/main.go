@@ -718,7 +718,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationCloudWatchLoggingOptionV2Ref",
 		reflect.TypeOf((*IApplicationCloudWatchLoggingOptionV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationCloudWatchLoggingOptionRef", GoGetter: "ApplicationCloudWatchLoggingOptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -731,7 +730,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationOutputRef",
 		reflect.TypeOf((*IApplicationOutputRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationOutputRef", GoGetter: "ApplicationOutputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -744,7 +742,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationOutputV2Ref",
 		reflect.TypeOf((*IApplicationOutputV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationOutputRef", GoGetter: "ApplicationOutputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -757,7 +754,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -770,7 +766,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationReferenceDataSourceRef",
 		reflect.TypeOf((*IApplicationReferenceDataSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationReferenceDataSourceRef", GoGetter: "ApplicationReferenceDataSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -783,7 +778,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationReferenceDataSourceV2Ref",
 		reflect.TypeOf((*IApplicationReferenceDataSourceV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationReferenceDataSourceRef", GoGetter: "ApplicationReferenceDataSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -796,7 +790,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalytics.IApplicationV2Ref",
 		reflect.TypeOf((*IApplicationV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

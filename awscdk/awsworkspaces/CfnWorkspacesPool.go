@@ -630,25 +630,6 @@ func (j *jsiiProxy_CfnWorkspacesPool)SetTimeoutSettings(val interface{}) {
 	)
 }
 
-// Creates a new IWorkspacesPoolRef from a poolId.
-func CfnWorkspacesPool_FromPoolId(scope constructs.Construct, id *string, poolId *string) IWorkspacesPoolRef {
-	_init_.Initialize()
-
-	if err := validateCfnWorkspacesPool_FromPoolIdParameters(scope, id, poolId); err != nil {
-		panic(err)
-	}
-	var returns IWorkspacesPoolRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_workspaces.CfnWorkspacesPool",
-		"fromPoolId",
-		[]interface{}{scope, id, poolId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

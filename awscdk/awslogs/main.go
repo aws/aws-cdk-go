@@ -1115,7 +1115,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IAccountPolicyRef",
 		reflect.TypeOf((*IAccountPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accountPolicyRef", GoGetter: "AccountPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1128,7 +1127,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IDeliveryDestinationRef",
 		reflect.TypeOf((*IDeliveryDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliveryDestinationRef", GoGetter: "DeliveryDestinationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1141,7 +1139,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IDeliveryRef",
 		reflect.TypeOf((*IDeliveryRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliveryRef", GoGetter: "DeliveryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1154,7 +1151,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IDeliverySourceRef",
 		reflect.TypeOf((*IDeliverySourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deliverySourceRef", GoGetter: "DeliverySourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1167,7 +1163,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IDestinationRef",
 		reflect.TypeOf((*IDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "destinationRef", GoGetter: "DestinationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1190,7 +1185,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IIntegrationRef",
 		reflect.TypeOf((*IIntegrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1203,7 +1197,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.ILogAnomalyDetectorRef",
 		reflect.TypeOf((*ILogAnomalyDetectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "logAnomalyDetectorRef", GoGetter: "LogAnomalyDetectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1246,7 +1239,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.ILogGroupRef",
 		reflect.TypeOf((*ILogGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "logGroupRef", GoGetter: "LogGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1275,7 +1267,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.ILogStreamRef",
 		reflect.TypeOf((*ILogStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "logStreamRef", GoGetter: "LogStreamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1298,7 +1289,6 @@ func init() {
 		"aws-cdk-lib.aws_logs.IMetricFilterRef",
 		reflect.TypeOf((*IMetricFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "metricFilterRef", GoGetter: "MetricFilterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1320,7 +1310,6 @@ func init() {
 		reflect.TypeOf((*IQueryDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queryDefinitionRef", GoGetter: "QueryDefinitionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueryDefinitionRef{}
@@ -1333,7 +1322,6 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -1346,7 +1334,6 @@ func init() {
 		reflect.TypeOf((*ISubscriptionFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriptionFilterRef", GoGetter: "SubscriptionFilterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubscriptionFilterRef{}
@@ -1359,7 +1346,6 @@ func init() {
 		reflect.TypeOf((*ITransformerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transformerRef", GoGetter: "TransformerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransformerRef{}

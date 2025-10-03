@@ -811,44 +811,6 @@ func (j *jsiiProxy_CfnDeliveryStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDeliveryStreamRef from an ARN.
-func CfnDeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *string, arn *string) IDeliveryStreamRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeliveryStream_FromDeliveryStreamArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDeliveryStreamRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream",
-		"fromDeliveryStreamArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDeliveryStreamRef from a deliveryStreamName.
-func CfnDeliveryStream_FromDeliveryStreamName(scope constructs.Construct, id *string, deliveryStreamName *string) IDeliveryStreamRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeliveryStream_FromDeliveryStreamNameParameters(scope, id, deliveryStreamName); err != nil {
-		panic(err)
-	}
-	var returns IDeliveryStreamRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream",
-		"fromDeliveryStreamName",
-		[]interface{}{scope, id, deliveryStreamName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -94,7 +94,6 @@ type SubnetV2 interface {
 	// The subnetId for this particular subnet.
 	// Experimental.
 	SubnetId() *string
-	// A reference to a Subnet resource.
 	// Experimental.
 	SubnetRef() *awsec2.SubnetReference
 	// The type of subnet (public or private) that this subnet represents.

@@ -89,7 +89,6 @@ func init() {
 		reflect.TypeOf((*IServerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serverRef", GoGetter: "ServerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServerRef{}

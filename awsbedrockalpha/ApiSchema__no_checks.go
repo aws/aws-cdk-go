@@ -12,7 +12,7 @@ func validateApiSchema_FromLocalAssetParameters(path *string) error {
 	return nil
 }
 
-func validateApiSchema_FromS3FileParameters(bucket awss3.IBucketRef, objectKey *string) error {
+func validateApiSchema_FromS3FileParameters(bucket awss3.IBucket, objectKey *string) error {
 	return nil
 }
 

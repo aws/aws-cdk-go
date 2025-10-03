@@ -72,7 +72,7 @@ type HostedConfigurationProps struct {
 	// The customer managed key to encrypt hosted configuration.
 	// Default: None.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The latest version number of the hosted configuration.
 	// Default: - None.
 	//

@@ -8,7 +8,7 @@ func validateClientVpnUserBasedAuthentication_ActiveDirectoryParameters(director
 	return nil
 }
 
-func validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider awsiam.ISAMLProviderRef) error {
+func validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider awsiam.ISamlProvider) error {
 	return nil
 }
 

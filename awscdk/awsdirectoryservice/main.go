@@ -137,7 +137,6 @@ func init() {
 		"aws-cdk-lib.aws_directoryservice.IMicrosoftADRef",
 		reflect.TypeOf((*IMicrosoftADRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "microsoftAdRef", GoGetter: "MicrosoftAdRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -151,7 +150,6 @@ func init() {
 		reflect.TypeOf((*ISimpleADRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "simpleAdRef", GoGetter: "SimpleAdRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISimpleADRef{}

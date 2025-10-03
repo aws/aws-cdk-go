@@ -1,8 +1,5 @@
 package awscur
 
-import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-)
 
 // Properties for defining a `CfnReportDefinition`.
 //
@@ -30,12 +27,6 @@ import (
 //   		jsii.String("additionalSchemaElements"),
 //   	},
 //   	BillingViewArn: jsii.String("billingViewArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html
@@ -97,9 +88,5 @@ type CfnReportDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-billingviewarn
 	//
 	BillingViewArn *string `field:"optional" json:"billingViewArn" yaml:"billingViewArn"`
-	// The tags to be assigned to the report definition resource.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html#cfn-cur-reportdefinition-tags
-	//
-	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

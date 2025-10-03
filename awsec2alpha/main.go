@@ -145,7 +145,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberProperty{JsiiProperty: "subnetRef", GoGetter: "SubnetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetType", GoGetter: "SubnetType"},
 		},
 		func() interface{} {
@@ -362,7 +361,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlock", GoGetter: "VpcCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcName", GoGetter: "VpcName"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcRef", GoGetter: "VpcRef"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayId", GoGetter: "VpnGatewayId"},
 		},
 		func() interface{} {

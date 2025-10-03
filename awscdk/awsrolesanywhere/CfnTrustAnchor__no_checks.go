@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnTrustAnchor) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnTrustAnchor_FromTrustAnchorArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnTrustAnchor_FromTrustAnchorIdParameters(scope constructs.Construct, id *string, trustAnchorId *string) error {
-	return nil
-}
-
 func validateCfnTrustAnchor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

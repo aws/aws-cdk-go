@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnDeviceDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnDeviceDefinition_FromDeviceDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnDeviceDefinition_FromDeviceDefinitionIdParameters(scope constructs.Construct, id *string, deviceDefinitionId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if deviceDefinitionId == nil {
-		return fmt.Errorf("parameter deviceDefinitionId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDeviceDefinition_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -56,7 +56,9 @@ type CfnInstanceProfileProps struct {
 	InstanceProfileName *string `field:"optional" json:"instanceProfileName" yaml:"instanceProfileName"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the connection parameters for the instance profile.
 	//
-	// If you don't specify a value for the `KmsKeyArn` parameter, then AWS DMS uses an AWS owned encryption key to encrypt your resources.
+	// If you don't specify a value for the `KmsKeyArn` parameter, then AWS DMS uses your default encryption key.
+	//
+	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-instanceprofile.html#cfn-dms-instanceprofile-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

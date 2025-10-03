@@ -697,25 +697,6 @@ func (j *jsiiProxy_CfnVolume)SetVolumeType(val *string) {
 	)
 }
 
-// Creates a new IVolumeRef from a volumeId.
-func CfnVolume_FromVolumeId(scope constructs.Construct, id *string, volumeId *string) IVolumeRef {
-	_init_.Initialize()
-
-	if err := validateCfnVolume_FromVolumeIdParameters(scope, id, volumeId); err != nil {
-		panic(err)
-	}
-	var returns IVolumeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVolume",
-		"fromVolumeId",
-		[]interface{}{scope, id, volumeId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

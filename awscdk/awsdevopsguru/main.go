@@ -184,7 +184,6 @@ func init() {
 		"aws-cdk-lib.aws_devopsguru.ILogAnomalyDetectionIntegrationRef",
 		reflect.TypeOf((*ILogAnomalyDetectionIntegrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "logAnomalyDetectionIntegrationRef", GoGetter: "LogAnomalyDetectionIntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -198,7 +197,6 @@ func init() {
 		reflect.TypeOf((*INotificationChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "notificationChannelRef", GoGetter: "NotificationChannelRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INotificationChannelRef{}
@@ -211,7 +209,6 @@ func init() {
 		reflect.TypeOf((*IResourceCollectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceCollectionRef", GoGetter: "ResourceCollectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceCollectionRef{}

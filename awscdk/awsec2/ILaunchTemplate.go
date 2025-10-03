@@ -81,16 +81,6 @@ func (j *jsiiProxy_ILaunchTemplate) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ILaunchTemplate) LaunchTemplateRef() *LaunchTemplateReference {
-	var returns *LaunchTemplateReference
-	_jsii_.Get(
-		j,
-		"launchTemplateRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ILaunchTemplate) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

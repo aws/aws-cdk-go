@@ -427,44 +427,6 @@ func (j *jsiiProxy_CfnCollection)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new ICollectionRef from an ARN.
-func CfnCollection_FromCollectionArn(scope constructs.Construct, id *string, arn *string) ICollectionRef {
-	_init_.Initialize()
-
-	if err := validateCfnCollection_FromCollectionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ICollectionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rekognition.CfnCollection",
-		"fromCollectionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICollectionRef from a collectionId.
-func CfnCollection_FromCollectionId(scope constructs.Construct, id *string, collectionId *string) ICollectionRef {
-	_init_.Initialize()
-
-	if err := validateCfnCollection_FromCollectionIdParameters(scope, id, collectionId); err != nil {
-		panic(err)
-	}
-	var returns ICollectionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rekognition.CfnCollection",
-		"fromCollectionId",
-		[]interface{}{scope, id, collectionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

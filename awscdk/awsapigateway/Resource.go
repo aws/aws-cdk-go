@@ -62,7 +62,6 @@ type Resource interface {
 	PhysicalName() *string
 	// The ID of the resource.
 	ResourceId() *string
-	// A reference to a Resource resource.
 	ResourceRef() *ResourceReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

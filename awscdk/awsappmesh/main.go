@@ -1304,7 +1304,6 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.IGatewayRouteRef",
 		reflect.TypeOf((*IGatewayRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteRef", GoGetter: "GatewayRouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1337,7 +1336,6 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.IMeshRef",
 		reflect.TypeOf((*IMeshRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "meshRef", GoGetter: "MeshRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1369,7 +1367,6 @@ func init() {
 		reflect.TypeOf((*IRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteRef{}
@@ -1402,7 +1399,6 @@ func init() {
 		reflect.TypeOf((*IVirtualGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualGatewayRef", GoGetter: "VirtualGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualGatewayRef{}
@@ -1434,7 +1430,6 @@ func init() {
 		reflect.TypeOf((*IVirtualNodeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualNodeRef", GoGetter: "VirtualNodeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualNodeRef{}
@@ -1466,7 +1461,6 @@ func init() {
 		reflect.TypeOf((*IVirtualRouterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualRouterRef", GoGetter: "VirtualRouterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualRouterRef{}
@@ -1497,7 +1491,6 @@ func init() {
 		reflect.TypeOf((*IVirtualServiceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualServiceRef", GoGetter: "VirtualServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualServiceRef{}

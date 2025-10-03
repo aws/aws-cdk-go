@@ -171,7 +171,6 @@ func init() {
 		"aws-cdk-lib.aws_supportapp.IAccountAliasRef",
 		reflect.TypeOf((*IAccountAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accountAliasRef", GoGetter: "AccountAliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -185,7 +184,6 @@ func init() {
 		reflect.TypeOf((*ISlackChannelConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationRef", GoGetter: "SlackChannelConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISlackChannelConfigurationRef{}
@@ -198,7 +196,6 @@ func init() {
 		reflect.TypeOf((*ISlackWorkspaceConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "slackWorkspaceConfigurationRef", GoGetter: "SlackWorkspaceConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISlackWorkspaceConfigurationRef{}

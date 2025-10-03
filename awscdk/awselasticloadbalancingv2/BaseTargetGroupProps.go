@@ -32,12 +32,6 @@ import (
 //   		UnhealthyThresholdCount: jsii.Number(123),
 //   	},
 //   	IpAddressType: awscdk.*Aws_elasticloadbalancingv2.TargetGroupIpAddressType_IPV4,
-//   	TargetGroupHealth: &TargetGroupHealth{
-//   		DnsMinimumHealthyTargetCount: jsii.Number(123),
-//   		DnsMinimumHealthyTargetPercentage: jsii.Number(123),
-//   		RoutingMinimumHealthyTargetCount: jsii.Number(123),
-//   		RoutingMinimumHealthyTargetPercentage: jsii.Number(123),
-//   	},
 //   	TargetGroupName: jsii.String("targetGroupName"),
 //   	TargetType: awscdk.*Aws_elasticloadbalancingv2.TargetType_INSTANCE,
 //   	Vpc: vpc,
@@ -66,12 +60,6 @@ type BaseTargetGroupProps struct {
 	// Default: undefined - ELB defaults to IPv4.
 	//
 	IpAddressType TargetGroupIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
-	// Configuring target group health.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
-	//
-	// Default: - use default configuration.
-	//
-	TargetGroupHealth *TargetGroupHealth `field:"optional" json:"targetGroupHealth" yaml:"targetGroupHealth"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of

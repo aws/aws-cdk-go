@@ -626,44 +626,6 @@ func (j *jsiiProxy_CfnChannel)SetTimeShiftConfiguration(val interface{}) {
 	)
 }
 
-// Creates a new IChannelRef from an ARN.
-func CfnChannel_FromChannelArn(scope constructs.Construct, id *string, arn *string) IChannelRef {
-	_init_.Initialize()
-
-	if err := validateCfnChannel_FromChannelArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IChannelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediatailor.CfnChannel",
-		"fromChannelArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IChannelRef from a channelName.
-func CfnChannel_FromChannelName(scope constructs.Construct, id *string, channelName *string) IChannelRef {
-	_init_.Initialize()
-
-	if err := validateCfnChannel_FromChannelNameParameters(scope, id, channelName); err != nil {
-		panic(err)
-	}
-	var returns IChannelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediatailor.CfnChannel",
-		"fromChannelName",
-		[]interface{}{scope, id, channelName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

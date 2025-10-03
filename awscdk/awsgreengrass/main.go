@@ -1125,7 +1125,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IConnectorDefinitionRef",
 		reflect.TypeOf((*IConnectorDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectorDefinitionRef", GoGetter: "ConnectorDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1138,7 +1137,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IConnectorDefinitionVersionRef",
 		reflect.TypeOf((*IConnectorDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectorDefinitionVersionRef", GoGetter: "ConnectorDefinitionVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1151,7 +1149,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.ICoreDefinitionRef",
 		reflect.TypeOf((*ICoreDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "coreDefinitionRef", GoGetter: "CoreDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1164,7 +1161,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.ICoreDefinitionVersionRef",
 		reflect.TypeOf((*ICoreDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "coreDefinitionVersionRef", GoGetter: "CoreDefinitionVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1177,7 +1173,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IDeviceDefinitionRef",
 		reflect.TypeOf((*IDeviceDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deviceDefinitionRef", GoGetter: "DeviceDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1190,7 +1185,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IDeviceDefinitionVersionRef",
 		reflect.TypeOf((*IDeviceDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deviceDefinitionVersionRef", GoGetter: "DeviceDefinitionVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1203,7 +1197,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IFunctionDefinitionRef",
 		reflect.TypeOf((*IFunctionDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "functionDefinitionRef", GoGetter: "FunctionDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1216,7 +1209,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IFunctionDefinitionVersionRef",
 		reflect.TypeOf((*IFunctionDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "functionDefinitionVersionRef", GoGetter: "FunctionDefinitionVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1229,7 +1221,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IGroupRef",
 		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1242,7 +1233,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.IGroupVersionRef",
 		reflect.TypeOf((*IGroupVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupVersionRef", GoGetter: "GroupVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1255,7 +1245,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.ILoggerDefinitionRef",
 		reflect.TypeOf((*ILoggerDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "loggerDefinitionRef", GoGetter: "LoggerDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1268,7 +1257,6 @@ func init() {
 		"aws-cdk-lib.aws_greengrass.ILoggerDefinitionVersionRef",
 		reflect.TypeOf((*ILoggerDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "loggerDefinitionVersionRef", GoGetter: "LoggerDefinitionVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1282,7 +1270,6 @@ func init() {
 		reflect.TypeOf((*IResourceDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceDefinitionRef", GoGetter: "ResourceDefinitionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceDefinitionRef{}
@@ -1295,7 +1282,6 @@ func init() {
 		reflect.TypeOf((*IResourceDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceDefinitionVersionRef", GoGetter: "ResourceDefinitionVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceDefinitionVersionRef{}
@@ -1308,7 +1294,6 @@ func init() {
 		reflect.TypeOf((*ISubscriptionDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriptionDefinitionRef", GoGetter: "SubscriptionDefinitionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubscriptionDefinitionRef{}
@@ -1321,7 +1306,6 @@ func init() {
 		reflect.TypeOf((*ISubscriptionDefinitionVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriptionDefinitionVersionRef", GoGetter: "SubscriptionDefinitionVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubscriptionDefinitionVersionRef{}

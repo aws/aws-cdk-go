@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnCertificateProvider) validateValidatePropertiesParameters(
 	return nil
 }
 
-func validateCfnCertificateProvider_FromCertificateProviderArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnCertificateProvider_FromCertificateProviderNameParameters(scope constructs.Construct, id *string, certificateProviderName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if certificateProviderName == nil {
-		return fmt.Errorf("parameter certificateProviderName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnCertificateProvider_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -1035,19 +1035,6 @@ tasks.NewEmrCreateCluster(this, jsii.String("SpotSpecification"), &EmrCreateClus
 })
 ```
 
-You can [customize EBS root device volume](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami-root-volume-size.html).
-
-```go
-tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
-	Instances: &InstancesConfigProperty{
-	},
-	Name: jsii.String("ClusterName"),
-	EbsRootVolumeIops: jsii.Number(4000),
-	EbsRootVolumeSize: awscdk.Size_Gibibytes(jsii.Number(20)),
-	EbsRootVolumeThroughput: jsii.Number(200),
-})
-```
-
 If you want to run multiple steps in [parallel](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-concurrent-steps.html),
 you can specify the `stepConcurrencyLevel` property. The concurrency range is between 1
 and 256 inclusive, where the default concurrency of 1 means no step concurrency is allowed.
@@ -1072,47 +1059,6 @@ tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateCluster
 	},
 	Name: jsii.String("ClusterName"),
 	AutoTerminationPolicyIdleTimeout: awscdk.Duration_Seconds(jsii.Number(100)),
-})
-```
-
-If you want to use [managed scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html),
-you can specify the `managedScalingPolicy` property.
-
-```go
-tasks.NewEmrCreateCluster(this, jsii.String("CreateCluster"), &EmrCreateClusterProps{
-	Instances: &InstancesConfigProperty{
-		InstanceFleets: []instanceFleetConfigProperty{
-			&instanceFleetConfigProperty{
-				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_CORE,
-				InstanceTypeConfigs: []instanceTypeConfigProperty{
-					&instanceTypeConfigProperty{
-						InstanceType: jsii.String("m5.xlarge"),
-					},
-				},
-				TargetOnDemandCapacity: jsii.Number(1),
-			},
-			&instanceFleetConfigProperty{
-				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
-				InstanceTypeConfigs: []*instanceTypeConfigProperty{
-					&instanceTypeConfigProperty{
-						InstanceType: jsii.String("m5.xlarge"),
-					},
-				},
-				TargetOnDemandCapacity: jsii.Number(1),
-			},
-		},
-	},
-	Name: jsii.String("ClusterName"),
-	ReleaseLabel: jsii.String("emr-7.9.0"),
-	ManagedScalingPolicy: &ManagedScalingPolicyProperty{
-		ComputeLimits: &ManagedScalingComputeLimitsProperty{
-			UnitType: tasks.EmrCreateCluster.ComputeLimitsUnitType_INSTANCE_FLEET_UNITS,
-			MaximumCapacityUnits: jsii.Number(4),
-			MinimumCapacityUnits: jsii.Number(1),
-			MaximumOnDemandCapacityUnits: jsii.Number(4),
-			MaximumCoreCapacityUnits: jsii.Number(2),
-		},
-	},
 })
 ```
 

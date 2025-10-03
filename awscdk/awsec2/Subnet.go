@@ -80,7 +80,6 @@ type Subnet interface {
 	SubnetNetworkAclAssociationId() *string
 	// The Amazon Resource Name (ARN) of the Outpost for this subnet (if one exists).
 	SubnetOutpostArn() *string
-	// A reference to a Subnet resource.
 	SubnetRef() *SubnetReference
 	SubnetVpcId() *string
 	// Create a default route that points to a passed IGW, with a dependency on the IGW's attachment to the VPC.

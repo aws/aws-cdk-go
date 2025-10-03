@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnRoleAlias) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnRoleAlias_FromRoleAliasParameters(scope constructs.Construct, id *string, roleAlias *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if roleAlias == nil {
-		return fmt.Errorf("parameter roleAlias is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnRoleAlias_FromRoleAliasArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnRoleAlias_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

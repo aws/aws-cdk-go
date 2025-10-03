@@ -514,44 +514,6 @@ func (j *jsiiProxy_CfnThingGroup)SetThingGroupProperties(val interface{}) {
 	)
 }
 
-// Creates a new IThingGroupRef from an ARN.
-func CfnThingGroup_FromThingGroupArn(scope constructs.Construct, id *string, arn *string) IThingGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnThingGroup_FromThingGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IThingGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnThingGroup",
-		"fromThingGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IThingGroupRef from a thingGroupName.
-func CfnThingGroup_FromThingGroupName(scope constructs.Construct, id *string, thingGroupName *string) IThingGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnThingGroup_FromThingGroupNameParameters(scope, id, thingGroupName); err != nil {
-		panic(err)
-	}
-	var returns IThingGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnThingGroup",
-		"fromThingGroupName",
-		[]interface{}{scope, id, thingGroupName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

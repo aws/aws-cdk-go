@@ -28,6 +28,6 @@ type S3Encryption struct {
 	// Default: no kms key if mode = S3_MANAGED. A key will be created if one is not provided and mode = KMS.
 	//
 	// Experimental.
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

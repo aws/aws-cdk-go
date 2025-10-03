@@ -213,7 +213,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "manageMasterUserPassword", GoGetter: "ManageMasterUserPassword"},
-			_jsii_.MemberProperty{JsiiProperty: "masterUserAuthenticationType", GoGetter: "MasterUserAuthenticationType"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUsername", GoGetter: "MasterUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserPassword", GoGetter: "MasterUserPassword"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserSecret", GoGetter: "MasterUserSecret"},
@@ -442,7 +441,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "licenseModel", GoGetter: "LicenseModel"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "manageMasterUserPassword", GoGetter: "ManageMasterUserPassword"},
-			_jsii_.MemberProperty{JsiiProperty: "masterUserAuthenticationType", GoGetter: "MasterUserAuthenticationType"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUsername", GoGetter: "MasterUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserPassword", GoGetter: "MasterUserPassword"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserSecret", GoGetter: "MasterUserSecret"},
@@ -611,8 +609,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dbProxyName", GoGetter: "DbProxyName"},
 			_jsii_.MemberProperty{JsiiProperty: "dbProxyRef", GoGetter: "DbProxyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "debugLogging", GoGetter: "DebugLogging"},
-			_jsii_.MemberProperty{JsiiProperty: "defaultAuthScheme", GoGetter: "DefaultAuthScheme"},
-			_jsii_.MemberProperty{JsiiProperty: "endpointNetworkType", GoGetter: "EndpointNetworkType"},
 			_jsii_.MemberProperty{JsiiProperty: "engineFamily", GoGetter: "EngineFamily"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -632,7 +628,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
-			_jsii_.MemberProperty{JsiiProperty: "targetConnectionNetworkType", GoGetter: "TargetConnectionNetworkType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -681,7 +676,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointName", GoGetter: "DbProxyEndpointName"},
 			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointRef", GoGetter: "DbProxyEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "dbProxyName", GoGetter: "DbProxyName"},
-			_jsii_.MemberProperty{JsiiProperty: "endpointNetworkType", GoGetter: "EndpointNetworkType"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -1262,7 +1256,6 @@ func init() {
 			"POSTGRES_SCRAM_SHA_256": ClientPasswordAuthType_POSTGRES_SCRAM_SHA_256,
 			"POSTGRES_MD5": ClientPasswordAuthType_POSTGRES_MD5,
 			"SQL_SERVER_AUTHENTICATION": ClientPasswordAuthType_SQL_SERVER_AUTHENTICATION,
-			"MYSQL_CACHING_SHA2_PASSWORD": ClientPasswordAuthType_MYSQL_CACHING_SHA2_PASSWORD,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1868,7 +1861,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.DatabaseProxy",
 		reflect.TypeOf((*DatabaseProxy)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addEndpoint", GoMethod: "AddEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "asSecretAttachmentTarget", GoMethod: "AsSecretAttachmentTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
@@ -1897,42 +1889,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.DatabaseProxyAttributes",
 		reflect.TypeOf((*DatabaseProxyAttributes)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_rds.DatabaseProxyEndpoint",
-		reflect.TypeOf((*DatabaseProxyEndpoint)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointArn", GoGetter: "DbProxyEndpointArn"},
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointName", GoGetter: "DbProxyEndpointName"},
-			_jsii_.MemberProperty{JsiiProperty: "endpoint", GoGetter: "Endpoint"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-		},
-		func() interface{} {
-			j := jsiiProxy_DatabaseProxyEndpoint{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDatabaseProxyEndpoint)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.DatabaseProxyEndpointAttributes",
-		reflect.TypeOf((*DatabaseProxyEndpointAttributes)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.DatabaseProxyEndpointOptions",
-		reflect.TypeOf((*DatabaseProxyEndpointOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.DatabaseProxyEndpointProps",
-		reflect.TypeOf((*DatabaseProxyEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.DatabaseProxyOptions",
@@ -2074,7 +2030,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.ICustomDBEngineVersionRef",
 		reflect.TypeOf((*ICustomDBEngineVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customDbEngineVersionRef", GoGetter: "CustomDbEngineVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2087,7 +2042,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBClusterParameterGroupRef",
 		reflect.TypeOf((*IDBClusterParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbClusterParameterGroupRef", GoGetter: "DbClusterParameterGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2100,7 +2054,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBClusterRef",
 		reflect.TypeOf((*IDBClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbClusterRef", GoGetter: "DbClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2113,7 +2066,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBInstanceRef",
 		reflect.TypeOf((*IDBInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbInstanceRef", GoGetter: "DbInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2126,7 +2078,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBParameterGroupRef",
 		reflect.TypeOf((*IDBParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbParameterGroupRef", GoGetter: "DbParameterGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2139,7 +2090,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBProxyEndpointRef",
 		reflect.TypeOf((*IDBProxyEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointRef", GoGetter: "DbProxyEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2152,7 +2102,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBProxyRef",
 		reflect.TypeOf((*IDBProxyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyRef", GoGetter: "DbProxyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2165,7 +2114,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBProxyTargetGroupRef",
 		reflect.TypeOf((*IDBProxyTargetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyTargetGroupRef", GoGetter: "DbProxyTargetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2178,7 +2126,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBSecurityGroupIngressRef",
 		reflect.TypeOf((*IDBSecurityGroupIngressRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbSecurityGroupIngressRef", GoGetter: "DbSecurityGroupIngressRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2191,7 +2138,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBSecurityGroupRef",
 		reflect.TypeOf((*IDBSecurityGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbSecurityGroupRef", GoGetter: "DbSecurityGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2204,7 +2150,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBShardGroupRef",
 		reflect.TypeOf((*IDBShardGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbShardGroupRef", GoGetter: "DbShardGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2217,7 +2162,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IDBSubnetGroupRef",
 		reflect.TypeOf((*IDBSubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbSubnetGroupRef", GoGetter: "DbSubnetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2327,24 +2271,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_rds.IDatabaseProxyEndpoint",
-		reflect.TypeOf((*IDatabaseProxyEndpoint)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointArn", GoGetter: "DbProxyEndpointArn"},
-			_jsii_.MemberProperty{JsiiProperty: "dbProxyEndpointName", GoGetter: "DbProxyEndpointName"},
-			_jsii_.MemberProperty{JsiiProperty: "endpoint", GoGetter: "Endpoint"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDatabaseProxyEndpoint{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_rds.IEngine",
 		reflect.TypeOf((*IEngine)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2362,7 +2288,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IEventSubscriptionRef",
 		reflect.TypeOf((*IEventSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventSubscriptionRef", GoGetter: "EventSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2375,7 +2300,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IGlobalClusterRef",
 		reflect.TypeOf((*IGlobalClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "globalClusterRef", GoGetter: "GlobalClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2408,7 +2332,6 @@ func init() {
 		"aws-cdk-lib.aws_rds.IIntegrationRef",
 		reflect.TypeOf((*IIntegrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2439,7 +2362,6 @@ func init() {
 		reflect.TypeOf((*IOptionGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "optionGroupRef", GoGetter: "OptionGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOptionGroupRef{}
@@ -2752,14 +2674,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.ProvisionedClusterInstanceProps",
 		reflect.TypeOf((*ProvisionedClusterInstanceProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_rds.ProxyEndpointTargetRole",
-		reflect.TypeOf((*ProxyEndpointTargetRole)(nil)).Elem(),
-		map[string]interface{}{
-			"READ_WRITE": ProxyEndpointTargetRole_READ_WRITE,
-			"READ_ONLY": ProxyEndpointTargetRole_READ_ONLY,
-		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_rds.ProxyTarget",

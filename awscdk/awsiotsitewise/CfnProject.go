@@ -512,44 +512,6 @@ func (j *jsiiProxy_CfnProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IProjectRef from an ARN.
-func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) IProjectRef {
-	_init_.Initialize()
-
-	if err := validateCfnProject_FromProjectArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IProjectRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
-		"fromProjectArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IProjectRef from a projectId.
-func CfnProject_FromProjectId(scope constructs.Construct, id *string, projectId *string) IProjectRef {
-	_init_.Initialize()
-
-	if err := validateCfnProject_FromProjectIdParameters(scope, id, projectId); err != nil {
-		panic(err)
-	}
-	var returns IProjectRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
-		"fromProjectId",
-		[]interface{}{scope, id, projectId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

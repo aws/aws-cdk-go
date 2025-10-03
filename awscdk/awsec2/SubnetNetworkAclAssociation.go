@@ -14,11 +14,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkAclRef iNetworkAclRef
+//   var networkAcl networkAcl
 //   var subnet subnet
 //
 //   subnetNetworkAclAssociation := awscdk.Aws_ec2.NewSubnetNetworkAclAssociation(this, jsii.String("MySubnetNetworkAclAssociation"), &SubnetNetworkAclAssociationProps{
-//   	NetworkAcl: networkAclRef,
+//   	NetworkAcl: networkAcl,
 //   	Subnet: subnet,
 //
 //   	// the properties below are optional
@@ -55,7 +55,6 @@ type SubnetNetworkAclAssociation interface {
 	Subnet() ISubnet
 	// ID for the current SubnetNetworkAclAssociation.
 	SubnetNetworkAclAssociationAssociationId() *string
-	// A reference to a SubnetNetworkAclAssociation resource.
 	SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference
 	// Apply the given removal policy to this resource.
 	//

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) validateValidatePropertiesParameters(
 	return nil
 }
 
-func validateCfnTrafficMirrorTarget_FromTrafficMirrorTargetIdParameters(scope constructs.Construct, id *string, trafficMirrorTargetId *string) error {
-	return nil
-}
-
 func validateCfnTrafficMirrorTarget_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -10,7 +10,6 @@ package awsquicksight
 //
 //   capabilitiesProperty := &CapabilitiesProperty{
 //   	AddOrRunAnomalyDetectionForAnalyses: jsii.String("addOrRunAnomalyDetectionForAnalyses"),
-//   	Analysis: jsii.String("analysis"),
 //   	CreateAndUpdateDashboardEmailReports: jsii.String("createAndUpdateDashboardEmailReports"),
 //   	CreateAndUpdateDatasets: jsii.String("createAndUpdateDatasets"),
 //   	CreateAndUpdateDataSources: jsii.String("createAndUpdateDataSources"),
@@ -18,7 +17,6 @@ package awsquicksight
 //   	CreateAndUpdateThresholdAlerts: jsii.String("createAndUpdateThresholdAlerts"),
 //   	CreateSharedFolders: jsii.String("createSharedFolders"),
 //   	CreateSpiceDataset: jsii.String("createSpiceDataset"),
-//   	Dashboard: jsii.String("dashboard"),
 //   	ExportToCsv: jsii.String("exportToCsv"),
 //   	ExportToCsvInScheduledReports: jsii.String("exportToCsvInScheduledReports"),
 //   	ExportToExcel: jsii.String("exportToExcel"),
@@ -43,10 +41,6 @@ type CfnCustomPermissions_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-addorrunanomalydetectionforanalyses
 	//
 	AddOrRunAnomalyDetectionForAnalyses *string `field:"optional" json:"addOrRunAnomalyDetectionForAnalyses" yaml:"addOrRunAnomalyDetectionForAnalyses"`
-	// The ability to perform analysis-related actions.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-analysis
-	//
-	Analysis *string `field:"optional" json:"analysis" yaml:"analysis"`
 	// The ability to create and update email reports.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createandupdatedashboardemailreports
 	//
@@ -75,10 +69,6 @@ type CfnCustomPermissions_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createspicedataset
 	//
 	CreateSpiceDataset *string `field:"optional" json:"createSpiceDataset" yaml:"createSpiceDataset"`
-	// The ability to perform dashboard-related actions.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-dashboard
-	//
-	Dashboard *string `field:"optional" json:"dashboard" yaml:"dashboard"`
 	// The ability to export to CSV files from the UI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-exporttocsv
 	//

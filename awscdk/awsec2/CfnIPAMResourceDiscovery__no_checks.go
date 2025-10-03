@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnIPAMResourceDiscovery) validateValidatePropertiesParameter
 	return nil
 }
 
-func validateCfnIPAMResourceDiscovery_FromIpamResourceDiscoveryIdParameters(scope constructs.Construct, id *string, ipamResourceDiscoveryId *string) error {
-	return nil
-}
-
 func validateCfnIPAMResourceDiscovery_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

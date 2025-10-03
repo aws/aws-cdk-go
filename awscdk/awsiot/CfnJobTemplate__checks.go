@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnJobTemplate) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnJobTemplate_FromJobTemplateArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnJobTemplate_FromJobTemplateIdParameters(scope constructs.Construct, id *string, jobTemplateId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if jobTemplateId == nil {
-		return fmt.Errorf("parameter jobTemplateId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnJobTemplate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

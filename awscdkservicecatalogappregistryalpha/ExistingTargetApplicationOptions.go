@@ -105,7 +105,7 @@ type ExistingTargetApplicationOptions struct {
 	// Experimental.
 	Env *awscdk.Environment `field:"optional" json:"env" yaml:"env"`
 	// SNS Topic ARNs that will receive stack events.
-	// Default: - no notification arns.
+	// Default: - no notfication arns.
 	//
 	// Experimental.
 	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`

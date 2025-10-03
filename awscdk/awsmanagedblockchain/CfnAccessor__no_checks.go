@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnAccessor) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnAccessor_FromAccessorArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnAccessor_FromAccessorIdParameters(scope constructs.Construct, id *string, accessorId *string) error {
-	return nil
-}
-
 func validateCfnAccessor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

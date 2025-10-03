@@ -64,7 +64,6 @@ type Policy interface {
 	PhysicalName() *string
 	// The name of this policy.
 	PolicyName() *string
-	// A reference to a Policy resource.
 	PolicyRef() *PolicyReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

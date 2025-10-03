@@ -81,7 +81,6 @@ func init() {
 		"aws-cdk-lib.aws_ssmquicksetup.IConfigurationManagerRef",
 		reflect.TypeOf((*IConfigurationManagerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationManagerRef", GoGetter: "ConfigurationManagerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

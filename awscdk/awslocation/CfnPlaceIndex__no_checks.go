@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnPlaceIndex) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
-func validateCfnPlaceIndex_FromIndexNameParameters(scope constructs.Construct, id *string, indexName *string) error {
-	return nil
-}
-
-func validateCfnPlaceIndex_FromPlaceIndexArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnPlaceIndex_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

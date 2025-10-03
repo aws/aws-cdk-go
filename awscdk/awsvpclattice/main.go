@@ -874,7 +874,6 @@ func init() {
 		"aws-cdk-lib.aws_vpclattice.IAccessLogSubscriptionRef",
 		reflect.TypeOf((*IAccessLogSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessLogSubscriptionRef", GoGetter: "AccessLogSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -887,7 +886,6 @@ func init() {
 		"aws-cdk-lib.aws_vpclattice.IAuthPolicyRef",
 		reflect.TypeOf((*IAuthPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "authPolicyRef", GoGetter: "AuthPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -900,7 +898,6 @@ func init() {
 		"aws-cdk-lib.aws_vpclattice.IListenerRef",
 		reflect.TypeOf((*IListenerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -914,7 +911,6 @@ func init() {
 		reflect.TypeOf((*IResourceConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceConfigurationRef", GoGetter: "ResourceConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceConfigurationRef{}
@@ -927,7 +923,6 @@ func init() {
 		reflect.TypeOf((*IResourceGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceGatewayRef", GoGetter: "ResourceGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceGatewayRef{}
@@ -940,7 +935,6 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -953,7 +947,6 @@ func init() {
 		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleRef{}
@@ -966,7 +959,6 @@ func init() {
 		reflect.TypeOf((*IServiceNetworkRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceNetworkRef", GoGetter: "ServiceNetworkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceNetworkRef{}
@@ -979,7 +971,6 @@ func init() {
 		reflect.TypeOf((*IServiceNetworkResourceAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceNetworkResourceAssociationRef", GoGetter: "ServiceNetworkResourceAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceNetworkResourceAssociationRef{}
@@ -992,7 +983,6 @@ func init() {
 		reflect.TypeOf((*IServiceNetworkServiceAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceNetworkServiceAssociationRef", GoGetter: "ServiceNetworkServiceAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceNetworkServiceAssociationRef{}
@@ -1005,7 +995,6 @@ func init() {
 		reflect.TypeOf((*IServiceNetworkVpcAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceNetworkVpcAssociationRef", GoGetter: "ServiceNetworkVpcAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceNetworkVpcAssociationRef{}
@@ -1018,7 +1007,6 @@ func init() {
 		reflect.TypeOf((*IServiceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceRef{}
@@ -1031,7 +1019,6 @@ func init() {
 		reflect.TypeOf((*ITargetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITargetGroupRef{}

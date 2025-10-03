@@ -31,7 +31,7 @@ type LambdaDestination interface {
 	// This method will only be called once for each destination/bucket
 	// pair and the result will be cached, so there is no need to implement
 	// idempotency in each destination.
-	Bind(scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig
+	Bind(scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -66,7 +66,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction) 
 	)
 }
 
-func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig {
+func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	if err := l.validateBindParameters(scope, bucket); err != nil {
 		panic(err)
 	}

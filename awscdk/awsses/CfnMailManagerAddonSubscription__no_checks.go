@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateValidatePropertiesPa
 	return nil
 }
 
-func validateCfnMailManagerAddonSubscription_FromAddonSubscriptionIdParameters(scope constructs.Construct, id *string, addonSubscriptionId *string) error {
-	return nil
-}
-
 func validateCfnMailManagerAddonSubscription_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

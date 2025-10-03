@@ -49,9 +49,6 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
-//   	ErrorMessageConfiguration: &ErrorMessageConfigurationProperty{
-//   		Type: jsii.String("type"),
-//   	},
 //   	Schema: &AnalysisSchemaProperty{
 //   		ReferencedTables: []*string{
 //   			jsii.String("referencedTables"),
@@ -106,12 +103,6 @@ type CfnAnalysisTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The configuration that specifies the level of detail in error messages returned by analyses using this template.
-	//
-	// When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-errormessageconfiguration
-	//
-	ErrorMessageConfiguration interface{} `field:"optional" json:"errorMessageConfiguration" yaml:"errorMessageConfiguration"`
 	// The entire schema object.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html#cfn-cleanrooms-analysistemplate-schema
 	//

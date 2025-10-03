@@ -788,44 +788,6 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration)SetTagsRaw(val *[]*awscdk.CfnTag)
 	)
 }
 
-// Creates a new IMatchmakingConfigurationRef from an ARN.
-func CfnMatchmakingConfiguration_FromMatchmakingConfigurationArn(scope constructs.Construct, id *string, arn *string) IMatchmakingConfigurationRef {
-	_init_.Initialize()
-
-	if err := validateCfnMatchmakingConfiguration_FromMatchmakingConfigurationArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IMatchmakingConfigurationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
-		"fromMatchmakingConfigurationArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IMatchmakingConfigurationRef from a matchmakingConfigurationName.
-func CfnMatchmakingConfiguration_FromMatchmakingConfigurationName(scope constructs.Construct, id *string, matchmakingConfigurationName *string) IMatchmakingConfigurationRef {
-	_init_.Initialize()
-
-	if err := validateCfnMatchmakingConfiguration_FromMatchmakingConfigurationNameParameters(scope, id, matchmakingConfigurationName); err != nil {
-		panic(err)
-	}
-	var returns IMatchmakingConfigurationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
-		"fromMatchmakingConfigurationName",
-		[]interface{}{scope, id, matchmakingConfigurationName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

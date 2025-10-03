@@ -607,7 +607,6 @@ origin := origins.NewLoadBalancerV2Origin(loadBalancer, &LoadBalancerV2OriginPro
 	ConnectionAttempts: jsii.Number(3),
 	ConnectionTimeout: awscdk.Duration_Seconds(jsii.Number(5)),
 	ReadTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
-	ResponseCompletionTimeout: awscdk.Duration_*Seconds(jsii.Number(120)),
 	KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
 	ProtocolPolicy: cloudfront.OriginProtocolPolicy_MATCH_VIEWER,
 })
@@ -628,38 +627,6 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 	},
 })
 ```
-
-You can specify the IP address type for connecting to the origin:
-
-```go
-origin := origins.NewHttpOrigin(jsii.String("www.example.com"), &HttpOriginProps{
-	IpAddressType: cloudfront.OriginIpAddressType_IPV6,
-})
-
-cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
-	DefaultBehavior: &BehaviorOptions{
-		Origin: *Origin,
-	},
-})
-```
-
-The `ipAddressType` property allows you to specify whether CloudFront should use IPv4, IPv6, or both (dual-stack) when connecting to your origin.
-
-The origin can be customized with timeout settings to handle different response scenarios:
-
-```go
-cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
-	DefaultBehavior: &BehaviorOptions{
-		Origin: origins.NewHttpOrigin(jsii.String("api.example.com"), &HttpOriginProps{
-			ReadTimeout: awscdk.Duration_Seconds(jsii.Number(60)),
-			ResponseCompletionTimeout: awscdk.Duration_*Seconds(jsii.Number(120)),
-			KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
-		}),
-	},
-})
-```
-
-The `responseCompletionTimeout` property specifies the time that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection. Valid values are 1-3600 seconds, and if set, the value must be equal to or greater than the `readTimeout` value.
 
 See the documentation of `aws-cdk-lib/aws-cloudfront` for more information.
 
@@ -910,28 +877,6 @@ fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
 		Origin: origins.NewFunctionUrlOrigin(fnUrl),
-	},
-})
-```
-
-You can also configure timeout settings for Lambda Function URL origins:
-
-```go
-import lambda "github.com/aws/aws-cdk-go/awscdk"
-
-var fn function
-
-fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
-	AuthType: lambda.FunctionUrlAuthType_NONE,
-})
-
-cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
-	DefaultBehavior: &BehaviorOptions{
-		Origin: origins.NewFunctionUrlOrigin(fnUrl, &FunctionUrlOriginProps{
-			ReadTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
-			ResponseCompletionTimeout: awscdk.Duration_*Seconds(jsii.Number(90)),
-			KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
-		}),
 	},
 })
 ```

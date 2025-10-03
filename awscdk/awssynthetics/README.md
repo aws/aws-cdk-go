@@ -167,34 +167,6 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 })
 ```
 
-### Browser Type Configuration
-
-You can configure which browsers your canary uses for testing by specifying the `browserConfigs` property. This allows you to test your application across different browsers to ensure compatibility.
-
-Available browser types:
-
-* `BrowserType.CHROME` - Google Chrome browser
-* `BrowserType.FIREFOX` - Mozilla Firefox browser
-
-You can specify up to 2 browser configurations. When multiple browsers are configured, the canary will run tests on each browser sequentially.
-
-```go
-canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
-	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
-	Test: synthetics.Test_Custom(&CustomTestOptions{
-		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
-		Handler: jsii.String("index.handler"),
-	}),
-	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_9_1(),
-	BrowserConfigs: []browserType{
-		synthetics.*browserType_CHROME,
-		synthetics.*browserType_FIREFOX,
-	},
-})
-```
-
-> **Note:** Firefox support is available for Node.js runtimes (Puppeteer and Playwright) but not for Python Selenium runtimes. When using Firefox, ensure your runtime version supports it.
-
 ### Deleting underlying resources on canary deletion
 
 When you delete a lambda, the following underlying resources are isolated in your AWS account:

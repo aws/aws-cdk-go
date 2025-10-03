@@ -16,9 +16,9 @@ func (g *jsiiProxy_GlobIgnoreStrategy) validateAddParameters(pattern *string) er
 	return nil
 }
 
-func (g *jsiiProxy_GlobIgnoreStrategy) validateCompletelyIgnoresParameters(absoluteDirectoryPath *string) error {
-	if absoluteDirectoryPath == nil {
-		return fmt.Errorf("parameter absoluteDirectoryPath is required, but nil was provided")
+func (g *jsiiProxy_GlobIgnoreStrategy) validateCompletelyIgnoresParameters(absoluteFilePath *string) error {
+	if absoluteFilePath == nil {
+		return fmt.Errorf("parameter absoluteFilePath is required, but nil was provided")
 	}
 
 	return nil

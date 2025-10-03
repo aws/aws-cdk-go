@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::CertificateManager::Certificate` resource requests an Certificate Manager ( ACM ) certificate that you can use to enable secure connections.
+// The `AWS::CertificateManager::Certificate` resource requests an AWS Certificate Manager ( ACM ) certificate that you can use to enable secure connections.
 //
-// For example, you can deploy an ACM certificate to an Elastic Load Balancer to enable HTTPS support. For more information, see [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) in the Certificate Manager API Reference.
+// For example, you can deploy an ACM certificate to an Elastic Load Balancer to enable HTTPS support. For more information, see [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) in the AWS Certificate Manager API Reference.
 //
 // > When you use the `AWS::CertificateManager::Certificate` resource in a CloudFormation stack, domain validation is handled automatically if all three of the following are true: The certificate domain is hosted in Amazon Route 53, the domain resides in your AWS account , and you are using DNS validation.
 // >
@@ -68,6 +68,8 @@ type CfnCertificate interface {
 	// A reference to a Certificate resource.
 	CertificateRef() *CertificateReference
 	// You can opt out of certificate transparency logging by specifying the `DISABLED` option.
+	//
+	// Opt in by specifying `ENABLED` .
 	CertificateTransparencyLoggingPreference() *string
 	SetCertificateTransparencyLoggingPreference(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -595,25 +597,6 @@ func (j *jsiiProxy_CfnCertificate)SetValidationMethod(val *string) {
 		"validationMethod",
 		val,
 	)
-}
-
-// Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) ICertificateRef {
-	_init_.Initialize()
-
-	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
-		panic(err)
-	}
-	var returns ICertificateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_certificatemanager.CfnCertificate",
-		"fromCertificateId",
-		[]interface{}{scope, id, certificateId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

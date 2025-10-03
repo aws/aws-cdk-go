@@ -23,19 +23,15 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	BackupSubnetCidr: jsii.String("backupSubnetCidr"),
 //   	ClientSubnetCidr: jsii.String("clientSubnetCidr"),
-//   	CustomDomainName: jsii.String("customDomainName"),
 //   	DefaultDnsPrefix: jsii.String("defaultDnsPrefix"),
 //   	DeleteAssociatedResources: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
-//   	S3Access: jsii.String("s3Access"),
-//   	S3PolicyDocument: jsii.String("s3PolicyDocument"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	ZeroEtlAccess: jsii.String("zeroEtlAccess"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html
@@ -45,8 +41,6 @@ type CfnOdbNetwork interface {
 	IOdbNetworkRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The managed services configuration for the ODB network.
-	AttrManagedServices() awscdk.IResolvable
 	// The unique identifier of the OCI network anchor for the ODB network.
 	AttrOciNetworkAnchorId() *string
 	// The name of the OCI resource anchor that's associated with the ODB network.
@@ -80,9 +74,6 @@ type CfnOdbNetwork interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The domain name for the resources in the ODB network.
-	CustomDomainName() *string
-	SetCustomDomainName(val *string)
 	// The DNS prefix to the default DNS domain name.
 	DefaultDnsPrefix() *string
 	SetDefaultDnsPrefix(val *string)
@@ -111,12 +102,6 @@ type CfnOdbNetwork interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The configuration for Amazon S3 access from the ODB network.
-	S3Access() *string
-	SetS3Access(val *string)
-	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
-	S3PolicyDocument() *string
-	SetS3PolicyDocument(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -137,9 +122,6 @@ type CfnOdbNetwork interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The configuration for Zero-ETL access from the ODB network.
-	ZeroEtlAccess() *string
-	SetZeroEtlAccess(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -273,16 +255,6 @@ type jsiiProxy_CfnOdbNetwork struct {
 	jsiiProxy_IOdbNetworkRef
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggableV2
-}
-
-func (j *jsiiProxy_CfnOdbNetwork) AttrManagedServices() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrManagedServices",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnOdbNetwork) AttrOciNetworkAnchorId() *string {
@@ -425,16 +397,6 @@ func (j *jsiiProxy_CfnOdbNetwork) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOdbNetwork) CustomDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"customDomainName",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnOdbNetwork) DefaultDnsPrefix() *string {
 	var returns *string
 	_jsii_.Get(
@@ -505,26 +467,6 @@ func (j *jsiiProxy_CfnOdbNetwork) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOdbNetwork) S3Access() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"s3Access",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnOdbNetwork) S3PolicyDocument() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"s3PolicyDocument",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnOdbNetwork) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -560,16 +502,6 @@ func (j *jsiiProxy_CfnOdbNetwork) UpdatedProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperties",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnOdbNetwork) ZeroEtlAccess() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"zeroEtlAccess",
 		&returns,
 	)
 	return returns
@@ -635,14 +567,6 @@ func (j *jsiiProxy_CfnOdbNetwork)SetClientSubnetCidr(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOdbNetwork)SetCustomDomainName(val *string) {
-	_jsii_.Set(
-		j,
-		"customDomainName",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnOdbNetwork)SetDefaultDnsPrefix(val *string) {
 	_jsii_.Set(
 		j,
@@ -670,22 +594,6 @@ func (j *jsiiProxy_CfnOdbNetwork)SetDisplayName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOdbNetwork)SetS3Access(val *string) {
-	_jsii_.Set(
-		j,
-		"s3Access",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnOdbNetwork)SetS3PolicyDocument(val *string) {
-	_jsii_.Set(
-		j,
-		"s3PolicyDocument",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnOdbNetwork)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
@@ -693,14 +601,6 @@ func (j *jsiiProxy_CfnOdbNetwork)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnOdbNetwork)SetZeroEtlAccess(val *string) {
-	_jsii_.Set(
-		j,
-		"zeroEtlAccess",
 		val,
 	)
 }

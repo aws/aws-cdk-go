@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnDatabase) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnDatabase_FromDatabaseArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnDatabase_FromDatabaseNameParameters(scope constructs.Construct, id *string, databaseName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if databaseName == nil {
-		return fmt.Errorf("parameter databaseName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDatabase_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

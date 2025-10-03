@@ -33,7 +33,7 @@ import (
 type AccessPointProps struct {
 	// The bucket to which this access point belongs.
 	// Experimental.
-	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The Lambda function used to transform objects.
 	// Experimental.
 	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`

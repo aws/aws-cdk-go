@@ -524,25 +524,6 @@ func (j *jsiiProxy_CfnVPCPeeringConnection)SetVpcId(val *string) {
 	)
 }
 
-// Creates a new IVPCPeeringConnectionRef from a vpcPeeringConnectionId.
-func CfnVPCPeeringConnection_FromVpcPeeringConnectionId(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) IVPCPeeringConnectionRef {
-	_init_.Initialize()
-
-	if err := validateCfnVPCPeeringConnection_FromVpcPeeringConnectionIdParameters(scope, id, vpcPeeringConnectionId); err != nil {
-		panic(err)
-	}
-	var returns IVPCPeeringConnectionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVPCPeeringConnection",
-		"fromVpcPeeringConnectionId",
-		[]interface{}{scope, id, vpcPeeringConnectionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

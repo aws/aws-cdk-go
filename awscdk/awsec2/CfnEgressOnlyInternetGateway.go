@@ -429,25 +429,6 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway)SetVpcId(val *string) {
 	)
 }
 
-// Creates a new IEgressOnlyInternetGatewayRef from a egressOnlyInternetGatewayId.
-func CfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayId(scope constructs.Construct, id *string, egressOnlyInternetGatewayId *string) IEgressOnlyInternetGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayIdParameters(scope, id, egressOnlyInternetGatewayId); err != nil {
-		panic(err)
-	}
-	var returns IEgressOnlyInternetGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnEgressOnlyInternetGateway",
-		"fromEgressOnlyInternetGatewayId",
-		[]interface{}{scope, id, egressOnlyInternetGatewayId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

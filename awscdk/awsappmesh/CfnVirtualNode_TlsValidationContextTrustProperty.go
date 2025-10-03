@@ -25,7 +25,7 @@ package awsappmesh
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html
 //
 type CfnVirtualNode_TlsValidationContextTrustProperty struct {
-	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.
+	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html#cfn-appmesh-virtualnode-tlsvalidationcontexttrust-acm
 	//
 	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`

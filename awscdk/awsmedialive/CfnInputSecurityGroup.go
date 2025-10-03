@@ -437,44 +437,6 @@ func (j *jsiiProxy_CfnInputSecurityGroup)SetWhitelistRules(val interface{}) {
 	)
 }
 
-// Creates a new IInputSecurityGroupRef from an ARN.
-func CfnInputSecurityGroup_FromInputSecurityGroupArn(scope constructs.Construct, id *string, arn *string) IInputSecurityGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnInputSecurityGroup_FromInputSecurityGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IInputSecurityGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
-		"fromInputSecurityGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IInputSecurityGroupRef from a inputSecurityGroupId.
-func CfnInputSecurityGroup_FromInputSecurityGroupId(scope constructs.Construct, id *string, inputSecurityGroupId *string) IInputSecurityGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnInputSecurityGroup_FromInputSecurityGroupIdParameters(scope, id, inputSecurityGroupId); err != nil {
-		panic(err)
-	}
-	var returns IInputSecurityGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
-		"fromInputSecurityGroupId",
-		[]interface{}{scope, id, inputSecurityGroupId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

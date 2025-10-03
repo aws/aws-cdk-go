@@ -943,7 +943,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -978,7 +977,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IConfigurationProfileRef",
 		reflect.TypeOf((*IConfigurationProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationProfileRef", GoGetter: "ConfigurationProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -991,7 +989,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IDeploymentRef",
 		reflect.TypeOf((*IDeploymentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deploymentRef", GoGetter: "DeploymentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1027,7 +1024,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IDeploymentStrategyRef",
 		reflect.TypeOf((*IDeploymentStrategyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deploymentStrategyRef", GoGetter: "DeploymentStrategyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1076,7 +1072,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IEnvironmentRef",
 		reflect.TypeOf((*IEnvironmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "environmentRef", GoGetter: "EnvironmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1143,7 +1138,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IExtensionAssociationRef",
 		reflect.TypeOf((*IExtensionAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "extensionAssociationRef", GoGetter: "ExtensionAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1156,7 +1150,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IExtensionRef",
 		reflect.TypeOf((*IExtensionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "extensionRef", GoGetter: "ExtensionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1169,7 +1162,6 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IHostedConfigurationVersionRef",
 		reflect.TypeOf((*IHostedConfigurationVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "hostedConfigurationVersionRef", GoGetter: "HostedConfigurationVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

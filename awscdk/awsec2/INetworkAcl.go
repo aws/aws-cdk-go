@@ -71,16 +71,6 @@ func (j *jsiiProxy_INetworkAcl) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_INetworkAcl) NetworkAclRef() *NetworkAclReference {
-	var returns *NetworkAclReference
-	_jsii_.Get(
-		j,
-		"networkAclRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_INetworkAcl) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

@@ -499,44 +499,6 @@ func (j *jsiiProxy_CfnCoreDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
-// Creates a new ICoreDefinitionRef from an ARN.
-func CfnCoreDefinition_FromCoreDefinitionArn(scope constructs.Construct, id *string, arn *string) ICoreDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnCoreDefinition_FromCoreDefinitionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ICoreDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
-		"fromCoreDefinitionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICoreDefinitionRef from a coreDefinitionId.
-func CfnCoreDefinition_FromCoreDefinitionId(scope constructs.Construct, id *string, coreDefinitionId *string) ICoreDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnCoreDefinition_FromCoreDefinitionIdParameters(scope, id, coreDefinitionId); err != nil {
-		panic(err)
-	}
-	var returns ICoreDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
-		"fromCoreDefinitionId",
-		[]interface{}{scope, id, coreDefinitionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

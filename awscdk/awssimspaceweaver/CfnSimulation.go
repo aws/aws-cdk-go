@@ -488,25 +488,6 @@ func (j *jsiiProxy_CfnSimulation)SetSnapshotS3Location(val interface{}) {
 	)
 }
 
-// Creates a new ISimulationRef from a simulationName.
-func CfnSimulation_FromSimulationName(scope constructs.Construct, id *string, simulationName *string) ISimulationRef {
-	_init_.Initialize()
-
-	if err := validateCfnSimulation_FromSimulationNameParameters(scope, id, simulationName); err != nil {
-		panic(err)
-	}
-	var returns ISimulationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_simspaceweaver.CfnSimulation",
-		"fromSimulationName",
-		[]interface{}{scope, id, simulationName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

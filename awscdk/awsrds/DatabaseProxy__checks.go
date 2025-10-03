@@ -12,18 +12,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (d *jsiiProxy_DatabaseProxy) validateAddEndpointParameters(id *string, options *DatabaseProxyEndpointOptions) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (d *jsiiProxy_DatabaseProxy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

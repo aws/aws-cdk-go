@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnMailManagerIngressPoint) validateValidatePropertiesParamet
 	return nil
 }
 
-func validateCfnMailManagerIngressPoint_FromIngressPointIdParameters(scope constructs.Construct, id *string, ingressPointId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if ingressPointId == nil {
-		return fmt.Errorf("parameter ingressPointId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnMailManagerIngressPoint_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnJob) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
-func validateCfnJob_FromJobNameParameters(scope constructs.Construct, id *string, jobName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if jobName == nil {
-		return fmt.Errorf("parameter jobName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnJob_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

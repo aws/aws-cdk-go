@@ -210,7 +210,6 @@ func init() {
 		"aws-cdk-lib.aws_certificatemanager.IAccountRef",
 		reflect.TypeOf((*IAccountRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accountRef", GoGetter: "AccountRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -240,7 +239,6 @@ func init() {
 		"aws-cdk-lib.aws_certificatemanager.ICertificateRef",
 		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates an AWS PCS compute node group resource.
-//
-// For more information, see [Creating a compute node group in AWS PCS](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_create.html) in the *AWS PCS User Guide* .
+// The `AWS::PCS::ComputeNodeGroup` resource creates an AWS PCS compute node group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -78,7 +76,7 @@ type CfnComputeNodeGroup interface {
 	AttrId() *string
 	// The provisioning status of the compute node group.
 	//
-	// > The provisioning status doesn't indicate the overall health of the compute node group. > The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED` . For more information, see [Frequently asked questions about Slurm versions in AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/slurm-versions_faq.html) in the *AWS PCS User Guide* .
+	// The provisioning status doesn't indicate the overall health of the compute node group.
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -134,7 +132,7 @@ type CfnComputeNodeGroup interface {
 	// Additional options related to the Slurm scheduler.
 	SlurmConfiguration() interface{}
 	SetSlurmConfiguration(val interface{})
-	// Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
+	// Additional configuration when you specify `SPOT` as the `purchaseOption` .
 	SpotOptions() interface{}
 	SetSpotOptions(val interface{})
 	// The stack in which this element is defined.

@@ -251,7 +251,6 @@ func init() {
 		reflect.TypeOf((*IScheduleGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scheduleGroupRef", GoGetter: "ScheduleGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduleGroupRef{}
@@ -264,7 +263,6 @@ func init() {
 		reflect.TypeOf((*IScheduleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scheduleRef", GoGetter: "ScheduleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduleRef{}

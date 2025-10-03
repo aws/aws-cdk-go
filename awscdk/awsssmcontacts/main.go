@@ -290,7 +290,6 @@ func init() {
 		"aws-cdk-lib.aws_ssmcontacts.IContactChannelRef",
 		reflect.TypeOf((*IContactChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "contactChannelRef", GoGetter: "ContactChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -303,7 +302,6 @@ func init() {
 		"aws-cdk-lib.aws_ssmcontacts.IContactRef",
 		reflect.TypeOf((*IContactRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "contactRef", GoGetter: "ContactRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -317,7 +315,6 @@ func init() {
 		reflect.TypeOf((*IPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "planRef", GoGetter: "PlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlanRef{}
@@ -330,7 +327,6 @@ func init() {
 		reflect.TypeOf((*IRotationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "rotationRef", GoGetter: "RotationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRotationRef{}

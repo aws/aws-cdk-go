@@ -154,7 +154,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindow", GoGetter: "MaintenanceWindow"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -186,10 +185,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnCloudExadataInfrastructure.CustomerContactProperty",
 		reflect.TypeOf((*CfnCloudExadataInfrastructure_CustomerContactProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnCloudExadataInfrastructure.MaintenanceWindowProperty",
-		reflect.TypeOf((*CfnCloudExadataInfrastructure_MaintenanceWindowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnCloudExadataInfrastructureProps",
@@ -233,7 +228,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataCollectionOptions", GoGetter: "DataCollectionOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "dataStorageSizeInTBs", GoGetter: "DataStorageSizeInTBs"},
-			_jsii_.MemberProperty{JsiiProperty: "dbNodes", GoGetter: "DbNodes"},
 			_jsii_.MemberProperty{JsiiProperty: "dbNodeStorageSizeInGBs", GoGetter: "DbNodeStorageSizeInGBs"},
 			_jsii_.MemberProperty{JsiiProperty: "dbServers", GoGetter: "DbServers"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
@@ -282,10 +276,6 @@ func init() {
 		reflect.TypeOf((*CfnCloudVmCluster_DataCollectionOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnCloudVmCluster.DbNodeProperty",
-		reflect.TypeOf((*CfnCloudVmCluster_DbNodeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnCloudVmClusterProps",
 		reflect.TypeOf((*CfnCloudVmClusterProps)(nil)).Elem(),
 	)
@@ -301,7 +291,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrManagedServices", GoGetter: "AttrManagedServices"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOciNetworkAnchorId", GoGetter: "AttrOciNetworkAnchorId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOciResourceAnchorName", GoGetter: "AttrOciResourceAnchorName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOciVcnUrl", GoGetter: "AttrOciVcnUrl"},
@@ -316,7 +305,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "clientSubnetCidr", GoGetter: "ClientSubnetCidr"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "customDomainName", GoGetter: "CustomDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultDnsPrefix", GoGetter: "DefaultDnsPrefix"},
 			_jsii_.MemberProperty{JsiiProperty: "deleteAssociatedResources", GoGetter: "DeleteAssociatedResources"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
@@ -333,8 +321,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberProperty{JsiiProperty: "s3Access", GoGetter: "S3Access"},
-			_jsii_.MemberProperty{JsiiProperty: "s3PolicyDocument", GoGetter: "S3PolicyDocument"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -342,7 +328,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-			_jsii_.MemberProperty{JsiiProperty: "zeroEtlAccess", GoGetter: "ZeroEtlAccess"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnOdbNetwork{}
@@ -354,86 +339,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ManagedS3BackupAccessProperty",
-		reflect.TypeOf((*CfnOdbNetwork_ManagedS3BackupAccessProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ManagedServicesProperty",
-		reflect.TypeOf((*CfnOdbNetwork_ManagedServicesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnOdbNetwork.S3AccessProperty",
-		reflect.TypeOf((*CfnOdbNetwork_S3AccessProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ServiceNetworkEndpointProperty",
-		reflect.TypeOf((*CfnOdbNetwork_ServiceNetworkEndpointProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ZeroEtlAccessProperty",
-		reflect.TypeOf((*CfnOdbNetwork_ZeroEtlAccessProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnOdbNetworkProps",
 		reflect.TypeOf((*CfnOdbNetworkProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_odb.CfnOdbPeeringConnection",
-		reflect.TypeOf((*CfnOdbPeeringConnection)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
-			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrOdbNetworkArn", GoGetter: "AttrOdbNetworkArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrOdbPeeringConnectionArn", GoGetter: "AttrOdbPeeringConnectionArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrOdbPeeringConnectionId", GoGetter: "AttrOdbPeeringConnectionId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrPeerNetworkArn", GoGetter: "AttrPeerNetworkArn"},
-			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
-			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
-			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
-			_jsii_.MemberProperty{JsiiProperty: "odbNetworkId", GoGetter: "OdbNetworkId"},
-			_jsii_.MemberProperty{JsiiProperty: "odbPeeringConnectionRef", GoGetter: "OdbPeeringConnectionRef"},
-			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "peerNetworkId", GoGetter: "PeerNetworkId"},
-			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnOdbPeeringConnection{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOdbPeeringConnectionRef)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.CfnOdbPeeringConnectionProps",
-		reflect.TypeOf((*CfnOdbPeeringConnectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CloudAutonomousVmClusterReference",
@@ -451,7 +358,6 @@ func init() {
 		"aws-cdk-lib.aws_odb.ICloudAutonomousVmClusterRef",
 		reflect.TypeOf((*ICloudAutonomousVmClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudAutonomousVmClusterRef", GoGetter: "CloudAutonomousVmClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -464,7 +370,6 @@ func init() {
 		"aws-cdk-lib.aws_odb.ICloudExadataInfrastructureRef",
 		reflect.TypeOf((*ICloudExadataInfrastructureRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudExadataInfrastructureRef", GoGetter: "CloudExadataInfrastructureRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -477,7 +382,6 @@ func init() {
 		"aws-cdk-lib.aws_odb.ICloudVmClusterRef",
 		reflect.TypeOf((*ICloudVmClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cloudVmClusterRef", GoGetter: "CloudVmClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -491,7 +395,6 @@ func init() {
 		reflect.TypeOf((*IOdbNetworkRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "odbNetworkRef", GoGetter: "OdbNetworkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOdbNetworkRef{}
@@ -499,25 +402,8 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_odb.IOdbPeeringConnectionRef",
-		reflect.TypeOf((*IOdbPeeringConnectionRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "odbPeeringConnectionRef", GoGetter: "OdbPeeringConnectionRef"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IOdbPeeringConnectionRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			return &j
-		},
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.OdbNetworkReference",
 		reflect.TypeOf((*OdbNetworkReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_odb.OdbPeeringConnectionReference",
-		reflect.TypeOf((*OdbPeeringConnectionReference)(nil)).Elem(),
 	)
 }

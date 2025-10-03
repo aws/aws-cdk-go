@@ -53,16 +53,6 @@ func (j *jsiiProxy_IFlowLog) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IFlowLog) FlowLogRef() *FlowLogReference {
-	var returns *FlowLogReference
-	_jsii_.Get(
-		j,
-		"flowLogRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IFlowLog) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

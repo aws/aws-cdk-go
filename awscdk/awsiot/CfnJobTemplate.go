@@ -695,44 +695,6 @@ func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
 	)
 }
 
-// Creates a new IJobTemplateRef from an ARN.
-func CfnJobTemplate_FromJobTemplateArn(scope constructs.Construct, id *string, arn *string) IJobTemplateRef {
-	_init_.Initialize()
-
-	if err := validateCfnJobTemplate_FromJobTemplateArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IJobTemplateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnJobTemplate",
-		"fromJobTemplateArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IJobTemplateRef from a jobTemplateId.
-func CfnJobTemplate_FromJobTemplateId(scope constructs.Construct, id *string, jobTemplateId *string) IJobTemplateRef {
-	_init_.Initialize()
-
-	if err := validateCfnJobTemplate_FromJobTemplateIdParameters(scope, id, jobTemplateId); err != nil {
-		panic(err)
-	}
-	var returns IJobTemplateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnJobTemplate",
-		"fromJobTemplateId",
-		[]interface{}{scope, id, jobTemplateId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -50,7 +50,6 @@ type VpnConnection interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// A reference to a VPNConnection resource.
 	VpnConnectionRef() *VPNConnectionReference
 	// The id of the VPN connection.
 	VpnId() *string

@@ -494,44 +494,6 @@ func (j *jsiiProxy_CfnAlias)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAliasRef from an ARN.
-func CfnAlias_FromAliasArn(scope constructs.Construct, id *string, arn *string) IAliasRef {
-	_init_.Initialize()
-
-	if err := validateCfnAlias_FromAliasArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAliasRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
-		"fromAliasArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAliasRef from a aliasId.
-func CfnAlias_FromAliasId(scope constructs.Construct, id *string, aliasId *string) IAliasRef {
-	_init_.Initialize()
-
-	if err := validateCfnAlias_FromAliasIdParameters(scope, id, aliasId); err != nil {
-		panic(err)
-	}
-	var returns IAliasRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnAlias",
-		"fromAliasId",
-		[]interface{}{scope, id, aliasId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

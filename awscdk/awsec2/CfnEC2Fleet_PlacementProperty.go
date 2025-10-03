@@ -30,7 +30,7 @@ type CfnEC2Fleet_PlacementProperty struct {
 	Affinity *string `field:"optional" json:"affinity" yaml:"affinity"`
 	// The Availability Zone of the instance.
 	//
-	// On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
+	// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-availabilityzone
@@ -38,7 +38,7 @@ type CfnEC2Fleet_PlacementProperty struct {
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The name of the placement group that the instance is in.
 	//
-	// On input, you can specify `GroupId` or `GroupName` , but not both.
+	// If you specify `GroupName` , you can't specify `GroupId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
@@ -50,7 +50,7 @@ type CfnEC2Fleet_PlacementProperty struct {
 	HostId *string `field:"optional" json:"hostId" yaml:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
-	// On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+	// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostresourcegrouparn

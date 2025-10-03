@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
-func validateCfnFHIRDatastore_FromDatastoreIdParameters(scope constructs.Construct, id *string, datastoreId *string) error {
-	return nil
-}
-
 func validateCfnFHIRDatastore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

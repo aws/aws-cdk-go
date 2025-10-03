@@ -79,8 +79,6 @@ type CfnVpcAttachment interface {
 	AttrCreatedAt() *string
 	// The Region where the core network edge is located.
 	AttrEdgeLocation() *string
-	// Errors from the last modification of the attachment.
-	AttrLastModificationErrors() *[]*string
 	// The name of the network function group.
 	AttrNetworkFunctionGroupName() *string
 	// The ID of the VPC attachment owner.
@@ -353,16 +351,6 @@ func (j *jsiiProxy_CfnVpcAttachment) AttrEdgeLocation() *string {
 	_jsii_.Get(
 		j,
 		"attrEdgeLocation",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnVpcAttachment) AttrLastModificationErrors() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns

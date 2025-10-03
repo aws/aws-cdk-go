@@ -789,7 +789,6 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions.IActivityRef",
 		reflect.TypeOf((*IActivityRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "activityRef", GoGetter: "ActivityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -846,7 +845,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantExecution", GoMethod: "GrantExecution"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
-			_jsii_.MemberMethod{JsiiMethod: "grantRedriveExecution", GoMethod: "GrantRedriveExecution"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStartExecution", GoMethod: "GrantStartExecution"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStartSyncExecution", GoMethod: "GrantStartSyncExecution"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTaskResponse", GoMethod: "GrantTaskResponse"},
@@ -874,7 +872,6 @@ func init() {
 		reflect.TypeOf((*IStateMachineAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stateMachineAliasRef", GoGetter: "StateMachineAliasRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStateMachineAliasRef{}
@@ -887,7 +884,6 @@ func init() {
 		reflect.TypeOf((*IStateMachineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stateMachineRef", GoGetter: "StateMachineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStateMachineRef{}
@@ -900,7 +896,6 @@ func init() {
 		reflect.TypeOf((*IStateMachineVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stateMachineVersionRef", GoGetter: "StateMachineVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStateMachineVersionRef{}

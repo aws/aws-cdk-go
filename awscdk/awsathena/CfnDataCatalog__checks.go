@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnDataCatalog) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnDataCatalog_FromDataCatalogNameParameters(scope constructs.Construct, id *string, dataCatalogName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if dataCatalogName == nil {
-		return fmt.Errorf("parameter dataCatalogName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnDataCatalog_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

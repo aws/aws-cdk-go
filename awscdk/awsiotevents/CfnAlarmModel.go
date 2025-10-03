@@ -701,25 +701,6 @@ func (j *jsiiProxy_CfnAlarmModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAlarmModelRef from a alarmModelName.
-func CfnAlarmModel_FromAlarmModelName(scope constructs.Construct, id *string, alarmModelName *string) IAlarmModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnAlarmModel_FromAlarmModelNameParameters(scope, id, alarmModelName); err != nil {
-		panic(err)
-	}
-	var returns IAlarmModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotevents.CfnAlarmModel",
-		"fromAlarmModelName",
-		[]interface{}{scope, id, alarmModelName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

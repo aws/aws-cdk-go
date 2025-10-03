@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnDeployment) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
-func validateCfnDeployment_FromDeploymentIdParameters(scope constructs.Construct, id *string, deploymentId *string) error {
-	return nil
-}
-
 func validateCfnDeployment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

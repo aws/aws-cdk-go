@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnTopicRule) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnTopicRule_FromRuleNameParameters(scope constructs.Construct, id *string, ruleName *string) error {
-	return nil
-}
-
-func validateCfnTopicRule_FromTopicRuleArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnTopicRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

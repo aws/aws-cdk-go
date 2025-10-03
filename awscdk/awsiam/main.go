@@ -45,7 +45,6 @@ func init() {
 		map[string]interface{}{
 			"ACTIVE": AccessKeyStatus_ACTIVE,
 			"INACTIVE": AccessKeyStatus_INACTIVE,
-			"EXPIRED": AccessKeyStatus_EXPIRED,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1256,7 +1255,6 @@ func init() {
 		reflect.TypeOf((*IAccessKey)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessKeyId", GoGetter: "AccessKeyId"},
-			_jsii_.MemberProperty{JsiiProperty: "accessKeyRef", GoGetter: "AccessKeyRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1274,7 +1272,6 @@ func init() {
 		"aws-cdk-lib.aws_iam.IAccessKeyRef",
 		reflect.TypeOf((*IAccessKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessKeyRef", GoGetter: "AccessKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1340,7 +1337,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "groupArn", GoGetter: "GroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "groupName", GoGetter: "GroupName"},
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -1357,7 +1353,6 @@ func init() {
 		"aws-cdk-lib.aws_iam.IGroupPolicyRef",
 		reflect.TypeOf((*IGroupPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupPolicyRef", GoGetter: "GroupPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1370,7 +1365,6 @@ func init() {
 		"aws-cdk-lib.aws_iam.IGroupRef",
 		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1410,7 +1404,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceProfileArn", GoGetter: "InstanceProfileArn"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceProfileName", GoGetter: "InstanceProfileName"},
-			_jsii_.MemberProperty{JsiiProperty: "instanceProfileRef", GoGetter: "InstanceProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1426,7 +1419,6 @@ func init() {
 		"aws-cdk-lib.aws_iam.IInstanceProfileRef",
 		reflect.TypeOf((*IInstanceProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "instanceProfileRef", GoGetter: "InstanceProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1440,7 +1432,6 @@ func init() {
 		reflect.TypeOf((*IManagedPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArn", GoGetter: "ManagedPolicyArn"},
-			_jsii_.MemberProperty{JsiiProperty: "managedPolicyRef", GoGetter: "ManagedPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1453,7 +1444,6 @@ func init() {
 		"aws-cdk-lib.aws_iam.IManagedPolicyRef",
 		reflect.TypeOf((*IManagedPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "managedPolicyRef", GoGetter: "ManagedPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1467,7 +1457,6 @@ func init() {
 		reflect.TypeOf((*IOIDCProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "oidcProviderRef", GoGetter: "OidcProviderRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOIDCProviderRef{}
@@ -1484,7 +1473,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderArn", GoGetter: "OidcProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderIssuer", GoGetter: "OidcProviderIssuer"},
-			_jsii_.MemberProperty{JsiiProperty: "oidcProviderRef", GoGetter: "OidcProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -1501,7 +1489,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "oidcProviderRef", GoGetter: "OidcProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArn", GoGetter: "OpenIdConnectProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderIssuer", GoGetter: "OpenIdConnectProviderIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1521,7 +1508,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
-			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -1536,7 +1522,6 @@ func init() {
 		reflect.TypeOf((*IPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyRef{}
@@ -1595,7 +1580,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "roleName", GoGetter: "RoleName"},
-			_jsii_.MemberProperty{JsiiProperty: "roleRef", GoGetter: "RoleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -1610,7 +1594,6 @@ func init() {
 		reflect.TypeOf((*IRolePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "rolePolicyRef", GoGetter: "RolePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRolePolicyRef{}
@@ -1623,7 +1606,6 @@ func init() {
 		reflect.TypeOf((*IRoleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "roleRef", GoGetter: "RoleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoleRef{}
@@ -1636,7 +1618,6 @@ func init() {
 		reflect.TypeOf((*ISAMLProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "samlProviderRef", GoGetter: "SamlProviderRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISAMLProviderRef{}
@@ -1652,7 +1633,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "samlProviderArn", GoGetter: "SamlProviderArn"},
-			_jsii_.MemberProperty{JsiiProperty: "samlProviderRef", GoGetter: "SamlProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -1667,7 +1647,6 @@ func init() {
 		reflect.TypeOf((*IServerCertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serverCertificateRef", GoGetter: "ServerCertificateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServerCertificateRef{}
@@ -1680,7 +1659,6 @@ func init() {
 		reflect.TypeOf((*IServiceLinkedRoleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceLinkedRoleRef", GoGetter: "ServiceLinkedRoleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceLinkedRoleRef{}
@@ -1706,7 +1684,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "userArn", GoGetter: "UserArn"},
 			_jsii_.MemberProperty{JsiiProperty: "userName", GoGetter: "UserName"},
-			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUser{}
@@ -1720,7 +1697,6 @@ func init() {
 		reflect.TypeOf((*IUserPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPolicyRef", GoGetter: "UserPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPolicyRef{}
@@ -1733,7 +1709,6 @@ func init() {
 		reflect.TypeOf((*IUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserRef{}
@@ -1746,7 +1721,6 @@ func init() {
 		reflect.TypeOf((*IUserToGroupAdditionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userToGroupAdditionRef", GoGetter: "UserToGroupAdditionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserToGroupAdditionRef{}
@@ -1759,7 +1733,6 @@ func init() {
 		reflect.TypeOf((*IVirtualMFADeviceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualMfaDeviceRef", GoGetter: "VirtualMfaDeviceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualMFADeviceRef{}

@@ -128,7 +128,6 @@ func init() {
 		reflect.TypeOf((*IPermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "permissionRef", GoGetter: "PermissionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPermissionRef{}
@@ -141,7 +140,6 @@ func init() {
 		reflect.TypeOf((*IResourceShareRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceShareRef", GoGetter: "ResourceShareRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceShareRef{}

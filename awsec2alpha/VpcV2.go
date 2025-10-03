@@ -144,7 +144,6 @@ type VpcV2 interface {
 	// VpcName to be used for tagging its components.
 	// Experimental.
 	VpcName() *string
-	// A reference to a VPC resource.
 	// Experimental.
 	VpcRef() *awsec2.VPCReference
 	// Returns the id of the VPN Gateway (if enabled).

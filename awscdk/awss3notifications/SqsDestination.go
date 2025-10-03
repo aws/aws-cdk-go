@@ -25,7 +25,7 @@ type SqsDestination interface {
 	// Allows using SQS queues as destinations for bucket notifications.
 	//
 	// Use `bucket.onEvent(event, queue)` to subscribe.
-	Bind(_scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig
+	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for SqsDestination
@@ -60,7 +60,7 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	)
 }
 
-func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, bucket awss3.IBucketRef) *awss3.BucketNotificationDestinationConfig {
+func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	if err := s.validateBindParameters(_scope, bucket); err != nil {
 		panic(err)
 	}

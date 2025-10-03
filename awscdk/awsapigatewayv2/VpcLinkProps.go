@@ -31,7 +31,7 @@ type VpcLinkProps struct {
 	// A list of security groups for the VPC link.
 	// Default: - no security groups. Use `addSecurityGroups` to add security groups
 	//
-	SecurityGroups *[]awsec2.ISecurityGroupRef `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// A list of subnets for the VPC link.
 	// Default: - private subnets of the provided VPC. Use `addSubnets` to add more subnets
 	//

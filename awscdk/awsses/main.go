@@ -1621,7 +1621,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IConfigurationSetEventDestinationRef",
 		reflect.TypeOf((*IConfigurationSetEventDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationSetEventDestinationRef", GoGetter: "ConfigurationSetEventDestinationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1634,7 +1633,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IConfigurationSetRef",
 		reflect.TypeOf((*IConfigurationSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationSetRef", GoGetter: "ConfigurationSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1647,7 +1645,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IContactListRef",
 		reflect.TypeOf((*IContactListRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "contactListRef", GoGetter: "ContactListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1676,7 +1673,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IDedicatedIpPoolRef",
 		reflect.TypeOf((*IDedicatedIpPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dedicatedIpPoolRef", GoGetter: "DedicatedIpPoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1708,7 +1704,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IEmailIdentityRef",
 		reflect.TypeOf((*IEmailIdentityRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "emailIdentityRef", GoGetter: "EmailIdentityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1721,7 +1716,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerAddonInstanceRef",
 		reflect.TypeOf((*IMailManagerAddonInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerAddonInstanceRef", GoGetter: "MailManagerAddonInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1734,7 +1728,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerAddonSubscriptionRef",
 		reflect.TypeOf((*IMailManagerAddonSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerAddonSubscriptionRef", GoGetter: "MailManagerAddonSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1747,7 +1740,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerAddressListRef",
 		reflect.TypeOf((*IMailManagerAddressListRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerAddressListRef", GoGetter: "MailManagerAddressListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1760,7 +1752,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerArchiveRef",
 		reflect.TypeOf((*IMailManagerArchiveRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerArchiveRef", GoGetter: "MailManagerArchiveRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1773,7 +1764,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerIngressPointRef",
 		reflect.TypeOf((*IMailManagerIngressPointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerIngressPointRef", GoGetter: "MailManagerIngressPointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1786,7 +1776,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerRelayRef",
 		reflect.TypeOf((*IMailManagerRelayRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerRelayRef", GoGetter: "MailManagerRelayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1799,7 +1788,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerRuleSetRef",
 		reflect.TypeOf((*IMailManagerRuleSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerRuleSetRef", GoGetter: "MailManagerRuleSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1812,7 +1800,6 @@ func init() {
 		"aws-cdk-lib.aws_ses.IMailManagerTrafficPolicyRef",
 		reflect.TypeOf((*IMailManagerTrafficPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mailManagerTrafficPolicyRef", GoGetter: "MailManagerTrafficPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1826,7 +1813,6 @@ func init() {
 		reflect.TypeOf((*IReceiptFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "receiptFilterRef", GoGetter: "ReceiptFilterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReceiptFilterRef{}
@@ -1865,7 +1851,6 @@ func init() {
 		reflect.TypeOf((*IReceiptRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "receiptRuleRef", GoGetter: "ReceiptRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReceiptRuleRef{}
@@ -1895,7 +1880,6 @@ func init() {
 		reflect.TypeOf((*IReceiptRuleSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "receiptRuleSetRef", GoGetter: "ReceiptRuleSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReceiptRuleSetRef{}
@@ -1908,7 +1892,6 @@ func init() {
 		reflect.TypeOf((*ITemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateRef", GoGetter: "TemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITemplateRef{}
@@ -1937,7 +1920,6 @@ func init() {
 		reflect.TypeOf((*IVdmAttributesRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vdmAttributesRef", GoGetter: "VdmAttributesRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVdmAttributesRef{}

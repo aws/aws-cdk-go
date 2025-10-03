@@ -12,10 +12,8 @@ package awskinesisanalytics
 //   	ApplicationReferenceDataSourceId: jsii.String("applicationReferenceDataSourceId"),
 //   }
 //
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type ApplicationReferenceDataSourceV2Reference struct {
 	// The Id of the ApplicationReferenceDataSource resource.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationReferenceDataSourceId *string `field:"required" json:"applicationReferenceDataSourceId" yaml:"applicationReferenceDataSourceId"`
 }
 

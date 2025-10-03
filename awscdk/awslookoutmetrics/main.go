@@ -195,7 +195,6 @@ func init() {
 		"aws-cdk-lib.aws_lookoutmetrics.IAlertRef",
 		reflect.TypeOf((*IAlertRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "alertRef", GoGetter: "AlertRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -208,7 +207,6 @@ func init() {
 		"aws-cdk-lib.aws_lookoutmetrics.IAnomalyDetectorRef",
 		reflect.TypeOf((*IAnomalyDetectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "anomalyDetectorRef", GoGetter: "AnomalyDetectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

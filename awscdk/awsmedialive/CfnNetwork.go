@@ -518,44 +518,6 @@ func (j *jsiiProxy_CfnNetwork)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new INetworkRef from an ARN.
-func CfnNetwork_FromNetworkArn(scope constructs.Construct, id *string, arn *string) INetworkRef {
-	_init_.Initialize()
-
-	if err := validateCfnNetwork_FromNetworkArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns INetworkRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnNetwork",
-		"fromNetworkArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new INetworkRef from a networkId.
-func CfnNetwork_FromNetworkId(scope constructs.Construct, id *string, networkId *string) INetworkRef {
-	_init_.Initialize()
-
-	if err := validateCfnNetwork_FromNetworkIdParameters(scope, id, networkId); err != nil {
-		panic(err)
-	}
-	var returns INetworkRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnNetwork",
-		"fromNetworkId",
-		[]interface{}{scope, id, networkId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

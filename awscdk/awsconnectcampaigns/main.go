@@ -95,7 +95,6 @@ func init() {
 		"aws-cdk-lib.aws_connectcampaigns.ICampaignRef",
 		reflect.TypeOf((*ICampaignRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "campaignRef", GoGetter: "CampaignRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

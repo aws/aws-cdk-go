@@ -898,7 +898,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IAliasRef",
 		reflect.TypeOf((*IAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -911,7 +910,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IBuildRef",
 		reflect.TypeOf((*IBuildRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "buildRef", GoGetter: "BuildRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -924,7 +922,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IContainerFleetRef",
 		reflect.TypeOf((*IContainerFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "containerFleetRef", GoGetter: "ContainerFleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -937,7 +934,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IContainerGroupDefinitionRef",
 		reflect.TypeOf((*IContainerGroupDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "containerGroupDefinitionRef", GoGetter: "ContainerGroupDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -950,7 +946,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IFleetRef",
 		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -963,7 +958,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IGameServerGroupRef",
 		reflect.TypeOf((*IGameServerGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "gameServerGroupRef", GoGetter: "GameServerGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -976,7 +970,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IGameSessionQueueRef",
 		reflect.TypeOf((*IGameSessionQueueRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "gameSessionQueueRef", GoGetter: "GameSessionQueueRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -989,7 +982,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.ILocationRef",
 		reflect.TypeOf((*ILocationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "locationRef", GoGetter: "LocationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1002,7 +994,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IMatchmakingConfigurationRef",
 		reflect.TypeOf((*IMatchmakingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "matchmakingConfigurationRef", GoGetter: "MatchmakingConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1015,7 +1006,6 @@ func init() {
 		"aws-cdk-lib.aws_gamelift.IMatchmakingRuleSetRef",
 		reflect.TypeOf((*IMatchmakingRuleSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "matchmakingRuleSetRef", GoGetter: "MatchmakingRuleSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1029,7 +1019,6 @@ func init() {
 		reflect.TypeOf((*IScriptRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scriptRef", GoGetter: "ScriptRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScriptRef{}

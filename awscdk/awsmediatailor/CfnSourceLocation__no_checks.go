@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnSourceLocation) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnSourceLocation_FromSourceLocationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnSourceLocation_FromSourceLocationNameParameters(scope constructs.Construct, id *string, sourceLocationName *string) error {
-	return nil
-}
-
 func validateCfnSourceLocation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

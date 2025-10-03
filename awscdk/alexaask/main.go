@@ -76,7 +76,6 @@ func init() {
 		reflect.TypeOf((*ISkillRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "skillRef", GoGetter: "SkillRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISkillRef{}

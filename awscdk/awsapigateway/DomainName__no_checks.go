@@ -4,11 +4,11 @@ package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStageRef, options *ApiMappingOptions) error {
+func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStage, options *ApiMappingOptions) error {
 	return nil
 }
 
-func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApiRef, options *BasePathMappingOptions) error {
+func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApi, options *BasePathMappingOptions) error {
 	return nil
 }
 

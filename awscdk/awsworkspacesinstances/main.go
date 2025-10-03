@@ -178,14 +178,6 @@ func init() {
 		reflect.TypeOf((*CfnWorkspaceInstance_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.CapacityReservationSpecificationProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_CapacityReservationSpecificationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.CapacityReservationTargetProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_CapacityReservationTargetProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.CpuOptionsRequestProperty",
 		reflect.TypeOf((*CfnWorkspaceInstance_CpuOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -218,10 +210,6 @@ func init() {
 		reflect.TypeOf((*CfnWorkspaceInstance_InstanceMaintenanceOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.InstanceMarketOptionsRequestProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_InstanceMarketOptionsRequestProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.InstanceMetadataOptionsRequestProperty",
 		reflect.TypeOf((*CfnWorkspaceInstance_InstanceMetadataOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -232,10 +220,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.InstanceNetworkPerformanceOptionsRequestProperty",
 		reflect.TypeOf((*CfnWorkspaceInstance_InstanceNetworkPerformanceOptionsRequestProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.LicenseConfigurationRequestProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_LicenseConfigurationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.ManagedInstanceProperty",
@@ -254,10 +238,6 @@ func init() {
 		reflect.TypeOf((*CfnWorkspaceInstance_RunInstancesMonitoringEnabledProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.SpotMarketOptionsProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_SpotMarketOptionsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.TagSpecificationProperty",
 		reflect.TypeOf((*CfnWorkspaceInstance_TagSpecificationProperty)(nil)).Elem(),
 	)
@@ -270,7 +250,6 @@ func init() {
 		reflect.TypeOf((*IVolumeAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "volumeAssociationRef", GoGetter: "VolumeAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolumeAssociationRef{}
@@ -283,7 +262,6 @@ func init() {
 		reflect.TypeOf((*IVolumeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "volumeRef", GoGetter: "VolumeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolumeRef{}
@@ -296,7 +274,6 @@ func init() {
 		reflect.TypeOf((*IWorkspaceInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workspaceInstanceRef", GoGetter: "WorkspaceInstanceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkspaceInstanceRef{}

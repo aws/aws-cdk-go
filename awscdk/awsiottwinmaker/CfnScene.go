@@ -578,25 +578,6 @@ func (j *jsiiProxy_CfnScene)SetWorkspaceId(val *string) {
 	)
 }
 
-// Creates a new ISceneRef from an ARN.
-func CfnScene_FromSceneArn(scope constructs.Construct, id *string, arn *string) ISceneRef {
-	_init_.Initialize()
-
-	if err := validateCfnScene_FromSceneArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ISceneRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
-		"fromSceneArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

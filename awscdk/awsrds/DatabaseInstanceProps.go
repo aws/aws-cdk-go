@@ -118,7 +118,7 @@ type DatabaseInstanceProps struct {
 	// AmazonRDSDirectoryServiceAccess or equivalent.
 	// Default: - The role will be created for you if `DatabaseInstanceNewProps#domain` is specified.
 	//
-	DomainRole awsiam.IRoleRef `field:"optional" json:"domainRole" yaml:"domainRole"`
+	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
 	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
@@ -164,7 +164,7 @@ type DatabaseInstanceProps struct {
 	// Role that will be used to manage DB instance monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
 	// Default: false.
 	//
@@ -184,7 +184,7 @@ type DatabaseInstanceProps struct {
 	// The AWS KMS key for encryption of Performance Insights data.
 	// Default: - default master key.
 	//
-	PerformanceInsightEncryptionKey awskms.IKeyRef `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
 	//
 	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.
@@ -359,6 +359,6 @@ type DatabaseInstanceProps struct {
 	// The KMS key that's used to encrypt the DB instance.
 	// Default: - default master key if storageEncrypted is true, no key otherwise.
 	//
-	StorageEncryptionKey awskms.IKeyRef `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
+	StorageEncryptionKey awskms.IKey `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 }
 

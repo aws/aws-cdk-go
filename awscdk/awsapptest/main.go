@@ -169,7 +169,6 @@ func init() {
 		reflect.TypeOf((*ITestCaseRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "testCaseRef", GoGetter: "TestCaseRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITestCaseRef{}

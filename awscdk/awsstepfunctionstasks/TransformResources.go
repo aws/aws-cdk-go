@@ -41,6 +41,6 @@ type TransformResources struct {
 	// AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s).
 	// Default: - None.
 	//
-	VolumeEncryptionKey awskms.IKeyRef `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
+	VolumeEncryptionKey awskms.IKey `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 

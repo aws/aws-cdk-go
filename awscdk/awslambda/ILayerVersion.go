@@ -21,7 +21,7 @@ type ILayerVersion interface {
 	// permission on the layer version.
 	AddPermission(id *string, permission *LayerVersionPermission)
 	// The runtimes compatible with this Layer.
-	// Default: - All supported runtimes. Setting this to Runtime.ALL is equivalent to leaving it undefined.
+	// Default: Runtime.All
 	//
 	CompatibleRuntimes() *[]Runtime
 	// The ARN of the Lambda Layer version that this Layer defines.
@@ -81,16 +81,6 @@ func (j *jsiiProxy_ILayerVersion) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ILayerVersion) LayerVersionRef() *LayerVersionReference {
-	var returns *LayerVersionReference
-	_jsii_.Get(
-		j,
-		"layerVersionRef",
 		&returns,
 	)
 	return returns

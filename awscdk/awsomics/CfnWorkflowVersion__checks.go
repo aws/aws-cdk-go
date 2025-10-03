@@ -179,54 +179,6 @@ func validateCfnWorkflowVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnWorkflowVersion) validateSetContainerRegistryMapParameters(val interface{}) error {
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *CfnWorkflowVersion_ContainerRegistryMapProperty:
-		val := val.(*CfnWorkflowVersion_ContainerRegistryMapProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnWorkflowVersion_ContainerRegistryMapProperty:
-		val_ := val.(CfnWorkflowVersion_ContainerRegistryMapProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkflowVersion_ContainerRegistryMapProperty; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) validateSetDefinitionRepositoryParameters(val interface{}) error {
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *CfnWorkflowVersion_DefinitionRepositoryProperty:
-		val := val.(*CfnWorkflowVersion_DefinitionRepositoryProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnWorkflowVersion_DefinitionRepositoryProperty:
-		val_ := val.(CfnWorkflowVersion_DefinitionRepositoryProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkflowVersion_DefinitionRepositoryProperty; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnWorkflowVersion) validateSetParameterTemplateParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

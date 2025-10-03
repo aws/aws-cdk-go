@@ -51,11 +51,9 @@ import (
 //
 //   			// the properties below are optional
 //   			LocationCapacity: &LocationCapacityProperty{
+//   				DesiredEc2Instances: jsii.Number(123),
 //   				MaxSize: jsii.Number(123),
 //   				MinSize: jsii.Number(123),
-//
-//   				// the properties below are optional
-//   				DesiredEc2Instances: jsii.Number(123),
 //   			},
 //   		},
 //   	},
@@ -1104,44 +1102,6 @@ func (j *jsiiProxy_CfnFleet)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IFleetRef from an ARN.
-func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) IFleetRef {
-	_init_.Initialize()
-
-	if err := validateCfnFleet_FromFleetArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IFleetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
-		"fromFleetArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IFleetRef from a fleetId.
-func CfnFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IFleetRef {
-	_init_.Initialize()
-
-	if err := validateCfnFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
-		panic(err)
-	}
-	var returns IFleetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_gamelift.CfnFleet",
-		"fromFleetId",
-		[]interface{}{scope, id, fleetId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

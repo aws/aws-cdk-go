@@ -619,25 +619,6 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint)SetType(val *string) {
 	)
 }
 
-// Creates a new IMailManagerIngressPointRef from a ingressPointId.
-func CfnMailManagerIngressPoint_FromIngressPointId(scope constructs.Construct, id *string, ingressPointId *string) IMailManagerIngressPointRef {
-	_init_.Initialize()
-
-	if err := validateCfnMailManagerIngressPoint_FromIngressPointIdParameters(scope, id, ingressPointId); err != nil {
-		panic(err)
-	}
-	var returns IMailManagerIngressPointRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",
-		"fromIngressPointId",
-		[]interface{}{scope, id, ingressPointId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnCustomEntityType) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope constructs.Construct, id *string, customEntityTypeId *string) error {
-	return nil
-}
-
 func validateCfnCustomEntityType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -807,28 +807,6 @@ ipv6NetworkTargetGroup := elbv2.NewNetworkTargetGroup(this, jsii.String("Ipv6Net
 })
 ```
 
-### Target Group level health setting for Application Load Balancers and Network Load Balancers
-
-You can set target group health setting at target group level by setting `targetGroupHealth` property.
-
-For more information, see [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes).
-
-```go
-var vpc vpc
-
-
-targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{
-	Vpc: Vpc,
-	Port: jsii.Number(80),
-	TargetGroupHealth: &TargetGroupHealth{
-		DnsMinimumHealthyTargetCount: jsii.Number(3),
-		DnsMinimumHealthyTargetPercentage: jsii.Number(70),
-		RoutingMinimumHealthyTargetCount: jsii.Number(2),
-		RoutingMinimumHealthyTargetPercentage: jsii.Number(50),
-	},
-})
-```
-
 ## Using Lambda Targets
 
 To use a Lambda Function as a target, use the integration class in the

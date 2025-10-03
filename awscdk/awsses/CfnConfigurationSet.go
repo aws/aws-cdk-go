@@ -597,25 +597,6 @@ func (j *jsiiProxy_CfnConfigurationSet)SetVdmOptions(val interface{}) {
 	)
 }
 
-// Creates a new IConfigurationSetRef from a configurationSetName.
-func CfnConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) IConfigurationSetRef {
-	_init_.Initialize()
-
-	if err := validateCfnConfigurationSet_FromConfigurationSetNameParameters(scope, id, configurationSetName); err != nil {
-		panic(err)
-	}
-	var returns IConfigurationSetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
-		"fromConfigurationSetName",
-		[]interface{}{scope, id, configurationSetName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

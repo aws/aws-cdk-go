@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnCloudVmCluster) validateSetDataCollectionOptionsParameters
 	return nil
 }
 
-func (j *jsiiProxy_CfnCloudVmCluster) validateSetDbNodesParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCloudVmCluster) validateSetIsLocalBackupEnabledParameters(val interface{}) error {
 	return nil
 }

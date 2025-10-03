@@ -38,7 +38,7 @@ type CfnTypeActivation interface {
 	CfnResource
 	IInspectable
 	ITypeActivationRef
-	// The Amazon Resource Name (ARN) of the activated extension in this account and Region.
+	// The Amazon Resource Name (ARN) of the activated extension, in this account and Region.
 	AttrArn() *string
 	// Whether to automatically update the extension in this account and Region when a new *minor* version is published by the extension publisher.
 	AutoUpdate() interface{}
@@ -96,7 +96,7 @@ type CfnTypeActivation interface {
 	// The name of the extension.
 	TypeName() *string
 	SetTypeName(val *string)
-	// An alias to assign to the public extension in this account and Region.
+	// An alias to assign to the public extension, in this account and Region.
 	TypeNameAlias() *string
 	SetTypeNameAlias(val *string)
 	// Deprecated.

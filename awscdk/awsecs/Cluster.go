@@ -17,44 +17,28 @@ import (
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
 // Example:
-//   var vpc vpc
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+//   	MaxAzs: jsii.Number(1),
+//   })
+//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
-//
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-//   	Vpc: Vpc,
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
-//   	MinCapacity: jsii.Number(0),
-//   	MaxCapacity: jsii.Number(100),
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+//   	MemoryLimitMiB: jsii.Number(512),
+//   	Cpu: jsii.Number(256),
 //   })
-//
-//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
-//   	AutoScalingGroup: AutoScalingGroup,
-//   	InstanceWarmupPeriod: jsii.Number(300),
-//   })
-//   cluster.AddAsgCapacityProvider(capacityProvider)
-//
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+//   taskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	MemoryReservationMiB: jsii.Number(256),
 //   })
-//
-//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
+//   awscdk.Tags_Of(taskDefinition).Add(jsii.String("my-tag"), jsii.String("my-tag-value"))
+//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 //   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			CapacityProvider: capacityProvider.CapacityProviderName,
-//   			Weight: jsii.Number(1),
-//   		},
-//   	},
+//   	TaskDefinition: taskDefinition,
+//   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
+//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 type Cluster interface {
@@ -68,8 +52,6 @@ type Cluster interface {
 	ClusterArn() *string
 	// The name of the cluster.
 	ClusterName() *string
-	// Getter for _clusterScopedCapacityProviderNames.
-	ClusterScopedCapacityProviderNames() *[]*string
 	// Manage the allowed network connections for the cluster with Security Groups.
 	Connections() awsec2.Connections
 	// Getter for _defaultCapacityProviderStrategy.
@@ -120,8 +102,6 @@ type Cluster interface {
 	// NOTE: HttpNamespaces are supported only for use cases involving Service Connect. For use cases involving both Service-
 	// Discovery and Service Connect, customers should manage the HttpNamespace outside of the Cluster.addDefaultCloudMapNamespace method.
 	AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace
-	// This method adds a Managed Instances Capacity Provider to a cluster.
-	AddManagedInstancesCapacityProvider(provider ManagedInstancesCapacityProvider)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -220,16 +200,6 @@ func (j *jsiiProxy_Cluster) ClusterName() *string {
 	_jsii_.Get(
 		j,
 		"clusterName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Cluster) ClusterScopedCapacityProviderNames() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"clusterScopedCapacityProviderNames",
 		&returns,
 	)
 	return returns
@@ -561,17 +531,6 @@ func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespa
 	)
 
 	return returns
-}
-
-func (c *jsiiProxy_Cluster) AddManagedInstancesCapacityProvider(provider ManagedInstancesCapacityProvider) {
-	if err := c.validateAddManagedInstancesCapacityProviderParameters(provider); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"addManagedInstancesCapacityProvider",
-		[]interface{}{provider},
-	)
 }
 
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

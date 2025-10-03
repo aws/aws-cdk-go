@@ -444,44 +444,6 @@ func (j *jsiiProxy_CfnDatabase)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDatabaseRef from an ARN.
-func CfnDatabase_FromDatabaseArn(scope constructs.Construct, id *string, arn *string) IDatabaseRef {
-	_init_.Initialize()
-
-	if err := validateCfnDatabase_FromDatabaseArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDatabaseRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_timestream.CfnDatabase",
-		"fromDatabaseArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDatabaseRef from a databaseName.
-func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) IDatabaseRef {
-	_init_.Initialize()
-
-	if err := validateCfnDatabase_FromDatabaseNameParameters(scope, id, databaseName); err != nil {
-		panic(err)
-	}
-	var returns IDatabaseRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_timestream.CfnDatabase",
-		"fromDatabaseName",
-		[]interface{}{scope, id, databaseName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

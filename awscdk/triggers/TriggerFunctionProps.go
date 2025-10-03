@@ -99,7 +99,7 @@ type TriggerFunctionProps struct {
 	// Code signing config associated with this function.
 	// Default: - Not Sign the Code.
 	//
-	CodeSigningConfig awslambda.ICodeSigningConfigRef `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig awslambda.ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Default: - default options as described in `VersionOptions`.
 	//
@@ -139,7 +139,7 @@ type TriggerFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Default: - AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
-	EnvironmentEncryption awskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Default: 512 MiB.
 	//

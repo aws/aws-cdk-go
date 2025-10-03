@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnConfigurationSet) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnConfigurationSet_FromConfigurationSetNameParameters(scope constructs.Construct, id *string, configurationSetName *string) error {
-	return nil
-}
-
 func validateCfnConfigurationSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

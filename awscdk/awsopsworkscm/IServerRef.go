@@ -1,8 +1,6 @@
 package awsopsworkscm
 
 import (
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopsworkscm/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,23 +9,10 @@ import (
 // Experimental.
 type IServerRef interface {
 	constructs.IConstruct
-	// A reference to a Server resource.
-	// Experimental.
-	ServerRef() *ServerReference
 }
 
 // The jsii proxy for IServerRef
 type jsiiProxy_IServerRef struct {
 	internal.Type__constructsIConstruct
-}
-
-func (j *jsiiProxy_IServerRef) ServerRef() *ServerReference {
-	var returns *ServerReference
-	_jsii_.Get(
-		j,
-		"serverRef",
-		&returns,
-	)
-	return returns
 }
 

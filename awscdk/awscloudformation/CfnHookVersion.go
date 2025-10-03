@@ -92,7 +92,7 @@ type CfnHookVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The unique name for your Hook.
+	// The unique name for your hook.
 	TypeName() *string
 	SetTypeName(val *string)
 	// Deprecated.

@@ -28,6 +28,7 @@ package awsec2
 //   			},
 //   		},
 //   	},
+//   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ConnectionLogOptions: &ConnectionLogOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -38,7 +39,6 @@ package awsec2
 //   	ServerCertificateArn: jsii.String("serverCertificateArn"),
 //
 //   	// the properties below are optional
-//   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ClientConnectOptions: &ClientConnectOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -88,6 +88,12 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-authenticationoptions
 	//
 	AuthenticationOptions interface{} `field:"required" json:"authenticationOptions" yaml:"authenticationOptions"`
+	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
+	//
+	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientcidrblock
+	//
+	ClientCidrBlock *string `field:"required" json:"clientCidrBlock" yaml:"clientCidrBlock"`
 	// Information about the client connection logging options.
 	//
 	// If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
@@ -101,16 +107,10 @@ type CfnClientVpnEndpointProps struct {
 	ConnectionLogOptions interface{} `field:"required" json:"connectionLogOptions" yaml:"connectionLogOptions"`
 	// The ARN of the server certificate.
 	//
-	// For more information, see the [Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/) .
+	// For more information, see the [AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
 	//
 	ServerCertificateArn *string `field:"required" json:"serverCertificateArn" yaml:"serverCertificateArn"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
-	//
-	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientcidrblock
-	//
-	ClientCidrBlock *string `field:"optional" json:"clientCidrBlock" yaml:"clientCidrBlock"`
 	// The options for managing connection authorization for new client connections.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientconnectoptions
 	//

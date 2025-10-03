@@ -530,25 +530,6 @@ func (j *jsiiProxy_CfnOptionGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IOptionGroupRef from a optionGroupName.
-func CfnOptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) IOptionGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnOptionGroup_FromOptionGroupNameParameters(scope, id, optionGroupName); err != nil {
-		panic(err)
-	}
-	var returns IOptionGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
-		"fromOptionGroupName",
-		[]interface{}{scope, id, optionGroupName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

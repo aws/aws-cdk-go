@@ -46,7 +46,7 @@ type UserPoolProps struct {
 	//
 	// Default: - no key ID configured.
 	//
-	CustomSenderKmsKey awskms.IKeyRef `field:"optional" json:"customSenderKmsKey" yaml:"customSenderKmsKey"`
+	CustomSenderKmsKey awskms.IKey `field:"optional" json:"customSenderKmsKey" yaml:"customSenderKmsKey"`
 	// The Type of Threat Protection Enabled for Custom Authentication.
 	//
 	// This feature only functions if your FeaturePlan is set to FeaturePlan.PLUS
@@ -166,7 +166,7 @@ type UserPoolProps struct {
 	// The IAM role that Cognito will assume while sending SMS messages.
 	// Default: - a new IAM role is created.
 	//
-	SmsRole awsiam.IRoleRef `field:"optional" json:"smsRole" yaml:"smsRole"`
+	SmsRole awsiam.IRole `field:"optional" json:"smsRole" yaml:"smsRole"`
 	// The 'ExternalId' that Cognito service must be using when assuming the `smsRole`, if the role is restricted with an 'sts:ExternalId' conditional.
 	//
 	// Learn more about ExternalId here - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html

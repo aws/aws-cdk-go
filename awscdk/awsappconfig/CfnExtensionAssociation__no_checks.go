@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnExtensionAssociation) validateValidatePropertiesParameters
 	return nil
 }
 
-func validateCfnExtensionAssociation_FromExtensionAssociationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnExtensionAssociation_FromExtensionAssociationIdParameters(scope constructs.Construct, id *string, extensionAssociationId *string) error {
-	return nil
-}
-
 func validateCfnExtensionAssociation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

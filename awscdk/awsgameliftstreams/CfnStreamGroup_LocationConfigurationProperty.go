@@ -29,7 +29,7 @@ type CfnStreamGroup_LocationConfigurationProperty struct {
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
 	// The streaming capacity that is allocated and ready to handle stream requests without delay.
 	//
-	// You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
+	// You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-alwaysoncapacity
 	//
 	AlwaysOnCapacity *float64 `field:"optional" json:"alwaysOnCapacity" yaml:"alwaysOnCapacity"`

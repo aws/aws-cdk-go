@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnTable) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
-func validateCfnTable_FromTableArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnTable_FromTableNameParameters(scope constructs.Construct, id *string, tableName *string) error {
-	return nil
-}
-
 func validateCfnTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

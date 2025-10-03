@@ -500,44 +500,6 @@ func (j *jsiiProxy_CfnFleet)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IFleetRef from an ARN.
-func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) IFleetRef {
-	_init_.Initialize()
-
-	if err := validateCfnFleet_FromFleetArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IFleetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotfleetwise.CfnFleet",
-		"fromFleetArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IFleetRef from a fleetId.
-func CfnFleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IFleetRef {
-	_init_.Initialize()
-
-	if err := validateCfnFleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
-		panic(err)
-	}
-	var returns IFleetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotfleetwise.CfnFleet",
-		"fromFleetId",
-		[]interface{}{scope, id, fleetId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

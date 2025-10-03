@@ -281,7 +281,6 @@ func init() {
 		"aws-cdk-lib.aws_s3outposts.IAccessPointRef",
 		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -294,7 +293,6 @@ func init() {
 		"aws-cdk-lib.aws_s3outposts.IBucketPolicyRef",
 		reflect.TypeOf((*IBucketPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bucketPolicyRef", GoGetter: "BucketPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -307,7 +305,6 @@ func init() {
 		"aws-cdk-lib.aws_s3outposts.IBucketRef",
 		reflect.TypeOf((*IBucketRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bucketRef", GoGetter: "BucketRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -320,7 +317,6 @@ func init() {
 		"aws-cdk-lib.aws_s3outposts.IEndpointRef",
 		reflect.TypeOf((*IEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointRef", GoGetter: "EndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateValidatePropertiesParam
 	return nil
 }
 
-func validateCfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayIdParameters(scope constructs.Construct, id *string, egressOnlyInternetGatewayId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if egressOnlyInternetGatewayId == nil {
-		return fmt.Errorf("parameter egressOnlyInternetGatewayId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnEgressOnlyInternetGateway_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

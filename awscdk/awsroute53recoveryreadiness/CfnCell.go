@@ -466,44 +466,6 @@ func (j *jsiiProxy_CfnCell)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new ICellRef from an ARN.
-func CfnCell_FromCellArn(scope constructs.Construct, id *string, arn *string) ICellRef {
-	_init_.Initialize()
-
-	if err := validateCfnCell_FromCellArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ICellRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
-		"fromCellArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICellRef from a cellName.
-func CfnCell_FromCellName(scope constructs.Construct, id *string, cellName *string) ICellRef {
-	_init_.Initialize()
-
-	if err := validateCfnCell_FromCellNameParameters(scope, id, cellName); err != nil {
-		panic(err)
-	}
-	var returns ICellRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
-		"fromCellName",
-		[]interface{}{scope, id, cellName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

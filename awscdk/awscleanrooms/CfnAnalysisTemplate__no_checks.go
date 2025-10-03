@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnAnalysisTemplate) validateSetAnalysisParametersParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnAnalysisTemplate) validateSetErrorMessageConfigurationParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnAnalysisTemplate) validateSetFormatParameters(val *string) error {
 	return nil
 }

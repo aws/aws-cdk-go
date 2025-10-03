@@ -80,7 +80,7 @@ func validateKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateKey_IsLookupDummyParameters(key IKeyRef) error {
+func validateKey_IsLookupDummyParameters(key IKey) error {
 	return nil
 }
 

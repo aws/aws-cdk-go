@@ -63,9 +63,7 @@ type CfnCertificateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-certificateexport
 	//
 	CertificateExport *string `field:"optional" json:"certificateExport" yaml:"certificateExport"`
-	// You can opt out of certificate transparency logging by specifying the `DISABLED` option.
-	//
-	// Opt in by specifying `ENABLED` . This setting doces not apply to private certificates.
+	// You can opt out of certificate transparency logging by specifying the `DISABLED` option. Opt in by specifying `ENABLED` .
 	//
 	// If you do not specify a certificate transparency logging preference on a new CloudFormation template, or if you remove the logging preference from an existing template, this is the same as explicitly enabling the preference.
 	//

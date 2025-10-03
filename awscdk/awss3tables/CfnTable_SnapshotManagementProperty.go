@@ -3,7 +3,7 @@ package awss3tables
 
 // Contains details about the snapshot management settings for an Iceberg table.
 //
-// The oldest snapshot expires when its age exceeds the `maxSnapshotAgeHours` and the total number of snapshots exceeds the value for the minimum number of snapshots to keep `minSnapshotsToKeep` .
+// A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,7 +27,7 @@ type CfnTable_SnapshotManagementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-snapshotmanagement.html#cfn-s3tables-table-snapshotmanagement-minsnapshotstokeep
 	//
 	MinSnapshotsToKeep *float64 `field:"optional" json:"minSnapshotsToKeep" yaml:"minSnapshotsToKeep"`
-	// The status of the maintenance configuration.
+	// Indicates whether the SnapshotManagement maintenance action is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-snapshotmanagement.html#cfn-s3tables-table-snapshotmanagement-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

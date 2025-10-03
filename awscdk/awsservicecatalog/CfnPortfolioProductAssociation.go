@@ -19,9 +19,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPortfolioProductAssociation := awscdk.Aws_servicecatalog.NewCfnPortfolioProductAssociation(this, jsii.String("MyCfnPortfolioProductAssociation"), &CfnPortfolioProductAssociationProps{
-//   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   	PortfolioId: jsii.String("portfolioId"),
 //   	ProductId: jsii.String("productId"),
+//
+//   	// the properties below are optional
+//   	AcceptLanguage: jsii.String("acceptLanguage"),
 //   	SourcePortfolioId: jsii.String("sourcePortfolioId"),
 //   })
 //
@@ -34,6 +36,7 @@ type CfnPortfolioProductAssociation interface {
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -232,6 +235,16 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) AcceptLanguage() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortfolioProductAssociation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortfolioProductAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -409,6 +422,9 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation)SetAcceptLanguage(val *string)
 }
 
 func (j *jsiiProxy_CfnPortfolioProductAssociation)SetPortfolioId(val *string) {
+	if err := j.validateSetPortfolioIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"portfolioId",
@@ -417,6 +433,9 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation)SetPortfolioId(val *string) {
 }
 
 func (j *jsiiProxy_CfnPortfolioProductAssociation)SetProductId(val *string) {
+	if err := j.validateSetProductIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"productId",

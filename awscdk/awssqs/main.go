@@ -238,7 +238,6 @@ func init() {
 		reflect.TypeOf((*IQueueInlinePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueInlinePolicyRef", GoGetter: "QueueInlinePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueInlinePolicyRef{}
@@ -251,7 +250,6 @@ func init() {
 		reflect.TypeOf((*IQueuePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queuePolicyRef", GoGetter: "QueuePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueuePolicyRef{}
@@ -264,7 +262,6 @@ func init() {
 		reflect.TypeOf((*IQueueRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueRef{}

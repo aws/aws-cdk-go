@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Lambda function runtime environment.
@@ -155,25 +154,6 @@ func NewRuntime_Override(r Runtime, name *string, family RuntimeFamily, props *L
 		[]interface{}{name, family, props},
 		r,
 	)
-}
-
-// The latest Python version currently available.
-func Runtime_DetermineLatestPythonRuntime(scope constructs.Construct) Runtime {
-	_init_.Initialize()
-
-	if err := validateRuntime_DetermineLatestPythonRuntimeParameters(scope); err != nil {
-		panic(err)
-	}
-	var returns Runtime
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.Runtime",
-		"determineLatestPythonRuntime",
-		[]interface{}{scope},
-		&returns,
-	)
-
-	return returns
 }
 
 func Runtime_ALL() *[]Runtime {

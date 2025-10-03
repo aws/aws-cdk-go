@@ -88,7 +88,6 @@ func init() {
 		"aws-cdk-lib.aws_aiops.IInvestigationGroupRef",
 		reflect.TypeOf((*IInvestigationGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "investigationGroupRef", GoGetter: "InvestigationGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

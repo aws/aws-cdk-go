@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnSecret) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
-func validateCfnSecret_FromSecretIdParameters(scope constructs.Construct, id *string, secretId *string) error {
-	return nil
-}
-
 func validateCfnSecret_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

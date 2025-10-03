@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnKnowledgeBase) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
-func validateCfnKnowledgeBase_FromKnowledgeBaseArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnKnowledgeBase_FromKnowledgeBaseIdParameters(scope constructs.Construct, id *string, knowledgeBaseId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if knowledgeBaseId == nil {
-		return fmt.Errorf("parameter knowledgeBaseId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnKnowledgeBase_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

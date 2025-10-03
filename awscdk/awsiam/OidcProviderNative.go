@@ -49,7 +49,6 @@ type OidcProviderNative interface {
 	OidcProviderArn() *string
 	// The issuer for the Native OIDC Provider.
 	OidcProviderIssuer() *string
-	// A reference to a OIDCProvider resource.
 	OidcProviderRef() *OIDCProviderReference
 	// The thumbprints configured for this provider.
 	OidcProviderThumbprints() *string

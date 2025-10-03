@@ -370,7 +370,6 @@ func init() {
 		"aws-cdk-lib.aws_robomaker.IFleetRef",
 		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -384,7 +383,6 @@ func init() {
 		reflect.TypeOf((*IRobotApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "robotApplicationRef", GoGetter: "RobotApplicationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRobotApplicationRef{}
@@ -397,7 +395,6 @@ func init() {
 		reflect.TypeOf((*IRobotApplicationVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "robotApplicationVersionRef", GoGetter: "RobotApplicationVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRobotApplicationVersionRef{}
@@ -410,7 +407,6 @@ func init() {
 		reflect.TypeOf((*IRobotRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "robotRef", GoGetter: "RobotRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRobotRef{}
@@ -423,7 +419,6 @@ func init() {
 		reflect.TypeOf((*ISimulationApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "simulationApplicationRef", GoGetter: "SimulationApplicationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISimulationApplicationRef{}
@@ -436,7 +431,6 @@ func init() {
 		reflect.TypeOf((*ISimulationApplicationVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "simulationApplicationVersionRef", GoGetter: "SimulationApplicationVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISimulationApplicationVersionRef{}

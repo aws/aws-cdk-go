@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnResolverConfig) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnResolverConfig_FromResourceIdParameters(scope constructs.Construct, id *string, resourceId *string) error {
-	return nil
-}
-
 func validateCfnResolverConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

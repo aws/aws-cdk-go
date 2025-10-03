@@ -487,44 +487,6 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain)SetTransitGatewayId(val *str
 	)
 }
 
-// Creates a new ITransitGatewayMulticastDomainRef from an ARN.
-func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArn(scope constructs.Construct, id *string, arn *string) ITransitGatewayMulticastDomainRef {
-	_init_.Initialize()
-
-	if err := validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ITransitGatewayMulticastDomainRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomain",
-		"fromTransitGatewayMulticastDomainArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ITransitGatewayMulticastDomainRef from a transitGatewayMulticastDomainId.
-func CfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainId(scope constructs.Construct, id *string, transitGatewayMulticastDomainId *string) ITransitGatewayMulticastDomainRef {
-	_init_.Initialize()
-
-	if err := validateCfnTransitGatewayMulticastDomain_FromTransitGatewayMulticastDomainIdParameters(scope, id, transitGatewayMulticastDomainId); err != nil {
-		panic(err)
-	}
-	var returns ITransitGatewayMulticastDomainRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomain",
-		"fromTransitGatewayMulticastDomainId",
-		[]interface{}{scope, id, transitGatewayMulticastDomainId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -103,11 +103,6 @@ type CfnImageBuilderProps struct {
 	// - stream.graphics.g6.24xlarge
 	// - stream.graphics.gr6.4xlarge
 	// - stream.graphics.gr6.8xlarge
-	// - stream.graphics.g6f.large
-	// - stream.graphics.g6f.xlarge
-	// - stream.graphics.g6f.2xlarge
-	// - stream.graphics.g6f.4xlarge
-	// - stream.graphics.gr6f.4xlarge
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-instancetype
 	//
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`

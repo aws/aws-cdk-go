@@ -20,7 +20,7 @@ import (
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var keyRef iKeyRef
+//   var key key
 //   var localBundling iLocalBundling
 //
 //   s3ImportSource := awscdk.Aws_cloudfront.S3ImportSource_FromAsset(jsii.String("path"), &AssetOptions{
@@ -70,7 +70,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: keyRef,
+//   	SourceKMSKey: key,
 //   })
 //
 type S3ImportSource interface {

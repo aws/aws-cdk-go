@@ -881,25 +881,6 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetVerifiedAccessGroupId(val *strin
 	)
 }
 
-// Creates a new IVerifiedAccessEndpointRef from a verifiedAccessEndpointId.
-func CfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointId(scope constructs.Construct, id *string, verifiedAccessEndpointId *string) IVerifiedAccessEndpointRef {
-	_init_.Initialize()
-
-	if err := validateCfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointIdParameters(scope, id, verifiedAccessEndpointId); err != nil {
-		panic(err)
-	}
-	var returns IVerifiedAccessEndpointRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessEndpoint",
-		"fromVerifiedAccessEndpointId",
-		[]interface{}{scope, id, verifiedAccessEndpointId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

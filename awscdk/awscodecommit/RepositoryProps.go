@@ -67,6 +67,6 @@ type RepositoryProps struct {
 	// The customer managed key used to encrypt and decrypt the data in repository.
 	// Default: - Use an AWS managed key.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

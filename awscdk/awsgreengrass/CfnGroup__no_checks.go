@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnGroup) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
-func validateCfnGroup_FromGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnGroup_FromGroupIdParameters(scope constructs.Construct, id *string, groupId *string) error {
-	return nil
-}
-
 func validateCfnGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

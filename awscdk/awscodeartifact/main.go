@@ -205,7 +205,6 @@ func init() {
 		"aws-cdk-lib.aws_codeartifact.IDomainRef",
 		reflect.TypeOf((*IDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -219,7 +218,6 @@ func init() {
 		reflect.TypeOf((*IPackageGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "packageGroupRef", GoGetter: "PackageGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPackageGroupRef{}
@@ -232,7 +230,6 @@ func init() {
 		reflect.TypeOf((*IRepositoryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepositoryRef{}

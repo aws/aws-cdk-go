@@ -14,7 +14,7 @@ func validateFlowLogResourceType_FromNetworkInterfaceIdParameters(id *string) er
 	return nil
 }
 
-func validateFlowLogResourceType_FromSubnetParameters(subnet ISubnetRef) error {
+func validateFlowLogResourceType_FromSubnetParameters(subnet ISubnet) error {
 	if subnet == nil {
 		return fmt.Errorf("parameter subnet is required, but nil was provided")
 	}

@@ -75,7 +75,6 @@ type CfnReceiptRule_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction
 	//
 	BounceAction interface{} `field:"optional" json:"bounceAction" yaml:"bounceAction"`
-	// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-connectaction
 	//
 	ConnectAction interface{} `field:"optional" json:"connectAction" yaml:"connectAction"`

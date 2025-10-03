@@ -106,7 +106,7 @@ type NodejsFunctionProps struct {
 	// Code signing config associated with this function.
 	// Default: - Not Sign the Code.
 	//
-	CodeSigningConfig awslambda.ICodeSigningConfigRef `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig awslambda.ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Default: - default options as described in `VersionOptions`.
 	//
@@ -146,7 +146,7 @@ type NodejsFunctionProps struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Default: - AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
-	EnvironmentEncryption awskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Default: 512 MiB.
 	//
@@ -401,7 +401,7 @@ type NodejsFunctionProps struct {
 	// Default: - the code is bundled by esbuild.
 	//
 	Code awslambda.Code `field:"optional" json:"code" yaml:"code"`
-	// The path to the dependencies lock file (`yarn.lock`, `pnpm-lock.yaml`, `bun.lockb`, `bun.lock` or `package-lock.json`).
+	// The path to the dependencies lock file (`yarn.lock`, `pnpm-lock.yaml`, `bun.lockb` or `package-lock.json`).
 	//
 	// This will be used as the source for the volume mounted in the Docker
 	// container.
@@ -409,7 +409,7 @@ type NodejsFunctionProps struct {
 	// Modules specified in `nodeModules` will be installed using the right
 	// installer (`yarn`, `pnpm`, `bun` or `npm`) along with this lock file.
 	// Default: - the path is found by walking up parent directories searching for
-	// a `yarn.lock`, `pnpm-lock.yaml`, `bun.lockb`, `bun.lock` or `package-lock.json` file
+	// a `yarn.lock`, `pnpm-lock.yaml`, `bun.lockb` or `package-lock.json` file
 	//
 	DepsLockFilePath *string `field:"optional" json:"depsLockFilePath" yaml:"depsLockFilePath"`
 	// Path to the entry file (JavaScript or TypeScript).

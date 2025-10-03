@@ -63,7 +63,7 @@ type CfnComputeNodeGroupProps struct {
 	CustomLaunchTemplate interface{} `field:"required" json:"customLaunchTemplate" yaml:"customLaunchTemplate"`
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances.
 	//
-	// The role contained in your instance profile must have the `pcs:RegisterComputeNodeGroupInstance` permission and the role name must start with `AWSPCS` or must have the path `/aws-pcs/` . For more information, see [IAM instance profiles for AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/security-instance-profiles.html) in the *AWS PCS User Guide* .
+	// The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-iaminstanceprofilearn
 	//
 	IamInstanceProfileArn *string `field:"required" json:"iamInstanceProfileArn" yaml:"iamInstanceProfileArn"`
@@ -93,7 +93,7 @@ type CfnComputeNodeGroupProps struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies how EC2 instances are purchased on your behalf.
 	//
-	// AWS AWS PCS supports On-Demand and Spot instances. For more information, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon Elastic Compute Cloud User Guide* . If you don't provide this option, it defaults to On-Demand.
+	// AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-purchaseoption
 	//
 	PurchaseOption *string `field:"optional" json:"purchaseOption" yaml:"purchaseOption"`
@@ -101,7 +101,7 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-slurmconfiguration
 	//
 	SlurmConfiguration interface{} `field:"optional" json:"slurmConfiguration" yaml:"slurmConfiguration"`
-	// Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
+	// Additional configuration when you specify `SPOT` as the `purchaseOption` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-spotoptions
 	//
 	SpotOptions interface{} `field:"optional" json:"spotOptions" yaml:"spotOptions"`

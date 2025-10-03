@@ -59,7 +59,6 @@ type ManagedPolicy interface {
 	ManagedPolicyArn() *string
 	// The name of this policy.
 	ManagedPolicyName() *string
-	// A reference to a ManagedPolicy resource.
 	ManagedPolicyRef() *ManagedPolicyReference
 	// The tree node.
 	Node() constructs.Node
@@ -88,11 +87,11 @@ type ManagedPolicy interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attaches this policy to a group.
-	AttachToGroup(group IGroupRef)
+	AttachToGroup(group IGroup)
 	// Attaches this policy to a role.
 	AttachToRole(role IRole)
 	// Attaches this policy to a user.
-	AttachToUser(user IUserRef)
+	AttachToUser(user IUser)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -441,7 +440,7 @@ func (m *jsiiProxy_ManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroupRef) {
+func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroup) {
 	if err := m.validateAttachToGroupParameters(group); err != nil {
 		panic(err)
 	}
@@ -463,7 +462,7 @@ func (m *jsiiProxy_ManagedPolicy) AttachToRole(role IRole) {
 	)
 }
 
-func (m *jsiiProxy_ManagedPolicy) AttachToUser(user IUserRef) {
+func (m *jsiiProxy_ManagedPolicy) AttachToUser(user IUser) {
 	if err := m.validateAttachToUserParameters(user); err != nil {
 		panic(err)
 	}

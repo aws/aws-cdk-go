@@ -71,8 +71,6 @@ type CfnSiteToSiteVpnAttachment interface {
 	AttrCreatedAt() *string
 	// The Region where the core network edge is located.
 	AttrEdgeLocation() *string
-	// Errors from the last modification of the attachment.
-	AttrLastModificationErrors() *[]*string
 	// The ID of the site-to-site VPN attachment owner.
 	AttrOwnerAccountId() *string
 	// The resource ARN for the site-to-site VPN attachment.
@@ -340,16 +338,6 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) AttrEdgeLocation() *string {
 	_jsii_.Get(
 		j,
 		"attrEdgeLocation",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) AttrLastModificationErrors() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns

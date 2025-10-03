@@ -186,7 +186,6 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -263,7 +262,6 @@ func init() {
 		reflect.TypeOf((*IStreamConsumerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamConsumerRef", GoGetter: "StreamConsumerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamConsumerRef{}
@@ -276,7 +274,6 @@ func init() {
 		reflect.TypeOf((*IStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamRef{}

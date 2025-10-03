@@ -69,7 +69,6 @@ func init() {
 		reflect.TypeOf((*IRepositoryAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "repositoryAssociationRef", GoGetter: "RepositoryAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepositoryAssociationRef{}

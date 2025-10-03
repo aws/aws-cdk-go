@@ -133,13 +133,3 @@ func (j *jsiiProxy_ISubnet) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_ISubnet) SubnetRef() *SubnetReference {
-	var returns *SubnetReference
-	_jsii_.Get(
-		j,
-		"subnetRef",
-		&returns,
-	)
-	return returns
-}
-

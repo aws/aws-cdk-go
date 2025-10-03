@@ -130,7 +130,6 @@ func init() {
 		"aws-cdk-lib.aws_oam.ILinkRef",
 		reflect.TypeOf((*ILinkRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "linkRef", GoGetter: "LinkRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -144,7 +143,6 @@ func init() {
 		reflect.TypeOf((*ISinkRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sinkRef", GoGetter: "SinkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISinkRef{}

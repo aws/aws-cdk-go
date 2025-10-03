@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnKeyspace) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnKeyspace_FromKeyspaceNameParameters(scope constructs.Construct, id *string, keyspaceName *string) error {
-	return nil
-}
-
 func validateCfnKeyspace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

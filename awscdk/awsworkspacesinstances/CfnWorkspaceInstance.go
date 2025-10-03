@@ -37,13 +37,6 @@ import (
 //   				VirtualName: jsii.String("virtualName"),
 //   			},
 //   		},
-//   		CapacityReservationSpecification: &CapacityReservationSpecificationProperty{
-//   			CapacityReservationPreference: jsii.String("capacityReservationPreference"),
-//   			CapacityReservationTarget: &CapacityReservationTargetProperty{
-//   				CapacityReservationId: jsii.String("capacityReservationId"),
-//   				CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
-//   			},
-//   		},
 //   		CpuOptions: &CpuOptionsRequestProperty{
 //   			CoreCount: jsii.Number(123),
 //   			ThreadsPerCore: jsii.Number(123),
@@ -53,7 +46,6 @@ import (
 //   		},
 //   		DisableApiStop: jsii.Boolean(false),
 //   		EbsOptimized: jsii.Boolean(false),
-//   		EnablePrimaryIpv6: jsii.Boolean(false),
 //   		EnclaveOptions: &EnclaveOptionsRequestProperty{
 //   			Enabled: jsii.Boolean(false),
 //   		},
@@ -61,25 +53,9 @@ import (
 //   			Configured: jsii.Boolean(false),
 //   		},
 //   		IamInstanceProfile: &IamInstanceProfileSpecificationProperty{
-//   			Arn: jsii.String("arn"),
 //   			Name: jsii.String("name"),
 //   		},
-//   		InstanceMarketOptions: &InstanceMarketOptionsRequestProperty{
-//   			MarketType: jsii.String("marketType"),
-//   			SpotOptions: &SpotMarketOptionsProperty{
-//   				InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
-//   				MaxPrice: jsii.String("maxPrice"),
-//   				SpotInstanceType: jsii.String("spotInstanceType"),
-//   				ValidUntilUtc: jsii.String("validUntilUtc"),
-//   			},
-//   		},
-//   		Ipv6AddressCount: jsii.Number(123),
 //   		KeyName: jsii.String("keyName"),
-//   		LicenseSpecifications: []interface{}{
-//   			&LicenseConfigurationRequestProperty{
-//   				LicenseConfigurationArn: jsii.String("licenseConfigurationArn"),
-//   			},
-//   		},
 //   		MaintenanceOptions: &InstanceMaintenanceOptionsRequestProperty{
 //   			AutoRecovery: jsii.String("autoRecovery"),
 //   		},
@@ -108,9 +84,7 @@ import (
 //   		},
 //   		Placement: &PlacementProperty{
 //   			AvailabilityZone: jsii.String("availabilityZone"),
-//   			GroupId: jsii.String("groupId"),
 //   			GroupName: jsii.String("groupName"),
-//   			PartitionNumber: jsii.Number(123),
 //   			Tenancy: jsii.String("tenancy"),
 //   		},
 //   		PrivateDnsNameOptions: &PrivateDnsNameOptionsRequestProperty{
@@ -118,7 +92,6 @@ import (
 //   			EnableResourceNameDnsARecord: jsii.Boolean(false),
 //   			HostnameType: jsii.String("hostnameType"),
 //   		},
-//   		SubnetId: jsii.String("subnetId"),
 //   		TagSpecifications: []interface{}{
 //   			&TagSpecificationProperty{
 //   				ResourceType: jsii.String("resourceType"),
@@ -567,25 +540,6 @@ func (j *jsiiProxy_CfnWorkspaceInstance)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IWorkspaceInstanceRef from a workspaceInstanceId.
-func CfnWorkspaceInstance_FromWorkspaceInstanceId(scope constructs.Construct, id *string, workspaceInstanceId *string) IWorkspaceInstanceRef {
-	_init_.Initialize()
-
-	if err := validateCfnWorkspaceInstance_FromWorkspaceInstanceIdParameters(scope, id, workspaceInstanceId); err != nil {
-		panic(err)
-	}
-	var returns IWorkspaceInstanceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance",
-		"fromWorkspaceInstanceId",
-		[]interface{}{scope, id, workspaceInstanceId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

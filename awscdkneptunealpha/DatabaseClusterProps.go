@@ -113,7 +113,7 @@ type DatabaseClusterProps struct {
 	// Default: - default master key.
 	//
 	// Experimental.
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The DB parameter group to associate with the instance.
 	// Default: no parameter group.
 	//

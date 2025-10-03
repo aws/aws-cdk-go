@@ -13,7 +13,5 @@ const (
 	//
 	// An inactive key cannot be used to make API calls.
 	AccessKeyStatus_INACTIVE AccessKeyStatus = "INACTIVE"
-	// An expired access key.
-	AccessKeyStatus_EXPIRED AccessKeyStatus = "EXPIRED"
 )
 

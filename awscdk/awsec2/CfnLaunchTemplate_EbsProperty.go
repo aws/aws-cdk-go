@@ -41,7 +41,7 @@ type CfnLaunchTemplate_EbsProperty struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000 - 80,000 IOPS
+	// - `gp3` : 3,000 - 16,000 IOPS
 	// - `io1` : 100 - 64,000 IOPS
 	// - `io2` : 100 - 256,000 IOPS
 	//
@@ -59,9 +59,9 @@ type CfnLaunchTemplate_EbsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-snapshotid
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
-	// The throughput to provision for a `gp3` volume, with a maximum of 2,000 MiB/s.
+	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
 	//
-	// Valid Range: Minimum value of 125. Maximum value of 2,000.
+	// Valid Range: Minimum value of 125. Maximum value of 1000.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-throughput
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
@@ -86,8 +86,7 @@ type CfnLaunchTemplate_EbsProperty struct {
 	//
 	// You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
 	//
-	// - `gp2` : 1 - 16,384 GiB
-	// - `gp3` : 1 - 65,536 GiB
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
 	// - `io1` : 4 - 16,384 GiB
 	// - `io2` : 4 - 65,536 GiB
 	// - `st1` and `sc1` : 125 - 16,384 GiB

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnDHCPOptions) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnDHCPOptions_FromDhcpOptionsIdParameters(scope constructs.Construct, id *string, dhcpOptionsId *string) error {
-	return nil
-}
-
 func validateCfnDHCPOptions_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -292,13 +292,3 @@ func (j *jsiiProxy_IVpc) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_IVpc) VpcRef() *VPCReference {
-	var returns *VPCReference
-	_jsii_.Get(
-		j,
-		"vpcRef",
-		&returns,
-	)
-	return returns
-}
-

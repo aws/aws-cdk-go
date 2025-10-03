@@ -790,44 +790,6 @@ func (j *jsiiProxy_CfnAssetModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAssetModelRef from an ARN.
-func CfnAssetModel_FromAssetModelArn(scope constructs.Construct, id *string, arn *string) IAssetModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnAssetModel_FromAssetModelArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAssetModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
-		"fromAssetModelArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAssetModelRef from a assetModelId.
-func CfnAssetModel_FromAssetModelId(scope constructs.Construct, id *string, assetModelId *string) IAssetModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnAssetModel_FromAssetModelIdParameters(scope, id, assetModelId); err != nil {
-		panic(err)
-	}
-	var returns IAssetModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
-		"fromAssetModelId",
-		[]interface{}{scope, id, assetModelId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

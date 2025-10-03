@@ -404,7 +404,6 @@ func init() {
 		"aws-cdk-lib.aws_neptune.IDBClusterParameterGroupRef",
 		reflect.TypeOf((*IDBClusterParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbClusterParameterGroupRef", GoGetter: "DbClusterParameterGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -417,7 +416,6 @@ func init() {
 		"aws-cdk-lib.aws_neptune.IDBClusterRef",
 		reflect.TypeOf((*IDBClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbClusterRef", GoGetter: "DbClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -430,7 +428,6 @@ func init() {
 		"aws-cdk-lib.aws_neptune.IDBInstanceRef",
 		reflect.TypeOf((*IDBInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbInstanceRef", GoGetter: "DbInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -443,7 +440,6 @@ func init() {
 		"aws-cdk-lib.aws_neptune.IDBParameterGroupRef",
 		reflect.TypeOf((*IDBParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbParameterGroupRef", GoGetter: "DbParameterGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -456,7 +452,6 @@ func init() {
 		"aws-cdk-lib.aws_neptune.IDBSubnetGroupRef",
 		reflect.TypeOf((*IDBSubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dbSubnetGroupRef", GoGetter: "DbSubnetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -469,7 +464,6 @@ func init() {
 		"aws-cdk-lib.aws_neptune.IEventSubscriptionRef",
 		reflect.TypeOf((*IEventSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventSubscriptionRef", GoGetter: "EventSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

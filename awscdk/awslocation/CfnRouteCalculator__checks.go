@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnRouteCalculator) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
-func validateCfnRouteCalculator_FromCalculatorNameParameters(scope constructs.Construct, id *string, calculatorName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if calculatorName == nil {
-		return fmt.Errorf("parameter calculatorName is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnRouteCalculator_FromRouteCalculatorArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnRouteCalculator_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

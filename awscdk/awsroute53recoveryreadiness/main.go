@@ -253,7 +253,6 @@ func init() {
 		"aws-cdk-lib.aws_route53recoveryreadiness.ICellRef",
 		reflect.TypeOf((*ICellRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "cellRef", GoGetter: "CellRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -267,7 +266,6 @@ func init() {
 		reflect.TypeOf((*IReadinessCheckRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "readinessCheckRef", GoGetter: "ReadinessCheckRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReadinessCheckRef{}
@@ -280,7 +278,6 @@ func init() {
 		reflect.TypeOf((*IRecoveryGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "recoveryGroupRef", GoGetter: "RecoveryGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRecoveryGroupRef{}
@@ -293,7 +290,6 @@ func init() {
 		reflect.TypeOf((*IResourceSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceSetRef", GoGetter: "ResourceSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceSetRef{}

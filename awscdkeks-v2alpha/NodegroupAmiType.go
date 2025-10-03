@@ -60,9 +60,6 @@ const (
 	// Amazon Linux 2023 with NVIDIA drivers (x86-64).
 	// Experimental.
 	NodegroupAmiType_AL2023_X86_64_NVIDIA NodegroupAmiType = "AL2023_X86_64_NVIDIA"
-	// Amazon Linux 2023 with NVIDIA drivers (ARM-64).
-	// Experimental.
-	NodegroupAmiType_AL2023_ARM_64_NVIDIA NodegroupAmiType = "AL2023_ARM_64_NVIDIA"
 	// Amazon Linux 2023 (ARM-64).
 	// Experimental.
 	NodegroupAmiType_AL2023_ARM_64_STANDARD NodegroupAmiType = "AL2023_ARM_64_STANDARD"

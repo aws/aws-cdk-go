@@ -193,7 +193,6 @@ func init() {
 		"aws-cdk-lib.aws_proton.IEnvironmentAccountConnectionRef",
 		reflect.TypeOf((*IEnvironmentAccountConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "environmentAccountConnectionRef", GoGetter: "EnvironmentAccountConnectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -206,7 +205,6 @@ func init() {
 		"aws-cdk-lib.aws_proton.IEnvironmentTemplateRef",
 		reflect.TypeOf((*IEnvironmentTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "environmentTemplateRef", GoGetter: "EnvironmentTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -220,7 +218,6 @@ func init() {
 		reflect.TypeOf((*IServiceTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceTemplateRef", GoGetter: "ServiceTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceTemplateRef{}

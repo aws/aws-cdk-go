@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnContactList) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnContactList_FromContactListNameParameters(scope constructs.Construct, id *string, contactListName *string) error {
-	return nil
-}
-
 func validateCfnContactList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

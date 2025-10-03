@@ -527,44 +527,6 @@ func (j *jsiiProxy_CfnTrustAnchor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new ITrustAnchorRef from an ARN.
-func CfnTrustAnchor_FromTrustAnchorArn(scope constructs.Construct, id *string, arn *string) ITrustAnchorRef {
-	_init_.Initialize()
-
-	if err := validateCfnTrustAnchor_FromTrustAnchorArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ITrustAnchorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
-		"fromTrustAnchorArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ITrustAnchorRef from a trustAnchorId.
-func CfnTrustAnchor_FromTrustAnchorId(scope constructs.Construct, id *string, trustAnchorId *string) ITrustAnchorRef {
-	_init_.Initialize()
-
-	if err := validateCfnTrustAnchor_FromTrustAnchorIdParameters(scope, id, trustAnchorId); err != nil {
-		panic(err)
-	}
-	var returns ITrustAnchorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
-		"fromTrustAnchorId",
-		[]interface{}{scope, id, trustAnchorId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

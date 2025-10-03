@@ -148,7 +148,6 @@ func init() {
 		"aws-cdk-lib.aws_resourcegroups.IGroupRef",
 		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -162,7 +161,6 @@ func init() {
 		reflect.TypeOf((*ITagSyncTaskRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tagSyncTaskRef", GoGetter: "TagSyncTaskRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITagSyncTaskRef{}

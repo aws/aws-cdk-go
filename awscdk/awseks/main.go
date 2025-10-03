@@ -1095,7 +1095,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.IAccessEntryRef",
 		reflect.TypeOf((*IAccessEntryRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessEntryRef", GoGetter: "AccessEntryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1136,7 +1135,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.IAddonRef",
 		reflect.TypeOf((*IAddonRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "addonRef", GoGetter: "AddonRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1195,7 +1193,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1208,7 +1205,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.IFargateProfileRef",
 		reflect.TypeOf((*IFargateProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fargateProfileRef", GoGetter: "FargateProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1221,7 +1217,6 @@ func init() {
 		"aws-cdk-lib.aws_eks.IIdentityProviderConfigRef",
 		reflect.TypeOf((*IIdentityProviderConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "identityProviderConfigRef", GoGetter: "IdentityProviderConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1266,7 +1261,6 @@ func init() {
 		reflect.TypeOf((*INodegroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "nodegroupRef", GoGetter: "NodegroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INodegroupRef{}
@@ -1279,7 +1273,6 @@ func init() {
 		reflect.TypeOf((*IPodIdentityAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "podIdentityAssociationRef", GoGetter: "PodIdentityAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPodIdentityAssociationRef{}
@@ -1507,7 +1500,6 @@ func init() {
 			"AL2023_X86_64_STANDARD": NodegroupAmiType_AL2023_X86_64_STANDARD,
 			"AL2023_X86_64_NEURON": NodegroupAmiType_AL2023_X86_64_NEURON,
 			"AL2023_X86_64_NVIDIA": NodegroupAmiType_AL2023_X86_64_NVIDIA,
-			"AL2023_ARM_64_NVIDIA": NodegroupAmiType_AL2023_ARM_64_NVIDIA,
 			"AL2023_ARM_64_STANDARD": NodegroupAmiType_AL2023_ARM_64_STANDARD,
 		},
 	)

@@ -444,7 +444,6 @@ func init() {
 		"aws-cdk-lib.aws_iotanalytics.IChannelRef",
 		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -457,7 +456,6 @@ func init() {
 		"aws-cdk-lib.aws_iotanalytics.IDatasetRef",
 		reflect.TypeOf((*IDatasetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datasetRef", GoGetter: "DatasetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -470,7 +468,6 @@ func init() {
 		"aws-cdk-lib.aws_iotanalytics.IDatastoreRef",
 		reflect.TypeOf((*IDatastoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datastoreRef", GoGetter: "DatastoreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -484,7 +481,6 @@ func init() {
 		reflect.TypeOf((*IPipelineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPipelineRef{}

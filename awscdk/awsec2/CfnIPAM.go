@@ -635,44 +635,6 @@ func (j *jsiiProxy_CfnIPAM)SetTier(val *string) {
 	)
 }
 
-// Creates a new IIPAMRef from an ARN.
-func CfnIPAM_FromIPAMArn(scope constructs.Construct, id *string, arn *string) IIPAMRef {
-	_init_.Initialize()
-
-	if err := validateCfnIPAM_FromIPAMArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IIPAMRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnIPAM",
-		"fromIPAMArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IIPAMRef from a ipamId.
-func CfnIPAM_FromIpamId(scope constructs.Construct, id *string, ipamId *string) IIPAMRef {
-	_init_.Initialize()
-
-	if err := validateCfnIPAM_FromIpamIdParameters(scope, id, ipamId); err != nil {
-		panic(err)
-	}
-	var returns IIPAMRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnIPAM",
-		"fromIpamId",
-		[]interface{}{scope, id, ipamId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

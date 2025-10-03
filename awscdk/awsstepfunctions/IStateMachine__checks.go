@@ -36,14 +36,6 @@ func (i *jsiiProxy_IStateMachine) validateGrantReadParameters(identity awsiam.IG
 	return nil
 }
 
-func (i *jsiiProxy_IStateMachine) validateGrantRedriveExecutionParameters(identity awsiam.IGrantable) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (i *jsiiProxy_IStateMachine) validateGrantStartExecutionParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")

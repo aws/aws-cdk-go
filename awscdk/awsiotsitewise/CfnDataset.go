@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::IoTSiteWise::Dataset.
+// Creates a dataset to connect an external datasource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,7 +48,9 @@ type CfnDataset interface {
 	IDatasetRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The ARN of the dataset.
+	// The ARN of the dataset, which has the following format.
+	//
+	// `arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}`.
 	AttrDatasetArn() *string
 	// The ID of the dataset.
 	AttrDatasetId() *string
@@ -71,6 +73,7 @@ type CfnDataset interface {
 	SetDatasetName(val *string)
 	// A reference to a Dataset resource.
 	DatasetRef() *DatasetReference
+	// The data source for the dataset.
 	DatasetSource() interface{}
 	SetDatasetSource(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -94,7 +97,7 @@ type CfnDataset interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs that contain metadata for the access policy.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -492,44 +495,6 @@ func (j *jsiiProxy_CfnDataset)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IDatasetRef from an ARN.
-func CfnDataset_FromDatasetArn(scope constructs.Construct, id *string, arn *string) IDatasetRef {
-	_init_.Initialize()
-
-	if err := validateCfnDataset_FromDatasetArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDatasetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
-		"fromDatasetArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDatasetRef from a datasetId.
-func CfnDataset_FromDatasetId(scope constructs.Construct, id *string, datasetId *string) IDatasetRef {
-	_init_.Initialize()
-
-	if err := validateCfnDataset_FromDatasetIdParameters(scope, id, datasetId); err != nil {
-		panic(err)
-	}
-	var returns IDatasetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
-		"fromDatasetId",
-		[]interface{}{scope, id, datasetId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

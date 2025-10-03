@@ -11,7 +11,6 @@ import (
 
 // Interface for CloudFront OriginAccessIdentity.
 type IOriginAccessIdentity interface {
-	ICloudFrontOriginAccessIdentityRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// The Origin Access Identity Id (physical id) This was called originAccessIdentityName before.
@@ -23,7 +22,6 @@ type IOriginAccessIdentity interface {
 
 // The jsii proxy for IOriginAccessIdentity
 type jsiiProxy_IOriginAccessIdentity struct {
-	jsiiProxy_ICloudFrontOriginAccessIdentityRef
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
 }
@@ -54,16 +52,6 @@ func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityName() *string {
 	_jsii_.Get(
 		j,
 		"originAccessIdentityName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IOriginAccessIdentity) CloudFrontOriginAccessIdentityRef() *CloudFrontOriginAccessIdentityReference {
-	var returns *CloudFrontOriginAccessIdentityReference
-	_jsii_.Get(
-		j,
-		"cloudFrontOriginAccessIdentityRef",
 		&returns,
 	)
 	return returns

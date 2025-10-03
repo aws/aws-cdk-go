@@ -132,7 +132,6 @@ func init() {
 		"aws-cdk-lib.aws_paymentcryptography.IAliasRef",
 		reflect.TypeOf((*IAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -145,7 +144,6 @@ func init() {
 		"aws-cdk-lib.aws_paymentcryptography.IKeyRef",
 		reflect.TypeOf((*IKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "keyRef", GoGetter: "KeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

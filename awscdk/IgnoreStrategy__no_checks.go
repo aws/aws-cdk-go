@@ -8,7 +8,7 @@ func (i *jsiiProxy_IgnoreStrategy) validateAddParameters(pattern *string) error 
 	return nil
 }
 
-func (i *jsiiProxy_IgnoreStrategy) validateCompletelyIgnoresParameters(absoluteDirectoryPath *string) error {
+func (i *jsiiProxy_IgnoreStrategy) validateCompletelyIgnoresParameters(absoluteFilePath *string) error {
 	return nil
 }
 

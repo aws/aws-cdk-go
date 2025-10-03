@@ -45,7 +45,6 @@ type Alias interface {
 	AliasArn() *string
 	// The name of the alias.
 	AliasName() *string
-	// A reference to a Alias resource.
 	AliasRef() *AliasReference
 	// The Key to which the Alias refers.
 	AliasTargetKey() IKey
@@ -63,7 +62,6 @@ type Alias interface {
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
 	KeyId() *string
-	// A reference to a Key resource.
 	KeyRef() *KeyReference
 	// The tree node.
 	Node() constructs.Node

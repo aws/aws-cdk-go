@@ -937,44 +937,6 @@ func (j *jsiiProxy_CfnFlow)SetTriggerConfig(val interface{}) {
 	)
 }
 
-// Creates a new IFlowRef from an ARN.
-func CfnFlow_FromFlowArn(scope constructs.Construct, id *string, arn *string) IFlowRef {
-	_init_.Initialize()
-
-	if err := validateCfnFlow_FromFlowArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IFlowRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appflow.CfnFlow",
-		"fromFlowArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IFlowRef from a flowName.
-func CfnFlow_FromFlowName(scope constructs.Construct, id *string, flowName *string) IFlowRef {
-	_init_.Initialize()
-
-	if err := validateCfnFlow_FromFlowNameParameters(scope, id, flowName); err != nil {
-		panic(err)
-	}
-	var returns IFlowRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appflow.CfnFlow",
-		"fromFlowName",
-		[]interface{}{scope, id, flowName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

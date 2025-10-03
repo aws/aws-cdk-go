@@ -557,40 +557,6 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 })
 ```
 
-### Enable Execute Command (ECS Exec)
-
-You can enable [ECS Exec](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html) for interactive debugging and troubleshooting by setting `enableExecuteCommand` to `true`.
-When enabled, you'll be able to execute commands interactively in running containers.
-
-```go
-jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
-	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("Ec2Container"), &EcsEc2ContainerDefinitionProps{
-		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
-		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
-		Cpu: jsii.Number(256),
-		EnableExecuteCommand: jsii.Boolean(true),
-	}),
-})
-```
-
-The same functionality is available for Fargate containers:
-
-```go
-jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
-	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("FargateContainer"), &EcsFargateContainerDefinitionProps{
-		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
-		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
-		Cpu: jsii.Number(256),
-		EnableExecuteCommand: jsii.Boolean(true),
-	}),
-})
-```
-
-When `enableExecuteCommand` is set to `true`:
-
-* If no `jobRole` is provided, a new IAM role will be automatically created with the required SSM permissions
-* If a `jobRole` is already provided, the necessary SSM permissions will be added to the existing role
-
 ### Secrets
 
 You can expose SecretsManager Secret ARNs or SSM Parameters to your container as environment variables.

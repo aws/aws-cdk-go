@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnCRL) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
-func validateCfnCRL_FromCrlIdParameters(scope constructs.Construct, id *string, crlId *string) error {
-	return nil
-}
-
 func validateCfnCRL_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

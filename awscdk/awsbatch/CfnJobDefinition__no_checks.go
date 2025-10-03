@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnJobDefinition) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
-func validateCfnJobDefinition_FromJobDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnJobDefinition_FromJobDefinitionNameParameters(scope constructs.Construct, id *string, jobDefinitionName *string) error {
-	return nil
-}
-
 func validateCfnJobDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

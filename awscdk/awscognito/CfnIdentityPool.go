@@ -656,25 +656,6 @@ func (j *jsiiProxy_CfnIdentityPool)SetSupportedLoginProviders(val interface{}) {
 	)
 }
 
-// Creates a new IIdentityPoolRef from a identityPoolId.
-func CfnIdentityPool_FromIdentityPoolId(scope constructs.Construct, id *string, identityPoolId *string) IIdentityPoolRef {
-	_init_.Initialize()
-
-	if err := validateCfnIdentityPool_FromIdentityPoolIdParameters(scope, id, identityPoolId); err != nil {
-		panic(err)
-	}
-	var returns IIdentityPoolRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
-		"fromIdentityPoolId",
-		[]interface{}{scope, id, identityPoolId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

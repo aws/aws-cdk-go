@@ -731,7 +731,6 @@ func init() {
 		"aws-cdk-lib.aws_deadline.IFarmRef",
 		reflect.TypeOf((*IFarmRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "farmRef", GoGetter: "FarmRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -744,7 +743,6 @@ func init() {
 		"aws-cdk-lib.aws_deadline.IFleetRef",
 		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -757,7 +755,6 @@ func init() {
 		"aws-cdk-lib.aws_deadline.ILicenseEndpointRef",
 		reflect.TypeOf((*ILicenseEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "licenseEndpointRef", GoGetter: "LicenseEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -770,7 +767,6 @@ func init() {
 		"aws-cdk-lib.aws_deadline.ILimitRef",
 		reflect.TypeOf((*ILimitRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "limitRef", GoGetter: "LimitRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -783,7 +779,6 @@ func init() {
 		"aws-cdk-lib.aws_deadline.IMeteredProductRef",
 		reflect.TypeOf((*IMeteredProductRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "meteredProductRef", GoGetter: "MeteredProductRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -796,7 +791,6 @@ func init() {
 		"aws-cdk-lib.aws_deadline.IMonitorRef",
 		reflect.TypeOf((*IMonitorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "monitorRef", GoGetter: "MonitorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -810,7 +804,6 @@ func init() {
 		reflect.TypeOf((*IQueueEnvironmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueEnvironmentRef", GoGetter: "QueueEnvironmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueEnvironmentRef{}
@@ -823,7 +816,6 @@ func init() {
 		reflect.TypeOf((*IQueueFleetAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueFleetAssociationRef", GoGetter: "QueueFleetAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueFleetAssociationRef{}
@@ -836,7 +828,6 @@ func init() {
 		reflect.TypeOf((*IQueueLimitAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueLimitAssociationRef", GoGetter: "QueueLimitAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueLimitAssociationRef{}
@@ -849,7 +840,6 @@ func init() {
 		reflect.TypeOf((*IQueueRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueRef{}
@@ -862,7 +852,6 @@ func init() {
 		reflect.TypeOf((*IStorageProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "storageProfileRef", GoGetter: "StorageProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStorageProfileRef{}

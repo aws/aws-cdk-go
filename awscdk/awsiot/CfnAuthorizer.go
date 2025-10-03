@@ -568,44 +568,6 @@ func (j *jsiiProxy_CfnAuthorizer)SetTokenSigningPublicKeys(val interface{}) {
 	)
 }
 
-// Creates a new IAuthorizerRef from an ARN.
-func CfnAuthorizer_FromAuthorizerArn(scope constructs.Construct, id *string, arn *string) IAuthorizerRef {
-	_init_.Initialize()
-
-	if err := validateCfnAuthorizer_FromAuthorizerArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAuthorizerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnAuthorizer",
-		"fromAuthorizerArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAuthorizerRef from a authorizerName.
-func CfnAuthorizer_FromAuthorizerName(scope constructs.Construct, id *string, authorizerName *string) IAuthorizerRef {
-	_init_.Initialize()
-
-	if err := validateCfnAuthorizer_FromAuthorizerNameParameters(scope, id, authorizerName); err != nil {
-		panic(err)
-	}
-	var returns IAuthorizerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iot.CfnAuthorizer",
-		"fromAuthorizerName",
-		[]interface{}{scope, id, authorizerName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -544,25 +544,6 @@ func (j *jsiiProxy_CfnOrganizationConfigRule)SetOrganizationManagedRuleMetadata(
 	)
 }
 
-// Creates a new IOrganizationConfigRuleRef from a organizationConfigRuleId.
-func CfnOrganizationConfigRule_FromOrganizationConfigRuleId(scope constructs.Construct, id *string, organizationConfigRuleId *string) IOrganizationConfigRuleRef {
-	_init_.Initialize()
-
-	if err := validateCfnOrganizationConfigRule_FromOrganizationConfigRuleIdParameters(scope, id, organizationConfigRuleId); err != nil {
-		panic(err)
-	}
-	var returns IOrganizationConfigRuleRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
-		"fromOrganizationConfigRuleId",
-		[]interface{}{scope, id, organizationConfigRuleId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

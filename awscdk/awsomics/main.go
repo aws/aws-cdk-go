@@ -374,8 +374,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "containerRegistryMap", GoGetter: "ContainerRegistryMap"},
-			_jsii_.MemberProperty{JsiiProperty: "containerRegistryMapUri", GoGetter: "ContainerRegistryMapUri"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionRepository", GoGetter: "DefinitionRepository"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionUri", GoGetter: "DefinitionUri"},
@@ -423,20 +421,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflow.ContainerRegistryMapProperty",
-		reflect.TypeOf((*CfnWorkflow_ContainerRegistryMapProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_omics.CfnWorkflow.DefinitionRepositoryProperty",
 		reflect.TypeOf((*CfnWorkflow_DefinitionRepositoryProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflow.ImageMappingProperty",
-		reflect.TypeOf((*CfnWorkflow_ImageMappingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflow.RegistryMappingProperty",
-		reflect.TypeOf((*CfnWorkflow_RegistryMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_omics.CfnWorkflow.SourceReferenceProperty",
@@ -472,10 +458,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "containerRegistryMap", GoGetter: "ContainerRegistryMap"},
-			_jsii_.MemberProperty{JsiiProperty: "containerRegistryMapUri", GoGetter: "ContainerRegistryMapUri"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "definitionRepository", GoGetter: "DefinitionRepository"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionUri", GoGetter: "DefinitionUri"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
@@ -489,10 +472,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterTemplate", GoGetter: "ParameterTemplate"},
-			_jsii_.MemberProperty{JsiiProperty: "parameterTemplatePath", GoGetter: "ParameterTemplatePath"},
-			_jsii_.MemberProperty{JsiiProperty: "readmeMarkdown", GoGetter: "ReadmeMarkdown"},
-			_jsii_.MemberProperty{JsiiProperty: "readmePath", GoGetter: "ReadmePath"},
-			_jsii_.MemberProperty{JsiiProperty: "readmeUri", GoGetter: "ReadmeUri"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -521,26 +500,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflowVersion.ContainerRegistryMapProperty",
-		reflect.TypeOf((*CfnWorkflowVersion_ContainerRegistryMapProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflowVersion.DefinitionRepositoryProperty",
-		reflect.TypeOf((*CfnWorkflowVersion_DefinitionRepositoryProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflowVersion.ImageMappingProperty",
-		reflect.TypeOf((*CfnWorkflowVersion_ImageMappingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflowVersion.RegistryMappingProperty",
-		reflect.TypeOf((*CfnWorkflowVersion_RegistryMappingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_omics.CfnWorkflowVersion.SourceReferenceProperty",
-		reflect.TypeOf((*CfnWorkflowVersion_SourceReferenceProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_omics.CfnWorkflowVersion.WorkflowParameterProperty",
 		reflect.TypeOf((*CfnWorkflowVersion_WorkflowParameterProperty)(nil)).Elem(),
 	)
@@ -552,7 +511,6 @@ func init() {
 		"aws-cdk-lib.aws_omics.IAnnotationStoreRef",
 		reflect.TypeOf((*IAnnotationStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "annotationStoreRef", GoGetter: "AnnotationStoreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -566,7 +524,6 @@ func init() {
 		reflect.TypeOf((*IReferenceStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "referenceStoreRef", GoGetter: "ReferenceStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReferenceStoreRef{}
@@ -579,7 +536,6 @@ func init() {
 		reflect.TypeOf((*IRunGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "runGroupRef", GoGetter: "RunGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRunGroupRef{}
@@ -592,7 +548,6 @@ func init() {
 		reflect.TypeOf((*ISequenceStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sequenceStoreRef", GoGetter: "SequenceStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISequenceStoreRef{}
@@ -605,7 +560,6 @@ func init() {
 		reflect.TypeOf((*IVariantStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "variantStoreRef", GoGetter: "VariantStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVariantStoreRef{}
@@ -618,7 +572,6 @@ func init() {
 		reflect.TypeOf((*IWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workflowRef", GoGetter: "WorkflowRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkflowRef{}
@@ -631,7 +584,6 @@ func init() {
 		reflect.TypeOf((*IWorkflowVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workflowVersionRef", GoGetter: "WorkflowVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkflowVersionRef{}

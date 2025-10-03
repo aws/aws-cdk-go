@@ -671,25 +671,6 @@ func (j *jsiiProxy_CfnMailManagerRuleSet)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IMailManagerRuleSetRef from a ruleSetId.
-func CfnMailManagerRuleSet_FromRuleSetId(scope constructs.Construct, id *string, ruleSetId *string) IMailManagerRuleSetRef {
-	_init_.Initialize()
-
-	if err := validateCfnMailManagerRuleSet_FromRuleSetIdParameters(scope, id, ruleSetId); err != nil {
-		panic(err)
-	}
-	var returns IMailManagerRuleSetRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",
-		"fromRuleSetId",
-		[]interface{}{scope, id, ruleSetId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

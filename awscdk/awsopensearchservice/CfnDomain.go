@@ -1186,44 +1186,6 @@ func (j *jsiiProxy_CfnDomain)SetVpcOptions(val interface{}) {
 	)
 }
 
-// Creates a new IDomainRef from an ARN.
-func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) IDomainRef {
-	_init_.Initialize()
-
-	if err := validateCfnDomain_FromDomainArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDomainRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
-		"fromDomainArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDomainRef from a domainName.
-func CfnDomain_FromDomainName(scope constructs.Construct, id *string, domainName *string) IDomainRef {
-	_init_.Initialize()
-
-	if err := validateCfnDomain_FromDomainNameParameters(scope, id, domainName); err != nil {
-		panic(err)
-	}
-	var returns IDomainRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
-		"fromDomainName",
-		[]interface{}{scope, id, domainName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

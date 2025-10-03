@@ -42,7 +42,7 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
-	// The Amazon resource name (ARN) for the public certificate issued by Certificate Manager .
+	// The Amazon resource name (ARN) for the public certificate issued by AWS Certificate Manager .
 	//
 	// This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-ownershipverificationcertificatearn

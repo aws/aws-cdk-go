@@ -622,25 +622,6 @@ func (j *jsiiProxy_CfnAddon)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAddonRef from an ARN.
-func CfnAddon_FromAddonArn(scope constructs.Construct, id *string, arn *string) IAddonRef {
-	_init_.Initialize()
-
-	if err := validateCfnAddon_FromAddonArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAddonRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnAddon",
-		"fromAddonArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -506,7 +506,6 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IHttpNamespaceRef",
 		reflect.TypeOf((*IHttpNamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceRef", GoGetter: "HttpNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -536,7 +535,6 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IInstanceRef",
 		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -588,7 +586,6 @@ func init() {
 		reflect.TypeOf((*IPrivateDnsNamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceRef", GoGetter: "PrivateDnsNamespaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrivateDnsNamespaceRef{}
@@ -620,7 +617,6 @@ func init() {
 		reflect.TypeOf((*IPublicDnsNamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceRef", GoGetter: "PublicDnsNamespaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicDnsNamespaceRef{}
@@ -655,7 +651,6 @@ func init() {
 		reflect.TypeOf((*IServiceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceRef{}

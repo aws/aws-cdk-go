@@ -497,44 +497,6 @@ func (j *jsiiProxy_CfnSubscriptionDefinition)SetTagsRaw(val interface{}) {
 	)
 }
 
-// Creates a new ISubscriptionDefinitionRef from an ARN.
-func CfnSubscriptionDefinition_FromSubscriptionDefinitionArn(scope constructs.Construct, id *string, arn *string) ISubscriptionDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnSubscriptionDefinition_FromSubscriptionDefinitionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ISubscriptionDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
-		"fromSubscriptionDefinitionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ISubscriptionDefinitionRef from a subscriptionDefinitionId.
-func CfnSubscriptionDefinition_FromSubscriptionDefinitionId(scope constructs.Construct, id *string, subscriptionDefinitionId *string) ISubscriptionDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnSubscriptionDefinition_FromSubscriptionDefinitionIdParameters(scope, id, subscriptionDefinitionId); err != nil {
-		panic(err)
-	}
-	var returns ISubscriptionDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
-		"fromSubscriptionDefinitionId",
-		[]interface{}{scope, id, subscriptionDefinitionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

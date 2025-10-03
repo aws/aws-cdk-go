@@ -77,16 +77,6 @@ func (j *jsiiProxy_IInstanceProfile) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IInstanceProfile) InstanceProfileRef() *InstanceProfileReference {
-	var returns *InstanceProfileReference
-	_jsii_.Get(
-		j,
-		"instanceProfileRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IInstanceProfile) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

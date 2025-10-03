@@ -243,7 +243,6 @@ func init() {
 		"aws-cdk-lib.aws_xray.IGroupRef",
 		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -257,7 +256,6 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -270,7 +268,6 @@ func init() {
 		reflect.TypeOf((*ISamplingRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "samplingRuleRef", GoGetter: "SamplingRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISamplingRuleRef{}
@@ -283,7 +280,6 @@ func init() {
 		reflect.TypeOf((*ITransactionSearchConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transactionSearchConfigRef", GoGetter: "TransactionSearchConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransactionSearchConfigRef{}

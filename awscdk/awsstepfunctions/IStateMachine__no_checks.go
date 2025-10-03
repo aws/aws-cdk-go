@@ -16,10 +16,6 @@ func (i *jsiiProxy_IStateMachine) validateGrantReadParameters(identity awsiam.IG
 	return nil
 }
 
-func (i *jsiiProxy_IStateMachine) validateGrantRedriveExecutionParameters(identity awsiam.IGrantable) error {
-	return nil
-}
-
 func (i *jsiiProxy_IStateMachine) validateGrantStartExecutionParameters(identity awsiam.IGrantable) error {
 	return nil
 }

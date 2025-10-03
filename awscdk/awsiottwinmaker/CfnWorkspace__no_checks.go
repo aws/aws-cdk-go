@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnWorkspace) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnWorkspace_FromWorkspaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnWorkspace_FromWorkspaceIdParameters(scope constructs.Construct, id *string, workspaceId *string) error {
-	return nil
-}
-
 func validateCfnWorkspace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -24,7 +24,7 @@ package awsappmesh
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html
 //
 type CfnVirtualNode_ListenerTlsCertificateProperty struct {
-	// A reference to an object that represents an Certificate Manager certificate.
+	// A reference to an object that represents an AWS Certificate Manager certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html#cfn-appmesh-virtualnode-listenertlscertificate-acm
 	//
 	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`

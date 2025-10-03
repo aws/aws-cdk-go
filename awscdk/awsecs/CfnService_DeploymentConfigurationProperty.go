@@ -8,8 +8,6 @@ package awsecs
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var hookDetails interface{}
-//
 //   deploymentConfigurationProperty := &DeploymentConfigurationProperty{
 //   	Alarms: &DeploymentAlarmsProperty{
 //   		AlarmNames: []*string{
@@ -30,9 +28,6 @@ package awsecs
 //   				jsii.String("lifecycleStages"),
 //   			},
 //   			RoleArn: jsii.String("roleArn"),
-//
-//   			// the properties below are optional
-//   			HookDetails: hookDetails,
 //   		},
 //   	},
 //   	MaximumPercent: jsii.Number(123),

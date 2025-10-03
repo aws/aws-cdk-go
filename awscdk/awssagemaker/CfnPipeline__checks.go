@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnPipeline) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnPipeline_FromPipelineNameParameters(scope constructs.Construct, id *string, pipelineName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if pipelineName == nil {
-		return fmt.Errorf("parameter pipelineName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnPipeline_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

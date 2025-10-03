@@ -1,6 +1,8 @@
 package awsiotsitewise
 
 
+// The data source for the dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,6 +32,7 @@ type CfnDataset_DatasetSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-datasetsource.html#cfn-iotsitewise-dataset-datasetsource-sourcetype
 	//
 	SourceType *string `field:"required" json:"sourceType" yaml:"sourceType"`
+	// The details of the dataset source associated with the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-datasetsource.html#cfn-iotsitewise-dataset-datasetsource-sourcedetail
 	//
 	SourceDetail interface{} `field:"optional" json:"sourceDetail" yaml:"sourceDetail"`

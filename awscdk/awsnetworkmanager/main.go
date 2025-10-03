@@ -24,7 +24,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAttachmentType", GoGetter: "AttrAttachmentType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSegmentName", GoGetter: "AttrSegmentName"},
@@ -110,7 +109,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkId", GoGetter: "AttrCoreNetworkId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
 			_jsii_.MemberProperty{JsiiProperty: "bgpOptions", GoGetter: "BgpOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -388,7 +386,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAttachmentType", GoGetter: "AttrAttachmentType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkFunctionGroupName", GoGetter: "AttrNetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
@@ -699,7 +696,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSegmentName", GoGetter: "AttrSegmentName"},
@@ -772,7 +768,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPeeringId", GoGetter: "AttrPeeringId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPeeringType", GoGetter: "AttrPeeringType"},
@@ -889,7 +884,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkId", GoGetter: "AttrCoreNetworkId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSegmentName", GoGetter: "AttrSegmentName"},
@@ -965,7 +959,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkFunctionGroupName", GoGetter: "AttrNetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
@@ -1061,7 +1054,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.IConnectAttachmentRef",
 		reflect.TypeOf((*IConnectAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectAttachmentRef", GoGetter: "ConnectAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1074,7 +1066,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.IConnectPeerRef",
 		reflect.TypeOf((*IConnectPeerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectPeerRef", GoGetter: "ConnectPeerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1087,7 +1078,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.ICoreNetworkRef",
 		reflect.TypeOf((*ICoreNetworkRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "coreNetworkRef", GoGetter: "CoreNetworkRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1100,7 +1090,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.ICustomerGatewayAssociationRef",
 		reflect.TypeOf((*ICustomerGatewayAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customerGatewayAssociationRef", GoGetter: "CustomerGatewayAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1113,7 +1102,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.IDeviceRef",
 		reflect.TypeOf((*IDeviceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "deviceRef", GoGetter: "DeviceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1126,7 +1114,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.IDirectConnectGatewayAttachmentRef",
 		reflect.TypeOf((*IDirectConnectGatewayAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "directConnectGatewayAttachmentRef", GoGetter: "DirectConnectGatewayAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1139,7 +1126,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.IGlobalNetworkRef",
 		reflect.TypeOf((*IGlobalNetworkRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "globalNetworkRef", GoGetter: "GlobalNetworkRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1152,7 +1138,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.ILinkAssociationRef",
 		reflect.TypeOf((*ILinkAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "linkAssociationRef", GoGetter: "LinkAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1165,7 +1150,6 @@ func init() {
 		"aws-cdk-lib.aws_networkmanager.ILinkRef",
 		reflect.TypeOf((*ILinkRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "linkRef", GoGetter: "LinkRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1179,7 +1163,6 @@ func init() {
 		reflect.TypeOf((*ISiteRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "siteRef", GoGetter: "SiteRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISiteRef{}
@@ -1192,7 +1175,6 @@ func init() {
 		reflect.TypeOf((*ISiteToSiteVpnAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "siteToSiteVpnAttachmentRef", GoGetter: "SiteToSiteVpnAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISiteToSiteVpnAttachmentRef{}
@@ -1205,7 +1187,6 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayPeeringRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPeeringRef", GoGetter: "TransitGatewayPeeringRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayPeeringRef{}
@@ -1218,7 +1199,6 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRegistrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRegistrationRef", GoGetter: "TransitGatewayRegistrationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRegistrationRef{}
@@ -1231,7 +1211,6 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRouteTableAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableAttachmentRef", GoGetter: "TransitGatewayRouteTableAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRouteTableAttachmentRef{}
@@ -1244,7 +1223,6 @@ func init() {
 		reflect.TypeOf((*IVpcAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vpcAttachmentRef", GoGetter: "VpcAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcAttachmentRef{}

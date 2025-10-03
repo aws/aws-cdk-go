@@ -100,7 +100,6 @@ type SecurityGroup interface {
 	PhysicalName() *string
 	// The ID of the security group.
 	SecurityGroupId() *string
-	// A reference to a SecurityGroup resource.
 	SecurityGroupRef() *SecurityGroupReference
 	// The VPC ID this security group is part of.
 	SecurityGroupVpcId() *string

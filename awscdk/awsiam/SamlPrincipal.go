@@ -134,7 +134,7 @@ func (j *jsiiProxy_SamlPrincipal) PrincipalAccount() *string {
 }
 
 
-func NewSamlPrincipal(samlProvider ISAMLProviderRef, conditions *map[string]interface{}) SamlPrincipal {
+func NewSamlPrincipal(samlProvider ISamlProvider, conditions *map[string]interface{}) SamlPrincipal {
 	_init_.Initialize()
 
 	if err := validateNewSamlPrincipalParameters(samlProvider, conditions); err != nil {
@@ -151,7 +151,7 @@ func NewSamlPrincipal(samlProvider ISAMLProviderRef, conditions *map[string]inte
 	return &j
 }
 
-func NewSamlPrincipal_Override(s SamlPrincipal, samlProvider ISAMLProviderRef, conditions *map[string]interface{}) {
+func NewSamlPrincipal_Override(s SamlPrincipal, samlProvider ISamlProvider, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(

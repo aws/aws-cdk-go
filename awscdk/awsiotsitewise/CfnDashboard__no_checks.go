@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnDashboard) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnDashboard_FromDashboardArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnDashboard_FromDashboardIdParameters(scope constructs.Construct, id *string, dashboardId *string) error {
-	return nil
-}
-
 func validateCfnDashboard_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

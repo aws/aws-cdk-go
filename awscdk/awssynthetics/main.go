@@ -31,14 +31,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_synthetics.BrowserType",
-		reflect.TypeOf((*BrowserType)(nil)).Elem(),
-		map[string]interface{}{
-			"CHROME": BrowserType_CHROME,
-			"FIREFOX": BrowserType_FIREFOX,
-		},
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_synthetics.Canary",
 		reflect.TypeOf((*Canary)(nil)).Elem(),
@@ -286,7 +278,6 @@ func init() {
 		"aws-cdk-lib.aws_synthetics.ICanaryRef",
 		reflect.TypeOf((*ICanaryRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "canaryRef", GoGetter: "CanaryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -299,7 +290,6 @@ func init() {
 		"aws-cdk-lib.aws_synthetics.IGroupRef",
 		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

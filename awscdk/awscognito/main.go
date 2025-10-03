@@ -1185,7 +1185,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IIdentityPoolPrincipalTagRef",
 		reflect.TypeOf((*IIdentityPoolPrincipalTagRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolPrincipalTagRef", GoGetter: "IdentityPoolPrincipalTagRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1198,7 +1197,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IIdentityPoolRef",
 		reflect.TypeOf((*IIdentityPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolRef", GoGetter: "IdentityPoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1211,7 +1209,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IIdentityPoolRoleAttachmentRef",
 		reflect.TypeOf((*IIdentityPoolRoleAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolRoleAttachmentRef", GoGetter: "IdentityPoolRoleAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1224,7 +1221,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.ILogDeliveryConfigurationRef",
 		reflect.TypeOf((*ILogDeliveryConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "logDeliveryConfigurationRef", GoGetter: "LogDeliveryConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1237,7 +1233,6 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IManagedLoginBrandingRef",
 		reflect.TypeOf((*IManagedLoginBrandingRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "managedLoginBrandingRef", GoGetter: "ManagedLoginBrandingRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1293,7 +1288,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolClientRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolClientRef", GoGetter: "UserPoolClientRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolClientRef{}
@@ -1322,7 +1316,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolDomainRef", GoGetter: "UserPoolDomainRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolDomainRef{}
@@ -1351,7 +1344,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolGroupRef", GoGetter: "UserPoolGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolGroupRef{}
@@ -1380,7 +1372,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolIdentityProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolIdentityProviderRef", GoGetter: "UserPoolIdentityProviderRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolIdentityProviderRef{}
@@ -1393,7 +1384,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolRef", GoGetter: "UserPoolRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolRef{}
@@ -1422,7 +1412,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolResourceServerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolResourceServerRef", GoGetter: "UserPoolResourceServerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolResourceServerRef{}
@@ -1435,7 +1424,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolRiskConfigurationAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolRiskConfigurationAttachmentRef", GoGetter: "UserPoolRiskConfigurationAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolRiskConfigurationAttachmentRef{}
@@ -1448,7 +1436,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolUICustomizationAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolUiCustomizationAttachmentRef", GoGetter: "UserPoolUiCustomizationAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolUICustomizationAttachmentRef{}
@@ -1461,7 +1448,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolUserRef", GoGetter: "UserPoolUserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolUserRef{}
@@ -1474,7 +1460,6 @@ func init() {
 		reflect.TypeOf((*IUserPoolUserToGroupAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userPoolUserToGroupAttachmentRef", GoGetter: "UserPoolUserToGroupAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolUserToGroupAttachmentRef{}

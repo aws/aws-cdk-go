@@ -521,25 +521,6 @@ func (j *jsiiProxy_CfnSchemaMapping)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new ISchemaMappingRef from a schemaName.
-func CfnSchemaMapping_FromSchemaName(scope constructs.Construct, id *string, schemaName *string) ISchemaMappingRef {
-	_init_.Initialize()
-
-	if err := validateCfnSchemaMapping_FromSchemaNameParameters(scope, id, schemaName); err != nil {
-		panic(err)
-	}
-	var returns ISchemaMappingRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_entityresolution.CfnSchemaMapping",
-		"fromSchemaName",
-		[]interface{}{scope, id, schemaName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

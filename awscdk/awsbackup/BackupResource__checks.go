@@ -38,7 +38,7 @@ func validateBackupResource_FromDynamoDbTableParameters(table awsdynamodb.ITable
 	return nil
 }
 
-func validateBackupResource_FromEc2InstanceParameters(instance awsec2.IInstanceRef) error {
+func validateBackupResource_FromEc2InstanceParameters(instance awsec2.IInstance) error {
 	if instance == nil {
 		return fmt.Errorf("parameter instance is required, but nil was provided")
 	}

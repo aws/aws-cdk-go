@@ -55,16 +55,6 @@ func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigRef() *CodeSigningConfigReference {
-	var returns *CodeSigningConfigReference
-	_jsii_.Get(
-		j,
-		"codeSigningConfigRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ICodeSigningConfig) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(

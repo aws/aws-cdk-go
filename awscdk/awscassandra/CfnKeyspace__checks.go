@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnKeyspace) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnKeyspace_FromKeyspaceNameParameters(scope constructs.Construct, id *string, keyspaceName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if keyspaceName == nil {
-		return fmt.Errorf("parameter keyspaceName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnKeyspace_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

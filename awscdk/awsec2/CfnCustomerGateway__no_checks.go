@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnCustomerGateway) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
-func validateCfnCustomerGateway_FromCustomerGatewayIdParameters(scope constructs.Construct, id *string, customerGatewayId *string) error {
-	return nil
-}
-
 func validateCfnCustomerGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

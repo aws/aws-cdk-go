@@ -35,13 +35,11 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-accounting
 	//
 	Accounting interface{} `field:"optional" json:"accounting" yaml:"accounting"`
-	// The shared Slurm key for authentication, also known as the *cluster secret* .
+	// The shared Slurm key for authentication, also known as the cluster secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-authkey
 	//
 	AuthKey interface{} `field:"optional" json:"authKey" yaml:"authKey"`
-	// The time (in seconds) before an idle node is scaled down.
-	//
-	// Default: `600`.
+	// The time before an idle node is scaled down.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-scaledownidletimeinseconds
 	//
 	ScaleDownIdleTimeInSeconds *float64 `field:"optional" json:"scaleDownIdleTimeInSeconds" yaml:"scaleDownIdleTimeInSeconds"`

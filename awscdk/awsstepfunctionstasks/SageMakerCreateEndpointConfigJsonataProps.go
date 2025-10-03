@@ -20,7 +20,7 @@ import (
 //   var acceleratorType acceleratorType
 //   var assign interface{}
 //   var instanceType instanceType
-//   var keyRef iKeyRef
+//   var key key
 //   var outputs interface{}
 //   var taskInput taskInput
 //   var taskRole taskRole
@@ -52,7 +52,7 @@ import (
 //   	Heartbeat: cdk.Duration_Minutes(jsii.Number(30)),
 //   	HeartbeatTimeout: timeout,
 //   	IntegrationPattern: awscdk.Aws_stepfunctions.IntegrationPattern_REQUEST_RESPONSE,
-//   	KmsKey: keyRef,
+//   	KmsKey: key,
 //   	Outputs: outputs,
 //   	QueryLanguage: awscdk.*Aws_stepfunctions.QueryLanguage_JSON_PATH,
 //   	StateName: jsii.String("stateName"),
@@ -153,7 +153,7 @@ type SageMakerCreateEndpointConfigJsonataProps struct {
 	// AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	// Default: - None.
 	//
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Tags to be applied to the endpoint configuration.
 	// Default: - No tags.
 	//

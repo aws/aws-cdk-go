@@ -28,7 +28,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationId", GoGetter: "AttrConfigurationId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationRevision", GoGetter: "AttrConfigurationRevision"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConsoleUrLs", GoGetter: "AttrConsoleUrLs"},
-			_jsii_.MemberProperty{JsiiProperty: "attrEngineVersionCurrent", GoGetter: "AttrEngineVersionCurrent"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIpAddresses", GoGetter: "AttrIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMqttEndpoints", GoGetter: "AttrMqttEndpoints"},
@@ -252,7 +251,6 @@ func init() {
 		"aws-cdk-lib.aws_amazonmq.IBrokerRef",
 		reflect.TypeOf((*IBrokerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "brokerRef", GoGetter: "BrokerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -265,7 +263,6 @@ func init() {
 		"aws-cdk-lib.aws_amazonmq.IConfigurationAssociationRef",
 		reflect.TypeOf((*IConfigurationAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationAssociationRef", GoGetter: "ConfigurationAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -278,7 +275,6 @@ func init() {
 		"aws-cdk-lib.aws_amazonmq.IConfigurationRef",
 		reflect.TypeOf((*IConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "configurationRef", GoGetter: "ConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

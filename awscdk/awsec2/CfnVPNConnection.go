@@ -808,25 +808,6 @@ func (j *jsiiProxy_CfnVPNConnection)SetVpnTunnelOptionsSpecifications(val interf
 	)
 }
 
-// Creates a new IVPNConnectionRef from a vpnConnectionId.
-func CfnVPNConnection_FromVpnConnectionId(scope constructs.Construct, id *string, vpnConnectionId *string) IVPNConnectionRef {
-	_init_.Initialize()
-
-	if err := validateCfnVPNConnection_FromVpnConnectionIdParameters(scope, id, vpnConnectionId); err != nil {
-		panic(err)
-	}
-	var returns IVPNConnectionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVPNConnection",
-		"fromVpnConnectionId",
-		[]interface{}{scope, id, vpnConnectionId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -29,7 +29,7 @@ package awscloudfront
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-customizations.html
 //
 type CfnDistributionTenant_CustomizationsProperty struct {
-	// The Certificate Manager (ACM) certificate.
+	// The AWS Certificate Manager (ACM) certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-customizations.html#cfn-cloudfront-distributiontenant-customizations-certificate
 	//
 	Certificate interface{} `field:"optional" json:"certificate" yaml:"certificate"`

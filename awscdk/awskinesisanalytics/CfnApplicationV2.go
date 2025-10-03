@@ -211,52 +211,36 @@ import (
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
 //
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationV2 interface {
 	awscdk.CfnResource
 	IApplicationV2Ref
 	awscdk.IInspectable
 	awscdk.ITaggable
 	// Use this parameter to configure the application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationConfiguration() interface{}
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetApplicationConfiguration(val interface{})
 	// The description of the application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationDescription() *string
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetApplicationDescription(val *string)
 	// Specifies the maintenance window parameters for a Kinesis Data Analytics application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationMaintenanceConfiguration() interface{}
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetApplicationMaintenanceConfiguration(val interface{})
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationMode() *string
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetApplicationMode(val *string)
 	// The name of the application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName() *string
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetApplicationName(val *string)
 	// A reference to a Application resource.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationRef() *ApplicationV2Reference
 	// Options for this resource, such as condition, update policy etc.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CfnOptions() awscdk.ICfnResourceOptions
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -267,44 +251,31 @@ type CfnApplicationV2 interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	LogicalId() *string
 	// The tree node.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Ref() *string
 	// Describes the starting parameters for an Managed Service for Apache Flink application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	RunConfiguration() interface{}
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetRunConfiguration(val interface{})
 	// The runtime environment for the application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	RuntimeEnvironment() *string
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetRuntimeEnvironment(val *string)
 	// Specifies the IAM role that the application uses to access external resources.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ServiceExecutionRole() *string
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetServiceExecutionRole(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Tags() awscdk.TagManager
 	// A list of one or more tags to assign to the application.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	TagsRaw() *[]*awscdk.CfnTag
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -318,16 +289,13 @@ type CfnApplicationV2 interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AddDependency(target awscdk.CfnResource)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	// Deprecated: use addDependency.
@@ -339,7 +307,6 @@ type CfnApplicationV2 interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -384,15 +351,12 @@ type CfnApplicationV2 interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -408,13 +372,11 @@ type CfnApplicationV2 interface {
 	// can be found in the following link:.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -423,46 +385,35 @@ type CfnApplicationV2 interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Inspect(inspector awscdk.TreeInspector)
 	// Retrieves an array of resources this resource depends on.
 	//
 	// This assembles dependencies on resources across stacks (including nested stacks)
 	// automatically.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ObtainDependencies() *[]interface{}
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
 	// This can be used for resources across stacks (including nested stacks)
 	// and the dependency will automatically be removed from the relevant scope.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	RemoveDependency(target awscdk.CfnResource)
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Replaces one dependency with another.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ShouldSynthesize() *bool
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ToString() *string
-	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ValidateProperties(_properties interface{})
 }
 
@@ -685,7 +636,6 @@ func (j *jsiiProxy_CfnApplicationV2) UpdatedProperties() *map[string]interface{}
 }
 
 
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationV2(scope constructs.Construct, id *string, props *CfnApplicationV2Props) CfnApplicationV2 {
 	_init_.Initialize()
 
@@ -703,7 +653,6 @@ func NewCfnApplicationV2(scope constructs.Construct, id *string, props *CfnAppli
 	return &j
 }
 
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 func NewCfnApplicationV2_Override(c CfnApplicationV2, scope constructs.Construct, id *string, props *CfnApplicationV2Props) {
 	_init_.Initialize()
 
@@ -804,33 +753,12 @@ func (j *jsiiProxy_CfnApplicationV2)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IApplicationV2Ref from a applicationName.
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
-func CfnApplicationV2_FromApplicationName(scope constructs.Construct, id *string, applicationName *string) IApplicationV2Ref {
-	_init_.Initialize()
-
-	if err := validateCfnApplicationV2_FromApplicationNameParameters(scope, id, applicationName); err != nil {
-		panic(err)
-	}
-	var returns IApplicationV2Ref
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2",
-		"fromApplicationName",
-		[]interface{}{scope, id, applicationName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 func CfnApplicationV2_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -850,7 +778,6 @@ func CfnApplicationV2_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given object is a CfnResource.
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 func CfnApplicationV2_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -886,7 +813,6 @@ func CfnApplicationV2_IsCfnResource(x interface{}) *bool {
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `aws-kinesisanalyticsv2` instead.
 func CfnApplicationV2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

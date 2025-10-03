@@ -631,7 +631,6 @@ func init() {
 		"aws-cdk-lib.aws_ivs.IChannelRef",
 		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -644,7 +643,6 @@ func init() {
 		"aws-cdk-lib.aws_ivs.IEncoderConfigurationRef",
 		reflect.TypeOf((*IEncoderConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "encoderConfigurationRef", GoGetter: "EncoderConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -657,7 +655,6 @@ func init() {
 		"aws-cdk-lib.aws_ivs.IIngestConfigurationRef",
 		reflect.TypeOf((*IIngestConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "ingestConfigurationRef", GoGetter: "IngestConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -671,7 +668,6 @@ func init() {
 		reflect.TypeOf((*IPlaybackKeyPairRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "playbackKeyPairRef", GoGetter: "PlaybackKeyPairRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlaybackKeyPairRef{}
@@ -684,7 +680,6 @@ func init() {
 		reflect.TypeOf((*IPlaybackRestrictionPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "playbackRestrictionPolicyRef", GoGetter: "PlaybackRestrictionPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlaybackRestrictionPolicyRef{}
@@ -697,7 +692,6 @@ func init() {
 		reflect.TypeOf((*IPublicKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "publicKeyRef", GoGetter: "PublicKeyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicKeyRef{}
@@ -710,7 +704,6 @@ func init() {
 		reflect.TypeOf((*IRecordingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "recordingConfigurationRef", GoGetter: "RecordingConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRecordingConfigurationRef{}
@@ -723,7 +716,6 @@ func init() {
 		reflect.TypeOf((*IStageRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStageRef{}
@@ -736,7 +728,6 @@ func init() {
 		reflect.TypeOf((*IStorageConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "storageConfigurationRef", GoGetter: "StorageConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStorageConfigurationRef{}
@@ -749,7 +740,6 @@ func init() {
 		reflect.TypeOf((*IStreamKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamKeyRef", GoGetter: "StreamKeyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamKeyRef{}

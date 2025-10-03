@@ -52,7 +52,6 @@ type UntrustedCodeBoundaryPolicy interface {
 	ManagedPolicyArn() *string
 	// The name of this policy.
 	ManagedPolicyName() *string
-	// A reference to a ManagedPolicy resource.
 	ManagedPolicyRef() *awsiam.ManagedPolicyReference
 	// The tree node.
 	Node() constructs.Node
@@ -81,11 +80,11 @@ type UntrustedCodeBoundaryPolicy interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attaches this policy to a group.
-	AttachToGroup(group awsiam.IGroupRef)
+	AttachToGroup(group awsiam.IGroup)
 	// Attaches this policy to a role.
 	AttachToRole(role awsiam.IRole)
 	// Attaches this policy to a user.
-	AttachToUser(user awsiam.IUserRef)
+	AttachToUser(user awsiam.IUser)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -432,7 +431,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) ApplyRemovalPolicy(policy awscdk
 	)
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToGroup(group awsiam.IGroupRef) {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToGroup(group awsiam.IGroup) {
 	if err := u.validateAttachToGroupParameters(group); err != nil {
 		panic(err)
 	}
@@ -454,7 +453,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToRole(role awsiam.IRole) 
 	)
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToUser(user awsiam.IUserRef) {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToUser(user awsiam.IUser) {
 	if err := u.validateAttachToUserParameters(user); err != nil {
 		panic(err)
 	}

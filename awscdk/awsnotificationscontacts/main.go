@@ -80,7 +80,6 @@ func init() {
 		"aws-cdk-lib.aws_notificationscontacts.IEmailContactRef",
 		reflect.TypeOf((*IEmailContactRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "emailContactRef", GoGetter: "EmailContactRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -202,7 +202,6 @@ func init() {
 		reflect.TypeOf((*IPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "planRef", GoGetter: "PlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlanRef{}

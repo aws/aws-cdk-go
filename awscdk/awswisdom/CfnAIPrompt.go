@@ -626,25 +626,6 @@ func (j *jsiiProxy_CfnAIPrompt)SetType(val *string) {
 	)
 }
 
-// Creates a new IAIPromptRef from an ARN.
-func CfnAIPrompt_FromAIPromptArn(scope constructs.Construct, id *string, arn *string) IAIPromptRef {
-	_init_.Initialize()
-
-	if err := validateCfnAIPrompt_FromAIPromptArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAIPromptRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAIPrompt",
-		"fromAIPromptArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

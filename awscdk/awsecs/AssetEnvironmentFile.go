@@ -21,7 +21,7 @@ import (
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var keyRef iKeyRef
+//   var key key
 //   var localBundling iLocalBundling
 //
 //   assetEnvironmentFile := awscdk.Aws_ecs.NewAssetEnvironmentFile(jsii.String("path"), &AssetOptions{
@@ -71,7 +71,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: keyRef,
+//   	SourceKMSKey: key,
 //   })
 //
 type AssetEnvironmentFile interface {

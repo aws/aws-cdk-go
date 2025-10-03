@@ -127,7 +127,6 @@ func init() {
 		"aws-cdk-lib.aws_identitystore.IGroupMembershipRef",
 		reflect.TypeOf((*IGroupMembershipRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupMembershipRef", GoGetter: "GroupMembershipRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -140,7 +139,6 @@ func init() {
 		"aws-cdk-lib.aws_identitystore.IGroupRef",
 		reflect.TypeOf((*IGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

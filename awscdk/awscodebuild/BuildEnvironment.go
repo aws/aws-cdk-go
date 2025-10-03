@@ -50,10 +50,6 @@ type BuildEnvironment struct {
 	// Default: taken from `#buildImage#defaultComputeType`.
 	//
 	ComputeType ComputeType `field:"optional" json:"computeType" yaml:"computeType"`
-	// The Docker server configuration CodeBuild use to build your Docker image.
-	// Default: - Doesn't use remote docker server.
-	//
-	DockerServer *DockerServerOptions `field:"optional" json:"dockerServer" yaml:"dockerServer"`
 	// The environment variables that your builds can use.
 	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Fleet resource for a reserved capacity CodeBuild project.

@@ -22,8 +22,6 @@ package awspcs
 //
 type CfnCluster_EndpointProperty struct {
 	// The endpoint's connection port number.
-	//
-	// Example: `1234`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html#cfn-pcs-cluster-endpoint-port
 	//
 	Port *string `field:"required" json:"port" yaml:"port"`
@@ -46,8 +44,6 @@ type CfnCluster_EndpointProperty struct {
 	//
 	Ipv6Address *string `field:"optional" json:"ipv6Address" yaml:"ipv6Address"`
 	// The endpoint's public IP address.
-	//
-	// Example: `192.0.2.1`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html#cfn-pcs-cluster-endpoint-publicipaddress
 	//
 	PublicIpAddress *string `field:"optional" json:"publicIpAddress" yaml:"publicIpAddress"`

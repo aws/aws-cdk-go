@@ -30,10 +30,6 @@ type CfnVPCBlockPublicAccessOptions interface {
 	awscdk.IInspectable
 	// The ID of the AWS account.
 	AttrAccountId() *string
-	// Determines if exclusions are allowed.
-	//
-	// If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
-	AttrExclusionsAllowed() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -221,16 +217,6 @@ func (j *jsiiProxy_CfnVPCBlockPublicAccessOptions) AttrAccountId() *string {
 	_jsii_.Get(
 		j,
 		"attrAccountId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnVPCBlockPublicAccessOptions) AttrExclusionsAllowed() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrExclusionsAllowed",
 		&returns,
 	)
 	return returns

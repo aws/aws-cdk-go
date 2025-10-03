@@ -474,25 +474,6 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation)SetVpcId(val *string)
 	)
 }
 
-// Creates a new ILocalGatewayRouteTableVPCAssociationRef from a localGatewayRouteTableVpcAssociationId.
-func CfnLocalGatewayRouteTableVPCAssociation_FromLocalGatewayRouteTableVpcAssociationId(scope constructs.Construct, id *string, localGatewayRouteTableVpcAssociationId *string) ILocalGatewayRouteTableVPCAssociationRef {
-	_init_.Initialize()
-
-	if err := validateCfnLocalGatewayRouteTableVPCAssociation_FromLocalGatewayRouteTableVpcAssociationIdParameters(scope, id, localGatewayRouteTableVpcAssociationId); err != nil {
-		panic(err)
-	}
-	var returns ILocalGatewayRouteTableVPCAssociationRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVPCAssociation",
-		"fromLocalGatewayRouteTableVpcAssociationId",
-		[]interface{}{scope, id, localGatewayRouteTableVpcAssociationId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

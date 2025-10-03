@@ -103,7 +103,6 @@ func init() {
 		reflect.TypeOf((*IProfilingGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "profilingGroupRef", GoGetter: "ProfilingGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfilingGroupRef{}

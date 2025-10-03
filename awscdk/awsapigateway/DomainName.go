@@ -33,7 +33,6 @@ type DomainName interface {
 	DomainNameAliasDomainName() *string
 	// The Route53 hosted zone ID to use in order to connect a record set to this domain through an alias.
 	DomainNameAliasHostedZoneId() *string
-	// A reference to a DomainName resource.
 	DomainNameRef() *DomainNameReference
 	// The environment this resource belongs to.
 	//
@@ -62,13 +61,13 @@ type DomainName interface {
 	// also only supports:
 	// - SecurityPolicy.TLS_1_2
 	// - EndpointType.REGIONAL
-	AddApiMapping(targetStage IStageRef, options *ApiMappingOptions)
+	AddApiMapping(targetStage IStage, options *ApiMappingOptions)
 	// Maps this domain to an API endpoint.
 	//
 	// This uses the BasePathMapping from ApiGateway v1 which does not support multi-level paths.
 	//
 	// If you need to create a mapping for a multi-level path use `addApiMapping` instead.
-	AddBasePathMapping(targetApi IRestApiRef, options *BasePathMappingOptions) BasePathMapping
+	AddBasePathMapping(targetApi IRestApi, options *BasePathMappingOptions) BasePathMapping
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -314,7 +313,7 @@ func DomainName_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DomainName) AddApiMapping(targetStage IStageRef, options *ApiMappingOptions) {
+func (d *jsiiProxy_DomainName) AddApiMapping(targetStage IStage, options *ApiMappingOptions) {
 	if err := d.validateAddApiMappingParameters(targetStage, options); err != nil {
 		panic(err)
 	}
@@ -325,7 +324,7 @@ func (d *jsiiProxy_DomainName) AddApiMapping(targetStage IStageRef, options *Api
 	)
 }
 
-func (d *jsiiProxy_DomainName) AddBasePathMapping(targetApi IRestApiRef, options *BasePathMappingOptions) BasePathMapping {
+func (d *jsiiProxy_DomainName) AddBasePathMapping(targetApi IRestApi, options *BasePathMappingOptions) BasePathMapping {
 	if err := d.validateAddBasePathMappingParameters(targetApi, options); err != nil {
 		panic(err)
 	}

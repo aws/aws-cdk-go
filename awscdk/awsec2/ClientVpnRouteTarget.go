@@ -71,7 +71,7 @@ func ClientVpnRouteTarget_Local() ClientVpnRouteTarget {
 //
 // The specified subnet must be an existing target network of the client VPN
 // endpoint.
-func ClientVpnRouteTarget_Subnet(subnet ISubnetRef) ClientVpnRouteTarget {
+func ClientVpnRouteTarget_Subnet(subnet ISubnet) ClientVpnRouteTarget {
 	_init_.Initialize()
 
 	if err := validateClientVpnRouteTarget_SubnetParameters(subnet); err != nil {

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnOptionGroup) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnOptionGroup_FromOptionGroupNameParameters(scope constructs.Construct, id *string, optionGroupName *string) error {
-	return nil
-}
-
 func validateCfnOptionGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

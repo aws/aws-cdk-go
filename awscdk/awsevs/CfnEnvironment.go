@@ -93,10 +93,6 @@ import (
 //   		VTep: &InitialVlanInfoProperty{
 //   			Cidr: jsii.String("cidr"),
 //   		},
-//
-//   		// the properties below are optional
-//   		HcxNetworkAclId: jsii.String("hcxNetworkAclId"),
-//   		IsHcxPublic: jsii.Boolean(false),
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ServiceAccessSecurityGroups: &ServiceAccessSecurityGroupsProperty{

@@ -35,107 +35,6 @@ import (
 //   		},
 //   		ManagedTerminationProtection: jsii.String("managedTerminationProtection"),
 //   	},
-//   	ClusterName: jsii.String("clusterName"),
-//   	ManagedInstancesProvider: &ManagedInstancesProviderProperty{
-//   		InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
-//   		InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
-//   			Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
-//   			NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
-//   				Subnets: []*string{
-//   					jsii.String("subnets"),
-//   				},
-//
-//   				// the properties below are optional
-//   				SecurityGroups: []*string{
-//   					jsii.String("securityGroups"),
-//   				},
-//   			},
-//
-//   			// the properties below are optional
-//   			InstanceRequirements: &InstanceRequirementsRequestProperty{
-//   				MemoryMiB: &MemoryMiBRequestProperty{
-//   					Min: jsii.Number(123),
-//
-//   					// the properties below are optional
-//   					Max: jsii.Number(123),
-//   				},
-//   				VCpuCount: &VCpuCountRangeRequestProperty{
-//   					Min: jsii.Number(123),
-//
-//   					// the properties below are optional
-//   					Max: jsii.Number(123),
-//   				},
-//
-//   				// the properties below are optional
-//   				AcceleratorCount: &AcceleratorCountRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   				AcceleratorManufacturers: []*string{
-//   					jsii.String("acceleratorManufacturers"),
-//   				},
-//   				AcceleratorNames: []*string{
-//   					jsii.String("acceleratorNames"),
-//   				},
-//   				AcceleratorTotalMemoryMiB: &AcceleratorTotalMemoryMiBRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   				AcceleratorTypes: []*string{
-//   					jsii.String("acceleratorTypes"),
-//   				},
-//   				AllowedInstanceTypes: []*string{
-//   					jsii.String("allowedInstanceTypes"),
-//   				},
-//   				BareMetal: jsii.String("bareMetal"),
-//   				BaselineEbsBandwidthMbps: &BaselineEbsBandwidthMbpsRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   				BurstablePerformance: jsii.String("burstablePerformance"),
-//   				CpuManufacturers: []*string{
-//   					jsii.String("cpuManufacturers"),
-//   				},
-//   				ExcludedInstanceTypes: []*string{
-//   					jsii.String("excludedInstanceTypes"),
-//   				},
-//   				InstanceGenerations: []*string{
-//   					jsii.String("instanceGenerations"),
-//   				},
-//   				LocalStorage: jsii.String("localStorage"),
-//   				LocalStorageTypes: []*string{
-//   					jsii.String("localStorageTypes"),
-//   				},
-//   				MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: jsii.Number(123),
-//   				MemoryGiBPerVCpu: &MemoryGiBPerVCpuRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   				NetworkBandwidthGbps: &NetworkBandwidthGbpsRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   				NetworkInterfaceCount: &NetworkInterfaceCountRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   				OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
-//   				RequireHibernateSupport: jsii.Boolean(false),
-//   				SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
-//   				TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
-//   					Max: jsii.Number(123),
-//   					Min: jsii.Number(123),
-//   				},
-//   			},
-//   			Monitoring: jsii.String("monitoring"),
-//   			StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
-//   				StorageSizeGiB: jsii.Number(123),
-//   			},
-//   		},
-//
-//   		// the properties below are optional
-//   		PropagateTags: jsii.String("propagateTags"),
-//   	},
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -162,8 +61,6 @@ type CfnCapacityProvider interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	ClusterName() *string
-	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -178,8 +75,6 @@ type CfnCapacityProvider interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	ManagedInstancesProvider() interface{}
-	SetManagedInstancesProvider(val interface{})
 	// The name of the capacity provider.
 	Name() *string
 	SetName(val *string)
@@ -397,16 +292,6 @@ func (j *jsiiProxy_CfnCapacityProvider) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityProvider) ClusterName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"clusterName",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnCapacityProvider) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -422,16 +307,6 @@ func (j *jsiiProxy_CfnCapacityProvider) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCapacityProvider) ManagedInstancesProvider() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"managedInstancesProvider",
 		&returns,
 	)
 	return returns
@@ -556,25 +431,6 @@ func (j *jsiiProxy_CfnCapacityProvider)SetAutoScalingGroupProvider(val interface
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityProvider)SetClusterName(val *string) {
-	_jsii_.Set(
-		j,
-		"clusterName",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnCapacityProvider)SetManagedInstancesProvider(val interface{}) {
-	if err := j.validateSetManagedInstancesProviderParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"managedInstancesProvider",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnCapacityProvider)SetName(val *string) {
 	_jsii_.Set(
 		j,
@@ -592,25 +448,6 @@ func (j *jsiiProxy_CfnCapacityProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-// Creates a new ICapacityProviderRef from a capacityProviderName.
-func CfnCapacityProvider_FromCapacityProviderName(scope constructs.Construct, id *string, capacityProviderName *string) ICapacityProviderRef {
-	_init_.Initialize()
-
-	if err := validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope, id, capacityProviderName); err != nil {
-		panic(err)
-	}
-	var returns ICapacityProviderRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
-		"fromCapacityProviderName",
-		[]interface{}{scope, id, capacityProviderName},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

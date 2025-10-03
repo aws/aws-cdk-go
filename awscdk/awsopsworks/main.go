@@ -531,7 +531,6 @@ func init() {
 		"aws-cdk-lib.aws_opsworks.IAppRef",
 		reflect.TypeOf((*IAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "appRef", GoGetter: "AppRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -544,7 +543,6 @@ func init() {
 		"aws-cdk-lib.aws_opsworks.IElasticLoadBalancerAttachmentRef",
 		reflect.TypeOf((*IElasticLoadBalancerAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "elasticLoadBalancerAttachmentRef", GoGetter: "ElasticLoadBalancerAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -557,7 +555,6 @@ func init() {
 		"aws-cdk-lib.aws_opsworks.IInstanceRef",
 		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -570,7 +567,6 @@ func init() {
 		"aws-cdk-lib.aws_opsworks.ILayerRef",
 		reflect.TypeOf((*ILayerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "layerRef", GoGetter: "LayerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -584,7 +580,6 @@ func init() {
 		reflect.TypeOf((*IStackRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stackRef", GoGetter: "StackRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackRef{}
@@ -597,7 +592,6 @@ func init() {
 		reflect.TypeOf((*IUserProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "userProfileRef", GoGetter: "UserProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserProfileRef{}
@@ -610,7 +604,6 @@ func init() {
 		reflect.TypeOf((*IVolumeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "volumeRef", GoGetter: "VolumeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolumeRef{}

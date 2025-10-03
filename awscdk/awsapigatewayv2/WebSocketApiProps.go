@@ -4,8 +4,25 @@ package awsapigatewayv2
 // Props for WebSocket API.
 //
 // Example:
-//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
-//   	ApiKeySelectionExpression: apigwv2.WebSocketApiKeySelectionExpression_HEADER_X_API_KEY(),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // This function handles your auth logic
+//   var authHandler function
+//
+//   // This function handles your WebSocket requests
+//   var handler function
+//
+//
+//   authorizer := awscdk.NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
+//
+//   integration := awscdk.NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
+//
+//   apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &WebSocketApiProps{
+//   	ConnectRouteOptions: &WebSocketRouteOptions{
+//   		Integration: *Integration,
+//   		Authorizer: *Authorizer,
+//   	},
 //   })
 //
 type WebSocketApiProps struct {
@@ -31,10 +48,6 @@ type WebSocketApiProps struct {
 	// Default: - none.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Avoid validating models when creating a deployment.
-	// Default: false.
-	//
-	DisableSchemaValidation *bool `field:"optional" json:"disableSchemaValidation" yaml:"disableSchemaValidation"`
 	// Options to configure a '$disconnect' route.
 	// Default: - no '$disconnect' route configured.
 	//

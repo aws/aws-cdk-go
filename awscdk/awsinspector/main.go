@@ -198,7 +198,6 @@ func init() {
 		"aws-cdk-lib.aws_inspector.IAssessmentTargetRef",
 		reflect.TypeOf((*IAssessmentTargetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assessmentTargetRef", GoGetter: "AssessmentTargetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -227,7 +226,6 @@ func init() {
 		"aws-cdk-lib.aws_inspector.IAssessmentTemplateRef",
 		reflect.TypeOf((*IAssessmentTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assessmentTemplateRef", GoGetter: "AssessmentTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -241,7 +239,6 @@ func init() {
 		reflect.TypeOf((*IResourceGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourceGroupRef", GoGetter: "ResourceGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceGroupRef{}

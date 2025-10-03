@@ -39,7 +39,6 @@ type CodeSigningConfig interface {
 	CodeSigningConfigArn() *string
 	// The id of Code Signing Config.
 	CodeSigningConfigId() *string
-	// A reference to a CodeSigningConfig resource.
 	CodeSigningConfigRef() *CodeSigningConfigReference
 	// The environment this resource belongs to.
 	//

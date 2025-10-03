@@ -278,7 +278,6 @@ func init() {
 		"aws-cdk-lib.aws_redshiftserverless.INamespaceRef",
 		reflect.TypeOf((*INamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "namespaceRef", GoGetter: "NamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -292,7 +291,6 @@ func init() {
 		reflect.TypeOf((*ISnapshotRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "snapshotRef", GoGetter: "SnapshotRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISnapshotRef{}
@@ -305,7 +303,6 @@ func init() {
 		reflect.TypeOf((*IWorkgroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workgroupRef", GoGetter: "WorkgroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkgroupRef{}

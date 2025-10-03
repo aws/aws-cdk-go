@@ -471,44 +471,6 @@ func (j *jsiiProxy_CfnNode)SetNodeConfiguration(val interface{}) {
 	)
 }
 
-// Creates a new INodeRef from an ARN.
-func CfnNode_FromNodeArn(scope constructs.Construct, id *string, arn *string) INodeRef {
-	_init_.Initialize()
-
-	if err := validateCfnNode_FromNodeArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns INodeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_managedblockchain.CfnNode",
-		"fromNodeArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new INodeRef from a nodeId.
-func CfnNode_FromNodeId(scope constructs.Construct, id *string, nodeId *string) INodeRef {
-	_init_.Initialize()
-
-	if err := validateCfnNode_FromNodeIdParameters(scope, id, nodeId); err != nil {
-		panic(err)
-	}
-	var returns INodeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_managedblockchain.CfnNode",
-		"fromNodeId",
-		[]interface{}{scope, id, nodeId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -377,7 +377,6 @@ func init() {
 		"aws-cdk-lib.aws_iotevents.IAlarmModelRef",
 		reflect.TypeOf((*IAlarmModelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "alarmModelRef", GoGetter: "AlarmModelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -390,7 +389,6 @@ func init() {
 		"aws-cdk-lib.aws_iotevents.IDetectorModelRef",
 		reflect.TypeOf((*IDetectorModelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "detectorModelRef", GoGetter: "DetectorModelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -403,7 +401,6 @@ func init() {
 		"aws-cdk-lib.aws_iotevents.IInputRef",
 		reflect.TypeOf((*IInputRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "inputRef", GoGetter: "InputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

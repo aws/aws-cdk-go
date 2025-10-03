@@ -47,8 +47,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var hookDetails interface{}
-//
 //   cfnService := awscdk.Aws_ecs.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
 //   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
 //   	CapacityProviderStrategy: []interface{}{
@@ -79,9 +77,6 @@ import (
 //   					jsii.String("lifecycleStages"),
 //   				},
 //   				RoleArn: jsii.String("roleArn"),
-//
-//   				// the properties below are optional
-//   				HookDetails: hookDetails,
 //   			},
 //   		},
 //   		MaximumPercent: jsii.Number(123),
@@ -316,7 +311,7 @@ type CfnService interface {
 	// Determines whether to force a new deployment of the service.
 	ForceNewDeployment() interface{}
 	SetForceNewDeployment(val interface{})
-	// The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
+	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	HealthCheckGracePeriodSeconds() *float64
 	SetHealthCheckGracePeriodSeconds(val *float64)
 	// The launch type on which to run your service.

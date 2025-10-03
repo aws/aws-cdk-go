@@ -27,14 +27,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDBProxy := awscdk.Aws_rds.NewCfnDBProxy(this, jsii.String("MyCfnDBProxy"), &CfnDBProxyProps{
-//   	DbProxyName: jsii.String("dbProxyName"),
-//   	EngineFamily: jsii.String("engineFamily"),
-//   	RoleArn: jsii.String("roleArn"),
-//   	VpcSubnetIds: []*string{
-//   		jsii.String("vpcSubnetIds"),
-//   	},
-//
-//   	// the properties below are optional
 //   	Auth: []interface{}{
 //   		&AuthFormatProperty{
 //   			AuthScheme: jsii.String("authScheme"),
@@ -44,9 +36,15 @@ import (
 //   			SecretArn: jsii.String("secretArn"),
 //   		},
 //   	},
+//   	DbProxyName: jsii.String("dbProxyName"),
+//   	EngineFamily: jsii.String("engineFamily"),
+//   	RoleArn: jsii.String("roleArn"),
+//   	VpcSubnetIds: []*string{
+//   		jsii.String("vpcSubnetIds"),
+//   	},
+//
+//   	// the properties below are optional
 //   	DebugLogging: jsii.Boolean(false),
-//   	DefaultAuthScheme: jsii.String("defaultAuthScheme"),
-//   	EndpointNetworkType: jsii.String("endpointNetworkType"),
 //   	IdleClientTimeout: jsii.Number(123),
 //   	RequireTls: jsii.Boolean(false),
 //   	Tags: []tagFormatProperty{
@@ -55,7 +53,6 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TargetConnectionNetworkType: jsii.String("targetConnectionNetworkType"),
 //   	VpcSecurityGroupIds: []*string{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
@@ -98,12 +95,6 @@ type CfnDBProxy interface {
 	// Specifies whether the proxy logs detailed connection and query information.
 	DebugLogging() interface{}
 	SetDebugLogging(val interface{})
-	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
-	DefaultAuthScheme() *string
-	SetDefaultAuthScheme(val *string)
-	// The network type of the DB proxy endpoint.
-	EndpointNetworkType() *string
-	SetEndpointNetworkType(val *string)
 	// The kinds of databases that the proxy can connect to.
 	EngineFamily() *string
 	SetEngineFamily(val *string)
@@ -140,9 +131,6 @@ type CfnDBProxy interface {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags() *[]*CfnDBProxy_TagFormatProperty
 	SetTags(val *[]*CfnDBProxy_TagFormatProperty)
-	// The network type that the proxy uses to connect to the target database.
-	TargetConnectionNetworkType() *string
-	SetTargetConnectionNetworkType(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -417,26 +405,6 @@ func (j *jsiiProxy_CfnDBProxy) DebugLogging() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxy) DefaultAuthScheme() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"defaultAuthScheme",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDBProxy) EndpointNetworkType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"endpointNetworkType",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDBProxy) EngineFamily() *string {
 	var returns *string
 	_jsii_.Get(
@@ -522,16 +490,6 @@ func (j *jsiiProxy_CfnDBProxy) Tags() *[]*CfnDBProxy_TagFormatProperty {
 	_jsii_.Get(
 		j,
 		"tags",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDBProxy) TargetConnectionNetworkType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"targetConnectionNetworkType",
 		&returns,
 	)
 	return returns
@@ -638,22 +596,6 @@ func (j *jsiiProxy_CfnDBProxy)SetDebugLogging(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBProxy)SetDefaultAuthScheme(val *string) {
-	_jsii_.Set(
-		j,
-		"defaultAuthScheme",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDBProxy)SetEndpointNetworkType(val *string) {
-	_jsii_.Set(
-		j,
-		"endpointNetworkType",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnDBProxy)SetEngineFamily(val *string) {
 	if err := j.validateSetEngineFamilyParameters(val); err != nil {
 		panic(err)
@@ -702,14 +644,6 @@ func (j *jsiiProxy_CfnDBProxy)SetTags(val *[]*CfnDBProxy_TagFormatProperty) {
 	_jsii_.Set(
 		j,
 		"tags",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDBProxy)SetTargetConnectionNetworkType(val *string) {
-	_jsii_.Set(
-		j,
-		"targetConnectionNetworkType",
 		val,
 	)
 }

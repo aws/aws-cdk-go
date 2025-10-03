@@ -924,44 +924,6 @@ func (j *jsiiProxy_CfnAlarm)SetUnit(val *string) {
 	)
 }
 
-// Creates a new IAlarmRef from an ARN.
-func CfnAlarm_FromAlarmArn(scope constructs.Construct, id *string, arn *string) IAlarmRef {
-	_init_.Initialize()
-
-	if err := validateCfnAlarm_FromAlarmArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAlarmRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
-		"fromAlarmArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAlarmRef from a alarmName.
-func CfnAlarm_FromAlarmName(scope constructs.Construct, id *string, alarmName *string) IAlarmRef {
-	_init_.Initialize()
-
-	if err := validateCfnAlarm_FromAlarmNameParameters(scope, id, alarmName); err != nil {
-		panic(err)
-	}
-	var returns IAlarmRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
-		"fromAlarmName",
-		[]interface{}{scope, id, alarmName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

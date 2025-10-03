@@ -91,7 +91,6 @@ func init() {
 		"aws-cdk-lib.aws_lookoutequipment.IInferenceSchedulerRef",
 		reflect.TypeOf((*IInferenceSchedulerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "inferenceSchedulerRef", GoGetter: "InferenceSchedulerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

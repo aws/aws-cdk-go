@@ -465,44 +465,6 @@ func (j *jsiiProxy_CfnACL)SetUserNames(val *[]*string) {
 	)
 }
 
-// Creates a new IACLRef from an ARN.
-func CfnACL_FromACLArn(scope constructs.Construct, id *string, arn *string) IACLRef {
-	_init_.Initialize()
-
-	if err := validateCfnACL_FromACLArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IACLRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_memorydb.CfnACL",
-		"fromACLArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IACLRef from a aclName.
-func CfnACL_FromAclName(scope constructs.Construct, id *string, aclName *string) IACLRef {
-	_init_.Initialize()
-
-	if err := validateCfnACL_FromAclNameParameters(scope, id, aclName); err != nil {
-		panic(err)
-	}
-	var returns IACLRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_memorydb.CfnACL",
-		"fromAclName",
-		[]interface{}{scope, id, aclName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

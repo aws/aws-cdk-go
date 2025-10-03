@@ -447,25 +447,6 @@ func (j *jsiiProxy_CfnResourcePolicy)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IResourcePolicyRef from an ARN.
-func CfnResourcePolicy_FromResourcePolicyArn(scope constructs.Construct, id *string, arn *string) IResourcePolicyRef {
-	_init_.Initialize()
-
-	if err := validateCfnResourcePolicy_FromResourcePolicyArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IResourcePolicyRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_organizations.CfnResourcePolicy",
-		"fromResourcePolicyArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

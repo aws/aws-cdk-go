@@ -380,7 +380,6 @@ func init() {
 		"aws-cdk-lib.aws_globalaccelerator.IAcceleratorRef",
 		reflect.TypeOf((*IAcceleratorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "acceleratorRef", GoGetter: "AcceleratorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -393,7 +392,6 @@ func init() {
 		"aws-cdk-lib.aws_globalaccelerator.ICrossAccountAttachmentRef",
 		reflect.TypeOf((*ICrossAccountAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "crossAccountAttachmentRef", GoGetter: "CrossAccountAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -433,7 +431,6 @@ func init() {
 		"aws-cdk-lib.aws_globalaccelerator.IEndpointGroupRef",
 		reflect.TypeOf((*IEndpointGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointGroupRef", GoGetter: "EndpointGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -462,7 +459,6 @@ func init() {
 		"aws-cdk-lib.aws_globalaccelerator.IListenerRef",
 		reflect.TypeOf((*IListenerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateValidatePropertiesParam
 	return nil
 }
 
-func validateCfnEgressOnlyInternetGateway_FromEgressOnlyInternetGatewayIdParameters(scope constructs.Construct, id *string, egressOnlyInternetGatewayId *string) error {
-	return nil
-}
-
 func validateCfnEgressOnlyInternetGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

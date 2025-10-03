@@ -669,44 +669,6 @@ func (j *jsiiProxy_CfnSequenceStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
-// Creates a new ISequenceStoreRef from an ARN.
-func CfnSequenceStore_FromSequenceStoreArn(scope constructs.Construct, id *string, arn *string) ISequenceStoreRef {
-	_init_.Initialize()
-
-	if err := validateCfnSequenceStore_FromSequenceStoreArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ISequenceStoreRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_omics.CfnSequenceStore",
-		"fromSequenceStoreArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ISequenceStoreRef from a sequenceStoreId.
-func CfnSequenceStore_FromSequenceStoreId(scope constructs.Construct, id *string, sequenceStoreId *string) ISequenceStoreRef {
-	_init_.Initialize()
-
-	if err := validateCfnSequenceStore_FromSequenceStoreIdParameters(scope, id, sequenceStoreId); err != nil {
-		panic(err)
-	}
-	var returns ISequenceStoreRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_omics.CfnSequenceStore",
-		"fromSequenceStoreId",
-		[]interface{}{scope, id, sequenceStoreId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

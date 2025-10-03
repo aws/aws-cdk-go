@@ -32,7 +32,6 @@ import (
 //   	// the properties below are optional
 //   	EventSourceToken: jsii.String("eventSourceToken"),
 //   	FunctionUrlAuthType: jsii.String("functionUrlAuthType"),
-//   	InvokedViaFunctionUrl: jsii.Boolean(false),
 //   	PrincipalOrgId: jsii.String("principalOrgId"),
 //   	SourceAccount: jsii.String("sourceAccount"),
 //   	SourceArn: jsii.String("sourceArn"),
@@ -66,8 +65,6 @@ type CfnPermission interface {
 	// The type of authentication that your function URL uses.
 	FunctionUrlAuthType() *string
 	SetFunctionUrlAuthType(val *string)
-	InvokedViaFunctionUrl() interface{}
-	SetInvokedViaFunctionUrl(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -340,16 +337,6 @@ func (j *jsiiProxy_CfnPermission) FunctionUrlAuthType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermission) InvokedViaFunctionUrl() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"invokedViaFunctionUrl",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnPermission) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -522,17 +509,6 @@ func (j *jsiiProxy_CfnPermission)SetFunctionUrlAuthType(val *string) {
 	_jsii_.Set(
 		j,
 		"functionUrlAuthType",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnPermission)SetInvokedViaFunctionUrl(val interface{}) {
-	if err := j.validateSetInvokedViaFunctionUrlParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"invokedViaFunctionUrl",
 		val,
 	)
 }

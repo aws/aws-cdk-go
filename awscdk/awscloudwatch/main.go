@@ -910,7 +910,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.IAlarmRef",
 		reflect.TypeOf((*IAlarmRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "alarmRef", GoGetter: "AlarmRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -933,7 +932,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.IAnomalyDetectorRef",
 		reflect.TypeOf((*IAnomalyDetectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "anomalyDetectorRef", GoGetter: "AnomalyDetectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -946,7 +944,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.ICompositeAlarmRef",
 		reflect.TypeOf((*ICompositeAlarmRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "compositeAlarmRef", GoGetter: "CompositeAlarmRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -959,7 +956,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.IDashboardRef",
 		reflect.TypeOf((*IDashboardRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dashboardRef", GoGetter: "DashboardRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -972,7 +968,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.IInsightRuleRef",
 		reflect.TypeOf((*IInsightRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "insightRuleRef", GoGetter: "InsightRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -997,7 +992,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.IMetricStreamRef",
 		reflect.TypeOf((*IMetricStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "metricStreamRef", GoGetter: "MetricStreamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

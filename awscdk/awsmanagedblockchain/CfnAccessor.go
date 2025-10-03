@@ -501,44 +501,6 @@ func (j *jsiiProxy_CfnAccessor)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAccessorRef from an ARN.
-func CfnAccessor_FromAccessorArn(scope constructs.Construct, id *string, arn *string) IAccessorRef {
-	_init_.Initialize()
-
-	if err := validateCfnAccessor_FromAccessorArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAccessorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_managedblockchain.CfnAccessor",
-		"fromAccessorArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAccessorRef from a accessorId.
-func CfnAccessor_FromAccessorId(scope constructs.Construct, id *string, accessorId *string) IAccessorRef {
-	_init_.Initialize()
-
-	if err := validateCfnAccessor_FromAccessorIdParameters(scope, id, accessorId); err != nil {
-		panic(err)
-	}
-	var returns IAccessorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_managedblockchain.CfnAccessor",
-		"fromAccessorId",
-		[]interface{}{scope, id, accessorId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

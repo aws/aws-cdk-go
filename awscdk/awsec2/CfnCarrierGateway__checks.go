@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnCarrierGateway) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnCarrierGateway_FromCarrierGatewayIdParameters(scope constructs.Construct, id *string, carrierGatewayId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if carrierGatewayId == nil {
-		return fmt.Errorf("parameter carrierGatewayId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnCarrierGateway_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

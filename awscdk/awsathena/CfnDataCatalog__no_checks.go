@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnDataCatalog) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnDataCatalog_FromDataCatalogNameParameters(scope constructs.Construct, id *string, dataCatalogName *string) error {
-	return nil
-}
-
 func validateCfnDataCatalog_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

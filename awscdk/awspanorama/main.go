@@ -214,7 +214,6 @@ func init() {
 		"aws-cdk-lib.aws_panorama.IApplicationInstanceRef",
 		reflect.TypeOf((*IApplicationInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationInstanceRef", GoGetter: "ApplicationInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -228,7 +227,6 @@ func init() {
 		reflect.TypeOf((*IPackageRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "packageRef", GoGetter: "PackageRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPackageRef{}
@@ -241,7 +239,6 @@ func init() {
 		reflect.TypeOf((*IPackageVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "packageVersionRef", GoGetter: "PackageVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPackageVersionRef{}

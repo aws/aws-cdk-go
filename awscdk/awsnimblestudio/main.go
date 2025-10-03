@@ -313,7 +313,6 @@ func init() {
 		"aws-cdk-lib.aws_nimblestudio.ILaunchProfileRef",
 		reflect.TypeOf((*ILaunchProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "launchProfileRef", GoGetter: "LaunchProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -327,7 +326,6 @@ func init() {
 		reflect.TypeOf((*IStreamingImageRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "streamingImageRef", GoGetter: "StreamingImageRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamingImageRef{}
@@ -340,7 +338,6 @@ func init() {
 		reflect.TypeOf((*IStudioComponentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "studioComponentRef", GoGetter: "StudioComponentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStudioComponentRef{}
@@ -353,7 +350,6 @@ func init() {
 		reflect.TypeOf((*IStudioRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "studioRef", GoGetter: "StudioRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStudioRef{}

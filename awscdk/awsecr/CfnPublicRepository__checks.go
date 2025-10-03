@@ -155,38 +155,6 @@ func (c *jsiiProxy_CfnPublicRepository) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnPublicRepository_FromPublicRepositoryArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnPublicRepository_FromRepositoryNameParameters(scope constructs.Construct, id *string, repositoryName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if repositoryName == nil {
-		return fmt.Errorf("parameter repositoryName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnPublicRepository_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

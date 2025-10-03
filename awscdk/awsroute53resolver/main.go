@@ -694,7 +694,6 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IFirewallDomainListRef",
 		reflect.TypeOf((*IFirewallDomainListRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "firewallDomainListRef", GoGetter: "FirewallDomainListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -707,7 +706,6 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IFirewallRuleGroupAssociationRef",
 		reflect.TypeOf((*IFirewallRuleGroupAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupAssociationRef", GoGetter: "FirewallRuleGroupAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -720,7 +718,6 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IFirewallRuleGroupRef",
 		reflect.TypeOf((*IFirewallRuleGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupRef", GoGetter: "FirewallRuleGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -734,7 +731,6 @@ func init() {
 		reflect.TypeOf((*IOutpostResolverRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "outpostResolverRef", GoGetter: "OutpostResolverRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOutpostResolverRef{}
@@ -747,7 +743,6 @@ func init() {
 		reflect.TypeOf((*IResolverConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverConfigRef", GoGetter: "ResolverConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverConfigRef{}
@@ -760,7 +755,6 @@ func init() {
 		reflect.TypeOf((*IResolverDNSSECConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverDnssecConfigRef", GoGetter: "ResolverDnssecConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverDNSSECConfigRef{}
@@ -773,7 +767,6 @@ func init() {
 		reflect.TypeOf((*IResolverEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverEndpointRef", GoGetter: "ResolverEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverEndpointRef{}
@@ -786,7 +779,6 @@ func init() {
 		reflect.TypeOf((*IResolverQueryLoggingConfigAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverQueryLoggingConfigAssociationRef", GoGetter: "ResolverQueryLoggingConfigAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverQueryLoggingConfigAssociationRef{}
@@ -799,7 +791,6 @@ func init() {
 		reflect.TypeOf((*IResolverQueryLoggingConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverQueryLoggingConfigRef", GoGetter: "ResolverQueryLoggingConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverQueryLoggingConfigRef{}
@@ -812,7 +803,6 @@ func init() {
 		reflect.TypeOf((*IResolverRuleAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverRuleAssociationRef", GoGetter: "ResolverRuleAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverRuleAssociationRef{}
@@ -825,7 +815,6 @@ func init() {
 		reflect.TypeOf((*IResolverRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resolverRuleRef", GoGetter: "ResolverRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverRuleRef{}

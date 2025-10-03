@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnTracker) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnTracker_FromTrackerArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnTracker_FromTrackerNameParameters(scope constructs.Construct, id *string, trackerName *string) error {
-	return nil
-}
-
 func validateCfnTracker_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -494,44 +494,6 @@ func (j *jsiiProxy_CfnVirtualCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IVirtualClusterRef from an ARN.
-func CfnVirtualCluster_FromVirtualClusterArn(scope constructs.Construct, id *string, arn *string) IVirtualClusterRef {
-	_init_.Initialize()
-
-	if err := validateCfnVirtualCluster_FromVirtualClusterArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IVirtualClusterRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emrcontainers.CfnVirtualCluster",
-		"fromVirtualClusterArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IVirtualClusterRef from a virtualClusterId.
-func CfnVirtualCluster_FromVirtualClusterId(scope constructs.Construct, id *string, virtualClusterId *string) IVirtualClusterRef {
-	_init_.Initialize()
-
-	if err := validateCfnVirtualCluster_FromVirtualClusterIdParameters(scope, id, virtualClusterId); err != nil {
-		panic(err)
-	}
-	var returns IVirtualClusterRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_emrcontainers.CfnVirtualCluster",
-		"fromVirtualClusterId",
-		[]interface{}{scope, id, virtualClusterId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

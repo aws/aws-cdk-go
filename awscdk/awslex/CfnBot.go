@@ -57,8 +57,6 @@ type CfnBot interface {
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
-	ErrorLogSettings() interface{}
-	SetErrorLogSettings(val interface{})
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	IdleSessionTtlInSeconds() *float64
 	SetIdleSessionTtlInSeconds(val *float64)
@@ -374,16 +372,6 @@ func (j *jsiiProxy_CfnBot) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBot) ErrorLogSettings() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"errorLogSettings",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnBot) IdleSessionTtlInSeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -591,17 +579,6 @@ func (j *jsiiProxy_CfnBot)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnBot)SetErrorLogSettings(val interface{}) {
-	if err := j.validateSetErrorLogSettingsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"errorLogSettings",
 		val,
 	)
 }

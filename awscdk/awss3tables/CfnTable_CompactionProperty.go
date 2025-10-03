@@ -1,6 +1,8 @@
 package awss3tables
 
 
+// Settings governing the Compaction maintenance action.
+//
 // Contains details about the compaction settings for an Iceberg table.
 //
 // Example:
@@ -16,7 +18,7 @@ package awss3tables
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-compaction.html
 //
 type CfnTable_CompactionProperty struct {
-	// The status of the maintenance configuration.
+	// Indicates whether the Compaction maintenance action is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-compaction.html#cfn-s3tables-table-compaction-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

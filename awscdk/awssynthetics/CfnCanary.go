@@ -162,7 +162,7 @@ type CfnCanary interface {
 	//
 	// For example, `RUNNING` .
 	AttrState() *string
-	// A structure that specifies the browser type to use for a canary run.
+	// List of browser configurations for the canary.
 	BrowserConfigs() interface{}
 	SetBrowserConfigs(val interface{})
 	// A reference to a Canary resource.
@@ -256,11 +256,12 @@ type CfnCanary interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates of any parts of the screen to ignore during the visual monitoring comparison.
 	// Deprecated: this property has been deprecated.
 	VisualReference() interface{}
 	// Deprecated: this property has been deprecated.
 	SetVisualReference(val interface{})
-	// A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on.
+	// List of visual references for the canary.
 	VisualReferences() interface{}
 	SetVisualReferences(val interface{})
 	// If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint.
@@ -985,25 +986,6 @@ func (j *jsiiProxy_CfnCanary)SetVpcConfig(val interface{}) {
 		"vpcConfig",
 		val,
 	)
-}
-
-// Creates a new ICanaryRef from a canaryName.
-func CfnCanary_FromCanaryName(scope constructs.Construct, id *string, canaryName *string) ICanaryRef {
-	_init_.Initialize()
-
-	if err := validateCfnCanary_FromCanaryNameParameters(scope, id, canaryName); err != nil {
-		panic(err)
-	}
-	var returns ICanaryRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_synthetics.CfnCanary",
-		"fromCanaryName",
-		[]interface{}{scope, id, canaryName},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

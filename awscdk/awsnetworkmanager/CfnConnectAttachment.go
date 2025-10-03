@@ -75,8 +75,6 @@ type CfnConnectAttachment interface {
 	AttrCoreNetworkArn() *string
 	// The timestamp when the Connect attachment was created.
 	AttrCreatedAt() *string
-	// Errors from the last modification of the attachment.
-	AttrLastModificationErrors() *[]*string
 	// The ID of the Connect attachment owner.
 	AttrOwnerAccountId() *string
 	// The resource ARN for the Connect attachment.
@@ -340,16 +338,6 @@ func (j *jsiiProxy_CfnConnectAttachment) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConnectAttachment) AttrLastModificationErrors() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns
@@ -716,25 +704,6 @@ func (j *jsiiProxy_CfnConnectAttachment)SetTransportAttachmentId(val *string) {
 		"transportAttachmentId",
 		val,
 	)
-}
-
-// Creates a new IConnectAttachmentRef from a attachmentId.
-func CfnConnectAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) IConnectAttachmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnConnectAttachment_FromAttachmentIdParameters(scope, id, attachmentId); err != nil {
-		panic(err)
-	}
-	var returns IConnectAttachmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment",
-		"fromAttachmentId",
-		[]interface{}{scope, id, attachmentId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

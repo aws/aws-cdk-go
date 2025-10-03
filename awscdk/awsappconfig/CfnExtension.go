@@ -563,25 +563,6 @@ func (j *jsiiProxy_CfnExtension)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IExtensionRef from an ARN.
-func CfnExtension_FromExtensionArn(scope constructs.Construct, id *string, arn *string) IExtensionRef {
-	_init_.Initialize()
-
-	if err := validateCfnExtension_FromExtensionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IExtensionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appconfig.CfnExtension",
-		"fromExtensionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

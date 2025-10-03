@@ -26,11 +26,11 @@ type LoggingConfig struct {
 	// The IAM role to be used when logging failed message deliveries in Amazon CloudWatch.
 	// Default: None.
 	//
-	FailureFeedbackRole awsiam.IRoleRef `field:"optional" json:"failureFeedbackRole" yaml:"failureFeedbackRole"`
+	FailureFeedbackRole awsiam.IRole `field:"optional" json:"failureFeedbackRole" yaml:"failureFeedbackRole"`
 	// The IAM role to be used when logging successful message deliveries in Amazon CloudWatch.
 	// Default: None.
 	//
-	SuccessFeedbackRole awsiam.IRoleRef `field:"optional" json:"successFeedbackRole" yaml:"successFeedbackRole"`
+	SuccessFeedbackRole awsiam.IRole `field:"optional" json:"successFeedbackRole" yaml:"successFeedbackRole"`
 	// The percentage of successful message deliveries to be logged in Amazon CloudWatch.
 	//
 	// Valid values are integer between 0-100.

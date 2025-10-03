@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var keyRef iKeyRef
+//   var key key
 //   var role role
 //
 //   serviceConnectService := &ServiceConnectService{
@@ -29,7 +29,7 @@ import (
 //   	Port: jsii.Number(123),
 //   	Tls: &ServiceConnectTlsConfiguration{
 //   		AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
-//   		KmsKey: keyRef,
+//   		KmsKey: key,
 //   		Role: role,
 //   	},
 //   }

@@ -41,7 +41,7 @@ type SaslTlsAuthProps struct {
 	// Default: - CMK will be created with alias msk/{clusterName}/sasl/scram.
 	//
 	// Experimental.
-	Key awskms.IKeyRef `field:"optional" json:"key" yaml:"key"`
+	Key awskms.IKey `field:"optional" json:"key" yaml:"key"`
 	// Enable SASL/SCRAM authentication.
 	// Default: false.
 	//

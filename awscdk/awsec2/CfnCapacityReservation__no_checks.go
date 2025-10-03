@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnCapacityReservation) validateValidatePropertiesParameters(
 	return nil
 }
 
-func validateCfnCapacityReservation_FromCapacityReservationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnCapacityReservation_FromCapacityReservationIdParameters(scope constructs.Construct, id *string, capacityReservationId *string) error {
-	return nil
-}
-
 func validateCfnCapacityReservation_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

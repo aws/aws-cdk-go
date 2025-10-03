@@ -34,8 +34,6 @@ type CfnProjectMembership interface {
 	awscdk.CfnResource
 	IProjectMembershipRef
 	awscdk.IInspectable
-	AttrMemberIdentifier() *string
-	AttrMemberIdentifierType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -225,26 +223,6 @@ type jsiiProxy_CfnProjectMembership struct {
 	internal.Type__awscdkCfnResource
 	jsiiProxy_IProjectMembershipRef
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnProjectMembership) AttrMemberIdentifier() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrMemberIdentifier",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnProjectMembership) AttrMemberIdentifierType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrMemberIdentifierType",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnProjectMembership) CfnOptions() awscdk.ICfnResourceOptions {

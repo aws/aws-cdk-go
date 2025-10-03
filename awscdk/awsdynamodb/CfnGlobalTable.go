@@ -226,8 +226,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
-//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
 //   	GlobalTableWitnesses: []interface{}{
 //   		&GlobalTableWitnessProperty{
 //   			Region: jsii.String("region"),
@@ -333,10 +331,6 @@ type CfnGlobalTable interface {
 	SetGlobalSecondaryIndexes(val interface{})
 	// A reference to a GlobalTable resource.
 	GlobalTableRef() *GlobalTableReference
-	GlobalTableSettingsReplicationMode() *string
-	SetGlobalTableSettingsReplicationMode(val *string)
-	GlobalTableSourceArn() *string
-	SetGlobalTableSourceArn(val *string)
 	// The list of witnesses of the MRSC global table.
 	GlobalTableWitnesses() interface{}
 	SetGlobalTableWitnesses(val interface{})
@@ -651,26 +645,6 @@ func (j *jsiiProxy_CfnGlobalTable) GlobalTableRef() *GlobalTableReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalTable) GlobalTableSettingsReplicationMode() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"globalTableSettingsReplicationMode",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnGlobalTable) GlobalTableSourceArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"globalTableSourceArn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnGlobalTable) GlobalTableWitnesses() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -905,22 +879,6 @@ func (j *jsiiProxy_CfnGlobalTable)SetGlobalSecondaryIndexes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"globalSecondaryIndexes",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnGlobalTable)SetGlobalTableSettingsReplicationMode(val *string) {
-	_jsii_.Set(
-		j,
-		"globalTableSettingsReplicationMode",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnGlobalTable)SetGlobalTableSourceArn(val *string) {
-	_jsii_.Set(
-		j,
-		"globalTableSourceArn",
 		val,
 	)
 }

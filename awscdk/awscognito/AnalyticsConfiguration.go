@@ -52,7 +52,7 @@ type AnalyticsConfiguration struct {
 	// The IAM role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
 	// Default: - no configuration, you need to specify either this property along with `applicationId` and `externalId` or `application`.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// If `true`, Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
 	// Default: - false.
 	//

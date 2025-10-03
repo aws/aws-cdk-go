@@ -15,7 +15,7 @@ import (
 //   		Google: &IdentityPoolGoogleLoginProvider{
 //   			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 //   		},
-//   		OpenIdConnectProviders: []iOIDCProviderRef{
+//   		OpenIdConnectProviders: []iOpenIdConnectProvider{
 //   			openIdConnectProvider,
 //   		},
 //   		CustomProvider: jsii.String("my-custom-provider.example.com"),
@@ -48,11 +48,11 @@ type IdentityPoolAuthenticationProviders struct {
 	// The OpenIdConnect Provider associated with this Identity Pool.
 	// Default: - no OpenIdConnectProvider.
 	//
-	OpenIdConnectProviders *[]awsiam.IOIDCProviderRef `field:"optional" json:"openIdConnectProviders" yaml:"openIdConnectProviders"`
+	OpenIdConnectProviders *[]awsiam.IOpenIdConnectProvider `field:"optional" json:"openIdConnectProviders" yaml:"openIdConnectProviders"`
 	// The Security Assertion Markup Language provider associated with this Identity Pool.
 	// Default: - no SamlProvider.
 	//
-	SamlProviders *[]awsiam.ISAMLProviderRef `field:"optional" json:"samlProviders" yaml:"samlProviders"`
+	SamlProviders *[]awsiam.ISamlProvider `field:"optional" json:"samlProviders" yaml:"samlProviders"`
 	// The Twitter Authentication Provider associated with this Identity Pool.
 	// Default: - No Twitter Authentication Provider used without OpenIdConnect or a User Pool.
 	//

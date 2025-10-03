@@ -88,7 +88,6 @@ type LazyRole interface {
 	RoleId() *string
 	// Returns the name of this role.
 	RoleName() *string
-	// A reference to a Role resource.
 	RoleRef() *RoleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

@@ -659,25 +659,6 @@ func (j *jsiiProxy_CfnAgreement)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IAgreementRef from an ARN.
-func CfnAgreement_FromAgreementArn(scope constructs.Construct, id *string, arn *string) IAgreementRef {
-	_init_.Initialize()
-
-	if err := validateCfnAgreement_FromAgreementArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAgreementRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_transfer.CfnAgreement",
-		"fromAgreementArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnProvisioningTemplate) validateValidatePropertiesParameters
 	return nil
 }
 
-func validateCfnProvisioningTemplate_FromTemplateNameParameters(scope constructs.Construct, id *string, templateName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if templateName == nil {
-		return fmt.Errorf("parameter templateName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnProvisioningTemplate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

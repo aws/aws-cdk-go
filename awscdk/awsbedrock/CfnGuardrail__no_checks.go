@@ -80,10 +80,6 @@ func validateCfnGuardrail_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnGuardrail) validateSetAutomatedReasoningPolicyConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnGuardrail) validateSetBlockedInputMessagingParameters(val *string) error {
 	return nil
 }

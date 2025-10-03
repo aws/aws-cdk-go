@@ -26,10 +26,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var roleRef iRoleRef
+//   var role role
 //
 //   crossAccountDestination := awscdk.Aws_logs.NewCrossAccountDestination(this, jsii.String("MyCrossAccountDestination"), &CrossAccountDestinationProps{
-//   	Role: roleRef,
+//   	Role: role,
 //   	TargetArn: jsii.String("targetArn"),
 //
 //   	// the properties below are optional

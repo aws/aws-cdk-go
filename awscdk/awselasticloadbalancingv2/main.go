@@ -656,7 +656,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "enableCapacityReservationProvisionStabilize", GoGetter: "EnableCapacityReservationProvisionStabilize"},
 			_jsii_.MemberProperty{JsiiProperty: "enablePrefixForIpv6SourceNat", GoGetter: "EnablePrefixForIpv6SourceNat"},
 			_jsii_.MemberProperty{JsiiProperty: "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", GoGetter: "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -1142,7 +1141,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IListenerCertificateRef",
 		reflect.TypeOf((*IListenerCertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "listenerCertificateRef", GoGetter: "ListenerCertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1155,7 +1153,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IListenerRef",
 		reflect.TypeOf((*IListenerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1168,7 +1165,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IListenerRuleRef",
 		reflect.TypeOf((*IListenerRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "listenerRuleRef", GoGetter: "ListenerRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1181,7 +1177,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.ILoadBalancerRef",
 		reflect.TypeOf((*ILoadBalancerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1329,7 +1324,6 @@ func init() {
 		reflect.TypeOf((*ITargetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITargetGroupRef{}
@@ -1359,7 +1353,6 @@ func init() {
 		reflect.TypeOf((*ITrustStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "trustStoreRef", GoGetter: "TrustStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrustStoreRef{}
@@ -1372,7 +1365,6 @@ func init() {
 		reflect.TypeOf((*ITrustStoreRevocationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "trustStoreRevocationRef", GoGetter: "TrustStoreRevocationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrustStoreRevocationRef{}
@@ -1731,10 +1723,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITargetGroup)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupHealth",
-		reflect.TypeOf((*TargetGroupHealth)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupIpAddressType",

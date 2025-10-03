@@ -28,7 +28,6 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	EndpointNetworkType: jsii.String("endpointNetworkType"),
 //   	Tags: []tagFormatProperty{
 //   		&tagFormatProperty{
 //   			Key: jsii.String("key"),
@@ -79,9 +78,6 @@ type CfnDBProxyEndpoint interface {
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName() *string
 	SetDbProxyName(val *string)
-	// The network type of the DB proxy endpoint.
-	EndpointNetworkType() *string
-	SetEndpointNetworkType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -383,16 +379,6 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) DbProxyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyEndpoint) EndpointNetworkType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"endpointNetworkType",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDBProxyEndpoint) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -539,14 +525,6 @@ func (j *jsiiProxy_CfnDBProxyEndpoint)SetDbProxyName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbProxyName",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDBProxyEndpoint)SetEndpointNetworkType(val *string) {
-	_jsii_.Set(
-		j,
-		"endpointNetworkType",
 		val,
 	)
 }

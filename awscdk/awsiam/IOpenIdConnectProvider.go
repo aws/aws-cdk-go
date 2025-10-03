@@ -75,16 +75,6 @@ func (j *jsiiProxy_IOpenIdConnectProvider) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_IOpenIdConnectProvider) OidcProviderRef() *OIDCProviderReference {
-	var returns *OIDCProviderReference
-	_jsii_.Get(
-		j,
-		"oidcProviderRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IOpenIdConnectProvider) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

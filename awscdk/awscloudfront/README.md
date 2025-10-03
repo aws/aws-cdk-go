@@ -815,7 +815,7 @@ pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps
 })
 
 keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-	Items: []iPublicKeyRef{
+	Items: []iPublicKey{
 		pubKey,
 	},
 })
@@ -823,7 +823,7 @@ keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupPro
 cloudfront.NewDistribution(this, jsii.String("Dist"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
 		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-		TrustedKeyGroups: []iKeyGroupRef{
+		TrustedKeyGroups: []iKeyGroup{
 			keyGroup,
 		},
 	},
@@ -1645,7 +1645,7 @@ pubKey := cloudfront.NewPublicKey(this, jsii.String("MyPubKey"), &PublicKeyProps
 })
 
 keyGroup := cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-	Items: []iPublicKeyRef{
+	Items: []iPublicKey{
 		pubKey,
 	},
 })
@@ -1791,7 +1791,7 @@ Example:
 // Create a key group to use with CloudFront signed URLs and signed cookies.
 // Create a key group to use with CloudFront signed URLs and signed cookies.
 cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-	Items: []iPublicKeyRef{
+	Items: []iPublicKey{
 		cloudfront.NewPublicKey(this, jsii.String("MyPublicKey"), &PublicKeyProps{
 			EncodedKey: jsii.String("..."),
 		}),

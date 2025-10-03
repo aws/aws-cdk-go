@@ -75,7 +75,7 @@ type CfnTypeActivationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
 	//
 	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
-	// An alias to assign to the public extension in this account and Region.
+	// An alias to assign to the public extension, in this account and Region.
 	//
 	// If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and Region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
 	//

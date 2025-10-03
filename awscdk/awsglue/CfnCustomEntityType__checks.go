@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnCustomEntityType) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope constructs.Construct, id *string, customEntityTypeId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if customEntityTypeId == nil {
-		return fmt.Errorf("parameter customEntityTypeId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnCustomEntityType_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

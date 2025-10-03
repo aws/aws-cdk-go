@@ -1,7 +1,7 @@
 package awspcs
 
 
-// An error that occurred during resource creation.
+// The list of errors that occurred during compute node group provisioning.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

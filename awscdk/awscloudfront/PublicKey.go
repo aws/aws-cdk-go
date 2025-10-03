@@ -15,7 +15,7 @@ import (
 //   // Create a key group to use with CloudFront signed URLs and signed cookies.
 //   // Create a key group to use with CloudFront signed URLs and signed cookies.
 //   cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-//   	Items: []iPublicKeyRef{
+//   	Items: []iPublicKey{
 //   		cloudfront.NewPublicKey(this, jsii.String("MyPublicKey"), &PublicKeyProps{
 //   			EncodedKey: jsii.String("..."),
 //   		}),
@@ -46,8 +46,6 @@ type PublicKey interface {
 	PhysicalName() *string
 	// The ID of the key group.
 	PublicKeyId() *string
-	// A reference to a PublicKey resource.
-	PublicKeyRef() *PublicKeyReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -119,16 +117,6 @@ func (j *jsiiProxy_PublicKey) PublicKeyId() *string {
 	_jsii_.Get(
 		j,
 		"publicKeyId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PublicKey) PublicKeyRef() *PublicKeyReference {
-	var returns *PublicKeyReference
-	_jsii_.Get(
-		j,
-		"publicKeyRef",
 		&returns,
 	)
 	return returns

@@ -475,44 +475,6 @@ func (j *jsiiProxy_CfnStudioLifecycleConfig)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IStudioLifecycleConfigRef from an ARN.
-func CfnStudioLifecycleConfig_FromStudioLifecycleConfigArn(scope constructs.Construct, id *string, arn *string) IStudioLifecycleConfigRef {
-	_init_.Initialize()
-
-	if err := validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IStudioLifecycleConfigRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sagemaker.CfnStudioLifecycleConfig",
-		"fromStudioLifecycleConfigArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IStudioLifecycleConfigRef from a studioLifecycleConfigName.
-func CfnStudioLifecycleConfig_FromStudioLifecycleConfigName(scope constructs.Construct, id *string, studioLifecycleConfigName *string) IStudioLifecycleConfigRef {
-	_init_.Initialize()
-
-	if err := validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigNameParameters(scope, id, studioLifecycleConfigName); err != nil {
-		panic(err)
-	}
-	var returns IStudioLifecycleConfigRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sagemaker.CfnStudioLifecycleConfig",
-		"fromStudioLifecycleConfigName",
-		[]interface{}{scope, id, studioLifecycleConfigName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -210,7 +210,6 @@ func init() {
 		"aws-cdk-lib.aws_rolesanywhere.ICRLRef",
 		reflect.TypeOf((*ICRLRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "crlRef", GoGetter: "CrlRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -224,7 +223,6 @@ func init() {
 		reflect.TypeOf((*IProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "profileRef", GoGetter: "ProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfileRef{}
@@ -237,7 +235,6 @@ func init() {
 		reflect.TypeOf((*ITrustAnchorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "trustAnchorRef", GoGetter: "TrustAnchorRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrustAnchorRef{}

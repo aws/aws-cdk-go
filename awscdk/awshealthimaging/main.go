@@ -73,7 +73,6 @@ func init() {
 		"aws-cdk-lib.aws_healthimaging.IDatastoreRef",
 		reflect.TypeOf((*IDatastoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datastoreRef", GoGetter: "DatastoreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

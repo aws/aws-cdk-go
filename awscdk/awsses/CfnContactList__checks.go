@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnContactList) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnContactList_FromContactListNameParameters(scope constructs.Construct, id *string, contactListName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if contactListName == nil {
-		return fmt.Errorf("parameter contactListName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnContactList_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -767,7 +767,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IBridgeOutputRef",
 		reflect.TypeOf((*IBridgeOutputRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bridgeOutputRef", GoGetter: "BridgeOutputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -780,7 +779,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IBridgeRef",
 		reflect.TypeOf((*IBridgeRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bridgeRef", GoGetter: "BridgeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -793,7 +791,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IBridgeSourceRef",
 		reflect.TypeOf((*IBridgeSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bridgeSourceRef", GoGetter: "BridgeSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -806,7 +803,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IFlowEntitlementRef",
 		reflect.TypeOf((*IFlowEntitlementRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "flowEntitlementRef", GoGetter: "FlowEntitlementRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -819,7 +815,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IFlowOutputRef",
 		reflect.TypeOf((*IFlowOutputRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "flowOutputRef", GoGetter: "FlowOutputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -832,7 +827,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IFlowRef",
 		reflect.TypeOf((*IFlowRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "flowRef", GoGetter: "FlowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -845,7 +839,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IFlowSourceRef",
 		reflect.TypeOf((*IFlowSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "flowSourceRef", GoGetter: "FlowSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -858,7 +851,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IFlowVpcInterfaceRef",
 		reflect.TypeOf((*IFlowVpcInterfaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "flowVpcInterfaceRef", GoGetter: "FlowVpcInterfaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -871,7 +863,6 @@ func init() {
 		"aws-cdk-lib.aws_mediaconnect.IGatewayRef",
 		reflect.TypeOf((*IGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "gatewayRef", GoGetter: "GatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

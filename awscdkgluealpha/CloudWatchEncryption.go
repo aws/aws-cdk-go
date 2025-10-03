@@ -28,6 +28,6 @@ type CloudWatchEncryption struct {
 	// Default: A key will be created if one is not provided.
 	//
 	// Experimental.
-	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

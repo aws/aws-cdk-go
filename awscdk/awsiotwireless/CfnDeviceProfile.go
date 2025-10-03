@@ -479,44 +479,6 @@ func (j *jsiiProxy_CfnDeviceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IDeviceProfileRef from an ARN.
-func CfnDeviceProfile_FromDeviceProfileArn(scope constructs.Construct, id *string, arn *string) IDeviceProfileRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeviceProfile_FromDeviceProfileArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDeviceProfileRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
-		"fromDeviceProfileArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDeviceProfileRef from a deviceProfileId.
-func CfnDeviceProfile_FromDeviceProfileId(scope constructs.Construct, id *string, deviceProfileId *string) IDeviceProfileRef {
-	_init_.Initialize()
-
-	if err := validateCfnDeviceProfile_FromDeviceProfileIdParameters(scope, id, deviceProfileId); err != nil {
-		panic(err)
-	}
-	var returns IDeviceProfileRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
-		"fromDeviceProfileId",
-		[]interface{}{scope, id, deviceProfileId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

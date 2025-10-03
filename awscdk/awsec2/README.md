@@ -2085,7 +2085,7 @@ volume := ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
 	Encrypted: jsii.Boolean(true),
 })
 
-volume.grantAttachVolume(role, []iInstanceRef{
+volume.grantAttachVolume(role, []iInstance{
 	instance,
 })
 ```

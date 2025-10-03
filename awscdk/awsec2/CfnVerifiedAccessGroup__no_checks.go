@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnVerifiedAccessGroup) validateValidatePropertiesParameters(
 	return nil
 }
 
-func validateCfnVerifiedAccessGroup_FromVerifiedAccessGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnVerifiedAccessGroup_FromVerifiedAccessGroupIdParameters(scope constructs.Construct, id *string, verifiedAccessGroupId *string) error {
-	return nil
-}
-
 func validateCfnVerifiedAccessGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnIPAMScope) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnIPAMScope_FromIPAMScopeArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnIPAMScope_FromIpamScopeIdParameters(scope constructs.Construct, id *string, ipamScopeId *string) error {
-	return nil
-}
-
 func validateCfnIPAMScope_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

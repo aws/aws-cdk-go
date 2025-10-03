@@ -198,7 +198,6 @@ func init() {
 		"aws-cdk-lib.aws_applicationsignals.IDiscoveryRef",
 		reflect.TypeOf((*IDiscoveryRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "discoveryRef", GoGetter: "DiscoveryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -212,7 +211,6 @@ func init() {
 		reflect.TypeOf((*IServiceLevelObjectiveRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceLevelObjectiveRef", GoGetter: "ServiceLevelObjectiveRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceLevelObjectiveRef{}

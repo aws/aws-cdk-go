@@ -285,7 +285,6 @@ func init() {
 		"aws-cdk-lib.aws_securitylake.IAwsLogSourceRef",
 		reflect.TypeOf((*IAwsLogSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "awsLogSourceRef", GoGetter: "AwsLogSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -298,7 +297,6 @@ func init() {
 		"aws-cdk-lib.aws_securitylake.IDataLakeRef",
 		reflect.TypeOf((*IDataLakeRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataLakeRef", GoGetter: "DataLakeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -312,7 +310,6 @@ func init() {
 		reflect.TypeOf((*ISubscriberNotificationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriberNotificationRef", GoGetter: "SubscriberNotificationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubscriberNotificationRef{}
@@ -325,7 +322,6 @@ func init() {
 		reflect.TypeOf((*ISubscriberRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "subscriberRef", GoGetter: "SubscriberRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubscriberRef{}

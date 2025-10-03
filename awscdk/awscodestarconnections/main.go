@@ -189,7 +189,6 @@ func init() {
 		"aws-cdk-lib.aws_codestarconnections.IConnectionRef",
 		reflect.TypeOf((*IConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectionRef", GoGetter: "ConnectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -203,7 +202,6 @@ func init() {
 		reflect.TypeOf((*IRepositoryLinkRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "repositoryLinkRef", GoGetter: "RepositoryLinkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepositoryLinkRef{}
@@ -216,7 +214,6 @@ func init() {
 		reflect.TypeOf((*ISyncConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "syncConfigurationRef", GoGetter: "SyncConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISyncConfigurationRef{}

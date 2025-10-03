@@ -683,44 +683,6 @@ func (j *jsiiProxy_CfnTransitGateway)SetVpnEcmpSupport(val *string) {
 	)
 }
 
-// Creates a new ITransitGatewayRef from an ARN.
-func CfnTransitGateway_FromTransitGatewayArn(scope constructs.Construct, id *string, arn *string) ITransitGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnTransitGateway_FromTransitGatewayArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ITransitGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnTransitGateway",
-		"fromTransitGatewayArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ITransitGatewayRef from a transitGatewayId.
-func CfnTransitGateway_FromTransitGatewayId(scope constructs.Construct, id *string, transitGatewayId *string) ITransitGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnTransitGateway_FromTransitGatewayIdParameters(scope, id, transitGatewayId); err != nil {
-		panic(err)
-	}
-	var returns ITransitGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnTransitGateway",
-		"fromTransitGatewayId",
-		[]interface{}{scope, id, transitGatewayId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

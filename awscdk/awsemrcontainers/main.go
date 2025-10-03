@@ -80,7 +80,6 @@ func init() {
 		reflect.TypeOf((*IVirtualClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "virtualClusterRef", GoGetter: "VirtualClusterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualClusterRef{}

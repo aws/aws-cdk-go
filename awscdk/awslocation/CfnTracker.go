@@ -630,44 +630,6 @@ func (j *jsiiProxy_CfnTracker)SetTrackerName(val *string) {
 	)
 }
 
-// Creates a new ITrackerRef from an ARN.
-func CfnTracker_FromTrackerArn(scope constructs.Construct, id *string, arn *string) ITrackerRef {
-	_init_.Initialize()
-
-	if err := validateCfnTracker_FromTrackerArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ITrackerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_location.CfnTracker",
-		"fromTrackerArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ITrackerRef from a trackerName.
-func CfnTracker_FromTrackerName(scope constructs.Construct, id *string, trackerName *string) ITrackerRef {
-	_init_.Initialize()
-
-	if err := validateCfnTracker_FromTrackerNameParameters(scope, id, trackerName); err != nil {
-		panic(err)
-	}
-	var returns ITrackerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_location.CfnTracker",
-		"fromTrackerName",
-		[]interface{}{scope, id, trackerName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -77,7 +77,6 @@ func init() {
 		"aws-cdk-lib.aws_invoicing.IInvoiceUnitRef",
 		reflect.TypeOf((*IInvoiceUnitRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "invoiceUnitRef", GoGetter: "InvoiceUnitRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -106,67 +106,12 @@ func KafkaSchemaRegistryAccessConfigType_CLIENT_CERTIFICATE_TLS_AUTH() KafkaSche
 	return returns
 }
 
-func KafkaSchemaRegistryAccessConfigType_SASL_SCRAM_256_AUTH() KafkaSchemaRegistryAccessConfigType {
-	_init_.Initialize()
-	var returns KafkaSchemaRegistryAccessConfigType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.KafkaSchemaRegistryAccessConfigType",
-		"SASL_SCRAM_256_AUTH",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaSchemaRegistryAccessConfigType_SASL_SCRAM_512_AUTH() KafkaSchemaRegistryAccessConfigType {
-	_init_.Initialize()
-	var returns KafkaSchemaRegistryAccessConfigType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.KafkaSchemaRegistryAccessConfigType",
-		"SASL_SCRAM_512_AUTH",
-		&returns,
-	)
-	return returns
-}
-
 func KafkaSchemaRegistryAccessConfigType_SERVER_ROOT_CA_CERTIFICATE() KafkaSchemaRegistryAccessConfigType {
 	_init_.Initialize()
 	var returns KafkaSchemaRegistryAccessConfigType
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_lambda.KafkaSchemaRegistryAccessConfigType",
 		"SERVER_ROOT_CA_CERTIFICATE",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaSchemaRegistryAccessConfigType_VIRTUAL_HOST() KafkaSchemaRegistryAccessConfigType {
-	_init_.Initialize()
-	var returns KafkaSchemaRegistryAccessConfigType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.KafkaSchemaRegistryAccessConfigType",
-		"VIRTUAL_HOST",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaSchemaRegistryAccessConfigType_VPC_SECURITY_GROUP() KafkaSchemaRegistryAccessConfigType {
-	_init_.Initialize()
-	var returns KafkaSchemaRegistryAccessConfigType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.KafkaSchemaRegistryAccessConfigType",
-		"VPC_SECURITY_GROUP",
-		&returns,
-	)
-	return returns
-}
-
-func KafkaSchemaRegistryAccessConfigType_VPC_SUBNET() KafkaSchemaRegistryAccessConfigType {
-	_init_.Initialize()
-	var returns KafkaSchemaRegistryAccessConfigType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.KafkaSchemaRegistryAccessConfigType",
-		"VPC_SUBNET",
 		&returns,
 	)
 	return returns

@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) validateValidatePropertiesParameters(
 	return nil
 }
 
-func validateCfnTrafficMirrorTarget_FromTrafficMirrorTargetIdParameters(scope constructs.Construct, id *string, trafficMirrorTargetId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if trafficMirrorTargetId == nil {
-		return fmt.Errorf("parameter trafficMirrorTargetId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnTrafficMirrorTarget_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

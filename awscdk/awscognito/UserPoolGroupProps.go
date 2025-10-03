@@ -52,7 +52,7 @@ type UserPoolGroupProps struct {
 	// The role for the group.
 	// Default: - no description.
 	//
-	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The user pool to which this group is associated.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 }

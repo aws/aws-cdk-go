@@ -541,25 +541,6 @@ func (j *jsiiProxy_CfnUsagePlan)SetUsagePlanName(val *string) {
 	)
 }
 
-// Creates a new IUsagePlanRef from a usagePlanId.
-func CfnUsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlanId *string) IUsagePlanRef {
-	_init_.Initialize()
-
-	if err := validateCfnUsagePlan_FromUsagePlanIdParameters(scope, id, usagePlanId); err != nil {
-		panic(err)
-	}
-	var returns IUsagePlanRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.CfnUsagePlan",
-		"fromUsagePlanId",
-		[]interface{}{scope, id, usagePlanId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -52,7 +52,6 @@ type PrefixList interface {
 	PrefixListId() *string
 	// The name of the prefix list.
 	PrefixListName() *string
-	// A reference to a PrefixList resource.
 	PrefixListRef() *PrefixListReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

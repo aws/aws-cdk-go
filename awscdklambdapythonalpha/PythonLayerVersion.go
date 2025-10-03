@@ -36,7 +36,6 @@ type PythonLayerVersion interface {
 	// The ARN of the Lambda Layer version that this Layer defines.
 	// Experimental.
 	LayerVersionArn() *string
-	// A reference to a LayerVersion resource.
 	// Experimental.
 	LayerVersionRef() *awslambda.LayerVersionReference
 	// The tree node.

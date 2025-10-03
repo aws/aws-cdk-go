@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateValidatePropertiesParamete
 	return nil
 }
 
-func validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupIdParameters(scope constructs.Construct, id *string, globalReplicationGroupId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if globalReplicationGroupId == nil {
-		return fmt.Errorf("parameter globalReplicationGroupId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnGlobalReplicationGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

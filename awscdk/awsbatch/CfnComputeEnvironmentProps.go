@@ -111,8 +111,6 @@ type CfnComputeEnvironmentProps struct {
 	//
 	Context *string `field:"optional" json:"context" yaml:"context"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
-	//
-	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-eksconfiguration
 	//
 	EksConfiguration interface{} `field:"optional" json:"eksConfiguration" yaml:"eksConfiguration"`

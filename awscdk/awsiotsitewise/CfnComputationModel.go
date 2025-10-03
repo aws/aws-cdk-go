@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::IoTSiteWise::ComputationModel.
+// Create a computation model with a configuration and data binding.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -59,7 +59,9 @@ type CfnComputationModel interface {
 	IComputationModelRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The ARN of the computation model.
+	// The ARN of the computation model, which has the following format.
+	//
+	// `arn:${Partition}:iotsitewise:${Region}:${Account}:computation-model/${ComputationModelId}`.
 	AttrComputationModelArn() *string
 	// The ID of the computation model.
 	AttrComputationModelId() *string
@@ -70,11 +72,13 @@ type CfnComputationModel interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The configuration for the computation model.
 	ComputationModelConfiguration() interface{}
 	SetComputationModelConfiguration(val interface{})
+	// The data binding for the computation model.
 	ComputationModelDataBinding() interface{}
 	SetComputationModelDataBinding(val interface{})
-	// A description about the computation model.
+	// The description of the computation model.
 	ComputationModelDescription() *string
 	SetComputationModelDescription(val *string)
 	// The name of the computation model.
@@ -107,7 +111,7 @@ type CfnComputationModel interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs that contain metadata for the asset.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -526,44 +530,6 @@ func (j *jsiiProxy_CfnComputationModel)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IComputationModelRef from an ARN.
-func CfnComputationModel_FromComputationModelArn(scope constructs.Construct, id *string, arn *string) IComputationModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnComputationModel_FromComputationModelArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IComputationModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnComputationModel",
-		"fromComputationModelArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IComputationModelRef from a computationModelId.
-func CfnComputationModel_FromComputationModelId(scope constructs.Construct, id *string, computationModelId *string) IComputationModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnComputationModel_FromComputationModelIdParameters(scope, id, computationModelId); err != nil {
-		panic(err)
-	}
-	var returns IComputationModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnComputationModel",
-		"fromComputationModelId",
-		[]interface{}{scope, id, computationModelId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

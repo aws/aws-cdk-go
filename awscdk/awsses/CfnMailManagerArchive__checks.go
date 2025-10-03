@@ -155,22 +155,6 @@ func (c *jsiiProxy_CfnMailManagerArchive) validateValidatePropertiesParameters(_
 	return nil
 }
 
-func validateCfnMailManagerArchive_FromArchiveIdParameters(scope constructs.Construct, id *string, archiveId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if archiveId == nil {
-		return fmt.Errorf("parameter archiveId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnMailManagerArchive_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

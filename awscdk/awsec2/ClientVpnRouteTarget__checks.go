@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func validateClientVpnRouteTarget_SubnetParameters(subnet ISubnetRef) error {
+func validateClientVpnRouteTarget_SubnetParameters(subnet ISubnet) error {
 	if subnet == nil {
 		return fmt.Errorf("parameter subnet is required, but nil was provided")
 	}

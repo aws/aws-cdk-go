@@ -469,7 +469,6 @@ func init() {
 		"aws-cdk-lib.aws_mediatailor.IChannelPolicyRef",
 		reflect.TypeOf((*IChannelPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelPolicyRef", GoGetter: "ChannelPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -482,7 +481,6 @@ func init() {
 		"aws-cdk-lib.aws_mediatailor.IChannelRef",
 		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -495,7 +493,6 @@ func init() {
 		"aws-cdk-lib.aws_mediatailor.ILiveSourceRef",
 		reflect.TypeOf((*ILiveSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "liveSourceRef", GoGetter: "LiveSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -509,7 +506,6 @@ func init() {
 		reflect.TypeOf((*IPlaybackConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "playbackConfigurationRef", GoGetter: "PlaybackConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlaybackConfigurationRef{}
@@ -522,7 +518,6 @@ func init() {
 		reflect.TypeOf((*ISourceLocationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sourceLocationRef", GoGetter: "SourceLocationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISourceLocationRef{}
@@ -535,7 +530,6 @@ func init() {
 		reflect.TypeOf((*IVodSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "vodSourceRef", GoGetter: "VodSourceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVodSourceRef{}

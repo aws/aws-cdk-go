@@ -496,25 +496,6 @@ func (j *jsiiProxy_CfnMailManagerArchive)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IMailManagerArchiveRef from a archiveId.
-func CfnMailManagerArchive_FromArchiveId(scope constructs.Construct, id *string, archiveId *string) IMailManagerArchiveRef {
-	_init_.Initialize()
-
-	if err := validateCfnMailManagerArchive_FromArchiveIdParameters(scope, id, archiveId); err != nil {
-		panic(err)
-	}
-	var returns IMailManagerArchiveRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",
-		"fromArchiveId",
-		[]interface{}{scope, id, archiveId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

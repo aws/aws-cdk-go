@@ -65,7 +65,6 @@ type User interface {
 	UserArn() *string
 	// An attribute that represents the user name.
 	UserName() *string
-	// A reference to a User resource.
 	UserRef() *UserReference
 	// Attaches a managed policy to the user.
 	AddManagedPolicy(policy IManagedPolicy)

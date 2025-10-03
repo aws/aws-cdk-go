@@ -708,7 +708,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IClusterParameterGroupRef",
 		reflect.TypeOf((*IClusterParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterParameterGroupRef", GoGetter: "ClusterParameterGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -721,7 +720,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -734,7 +732,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IClusterSecurityGroupIngressRef",
 		reflect.TypeOf((*IClusterSecurityGroupIngressRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroupIngressRef", GoGetter: "ClusterSecurityGroupIngressRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -747,7 +744,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IClusterSecurityGroupRef",
 		reflect.TypeOf((*IClusterSecurityGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroupRef", GoGetter: "ClusterSecurityGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -760,7 +756,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IClusterSubnetGroupRef",
 		reflect.TypeOf((*IClusterSubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterSubnetGroupRef", GoGetter: "ClusterSubnetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -773,7 +768,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IEndpointAccessRef",
 		reflect.TypeOf((*IEndpointAccessRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointAccessRef", GoGetter: "EndpointAccessRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -786,7 +780,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IEndpointAuthorizationRef",
 		reflect.TypeOf((*IEndpointAuthorizationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "endpointAuthorizationRef", GoGetter: "EndpointAuthorizationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -799,7 +792,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IEventSubscriptionRef",
 		reflect.TypeOf((*IEventSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "eventSubscriptionRef", GoGetter: "EventSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -812,7 +804,6 @@ func init() {
 		"aws-cdk-lib.aws_redshift.IIntegrationRef",
 		reflect.TypeOf((*IIntegrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -826,7 +817,6 @@ func init() {
 		reflect.TypeOf((*IScheduledActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "scheduledActionRef", GoGetter: "ScheduledActionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduledActionRef{}

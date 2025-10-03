@@ -174,7 +174,7 @@ type ManagedEc2EcsComputeEnvironmentProps struct {
 	//
 	// Default: - no placement group.
 	//
-	PlacementGroup awsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup awsec2.IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
 	//
 	// For example, if your maximum percentage is 20%, the Spot price must be

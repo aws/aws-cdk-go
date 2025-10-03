@@ -237,7 +237,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addAlias", GoMethod: "AddAlias"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "aliasName", GoGetter: "AliasName"},
-			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "aliasTargetKey", GoGetter: "AliasTargetKey"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -252,7 +251,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantVerifyMac", GoMethod: "GrantVerifyMac"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
-			_jsii_.MemberProperty{JsiiProperty: "keyRef", GoGetter: "KeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -267,7 +265,6 @@ func init() {
 		"aws-cdk-lib.aws_kms.IAliasRef",
 		reflect.TypeOf((*IAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -295,7 +292,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantVerifyMac", GoMethod: "GrantVerifyMac"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
-			_jsii_.MemberProperty{JsiiProperty: "keyRef", GoGetter: "KeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -310,7 +306,6 @@ func init() {
 		"aws-cdk-lib.aws_kms.IKeyRef",
 		reflect.TypeOf((*IKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "keyRef", GoGetter: "KeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -324,7 +319,6 @@ func init() {
 		reflect.TypeOf((*IReplicaKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "replicaKeyRef", GoGetter: "ReplicaKeyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicaKeyRef{}

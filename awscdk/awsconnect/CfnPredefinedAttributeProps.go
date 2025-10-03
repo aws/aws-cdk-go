@@ -38,13 +38,11 @@ type CfnPredefinedAttributeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-attributeconfiguration
 	//
 	AttributeConfiguration interface{} `field:"optional" json:"attributeConfiguration" yaml:"attributeConfiguration"`
-	// Values that enable you to categorize your predefined attributes.
-	//
-	// You can use them in custom UI elements across the Amazon Connect admin website.
+	// The assigned purposes of the predefined attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#cfn-connect-predefinedattribute-purposes
 	//
 	Purposes *[]*string `field:"optional" json:"purposes" yaml:"purposes"`

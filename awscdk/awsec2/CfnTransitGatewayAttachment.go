@@ -507,25 +507,6 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment)SetVpcId(val *string) {
 	)
 }
 
-// Creates a new ITransitGatewayAttachmentRef from a transitGatewayAttachmentId.
-func CfnTransitGatewayAttachment_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) ITransitGatewayAttachmentRef {
-	_init_.Initialize()
-
-	if err := validateCfnTransitGatewayAttachment_FromTransitGatewayAttachmentIdParameters(scope, id, transitGatewayAttachmentId); err != nil {
-		panic(err)
-	}
-	var returns ITransitGatewayAttachmentRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment",
-		"fromTransitGatewayAttachmentId",
-		[]interface{}{scope, id, transitGatewayAttachmentId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

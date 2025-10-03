@@ -51,9 +51,6 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 	// Default: - 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
-	// Specifies which IP protocol CloudFront uses when connecting to your origin.
-	//
-	// If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`

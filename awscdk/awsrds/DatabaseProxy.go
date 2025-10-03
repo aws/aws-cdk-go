@@ -68,8 +68,6 @@ type DatabaseProxy interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// Add an Endpoint to this DB Proxy.
-	AddEndpoint(id *string, options *DatabaseProxyEndpointOptions) IDatabaseProxyEndpoint
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -318,22 +316,6 @@ func DatabaseProxy_PROPERTY_INJECTION_ID() *string {
 		"PROPERTY_INJECTION_ID",
 		&returns,
 	)
-	return returns
-}
-
-func (d *jsiiProxy_DatabaseProxy) AddEndpoint(id *string, options *DatabaseProxyEndpointOptions) IDatabaseProxyEndpoint {
-	if err := d.validateAddEndpointParameters(id, options); err != nil {
-		panic(err)
-	}
-	var returns IDatabaseProxyEndpoint
-
-	_jsii_.Invoke(
-		d,
-		"addEndpoint",
-		[]interface{}{id, options},
-		&returns,
-	)
-
 	return returns
 }
 

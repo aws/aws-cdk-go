@@ -570,25 +570,6 @@ func (j *jsiiProxy_CfnApiKey)SetValue(val *string) {
 	)
 }
 
-// Creates a new IApiKeyRef from a apiKeyId.
-func CfnApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *string) IApiKeyRef {
-	_init_.Initialize()
-
-	if err := validateCfnApiKey_FromApiKeyIdParameters(scope, id, apiKeyId); err != nil {
-		panic(err)
-	}
-	var returns IApiKeyRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.CfnApiKey",
-		"fromApiKeyId",
-		[]interface{}{scope, id, apiKeyId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

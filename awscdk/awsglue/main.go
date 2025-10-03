@@ -1558,7 +1558,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IClassifierRef",
 		reflect.TypeOf((*IClassifierRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "classifierRef", GoGetter: "ClassifierRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1571,7 +1570,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IConnectionRef",
 		reflect.TypeOf((*IConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectionRef", GoGetter: "ConnectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1584,7 +1582,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.ICrawlerRef",
 		reflect.TypeOf((*ICrawlerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "crawlerRef", GoGetter: "CrawlerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1597,7 +1594,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.ICustomEntityTypeRef",
 		reflect.TypeOf((*ICustomEntityTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "customEntityTypeRef", GoGetter: "CustomEntityTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1610,7 +1606,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IDataCatalogEncryptionSettingsRef",
 		reflect.TypeOf((*IDataCatalogEncryptionSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataCatalogEncryptionSettingsRef", GoGetter: "DataCatalogEncryptionSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1623,7 +1618,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IDataQualityRulesetRef",
 		reflect.TypeOf((*IDataQualityRulesetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataQualityRulesetRef", GoGetter: "DataQualityRulesetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1636,7 +1630,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IDatabaseRef",
 		reflect.TypeOf((*IDatabaseRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "databaseRef", GoGetter: "DatabaseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1649,7 +1642,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IDevEndpointRef",
 		reflect.TypeOf((*IDevEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "devEndpointRef", GoGetter: "DevEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1662,7 +1654,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IJobRef",
 		reflect.TypeOf((*IJobRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1675,7 +1666,6 @@ func init() {
 		"aws-cdk-lib.aws_glue.IMLTransformRef",
 		reflect.TypeOf((*IMLTransformRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "mlTransformRef", GoGetter: "MlTransformRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1689,7 +1679,6 @@ func init() {
 		reflect.TypeOf((*IPartitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "partitionRef", GoGetter: "PartitionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPartitionRef{}
@@ -1702,7 +1691,6 @@ func init() {
 		reflect.TypeOf((*IRegistryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "registryRef", GoGetter: "RegistryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegistryRef{}
@@ -1715,7 +1703,6 @@ func init() {
 		reflect.TypeOf((*ISchemaRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schemaRef", GoGetter: "SchemaRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchemaRef{}
@@ -1728,7 +1715,6 @@ func init() {
 		reflect.TypeOf((*ISchemaVersionMetadataRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schemaVersionMetadataRef", GoGetter: "SchemaVersionMetadataRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchemaVersionMetadataRef{}
@@ -1741,7 +1727,6 @@ func init() {
 		reflect.TypeOf((*ISchemaVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schemaVersionRef", GoGetter: "SchemaVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchemaVersionRef{}
@@ -1754,7 +1739,6 @@ func init() {
 		reflect.TypeOf((*ISecurityConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "securityConfigurationRef", GoGetter: "SecurityConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityConfigurationRef{}
@@ -1767,7 +1751,6 @@ func init() {
 		reflect.TypeOf((*ITableOptimizerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tableOptimizerRef", GoGetter: "TableOptimizerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableOptimizerRef{}
@@ -1780,7 +1763,6 @@ func init() {
 		reflect.TypeOf((*ITableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableRef{}
@@ -1793,7 +1775,6 @@ func init() {
 		reflect.TypeOf((*ITriggerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "triggerRef", GoGetter: "TriggerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITriggerRef{}
@@ -1806,7 +1787,6 @@ func init() {
 		reflect.TypeOf((*IUsageProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "usageProfileRef", GoGetter: "UsageProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUsageProfileRef{}
@@ -1819,7 +1799,6 @@ func init() {
 		reflect.TypeOf((*IWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "workflowRef", GoGetter: "WorkflowRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkflowRef{}

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnOrganizationalUnit) validateValidatePropertiesParameters(_
 	return nil
 }
 
-func validateCfnOrganizationalUnit_FromOrganizationalUnitArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnOrganizationalUnit_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -189,7 +189,6 @@ func init() {
 		"aws-cdk-lib.aws_comprehend.IDocumentClassifierRef",
 		reflect.TypeOf((*IDocumentClassifierRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "documentClassifierRef", GoGetter: "DocumentClassifierRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -202,7 +201,6 @@ func init() {
 		"aws-cdk-lib.aws_comprehend.IFlywheelRef",
 		reflect.TypeOf((*IFlywheelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "flywheelRef", GoGetter: "FlywheelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

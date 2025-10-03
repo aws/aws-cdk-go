@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnFileSystem) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
-func validateCfnFileSystem_FromFileSystemArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnFileSystem_FromFileSystemIdParameters(scope constructs.Construct, id *string, fileSystemId *string) error {
-	return nil
-}
-
 func validateCfnFileSystem_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

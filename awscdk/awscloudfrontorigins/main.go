@@ -15,7 +15,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FunctionUrlOrigin{}
@@ -43,7 +42,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_HttpOrigin{}
@@ -63,7 +61,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_LoadBalancerV2Origin{}
@@ -99,7 +96,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_RestApiOrigin{}
@@ -119,7 +115,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3BucketOrigin{}
@@ -163,7 +158,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3StaticWebsiteOrigin{}
@@ -184,7 +178,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcOrigin", GoGetter: "VpcOrigin"},
 		},
 		func() interface{} {

@@ -190,7 +190,7 @@ func validateKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateKey_IsLookupDummyParameters(key IKeyRef) error {
+func validateKey_IsLookupDummyParameters(key IKey) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
 	}

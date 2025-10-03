@@ -284,7 +284,6 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -297,7 +296,6 @@ func init() {
 		reflect.TypeOf((*IRotationScheduleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "rotationScheduleRef", GoGetter: "RotationScheduleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRotationScheduleRef{}
@@ -347,7 +345,6 @@ func init() {
 		reflect.TypeOf((*ISecretRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecretRef{}
@@ -388,7 +385,6 @@ func init() {
 		reflect.TypeOf((*ISecretTargetAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "secretTargetAttachmentRef", GoGetter: "SecretTargetAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecretTargetAttachmentRef{}

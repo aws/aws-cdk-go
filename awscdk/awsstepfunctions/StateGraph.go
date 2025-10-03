@@ -51,7 +51,7 @@ type StateGraph interface {
 	//
 	Timeout() awscdk.Duration
 	SetTimeout(val awscdk.Duration)
-	// Binds this StateGraph to the StateMachine it defines and updates state machine permissions if there are DistributedMap states.
+	// Binds this StateGraph to the StateMachine it defines and updates state machine permissions.
 	Bind(stateMachine StateMachine)
 	// Register a Policy Statement used by states in this graph.
 	RegisterPolicyStatement(statement awsiam.PolicyStatement)

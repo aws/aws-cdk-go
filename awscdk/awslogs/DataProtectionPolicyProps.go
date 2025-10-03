@@ -73,6 +73,6 @@ type DataProtectionPolicyProps struct {
 	// The bucket must already exist.
 	// Default: - no S3 bucket audit destination.
 	//
-	S3BucketAuditDestination awss3.IBucketRef `field:"optional" json:"s3BucketAuditDestination" yaml:"s3BucketAuditDestination"`
+	S3BucketAuditDestination awss3.IBucket `field:"optional" json:"s3BucketAuditDestination" yaml:"s3BucketAuditDestination"`
 }
 

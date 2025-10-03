@@ -27,7 +27,7 @@ import (
 //   var instanceType instanceType
 //   var launchTemplate launchTemplate
 //   var machineImage iMachineImage
-//   var placementGroupRef iPlacementGroupRef
+//   var placementGroup placementGroup
 //   var role role
 //   var securityGroup securityGroup
 //   var subnet subnet
@@ -59,7 +59,7 @@ import (
 //   	LaunchTemplate: launchTemplate,
 //   	MaxvCpus: jsii.Number(123),
 //   	MinvCpus: jsii.Number(123),
-//   	PlacementGroup: placementGroupRef,
+//   	PlacementGroup: placementGroup,
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
 //   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,

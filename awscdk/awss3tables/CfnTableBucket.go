@@ -15,9 +15,6 @@ import (
 //
 // - **Permissions** - - You must have the `s3tables:CreateTableBucket` permission to use this operation.
 // - If you use this operation with the optional `encryptionConfiguration` parameter you must have the `s3tables:PutTableBucketEncryption` permission.
-// - **Cloud Development Kit** - To use S3 Tables AWS CDK constructs, add the `@aws-cdk/aws-s3tables-alpha` dependency with one of the following options:
-//
-// - NPM: `npm i.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

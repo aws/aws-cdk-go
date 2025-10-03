@@ -77,7 +77,6 @@ type BucketPolicy interface {
 	IBucketPolicyRef
 	// The Bucket this Policy applies to.
 	Bucket() IBucket
-	// A reference to a BucketPolicy resource.
 	BucketPolicyRef() *BucketPolicyReference
 	// A policy document containing permissions to add to the specified bucket.
 	//

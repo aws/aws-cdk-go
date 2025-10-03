@@ -113,7 +113,6 @@ type Vpc interface {
 	// Identifier for this VPC.
 	VpcId() *string
 	VpcIpv6CidrBlocks() *[]*string
-	// A reference to a VPC resource.
 	VpcRef() *VPCReference
 	// Returns the id of the VPN Gateway (if enabled).
 	VpnGatewayId() *string

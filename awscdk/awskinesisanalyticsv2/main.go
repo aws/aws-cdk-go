@@ -451,7 +451,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalyticsv2.IApplicationCloudWatchLoggingOptionRef",
 		reflect.TypeOf((*IApplicationCloudWatchLoggingOptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationCloudWatchLoggingOptionRef", GoGetter: "ApplicationCloudWatchLoggingOptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -464,7 +463,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalyticsv2.IApplicationOutputRef",
 		reflect.TypeOf((*IApplicationOutputRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationOutputRef", GoGetter: "ApplicationOutputRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -477,7 +475,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalyticsv2.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -490,7 +487,6 @@ func init() {
 		"aws-cdk-lib.aws_kinesisanalyticsv2.IApplicationReferenceDataSourceRef",
 		reflect.TypeOf((*IApplicationReferenceDataSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "applicationReferenceDataSourceRef", GoGetter: "ApplicationReferenceDataSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

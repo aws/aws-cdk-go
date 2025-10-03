@@ -451,25 +451,6 @@ func (j *jsiiProxy_CfnVPNGateway)SetType(val *string) {
 	)
 }
 
-// Creates a new IVPNGatewayRef from a vpnGatewayId.
-func CfnVPNGateway_FromVpnGatewayId(scope constructs.Construct, id *string, vpnGatewayId *string) IVPNGatewayRef {
-	_init_.Initialize()
-
-	if err := validateCfnVPNGateway_FromVpnGatewayIdParameters(scope, id, vpnGatewayId); err != nil {
-		panic(err)
-	}
-	var returns IVPNGatewayRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnVPNGateway",
-		"fromVpnGatewayId",
-		[]interface{}{scope, id, vpnGatewayId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

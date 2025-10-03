@@ -711,7 +711,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IAccessPolicyRef",
 		reflect.TypeOf((*IAccessPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "accessPolicyRef", GoGetter: "AccessPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -724,7 +723,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IAssetModelRef",
 		reflect.TypeOf((*IAssetModelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assetModelRef", GoGetter: "AssetModelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -737,7 +735,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IAssetRef",
 		reflect.TypeOf((*IAssetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assetRef", GoGetter: "AssetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -750,7 +747,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IComputationModelRef",
 		reflect.TypeOf((*IComputationModelRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "computationModelRef", GoGetter: "ComputationModelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -763,7 +759,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IDashboardRef",
 		reflect.TypeOf((*IDashboardRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dashboardRef", GoGetter: "DashboardRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -776,7 +771,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IDatasetRef",
 		reflect.TypeOf((*IDatasetRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "datasetRef", GoGetter: "DatasetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -789,7 +783,6 @@ func init() {
 		"aws-cdk-lib.aws_iotsitewise.IGatewayRef",
 		reflect.TypeOf((*IGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "gatewayRef", GoGetter: "GatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -803,7 +796,6 @@ func init() {
 		reflect.TypeOf((*IPortalRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "portalRef", GoGetter: "PortalRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortalRef{}
@@ -816,7 +808,6 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}

@@ -293,7 +293,6 @@ func init() {
 		"aws-cdk-lib.aws_verifiedpermissions.IIdentitySourceRef",
 		reflect.TypeOf((*IIdentitySourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "identitySourceRef", GoGetter: "IdentitySourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -307,7 +306,6 @@ func init() {
 		reflect.TypeOf((*IPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyRef{}
@@ -320,7 +318,6 @@ func init() {
 		reflect.TypeOf((*IPolicyStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyStoreRef", GoGetter: "PolicyStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyStoreRef{}
@@ -333,7 +330,6 @@ func init() {
 		reflect.TypeOf((*IPolicyTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "policyTemplateRef", GoGetter: "PolicyTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyTemplateRef{}

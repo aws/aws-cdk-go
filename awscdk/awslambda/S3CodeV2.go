@@ -23,11 +23,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   var keyRef iKeyRef
+//   var key key
 //
 //   s3CodeV2 := awscdk.Aws_lambda.NewS3CodeV2(bucket, jsii.String("key"), &BucketOptions{
 //   	ObjectVersion: jsii.String("objectVersion"),
-//   	SourceKMSKey: keyRef,
+//   	SourceKMSKey: key,
 //   })
 //
 type S3CodeV2 interface {

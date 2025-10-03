@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnStream) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
-func validateCfnStream_FromStreamArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnStream_FromStreamNameParameters(scope constructs.Construct, id *string, streamName *string) error {
-	return nil
-}
-
 func validateCfnStream_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

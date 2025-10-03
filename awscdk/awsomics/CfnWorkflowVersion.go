@@ -30,34 +30,6 @@ import (
 //
 //   	// the properties below are optional
 //   	Accelerators: jsii.String("accelerators"),
-//   	ContainerRegistryMap: &ContainerRegistryMapProperty{
-//   		ImageMappings: []interface{}{
-//   			&ImageMappingProperty{
-//   				DestinationImage: jsii.String("destinationImage"),
-//   				SourceImage: jsii.String("sourceImage"),
-//   			},
-//   		},
-//   		RegistryMappings: []interface{}{
-//   			&RegistryMappingProperty{
-//   				EcrAccountId: jsii.String("ecrAccountId"),
-//   				EcrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
-//   				UpstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
-//   				UpstreamRepositoryPrefix: jsii.String("upstreamRepositoryPrefix"),
-//   			},
-//   		},
-//   	},
-//   	ContainerRegistryMapUri: jsii.String("containerRegistryMapUri"),
-//   	DefinitionRepository: &DefinitionRepositoryProperty{
-//   		ConnectionArn: jsii.String("connectionArn"),
-//   		ExcludeFilePatterns: []*string{
-//   			jsii.String("excludeFilePatterns"),
-//   		},
-//   		FullRepositoryId: jsii.String("fullRepositoryId"),
-//   		SourceReference: &SourceReferenceProperty{
-//   			Type: jsii.String("type"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Description: jsii.String("description"),
 //   	Engine: jsii.String("engine"),
@@ -68,10 +40,6 @@ import (
 //   			"optional": jsii.Boolean(false),
 //   		},
 //   	},
-//   	ParameterTemplatePath: jsii.String("parameterTemplatePath"),
-//   	ReadmeMarkdown: jsii.String("readmeMarkdown"),
-//   	ReadmePath: jsii.String("readmePath"),
-//   	ReadmeUri: jsii.String("readmeUri"),
 //   	StorageCapacity: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
 //   	Tags: map[string]*string{
@@ -105,18 +73,10 @@ type CfnWorkflowVersion interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries.
-	ContainerRegistryMap() interface{}
-	SetContainerRegistryMap(val interface{})
-	ContainerRegistryMapUri() *string
-	SetContainerRegistryMapUri(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Contains information about a source code repository that hosts the workflow definition files.
-	DefinitionRepository() interface{}
-	SetDefinitionRepository(val interface{})
 	DefinitionUri() *string
 	SetDefinitionUri(val *string)
 	// The description of the workflow version.
@@ -140,18 +100,6 @@ type CfnWorkflowVersion interface {
 	Node() constructs.Node
 	ParameterTemplate() interface{}
 	SetParameterTemplate(val interface{})
-	// Path to the primary workflow parameter template JSON file inside the repository.
-	ParameterTemplatePath() *string
-	SetParameterTemplatePath(val *string)
-	// The markdown content for the workflow's README file.
-	ReadmeMarkdown() *string
-	SetReadmeMarkdown(val *string)
-	// The path to the workflow README markdown file within the repository.
-	ReadmePath() *string
-	SetReadmePath(val *string)
-	// The S3 URI of the README file for the workflow.
-	ReadmeUri() *string
-	SetReadmeUri(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -426,41 +374,11 @@ func (j *jsiiProxy_CfnWorkflowVersion) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkflowVersion) ContainerRegistryMap() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"containerRegistryMap",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) ContainerRegistryMapUri() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"containerRegistryMapUri",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnWorkflowVersion) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"creationStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) DefinitionRepository() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"definitionRepository",
 		&returns,
 	)
 	return returns
@@ -531,46 +449,6 @@ func (j *jsiiProxy_CfnWorkflowVersion) ParameterTemplate() interface{} {
 	_jsii_.Get(
 		j,
 		"parameterTemplate",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) ParameterTemplatePath() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"parameterTemplatePath",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) ReadmeMarkdown() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"readmeMarkdown",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) ReadmePath() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"readmePath",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion) ReadmeUri() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"readmeUri",
 		&returns,
 	)
 	return returns
@@ -722,36 +600,6 @@ func (j *jsiiProxy_CfnWorkflowVersion)SetAccelerators(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnWorkflowVersion)SetContainerRegistryMap(val interface{}) {
-	if err := j.validateSetContainerRegistryMapParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"containerRegistryMap",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion)SetContainerRegistryMapUri(val *string) {
-	_jsii_.Set(
-		j,
-		"containerRegistryMapUri",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion)SetDefinitionRepository(val interface{}) {
-	if err := j.validateSetDefinitionRepositoryParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"definitionRepository",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnWorkflowVersion)SetDefinitionUri(val *string) {
 	_jsii_.Set(
 		j,
@@ -791,38 +639,6 @@ func (j *jsiiProxy_CfnWorkflowVersion)SetParameterTemplate(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameterTemplate",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion)SetParameterTemplatePath(val *string) {
-	_jsii_.Set(
-		j,
-		"parameterTemplatePath",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion)SetReadmeMarkdown(val *string) {
-	_jsii_.Set(
-		j,
-		"readmeMarkdown",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion)SetReadmePath(val *string) {
-	_jsii_.Set(
-		j,
-		"readmePath",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnWorkflowVersion)SetReadmeUri(val *string) {
-	_jsii_.Set(
-		j,
-		"readmeUri",
 		val,
 	)
 }

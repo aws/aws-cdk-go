@@ -577,25 +577,6 @@ func (j *jsiiProxy_CfnRetriever)SetType(val *string) {
 	)
 }
 
-// Creates a new IRetrieverRef from an ARN.
-func CfnRetriever_FromRetrieverArn(scope constructs.Construct, id *string, arn *string) IRetrieverRef {
-	_init_.Initialize()
-
-	if err := validateCfnRetriever_FromRetrieverArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IRetrieverRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_qbusiness.CfnRetriever",
-		"fromRetrieverArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

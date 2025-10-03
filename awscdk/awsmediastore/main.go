@@ -86,7 +86,6 @@ func init() {
 		"aws-cdk-lib.aws_mediastore.IContainerRef",
 		reflect.TypeOf((*IContainerRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "containerRef", GoGetter: "ContainerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

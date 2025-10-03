@@ -674,7 +674,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberProperty{JsiiProperty: "command", GoGetter: "Command"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
-			_jsii_.MemberProperty{JsiiProperty: "enableExecuteCommand", GoGetter: "EnableExecuteCommand"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "gpu", GoGetter: "Gpu"},
@@ -712,7 +711,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "assignPublicIp", GoGetter: "AssignPublicIp"},
 			_jsii_.MemberProperty{JsiiProperty: "command", GoGetter: "Command"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
-			_jsii_.MemberProperty{JsiiProperty: "enableExecuteCommand", GoGetter: "EnableExecuteCommand"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberProperty{JsiiProperty: "ephemeralStorageSize", GoGetter: "EphemeralStorageSize"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
@@ -1096,7 +1094,6 @@ func init() {
 		"aws-cdk-lib.aws_batch.IComputeEnvironmentRef",
 		reflect.TypeOf((*IComputeEnvironmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "computeEnvironmentRef", GoGetter: "ComputeEnvironmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1109,7 +1106,6 @@ func init() {
 		"aws-cdk-lib.aws_batch.IConsumableResourceRef",
 		reflect.TypeOf((*IConsumableResourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "consumableResourceRef", GoGetter: "ConsumableResourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1125,7 +1121,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberProperty{JsiiProperty: "command", GoGetter: "Command"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
-			_jsii_.MemberProperty{JsiiProperty: "enableExecuteCommand", GoGetter: "EnableExecuteCommand"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "image", GoGetter: "Image"},
@@ -1153,7 +1148,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberProperty{JsiiProperty: "command", GoGetter: "Command"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
-			_jsii_.MemberProperty{JsiiProperty: "enableExecuteCommand", GoGetter: "EnableExecuteCommand"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "gpu", GoGetter: "Gpu"},
@@ -1184,7 +1178,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "assignPublicIp", GoGetter: "AssignPublicIp"},
 			_jsii_.MemberProperty{JsiiProperty: "command", GoGetter: "Command"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
-			_jsii_.MemberProperty{JsiiProperty: "enableExecuteCommand", GoGetter: "EnableExecuteCommand"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberProperty{JsiiProperty: "ephemeralStorageSize", GoGetter: "EphemeralStorageSize"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
@@ -1342,7 +1335,6 @@ func init() {
 		"aws-cdk-lib.aws_batch.IJobDefinitionRef",
 		reflect.TypeOf((*IJobDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "jobDefinitionRef", GoGetter: "JobDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1377,7 +1369,6 @@ func init() {
 		"aws-cdk-lib.aws_batch.IJobQueueRef",
 		reflect.TypeOf((*IJobQueueRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "jobQueueRef", GoGetter: "JobQueueRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1481,7 +1472,6 @@ func init() {
 		reflect.TypeOf((*ISchedulingPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "schedulingPolicyRef", GoGetter: "SchedulingPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchedulingPolicyRef{}
@@ -1494,7 +1484,6 @@ func init() {
 		reflect.TypeOf((*IServiceEnvironmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "serviceEnvironmentRef", GoGetter: "ServiceEnvironmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceEnvironmentRef{}
@@ -1584,7 +1573,6 @@ func init() {
 		reflect.TypeOf((*JobStateTimeLimitActionsAction)(nil)).Elem(),
 		map[string]interface{}{
 			"CANCEL": JobStateTimeLimitActionsAction_CANCEL,
-			"TERMINATE": JobStateTimeLimitActionsAction_TERMINATE,
 		},
 	)
 	_jsii_.RegisterEnum(

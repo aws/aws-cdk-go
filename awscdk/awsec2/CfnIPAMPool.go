@@ -853,44 +853,6 @@ func (j *jsiiProxy_CfnIPAMPool)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-// Creates a new IIPAMPoolRef from an ARN.
-func CfnIPAMPool_FromIPAMPoolArn(scope constructs.Construct, id *string, arn *string) IIPAMPoolRef {
-	_init_.Initialize()
-
-	if err := validateCfnIPAMPool_FromIPAMPoolArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IIPAMPoolRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnIPAMPool",
-		"fromIPAMPoolArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IIPAMPoolRef from a ipamPoolId.
-func CfnIPAMPool_FromIpamPoolId(scope constructs.Construct, id *string, ipamPoolId *string) IIPAMPoolRef {
-	_init_.Initialize()
-
-	if err := validateCfnIPAMPool_FromIpamPoolIdParameters(scope, id, ipamPoolId); err != nil {
-		panic(err)
-	}
-	var returns IIPAMPoolRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnIPAMPool",
-		"fromIpamPoolId",
-		[]interface{}{scope, id, ipamPoolId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

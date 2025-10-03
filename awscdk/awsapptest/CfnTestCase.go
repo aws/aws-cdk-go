@@ -638,44 +638,6 @@ func (j *jsiiProxy_CfnTestCase)SetTags(val *map[string]*string) {
 	)
 }
 
-// Creates a new ITestCaseRef from an ARN.
-func CfnTestCase_FromTestCaseArn(scope constructs.Construct, id *string, arn *string) ITestCaseRef {
-	_init_.Initialize()
-
-	if err := validateCfnTestCase_FromTestCaseArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ITestCaseRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apptest.CfnTestCase",
-		"fromTestCaseArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ITestCaseRef from a testCaseId.
-func CfnTestCase_FromTestCaseId(scope constructs.Construct, id *string, testCaseId *string) ITestCaseRef {
-	_init_.Initialize()
-
-	if err := validateCfnTestCase_FromTestCaseIdParameters(scope, id, testCaseId); err != nil {
-		panic(err)
-	}
-	var returns ITestCaseRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apptest.CfnTestCase",
-		"fromTestCaseId",
-		[]interface{}{scope, id, testCaseId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

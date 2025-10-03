@@ -413,7 +413,6 @@ func init() {
 		"aws-cdk-lib.aws_pcaconnectorad.IConnectorRef",
 		reflect.TypeOf((*IConnectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -426,7 +425,6 @@ func init() {
 		"aws-cdk-lib.aws_pcaconnectorad.IDirectoryRegistrationRef",
 		reflect.TypeOf((*IDirectoryRegistrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "directoryRegistrationRef", GoGetter: "DirectoryRegistrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -440,7 +438,6 @@ func init() {
 		reflect.TypeOf((*IServicePrincipalNameRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "servicePrincipalNameRef", GoGetter: "ServicePrincipalNameRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServicePrincipalNameRef{}
@@ -453,7 +450,6 @@ func init() {
 		reflect.TypeOf((*ITemplateGroupAccessControlEntryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateGroupAccessControlEntryRef", GoGetter: "TemplateGroupAccessControlEntryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITemplateGroupAccessControlEntryRef{}
@@ -466,7 +462,6 @@ func init() {
 		reflect.TypeOf((*ITemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "templateRef", GoGetter: "TemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITemplateRef{}

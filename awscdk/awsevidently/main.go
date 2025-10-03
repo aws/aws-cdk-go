@@ -376,7 +376,6 @@ func init() {
 		"aws-cdk-lib.aws_evidently.IExperimentRef",
 		reflect.TypeOf((*IExperimentRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "experimentRef", GoGetter: "ExperimentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -389,7 +388,6 @@ func init() {
 		"aws-cdk-lib.aws_evidently.IFeatureRef",
 		reflect.TypeOf((*IFeatureRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "featureRef", GoGetter: "FeatureRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -402,7 +400,6 @@ func init() {
 		"aws-cdk-lib.aws_evidently.ILaunchRef",
 		reflect.TypeOf((*ILaunchRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "launchRef", GoGetter: "LaunchRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -416,7 +413,6 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}
@@ -429,7 +425,6 @@ func init() {
 		reflect.TypeOf((*ISegmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "segmentRef", GoGetter: "SegmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISegmentRef{}

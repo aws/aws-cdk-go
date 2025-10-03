@@ -24,11 +24,10 @@ import (
 //
 //   var bucket bucket
 //   var caCertificate caCertificate
-//   var keyRef iKeyRef
+//   var key key
 //   var optionGroup optionGroup
 //   var parameterGroup parameterGroup
 //   var role role
-//   var roleRef iRoleRef
 //   var securityGroup securityGroup
 //   var subnet subnet
 //   var subnetFilter subnetFilter
@@ -54,7 +53,7 @@ import (
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
-//   	DomainRole: roleRef,
+//   	DomainRole: role,
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	EngineLifecycleSupport: awscdk.*Aws_rds.EngineLifecycleSupport_OPEN_SOURCE_RDS_EXTENDED_SUPPORT,
 //   	IamAuthentication: jsii.Boolean(false),
@@ -62,12 +61,12 @@ import (
 //   	Iops: jsii.Number(123),
 //   	MaxAllocatedStorage: jsii.Number(123),
 //   	MonitoringInterval: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	MonitoringRole: roleRef,
+//   	MonitoringRole: role,
 //   	MultiAz: jsii.Boolean(false),
 //   	NetworkType: awscdk.*Aws_rds.NetworkType_IPV4,
 //   	OptionGroup: optionGroup,
 //   	ParameterGroup: parameterGroup,
-//   	PerformanceInsightEncryptionKey: keyRef,
+//   	PerformanceInsightEncryptionKey: key,
 //   	PerformanceInsightRetention: awscdk.*Aws_rds.PerformanceInsightRetention_DEFAULT,
 //   	Port: jsii.Number(123),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
@@ -192,7 +191,7 @@ type DatabaseInstanceNewProps struct {
 	// AmazonRDSDirectoryServiceAccess or equivalent.
 	// Default: - The role will be created for you if `DatabaseInstanceNewProps#domain` is specified.
 	//
-	DomainRole awsiam.IRoleRef `field:"optional" json:"domainRole" yaml:"domainRole"`
+	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
 	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
@@ -238,7 +237,7 @@ type DatabaseInstanceNewProps struct {
 	// Role that will be used to manage DB instance monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
 	// Default: false.
 	//
@@ -258,7 +257,7 @@ type DatabaseInstanceNewProps struct {
 	// The AWS KMS key for encryption of Performance Insights data.
 	// Default: - default master key.
 	//
-	PerformanceInsightEncryptionKey awskms.IKeyRef `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
 	//
 	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.

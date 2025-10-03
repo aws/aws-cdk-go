@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnEventIntegration) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
-func validateCfnEventIntegration_FromEventIntegrationArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnEventIntegration_FromEventIntegrationNameParameters(scope constructs.Construct, id *string, eventIntegrationName *string) error {
-	return nil
-}
-
 func validateCfnEventIntegration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

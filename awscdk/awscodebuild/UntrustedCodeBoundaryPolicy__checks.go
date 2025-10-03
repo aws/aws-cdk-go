@@ -20,7 +20,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateApplyRemovalPolicyParame
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToGroupParameters(group awsiam.IGroupRef) error {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToGroupParameters(group awsiam.IGroup) error {
 	if group == nil {
 		return fmt.Errorf("parameter group is required, but nil was provided")
 	}
@@ -36,7 +36,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToRoleParameters(r
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToUserParameters(user awsiam.IUserRef) error {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToUserParameters(user awsiam.IUser) error {
 	if user == nil {
 		return fmt.Errorf("parameter user is required, but nil was provided")
 	}
