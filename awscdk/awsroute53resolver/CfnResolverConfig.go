@@ -430,6 +430,25 @@ func (j *jsiiProxy_CfnResolverConfig)SetResourceId(val *string) {
 	)
 }
 
+// Creates a new IResolverConfigRef from a resourceId.
+func CfnResolverConfig_FromResourceId(scope constructs.Construct, id *string, resourceId *string) IResolverConfigRef {
+	_init_.Initialize()
+
+	if err := validateCfnResolverConfig_FromResourceIdParameters(scope, id, resourceId); err != nil {
+		panic(err)
+	}
+	var returns IResolverConfigRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53resolver.CfnResolverConfig",
+		"fromResourceId",
+		[]interface{}{scope, id, resourceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

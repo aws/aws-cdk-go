@@ -33,6 +33,7 @@ import (
 //   	Command: []*string{
 //   		jsii.String("command"),
 //   	},
+//   	EnableExecuteCommand: jsii.Boolean(false),
 //   	Environment: map[string]*string{
 //   		"environmentKey": jsii.String("environment"),
 //   	},
@@ -69,6 +70,18 @@ type EcsContainerDefinitionProps struct {
 	// Default: - no command.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// Determines whether execute command functionality is turned on for this task.
+	//
+	// If true, execute command functionality is turned on all the containers in the task.
+	//
+	// This allows you to use ECS Exec to access containers interactively.
+	// When enabled, a job role with required SSM permissions will be created automatically if no job role is provided.
+	// If a job role is alreadyprovided, the required permissions will be added to it.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html
+	//
+	// Default: undefined - AWS Batch default is false.
+	//
+	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The environment variables to pass to a container.
 	//
 	// Cannot start with `AWS_BATCH`.

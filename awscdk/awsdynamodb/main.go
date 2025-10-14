@@ -93,6 +93,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "globalSecondaryIndexes", GoGetter: "GlobalSecondaryIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "globalTableRef", GoGetter: "GlobalTableRef"},
+			_jsii_.MemberProperty{JsiiProperty: "globalTableSettingsReplicationMode", GoGetter: "GlobalTableSettingsReplicationMode"},
+			_jsii_.MemberProperty{JsiiProperty: "globalTableSourceArn", GoGetter: "GlobalTableSourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "globalTableWitnesses", GoGetter: "GlobalTableWitnesses"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "keySchema", GoGetter: "KeySchema"},
@@ -255,6 +257,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "globalSecondaryIndexes", GoGetter: "GlobalSecondaryIndexes"},
+			_jsii_.MemberProperty{JsiiProperty: "globalTableSettingsReplicationMode", GoGetter: "GlobalTableSettingsReplicationMode"},
 			_jsii_.MemberProperty{JsiiProperty: "importSourceSpecification", GoGetter: "ImportSourceSpecification"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "keySchema", GoGetter: "KeySchema"},
@@ -414,6 +417,7 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.IGlobalTableRef",
 		reflect.TypeOf((*IGlobalTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "globalTableRef", GoGetter: "GlobalTableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -474,6 +478,7 @@ func init() {
 		reflect.TypeOf((*ITableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableRef{}

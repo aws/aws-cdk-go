@@ -281,6 +281,7 @@ func init() {
 		"aws-cdk-lib.aws_kafkaconnect.IConnectorRef",
 		reflect.TypeOf((*IConnectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -293,6 +294,7 @@ func init() {
 		"aws-cdk-lib.aws_kafkaconnect.ICustomPluginRef",
 		reflect.TypeOf((*ICustomPluginRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customPluginRef", GoGetter: "CustomPluginRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -306,6 +308,7 @@ func init() {
 		reflect.TypeOf((*IWorkerConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workerConfigurationRef", GoGetter: "WorkerConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkerConfigurationRef{}

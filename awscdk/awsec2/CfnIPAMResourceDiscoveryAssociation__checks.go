@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateValidateProperti
 	return nil
 }
 
+func validateCfnIPAMResourceDiscoveryAssociation_FromIpamResourceDiscoveryAssociationIdParameters(scope constructs.Construct, id *string, ipamResourceDiscoveryAssociationId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if ipamResourceDiscoveryAssociationId == nil {
+		return fmt.Errorf("parameter ipamResourceDiscoveryAssociationId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnIPAMResourceDiscoveryAssociation_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

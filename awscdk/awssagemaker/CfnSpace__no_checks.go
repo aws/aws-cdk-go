@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSpace) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnSpace_FromSpaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnSpace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -187,6 +187,54 @@ func (j *jsiiProxy_CfnLocationSMB) validateSetAgentArnsParameters(val *[]*string
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationSMB) validateSetCmkSecretConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationSMB_CmkSecretConfigProperty:
+		val := val.(*CfnLocationSMB_CmkSecretConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationSMB_CmkSecretConfigProperty:
+		val_ := val.(CfnLocationSMB_CmkSecretConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationSMB_CmkSecretConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnLocationSMB) validateSetCustomSecretConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationSMB_CustomSecretConfigProperty:
+		val := val.(*CfnLocationSMB_CustomSecretConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationSMB_CustomSecretConfigProperty:
+		val_ := val.(CfnLocationSMB_CustomSecretConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationSMB_CustomSecretConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationSMB) validateSetMountOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

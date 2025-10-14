@@ -298,6 +298,7 @@ func init() {
 		"aws-cdk-lib.aws_organizations.IAccountRef",
 		reflect.TypeOf((*IAccountRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accountRef", GoGetter: "AccountRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -311,6 +312,7 @@ func init() {
 		reflect.TypeOf((*IOrganizationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "organizationRef", GoGetter: "OrganizationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationRef{}
@@ -323,6 +325,7 @@ func init() {
 		reflect.TypeOf((*IOrganizationalUnitRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "organizationalUnitRef", GoGetter: "OrganizationalUnitRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationalUnitRef{}
@@ -335,6 +338,7 @@ func init() {
 		reflect.TypeOf((*IPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyRef{}
@@ -347,6 +351,7 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}

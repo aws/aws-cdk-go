@@ -350,6 +350,7 @@ func init() {
 		"aws-cdk-lib.aws_athena.ICapacityReservationRef",
 		reflect.TypeOf((*ICapacityReservationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "capacityReservationRef", GoGetter: "CapacityReservationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -362,6 +363,7 @@ func init() {
 		"aws-cdk-lib.aws_athena.IDataCatalogRef",
 		reflect.TypeOf((*IDataCatalogRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataCatalogRef", GoGetter: "DataCatalogRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -374,6 +376,7 @@ func init() {
 		"aws-cdk-lib.aws_athena.INamedQueryRef",
 		reflect.TypeOf((*INamedQueryRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "namedQueryRef", GoGetter: "NamedQueryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -387,6 +390,7 @@ func init() {
 		reflect.TypeOf((*IPreparedStatementRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "preparedStatementRef", GoGetter: "PreparedStatementRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPreparedStatementRef{}
@@ -399,6 +403,7 @@ func init() {
 		reflect.TypeOf((*IWorkGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroupRef", GoGetter: "WorkGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkGroupRef{}

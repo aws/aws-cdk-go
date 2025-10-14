@@ -141,6 +141,16 @@ func (j *jsiiProxy_IInstance) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
+func (j *jsiiProxy_IInstance) InstanceRef() *InstanceReference {
+	var returns *InstanceReference
+	_jsii_.Get(
+		j,
+		"instanceRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IInstance) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

@@ -290,6 +290,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "imageTestsConfiguration", GoGetter: "ImageTestsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfigurationArn", GoGetter: "InfrastructureConfigurationArn"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfiguration", GoGetter: "LoggingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -321,6 +322,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.EcrConfigurationProperty",
 		reflect.TypeOf((*CfnImage_EcrConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnImage_ImageLoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageScanningConfigurationProperty",
@@ -369,6 +374,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "imageTestsConfiguration", GoGetter: "ImageTestsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfigurationArn", GoGetter: "InfrastructureConfigurationArn"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfiguration", GoGetter: "LoggingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -401,6 +407,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.AutoDisablePolicyProperty",
+		reflect.TypeOf((*CfnImagePipeline_AutoDisablePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.EcrConfigurationProperty",
 		reflect.TypeOf((*CfnImagePipeline_EcrConfigurationProperty)(nil)).Elem(),
 	)
@@ -411,6 +421,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.ImageTestsConfigurationProperty",
 		reflect.TypeOf((*CfnImagePipeline_ImageTestsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.PipelineLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnImagePipeline_PipelineLoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.ScheduleProperty",
@@ -444,6 +458,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "amiTags", GoGetter: "AmiTags"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
@@ -770,6 +785,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IComponentRef",
 		reflect.TypeOf((*IComponentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "componentRef", GoGetter: "ComponentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -782,6 +798,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IContainerRecipeRef",
 		reflect.TypeOf((*IContainerRecipeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "containerRecipeRef", GoGetter: "ContainerRecipeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -794,6 +811,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IDistributionConfigurationRef",
 		reflect.TypeOf((*IDistributionConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationRef", GoGetter: "DistributionConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -806,6 +824,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IImagePipelineRef",
 		reflect.TypeOf((*IImagePipelineRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "imagePipelineRef", GoGetter: "ImagePipelineRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -818,6 +837,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IImageRecipeRef",
 		reflect.TypeOf((*IImageRecipeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "imageRecipeRef", GoGetter: "ImageRecipeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -830,6 +850,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IImageRef",
 		reflect.TypeOf((*IImageRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "imageRef", GoGetter: "ImageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -842,6 +863,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.IInfrastructureConfigurationRef",
 		reflect.TypeOf((*IInfrastructureConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfigurationRef", GoGetter: "InfrastructureConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -854,6 +876,7 @@ func init() {
 		"aws-cdk-lib.aws_imagebuilder.ILifecyclePolicyRef",
 		reflect.TypeOf((*ILifecyclePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "lifecyclePolicyRef", GoGetter: "LifecyclePolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -867,6 +890,7 @@ func init() {
 		reflect.TypeOf((*IWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowRef", GoGetter: "WorkflowRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkflowRef{}

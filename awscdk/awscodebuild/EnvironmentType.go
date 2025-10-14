@@ -4,16 +4,18 @@ package awscodebuild
 // Build environment type.
 //
 // Example:
-//   fleet := codebuild.NewFleet(this, jsii.String("Fleet"), &FleetProps{
-//   	ComputeType: codebuild.FleetComputeType_MEDIUM,
-//   	EnvironmentType: codebuild.EnvironmentType_LINUX_CONTAINER,
-//   	BaseCapacity: jsii.Number(1),
-//   })
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
-//   	Environment: &BuildEnvironment{
-//   		Fleet: *Fleet,
-//   		BuildImage: codebuild.LinuxBuildImage_STANDARD_7_0(),
+//
+//   fleet := codebuild.NewFleet(this, jsii.String("MyFleet"), &FleetProps{
+//   	BaseCapacity: jsii.Number(1),
+//   	ComputeType: codebuild.FleetComputeType_CUSTOM_INSTANCE_TYPE,
+//   	EnvironmentType: codebuild.EnvironmentType_LINUX_CONTAINER,
+//   	ComputeConfiguration: &ComputeConfiguration{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T3, ec2.InstanceSize_MEDIUM),
+//   		// By default, 64 GiB of disk space is included. Any value optionally
+//   		// specified here is _incremental_ on top of the included disk space.
+//   		Disk: awscdk.Size_Gibibytes(jsii.Number(10)),
 //   	},
 //   })
 //

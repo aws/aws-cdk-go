@@ -3,6 +3,8 @@ package awspcs
 
 // Additional settings that directly map to Slurm settings.
 //
+// > AWS PCS supports a subset of Slurm settings. For more information, see [Configuring custom Slurm settings in AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/slurm-custom-settings.html) in the *AWS PCS User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,17 +18,9 @@ package awspcs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-slurmcustomsetting.html
 //
 type CfnComputeNodeGroup_SlurmCustomSettingProperty struct {
-	// AWS PCS supports configuration of the following Slurm parameters:.
+	// AWS PCS supports custom Slurm settings for clusters, compute node groups, and queues.
 	//
-	// - For *clusters*
-	//
-	// - [`Prolog`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1)
-	// - [`Epilog`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1)
-	// - [`SelectTypeParameters`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters)
-	// - For *compute node groups*
-	//
-	// - [`Weight`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Weight)
-	// - [`RealMemory`](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurm.conf.html#OPT_Weight)
+	// For more information, see [Configuring custom Slurm settings in AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/slurm-custom-settings.html) in the *AWS PCS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-slurmcustomsetting.html#cfn-pcs-computenodegroup-slurmcustomsetting-parametername
 	//
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`

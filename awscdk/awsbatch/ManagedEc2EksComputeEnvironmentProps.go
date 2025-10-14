@@ -22,7 +22,7 @@ import (
 //   var instanceType instanceType
 //   var launchTemplate launchTemplate
 //   var machineImage iMachineImage
-//   var placementGroup placementGroup
+//   var placementGroupRef iPlacementGroupRef
 //   var role role
 //   var securityGroup securityGroup
 //   var subnet subnet
@@ -37,6 +37,9 @@ import (
 //   	// the properties below are optional
 //   	AllocationStrategy: awscdk.Aws_batch.AllocationStrategy_BEST_FIT,
 //   	ComputeEnvironmentName: jsii.String("computeEnvironmentName"),
+//   	DefaultInstanceClasses: []defaultInstanceClass{
+//   		awscdk.*Aws_batch.*defaultInstanceClass_X86_64,
+//   	},
 //   	Enabled: jsii.Boolean(false),
 //   	Images: []eksMachineImage{
 //   		&eksMachineImage{
@@ -54,7 +57,7 @@ import (
 //   	LaunchTemplate: launchTemplate,
 //   	MaxvCpus: jsii.Number(123),
 //   	MinvCpus: jsii.Number(123),
-//   	PlacementGroup: placementGroup,
+//   	PlacementGroup: placementGroupRef,
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
 //   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,
@@ -198,6 +201,15 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	// `SPOT_CAPACITY_OPTIMIZED` if using Spot instances.
 	//
 	AllocationStrategy AllocationStrategy `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
+	// Use batch's default instance types.
+	//
+	// A simpler way to choose up-to-date instance classes based on region
+	// instead of specifying exact instance classes.
+	// See: https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html
+	//
+	// Default: - choose from instanceTypes and instanceClasses.
+	//
+	DefaultInstanceClasses *[]DefaultInstanceClass `field:"optional" json:"defaultInstanceClasses" yaml:"defaultInstanceClasses"`
 	// Configure which AMIs this Compute Environment can launch.
 	// Default: If `imageKubernetesVersion` is specified,
 	// - EKS_AL2 for non-GPU instances, EKS_AL2_NVIDIA for GPU instances,
@@ -245,7 +257,7 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	//
 	// Default: - no placement group.
 	//
-	PlacementGroup awsec2.IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup awsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
 	//
 	// For example, if your maximum percentage is 20%, the Spot price must be
@@ -264,6 +276,7 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	// (of the same architecture) in addition to the optimal instance classes.
 	// Default: true.
 	//
+	// Deprecated: use defaultInstanceClasses instead.
 	UseOptimalInstanceClasses *bool `field:"optional" json:"useOptimalInstanceClasses" yaml:"useOptimalInstanceClasses"`
 }
 

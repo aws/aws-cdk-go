@@ -38,7 +38,7 @@ func (s *jsiiProxy_SamlPrincipal) validateWithConditionsParameters(conditions *m
 	return nil
 }
 
-func validateNewSamlPrincipalParameters(samlProvider ISamlProvider, conditions *map[string]interface{}) error {
+func validateNewSamlPrincipalParameters(samlProvider ISAMLProviderRef, conditions *map[string]interface{}) error {
 	if samlProvider == nil {
 		return fmt.Errorf("parameter samlProvider is required, but nil was provided")
 	}

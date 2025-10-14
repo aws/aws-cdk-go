@@ -27,7 +27,7 @@ import (
 //   var instanceType instanceType
 //   var launchTemplate launchTemplate
 //   var machineImage iMachineImage
-//   var placementGroup placementGroup
+//   var placementGroupRef iPlacementGroupRef
 //   var role role
 //   var securityGroup securityGroup
 //   var subnet subnet
@@ -42,6 +42,9 @@ import (
 //   	// the properties below are optional
 //   	AllocationStrategy: awscdk.*Aws_batch.AllocationStrategy_BEST_FIT,
 //   	ComputeEnvironmentName: jsii.String("computeEnvironmentName"),
+//   	DefaultInstanceClasses: []defaultInstanceClass{
+//   		awscdk.*Aws_batch.*defaultInstanceClass_X86_64,
+//   	},
 //   	Enabled: jsii.Boolean(false),
 //   	Images: []eksMachineImage{
 //   		&eksMachineImage{
@@ -59,7 +62,7 @@ import (
 //   	LaunchTemplate: launchTemplate,
 //   	MaxvCpus: jsii.Number(123),
 //   	MinvCpus: jsii.Number(123),
-//   	PlacementGroup: placementGroup,
+//   	PlacementGroup: placementGroupRef,
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
 //   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,

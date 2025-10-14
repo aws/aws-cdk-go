@@ -85,3 +85,13 @@ func (j *jsiiProxy_IVpcEndpointService) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IVpcEndpointService) VpcEndpointServiceRef() *VPCEndpointServiceReference {
+	var returns *VPCEndpointServiceReference
+	_jsii_.Get(
+		j,
+		"vpcEndpointServiceRef",
+		&returns,
+	)
+	return returns
+}
+

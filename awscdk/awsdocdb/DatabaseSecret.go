@@ -82,7 +82,7 @@ type DatabaseSecret interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a replica region for the secret.
-	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
+	AddReplicaRegion(region *string, encryptionKey awskms.IKeyRef)
 	// Adds a rotation schedule to the secret.
 	AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
@@ -475,7 +475,7 @@ func DatabaseSecret_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
+func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKey awskms.IKeyRef) {
 	if err := d.validateAddReplicaRegionParameters(region); err != nil {
 		panic(err)
 	}

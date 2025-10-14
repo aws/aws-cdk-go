@@ -1820,6 +1820,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IApiCacheRef",
 		reflect.TypeOf((*IApiCacheRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiCacheRef", GoGetter: "ApiCacheRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1832,6 +1833,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IApiKeyRef",
 		reflect.TypeOf((*IApiKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1844,6 +1846,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IApiRef",
 		reflect.TypeOf((*IApiRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1901,6 +1904,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IChannelNamespaceRef",
 		reflect.TypeOf((*IChannelNamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceRef", GoGetter: "ChannelNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1913,6 +1917,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IDataSourceRef",
 		reflect.TypeOf((*IDataSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataSourceRef", GoGetter: "DataSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1925,6 +1930,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IDomainNameApiAssociationRef",
 		reflect.TypeOf((*IDomainNameApiAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainNameApiAssociationRef", GoGetter: "DomainNameApiAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1937,6 +1943,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IDomainNameRef",
 		reflect.TypeOf((*IDomainNameRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1981,6 +1988,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IFunctionConfigurationRef",
 		reflect.TypeOf((*IFunctionConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "functionConfigurationRef", GoGetter: "FunctionConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1993,6 +2001,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IGraphQLApiRef",
 		reflect.TypeOf((*IGraphQLApiRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "graphQlApiRef", GoGetter: "GraphQlApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2005,6 +2014,7 @@ func init() {
 		"aws-cdk-lib.aws_appsync.IGraphQLSchemaRef",
 		reflect.TypeOf((*IGraphQLSchemaRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "graphQlSchemaRef", GoGetter: "GraphQlSchemaRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2053,6 +2063,7 @@ func init() {
 		reflect.TypeOf((*IResolverRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resolverRef", GoGetter: "ResolverRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverRef{}
@@ -2105,6 +2116,7 @@ func init() {
 		reflect.TypeOf((*ISourceApiAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceApiAssociationRef", GoGetter: "SourceApiAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISourceApiAssociationRef{}

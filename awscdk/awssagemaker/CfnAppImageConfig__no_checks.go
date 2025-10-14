@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAppImageConfig) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnAppImageConfig_FromAppImageConfigArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAppImageConfig_FromAppImageConfigNameParameters(scope constructs.Construct, id *string, appImageConfigName *string) error {
+	return nil
+}
+
 func validateCfnAppImageConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

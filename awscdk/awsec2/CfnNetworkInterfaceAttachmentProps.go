@@ -15,6 +15,7 @@ package awsec2
 //
 //   	// the properties below are optional
 //   	DeleteOnTermination: jsii.Boolean(false),
+//   	EnaQueueCount: jsii.Number(123),
 //   	EnaSrdSpecification: &EnaSrdSpecificationProperty{
 //   		EnaSrdEnabled: jsii.Boolean(false),
 //   		EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
@@ -48,6 +49,10 @@ type CfnNetworkInterfaceAttachmentProps struct {
 	// Default: - true.
 	//
 	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	// The number of ENA queues created with the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-enaqueuecount
+	//
+	EnaQueueCount *float64 `field:"optional" json:"enaQueueCount" yaml:"enaQueueCount"`
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-enasrdspecification
 	//

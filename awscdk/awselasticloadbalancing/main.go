@@ -119,6 +119,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancing.ILoadBalancerRef",
 		reflect.TypeOf((*ILoadBalancerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

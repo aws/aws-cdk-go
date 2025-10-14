@@ -52,6 +52,11 @@ type AppProps struct {
 	//
 	// Experimental.
 	BasicAuth BasicAuth `field:"optional" json:"basicAuth" yaml:"basicAuth"`
+	// Specifies the size of the build instance.
+	// Default: undefined - Amplify default setting is `BuildComputeType.STANDARD_8GB`.
+	//
+	// Experimental.
+	BuildComputeType BuildComputeType `field:"optional" json:"buildComputeType" yaml:"buildComputeType"`
 	// BuildSpec for the application.
 	//
 	// Alternatively, add a `amplify.yml`

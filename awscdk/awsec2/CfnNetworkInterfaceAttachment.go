@@ -25,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	DeleteOnTermination: jsii.Boolean(false),
+//   	EnaQueueCount: jsii.Number(123),
 //   	EnaSrdSpecification: &EnaSrdSpecificationProperty{
 //   		EnaSrdEnabled: jsii.Boolean(false),
 //   		EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
@@ -56,6 +57,9 @@ type CfnNetworkInterfaceAttachment interface {
 	// The network interface's position in the attachment order.
 	DeviceIndex() *string
 	SetDeviceIndex(val *string)
+	// The number of ENA queues created with the instance.
+	EnaQueueCount() *float64
+	SetEnaQueueCount(val *float64)
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification() interface{}
 	SetEnaSrdSpecification(val interface{})
@@ -305,6 +309,16 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) DeviceIndex() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) EnaQueueCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"enaQueueCount",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterfaceAttachment) EnaSrdSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -451,6 +465,14 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment)SetDeviceIndex(val *string) {
 	_jsii_.Set(
 		j,
 		"deviceIndex",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment)SetEnaQueueCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"enaQueueCount",
 		val,
 	)
 }

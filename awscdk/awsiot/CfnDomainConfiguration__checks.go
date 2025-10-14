@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnDomainConfiguration) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnDomainConfiguration_FromDomainConfigurationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnDomainConfiguration_FromDomainConfigurationNameParameters(scope constructs.Construct, id *string, domainConfigurationName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if domainConfigurationName == nil {
+		return fmt.Errorf("parameter domainConfigurationName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomainConfiguration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

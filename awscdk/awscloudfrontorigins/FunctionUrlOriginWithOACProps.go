@@ -69,12 +69,28 @@ type FunctionUrlOriginWithOACProps struct {
 	// Default: - origin shield not enabled.
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// The time that a request from CloudFront to the origin can stay open and wait for a response.
+	//
+	// If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+	//
+	// Valid values are 1-3600 seconds, inclusive.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout
+	//
+	// Default: undefined -  AWS CloudFront default is not enforcing a maximum value.
+	//
+	ResponseCompletionTimeout awscdk.Duration `field:"optional" json:"responseCompletionTimeout" yaml:"responseCompletionTimeout"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
 	// Default: '/'.
 	//
 	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
+	// Specifies which IP protocol CloudFront uses when connecting to your origin.
+	//
+	// If your origin uses both IPv4 and IPv6 protocols, you can choose dualstack to help optimize reliability.
+	// Default: OriginIpAddressType.IPV4
+	//
+	IpAddressType awscloudfront.OriginIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 180 seconds, inclusive.

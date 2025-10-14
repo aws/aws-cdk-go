@@ -38,6 +38,9 @@ import (
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
 //   	InfrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
+//   	LoggingConfiguration: &ImageLoggingConfigurationProperty{
+//   		LogGroupName: jsii.String("logGroupName"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -114,6 +117,9 @@ type CfnImage interface {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.
 	InfrastructureConfigurationArn() *string
 	SetInfrastructureConfigurationArn(val *string)
+	// The logging configuration that's defined for the image.
+	LoggingConfiguration() interface{}
+	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -461,6 +467,16 @@ func (j *jsiiProxy_CfnImage) InfrastructureConfigurationArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) LoggingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImage) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -648,6 +664,17 @@ func (j *jsiiProxy_CfnImage)SetInfrastructureConfigurationArn(val *string) {
 	_jsii_.Set(
 		j,
 		"infrastructureConfigurationArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImage)SetLoggingConfiguration(val interface{}) {
+	if err := j.validateSetLoggingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"loggingConfiguration",
 		val,
 	)
 }

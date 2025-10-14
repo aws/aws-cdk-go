@@ -78,6 +78,7 @@ type PythonFunction interface {
 	// Name of this function.
 	// Experimental.
 	FunctionName() *string
+	// A reference to a Function resource.
 	// Experimental.
 	FunctionRef() *awslambda.FunctionReference
 	// The principal this Lambda Function is running as.

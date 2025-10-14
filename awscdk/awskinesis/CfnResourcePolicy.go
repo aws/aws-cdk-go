@@ -64,7 +64,7 @@ type CfnResourcePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// This is the name for the resource policy.
+	// Returns the Amazon Resource Name (ARN) of the resource-based policy.
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// This is the description for the resource policy.

@@ -1332,6 +1332,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IADMChannelRef",
 		reflect.TypeOf((*IADMChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "admChannelRef", GoGetter: "AdmChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1344,6 +1345,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IAPNSChannelRef",
 		reflect.TypeOf((*IAPNSChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apnsChannelRef", GoGetter: "ApnsChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1356,6 +1358,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IAPNSSandboxChannelRef",
 		reflect.TypeOf((*IAPNSSandboxChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apnsSandboxChannelRef", GoGetter: "ApnsSandboxChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1368,6 +1371,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IAPNSVoipChannelRef",
 		reflect.TypeOf((*IAPNSVoipChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apnsVoipChannelRef", GoGetter: "ApnsVoipChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1380,6 +1384,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IAPNSVoipSandboxChannelRef",
 		reflect.TypeOf((*IAPNSVoipSandboxChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apnsVoipSandboxChannelRef", GoGetter: "ApnsVoipSandboxChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1392,6 +1397,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IAppRef",
 		reflect.TypeOf((*IAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "appRef", GoGetter: "AppRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1404,6 +1410,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IApplicationSettingsRef",
 		reflect.TypeOf((*IApplicationSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationSettingsRef", GoGetter: "ApplicationSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1416,6 +1423,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IBaiduChannelRef",
 		reflect.TypeOf((*IBaiduChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "baiduChannelRef", GoGetter: "BaiduChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1428,6 +1436,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.ICampaignRef",
 		reflect.TypeOf((*ICampaignRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "campaignRef", GoGetter: "CampaignRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1440,6 +1449,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IEmailChannelRef",
 		reflect.TypeOf((*IEmailChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "emailChannelRef", GoGetter: "EmailChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1452,6 +1462,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IEmailTemplateRef",
 		reflect.TypeOf((*IEmailTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "emailTemplateRef", GoGetter: "EmailTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1464,6 +1475,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IEventStreamRef",
 		reflect.TypeOf((*IEventStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eventStreamRef", GoGetter: "EventStreamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1476,6 +1488,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IGCMChannelRef",
 		reflect.TypeOf((*IGCMChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "gcmChannelRef", GoGetter: "GcmChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1488,6 +1501,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpoint.IInAppTemplateRef",
 		reflect.TypeOf((*IInAppTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "inAppTemplateRef", GoGetter: "InAppTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1501,6 +1515,7 @@ func init() {
 		reflect.TypeOf((*IPushTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pushTemplateRef", GoGetter: "PushTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPushTemplateRef{}
@@ -1513,6 +1528,7 @@ func init() {
 		reflect.TypeOf((*ISMSChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "smsChannelRef", GoGetter: "SmsChannelRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISMSChannelRef{}
@@ -1525,6 +1541,7 @@ func init() {
 		reflect.TypeOf((*ISegmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "segmentRef", GoGetter: "SegmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISegmentRef{}
@@ -1537,6 +1554,7 @@ func init() {
 		reflect.TypeOf((*ISmsTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "smsTemplateRef", GoGetter: "SmsTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISmsTemplateRef{}
@@ -1549,6 +1567,7 @@ func init() {
 		reflect.TypeOf((*IVoiceChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "voiceChannelRef", GoGetter: "VoiceChannelRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVoiceChannelRef{}

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnWorkspaceInstance) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnWorkspaceInstance_FromWorkspaceInstanceIdParameters(scope constructs.Construct, id *string, workspaceInstanceId *string) error {
+	return nil
+}
+
 func validateCfnWorkspaceInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

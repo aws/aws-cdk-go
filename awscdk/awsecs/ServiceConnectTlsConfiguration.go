@@ -40,7 +40,7 @@ type ServiceConnectTlsConfiguration struct {
 	// The KMS key used for encryption and decryption.
 	// Default: - none.
 	//
-	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The IAM role that's associated with the Service Connect TLS.
 	// Default: - none.
 	//

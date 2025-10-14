@@ -497,6 +497,44 @@ func (j *jsiiProxy_CfnDataset)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDatasetRef from an ARN.
+func CfnDataset_FromDatasetArn(scope constructs.Construct, id *string, arn *string) IDatasetRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataset_FromDatasetArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDatasetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
+		"fromDatasetArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDatasetRef from a datasetId.
+func CfnDataset_FromDatasetId(scope constructs.Construct, id *string, datasetId *string) IDatasetRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataset_FromDatasetIdParameters(scope, id, datasetId); err != nil {
+		panic(err)
+	}
+	var returns IDatasetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
+		"fromDatasetId",
+		[]interface{}{scope, id, datasetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -179,6 +179,23 @@ func validateCfnLoadBalancer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) validateSetEnableCapacityReservationProvisionStabilizeParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) validateSetLoadBalancerAttributesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

@@ -1091,6 +1091,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceArn", GoGetter: "InstanceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "manualAssignmentQueueConfigs", GoGetter: "ManualAssignmentQueueConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "mediaConcurrencies", GoGetter: "MediaConcurrencies"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1127,6 +1128,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRoutingProfile.MediaConcurrencyProperty",
 		reflect.TypeOf((*CfnRoutingProfile_MediaConcurrencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRoutingProfile.RoutingProfileManualAssignmentQueueConfigProperty",
+		reflect.TypeOf((*CfnRoutingProfile_RoutingProfileManualAssignmentQueueConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRoutingProfile.RoutingProfileQueueConfigProperty",
@@ -1855,6 +1860,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IAgentStatusRef",
 		reflect.TypeOf((*IAgentStatusRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "agentStatusRef", GoGetter: "AgentStatusRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1867,6 +1873,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IApprovedOriginRef",
 		reflect.TypeOf((*IApprovedOriginRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "approvedOriginRef", GoGetter: "ApprovedOriginRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1879,6 +1886,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IContactFlowModuleRef",
 		reflect.TypeOf((*IContactFlowModuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "contactFlowModuleRef", GoGetter: "ContactFlowModuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1891,6 +1899,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IContactFlowRef",
 		reflect.TypeOf((*IContactFlowRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "contactFlowRef", GoGetter: "ContactFlowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1903,6 +1912,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IContactFlowVersionRef",
 		reflect.TypeOf((*IContactFlowVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "contactFlowVersionRef", GoGetter: "ContactFlowVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1915,6 +1925,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IEmailAddressRef",
 		reflect.TypeOf((*IEmailAddressRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "emailAddressRef", GoGetter: "EmailAddressRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1927,6 +1938,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IEvaluationFormRef",
 		reflect.TypeOf((*IEvaluationFormRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "evaluationFormRef", GoGetter: "EvaluationFormRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1939,6 +1951,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IHoursOfOperationRef",
 		reflect.TypeOf((*IHoursOfOperationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hoursOfOperationRef", GoGetter: "HoursOfOperationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1951,6 +1964,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IInstanceRef",
 		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1963,6 +1977,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IInstanceStorageConfigRef",
 		reflect.TypeOf((*IInstanceStorageConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceStorageConfigRef", GoGetter: "InstanceStorageConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1975,6 +1990,7 @@ func init() {
 		"aws-cdk-lib.aws_connect.IIntegrationAssociationRef",
 		reflect.TypeOf((*IIntegrationAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "integrationAssociationRef", GoGetter: "IntegrationAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1988,6 +2004,7 @@ func init() {
 		reflect.TypeOf((*IPhoneNumberRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "phoneNumberRef", GoGetter: "PhoneNumberRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPhoneNumberRef{}
@@ -2000,6 +2017,7 @@ func init() {
 		reflect.TypeOf((*IPredefinedAttributeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "predefinedAttributeRef", GoGetter: "PredefinedAttributeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPredefinedAttributeRef{}
@@ -2012,6 +2030,7 @@ func init() {
 		reflect.TypeOf((*IPromptRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "promptRef", GoGetter: "PromptRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPromptRef{}
@@ -2024,6 +2043,7 @@ func init() {
 		reflect.TypeOf((*IQueueRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueRef{}
@@ -2036,6 +2056,7 @@ func init() {
 		reflect.TypeOf((*IQuickConnectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "quickConnectRef", GoGetter: "QuickConnectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQuickConnectRef{}
@@ -2048,6 +2069,7 @@ func init() {
 		reflect.TypeOf((*IRoutingProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routingProfileRef", GoGetter: "RoutingProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoutingProfileRef{}
@@ -2060,6 +2082,7 @@ func init() {
 		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleRef{}
@@ -2072,6 +2095,7 @@ func init() {
 		reflect.TypeOf((*ISecurityKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityKeyRef", GoGetter: "SecurityKeyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityKeyRef{}
@@ -2084,6 +2108,7 @@ func init() {
 		reflect.TypeOf((*ISecurityProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityProfileRef", GoGetter: "SecurityProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityProfileRef{}
@@ -2096,6 +2121,7 @@ func init() {
 		reflect.TypeOf((*ITaskTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "taskTemplateRef", GoGetter: "TaskTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITaskTemplateRef{}
@@ -2108,6 +2134,7 @@ func init() {
 		reflect.TypeOf((*ITrafficDistributionGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficDistributionGroupRef", GoGetter: "TrafficDistributionGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrafficDistributionGroupRef{}
@@ -2120,6 +2147,7 @@ func init() {
 		reflect.TypeOf((*IUserHierarchyGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userHierarchyGroupRef", GoGetter: "UserHierarchyGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserHierarchyGroupRef{}
@@ -2132,6 +2160,7 @@ func init() {
 		reflect.TypeOf((*IUserHierarchyStructureRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userHierarchyStructureRef", GoGetter: "UserHierarchyStructureRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserHierarchyStructureRef{}
@@ -2144,6 +2173,7 @@ func init() {
 		reflect.TypeOf((*IUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserRef{}
@@ -2156,6 +2186,7 @@ func init() {
 		reflect.TypeOf((*IViewRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "viewRef", GoGetter: "ViewRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IViewRef{}
@@ -2168,6 +2199,7 @@ func init() {
 		reflect.TypeOf((*IViewVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "viewVersionRef", GoGetter: "ViewVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IViewVersionRef{}

@@ -510,6 +510,7 @@ func init() {
 		"aws-cdk-lib.aws_lakeformation.IDataCellsFilterRef",
 		reflect.TypeOf((*IDataCellsFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataCellsFilterRef", GoGetter: "DataCellsFilterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -522,6 +523,7 @@ func init() {
 		"aws-cdk-lib.aws_lakeformation.IDataLakeSettingsRef",
 		reflect.TypeOf((*IDataLakeSettingsRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataLakeSettingsRef", GoGetter: "DataLakeSettingsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -535,6 +537,7 @@ func init() {
 		reflect.TypeOf((*IPermissionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionsRef", GoGetter: "PermissionsRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPermissionsRef{}
@@ -547,6 +550,7 @@ func init() {
 		reflect.TypeOf((*IPrincipalPermissionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "principalPermissionsRef", GoGetter: "PrincipalPermissionsRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrincipalPermissionsRef{}
@@ -559,6 +563,7 @@ func init() {
 		reflect.TypeOf((*IResourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceRef", GoGetter: "ResourceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceRef{}
@@ -571,6 +576,7 @@ func init() {
 		reflect.TypeOf((*ITagAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tagAssociationRef", GoGetter: "TagAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITagAssociationRef{}
@@ -583,6 +589,7 @@ func init() {
 		reflect.TypeOf((*ITagRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tagRef", GoGetter: "TagRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITagRef{}

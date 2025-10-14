@@ -162,7 +162,7 @@ type InstanceProps struct {
 	// The placement group that you want to launch the instance into.
 	// Default: - no placement group will be used for this instance.
 	//
-	PlacementGroup IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// Defines a private IP address to associate with an instance.
 	//
 	// Private IP should be available within the VPC that the instance is build within.

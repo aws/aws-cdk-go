@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAlarm) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnAlarm_FromAlarmArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAlarm_FromAlarmNameParameters(scope constructs.Construct, id *string, alarmName *string) error {
+	return nil
+}
+
 func validateCfnAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

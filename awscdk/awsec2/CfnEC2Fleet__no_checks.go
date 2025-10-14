@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnEC2Fleet) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnEC2Fleet_FromFleetIdParameters(scope constructs.Construct, id *string, fleetId *string) error {
+	return nil
+}
+
 func validateCfnEC2Fleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

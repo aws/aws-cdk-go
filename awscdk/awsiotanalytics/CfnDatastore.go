@@ -572,6 +572,25 @@ func (j *jsiiProxy_CfnDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDatastoreRef from a datastoreName.
+func CfnDatastore_FromDatastoreName(scope constructs.Construct, id *string, datastoreName *string) IDatastoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnDatastore_FromDatastoreNameParameters(scope, id, datastoreName); err != nil {
+		panic(err)
+	}
+	var returns IDatastoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotanalytics.CfnDatastore",
+		"fromDatastoreName",
+		[]interface{}{scope, id, datastoreName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

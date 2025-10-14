@@ -46,6 +46,12 @@ type ApplicationTargetGroupProps struct {
 	// Default: undefined - ELB defaults to IPv4.
 	//
 	IpAddressType TargetGroupIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// Configuring target group health.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
+	//
+	// Default: - use default configuration.
+	//
+	TargetGroupHealth *TargetGroupHealth `field:"optional" json:"targetGroupHealth" yaml:"targetGroupHealth"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of

@@ -153,6 +153,7 @@ func init() {
 		"aws-cdk-lib.aws_resiliencehub.IAppRef",
 		reflect.TypeOf((*IAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "appRef", GoGetter: "AppRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -166,6 +167,7 @@ func init() {
 		reflect.TypeOf((*IResiliencyPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resiliencyPolicyRef", GoGetter: "ResiliencyPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResiliencyPolicyRef{}

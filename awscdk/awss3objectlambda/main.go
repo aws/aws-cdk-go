@@ -159,6 +159,7 @@ func init() {
 		"aws-cdk-lib.aws_s3objectlambda.IAccessPointPolicyRef",
 		reflect.TypeOf((*IAccessPointPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessPointPolicyRef", GoGetter: "AccessPointPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -171,6 +172,7 @@ func init() {
 		"aws-cdk-lib.aws_s3objectlambda.IAccessPointRef",
 		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

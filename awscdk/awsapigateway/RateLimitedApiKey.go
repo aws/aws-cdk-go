@@ -32,6 +32,7 @@ import (
 type RateLimitedApiKey interface {
 	awscdk.Resource
 	IApiKey
+	// A reference to a ApiKey resource.
 	ApiKeyRef() *ApiKeyReference
 	// The environment this resource belongs to.
 	//

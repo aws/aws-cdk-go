@@ -13,7 +13,7 @@ import (
 //
 // You can associate one route table with an attachment.
 //
-// Before you can update the route table associated with an attachment, you must disassociate the transit gateway route table that is currently associated with the attachment. First update the stack to remove the associated transit gateway route table, and then update the stack with the ID of the new transit gateway route table to associate.
+// Before you can update the route table associated with an attachment, you must disassociate the transit gateway route table that is currently associated with the attachment. First update the stack to remove the associated transit gateway route table, and then update the stack with the ID of the new transit gateway route table to associate. In addition, the attachment must be in an `available` state; otherwise, the request will return an error.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

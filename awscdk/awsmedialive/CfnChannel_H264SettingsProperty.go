@@ -50,6 +50,7 @@ package awsmedialive
 //   	Level: jsii.String("level"),
 //   	LookAheadRateControl: jsii.String("lookAheadRateControl"),
 //   	MaxBitrate: jsii.Number(123),
+//   	MinBitrate: jsii.Number(123),
 //   	MinIInterval: jsii.Number(123),
 //   	MinQp: jsii.Number(123),
 //   	NumRefFrames: jsii.Number(123),
@@ -195,6 +196,9 @@ type CfnChannel_H264SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-maxbitrate
 	//
 	MaxBitrate *float64 `field:"optional" json:"maxBitrate" yaml:"maxBitrate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-minbitrate
+	//
+	MinBitrate *float64 `field:"optional" json:"minBitrate" yaml:"minBitrate"`
 	// Meaningful only if sceneChangeDetect is set to enabled.
 	//
 	// This setting enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting the I-interval. The normal cadence resumes for the next GOP. Note that the maximum GOP stretch = GOP size + Min-I-interval - 1.

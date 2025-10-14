@@ -9,11 +9,14 @@ package awsservicecatalog
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   portfolioProductAssociationReference := &PortfolioProductAssociationReference{
-//   	PortfolioProductAssociationId: jsii.String("portfolioProductAssociationId"),
+//   	PortfolioId: jsii.String("portfolioId"),
+//   	ProductId: jsii.String("productId"),
 //   }
 //
 type PortfolioProductAssociationReference struct {
-	// The Id of the PortfolioProductAssociation resource.
-	PortfolioProductAssociationId *string `field:"required" json:"portfolioProductAssociationId" yaml:"portfolioProductAssociationId"`
+	// The PortfolioId of the PortfolioProductAssociation resource.
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
+	// The ProductId of the PortfolioProductAssociation resource.
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 }
 

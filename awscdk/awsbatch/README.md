@@ -65,7 +65,20 @@ For stateful or otherwise non-interruption-tolerant workflows, omit `spot` or se
 
 #### Choosing Your Instance Types
 
-Batch allows you to choose the instance types or classes that will run your workload.
+Batch allows you to choose most up-to-date instance classes based on your region.
+This example configures your `ComputeEnvironment` to use only ARM64 instance:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("VPC"))
+
+batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
+	Vpc: Vpc,
+	DefaultInstanceClasses: []defaultInstanceClass{
+		batch.*defaultInstanceClass_ARM64,
+	},
+})
+```
+
 This example configures your `ComputeEnvironment` to use only the `M5AD.large` instance:
 
 ```go
@@ -94,6 +107,9 @@ batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &
 	},
 })
 ```
+
+> [!WARNING]
+> `useOptimalInstanceClasses` is deprecated! Use `defaultInstanceClasses` instead.
 
 Unless you explicitly specify `useOptimalInstanceClasses: false`, this compute environment will use `'optimal'` instances,
 which tells Batch to pick an instance from the C4, M4, and R4 instance families.
@@ -556,6 +572,40 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 	}),
 })
 ```
+
+### Enable Execute Command (ECS Exec)
+
+You can enable [ECS Exec](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html) for interactive debugging and troubleshooting by setting `enableExecuteCommand` to `true`.
+When enabled, you'll be able to execute commands interactively in running containers.
+
+```go
+jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("Ec2Container"), &EcsEc2ContainerDefinitionProps{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+		Cpu: jsii.Number(256),
+		EnableExecuteCommand: jsii.Boolean(true),
+	}),
+})
+```
+
+The same functionality is available for Fargate containers:
+
+```go
+jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("FargateContainer"), &EcsFargateContainerDefinitionProps{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+		Cpu: jsii.Number(256),
+		EnableExecuteCommand: jsii.Boolean(true),
+	}),
+})
+```
+
+When `enableExecuteCommand` is set to `true`:
+
+* If no `jobRole` is provided, a new IAM role will be automatically created with the required SSM permissions
+* If a `jobRole` is already provided, the necessary SSM permissions will be added to the existing role
 
 ### Secrets
 

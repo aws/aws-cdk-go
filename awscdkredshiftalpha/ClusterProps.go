@@ -95,7 +95,7 @@ type ClusterProps struct {
 	// Default: - AWS-managed key, if encryption at rest is enabled.
 	//
 	// Experimental.
-	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// If this flag is set, Amazon Redshift forces all COPY and UNLOAD traffic between your cluster and your data repositories through your virtual private cloud (VPC).
 	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html
 	//

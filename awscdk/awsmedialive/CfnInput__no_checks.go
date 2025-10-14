@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnInput) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnInput_FromInputArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnInput_FromInputIdParameters(scope constructs.Construct, id *string, inputId *string) error {
+	return nil
+}
+
 func validateCfnInput_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

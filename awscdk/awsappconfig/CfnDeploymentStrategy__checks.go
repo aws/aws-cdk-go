@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnDeploymentStrategy) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnDeploymentStrategy_FromDeploymentStrategyIdParameters(scope constructs.Construct, id *string, deploymentStrategyId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if deploymentStrategyId == nil {
+		return fmt.Errorf("parameter deploymentStrategyId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDeploymentStrategy_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

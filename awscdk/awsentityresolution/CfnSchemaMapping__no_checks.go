@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSchemaMapping) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnSchemaMapping_FromSchemaNameParameters(scope constructs.Construct, id *string, schemaName *string) error {
+	return nil
+}
+
 func validateCfnSchemaMapping_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

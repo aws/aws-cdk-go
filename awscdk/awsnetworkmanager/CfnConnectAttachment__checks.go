@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnConnectAttachment) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnConnectAttachment_FromAttachmentIdParameters(scope constructs.Construct, id *string, attachmentId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if attachmentId == nil {
+		return fmt.Errorf("parameter attachmentId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnConnectAttachment_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

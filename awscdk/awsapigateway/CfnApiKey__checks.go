@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnApiKey) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnApiKey_FromApiKeyIdParameters(scope constructs.Construct, id *string, apiKeyId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if apiKeyId == nil {
+		return fmt.Errorf("parameter apiKeyId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApiKey_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

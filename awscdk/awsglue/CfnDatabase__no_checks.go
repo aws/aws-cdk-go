@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDatabase) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnDatabase_FromDatabaseNameParameters(scope constructs.Construct, id *string, databaseName *string) error {
+	return nil
+}
+
 func validateCfnDatabase_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

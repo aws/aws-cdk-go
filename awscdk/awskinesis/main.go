@@ -186,6 +186,7 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -262,6 +263,7 @@ func init() {
 		reflect.TypeOf((*IStreamConsumerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamConsumerRef", GoGetter: "StreamConsumerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamConsumerRef{}
@@ -274,6 +276,7 @@ func init() {
 		reflect.TypeOf((*IStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamRef{}
@@ -309,6 +312,20 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesis.ResourcePolicyReference",
 		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesis.ShardLevelMetrics",
+		reflect.TypeOf((*ShardLevelMetrics)(nil)).Elem(),
+		map[string]interface{}{
+			"INCOMING_BYTES": ShardLevelMetrics_INCOMING_BYTES,
+			"INCOMING_RECORDS": ShardLevelMetrics_INCOMING_RECORDS,
+			"ITERATOR_AGE_MILLISECONDS": ShardLevelMetrics_ITERATOR_AGE_MILLISECONDS,
+			"OUTGOING_BYTES": ShardLevelMetrics_OUTGOING_BYTES,
+			"OUTGOING_RECORDS": ShardLevelMetrics_OUTGOING_RECORDS,
+			"READ_PROVISIONED_THROUGHPUT_EXCEEDED": ShardLevelMetrics_READ_PROVISIONED_THROUGHPUT_EXCEEDED,
+			"WRITE_PROVISIONED_THROUGHPUT_EXCEEDED": ShardLevelMetrics_WRITE_PROVISIONED_THROUGHPUT_EXCEEDED,
+			"ALL": ShardLevelMetrics_ALL,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesis.Stream",

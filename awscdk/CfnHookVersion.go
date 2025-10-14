@@ -90,7 +90,7 @@ type CfnHookVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
-	// The unique name for your hook.
+	// The unique name for your Hook.
 	TypeName() *string
 	SetTypeName(val *string)
 	// Deprecated.

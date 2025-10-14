@@ -84,6 +84,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
 //   	ImportSourceSpecification: &ImportSourceSpecificationProperty{
 //   		InputFormat: jsii.String("inputFormat"),
 //   		S3BucketSource: &S3BucketSourceProperty{
@@ -217,6 +218,8 @@ type CfnTable interface {
 	// You can create up to 20 global secondary indexes.
 	GlobalSecondaryIndexes() interface{}
 	SetGlobalSecondaryIndexes(val interface{})
+	GlobalTableSettingsReplicationMode() *string
+	SetGlobalTableSettingsReplicationMode(val *string)
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	ImportSourceSpecification() interface{}
 	SetImportSourceSpecification(val interface{})
@@ -545,6 +548,16 @@ func (j *jsiiProxy_CfnTable) GlobalSecondaryIndexes() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) GlobalTableSettingsReplicationMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"globalTableSettingsReplicationMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) ImportSourceSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -855,6 +868,14 @@ func (j *jsiiProxy_CfnTable)SetGlobalSecondaryIndexes(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnTable)SetGlobalTableSettingsReplicationMode(val *string) {
+	_jsii_.Set(
+		j,
+		"globalTableSettingsReplicationMode",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTable)SetImportSourceSpecification(val interface{}) {
 	if err := j.validateSetImportSourceSpecificationParameters(val); err != nil {
 		panic(err)
@@ -1012,6 +1033,44 @@ func (j *jsiiProxy_CfnTable)SetWarmThroughput(val interface{}) {
 		"warmThroughput",
 		val,
 	)
+}
+
+// Creates a new ITableRef from an ARN.
+func CfnTable_FromTableArn(scope constructs.Construct, id *string, arn *string) ITableRef {
+	_init_.Initialize()
+
+	if err := validateCfnTable_FromTableArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ITableRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"fromTableArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ITableRef from a tableName.
+func CfnTable_FromTableName(scope constructs.Construct, id *string, tableName *string) ITableRef {
+	_init_.Initialize()
+
+	if err := validateCfnTable_FromTableNameParameters(scope, id, tableName); err != nil {
+		panic(err)
+	}
+	var returns ITableRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"fromTableName",
+		[]interface{}{scope, id, tableName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

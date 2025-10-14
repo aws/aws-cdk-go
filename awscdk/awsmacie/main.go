@@ -271,6 +271,7 @@ func init() {
 		"aws-cdk-lib.aws_macie.IAllowListRef",
 		reflect.TypeOf((*IAllowListRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "allowListRef", GoGetter: "AllowListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -283,6 +284,7 @@ func init() {
 		"aws-cdk-lib.aws_macie.ICustomDataIdentifierRef",
 		reflect.TypeOf((*ICustomDataIdentifierRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customDataIdentifierRef", GoGetter: "CustomDataIdentifierRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -295,6 +297,7 @@ func init() {
 		"aws-cdk-lib.aws_macie.IFindingsFilterRef",
 		reflect.TypeOf((*IFindingsFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "findingsFilterRef", GoGetter: "FindingsFilterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -308,6 +311,7 @@ func init() {
 		reflect.TypeOf((*ISessionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sessionRef", GoGetter: "SessionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISessionRef{}

@@ -444,6 +444,25 @@ func (j *jsiiProxy_CfnSoftwarePackage)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ISoftwarePackageRef from a packageName.
+func CfnSoftwarePackage_FromPackageName(scope constructs.Construct, id *string, packageName *string) ISoftwarePackageRef {
+	_init_.Initialize()
+
+	if err := validateCfnSoftwarePackage_FromPackageNameParameters(scope, id, packageName); err != nil {
+		panic(err)
+	}
+	var returns ISoftwarePackageRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnSoftwarePackage",
+		"fromPackageName",
+		[]interface{}{scope, id, packageName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

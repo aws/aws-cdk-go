@@ -40,7 +40,7 @@ func validateS3Code_FromAssetParameters(assetPath *string, options *awss3assets.
 	return nil
 }
 
-func validateS3Code_FromBucketParameters(bucket awss3.IBucket, key *string) error {
+func validateS3Code_FromBucketParameters(bucket awss3.IBucketRef, key *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}
@@ -60,7 +60,7 @@ func validateS3Code_FromInlineParameters(code *string) error {
 	return nil
 }
 
-func validateNewS3CodeParameters(bucket awss3.IBucket, key *string) error {
+func validateNewS3CodeParameters(bucket awss3.IBucketRef, key *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}

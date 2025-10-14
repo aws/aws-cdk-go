@@ -90,7 +90,7 @@ type BucketDeploymentProps struct {
 	// files are uploaded to the destination bucket.
 	// Default: - No invalidation occurs.
 	//
-	Distribution awscloudfront.IDistribution `field:"optional" json:"distribution" yaml:"distribution"`
+	Distribution awscloudfront.IDistributionRef `field:"optional" json:"distribution" yaml:"distribution"`
 	// The file paths to invalidate in the CloudFront distribution.
 	// Default: - All files under the destination bucket key prefix will be invalidated.
 	//

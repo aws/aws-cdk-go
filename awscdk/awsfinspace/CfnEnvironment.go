@@ -655,6 +655,44 @@ func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IEnvironmentRef from an ARN.
+func CfnEnvironment_FromEnvironmentArn(scope constructs.Construct, id *string, arn *string) IEnvironmentRef {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_FromEnvironmentArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IEnvironmentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_finspace.CfnEnvironment",
+		"fromEnvironmentArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IEnvironmentRef from a environmentId.
+func CfnEnvironment_FromEnvironmentId(scope constructs.Construct, id *string, environmentId *string) IEnvironmentRef {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironment_FromEnvironmentIdParameters(scope, id, environmentId); err != nil {
+		panic(err)
+	}
+	var returns IEnvironmentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_finspace.CfnEnvironment",
+		"fromEnvironmentId",
+		[]interface{}{scope, id, environmentId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

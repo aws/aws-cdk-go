@@ -177,6 +177,7 @@ func init() {
 		reflect.TypeOf((*IProfileAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "profileAssociationRef", GoGetter: "ProfileAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfileAssociationRef{}
@@ -189,6 +190,7 @@ func init() {
 		reflect.TypeOf((*IProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "profileRef", GoGetter: "ProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfileRef{}
@@ -201,6 +203,7 @@ func init() {
 		reflect.TypeOf((*IProfileResourceAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "profileResourceAssociationRef", GoGetter: "ProfileResourceAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfileResourceAssociationRef{}

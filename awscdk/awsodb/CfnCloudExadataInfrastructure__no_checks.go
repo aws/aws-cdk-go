@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure) validateSetCustomerContactsToS
 	return nil
 }
 
+func (j *jsiiProxy_CfnCloudExadataInfrastructure) validateSetMaintenanceWindowParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCloudExadataInfrastructure) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

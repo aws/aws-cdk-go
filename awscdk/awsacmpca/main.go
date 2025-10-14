@@ -378,6 +378,7 @@ func init() {
 		"aws-cdk-lib.aws_acmpca.ICertificateAuthorityActivationRef",
 		reflect.TypeOf((*ICertificateAuthorityActivationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateAuthorityActivationRef", GoGetter: "CertificateAuthorityActivationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -390,6 +391,7 @@ func init() {
 		"aws-cdk-lib.aws_acmpca.ICertificateAuthorityRef",
 		reflect.TypeOf((*ICertificateAuthorityRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateAuthorityRef", GoGetter: "CertificateAuthorityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -402,6 +404,7 @@ func init() {
 		"aws-cdk-lib.aws_acmpca.ICertificateRef",
 		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -415,6 +418,7 @@ func init() {
 		reflect.TypeOf((*IPermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionRef", GoGetter: "PermissionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPermissionRef{}

@@ -516,6 +516,7 @@ func init() {
 		"aws-cdk-lib.aws_codedeploy.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -539,6 +540,7 @@ func init() {
 		"aws-cdk-lib.aws_codedeploy.IDeploymentConfigRef",
 		reflect.TypeOf((*IDeploymentConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deploymentConfigRef", GoGetter: "DeploymentConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -551,6 +553,7 @@ func init() {
 		"aws-cdk-lib.aws_codedeploy.IDeploymentGroupRef",
 		reflect.TypeOf((*IDeploymentGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deploymentGroupRef", GoGetter: "DeploymentGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

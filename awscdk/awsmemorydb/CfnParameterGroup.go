@@ -498,6 +498,25 @@ func (j *jsiiProxy_CfnParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IParameterGroupRef from a parameterGroupName.
+func CfnParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IParameterGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnParameterGroup_FromParameterGroupNameParameters(scope, id, parameterGroupName); err != nil {
+		panic(err)
+	}
+	var returns IParameterGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_memorydb.CfnParameterGroup",
+		"fromParameterGroupName",
+		[]interface{}{scope, id, parameterGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

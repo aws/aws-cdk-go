@@ -13,7 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
+//   var functionRef iFunctionRef
 //   var keyGroup keyGroup
 //   var version version
 //
@@ -44,7 +44,7 @@ import (
 //   	FunctionAssociations: []functionAssociation{
 //   		&functionAssociation{
 //   			EventType: awscdk.*Aws_cloudfront.FunctionEventType_VIEWER_REQUEST,
-//   			Function: function_,
+//   			Function: functionRef,
 //   		},
 //   	},
 //   	IsDefaultBehavior: jsii.Boolean(false),

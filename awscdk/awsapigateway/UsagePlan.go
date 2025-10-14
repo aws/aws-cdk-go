@@ -58,9 +58,10 @@ type UsagePlan interface {
 	Stack() awscdk.Stack
 	// Id of the usage plan.
 	UsagePlanId() *string
+	// A reference to a UsagePlan resource.
 	UsagePlanRef() *UsagePlanReference
 	// Adds an ApiKey.
-	AddApiKey(apiKey IApiKey, options *AddApiKeyOptions)
+	AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions)
 	// Adds an apiStage.
 	AddApiStage(apiStage *UsagePlanPerApiStage)
 	// Apply the given removal policy to this resource.
@@ -288,7 +289,7 @@ func UsagePlan_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
+func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKeyRef, options *AddApiKeyOptions) {
 	if err := u.validateAddApiKeyParameters(apiKey, options); err != nil {
 		panic(err)
 	}

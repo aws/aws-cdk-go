@@ -177,6 +177,7 @@ func init() {
 		reflect.TypeOf((*IReplicationSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationSetRef", GoGetter: "ReplicationSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationSetRef{}
@@ -189,6 +190,7 @@ func init() {
 		reflect.TypeOf((*IResponsePlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "responsePlanRef", GoGetter: "ResponsePlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResponsePlanRef{}

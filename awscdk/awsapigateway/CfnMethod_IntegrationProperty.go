@@ -43,6 +43,7 @@ package awsapigateway
 //   	RequestTemplates: map[string]*string{
 //   		"requestTemplatesKey": jsii.String("requestTemplates"),
 //   	},
+//   	ResponseTransferMode: jsii.String("responseTransferMode"),
 //   	TimeoutInMillis: jsii.Number(123),
 //   	Uri: jsii.String("uri"),
 //   }
@@ -120,6 +121,11 @@ type CfnMethod_IntegrationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
 	//
 	RequestTemplates interface{} `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-responsetransfermode
+	//
+	// Default: - "BUFFERED".
+	//
+	ResponseTransferMode *string `field:"optional" json:"responseTransferMode" yaml:"responseTransferMode"`
 	// Custom timeout between 50 and 29,000 milliseconds.
 	//
 	// The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.

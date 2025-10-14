@@ -13,9 +13,11 @@ package awsgamelift
 //
 //   	// the properties below are optional
 //   	LocationCapacity: &LocationCapacityProperty{
-//   		DesiredEc2Instances: jsii.Number(123),
 //   		MaxSize: jsii.Number(123),
 //   		MinSize: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		DesiredEc2Instances: jsii.Number(123),
 //   	},
 //   }
 //

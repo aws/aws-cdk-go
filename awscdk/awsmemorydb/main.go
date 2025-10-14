@@ -397,6 +397,7 @@ func init() {
 		"aws-cdk-lib.aws_memorydb.IACLRef",
 		reflect.TypeOf((*IACLRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aclRef", GoGetter: "AclRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -409,6 +410,7 @@ func init() {
 		"aws-cdk-lib.aws_memorydb.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -421,6 +423,7 @@ func init() {
 		"aws-cdk-lib.aws_memorydb.IMultiRegionClusterRef",
 		reflect.TypeOf((*IMultiRegionClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "multiRegionClusterRef", GoGetter: "MultiRegionClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -434,6 +437,7 @@ func init() {
 		reflect.TypeOf((*IParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterGroupRef", GoGetter: "ParameterGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IParameterGroupRef{}
@@ -446,6 +450,7 @@ func init() {
 		reflect.TypeOf((*ISubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetGroupRef", GoGetter: "SubnetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetGroupRef{}
@@ -458,6 +463,7 @@ func init() {
 		reflect.TypeOf((*IUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserRef{}

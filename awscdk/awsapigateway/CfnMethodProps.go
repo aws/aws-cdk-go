@@ -55,6 +55,7 @@ package awsapigateway
 //   		RequestTemplates: map[string]*string{
 //   			"requestTemplatesKey": jsii.String("requestTemplates"),
 //   		},
+//   		ResponseTransferMode: jsii.String("responseTransferMode"),
 //   		TimeoutInMillis: jsii.Number(123),
 //   		Uri: jsii.String("uri"),
 //   	},

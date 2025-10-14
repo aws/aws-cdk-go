@@ -55,6 +55,9 @@ type CfnBotProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-errorlogsettings
+	//
+	ErrorLogSettings interface{} `field:"optional" json:"errorLogSettings" yaml:"errorLogSettings"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-replication
 	//
 	Replication interface{} `field:"optional" json:"replication" yaml:"replication"`

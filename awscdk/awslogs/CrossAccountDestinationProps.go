@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var roleRef iRoleRef
 //
 //   crossAccountDestinationProps := &CrossAccountDestinationProps{
-//   	Role: role,
+//   	Role: roleRef,
 //   	TargetArn: jsii.String("targetArn"),
 //
 //   	// the properties below are optional
@@ -26,7 +26,7 @@ type CrossAccountDestinationProps struct {
 	// The role to assume that grants permissions to write to 'target'.
 	//
 	// The role must be assumable by 'logs.{REGION}.amazonaws.com'.
-	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
+	Role awsiam.IRoleRef `field:"required" json:"role" yaml:"role"`
 	// The log destination target's ARN.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The name of the log destination.

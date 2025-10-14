@@ -704,6 +704,7 @@ func init() {
 		"aws-cdk-lib.aws_qbusiness.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -716,6 +717,7 @@ func init() {
 		"aws-cdk-lib.aws_qbusiness.IDataAccessorRef",
 		reflect.TypeOf((*IDataAccessorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataAccessorRef", GoGetter: "DataAccessorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -728,6 +730,7 @@ func init() {
 		"aws-cdk-lib.aws_qbusiness.IDataSourceRef",
 		reflect.TypeOf((*IDataSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataSourceRef", GoGetter: "DataSourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -740,6 +743,7 @@ func init() {
 		"aws-cdk-lib.aws_qbusiness.IIndexRef",
 		reflect.TypeOf((*IIndexRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "indexRef", GoGetter: "IndexRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -753,6 +757,7 @@ func init() {
 		reflect.TypeOf((*IPermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionRef", GoGetter: "PermissionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPermissionRef{}
@@ -765,6 +770,7 @@ func init() {
 		reflect.TypeOf((*IPluginRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pluginRef", GoGetter: "PluginRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPluginRef{}
@@ -777,6 +783,7 @@ func init() {
 		reflect.TypeOf((*IRetrieverRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "retrieverRef", GoGetter: "RetrieverRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRetrieverRef{}
@@ -789,6 +796,7 @@ func init() {
 		reflect.TypeOf((*IWebExperienceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "webExperienceRef", GoGetter: "WebExperienceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebExperienceRef{}

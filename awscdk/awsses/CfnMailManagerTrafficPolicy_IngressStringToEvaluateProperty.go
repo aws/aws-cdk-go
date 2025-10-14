@@ -19,6 +19,7 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html
 //
 type CfnMailManagerTrafficPolicy_IngressStringToEvaluateProperty struct {
+	// The structure type for a string condition stating the Add On ARN and its returned value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressstringtoevaluate-analysis
 	//
 	Analysis interface{} `field:"optional" json:"analysis" yaml:"analysis"`

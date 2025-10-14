@@ -65,6 +65,16 @@ func (j *jsiiProxy_IFunction) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_IFunction) FunctionRef() *FunctionReference {
+	var returns *FunctionReference
+	_jsii_.Get(
+		j,
+		"functionRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IFunction) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

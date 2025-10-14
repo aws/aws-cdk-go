@@ -423,6 +423,7 @@ func init() {
 		"aws-cdk-lib.aws_waf.IByteMatchSetRef",
 		reflect.TypeOf((*IByteMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "byteMatchSetRef", GoGetter: "ByteMatchSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -435,6 +436,7 @@ func init() {
 		"aws-cdk-lib.aws_waf.IIPSetRef",
 		reflect.TypeOf((*IIPSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipSetRef", GoGetter: "IpSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -452,6 +454,7 @@ func init() {
 		reflect.TypeOf((*IRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleRef", GoGetter: "RuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleRef{}
@@ -464,6 +467,7 @@ func init() {
 		reflect.TypeOf((*ISizeConstraintSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sizeConstraintSetRef", GoGetter: "SizeConstraintSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISizeConstraintSetRef{}
@@ -476,6 +480,7 @@ func init() {
 		reflect.TypeOf((*ISqlInjectionMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sqlInjectionMatchSetRef", GoGetter: "SqlInjectionMatchSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISqlInjectionMatchSetRef{}
@@ -488,6 +493,7 @@ func init() {
 		reflect.TypeOf((*IWebACLRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "webAclRef", GoGetter: "WebAclRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebACLRef{}
@@ -500,6 +506,7 @@ func init() {
 		reflect.TypeOf((*IXssMatchSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "xssMatchSetRef", GoGetter: "XssMatchSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IXssMatchSetRef{}

@@ -11,7 +11,7 @@ import (
 
 // Associates a CIDR block with your VPC.
 //
-// You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+// A VPC must have an associated IPv4 CIDR block. You can optionally associate additional IPv4 CIDR blocks with a VPC. You can optionally associate an IPv6 CIDR block with a VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
 //
 // For more information, see [VPC CIDR blocks](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html) in the *Amazon VPC User Guide* .
 //

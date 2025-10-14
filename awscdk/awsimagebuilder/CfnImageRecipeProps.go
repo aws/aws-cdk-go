@@ -33,6 +33,9 @@ package awsimagebuilder
 //   		},
 //   		UserDataOverride: jsii.String("userDataOverride"),
 //   	},
+//   	AmiTags: map[string]*string{
+//   		"amiTagsKey": jsii.String("amiTags"),
+//   	},
 //   	BlockDeviceMappings: []interface{}{
 //   		&InstanceBlockDeviceMappingProperty{
 //   			DeviceName: jsii.String("deviceName"),
@@ -91,6 +94,10 @@ type CfnImageRecipeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
 	//
 	AdditionalInstanceConfiguration interface{} `field:"optional" json:"additionalInstanceConfiguration" yaml:"additionalInstanceConfiguration"`
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-amitags
+	//
+	AmiTags interface{} `field:"optional" json:"amiTags" yaml:"amiTags"`
 	// The block device mappings to apply when creating images from this recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
 	//

@@ -75,6 +75,7 @@ type Version interface {
 	FunctionArn() *string
 	// The name of the function.
 	FunctionName() *string
+	// A reference to a Function resource.
 	FunctionRef() *FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal
@@ -119,6 +120,7 @@ type Version interface {
 	Stack() awscdk.Stack
 	// The most recently deployed version of this function.
 	Version() *string
+	// A reference to a Version resource.
 	VersionRef() *VersionReference
 	// Defines an alias for this version.
 	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.

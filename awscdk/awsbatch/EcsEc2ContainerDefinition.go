@@ -51,6 +51,8 @@ type EcsEc2ContainerDefinition interface {
 	// Each vCPU is equivalent to 1,024 CPU shares.
 	// For containers running on EC2 resources, you must specify at least one vCPU.
 	Cpu() *float64
+	// Whether to enable ecs exec for this container.
+	EnableExecuteCommand() *bool
 	// The environment variables to pass to a container.
 	//
 	// Cannot start with `AWS_BATCH`.
@@ -125,6 +127,16 @@ func (j *jsiiProxy_EcsEc2ContainerDefinition) Cpu() *float64 {
 	_jsii_.Get(
 		j,
 		"cpu",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsEc2ContainerDefinition) EnableExecuteCommand() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"enableExecuteCommand",
 		&returns,
 	)
 	return returns

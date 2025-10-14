@@ -18,7 +18,7 @@ import (
 //   var cluster cluster
 //   var containerDefinition containerDefinition
 //   var deploymentLifecycleHookTarget iDeploymentLifecycleHookTarget
-//   var key key
+//   var keyRef iKeyRef
 //   var logDriver logDriver
 //   var namespace iNamespace
 //   var role role
@@ -90,7 +90,7 @@ import (
 //   				Port: jsii.Number(123),
 //   				Tls: &ServiceConnectTlsConfiguration{
 //   					AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
-//   					KmsKey: key,
+//   					KmsKey: keyRef,
 //   					Role: role,
 //   				},
 //   			},

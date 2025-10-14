@@ -48,7 +48,7 @@ type LustreFileSystemProps struct {
 	// The KMS key used for encryption to protect your data at rest.
 	// Default: - the aws/fsx default KMS key for the AWS account being deployed into.
 	//
-	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
 	// Default: RemovalPolicy.RETAIN
 	//

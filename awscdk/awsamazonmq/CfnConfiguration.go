@@ -572,6 +572,44 @@ func (j *jsiiProxy_CfnConfiguration)SetTagsRaw(val *[]*CfnConfiguration_TagsEntr
 	)
 }
 
+// Creates a new IConfigurationRef from an ARN.
+func CfnConfiguration_FromConfigurationArn(scope constructs.Construct, id *string, arn *string) IConfigurationRef {
+	_init_.Initialize()
+
+	if err := validateCfnConfiguration_FromConfigurationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IConfigurationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"fromConfigurationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IConfigurationRef from a configurationId.
+func CfnConfiguration_FromConfigurationId(scope constructs.Construct, id *string, configurationId *string) IConfigurationRef {
+	_init_.Initialize()
+
+	if err := validateCfnConfiguration_FromConfigurationIdParameters(scope, id, configurationId); err != nil {
+		panic(err)
+	}
+	var returns IConfigurationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"fromConfigurationId",
+		[]interface{}{scope, id, configurationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

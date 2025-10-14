@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnMatchmakingRuleSet_FromMatchmakingRuleSetNameParameters(scope constructs.Construct, id *string, matchmakingRuleSetName *string) error {
+	return nil
+}
+
 func validateCfnMatchmakingRuleSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

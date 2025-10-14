@@ -23,6 +23,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHealthChecksForPlan", GoGetter: "AttrHealthChecksForPlan"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwner", GoGetter: "AttrOwner"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPlanHealthChecks", GoGetter: "AttrPlanHealthChecks"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRoute53HealthChecks", GoGetter: "AttrRoute53HealthChecks"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -202,6 +203,7 @@ func init() {
 		reflect.TypeOf((*IPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "planRef", GoGetter: "PlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlanRef{}

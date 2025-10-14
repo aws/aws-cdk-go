@@ -142,6 +142,43 @@ route53.NewAaaaRecord(this, jsii.String("Alias"), &AaaaRecordProps{
 })
 ```
 
+To add an HTTPS record:
+
+```go
+import cloudfront "github.com/aws/aws-cdk-go/awscdk"
+
+var myZone hostedZone
+var distribution cloudFrontWebDistribution
+
+// Alias to CloudFront target
+// Alias to CloudFront target
+route53.NewHttpsRecord(this, jsii.String("HttpsRecord-CloudFrontAlias"), &HttpsRecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_FromAlias(targets.NewCloudFrontTarget(distribution)),
+})
+// ServiceMode (priority >= 1)
+// ServiceMode (priority >= 1)
+route53.NewHttpsRecord(this, jsii.String("HttpsRecord-ServiceMode"), &HttpsRecordProps{
+	Zone: myZone,
+	Values: []httpsRecordValue{
+		route53.*httpsRecordValue_Service(&HttpsRecordServiceModeProps{
+			Alpn: []alpn{
+				route53.*alpn_H3(),
+				route53.*alpn_H2(),
+			},
+		}),
+	},
+})
+// AliasMode (priority = 0)
+// AliasMode (priority = 0)
+route53.NewHttpsRecord(this, jsii.String("HttpsRecord-AliasMode"), &HttpsRecordProps{
+	Zone: myZone,
+	Values: []*httpsRecordValue{
+		route53.*httpsRecordValue_Alias(jsii.String("service.example.com")),
+	},
+})
+```
+
 [Geolocation routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geo.html) can be enabled for continent, country or subdivision:
 
 ```go
@@ -580,6 +617,18 @@ zoneFromAttributes := route53.PublicHostedZone_FromPublicHostedZoneAttributes(th
 
 // Does not know zoneName
 zoneFromId := route53.PublicHostedZone_FromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+```
+
+You can import a Private Hosted Zone with `PrivateHostedZone.fromPrivateHostedZoneId` and `PrivateHostedZone.fromPrivateHostedZoneAttributes` methods:
+
+```go
+privateZoneFromAttributes := route53.PrivateHostedZone_FromPrivateHostedZoneAttributes(this, jsii.String("MyPrivateZone"), &PrivateHostedZoneAttributes{
+	ZoneName: jsii.String("example.local"),
+	HostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
+})
+
+// Does not know zoneName
+privateZoneFromId := route53.PrivateHostedZone_FromPrivateHostedZoneId(this, jsii.String("MyPrivateZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
 You can use `CrossAccountZoneDelegationRecord` on imported Hosted Zones with the `grantDelegation` method:

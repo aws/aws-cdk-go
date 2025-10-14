@@ -21,7 +21,7 @@ import (
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var key key
+//   var keyRef iKeyRef
 //   var localBundling iLocalBundling
 //
 //   assetCode := awscdk.Aws_synthetics.NewAssetCode(jsii.String("assetPath"), &AssetOptions{
@@ -71,7 +71,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: key,
+//   	SourceKMSKey: keyRef,
 //   })
 //
 type AssetCode interface {
@@ -145,7 +145,7 @@ func AssetCode_FromAsset(assetPath *string, options *awss3assets.AssetOptions) A
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
+func AssetCode_FromBucket(bucket awss3.IBucketRef, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	if err := validateAssetCode_FromBucketParameters(bucket, key); err != nil {

@@ -6,11 +6,21 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (r *jsiiProxy_Runtime) validateRuntimeEqualsParameters(other Runtime) error {
 	if other == nil {
 		return fmt.Errorf("parameter other is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateRuntime_DetermineLatestPythonRuntimeParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

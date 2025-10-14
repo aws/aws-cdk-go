@@ -8,7 +8,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_IBucketNotificationDestination) validateBindParameters(scope constructs.Construct, bucket IBucket) error {
+func (i *jsiiProxy_IBucketNotificationDestination) validateBindParameters(scope constructs.Construct, bucket IBucketRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

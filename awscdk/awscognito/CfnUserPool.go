@@ -1191,6 +1191,44 @@ func (j *jsiiProxy_CfnUserPool)SetWebAuthnUserVerification(val *string) {
 	)
 }
 
+// Creates a new IUserPoolRef from an ARN.
+func CfnUserPool_FromUserPoolArn(scope constructs.Construct, id *string, arn *string) IUserPoolRef {
+	_init_.Initialize()
+
+	if err := validateCfnUserPool_FromUserPoolArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IUserPoolRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
+		"fromUserPoolArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IUserPoolRef from a userPoolId.
+func CfnUserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId *string) IUserPoolRef {
+	_init_.Initialize()
+
+	if err := validateCfnUserPool_FromUserPoolIdParameters(scope, id, userPoolId); err != nil {
+		panic(err)
+	}
+	var returns IUserPoolRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
+		"fromUserPoolId",
+		[]interface{}{scope, id, userPoolId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

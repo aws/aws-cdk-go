@@ -41,5 +41,6 @@ const (
 	SecurityPolicyProtocol_TLS_V1_2_2018 SecurityPolicyProtocol = "TLS_V1_2_2018"
 	SecurityPolicyProtocol_TLS_V1_2_2019 SecurityPolicyProtocol = "TLS_V1_2_2019"
 	SecurityPolicyProtocol_TLS_V1_2_2021 SecurityPolicyProtocol = "TLS_V1_2_2021"
+	SecurityPolicyProtocol_TLS_V1_3_2025 SecurityPolicyProtocol = "TLS_V1_3_2025"
 )
 

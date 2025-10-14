@@ -476,6 +476,44 @@ func (j *jsiiProxy_CfnDimension)SetType(val *string) {
 	)
 }
 
+// Creates a new IDimensionRef from an ARN.
+func CfnDimension_FromDimensionArn(scope constructs.Construct, id *string, arn *string) IDimensionRef {
+	_init_.Initialize()
+
+	if err := validateCfnDimension_FromDimensionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDimensionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnDimension",
+		"fromDimensionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDimensionRef from a dimensionName.
+func CfnDimension_FromDimensionName(scope constructs.Construct, id *string, dimensionName *string) IDimensionRef {
+	_init_.Initialize()
+
+	if err := validateCfnDimension_FromDimensionNameParameters(scope, id, dimensionName); err != nil {
+		panic(err)
+	}
+	var returns IDimensionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnDimension",
+		"fromDimensionName",
+		[]interface{}{scope, id, dimensionName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

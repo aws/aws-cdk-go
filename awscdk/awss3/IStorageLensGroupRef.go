@@ -1,6 +1,8 @@
 package awss3
 
 import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -9,10 +11,23 @@ import (
 // Experimental.
 type IStorageLensGroupRef interface {
 	constructs.IConstruct
+	// A reference to a StorageLensGroup resource.
+	// Experimental.
+	StorageLensGroupRef() *StorageLensGroupReference
 }
 
 // The jsii proxy for IStorageLensGroupRef
 type jsiiProxy_IStorageLensGroupRef struct {
 	internal.Type__constructsIConstruct
+}
+
+func (j *jsiiProxy_IStorageLensGroupRef) StorageLensGroupRef() *StorageLensGroupReference {
+	var returns *StorageLensGroupReference
+	_jsii_.Get(
+		j,
+		"storageLensGroupRef",
+		&returns,
+	)
+	return returns
 }
 

@@ -95,7 +95,7 @@ type ClusterProps struct {
 	//   using AWS-Managed encryption keys.
 	//
 	// Experimental.
-	SecretsEncryptionKey awskms.IKey `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// Security Group to use for Control Plane ENIs.
 	// Default: - A security group is automatically created.
 	//

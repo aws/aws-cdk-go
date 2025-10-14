@@ -10,6 +10,10 @@ package awsopensearchserverless
 //
 //   cfnSecurityConfigProps := &CfnSecurityConfigProps{
 //   	Description: jsii.String("description"),
+//   	IamFederationOptions: &IamFederationConfigOptionsProperty{
+//   		GroupAttribute: jsii.String("groupAttribute"),
+//   		UserAttribute: jsii.String("userAttribute"),
+//   	},
 //   	IamIdentityCenterOptions: &IamIdentityCenterConfigOptionsProperty{
 //   		InstanceArn: jsii.String("instanceArn"),
 //
@@ -40,6 +44,12 @@ type CfnSecurityConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Describes IAM federation options in the form of a key-value map.
+	//
+	// Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamfederationoptions
+	//
+	IamFederationOptions interface{} `field:"optional" json:"iamFederationOptions" yaml:"iamFederationOptions"`
 	// Describes IAM Identity Center options in the form of a key-value map.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamidentitycenteroptions
 	//

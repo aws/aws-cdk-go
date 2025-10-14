@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSchedule) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnSchedule_FromScheduleArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnSchedule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

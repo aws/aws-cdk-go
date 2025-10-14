@@ -677,6 +677,7 @@ func init() {
 		"aws-cdk-lib.aws_guardduty.IDetectorRef",
 		reflect.TypeOf((*IDetectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "detectorRef", GoGetter: "DetectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -689,6 +690,7 @@ func init() {
 		"aws-cdk-lib.aws_guardduty.IFilterRef",
 		reflect.TypeOf((*IFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "filterRef", GoGetter: "FilterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -701,6 +703,7 @@ func init() {
 		"aws-cdk-lib.aws_guardduty.IIPSetRef",
 		reflect.TypeOf((*IIPSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipSetRef", GoGetter: "IpSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -713,6 +716,7 @@ func init() {
 		"aws-cdk-lib.aws_guardduty.IMalwareProtectionPlanRef",
 		reflect.TypeOf((*IMalwareProtectionPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "malwareProtectionPlanRef", GoGetter: "MalwareProtectionPlanRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -725,6 +729,7 @@ func init() {
 		"aws-cdk-lib.aws_guardduty.IMasterRef",
 		reflect.TypeOf((*IMasterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "masterRef", GoGetter: "MasterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -737,6 +742,7 @@ func init() {
 		"aws-cdk-lib.aws_guardduty.IMemberRef",
 		reflect.TypeOf((*IMemberRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "memberRef", GoGetter: "MemberRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -754,6 +760,7 @@ func init() {
 		reflect.TypeOf((*IPublishingDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "publishingDestinationRef", GoGetter: "PublishingDestinationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublishingDestinationRef{}
@@ -766,6 +773,7 @@ func init() {
 		reflect.TypeOf((*IThreatEntitySetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "threatEntitySetRef", GoGetter: "ThreatEntitySetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThreatEntitySetRef{}
@@ -778,6 +786,7 @@ func init() {
 		reflect.TypeOf((*IThreatIntelSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "threatIntelSetRef", GoGetter: "ThreatIntelSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThreatIntelSetRef{}
@@ -790,6 +799,7 @@ func init() {
 		reflect.TypeOf((*ITrustedEntitySetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trustedEntitySetRef", GoGetter: "TrustedEntitySetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrustedEntitySetRef{}

@@ -16,6 +16,7 @@ package awslambda
 //   	// the properties below are optional
 //   	EventSourceToken: jsii.String("eventSourceToken"),
 //   	FunctionUrlAuthType: jsii.String("functionUrlAuthType"),
+//   	InvokedViaFunctionUrl: jsii.Boolean(false),
 //   	PrincipalOrgId: jsii.String("principalOrgId"),
 //   	SourceAccount: jsii.String("sourceAccount"),
 //   	SourceArn: jsii.String("sourceArn"),
@@ -56,6 +57,9 @@ type CfnPermissionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionurlauthtype
 	//
 	FunctionUrlAuthType *string `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-invokedviafunctionurl
+	//
+	InvokedViaFunctionUrl interface{} `field:"optional" json:"invokedViaFunctionUrl" yaml:"invokedViaFunctionUrl"`
 	// The identifier for your organization in AWS Organizations .
 	//
 	// Use this to grant permissions to all the AWS accounts under this organization.

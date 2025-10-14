@@ -20,7 +20,7 @@ import (
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var key key
+//   var keyRef iKeyRef
 //   var localBundling iLocalBundling
 //
 //   inlineImportSource := awscdk.Aws_cloudfront.InlineImportSource_FromAsset(jsii.String("path"), &AssetOptions{
@@ -70,7 +70,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: key,
+//   	SourceKMSKey: keyRef,
 //   })
 //
 type InlineImportSource interface {

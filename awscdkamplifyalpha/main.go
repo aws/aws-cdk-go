@@ -101,6 +101,15 @@ func init() {
 		reflect.TypeOf((*BranchProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-amplify-alpha.BuildComputeType",
+		reflect.TypeOf((*BuildComputeType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD_8GB": BuildComputeType_STANDARD_8GB,
+			"LARGE_16GB": BuildComputeType_LARGE_16GB,
+			"XLARGE_72GB": BuildComputeType_XLARGE_72GB,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-amplify-alpha.CacheConfigType",
 		reflect.TypeOf((*CacheConfigType)(nil)).Elem(),
 		map[string]interface{}{

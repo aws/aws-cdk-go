@@ -571,6 +571,44 @@ func (j *jsiiProxy_CfnLogGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ILogGroupRef from an ARN.
+func CfnLogGroup_FromLogGroupArn(scope constructs.Construct, id *string, arn *string) ILogGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnLogGroup_FromLogGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ILogGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"fromLogGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ILogGroupRef from a logGroupName.
+func CfnLogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupName *string) ILogGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnLogGroup_FromLogGroupNameParameters(scope, id, logGroupName); err != nil {
+		panic(err)
+	}
+	var returns ILogGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"fromLogGroupName",
+		[]interface{}{scope, id, logGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

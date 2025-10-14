@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnPlaceIndex) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnPlaceIndex_FromIndexNameParameters(scope constructs.Construct, id *string, indexName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if indexName == nil {
+		return fmt.Errorf("parameter indexName is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnPlaceIndex_FromPlaceIndexArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnPlaceIndex_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

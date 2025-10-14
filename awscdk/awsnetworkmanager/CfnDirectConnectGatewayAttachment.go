@@ -69,6 +69,8 @@ type CfnDirectConnectGatewayAttachment interface {
 	AttrCoreNetworkArn() *string
 	// Creation time of the attachment.
 	AttrCreatedAt() *string
+	// Errors from the last modification of the attachment.
+	AttrLastModificationErrors() *[]*string
 	// The name of the network function group.
 	AttrNetworkFunctionGroupName() *string
 	// Owner account of the attachment.
@@ -326,6 +328,16 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) AttrLastModificationErrors() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns

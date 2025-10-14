@@ -41,7 +41,7 @@ type CfnUser_UserPhoneConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-deskphonenumber
 	//
 	DeskPhoneNumber *string `field:"optional" json:"deskPhoneNumber" yaml:"deskPhoneNumber"`
-	// The Persistent Connection setting.
+	// The persistent connection setting for the user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-persistentconnection
 	//
 	PersistentConnection interface{} `field:"optional" json:"persistentConnection" yaml:"persistentConnection"`

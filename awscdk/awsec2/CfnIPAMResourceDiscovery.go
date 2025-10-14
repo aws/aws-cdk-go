@@ -553,6 +553,25 @@ func (j *jsiiProxy_CfnIPAMResourceDiscovery)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IIPAMResourceDiscoveryRef from a ipamResourceDiscoveryId.
+func CfnIPAMResourceDiscovery_FromIpamResourceDiscoveryId(scope constructs.Construct, id *string, ipamResourceDiscoveryId *string) IIPAMResourceDiscoveryRef {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMResourceDiscovery_FromIpamResourceDiscoveryIdParameters(scope, id, ipamResourceDiscoveryId); err != nil {
+		panic(err)
+	}
+	var returns IIPAMResourceDiscoveryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery",
+		"fromIpamResourceDiscoveryId",
+		[]interface{}{scope, id, ipamResourceDiscoveryId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

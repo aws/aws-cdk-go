@@ -761,6 +761,25 @@ func (j *jsiiProxy_CfnAssociation)SetWaitForSuccessTimeoutSeconds(val *float64) 
 	)
 }
 
+// Creates a new IAssociationRef from a associationId.
+func CfnAssociation_FromAssociationId(scope constructs.Construct, id *string, associationId *string) IAssociationRef {
+	_init_.Initialize()
+
+	if err := validateCfnAssociation_FromAssociationIdParameters(scope, id, associationId); err != nil {
+		panic(err)
+	}
+	var returns IAssociationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnAssociation",
+		"fromAssociationId",
+		[]interface{}{scope, id, associationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

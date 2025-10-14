@@ -597,6 +597,44 @@ func (j *jsiiProxy_CfnDataIntegration)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDataIntegrationRef from an ARN.
+func CfnDataIntegration_FromDataIntegrationArn(scope constructs.Construct, id *string, arn *string) IDataIntegrationRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataIntegration_FromDataIntegrationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDataIntegrationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appintegrations.CfnDataIntegration",
+		"fromDataIntegrationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDataIntegrationRef from a dataIntegrationId.
+func CfnDataIntegration_FromDataIntegrationId(scope constructs.Construct, id *string, dataIntegrationId *string) IDataIntegrationRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataIntegration_FromDataIntegrationIdParameters(scope, id, dataIntegrationId); err != nil {
+		panic(err)
+	}
+	var returns IDataIntegrationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appintegrations.CfnDataIntegration",
+		"fromDataIntegrationId",
+		[]interface{}{scope, id, dataIntegrationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

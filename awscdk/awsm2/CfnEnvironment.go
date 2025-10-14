@@ -85,7 +85,7 @@ type CfnEnvironment interface {
 	SetEngineVersion(val *string)
 	// A reference to a Environment resource.
 	EnvironmentRef() *EnvironmentReference
-	// Defines the details of a high availability configuration.
+	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025.
 	HighAvailabilityConfig() interface{}
 	SetHighAvailabilityConfig(val interface{})
 	// The instance type of the runtime environment.
@@ -130,7 +130,7 @@ type CfnEnvironment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Defines the storage configuration for a runtime environment.
+	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025.
 	StorageConfigurations() interface{}
 	SetStorageConfigurations(val interface{})
 	// The list of subnets associated with the VPC for this runtime environment.

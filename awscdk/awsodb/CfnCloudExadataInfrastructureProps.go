@@ -22,6 +22,25 @@ import (
 //   	},
 //   	DatabaseServerType: jsii.String("databaseServerType"),
 //   	DisplayName: jsii.String("displayName"),
+//   	MaintenanceWindow: &MaintenanceWindowProperty{
+//   		CustomActionTimeoutInMins: jsii.Number(123),
+//   		DaysOfWeek: []*string{
+//   			jsii.String("daysOfWeek"),
+//   		},
+//   		HoursOfDay: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		IsCustomActionTimeoutEnabled: jsii.Boolean(false),
+//   		LeadTimeInWeeks: jsii.Number(123),
+//   		Months: []*string{
+//   			jsii.String("months"),
+//   		},
+//   		PatchingMode: jsii.String("patchingMode"),
+//   		Preference: jsii.String("preference"),
+//   		WeeksOfMonth: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   	},
 //   	Shape: jsii.String("shape"),
 //   	StorageCount: jsii.Number(123),
 //   	StorageServerType: jsii.String("storageServerType"),
@@ -70,6 +89,12 @@ type CfnCloudExadataInfrastructureProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudexadatainfrastructure.html#cfn-odb-cloudexadatainfrastructure-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// The scheduling details for the maintenance window.
+	//
+	// Patching and system updates take place during the maintenance window.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudexadatainfrastructure.html#cfn-odb-cloudexadatainfrastructure-maintenancewindow
+	//
+	MaintenanceWindow interface{} `field:"optional" json:"maintenanceWindow" yaml:"maintenanceWindow"`
 	// The model name of the Exadata infrastructure.
 	//
 	// Required when creating an Exadata infrastructure.

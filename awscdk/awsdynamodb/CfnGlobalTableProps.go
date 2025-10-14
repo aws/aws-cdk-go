@@ -166,6 +166,8 @@ package awsdynamodb
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
+//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
 //   	GlobalTableWitnesses: []interface{}{
 //   		&GlobalTableWitnessProperty{
 //   			Region: jsii.String("region"),
@@ -273,6 +275,12 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
 	//
 	GlobalSecondaryIndexes interface{} `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablesettingsreplicationmode
+	//
+	GlobalTableSettingsReplicationMode *string `field:"optional" json:"globalTableSettingsReplicationMode" yaml:"globalTableSettingsReplicationMode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablesourcearn
+	//
+	GlobalTableSourceArn *string `field:"optional" json:"globalTableSourceArn" yaml:"globalTableSourceArn"`
 	// The list of witnesses of the MRSC global table.
 	//
 	// Only one witness Region can be configured per MRSC global table.

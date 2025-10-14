@@ -14,6 +14,9 @@ import (
 // A namespace is a logical grouping of tables within your table bucket, which you can use to organize tables. For more information, see [Create a namespace](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace-create.html) in the *Amazon Simple Storage Service User Guide* .
 //
 // - **Permissions** - You must have the `s3tables:CreateNamespace` permission to use this operation.
+// - **Cloud Development Kit** - To use S3 Tables AWS CDK constructs, add the `@aws-cdk/aws-s3tables-alpha` dependency with one of the following options:
+//
+// - NPM: `npm i.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -66,7 +69,7 @@ type CfnNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The Amazon Resource Name (ARN) of the specified table bucket.
+	// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
 	TableBucketArn() *string
 	SetTableBucketArn(val *string)
 	// Deprecated.

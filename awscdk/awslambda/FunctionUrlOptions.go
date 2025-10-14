@@ -5,16 +5,16 @@ package awslambda
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var fn function
 //
+//
 //   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
-//   	AuthType: lambda.FunctionUrlAuthType_NONE,
+//   	AuthType: lambda.FunctionUrlAuthType_AWS_IAM,
 //   })
 //
-//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("MyDistribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewFunctionUrlOrigin(fnUrl),
+//   		Origin: origins.FunctionUrlOrigin_WithOriginAccessControl(fnUrl),
 //   	},
 //   })
 //

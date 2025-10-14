@@ -21,6 +21,33 @@ import (
 //   		IsIncidentLogsEnabled: jsii.Boolean(false),
 //   	},
 //   	DataStorageSizeInTBs: jsii.Number(123),
+//   	DbNodes: []interface{}{
+//   		&DbNodeProperty{
+//   			DbServerId: jsii.String("dbServerId"),
+//
+//   			// the properties below are optional
+//   			BackupIpId: jsii.String("backupIpId"),
+//   			BackupVnic2Id: jsii.String("backupVnic2Id"),
+//   			CpuCoreCount: jsii.Number(123),
+//   			DbNodeArn: jsii.String("dbNodeArn"),
+//   			DbNodeId: jsii.String("dbNodeId"),
+//   			DbNodeStorageSizeInGBs: jsii.Number(123),
+//   			DbSystemId: jsii.String("dbSystemId"),
+//   			HostIpId: jsii.String("hostIpId"),
+//   			Hostname: jsii.String("hostname"),
+//   			MemorySizeInGBs: jsii.Number(123),
+//   			Ocid: jsii.String("ocid"),
+//   			Status: jsii.String("status"),
+//   			Tags: []cfnTag{
+//   				&cfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			Vnic2Id: jsii.String("vnic2Id"),
+//   			VnicId: jsii.String("vnicId"),
+//   		},
+//   	},
 //   	DbNodeStorageSizeInGBs: jsii.Number(123),
 //   	DbServers: []*string{
 //   		jsii.String("dbServers"),
@@ -38,7 +65,7 @@ import (
 //   		jsii.String("sshPublicKeys"),
 //   	},
 //   	SystemVersion: jsii.String("systemVersion"),
-//   	Tags: []cfnTag{
+//   	Tags: []*cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
@@ -74,6 +101,10 @@ type CfnCloudVmClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html#cfn-odb-cloudvmcluster-datastoragesizeintbs
 	//
 	DataStorageSizeInTBs *float64 `field:"optional" json:"dataStorageSizeInTBs" yaml:"dataStorageSizeInTBs"`
+	// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html#cfn-odb-cloudvmcluster-dbnodes
+	//
+	DbNodes interface{} `field:"optional" json:"dbNodes" yaml:"dbNodes"`
 	// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html#cfn-odb-cloudvmcluster-dbnodestoragesizeingbs
 	//

@@ -445,6 +445,7 @@ func init() {
 		"aws-cdk-lib.aws_location.IAPIKeyRef",
 		reflect.TypeOf((*IAPIKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -457,6 +458,7 @@ func init() {
 		"aws-cdk-lib.aws_location.IGeofenceCollectionRef",
 		reflect.TypeOf((*IGeofenceCollectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "geofenceCollectionRef", GoGetter: "GeofenceCollectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -469,6 +471,7 @@ func init() {
 		"aws-cdk-lib.aws_location.IMapRef",
 		reflect.TypeOf((*IMapRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "mapRef", GoGetter: "MapRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -482,6 +485,7 @@ func init() {
 		reflect.TypeOf((*IPlaceIndexRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "placeIndexRef", GoGetter: "PlaceIndexRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlaceIndexRef{}
@@ -494,6 +498,7 @@ func init() {
 		reflect.TypeOf((*IRouteCalculatorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorRef", GoGetter: "RouteCalculatorRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteCalculatorRef{}
@@ -506,6 +511,7 @@ func init() {
 		reflect.TypeOf((*ITrackerConsumerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerConsumerRef", GoGetter: "TrackerConsumerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrackerConsumerRef{}
@@ -518,6 +524,7 @@ func init() {
 		reflect.TypeOf((*ITrackerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerRef", GoGetter: "TrackerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrackerRef{}

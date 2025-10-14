@@ -2,30 +2,29 @@ package awscloudfrontorigins
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
 )
 
 // Properties for a Lambda Function URL Origin.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   functionUrlOriginProps := &FunctionUrlOriginProps{
-//   	ConnectionAttempts: jsii.Number(123),
-//   	ConnectionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   	CustomHeaders: map[string]*string{
-//   		"customHeadersKey": jsii.String("customHeaders"),
+//   var fn function
+//
+//   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
+//   	AuthType: lambda.FunctionUrlAuthType_NONE,
+//   })
+//
+//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewFunctionUrlOrigin(fnUrl, &FunctionUrlOriginProps{
+//   			ReadTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
+//   			ResponseCompletionTimeout: awscdk.Duration_*Seconds(jsii.Number(90)),
+//   			KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
+//   		}),
 //   	},
-//   	KeepaliveTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	OriginAccessControlId: jsii.String("originAccessControlId"),
-//   	OriginId: jsii.String("originId"),
-//   	OriginPath: jsii.String("originPath"),
-//   	OriginShieldEnabled: jsii.Boolean(false),
-//   	OriginShieldRegion: jsii.String("originShieldRegion"),
-//   	ReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   }
+//   })
 //
 type FunctionUrlOriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -64,12 +63,28 @@ type FunctionUrlOriginProps struct {
 	// Default: - origin shield not enabled.
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// The time that a request from CloudFront to the origin can stay open and wait for a response.
+	//
+	// If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+	//
+	// Valid values are 1-3600 seconds, inclusive.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout
+	//
+	// Default: undefined -  AWS CloudFront default is not enforcing a maximum value.
+	//
+	ResponseCompletionTimeout awscdk.Duration `field:"optional" json:"responseCompletionTimeout" yaml:"responseCompletionTimeout"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
 	// Default: '/'.
 	//
 	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
+	// Specifies which IP protocol CloudFront uses when connecting to your origin.
+	//
+	// If your origin uses both IPv4 and IPv6 protocols, you can choose dualstack to help optimize reliability.
+	// Default: OriginIpAddressType.IPV4
+	//
+	IpAddressType awscloudfront.OriginIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 180 seconds, inclusive.

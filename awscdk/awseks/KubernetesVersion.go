@@ -10,19 +10,19 @@ import (
 // Example:
 //   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
 //
-//   // or
-//   var vpc vpc
 //
-//
-//   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-//   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
+//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 //   	Version: eks.KubernetesVersion_V1_33(),
+//   	DefaultCapacity: jsii.Number(0),
 //   	KubectlLayer: kubectlv33.NewKubectlV33Layer(this, jsii.String("kubectl")),
 //   })
-//   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
-//   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
-//   	Vpc: Vpc,
-//   	ClusterName: jsii.String("cluster-name"),
+//
+//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+//   	InstanceTypes: []instanceType{
+//   		ec2.NewInstanceType(jsii.String("m5.large")),
+//   	},
+//   	MinSize: jsii.Number(4),
+//   	DiskSize: jsii.Number(100),
 //   })
 //
 // See: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar

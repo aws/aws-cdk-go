@@ -53,6 +53,16 @@ func (j *jsiiProxy_IKeyGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_IKeyGroup) KeyGroupRef() *KeyGroupReference {
+	var returns *KeyGroupReference
+	_jsii_.Get(
+		j,
+		"keyGroupRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IKeyGroup) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

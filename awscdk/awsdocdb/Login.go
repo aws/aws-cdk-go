@@ -10,7 +10,6 @@ import (
 // Example:
 //   var vpc vpc
 //
-//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{
 //   		Username: jsii.String("myuser"),
@@ -20,7 +19,7 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+//   	DeletionProtection: jsii.Boolean(true),
 //   })
 //
 type Login struct {

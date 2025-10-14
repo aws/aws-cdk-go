@@ -528,6 +528,25 @@ func (j *jsiiProxy_CfnDetector)SetTagsRaw(val *[]*CfnDetector_TagItemProperty) {
 	)
 }
 
+// Creates a new IDetectorRef from a detectorId.
+func CfnDetector_FromDetectorId(scope constructs.Construct, id *string, detectorId *string) IDetectorRef {
+	_init_.Initialize()
+
+	if err := validateCfnDetector_FromDetectorIdParameters(scope, id, detectorId); err != nil {
+		panic(err)
+	}
+	var returns IDetectorRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_guardduty.CfnDetector",
+		"fromDetectorId",
+		[]interface{}{scope, id, detectorId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

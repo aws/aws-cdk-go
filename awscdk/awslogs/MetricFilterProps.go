@@ -22,6 +22,13 @@ type MetricFilterProps struct {
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to emit.
 	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
+	// Whether the metric filter is applied on the tranformed logs.
+	//
+	// This parameter is valid only for log groups that have an active log transformer.
+	// If this value is true, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+	// Default: - false.
+	//
+	ApplyOnTransformedLogs *bool `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`
 	// The value to emit if the pattern does not match a particular event.
 	// Default: No metric emitted.
 	//

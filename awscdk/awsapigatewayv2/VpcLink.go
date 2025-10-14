@@ -60,9 +60,9 @@ type VpcLink interface {
 	// Physical ID of the VpcLink resource.
 	VpcLinkId() *string
 	// Adds the provided security groups to the vpc link.
-	AddSecurityGroups(groups ...awsec2.ISecurityGroup)
+	AddSecurityGroups(groups ...awsec2.ISecurityGroupRef)
 	// Adds the provided subnets to the vpc link.
-	AddSubnets(subnets ...awsec2.ISubnet)
+	AddSubnets(subnets ...awsec2.ISubnetRef)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -288,7 +288,7 @@ func VpcLink_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (v *jsiiProxy_VpcLink) AddSecurityGroups(groups ...awsec2.ISecurityGroup) {
+func (v *jsiiProxy_VpcLink) AddSecurityGroups(groups ...awsec2.ISecurityGroupRef) {
 	args := []interface{}{}
 	for _, a := range groups {
 		args = append(args, a)
@@ -301,7 +301,7 @@ func (v *jsiiProxy_VpcLink) AddSecurityGroups(groups ...awsec2.ISecurityGroup) {
 	)
 }
 
-func (v *jsiiProxy_VpcLink) AddSubnets(subnets ...awsec2.ISubnet) {
+func (v *jsiiProxy_VpcLink) AddSubnets(subnets ...awsec2.ISubnetRef) {
 	args := []interface{}{}
 	for _, a := range subnets {
 		args = append(args, a)

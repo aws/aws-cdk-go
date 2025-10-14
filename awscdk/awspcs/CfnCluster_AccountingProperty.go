@@ -3,8 +3,6 @@ package awspcs
 
 // The accounting configuration includes configurable settings for Slurm accounting.
 //
-// It's a property of the `ClusterSlurmConfiguration` object.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,7 +28,9 @@ type CfnCluster_AccountingProperty struct {
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// The default value for all purge settings for `slurmdbd.conf` . For more information, see the [slurmdbd.conf documentation at SchedMD](https://docs.aws.amazon.com/https://slurm.schedmd.com/slurmdbd.conf.html) .
 	//
-	// The default value `-1` means there is no purge time and records persist as long as the cluster exists.
+	// The default value for `defaultPurgeTimeInDays` is `-1` .
+	//
+	// A value of `-1` means there is no purge time and records persist as long as the cluster exists.
 	//
 	// > `0` isn't a valid value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-accounting.html#cfn-pcs-cluster-accounting-defaultpurgetimeindays

@@ -64,6 +64,14 @@ func (c *jsiiProxy_Cluster) validateAddDefaultCloudMapNamespaceParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddManagedInstancesCapacityProviderParameters(provider ManagedInstancesCapacityProvider) error {
+	if provider == nil {
+		return fmt.Errorf("parameter provider is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

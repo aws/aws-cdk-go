@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (u *jsiiProxy_UsagePlan) validateAddApiKeyParameters(apiKey IApiKey, options *AddApiKeyOptions) error {
+func (u *jsiiProxy_UsagePlan) validateAddApiKeyParameters(apiKey IApiKeyRef, options *AddApiKeyOptions) error {
 	if apiKey == nil {
 		return fmt.Errorf("parameter apiKey is required, but nil was provided")
 	}

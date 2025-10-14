@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnDatastore) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnDatastore_FromDatastoreNameParameters(scope constructs.Construct, id *string, datastoreName *string) error {
+	return nil
+}
+
 func validateCfnDatastore_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

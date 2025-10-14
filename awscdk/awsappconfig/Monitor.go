@@ -114,7 +114,7 @@ func Monitor_FromCfnMonitorsProperty(monitorsProperty *CfnEnvironment_MonitorsPr
 //
 // If the alarm role is not specified, a role will
 // be generated.
-func Monitor_FromCloudWatchAlarm(alarm awscloudwatch.IAlarm, alarmRole awsiam.IRole) Monitor {
+func Monitor_FromCloudWatchAlarm(alarm awscloudwatch.IAlarm, alarmRole awsiam.IRoleRef) Monitor {
 	_init_.Initialize()
 
 	if err := validateMonitor_FromCloudWatchAlarmParameters(alarm); err != nil {

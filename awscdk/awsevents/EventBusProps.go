@@ -55,5 +55,9 @@ type EventBusProps struct {
 	// Default: - Use an AWS managed key.
 	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	// The Logging Configuration of the Èvent Bus.
+	// Default: - no logging.
+	//
+	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
 }
 

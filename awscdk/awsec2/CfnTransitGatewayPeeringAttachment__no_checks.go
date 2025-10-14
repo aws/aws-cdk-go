@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateValidatePropertie
 	return nil
 }
 
+func validateCfnTransitGatewayPeeringAttachment_FromTransitGatewayAttachmentIdParameters(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) error {
+	return nil
+}
+
 func validateCfnTransitGatewayPeeringAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

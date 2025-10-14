@@ -19,7 +19,7 @@ func (m *jsiiProxy_ManagedPolicy) validateApplyRemovalPolicyParameters(policy aw
 	return nil
 }
 
-func (m *jsiiProxy_ManagedPolicy) validateAttachToGroupParameters(group IGroup) error {
+func (m *jsiiProxy_ManagedPolicy) validateAttachToGroupParameters(group IGroupRef) error {
 	if group == nil {
 		return fmt.Errorf("parameter group is required, but nil was provided")
 	}
@@ -35,7 +35,7 @@ func (m *jsiiProxy_ManagedPolicy) validateAttachToRoleParameters(role IRole) err
 	return nil
 }
 
-func (m *jsiiProxy_ManagedPolicy) validateAttachToUserParameters(user IUser) error {
+func (m *jsiiProxy_ManagedPolicy) validateAttachToUserParameters(user IUserRef) error {
 	if user == nil {
 		return fmt.Errorf("parameter user is required, but nil was provided")
 	}

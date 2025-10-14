@@ -272,6 +272,16 @@ func (j *jsiiProxy_IKey) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_IKey) KeyRef() *KeyReference {
+	var returns *KeyReference
+	_jsii_.Get(
+		j,
+		"keyRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IKey) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

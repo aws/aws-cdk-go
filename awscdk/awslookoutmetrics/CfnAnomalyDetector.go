@@ -9,6 +9,10 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// > End of support notice: On Oct 9, 2025, AWS will end support for Amazon Lookout for Metrics.
+//
+// After Oct 9, 2025, you will no longer be able to access the Amazon Lookout for Metrics console or Amazon Lookout for Metrics resources. For more information, see [Amazon Lookout for Metrics end of support](https://docs.aws.amazon.com//blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/) .
+//
 // The `AWS::LookoutMetrics::AnomalyDetector` type creates an anomaly detector.
 //
 // Example:

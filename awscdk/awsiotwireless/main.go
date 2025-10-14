@@ -782,6 +782,7 @@ func init() {
 		"aws-cdk-lib.aws_iotwireless.IDestinationRef",
 		reflect.TypeOf((*IDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "destinationRef", GoGetter: "DestinationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -794,6 +795,7 @@ func init() {
 		"aws-cdk-lib.aws_iotwireless.IDeviceProfileRef",
 		reflect.TypeOf((*IDeviceProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deviceProfileRef", GoGetter: "DeviceProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -806,6 +808,7 @@ func init() {
 		"aws-cdk-lib.aws_iotwireless.IFuotaTaskRef",
 		reflect.TypeOf((*IFuotaTaskRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fuotaTaskRef", GoGetter: "FuotaTaskRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -818,6 +821,7 @@ func init() {
 		"aws-cdk-lib.aws_iotwireless.IMulticastGroupRef",
 		reflect.TypeOf((*IMulticastGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "multicastGroupRef", GoGetter: "MulticastGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -830,6 +834,7 @@ func init() {
 		"aws-cdk-lib.aws_iotwireless.INetworkAnalyzerConfigurationRef",
 		reflect.TypeOf((*INetworkAnalyzerConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkAnalyzerConfigurationRef", GoGetter: "NetworkAnalyzerConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -843,6 +848,7 @@ func init() {
 		reflect.TypeOf((*IPartnerAccountRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "partnerAccountRef", GoGetter: "PartnerAccountRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPartnerAccountRef{}
@@ -855,6 +861,7 @@ func init() {
 		reflect.TypeOf((*IServiceProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceProfileRef", GoGetter: "ServiceProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceProfileRef{}
@@ -867,6 +874,7 @@ func init() {
 		reflect.TypeOf((*ITaskDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionRef", GoGetter: "TaskDefinitionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITaskDefinitionRef{}
@@ -879,6 +887,7 @@ func init() {
 		reflect.TypeOf((*IWirelessDeviceImportTaskRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "wirelessDeviceImportTaskRef", GoGetter: "WirelessDeviceImportTaskRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWirelessDeviceImportTaskRef{}
@@ -891,6 +900,7 @@ func init() {
 		reflect.TypeOf((*IWirelessDeviceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "wirelessDeviceRef", GoGetter: "WirelessDeviceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWirelessDeviceRef{}
@@ -903,6 +913,7 @@ func init() {
 		reflect.TypeOf((*IWirelessGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "wirelessGatewayRef", GoGetter: "WirelessGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWirelessGatewayRef{}

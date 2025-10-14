@@ -199,6 +199,7 @@ func init() {
 		"aws-cdk-lib.aws_mediaconvert.IJobTemplateRef",
 		reflect.TypeOf((*IJobTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "jobTemplateRef", GoGetter: "JobTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -212,6 +213,7 @@ func init() {
 		reflect.TypeOf((*IPresetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "presetRef", GoGetter: "PresetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPresetRef{}
@@ -224,6 +226,7 @@ func init() {
 		reflect.TypeOf((*IQueueRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "queueRef", GoGetter: "QueueRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQueueRef{}

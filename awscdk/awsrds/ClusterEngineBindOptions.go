@@ -13,12 +13,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterGroup parameterGroup
-//   var role role
+//   var roleRef iRoleRef
 //
 //   clusterEngineBindOptions := &ClusterEngineBindOptions{
 //   	ParameterGroup: parameterGroup,
-//   	S3ExportRole: role,
-//   	S3ImportRole: role,
+//   	S3ExportRole: roleRef,
+//   	S3ImportRole: roleRef,
 //   }
 //
 type ClusterEngineBindOptions struct {
@@ -29,10 +29,10 @@ type ClusterEngineBindOptions struct {
 	// The role used for S3 exporting.
 	// Default: - none.
 	//
-	S3ExportRole awsiam.IRole `field:"optional" json:"s3ExportRole" yaml:"s3ExportRole"`
+	S3ExportRole awsiam.IRoleRef `field:"optional" json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
 	// Default: - none.
 	//
-	S3ImportRole awsiam.IRole `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
+	S3ImportRole awsiam.IRoleRef `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
 }
 

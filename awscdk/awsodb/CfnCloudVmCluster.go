@@ -28,6 +28,33 @@ import (
 //   		IsIncidentLogsEnabled: jsii.Boolean(false),
 //   	},
 //   	DataStorageSizeInTBs: jsii.Number(123),
+//   	DbNodes: []interface{}{
+//   		&DbNodeProperty{
+//   			DbServerId: jsii.String("dbServerId"),
+//
+//   			// the properties below are optional
+//   			BackupIpId: jsii.String("backupIpId"),
+//   			BackupVnic2Id: jsii.String("backupVnic2Id"),
+//   			CpuCoreCount: jsii.Number(123),
+//   			DbNodeArn: jsii.String("dbNodeArn"),
+//   			DbNodeId: jsii.String("dbNodeId"),
+//   			DbNodeStorageSizeInGBs: jsii.Number(123),
+//   			DbSystemId: jsii.String("dbSystemId"),
+//   			HostIpId: jsii.String("hostIpId"),
+//   			Hostname: jsii.String("hostname"),
+//   			MemorySizeInGBs: jsii.Number(123),
+//   			Ocid: jsii.String("ocid"),
+//   			Status: jsii.String("status"),
+//   			Tags: []cfnTag{
+//   				&cfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			Vnic2Id: jsii.String("vnic2Id"),
+//   			VnicId: jsii.String("vnicId"),
+//   		},
+//   	},
 //   	DbNodeStorageSizeInGBs: jsii.Number(123),
 //   	DbServers: []*string{
 //   		jsii.String("dbServers"),
@@ -45,7 +72,7 @@ import (
 //   		jsii.String("sshPublicKeys"),
 //   	},
 //   	SystemVersion: jsii.String("systemVersion"),
-//   	Tags: []cfnTag{
+//   	Tags: []*cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
@@ -125,6 +152,9 @@ type CfnCloudVmCluster interface {
 	// The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
 	DataStorageSizeInTBs() *float64
 	SetDataStorageSizeInTBs(val *float64)
+	// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+	DbNodes() interface{}
+	SetDbNodes(val interface{})
 	// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 	DbNodeStorageSizeInGBs() *float64
 	SetDbNodeStorageSizeInGBs(val *float64)
@@ -599,6 +629,16 @@ func (j *jsiiProxy_CfnCloudVmCluster) DataStorageSizeInTBs() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCloudVmCluster) DbNodes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dbNodes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCloudVmCluster) DbNodeStorageSizeInGBs() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -876,6 +916,17 @@ func (j *jsiiProxy_CfnCloudVmCluster)SetDataStorageSizeInTBs(val *float64) {
 	_jsii_.Set(
 		j,
 		"dataStorageSizeInTBs",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCloudVmCluster)SetDbNodes(val interface{}) {
+	if err := j.validateSetDbNodesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dbNodes",
 		val,
 	)
 }

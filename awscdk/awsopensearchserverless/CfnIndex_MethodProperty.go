@@ -9,10 +9,10 @@ package awsopensearchserverless
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   methodProperty := &MethodProperty{
-//   	Engine: jsii.String("engine"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	Engine: jsii.String("engine"),
 //   	Parameters: &ParametersProperty{
 //   		EfConstruction: jsii.Number(123),
 //   		M: jsii.Number(123),
@@ -23,14 +23,14 @@ package awsopensearchserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html
 //
 type CfnIndex_MethodProperty struct {
-	// The k-NN search engine to use.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html#cfn-opensearchserverless-index-method-engine
-	//
-	Engine *string `field:"required" json:"engine" yaml:"engine"`
 	// The algorithm name for k-NN search.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html#cfn-opensearchserverless-index-method-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The k-NN search engine to use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html#cfn-opensearchserverless-index-method-engine
+	//
+	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// Additional parameters for the k-NN algorithm.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html#cfn-opensearchserverless-index-method-parameters
 	//

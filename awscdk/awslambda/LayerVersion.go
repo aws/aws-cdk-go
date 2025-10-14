@@ -37,6 +37,7 @@ type LayerVersion interface {
 	Env() *awscdk.ResourceEnvironment
 	// The ARN of the Lambda Layer version that this Layer defines.
 	LayerVersionArn() *string
+	// A reference to a LayerVersion resource.
 	LayerVersionRef() *LayerVersionReference
 	// The tree node.
 	Node() constructs.Node

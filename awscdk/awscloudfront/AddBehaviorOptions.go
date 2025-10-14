@@ -29,7 +29,7 @@ type AddBehaviorOptions struct {
 	//
 	// Default: CachePolicy.CACHING_OPTIMIZED
 	//
-	CachePolicy ICachePolicy `field:"optional" json:"cachePolicy" yaml:"cachePolicy"`
+	CachePolicy ICachePolicyRef `field:"optional" json:"cachePolicy" yaml:"cachePolicy"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior.
 	//
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html#compressed-content-cloudfront-file-types
@@ -64,17 +64,17 @@ type AddBehaviorOptions struct {
 	// are included in requests that CloudFront sends to the origin.
 	// Default: - none.
 	//
-	OriginRequestPolicy IOriginRequestPolicy `field:"optional" json:"originRequestPolicy" yaml:"originRequestPolicy"`
+	OriginRequestPolicy IOriginRequestPolicyRef `field:"optional" json:"originRequestPolicy" yaml:"originRequestPolicy"`
 	// The real-time log configuration to be attached to this cache behavior.
 	// Default: - none.
 	//
-	RealtimeLogConfig IRealtimeLogConfig `field:"optional" json:"realtimeLogConfig" yaml:"realtimeLogConfig"`
+	RealtimeLogConfig IRealtimeLogConfigRef `field:"optional" json:"realtimeLogConfig" yaml:"realtimeLogConfig"`
 	// The response headers policy for this behavior.
 	//
 	// The response headers policy determines which headers are included in responses.
 	// Default: - none.
 	//
-	ResponseHeadersPolicy IResponseHeadersPolicy `field:"optional" json:"responseHeadersPolicy" yaml:"responseHeadersPolicy"`
+	ResponseHeadersPolicy IResponseHeadersPolicyRef `field:"optional" json:"responseHeadersPolicy" yaml:"responseHeadersPolicy"`
 	// Set this to true to indicate you want to distribute media files in the Microsoft Smooth Streaming format using this behavior.
 	// Default: false.
 	//
@@ -84,7 +84,7 @@ type AddBehaviorOptions struct {
 	//
 	// Default: - no KeyGroups are associated with cache behavior.
 	//
-	TrustedKeyGroups *[]IKeyGroup `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
+	TrustedKeyGroups *[]IKeyGroupRef `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// The protocol that viewers can use to access the files controlled by this behavior.
 	// Default: ViewerProtocolPolicy.ALLOW_ALL
 	//

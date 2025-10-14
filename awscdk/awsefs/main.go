@@ -338,6 +338,7 @@ func init() {
 		"aws-cdk-lib.aws_efs.IAccessPointRef",
 		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -375,6 +376,7 @@ func init() {
 		"aws-cdk-lib.aws_efs.IFileSystemRef",
 		reflect.TypeOf((*IFileSystemRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fileSystemRef", GoGetter: "FileSystemRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -387,6 +389,7 @@ func init() {
 		"aws-cdk-lib.aws_efs.IMountTargetRef",
 		reflect.TypeOf((*IMountTargetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "mountTargetRef", GoGetter: "MountTargetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

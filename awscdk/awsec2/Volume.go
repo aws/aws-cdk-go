@@ -51,6 +51,7 @@ type Volume interface {
 	Stack() awscdk.Stack
 	// The EBS Volume's ID.
 	VolumeId() *string
+	// A reference to a Volume resource.
 	VolumeRef() *VolumeReference
 	// Apply the given removal policy to this resource.
 	//
@@ -82,7 +83,7 @@ type Volume interface {
 	// an unresolvable circular reference between the instance role and the instance.
 	// Use `IVolume.grantAttachVolumeToSelf` to grant an instance permission to attach this
 	// volume to itself.
-	GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant
+	GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant
 	// Grants permission to attach the Volume by a ResourceTag condition.
 	//
 	// If you are looking to
@@ -98,7 +99,7 @@ type Volume interface {
 	//
 	// Use `IVolume.grantDetachVolumeFromSelf` to grant an instance permission to detach this
 	// volume from itself.
-	GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant
+	GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant
 	// Grants permission to detach the Volume by a ResourceTag condition.
 	//
 	// This is implemented via the same mechanism as `IVolume.grantAttachVolumeByResourceTag`,
@@ -382,7 +383,7 @@ func (v *jsiiProxy_Volume) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
-func (v *jsiiProxy_Volume) GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant {
+func (v *jsiiProxy_Volume) GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant {
 	if err := v.validateGrantAttachVolumeParameters(grantee); err != nil {
 		panic(err)
 	}
@@ -414,7 +415,7 @@ func (v *jsiiProxy_Volume) GrantAttachVolumeByResourceTag(grantee awsiam.IGranta
 	return returns
 }
 
-func (v *jsiiProxy_Volume) GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant {
+func (v *jsiiProxy_Volume) GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstanceRef) awsiam.Grant {
 	if err := v.validateGrantDetachVolumeParameters(grantee); err != nil {
 		panic(err)
 	}

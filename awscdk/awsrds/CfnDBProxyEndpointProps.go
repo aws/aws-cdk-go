@@ -16,6 +16,7 @@ package awsrds
 //   	},
 //
 //   	// the properties below are optional
+//   	EndpointNetworkType: jsii.String("endpointNetworkType"),
 //   	Tags: []tagFormatProperty{
 //   		&tagFormatProperty{
 //   			Key: jsii.String("key"),
@@ -45,6 +46,18 @@ type CfnDBProxyEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
 	//
 	VpcSubnetIds *[]*string `field:"required" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
+	// The network type of the DB proxy endpoint.
+	//
+	// The network type determines the IP version that the proxy endpoint supports.
+	//
+	// Valid values:
+	//
+	// - `IPV4` - The proxy endpoint supports IPv4 only.
+	// - `IPV6` - The proxy endpoint supports IPv6 only.
+	// - `DUAL` - The proxy endpoint supports both IPv4 and IPv6.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-endpointnetworktype
+	//
+	EndpointNetworkType *string `field:"optional" json:"endpointNetworkType" yaml:"endpointNetworkType"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
 	//

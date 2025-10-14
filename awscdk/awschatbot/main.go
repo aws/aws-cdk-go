@@ -207,6 +207,7 @@ func init() {
 		"aws-cdk-lib.aws_chatbot.ICustomActionRef",
 		reflect.TypeOf((*ICustomActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customActionRef", GoGetter: "CustomActionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -219,6 +220,7 @@ func init() {
 		"aws-cdk-lib.aws_chatbot.IMicrosoftTeamsChannelConfigurationRef",
 		reflect.TypeOf((*IMicrosoftTeamsChannelConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "microsoftTeamsChannelConfigurationRef", GoGetter: "MicrosoftTeamsChannelConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -256,6 +258,7 @@ func init() {
 		reflect.TypeOf((*ISlackChannelConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationRef", GoGetter: "SlackChannelConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISlackChannelConfigurationRef{}

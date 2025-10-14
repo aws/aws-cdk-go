@@ -303,6 +303,7 @@ func init() {
 		"aws-cdk-lib.aws_billingconductor.IBillingGroupRef",
 		reflect.TypeOf((*IBillingGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "billingGroupRef", GoGetter: "BillingGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -315,6 +316,7 @@ func init() {
 		"aws-cdk-lib.aws_billingconductor.ICustomLineItemRef",
 		reflect.TypeOf((*ICustomLineItemRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customLineItemRef", GoGetter: "CustomLineItemRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -328,6 +330,7 @@ func init() {
 		reflect.TypeOf((*IPricingPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pricingPlanRef", GoGetter: "PricingPlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPricingPlanRef{}
@@ -340,6 +343,7 @@ func init() {
 		reflect.TypeOf((*IPricingRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pricingRuleRef", GoGetter: "PricingRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPricingRuleRef{}

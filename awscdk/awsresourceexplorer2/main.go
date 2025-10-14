@@ -187,6 +187,7 @@ func init() {
 		"aws-cdk-lib.aws_resourceexplorer2.IDefaultViewAssociationRef",
 		reflect.TypeOf((*IDefaultViewAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "defaultViewAssociationRef", GoGetter: "DefaultViewAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -199,6 +200,7 @@ func init() {
 		"aws-cdk-lib.aws_resourceexplorer2.IIndexRef",
 		reflect.TypeOf((*IIndexRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "indexRef", GoGetter: "IndexRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -212,6 +214,7 @@ func init() {
 		reflect.TypeOf((*IViewRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "viewRef", GoGetter: "ViewRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IViewRef{}

@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnMatchingWorkflow) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnMatchingWorkflow_FromWorkflowNameParameters(scope constructs.Construct, id *string, workflowName *string) error {
+	return nil
+}
+
 func validateCfnMatchingWorkflow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

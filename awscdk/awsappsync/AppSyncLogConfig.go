@@ -60,6 +60,6 @@ type AppSyncLogConfig struct {
 	// The role for CloudWatch Logs.
 	// Default: - None.
 	//
-	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

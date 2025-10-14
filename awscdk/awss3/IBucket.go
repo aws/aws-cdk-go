@@ -712,6 +712,16 @@ func (j *jsiiProxy_IBucket)SetReplicationRoleArn(val *string) {
 	)
 }
 
+func (j *jsiiProxy_IBucket) BucketRef() *BucketReference {
+	var returns *BucketReference
+	_jsii_.Get(
+		j,
+		"bucketRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IBucket) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(

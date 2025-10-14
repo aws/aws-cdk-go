@@ -111,6 +111,16 @@ func (j *jsiiProxy_IPrefixList) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_IPrefixList) PrefixListRef() *PrefixListReference {
+	var returns *PrefixListReference
+	_jsii_.Get(
+		j,
+		"prefixListRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IPrefixList) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

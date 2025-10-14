@@ -73,3 +73,13 @@ func (j *jsiiProxy_ISubnetNetworkAclAssociation) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_ISubnetNetworkAclAssociation) SubnetNetworkAclAssociationRef() *SubnetNetworkAclAssociationReference {
+	var returns *SubnetNetworkAclAssociationReference
+	_jsii_.Get(
+		j,
+		"subnetNetworkAclAssociationRef",
+		&returns,
+	)
+	return returns
+}
+

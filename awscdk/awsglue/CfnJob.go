@@ -905,6 +905,25 @@ func (j *jsiiProxy_CfnJob)SetWorkerType(val *string) {
 	)
 }
 
+// Creates a new IJobRef from a jobName.
+func CfnJob_FromJobName(scope constructs.Construct, id *string, jobName *string) IJobRef {
+	_init_.Initialize()
+
+	if err := validateCfnJob_FromJobNameParameters(scope, id, jobName); err != nil {
+		panic(err)
+	}
+	var returns IJobRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnJob",
+		"fromJobName",
+		[]interface{}{scope, id, jobName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

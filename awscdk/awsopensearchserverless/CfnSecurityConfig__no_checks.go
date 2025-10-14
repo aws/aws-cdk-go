@@ -80,6 +80,10 @@ func validateCfnSecurityConfig_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSecurityConfig) validateSetIamFederationOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSecurityConfig) validateSetIamIdentityCenterOptionsParameters(val interface{}) error {
 	return nil
 }

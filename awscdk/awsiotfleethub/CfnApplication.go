@@ -558,6 +558,44 @@ func (j *jsiiProxy_CfnApplication)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IApplicationRef from an ARN.
+func CfnApplication_FromApplicationArn(scope constructs.Construct, id *string, arn *string) IApplicationRef {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_FromApplicationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IApplicationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleethub.CfnApplication",
+		"fromApplicationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IApplicationRef from a applicationId.
+func CfnApplication_FromApplicationId(scope constructs.Construct, id *string, applicationId *string) IApplicationRef {
+	_init_.Initialize()
+
+	if err := validateCfnApplication_FromApplicationIdParameters(scope, id, applicationId); err != nil {
+		panic(err)
+	}
+	var returns IApplicationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotfleethub.CfnApplication",
+		"fromApplicationId",
+		[]interface{}{scope, id, applicationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

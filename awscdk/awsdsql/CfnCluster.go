@@ -574,6 +574,25 @@ func (j *jsiiProxy_CfnCluster)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IClusterRef from a identifier.
+func CfnCluster_FromIdentifier(scope constructs.Construct, id *string, identifier *string) IClusterRef {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_FromIdentifierParameters(scope, id, identifier); err != nil {
+		panic(err)
+	}
+	var returns IClusterRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dsql.CfnCluster",
+		"fromIdentifier",
+		[]interface{}{scope, id, identifier},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -110,6 +110,9 @@ type CfnCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The IP address type of the cluster.
+	//
+	// Values are:.
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.

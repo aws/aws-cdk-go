@@ -515,6 +515,44 @@ func (j *jsiiProxy_CfnWorkspace)SetWorkspaceId(val *string) {
 	)
 }
 
+// Creates a new IWorkspaceRef from an ARN.
+func CfnWorkspace_FromWorkspaceArn(scope constructs.Construct, id *string, arn *string) IWorkspaceRef {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspace_FromWorkspaceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IWorkspaceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
+		"fromWorkspaceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IWorkspaceRef from a workspaceId.
+func CfnWorkspace_FromWorkspaceId(scope constructs.Construct, id *string, workspaceId *string) IWorkspaceRef {
+	_init_.Initialize()
+
+	if err := validateCfnWorkspace_FromWorkspaceIdParameters(scope, id, workspaceId); err != nil {
+		panic(err)
+	}
+	var returns IWorkspaceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
+		"fromWorkspaceId",
+		[]interface{}{scope, id, workspaceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

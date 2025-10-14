@@ -53,7 +53,7 @@ type SecurityConfiguration interface {
 	ISecurityConfiguration
 	// The KMS key used in CloudWatch encryption if it requires a kms key.
 	// Experimental.
-	CloudWatchEncryptionKey() awskms.IKey
+	CloudWatchEncryptionKey() awskms.IKeyRef
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -66,7 +66,7 @@ type SecurityConfiguration interface {
 	Env() *awscdk.ResourceEnvironment
 	// The KMS key used in job bookmarks encryption if it requires a kms key.
 	// Experimental.
-	JobBookmarksEncryptionKey() awskms.IKey
+	JobBookmarksEncryptionKey() awskms.IKeyRef
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -81,7 +81,7 @@ type SecurityConfiguration interface {
 	PhysicalName() *string
 	// The KMS key used in S3 encryption if it requires a kms key.
 	// Experimental.
-	S3EncryptionKey() awskms.IKey
+	S3EncryptionKey() awskms.IKeyRef
 	// The name of the security configuration.
 	// Experimental.
 	SecurityConfigurationName() *string
@@ -127,8 +127,8 @@ type jsiiProxy_SecurityConfiguration struct {
 	jsiiProxy_ISecurityConfiguration
 }
 
-func (j *jsiiProxy_SecurityConfiguration) CloudWatchEncryptionKey() awskms.IKey {
-	var returns awskms.IKey
+func (j *jsiiProxy_SecurityConfiguration) CloudWatchEncryptionKey() awskms.IKeyRef {
+	var returns awskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"cloudWatchEncryptionKey",
@@ -147,8 +147,8 @@ func (j *jsiiProxy_SecurityConfiguration) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityConfiguration) JobBookmarksEncryptionKey() awskms.IKey {
-	var returns awskms.IKey
+func (j *jsiiProxy_SecurityConfiguration) JobBookmarksEncryptionKey() awskms.IKeyRef {
+	var returns awskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"jobBookmarksEncryptionKey",
@@ -177,8 +177,8 @@ func (j *jsiiProxy_SecurityConfiguration) PhysicalName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityConfiguration) S3EncryptionKey() awskms.IKey {
-	var returns awskms.IKey
+func (j *jsiiProxy_SecurityConfiguration) S3EncryptionKey() awskms.IKeyRef {
+	var returns awskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"s3EncryptionKey",

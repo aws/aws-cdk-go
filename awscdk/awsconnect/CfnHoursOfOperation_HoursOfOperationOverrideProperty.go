@@ -38,7 +38,7 @@ type CfnHoursOfOperation_HoursOfOperationOverrideProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-effectivefrom
 	//
 	EffectiveFrom *string `field:"required" json:"effectiveFrom" yaml:"effectiveFrom"`
-	// The date till which the hours of operation override would be effective.
+	// The date until the hours of operation override is effective.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-effectivetill
 	//
 	EffectiveTill *string `field:"required" json:"effectiveTill" yaml:"effectiveTill"`

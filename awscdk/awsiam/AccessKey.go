@@ -26,6 +26,7 @@ type AccessKey interface {
 	IAccessKey
 	// The Access Key ID.
 	AccessKeyId() *string
+	// A reference to a AccessKey resource.
 	AccessKeyRef() *AccessKeyReference
 	// The environment this resource belongs to.
 	//

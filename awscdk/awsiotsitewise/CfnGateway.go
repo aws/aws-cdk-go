@@ -519,6 +519,25 @@ func (j *jsiiProxy_CfnGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IGatewayRef from a gatewayId.
+func CfnGateway_FromGatewayId(scope constructs.Construct, id *string, gatewayId *string) IGatewayRef {
+	_init_.Initialize()
+
+	if err := validateCfnGateway_FromGatewayIdParameters(scope, id, gatewayId); err != nil {
+		panic(err)
+	}
+	var returns IGatewayRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"fromGatewayId",
+		[]interface{}{scope, id, gatewayId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

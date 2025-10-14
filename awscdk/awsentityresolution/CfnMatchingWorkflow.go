@@ -661,6 +661,25 @@ func (j *jsiiProxy_CfnMatchingWorkflow)SetWorkflowName(val *string) {
 	)
 }
 
+// Creates a new IMatchingWorkflowRef from a workflowName.
+func CfnMatchingWorkflow_FromWorkflowName(scope constructs.Construct, id *string, workflowName *string) IMatchingWorkflowRef {
+	_init_.Initialize()
+
+	if err := validateCfnMatchingWorkflow_FromWorkflowNameParameters(scope, id, workflowName); err != nil {
+		panic(err)
+	}
+	var returns IMatchingWorkflowRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow",
+		"fromWorkflowName",
+		[]interface{}{scope, id, workflowName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

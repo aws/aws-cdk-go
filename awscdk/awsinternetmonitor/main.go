@@ -94,6 +94,7 @@ func init() {
 		"aws-cdk-lib.aws_internetmonitor.IMonitorRef",
 		reflect.TypeOf((*IMonitorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "monitorRef", GoGetter: "MonitorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

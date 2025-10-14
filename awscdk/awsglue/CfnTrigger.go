@@ -625,6 +625,25 @@ func (j *jsiiProxy_CfnTrigger)SetWorkflowName(val *string) {
 	)
 }
 
+// Creates a new ITriggerRef from a triggerName.
+func CfnTrigger_FromTriggerName(scope constructs.Construct, id *string, triggerName *string) ITriggerRef {
+	_init_.Initialize()
+
+	if err := validateCfnTrigger_FromTriggerNameParameters(scope, id, triggerName); err != nil {
+		panic(err)
+	}
+	var returns ITriggerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnTrigger",
+		"fromTriggerName",
+		[]interface{}{scope, id, triggerName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

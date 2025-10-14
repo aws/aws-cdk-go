@@ -121,7 +121,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// AmazonRDSDirectoryServiceAccess or equivalent.
 	// Default: - The role will be created for you if `DatabaseInstanceNewProps#domain` is specified.
 	//
-	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
+	DomainRole awsiam.IRoleRef `field:"optional" json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
 	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
@@ -167,7 +167,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// Role that will be used to manage DB instance monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
 	// Default: false.
 	//
@@ -187,7 +187,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// The AWS KMS key for encryption of Performance Insights data.
 	// Default: - default master key.
 	//
-	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKeyRef `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
 	//
 	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.
@@ -296,12 +296,12 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// SQL Server where the default is always 125 MiBps).
 	//
 	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
-	// The storage type.
+	// The storage type to associate with the DB instance.
 	//
-	// Storage types supported are gp2, io1, standard.
+	// Storage types supported are gp2, gp3, io1, io2, and standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Default: GP2.
+	// Default: StorageType.GP2
 	//
 	StorageType StorageType `field:"optional" json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.

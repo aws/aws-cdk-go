@@ -20,7 +20,7 @@ type CfnNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-namespace.html#cfn-s3tables-namespace-namespace
 	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
-	// The Amazon Resource Name (ARN) of the specified table bucket.
+	// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-namespace.html#cfn-s3tables-namespace-tablebucketarn
 	//
 	TableBucketArn *string `field:"required" json:"tableBucketArn" yaml:"tableBucketArn"`

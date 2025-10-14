@@ -562,6 +562,44 @@ func (j *jsiiProxy_CfnEndpoint)SetRoutingConfig(val interface{}) {
 	)
 }
 
+// Creates a new IEndpointRef from an ARN.
+func CfnEndpoint_FromEndpointArn(scope constructs.Construct, id *string, arn *string) IEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnEndpoint_FromEndpointArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnEndpoint",
+		"fromEndpointArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IEndpointRef from a endpointName.
+func CfnEndpoint_FromEndpointName(scope constructs.Construct, id *string, endpointName *string) IEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnEndpoint_FromEndpointNameParameters(scope, id, endpointName); err != nil {
+		panic(err)
+	}
+	var returns IEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnEndpoint",
+		"fromEndpointName",
+		[]interface{}{scope, id, endpointName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

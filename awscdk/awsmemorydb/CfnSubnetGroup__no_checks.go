@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSubnetGroup) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnSubnetGroup_FromSubnetGroupNameParameters(scope constructs.Construct, id *string, subnetGroupName *string) error {
+	return nil
+}
+
 func validateCfnSubnetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

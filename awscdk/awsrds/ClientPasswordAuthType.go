@@ -34,5 +34,7 @@ const (
 	ClientPasswordAuthType_POSTGRES_MD5 ClientPasswordAuthType = "POSTGRES_MD5"
 	// SQL Server Authentication client authentication type.
 	ClientPasswordAuthType_SQL_SERVER_AUTHENTICATION ClientPasswordAuthType = "SQL_SERVER_AUTHENTICATION"
+	// MySQL Caching SHA2 Password client authentication type.
+	ClientPasswordAuthType_MYSQL_CACHING_SHA2_PASSWORD ClientPasswordAuthType = "MYSQL_CACHING_SHA2_PASSWORD"
 )
 

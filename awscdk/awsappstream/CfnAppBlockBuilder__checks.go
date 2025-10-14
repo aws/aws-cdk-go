@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnAppBlockBuilder) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnAppBlockBuilder_FromAppBlockBuilderArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnAppBlockBuilder_FromAppBlockBuilderNameParameters(scope constructs.Construct, id *string, appBlockBuilderName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if appBlockBuilderName == nil {
+		return fmt.Errorf("parameter appBlockBuilderName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAppBlockBuilder_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

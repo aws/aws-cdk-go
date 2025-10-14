@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnWirelessGateway) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnWirelessGateway_FromWirelessGatewayArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnWirelessGateway_FromWirelessGatewayIdParameters(scope constructs.Construct, id *string, wirelessGatewayId *string) error {
+	return nil
+}
+
 func validateCfnWirelessGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

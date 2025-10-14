@@ -19,7 +19,7 @@ import (
 //   	Namespace: jsii.String("AWS/EC2"),
 //   	MetricName: jsii.String("CPUUtilization"),
 //   	Statistic: jsii.String("Average"),
-//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Period: awscdk.Duration_Hours(jsii.Number(1)),
 //   })
 //
 //   // Create an anomaly detection alarm

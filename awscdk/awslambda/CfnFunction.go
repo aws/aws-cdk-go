@@ -1092,6 +1092,44 @@ func (j *jsiiProxy_CfnFunction)SetVpcConfig(val interface{}) {
 	)
 }
 
+// Creates a new IFunctionRef from an ARN.
+func CfnFunction_FromFunctionArn(scope constructs.Construct, id *string, arn *string) IFunctionRef {
+	_init_.Initialize()
+
+	if err := validateCfnFunction_FromFunctionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IFunctionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnFunction",
+		"fromFunctionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IFunctionRef from a functionName.
+func CfnFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunctionRef {
+	_init_.Initialize()
+
+	if err := validateCfnFunction_FromFunctionNameParameters(scope, id, functionName); err != nil {
+		panic(err)
+	}
+	var returns IFunctionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CfnFunction",
+		"fromFunctionName",
+		[]interface{}{scope, id, functionName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

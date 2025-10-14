@@ -84,6 +84,7 @@ type Role interface {
 	RoleId() *string
 	// Returns the name of the role.
 	RoleName() *string
+	// A reference to a Role resource.
 	RoleRef() *RoleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

@@ -8,7 +8,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateApplyRemovalPolicyParame
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToGroupParameters(group awsiam.IGroup) error {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToGroupParameters(group awsiam.IGroupRef) error {
 	return nil
 }
 
@@ -16,7 +16,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToRoleParameters(r
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToUserParameters(user awsiam.IUser) error {
+func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateAttachToUserParameters(user awsiam.IUserRef) error {
 	return nil
 }
 

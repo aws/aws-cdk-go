@@ -495,6 +495,44 @@ func (j *jsiiProxy_CfnReferenceStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+// Creates a new IReferenceStoreRef from an ARN.
+func CfnReferenceStore_FromReferenceStoreArn(scope constructs.Construct, id *string, arn *string) IReferenceStoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnReferenceStore_FromReferenceStoreArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IReferenceStoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnReferenceStore",
+		"fromReferenceStoreArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IReferenceStoreRef from a referenceStoreId.
+func CfnReferenceStore_FromReferenceStoreId(scope constructs.Construct, id *string, referenceStoreId *string) IReferenceStoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnReferenceStore_FromReferenceStoreIdParameters(scope, id, referenceStoreId); err != nil {
+		panic(err)
+	}
+	var returns IReferenceStoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnReferenceStore",
+		"fromReferenceStoreId",
+		[]interface{}{scope, id, referenceStoreId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

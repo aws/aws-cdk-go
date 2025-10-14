@@ -89,6 +89,7 @@ func init() {
 		reflect.TypeOf((*ITrainingDatasetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trainingDatasetRef", GoGetter: "TrainingDatasetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrainingDatasetRef{}

@@ -149,7 +149,7 @@ type LaunchTemplateProps struct {
 	// The placement group that you want to launch the instance into.
 	// Default: - no placement group will be used for this launch template.
 	//
-	PlacementGroup IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// Whether IMDSv2 should be required on launched instances.
 	// Default: - false.
 	//

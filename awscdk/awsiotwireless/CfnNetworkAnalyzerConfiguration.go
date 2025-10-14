@@ -519,6 +519,44 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetWirelessGateways(val *[]*s
 	)
 }
 
+// Creates a new INetworkAnalyzerConfigurationRef from an ARN.
+func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArn(scope constructs.Construct, id *string, arn *string) INetworkAnalyzerConfigurationRef {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns INetworkAnalyzerConfigurationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnNetworkAnalyzerConfiguration",
+		"fromNetworkAnalyzerConfigurationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new INetworkAnalyzerConfigurationRef from a networkAnalyzerConfigurationName.
+func CfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationName(scope constructs.Construct, id *string, networkAnalyzerConfigurationName *string) INetworkAnalyzerConfigurationRef {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkAnalyzerConfiguration_FromNetworkAnalyzerConfigurationNameParameters(scope, id, networkAnalyzerConfigurationName); err != nil {
+		panic(err)
+	}
+	var returns INetworkAnalyzerConfigurationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnNetworkAnalyzerConfiguration",
+		"fromNetworkAnalyzerConfigurationName",
+		[]interface{}{scope, id, networkAnalyzerConfigurationName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

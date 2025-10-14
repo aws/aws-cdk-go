@@ -37,6 +37,7 @@ type Alias interface {
 	IAlias
 	// Name of this alias.
 	AliasName() *string
+	// A reference to a Alias resource.
 	AliasRef() *AliasReference
 	// The architecture of this Lambda Function.
 	Architecture() Architecture
@@ -68,6 +69,7 @@ type Alias interface {
 	// Used to be able to use Alias in place of a regular Lambda. Lambda accepts
 	// ARNs everywhere it accepts function names.
 	FunctionName() *string
+	// A reference to a Function resource.
 	FunctionRef() *FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal

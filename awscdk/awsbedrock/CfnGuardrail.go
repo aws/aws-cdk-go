@@ -69,6 +69,9 @@ type CfnGuardrail interface {
 	//
 	// This value will always be `DRAFT` .
 	AttrVersion() *string
+	// Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+	AutomatedReasoningPolicyConfig() interface{}
+	SetAutomatedReasoningPolicyConfig(val interface{})
 	// The message to return when the guardrail blocks a prompt.
 	BlockedInputMessaging() *string
 	SetBlockedInputMessaging(val *string)
@@ -367,6 +370,16 @@ func (j *jsiiProxy_CfnGuardrail) AttrVersion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGuardrail) AutomatedReasoningPolicyConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"automatedReasoningPolicyConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGuardrail) BlockedInputMessaging() *string {
 	var returns *string
 	_jsii_.Get(
@@ -632,6 +645,17 @@ func NewCfnGuardrail_Override(c CfnGuardrail, scope constructs.Construct, id *st
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnGuardrail)SetAutomatedReasoningPolicyConfig(val interface{}) {
+	if err := j.validateSetAutomatedReasoningPolicyConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"automatedReasoningPolicyConfig",
+		val,
 	)
 }
 

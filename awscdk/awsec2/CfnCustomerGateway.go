@@ -538,6 +538,25 @@ func (j *jsiiProxy_CfnCustomerGateway)SetType(val *string) {
 	)
 }
 
+// Creates a new ICustomerGatewayRef from a customerGatewayId.
+func CfnCustomerGateway_FromCustomerGatewayId(scope constructs.Construct, id *string, customerGatewayId *string) ICustomerGatewayRef {
+	_init_.Initialize()
+
+	if err := validateCfnCustomerGateway_FromCustomerGatewayIdParameters(scope, id, customerGatewayId); err != nil {
+		panic(err)
+	}
+	var returns ICustomerGatewayRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCustomerGateway",
+		"fromCustomerGatewayId",
+		[]interface{}{scope, id, customerGatewayId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

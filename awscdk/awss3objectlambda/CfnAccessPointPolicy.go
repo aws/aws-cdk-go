@@ -52,7 +52,7 @@ type CfnAccessPointPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// An access point with an attached AWS Lambda function used to access transformed data from an Amazon S3 bucket.
+	// > Amazon S3 Object Lambda will no longer be open to new customers starting on 11/7/2025.
 	ObjectLambdaAccessPoint() *string
 	SetObjectLambdaAccessPoint(val *string)
 	// Object Lambda Access Point resource policy document.

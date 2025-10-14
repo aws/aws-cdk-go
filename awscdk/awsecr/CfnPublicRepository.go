@@ -471,6 +471,44 @@ func (j *jsiiProxy_CfnPublicRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IPublicRepositoryRef from an ARN.
+func CfnPublicRepository_FromPublicRepositoryArn(scope constructs.Construct, id *string, arn *string) IPublicRepositoryRef {
+	_init_.Initialize()
+
+	if err := validateCfnPublicRepository_FromPublicRepositoryArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IPublicRepositoryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnPublicRepository",
+		"fromPublicRepositoryArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPublicRepositoryRef from a repositoryName.
+func CfnPublicRepository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) IPublicRepositoryRef {
+	_init_.Initialize()
+
+	if err := validateCfnPublicRepository_FromRepositoryNameParameters(scope, id, repositoryName); err != nil {
+		panic(err)
+	}
+	var returns IPublicRepositoryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnPublicRepository",
+		"fromRepositoryName",
+		[]interface{}{scope, id, repositoryName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

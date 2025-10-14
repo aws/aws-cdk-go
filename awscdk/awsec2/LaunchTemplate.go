@@ -66,6 +66,7 @@ type LaunchTemplate interface {
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` will be set.
 	LaunchTemplateName() *string
+	// A reference to a LaunchTemplate resource.
 	LaunchTemplateRef() *LaunchTemplateReference
 	// The tree node.
 	Node() constructs.Node

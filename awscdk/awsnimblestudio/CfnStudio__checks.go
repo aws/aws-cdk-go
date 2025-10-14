@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnStudio) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnStudio_FromStudioIdParameters(scope constructs.Construct, id *string, studioId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if studioId == nil {
+		return fmt.Errorf("parameter studioId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnStudio_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

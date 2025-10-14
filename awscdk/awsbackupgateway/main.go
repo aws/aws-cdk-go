@@ -73,6 +73,7 @@ func init() {
 		"aws-cdk-lib.aws_backupgateway.IHypervisorRef",
 		reflect.TypeOf((*IHypervisorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hypervisorRef", GoGetter: "HypervisorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnDeviceDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnDeviceDefinition_FromDeviceDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnDeviceDefinition_FromDeviceDefinitionIdParameters(scope constructs.Construct, id *string, deviceDefinitionId *string) error {
+	return nil
+}
+
 func validateCfnDeviceDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

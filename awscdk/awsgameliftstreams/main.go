@@ -143,6 +143,7 @@ func init() {
 		"aws-cdk-lib.aws_gameliftstreams.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -156,6 +157,7 @@ func init() {
 		reflect.TypeOf((*IStreamGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamGroupRef", GoGetter: "StreamGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamGroupRef{}

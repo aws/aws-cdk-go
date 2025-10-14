@@ -1560,6 +1560,28 @@ proxy := dbInstance.AddProxy(jsii.String("proxy"), &DatabaseProxyOptions{
 })
 ```
 
+### Proxy Endpoint
+
+The following example add additional endpoint to RDS Proxy.
+
+```go
+var vpc vpc
+var secrets []secret
+var dbInstance databaseInstance
+
+
+proxy := dbInstance.AddProxy(jsii.String("Proxy"), &DatabaseProxyOptions{
+	Secrets: Secrets,
+	Vpc: Vpc,
+})
+
+// Add a reader endpoint
+proxy.AddEndpoint(jsii.String("ProxyEndpoint"), &DatabaseProxyEndpointOptions{
+	Vpc: Vpc,
+	TargetRole: rds.ProxyEndpointTargetRole_READ_ONLY,
+})
+```
+
 ## Exporting Logs
 
 You can publish database logs to Amazon CloudWatch Logs. With CloudWatch Logs, you can perform real-time analysis of the log data,

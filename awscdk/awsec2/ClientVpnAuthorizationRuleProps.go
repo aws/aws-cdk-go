@@ -8,13 +8,13 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientVpnEndpoint clientVpnEndpoint
+//   var clientVpnEndpointRef iClientVpnEndpointRef
 //
 //   clientVpnAuthorizationRuleProps := &ClientVpnAuthorizationRuleProps{
 //   	Cidr: jsii.String("cidr"),
 //
 //   	// the properties below are optional
-//   	ClientVpnEndpoint: clientVpnEndpoint,
+//   	ClientVpnEndpoint: clientVpnEndpointRef,
 //   	Description: jsii.String("description"),
 //   	GroupId: jsii.String("groupId"),
 //   }
@@ -33,6 +33,6 @@ type ClientVpnAuthorizationRuleProps struct {
 	// The client VPN endpoint to which to add the rule.
 	// Default: clientVpnEndpoint is required.
 	//
-	ClientVpnEndpoint IClientVpnEndpoint `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
+	ClientVpnEndpoint IClientVpnEndpointRef `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
 }
 

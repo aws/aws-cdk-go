@@ -35,7 +35,7 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html
 //
 type CfnInstance_BlockDeviceMappingProperty struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 	//
 	// > After the instance is running, this parameter is used to specify the device name of the block device mapping to update.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html#cfn-ec2-instance-blockdevicemapping-devicename

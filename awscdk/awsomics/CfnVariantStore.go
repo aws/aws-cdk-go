@@ -570,6 +570,25 @@ func (j *jsiiProxy_CfnVariantStore)SetTagsRaw(val *map[string]*string) {
 	)
 }
 
+// Creates a new IVariantStoreRef from a variantStoreName.
+func CfnVariantStore_FromVariantStoreName(scope constructs.Construct, id *string, variantStoreName *string) IVariantStoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnVariantStore_FromVariantStoreNameParameters(scope, id, variantStoreName); err != nil {
+		panic(err)
+	}
+	var returns IVariantStoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnVariantStore",
+		"fromVariantStoreName",
+		[]interface{}{scope, id, variantStoreName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

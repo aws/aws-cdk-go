@@ -602,6 +602,25 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineTags(val *[]*CfnPipeline_PipelineTagPr
 	)
 }
 
+// Creates a new IPipelineRef from a pipelineId.
+func CfnPipeline_FromPipelineID(scope constructs.Construct, id *string, pipelineId *string) IPipelineRef {
+	_init_.Initialize()
+
+	if err := validateCfnPipeline_FromPipelineIDParameters(scope, id, pipelineId); err != nil {
+		panic(err)
+	}
+	var returns IPipelineRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
+		"fromPipelineID",
+		[]interface{}{scope, id, pipelineId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

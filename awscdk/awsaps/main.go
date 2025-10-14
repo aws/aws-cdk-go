@@ -148,6 +148,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleConfiguration", GoGetter: "RoleConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "scrapeConfiguration", GoGetter: "ScrapeConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "scraperLoggingConfiguration", GoGetter: "ScraperLoggingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "scraperRef", GoGetter: "ScraperRef"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
@@ -172,6 +173,14 @@ func init() {
 		reflect.TypeOf((*CfnScraper_AmpConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.CloudWatchLogDestinationProperty",
+		reflect.TypeOf((*CfnScraper_CloudWatchLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.ComponentConfigProperty",
+		reflect.TypeOf((*CfnScraper_ComponentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraper.DestinationProperty",
 		reflect.TypeOf((*CfnScraper_DestinationProperty)(nil)).Elem(),
 	)
@@ -186,6 +195,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraper.ScrapeConfigurationProperty",
 		reflect.TypeOf((*CfnScraper_ScrapeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.ScraperComponentProperty",
+		reflect.TypeOf((*CfnScraper_ScraperComponentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.ScraperLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnScraper_ScraperLoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.ScraperLoggingDestinationProperty",
+		reflect.TypeOf((*CfnScraper_ScraperLoggingDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraper.SourceProperty",
@@ -296,6 +317,7 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}
@@ -308,6 +330,7 @@ func init() {
 		reflect.TypeOf((*IRuleGroupsNamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleGroupsNamespaceRef", GoGetter: "RuleGroupsNamespaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleGroupsNamespaceRef{}
@@ -320,6 +343,7 @@ func init() {
 		reflect.TypeOf((*IScraperRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scraperRef", GoGetter: "ScraperRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScraperRef{}
@@ -332,6 +356,7 @@ func init() {
 		reflect.TypeOf((*IWorkspaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRef", GoGetter: "WorkspaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkspaceRef{}

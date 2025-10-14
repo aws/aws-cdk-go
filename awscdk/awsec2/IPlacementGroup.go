@@ -121,6 +121,16 @@ func (j *jsiiProxy_IPlacementGroup) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_IPlacementGroup) PlacementGroupRef() *PlacementGroupReference {
+	var returns *PlacementGroupReference
+	_jsii_.Get(
+		j,
+		"placementGroupRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IPlacementGroup) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

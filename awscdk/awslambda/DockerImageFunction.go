@@ -56,6 +56,7 @@ type DockerImageFunction interface {
 	FunctionArn() *string
 	// Name of this function.
 	FunctionName() *string
+	// A reference to a Function resource.
 	FunctionRef() *FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal

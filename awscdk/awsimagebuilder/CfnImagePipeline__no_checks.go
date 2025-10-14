@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetInfrastructureConfigurationArnPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnImagePipeline) validateSetLoggingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImagePipeline) validateSetNameParameters(val *string) error {
 	return nil
 }

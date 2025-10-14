@@ -12,8 +12,10 @@ package awskinesisanalytics
 //   	ApplicationName: jsii.String("applicationName"),
 //   }
 //
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type ApplicationV2Reference struct {
 	// The ApplicationName of the Application resource.
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 }
 

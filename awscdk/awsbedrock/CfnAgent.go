@@ -1064,6 +1064,44 @@ func (j *jsiiProxy_CfnAgent)SetTestAliasTags(val interface{}) {
 	)
 }
 
+// Creates a new IAgentRef from an ARN.
+func CfnAgent_FromAgentArn(scope constructs.Construct, id *string, arn *string) IAgentRef {
+	_init_.Initialize()
+
+	if err := validateCfnAgent_FromAgentArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAgentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnAgent",
+		"fromAgentArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAgentRef from a agentId.
+func CfnAgent_FromAgentId(scope constructs.Construct, id *string, agentId *string) IAgentRef {
+	_init_.Initialize()
+
+	if err := validateCfnAgent_FromAgentIdParameters(scope, id, agentId); err != nil {
+		panic(err)
+	}
+	var returns IAgentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_bedrock.CfnAgent",
+		"fromAgentId",
+		[]interface{}{scope, id, agentId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

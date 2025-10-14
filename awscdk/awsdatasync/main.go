@@ -764,13 +764,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "agentArns", GoGetter: "AgentArns"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCmkSecretConfigSecretArn", GoGetter: "AttrCmkSecretConfigSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationArn", GoGetter: "AttrLocationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationUri", GoGetter: "AttrLocationUri"},
+			_jsii_.MemberProperty{JsiiProperty: "attrManagedSecretConfig", GoGetter: "AttrManagedSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "authenticationType", GoGetter: "AuthenticationType"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "cmkSecretConfig", GoGetter: "CmkSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customSecretConfig", GoGetter: "CustomSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsIpAddresses", GoGetter: "DnsIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "domain", GoGetter: "Domain"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -811,6 +815,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationSMB_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationSMB_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationSMB_ManagedSecretConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationSMB.MountOptionsProperty",
@@ -946,6 +962,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.IAgentRef",
 		reflect.TypeOf((*IAgentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "agentRef", GoGetter: "AgentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -958,6 +975,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationAzureBlobRef",
 		reflect.TypeOf((*ILocationAzureBlobRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationAzureBlobRef", GoGetter: "LocationAzureBlobRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -970,6 +988,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationEFSRef",
 		reflect.TypeOf((*ILocationEFSRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationEfsRef", GoGetter: "LocationEfsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -982,6 +1001,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationFSxLustreRef",
 		reflect.TypeOf((*ILocationFSxLustreRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationFSxLustreRef", GoGetter: "LocationFSxLustreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -994,6 +1014,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationFSxONTAPRef",
 		reflect.TypeOf((*ILocationFSxONTAPRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationFSxOntapRef", GoGetter: "LocationFSxOntapRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1006,6 +1027,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationFSxOpenZFSRef",
 		reflect.TypeOf((*ILocationFSxOpenZFSRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationFSxOpenZfsRef", GoGetter: "LocationFSxOpenZfsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1018,6 +1040,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationFSxWindowsRef",
 		reflect.TypeOf((*ILocationFSxWindowsRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationFSxWindowsRef", GoGetter: "LocationFSxWindowsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1030,6 +1053,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationHDFSRef",
 		reflect.TypeOf((*ILocationHDFSRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationHdfsRef", GoGetter: "LocationHdfsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1042,6 +1066,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationNFSRef",
 		reflect.TypeOf((*ILocationNFSRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationNfsRef", GoGetter: "LocationNfsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1054,6 +1079,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationObjectStorageRef",
 		reflect.TypeOf((*ILocationObjectStorageRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationObjectStorageRef", GoGetter: "LocationObjectStorageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1066,6 +1092,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationS3Ref",
 		reflect.TypeOf((*ILocationS3Ref)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationS3Ref", GoGetter: "LocationS3Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1078,6 +1105,7 @@ func init() {
 		"aws-cdk-lib.aws_datasync.ILocationSMBRef",
 		reflect.TypeOf((*ILocationSMBRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "locationSmbRef", GoGetter: "LocationSmbRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1091,6 +1119,7 @@ func init() {
 		reflect.TypeOf((*ITaskRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "taskRef", GoGetter: "TaskRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITaskRef{}

@@ -655,6 +655,25 @@ func (j *jsiiProxy_CfnSpace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ISpaceRef from an ARN.
+func CfnSpace_FromSpaceArn(scope constructs.Construct, id *string, arn *string) ISpaceRef {
+	_init_.Initialize()
+
+	if err := validateCfnSpace_FromSpaceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ISpaceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace",
+		"fromSpaceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

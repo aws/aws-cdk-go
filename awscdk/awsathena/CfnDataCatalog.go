@@ -555,6 +555,25 @@ func (j *jsiiProxy_CfnDataCatalog)SetType(val *string) {
 	)
 }
 
+// Creates a new IDataCatalogRef from a dataCatalogName.
+func CfnDataCatalog_FromDataCatalogName(scope constructs.Construct, id *string, dataCatalogName *string) IDataCatalogRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataCatalog_FromDataCatalogNameParameters(scope, id, dataCatalogName); err != nil {
+		panic(err)
+	}
+	var returns IDataCatalogRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
+		"fromDataCatalogName",
+		[]interface{}{scope, id, dataCatalogName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

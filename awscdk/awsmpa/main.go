@@ -163,6 +163,7 @@ func init() {
 		"aws-cdk-lib.aws_mpa.IApprovalTeamRef",
 		reflect.TypeOf((*IApprovalTeamRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "approvalTeamRef", GoGetter: "ApprovalTeamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -175,6 +176,7 @@ func init() {
 		"aws-cdk-lib.aws_mpa.IIdentitySourceRef",
 		reflect.TypeOf((*IIdentitySourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "identitySourceRef", GoGetter: "IdentitySourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

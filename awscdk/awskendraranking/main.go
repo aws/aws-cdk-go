@@ -75,6 +75,7 @@ func init() {
 		"aws-cdk-lib.aws_kendraranking.IExecutionPlanRef",
 		reflect.TypeOf((*IExecutionPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "executionPlanRef", GoGetter: "ExecutionPlanRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

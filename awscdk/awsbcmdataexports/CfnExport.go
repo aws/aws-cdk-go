@@ -75,6 +75,8 @@ type CfnExport interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for this export.
 	AttrExportArn() *string
+	// The Amazon Resource Name (ARN) for this export.
+	AttrExportExportArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -267,6 +269,16 @@ func (j *jsiiProxy_CfnExport) AttrExportArn() *string {
 	_jsii_.Get(
 		j,
 		"attrExportArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExport) AttrExportExportArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrExportExportArn",
 		&returns,
 	)
 	return returns

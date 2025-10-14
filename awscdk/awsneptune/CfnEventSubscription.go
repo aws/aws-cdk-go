@@ -23,16 +23,24 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnEventSubscription := awscdk.Aws_neptune.NewCfnEventSubscription(this, jsii.String("MyCfnEventSubscription"), &CfnEventSubscriptionProps{
+//   	SnsTopicArn: jsii.String("snsTopicArn"),
+//
+//   	// the properties below are optional
 //   	Enabled: jsii.Boolean(false),
 //   	EventCategories: []*string{
 //   		jsii.String("eventCategories"),
 //   	},
-//   	SnsTopicArn: jsii.String("snsTopicArn"),
 //   	SourceIds: []*string{
 //   		jsii.String("sourceIds"),
 //   	},
 //   	SourceType: jsii.String("sourceType"),
 //   	SubscriptionName: jsii.String("subscriptionName"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html
@@ -41,7 +49,9 @@ type CfnEventSubscription interface {
 	awscdk.CfnResource
 	IEventSubscriptionRef
 	awscdk.IInspectable
-	AttrId() *string
+	awscdk.ITaggableV2
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -54,6 +64,7 @@ type CfnEventSubscription interface {
 	// A Boolean value indicating if the subscription is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	// A list of event categories for a SourceType that you want to subscribe to.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	// A reference to a EventSubscription resource.
@@ -78,6 +89,7 @@ type CfnEventSubscription interface {
 	// The topic ARN of the event notification subscription.
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
+	// The list of identifiers of the event sources for which events will be returned.
 	SourceIds() *[]*string
 	SetSourceIds(val *[]*string)
 	// The source type for the event notification subscription.
@@ -87,8 +99,12 @@ type CfnEventSubscription interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The name of the subscription.
 	SubscriptionName() *string
 	SetSubscriptionName(val *string)
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,13 +250,14 @@ type jsiiProxy_CfnEventSubscription struct {
 	internal.Type__awscdkCfnResource
 	jsiiProxy_IEventSubscriptionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnEventSubscription) AttrId() *string {
-	var returns *string
+func (j *jsiiProxy_CfnEventSubscription) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
 	_jsii_.Get(
 		j,
-		"attrId",
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -396,6 +413,16 @@ func (j *jsiiProxy_CfnEventSubscription) SubscriptionName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventSubscription) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -464,6 +491,9 @@ func (j *jsiiProxy_CfnEventSubscription)SetEventCategories(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnEventSubscription)SetSnsTopicArn(val *string) {
+	if err := j.validateSetSnsTopicArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"snsTopicArn",
@@ -491,6 +521,17 @@ func (j *jsiiProxy_CfnEventSubscription)SetSubscriptionName(val *string) {
 	_jsii_.Set(
 		j,
 		"subscriptionName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

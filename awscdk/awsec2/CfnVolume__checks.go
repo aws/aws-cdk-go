@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnVolume) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnVolume_FromVolumeIdParameters(scope constructs.Construct, id *string, volumeId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if volumeId == nil {
+		return fmt.Errorf("parameter volumeId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVolume_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

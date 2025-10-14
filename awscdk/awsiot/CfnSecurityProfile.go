@@ -632,6 +632,44 @@ func (j *jsiiProxy_CfnSecurityProfile)SetTargetArns(val *[]*string) {
 	)
 }
 
+// Creates a new ISecurityProfileRef from an ARN.
+func CfnSecurityProfile_FromSecurityProfileArn(scope constructs.Construct, id *string, arn *string) ISecurityProfileRef {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityProfile_FromSecurityProfileArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ISecurityProfileRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnSecurityProfile",
+		"fromSecurityProfileArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ISecurityProfileRef from a securityProfileName.
+func CfnSecurityProfile_FromSecurityProfileName(scope constructs.Construct, id *string, securityProfileName *string) ISecurityProfileRef {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityProfile_FromSecurityProfileNameParameters(scope, id, securityProfileName); err != nil {
+		panic(err)
+	}
+	var returns ISecurityProfileRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnSecurityProfile",
+		"fromSecurityProfileName",
+		[]interface{}{scope, id, securityProfileName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

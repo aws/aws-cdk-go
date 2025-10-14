@@ -650,6 +650,25 @@ func (j *jsiiProxy_CfnWorkGroup)SetWorkGroupConfigurationUpdates(val interface{}
 	)
 }
 
+// Creates a new IWorkGroupRef from a workGroupName.
+func CfnWorkGroup_FromWorkGroupName(scope constructs.Construct, id *string, workGroupName *string) IWorkGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnWorkGroup_FromWorkGroupNameParameters(scope, id, workGroupName); err != nil {
+		panic(err)
+	}
+	var returns IWorkGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
+		"fromWorkGroupName",
+		[]interface{}{scope, id, workGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

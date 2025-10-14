@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnReportDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnReportDefinition_FromReportNameParameters(scope constructs.Construct, id *string, reportName *string) error {
+	return nil
+}
+
 func validateCfnReportDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -109,6 +113,10 @@ func (j *jsiiProxy_CfnReportDefinition) validateSetS3PrefixParameters(val *strin
 }
 
 func (j *jsiiProxy_CfnReportDefinition) validateSetS3RegionParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnReportDefinition) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -852,6 +852,7 @@ func init() {
 		"aws-cdk-lib.aws_sam.IApiRef",
 		reflect.TypeOf((*IApiRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -864,6 +865,7 @@ func init() {
 		"aws-cdk-lib.aws_sam.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -876,6 +878,7 @@ func init() {
 		"aws-cdk-lib.aws_sam.IFunctionRef",
 		reflect.TypeOf((*IFunctionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -888,6 +891,7 @@ func init() {
 		"aws-cdk-lib.aws_sam.IHttpApiRef",
 		reflect.TypeOf((*IHttpApiRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "httpApiRef", GoGetter: "HttpApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -900,6 +904,7 @@ func init() {
 		"aws-cdk-lib.aws_sam.ILayerVersionRef",
 		reflect.TypeOf((*ILayerVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "layerVersionRef", GoGetter: "LayerVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -913,6 +918,7 @@ func init() {
 		reflect.TypeOf((*ISimpleTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "simpleTableRef", GoGetter: "SimpleTableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISimpleTableRef{}
@@ -925,6 +931,7 @@ func init() {
 		reflect.TypeOf((*IStateMachineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineRef", GoGetter: "StateMachineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStateMachineRef{}

@@ -658,6 +658,7 @@ func init() {
 		"aws-cdk-lib.aws_ssm.IAssociationRef",
 		reflect.TypeOf((*IAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "associationRef", GoGetter: "AssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -670,6 +671,7 @@ func init() {
 		"aws-cdk-lib.aws_ssm.IDocumentRef",
 		reflect.TypeOf((*IDocumentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "documentRef", GoGetter: "DocumentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -682,6 +684,7 @@ func init() {
 		"aws-cdk-lib.aws_ssm.IMaintenanceWindowRef",
 		reflect.TypeOf((*IMaintenanceWindowRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowRef", GoGetter: "MaintenanceWindowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -694,6 +697,7 @@ func init() {
 		"aws-cdk-lib.aws_ssm.IMaintenanceWindowTargetRef",
 		reflect.TypeOf((*IMaintenanceWindowTargetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowTargetRef", GoGetter: "MaintenanceWindowTargetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -706,6 +710,7 @@ func init() {
 		"aws-cdk-lib.aws_ssm.IMaintenanceWindowTaskRef",
 		reflect.TypeOf((*IMaintenanceWindowTaskRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowTaskRef", GoGetter: "MaintenanceWindowTaskRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -739,6 +744,7 @@ func init() {
 		reflect.TypeOf((*IParameterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterRef", GoGetter: "ParameterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IParameterRef{}
@@ -751,6 +757,7 @@ func init() {
 		reflect.TypeOf((*IPatchBaselineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "patchBaselineRef", GoGetter: "PatchBaselineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPatchBaselineRef{}
@@ -763,6 +770,7 @@ func init() {
 		reflect.TypeOf((*IResourceDataSyncRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceDataSyncRef", GoGetter: "ResourceDataSyncRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceDataSyncRef{}
@@ -775,6 +783,7 @@ func init() {
 		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourcePolicyRef{}

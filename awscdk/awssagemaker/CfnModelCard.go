@@ -848,6 +848,44 @@ func (j *jsiiProxy_CfnModelCard)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IModelCardRef from an ARN.
+func CfnModelCard_FromModelCardArn(scope constructs.Construct, id *string, arn *string) IModelCardRef {
+	_init_.Initialize()
+
+	if err := validateCfnModelCard_FromModelCardArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IModelCardRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard",
+		"fromModelCardArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IModelCardRef from a modelCardName.
+func CfnModelCard_FromModelCardName(scope constructs.Construct, id *string, modelCardName *string) IModelCardRef {
+	_init_.Initialize()
+
+	if err := validateCfnModelCard_FromModelCardNameParameters(scope, id, modelCardName); err != nil {
+		panic(err)
+	}
+	var returns IModelCardRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnModelCard",
+		"fromModelCardName",
+		[]interface{}{scope, id, modelCardName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

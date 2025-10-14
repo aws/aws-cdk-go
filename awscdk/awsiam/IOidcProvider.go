@@ -75,6 +75,16 @@ func (j *jsiiProxy_IOidcProvider) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_IOidcProvider) OidcProviderRef() *OIDCProviderReference {
+	var returns *OIDCProviderReference
+	_jsii_.Get(
+		j,
+		"oidcProviderRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IOidcProvider) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

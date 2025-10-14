@@ -160,6 +160,7 @@ func init() {
 		"aws-cdk-lib.aws_licensemanager.IGrantRef",
 		reflect.TypeOf((*IGrantRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "grantRef", GoGetter: "GrantRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -172,6 +173,7 @@ func init() {
 		"aws-cdk-lib.aws_licensemanager.ILicenseRef",
 		reflect.TypeOf((*ILicenseRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "licenseRef", GoGetter: "LicenseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

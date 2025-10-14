@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnUserPool) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnUserPool_FromUserPoolArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnUserPool_FromUserPoolIdParameters(scope constructs.Construct, id *string, userPoolId *string) error {
+	return nil
+}
+
 func validateCfnUserPool_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

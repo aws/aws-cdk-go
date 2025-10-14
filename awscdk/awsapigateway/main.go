@@ -1241,6 +1241,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "restApiRef", GoGetter: "RestApiRef"},
+			_jsii_.MemberProperty{JsiiProperty: "securityPolicy", GoGetter: "SecurityPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -1763,6 +1764,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IAccountRef",
 		reflect.TypeOf((*IAccountRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accountRef", GoGetter: "AccountRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1775,6 +1777,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IApiKey",
 		reflect.TypeOf((*IApiKey)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
@@ -1793,6 +1796,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IApiKeyRef",
 		reflect.TypeOf((*IApiKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1816,6 +1820,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IAuthorizerRef",
 		reflect.TypeOf((*IAuthorizerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1828,6 +1833,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IBasePathMappingRef",
 		reflect.TypeOf((*IBasePathMappingRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "basePathMappingRef", GoGetter: "BasePathMappingRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1840,6 +1846,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IBasePathMappingV2Ref",
 		reflect.TypeOf((*IBasePathMappingV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "basePathMappingV2Ref", GoGetter: "BasePathMappingV2Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1852,6 +1859,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IClientCertificateRef",
 		reflect.TypeOf((*IClientCertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clientCertificateRef", GoGetter: "ClientCertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1864,6 +1872,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDeploymentRef",
 		reflect.TypeOf((*IDeploymentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deploymentRef", GoGetter: "DeploymentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1876,6 +1885,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDocumentationPartRef",
 		reflect.TypeOf((*IDocumentationPartRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "documentationPartRef", GoGetter: "DocumentationPartRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1888,6 +1898,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDocumentationVersionRef",
 		reflect.TypeOf((*IDocumentationVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "documentationVersionRef", GoGetter: "DocumentationVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1904,6 +1915,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainNameAliasDomainName", GoGetter: "DomainNameAliasDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainNameAliasHostedZoneId", GoGetter: "DomainNameAliasHostedZoneId"},
+			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1919,6 +1931,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDomainNameAccessAssociationRef",
 		reflect.TypeOf((*IDomainNameAccessAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainNameAccessAssociationRef", GoGetter: "DomainNameAccessAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1931,6 +1944,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDomainNameRef",
 		reflect.TypeOf((*IDomainNameRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1943,6 +1957,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDomainNameV2Ref",
 		reflect.TypeOf((*IDomainNameV2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainNameV2Ref", GoGetter: "DomainNameV2Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1957,6 +1972,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayResponseRef", GoGetter: "GatewayResponseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1971,6 +1987,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IGatewayResponseRef",
 		reflect.TypeOf((*IGatewayResponseRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "gatewayResponseRef", GoGetter: "GatewayResponseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1983,6 +2000,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IMethodRef",
 		reflect.TypeOf((*IMethodRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "methodRef", GoGetter: "MethodRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2005,6 +2023,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IModelRef",
 		reflect.TypeOf((*IModelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelRef", GoGetter: "ModelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2034,6 +2053,7 @@ func init() {
 		reflect.TypeOf((*IRequestValidatorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "requestValidatorRef", GoGetter: "RequestValidatorRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRequestValidatorRef{}
@@ -2061,6 +2081,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberMethod{JsiiMethod: "resourceForPath", GoMethod: "ResourceForPath"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceId", GoGetter: "ResourceId"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceRef", GoGetter: "ResourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -2075,6 +2096,7 @@ func init() {
 		reflect.TypeOf((*IResourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceRef", GoGetter: "ResourceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceRef{}
@@ -2094,6 +2116,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "restApiId", GoGetter: "RestApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "restApiName", GoGetter: "RestApiName"},
+			_jsii_.MemberProperty{JsiiProperty: "restApiRef", GoGetter: "RestApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "restApiRootResourceId", GoGetter: "RestApiRootResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "root", GoGetter: "Root"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -2110,6 +2133,7 @@ func init() {
 		reflect.TypeOf((*IRestApiRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "restApiRef", GoGetter: "RestApiRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRestApiRef{}
@@ -2128,6 +2152,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "restApi", GoGetter: "RestApi"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStage{}
@@ -2141,6 +2166,7 @@ func init() {
 		reflect.TypeOf((*IStageRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStageRef{}
@@ -2158,6 +2184,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "usagePlanId", GoGetter: "UsagePlanId"},
+			_jsii_.MemberProperty{JsiiProperty: "usagePlanRef", GoGetter: "UsagePlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUsagePlan{}
@@ -2171,6 +2198,7 @@ func init() {
 		reflect.TypeOf((*IUsagePlanKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "usagePlanKeyRef", GoGetter: "UsagePlanKeyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUsagePlanKeyRef{}
@@ -2183,6 +2211,7 @@ func init() {
 		reflect.TypeOf((*IUsagePlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "usagePlanRef", GoGetter: "UsagePlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUsagePlanRef{}
@@ -2199,6 +2228,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcLinkId", GoGetter: "VpcLinkId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcLinkRef", GoGetter: "VpcLinkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcLink{}
@@ -2212,6 +2242,7 @@ func init() {
 		reflect.TypeOf((*IVpcLinkRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcLinkRef", GoGetter: "VpcLinkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcLinkRef{}

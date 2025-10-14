@@ -19,6 +19,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AnalyticsEngine: jsii.String("analyticsEngine"),
+//   	AutoApprovedChangeTypes: []*string{
+//   		jsii.String("autoApprovedChangeTypes"),
+//   	},
 //   	CreatorMemberAbilities: []*string{
 //   		jsii.String("creatorMemberAbilities"),
 //   	},
@@ -123,6 +126,10 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-analyticsengine
 	//
 	AnalyticsEngine *string `field:"optional" json:"analyticsEngine" yaml:"analyticsEngine"`
+	// The types of change requests that are automatically approved for this collaboration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-autoapprovedchangetypes
+	//
+	AutoApprovedChangeTypes *[]*string `field:"optional" json:"autoApprovedChangeTypes" yaml:"autoApprovedChangeTypes"`
 	// The abilities granted to the collaboration creator.
 	//
 	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`.

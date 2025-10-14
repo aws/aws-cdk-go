@@ -73,3 +73,13 @@ func (j *jsiiProxy_IVpnGateway) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IVpnGateway) VpnGatewayRef() *VPNGatewayReference {
+	var returns *VPNGatewayReference
+	_jsii_.Get(
+		j,
+		"vpnGatewayRef",
+		&returns,
+	)
+	return returns
+}
+

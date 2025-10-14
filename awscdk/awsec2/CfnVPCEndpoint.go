@@ -762,6 +762,25 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetVpcId(val *string) {
 	)
 }
 
+// Creates a new IVPCEndpointRef from a vpcEndpointId.
+func CfnVPCEndpoint_FromVpcEndpointId(scope constructs.Construct, id *string, vpcEndpointId *string) IVPCEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEndpoint_FromVpcEndpointIdParameters(scope, id, vpcEndpointId); err != nil {
+		panic(err)
+	}
+	var returns IVPCEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpoint",
+		"fromVpcEndpointId",
+		[]interface{}{scope, id, vpcEndpointId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnResourceDefinition) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnResourceDefinition_FromResourceDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnResourceDefinition_FromResourceDefinitionIdParameters(scope constructs.Construct, id *string, resourceDefinitionId *string) error {
+	return nil
+}
+
 func validateCfnResourceDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

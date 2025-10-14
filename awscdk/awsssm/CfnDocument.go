@@ -584,6 +584,25 @@ func (j *jsiiProxy_CfnDocument)SetVersionName(val *string) {
 	)
 }
 
+// Creates a new IDocumentRef from a documentName.
+func CfnDocument_FromDocumentName(scope constructs.Construct, id *string, documentName *string) IDocumentRef {
+	_init_.Initialize()
+
+	if err := validateCfnDocument_FromDocumentNameParameters(scope, id, documentName); err != nil {
+		panic(err)
+	}
+	var returns IDocumentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnDocument",
+		"fromDocumentName",
+		[]interface{}{scope, id, documentName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

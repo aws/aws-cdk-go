@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::SES::MailManagerAddressList Resource Type.
+// The structure representing the address lists and address list attribute that will be used in evaluation of boolean expression.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +33,12 @@ type CfnMailManagerAddressList interface {
 	IMailManagerAddressListRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A user-friendly name for the address list.
 	AddressListName() *string
 	SetAddressListName(val *string)
+	// The Amazon Resource Name (ARN) of the address list.
 	AttrAddressListArn() *string
+	// The identifier of the address list.
 	AttrAddressListId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -71,6 +74,7 @@ type CfnMailManagerAddressList interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags used to organize, track, or control access for the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

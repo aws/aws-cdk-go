@@ -7,6 +7,38 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.AcceleratorManufacturer",
+		reflect.TypeOf((*AcceleratorManufacturer)(nil)).Elem(),
+		map[string]interface{}{
+			"AWS": AcceleratorManufacturer_AWS,
+			"AMD": AcceleratorManufacturer_AMD,
+			"NVIDIA": AcceleratorManufacturer_NVIDIA,
+			"XILINX": AcceleratorManufacturer_XILINX,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.AcceleratorName",
+		reflect.TypeOf((*AcceleratorName)(nil)).Elem(),
+		map[string]interface{}{
+			"A100": AcceleratorName_A100,
+			"K80": AcceleratorName_K80,
+			"M60": AcceleratorName_M60,
+			"RADEON_PRO_V520": AcceleratorName_RADEON_PRO_V520,
+			"T4": AcceleratorName_T4,
+			"V100": AcceleratorName_V100,
+			"VU9P": AcceleratorName_VU9P,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.AcceleratorType",
+		reflect.TypeOf((*AcceleratorType)(nil)).Elem(),
+		map[string]interface{}{
+			"GPU": AcceleratorType_GPU,
+			"FPGA": AcceleratorType_FPGA,
+			"INFERENCE": AcceleratorType_INFERENCE,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.AclCidr",
 		reflect.TypeOf((*AclCidr)(nil)).Elem(),
@@ -261,6 +293,15 @@ func init() {
 		"aws-cdk-lib.aws_ec2.AwsIpamProps",
 		reflect.TypeOf((*AwsIpamProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.BareMetal",
+		reflect.TypeOf((*BareMetal)(nil)).Elem(),
+		map[string]interface{}{
+			"INCLUDED": BareMetal_INCLUDED,
+			"REQUIRED": BareMetal_REQUIRED,
+			"EXCLUDED": BareMetal_EXCLUDED,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.BastionHostLinux",
 		reflect.TypeOf((*BastionHostLinux)(nil)).Elem(),
@@ -311,6 +352,15 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_BlockDeviceVolume{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.BurstablePerformance",
+		reflect.TypeOf((*BurstablePerformance)(nil)).Elem(),
+		map[string]interface{}{
+			"INCLUDED": BurstablePerformance_INCLUDED,
+			"REQUIRED": BurstablePerformance_REQUIRED,
+			"EXCLUDED": BurstablePerformance_EXCLUDED,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2791,6 +2841,128 @@ func init() {
 		reflect.TypeOf((*CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterface",
+		reflect.TypeOf((*CfnLocalGatewayVirtualInterface)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationState", GoGetter: "AttrConfigurationState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocalBgpAsn", GoGetter: "AttrLocalBgpAsn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocalGatewayId", GoGetter: "AttrLocalGatewayId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocalGatewayVirtualInterfaceId", GoGetter: "AttrLocalGatewayVirtualInterfaceId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOwnerId", GoGetter: "AttrOwnerId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "localAddress", GoGetter: "LocalAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayVirtualInterfaceGroupId", GoGetter: "LocalGatewayVirtualInterfaceGroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayVirtualInterfaceRef", GoGetter: "LocalGatewayVirtualInterfaceRef"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "outpostLagId", GoGetter: "OutpostLagId"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "peerAddress", GoGetter: "PeerAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "peerBgpAsn", GoGetter: "PeerBgpAsn"},
+			_jsii_.MemberProperty{JsiiProperty: "peerBgpAsnExtended", GoGetter: "PeerBgpAsnExtended"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vlan", GoGetter: "Vlan"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnLocalGatewayVirtualInterface{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILocalGatewayVirtualInterfaceRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceGroup",
+		reflect.TypeOf((*CfnLocalGatewayVirtualInterfaceGroup)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationState", GoGetter: "AttrConfigurationState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocalGatewayVirtualInterfaceGroupArn", GoGetter: "AttrLocalGatewayVirtualInterfaceGroupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocalGatewayVirtualInterfaceGroupId", GoGetter: "AttrLocalGatewayVirtualInterfaceGroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocalGatewayVirtualInterfaceIds", GoGetter: "AttrLocalGatewayVirtualInterfaceIds"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOwnerId", GoGetter: "AttrOwnerId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "localBgpAsn", GoGetter: "LocalBgpAsn"},
+			_jsii_.MemberProperty{JsiiProperty: "localBgpAsnExtended", GoGetter: "LocalBgpAsnExtended"},
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayId", GoGetter: "LocalGatewayId"},
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayVirtualInterfaceGroupRef", GoGetter: "LocalGatewayVirtualInterfaceGroupRef"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILocalGatewayVirtualInterfaceGroupRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceGroupProps",
+		reflect.TypeOf((*CfnLocalGatewayVirtualInterfaceGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayVirtualInterfaceProps",
+		reflect.TypeOf((*CfnLocalGatewayVirtualInterfaceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.CfnNatGateway",
 		reflect.TypeOf((*CfnNatGateway)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -3403,6 +3575,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deleteOnTermination", GoGetter: "DeleteOnTermination"},
 			_jsii_.MemberProperty{JsiiProperty: "deviceIndex", GoGetter: "DeviceIndex"},
+			_jsii_.MemberProperty{JsiiProperty: "enaQueueCount", GoGetter: "EnaQueueCount"},
 			_jsii_.MemberProperty{JsiiProperty: "enaSrdSpecification", GoGetter: "EnaSrdSpecification"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -5969,6 +6142,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAccountId", GoGetter: "AttrAccountId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrExclusionsAllowed", GoGetter: "AttrExclusionsAllowed"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -7373,6 +7547,16 @@ func init() {
 			"UNLIMITED": CpuCredits_UNLIMITED,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.CpuManufacturer",
+		reflect.TypeOf((*CpuManufacturer)(nil)).Elem(),
+		map[string]interface{}{
+			"INTEL": CpuManufacturer_INTEL,
+			"AMD": CpuManufacturer_AMD,
+			"AWS": CpuManufacturer_AWS,
+			"APPLE": CpuManufacturer_APPLE,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CreateIpv6CidrBlocksRequest",
 		reflect.TypeOf((*CreateIpv6CidrBlocksRequest)(nil)).Elem(),
@@ -7663,6 +7847,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ICapacityReservationFleetRef",
 		reflect.TypeOf((*ICapacityReservationFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "capacityReservationFleetRef", GoGetter: "CapacityReservationFleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7675,6 +7860,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ICapacityReservationRef",
 		reflect.TypeOf((*ICapacityReservationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "capacityReservationRef", GoGetter: "CapacityReservationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7687,6 +7873,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ICarrierGatewayRef",
 		reflect.TypeOf((*ICarrierGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "carrierGatewayRef", GoGetter: "CarrierGatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7699,6 +7886,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IClientVpnAuthorizationRuleRef",
 		reflect.TypeOf((*IClientVpnAuthorizationRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnAuthorizationRuleRef", GoGetter: "ClientVpnAuthorizationRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7723,6 +7911,7 @@ func init() {
 		reflect.TypeOf((*IClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnEndpointRef", GoGetter: "ClientVpnEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointId", GoGetter: "EndpointId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -7742,6 +7931,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IClientVpnEndpointRef",
 		reflect.TypeOf((*IClientVpnEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnEndpointRef", GoGetter: "ClientVpnEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7754,6 +7944,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IClientVpnRouteRef",
 		reflect.TypeOf((*IClientVpnRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnRouteRef", GoGetter: "ClientVpnRouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7766,6 +7957,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IClientVpnTargetNetworkAssociationRef",
 		reflect.TypeOf((*IClientVpnTargetNetworkAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnTargetNetworkAssociationRef", GoGetter: "ClientVpnTargetNetworkAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7788,6 +7980,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ICustomerGatewayRef",
 		reflect.TypeOf((*ICustomerGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customerGatewayRef", GoGetter: "CustomerGatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7800,6 +7993,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IDHCPOptionsRef",
 		reflect.TypeOf((*IDHCPOptionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dhcpOptionsRef", GoGetter: "DhcpOptionsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7812,6 +8006,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IEC2FleetRef",
 		reflect.TypeOf((*IEC2FleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ec2FleetRef", GoGetter: "Ec2FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7824,6 +8019,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IEIPAssociationRef",
 		reflect.TypeOf((*IEIPAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eipAssociationRef", GoGetter: "EipAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7836,6 +8032,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IEIPRef",
 		reflect.TypeOf((*IEIPRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eipRef", GoGetter: "EipRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7848,6 +8045,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IEgressOnlyInternetGatewayRef",
 		reflect.TypeOf((*IEgressOnlyInternetGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "egressOnlyInternetGatewayRef", GoGetter: "EgressOnlyInternetGatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7860,6 +8058,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IEnclaveCertificateIamRoleAssociationRef",
 		reflect.TypeOf((*IEnclaveCertificateIamRoleAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "enclaveCertificateIamRoleAssociationRef", GoGetter: "EnclaveCertificateIamRoleAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7875,6 +8074,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flowLogId", GoGetter: "FlowLogId"},
+			_jsii_.MemberProperty{JsiiProperty: "flowLogRef", GoGetter: "FlowLogRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -7889,6 +8089,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IFlowLogRef",
 		reflect.TypeOf((*IFlowLogRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "flowLogRef", GoGetter: "FlowLogRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7901,6 +8102,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IGatewayRouteTableAssociationRef",
 		reflect.TypeOf((*IGatewayRouteTableAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteTableAssociationRef", GoGetter: "GatewayRouteTableAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7918,6 +8120,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointRef", GoGetter: "VpcEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGatewayVpcEndpoint{}
@@ -7939,6 +8142,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IHostRef",
 		reflect.TypeOf((*IHostRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hostRef", GoGetter: "HostRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7951,6 +8155,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMAllocationRef",
 		reflect.TypeOf((*IIPAMAllocationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamAllocationRef", GoGetter: "IpamAllocationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7963,6 +8168,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMPoolCidrRef",
 		reflect.TypeOf((*IIPAMPoolCidrRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolCidrRef", GoGetter: "IpamPoolCidrRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7975,6 +8181,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMPoolRef",
 		reflect.TypeOf((*IIPAMPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolRef", GoGetter: "IpamPoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7987,6 +8194,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMRef",
 		reflect.TypeOf((*IIPAMRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamRef", GoGetter: "IpamRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -7999,6 +8207,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMResourceDiscoveryAssociationRef",
 		reflect.TypeOf((*IIPAMResourceDiscoveryAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamResourceDiscoveryAssociationRef", GoGetter: "IpamResourceDiscoveryAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8011,6 +8220,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMResourceDiscoveryRef",
 		reflect.TypeOf((*IIPAMResourceDiscoveryRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamResourceDiscoveryRef", GoGetter: "IpamResourceDiscoveryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8023,6 +8233,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIPAMScopeRef",
 		reflect.TypeOf((*IIPAMScopeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeRef", GoGetter: "IpamScopeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8045,6 +8256,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instancePrivateIp", GoGetter: "InstancePrivateIp"},
 			_jsii_.MemberProperty{JsiiProperty: "instancePublicDnsName", GoGetter: "InstancePublicDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "instancePublicIp", GoGetter: "InstancePublicIp"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -8061,6 +8273,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IInstanceConnectEndpointRef",
 		reflect.TypeOf((*IInstanceConnectEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceConnectEndpointRef", GoGetter: "InstanceConnectEndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8073,6 +8286,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IInstanceRef",
 		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8091,6 +8305,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointRef", GoGetter: "VpcEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IInterfaceVpcEndpoint{}
@@ -8115,6 +8330,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IInternetGatewayRef",
 		reflect.TypeOf((*IInternetGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "internetGatewayRef", GoGetter: "InternetGatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8138,6 +8354,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IIpPoolRouteTableAssociationRef",
 		reflect.TypeOf((*IIpPoolRouteTableAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipPoolRouteTableAssociationRef", GoGetter: "IpPoolRouteTableAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8166,6 +8383,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyPairName", GoGetter: "KeyPairName"},
+			_jsii_.MemberProperty{JsiiProperty: "keyPairRef", GoGetter: "KeyPairRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
@@ -8181,6 +8399,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IKeyPairRef",
 		reflect.TypeOf((*IKeyPairRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "keyPairRef", GoGetter: "KeyPairRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8197,6 +8416,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateId", GoGetter: "LaunchTemplateId"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateName", GoGetter: "LaunchTemplateName"},
+			_jsii_.MemberProperty{JsiiProperty: "launchTemplateRef", GoGetter: "LaunchTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "versionNumber", GoGetter: "VersionNumber"},
@@ -8212,6 +8432,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ILaunchTemplateRef",
 		reflect.TypeOf((*ILaunchTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "launchTemplateRef", GoGetter: "LaunchTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8224,6 +8445,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ILocalGatewayRouteRef",
 		reflect.TypeOf((*ILocalGatewayRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayRouteRef", GoGetter: "LocalGatewayRouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8236,6 +8458,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ILocalGatewayRouteTableRef",
 		reflect.TypeOf((*ILocalGatewayRouteTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayRouteTableRef", GoGetter: "LocalGatewayRouteTableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8248,6 +8471,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ILocalGatewayRouteTableVPCAssociationRef",
 		reflect.TypeOf((*ILocalGatewayRouteTableVPCAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayRouteTableVpcAssociationRef", GoGetter: "LocalGatewayRouteTableVpcAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8260,10 +8484,37 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef",
 		reflect.TypeOf((*ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayRouteTableVirtualInterfaceGroupAssociationRef", GoGetter: "LocalGatewayRouteTableVirtualInterfaceGroupAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ILocalGatewayRouteTableVirtualInterfaceGroupAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ec2.ILocalGatewayVirtualInterfaceGroupRef",
+		reflect.TypeOf((*ILocalGatewayVirtualInterfaceGroupRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayVirtualInterfaceGroupRef", GoGetter: "LocalGatewayVirtualInterfaceGroupRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILocalGatewayVirtualInterfaceGroupRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ec2.ILocalGatewayVirtualInterfaceRef",
+		reflect.TypeOf((*ILocalGatewayVirtualInterfaceRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "localGatewayVirtualInterfaceRef", GoGetter: "LocalGatewayVirtualInterfaceRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILocalGatewayVirtualInterfaceRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			return &j
 		},
@@ -8282,6 +8533,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INatGatewayRef",
 		reflect.TypeOf((*INatGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "natGatewayRef", GoGetter: "NatGatewayRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8298,6 +8550,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAclId", GoGetter: "NetworkAclId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkAclRef", GoGetter: "NetworkAclRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -8315,6 +8568,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
+			_jsii_.MemberProperty{JsiiProperty: "networkAclEntryRef", GoGetter: "NetworkAclEntryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -8329,6 +8583,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkAclEntryRef",
 		reflect.TypeOf((*INetworkAclEntryRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkAclEntryRef", GoGetter: "NetworkAclEntryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8341,6 +8596,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkAclRef",
 		reflect.TypeOf((*INetworkAclRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkAclRef", GoGetter: "NetworkAclRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8353,6 +8609,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInsightsAccessScopeAnalysisRef",
 		reflect.TypeOf((*INetworkInsightsAccessScopeAnalysisRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInsightsAccessScopeAnalysisRef", GoGetter: "NetworkInsightsAccessScopeAnalysisRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8365,6 +8622,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInsightsAccessScopeRef",
 		reflect.TypeOf((*INetworkInsightsAccessScopeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInsightsAccessScopeRef", GoGetter: "NetworkInsightsAccessScopeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8377,6 +8635,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInsightsAnalysisRef",
 		reflect.TypeOf((*INetworkInsightsAnalysisRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInsightsAnalysisRef", GoGetter: "NetworkInsightsAnalysisRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8389,6 +8648,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInsightsPathRef",
 		reflect.TypeOf((*INetworkInsightsPathRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInsightsPathRef", GoGetter: "NetworkInsightsPathRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8401,6 +8661,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInterfaceAttachmentRef",
 		reflect.TypeOf((*INetworkInterfaceAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceAttachmentRef", GoGetter: "NetworkInterfaceAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8413,6 +8674,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInterfacePermissionRef",
 		reflect.TypeOf((*INetworkInterfacePermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInterfacePermissionRef", GoGetter: "NetworkInterfacePermissionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8425,6 +8687,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkInterfaceRef",
 		reflect.TypeOf((*INetworkInterfaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceRef", GoGetter: "NetworkInterfaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8437,6 +8700,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkPerformanceMetricSubscriptionRef",
 		reflect.TypeOf((*INetworkPerformanceMetricSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "networkPerformanceMetricSubscriptionRef", GoGetter: "NetworkPerformanceMetricSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -8498,6 +8762,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "partitions", GoGetter: "Partitions"},
 			_jsii_.MemberProperty{JsiiProperty: "placementGroupName", GoGetter: "PlacementGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "placementGroupRef", GoGetter: "PlacementGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "spreadLevel", GoGetter: "SpreadLevel"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
@@ -8514,6 +8779,7 @@ func init() {
 		reflect.TypeOf((*IPlacementGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "placementGroupRef", GoGetter: "PlacementGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlacementGroupRef{}
@@ -8531,6 +8797,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "prefixListId", GoGetter: "PrefixListId"},
+			_jsii_.MemberProperty{JsiiProperty: "prefixListRef", GoGetter: "PrefixListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toEgressRuleConfig", GoMethod: "ToEgressRuleConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toIngressRuleConfig", GoMethod: "ToIngressRuleConfig"},
@@ -8549,6 +8816,7 @@ func init() {
 		reflect.TypeOf((*IPrefixListRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "prefixListRef", GoGetter: "PrefixListRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrefixListRef{}
@@ -8570,6 +8838,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetRef", GoGetter: "SubnetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrivateSubnet{}
@@ -8591,6 +8860,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetRef", GoGetter: "SubnetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicSubnet{}
@@ -8603,6 +8873,7 @@ func init() {
 		reflect.TypeOf((*IRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteRef{}
@@ -8615,6 +8886,7 @@ func init() {
 		reflect.TypeOf((*IRouteServerAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeServerAssociationRef", GoGetter: "RouteServerAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteServerAssociationRef{}
@@ -8627,6 +8899,7 @@ func init() {
 		reflect.TypeOf((*IRouteServerEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeServerEndpointRef", GoGetter: "RouteServerEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteServerEndpointRef{}
@@ -8639,6 +8912,7 @@ func init() {
 		reflect.TypeOf((*IRouteServerPeerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeServerPeerRef", GoGetter: "RouteServerPeerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteServerPeerRef{}
@@ -8651,6 +8925,7 @@ func init() {
 		reflect.TypeOf((*IRouteServerPropagationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeServerPropagationRef", GoGetter: "RouteServerPropagationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteServerPropagationRef{}
@@ -8663,6 +8938,7 @@ func init() {
 		reflect.TypeOf((*IRouteServerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeServerRef", GoGetter: "RouteServerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteServerRef{}
@@ -8685,6 +8961,7 @@ func init() {
 		reflect.TypeOf((*IRouteTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeTableRef", GoGetter: "RouteTableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteTableRef{}
@@ -8705,6 +8982,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupId", GoGetter: "SecurityGroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupRef", GoGetter: "SecurityGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toEgressRuleConfig", GoMethod: "ToEgressRuleConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toIngressRuleConfig", GoMethod: "ToIngressRuleConfig"},
@@ -8723,6 +9001,7 @@ func init() {
 		reflect.TypeOf((*ISecurityGroupEgressRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupEgressRef", GoGetter: "SecurityGroupEgressRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityGroupEgressRef{}
@@ -8735,6 +9014,7 @@ func init() {
 		reflect.TypeOf((*ISecurityGroupIngressRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupIngressRef", GoGetter: "SecurityGroupIngressRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityGroupIngressRef{}
@@ -8747,6 +9027,7 @@ func init() {
 		reflect.TypeOf((*ISecurityGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupRef", GoGetter: "SecurityGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityGroupRef{}
@@ -8759,6 +9040,7 @@ func init() {
 		reflect.TypeOf((*ISecurityGroupVpcAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupVpcAssociationRef", GoGetter: "SecurityGroupVpcAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityGroupVpcAssociationRef{}
@@ -8771,6 +9053,7 @@ func init() {
 		reflect.TypeOf((*ISnapshotBlockPublicAccessRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "snapshotBlockPublicAccessRef", GoGetter: "SnapshotBlockPublicAccessRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISnapshotBlockPublicAccessRef{}
@@ -8783,6 +9066,7 @@ func init() {
 		reflect.TypeOf((*ISpotFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "spotFleetRef", GoGetter: "SpotFleetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISpotFleetRef{}
@@ -8804,6 +9088,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetRef", GoGetter: "SubnetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnet{}
@@ -8817,6 +9102,7 @@ func init() {
 		reflect.TypeOf((*ISubnetCidrBlockRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetCidrBlockRef", GoGetter: "SubnetCidrBlockRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetCidrBlockRef{}
@@ -8833,6 +9119,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationAssociationId", GoGetter: "SubnetNetworkAclAssociationAssociationId"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationRef", GoGetter: "SubnetNetworkAclAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetNetworkAclAssociation{}
@@ -8846,6 +9133,7 @@ func init() {
 		reflect.TypeOf((*ISubnetNetworkAclAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationRef", GoGetter: "SubnetNetworkAclAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetNetworkAclAssociationRef{}
@@ -8858,6 +9146,7 @@ func init() {
 		reflect.TypeOf((*ISubnetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetRef", GoGetter: "SubnetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetRef{}
@@ -8870,6 +9159,7 @@ func init() {
 		reflect.TypeOf((*ISubnetRouteTableAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetRouteTableAssociationRef", GoGetter: "SubnetRouteTableAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetRouteTableAssociationRef{}
@@ -8882,6 +9172,7 @@ func init() {
 		reflect.TypeOf((*ITrafficMirrorFilterRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorFilterRef", GoGetter: "TrafficMirrorFilterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrafficMirrorFilterRef{}
@@ -8894,6 +9185,7 @@ func init() {
 		reflect.TypeOf((*ITrafficMirrorFilterRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorFilterRuleRef", GoGetter: "TrafficMirrorFilterRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrafficMirrorFilterRuleRef{}
@@ -8906,6 +9198,7 @@ func init() {
 		reflect.TypeOf((*ITrafficMirrorSessionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorSessionRef", GoGetter: "TrafficMirrorSessionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrafficMirrorSessionRef{}
@@ -8918,6 +9211,7 @@ func init() {
 		reflect.TypeOf((*ITrafficMirrorTargetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorTargetRef", GoGetter: "TrafficMirrorTargetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrafficMirrorTargetRef{}
@@ -8930,6 +9224,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentRef", GoGetter: "TransitGatewayAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayAttachmentRef{}
@@ -8942,6 +9237,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayConnectPeerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayConnectPeerRef", GoGetter: "TransitGatewayConnectPeerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayConnectPeerRef{}
@@ -8954,6 +9250,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayConnectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayConnectRef", GoGetter: "TransitGatewayConnectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayConnectRef{}
@@ -8966,6 +9263,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayMulticastDomainAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastDomainAssociationRef", GoGetter: "TransitGatewayMulticastDomainAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayMulticastDomainAssociationRef{}
@@ -8978,6 +9276,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayMulticastDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastDomainRef", GoGetter: "TransitGatewayMulticastDomainRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayMulticastDomainRef{}
@@ -8990,6 +9289,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayMulticastGroupMemberRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastGroupMemberRef", GoGetter: "TransitGatewayMulticastGroupMemberRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayMulticastGroupMemberRef{}
@@ -9002,6 +9302,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayMulticastGroupSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastGroupSourceRef", GoGetter: "TransitGatewayMulticastGroupSourceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayMulticastGroupSourceRef{}
@@ -9014,6 +9315,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayPeeringAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPeeringAttachmentRef", GoGetter: "TransitGatewayPeeringAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayPeeringAttachmentRef{}
@@ -9026,6 +9328,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRef", GoGetter: "TransitGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRef{}
@@ -9038,6 +9341,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteRef", GoGetter: "TransitGatewayRouteRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRouteRef{}
@@ -9050,6 +9354,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRouteTableAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableAssociationRef", GoGetter: "TransitGatewayRouteTableAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRouteTableAssociationRef{}
@@ -9062,6 +9367,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRouteTablePropagationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTablePropagationRef", GoGetter: "TransitGatewayRouteTablePropagationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRouteTablePropagationRef{}
@@ -9074,6 +9380,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayRouteTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableRef", GoGetter: "TransitGatewayRouteTableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayRouteTableRef{}
@@ -9086,6 +9393,7 @@ func init() {
 		reflect.TypeOf((*ITransitGatewayVpcAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayVpcAttachmentRef", GoGetter: "TransitGatewayVpcAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITransitGatewayVpcAttachmentRef{}
@@ -9098,6 +9406,7 @@ func init() {
 		reflect.TypeOf((*IVPCBlockPublicAccessExclusionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcBlockPublicAccessExclusionRef", GoGetter: "VpcBlockPublicAccessExclusionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCBlockPublicAccessExclusionRef{}
@@ -9110,6 +9419,7 @@ func init() {
 		reflect.TypeOf((*IVPCBlockPublicAccessOptionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcBlockPublicAccessOptionsRef", GoGetter: "VpcBlockPublicAccessOptionsRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCBlockPublicAccessOptionsRef{}
@@ -9122,6 +9432,7 @@ func init() {
 		reflect.TypeOf((*IVPCCidrBlockRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockRef", GoGetter: "VpcCidrBlockRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCCidrBlockRef{}
@@ -9134,6 +9445,7 @@ func init() {
 		reflect.TypeOf((*IVPCDHCPOptionsAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcdhcpOptionsAssociationRef", GoGetter: "VpcdhcpOptionsAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCDHCPOptionsAssociationRef{}
@@ -9146,6 +9458,7 @@ func init() {
 		reflect.TypeOf((*IVPCEndpointConnectionNotificationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointConnectionNotificationRef", GoGetter: "VpcEndpointConnectionNotificationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCEndpointConnectionNotificationRef{}
@@ -9158,6 +9471,7 @@ func init() {
 		reflect.TypeOf((*IVPCEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointRef", GoGetter: "VpcEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCEndpointRef{}
@@ -9170,6 +9484,7 @@ func init() {
 		reflect.TypeOf((*IVPCEndpointServicePermissionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServicePermissionsRef", GoGetter: "VpcEndpointServicePermissionsRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCEndpointServicePermissionsRef{}
@@ -9182,6 +9497,7 @@ func init() {
 		reflect.TypeOf((*IVPCEndpointServiceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceRef", GoGetter: "VpcEndpointServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCEndpointServiceRef{}
@@ -9194,6 +9510,7 @@ func init() {
 		reflect.TypeOf((*IVPCGatewayAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcGatewayAttachmentRef", GoGetter: "VpcGatewayAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCGatewayAttachmentRef{}
@@ -9206,6 +9523,7 @@ func init() {
 		reflect.TypeOf((*IVPCPeeringConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcPeeringConnectionRef", GoGetter: "VpcPeeringConnectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCPeeringConnectionRef{}
@@ -9218,6 +9536,7 @@ func init() {
 		reflect.TypeOf((*IVPCRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcRef", GoGetter: "VpcRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPCRef{}
@@ -9230,6 +9549,7 @@ func init() {
 		reflect.TypeOf((*IVPNConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnConnectionRef", GoGetter: "VpnConnectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPNConnectionRef{}
@@ -9242,6 +9562,7 @@ func init() {
 		reflect.TypeOf((*IVPNConnectionRouteRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnConnectionRouteRef", GoGetter: "VpnConnectionRouteRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPNConnectionRouteRef{}
@@ -9254,6 +9575,7 @@ func init() {
 		reflect.TypeOf((*IVPNGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayRef", GoGetter: "VpnGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPNGatewayRef{}
@@ -9266,6 +9588,7 @@ func init() {
 		reflect.TypeOf((*IVPNGatewayRoutePropagationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayRoutePropagationRef", GoGetter: "VpnGatewayRoutePropagationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVPNGatewayRoutePropagationRef{}
@@ -9278,6 +9601,7 @@ func init() {
 		reflect.TypeOf((*IVerifiedAccessEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "verifiedAccessEndpointRef", GoGetter: "VerifiedAccessEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVerifiedAccessEndpointRef{}
@@ -9290,6 +9614,7 @@ func init() {
 		reflect.TypeOf((*IVerifiedAccessGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "verifiedAccessGroupRef", GoGetter: "VerifiedAccessGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVerifiedAccessGroupRef{}
@@ -9302,6 +9627,7 @@ func init() {
 		reflect.TypeOf((*IVerifiedAccessInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "verifiedAccessInstanceRef", GoGetter: "VerifiedAccessInstanceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVerifiedAccessInstanceRef{}
@@ -9314,6 +9640,7 @@ func init() {
 		reflect.TypeOf((*IVerifiedAccessTrustProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "verifiedAccessTrustProviderRef", GoGetter: "VerifiedAccessTrustProviderRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVerifiedAccessTrustProviderRef{}
@@ -9336,6 +9663,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "volumeId", GoGetter: "VolumeId"},
+			_jsii_.MemberProperty{JsiiProperty: "volumeRef", GoGetter: "VolumeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolume{}
@@ -9349,6 +9677,7 @@ func init() {
 		reflect.TypeOf((*IVolumeAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "volumeAttachmentRef", GoGetter: "VolumeAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolumeAttachmentRef{}
@@ -9361,6 +9690,7 @@ func init() {
 		reflect.TypeOf((*IVolumeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "volumeRef", GoGetter: "VolumeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolumeRef{}
@@ -9391,6 +9721,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "vpcArn", GoGetter: "VpcArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlock", GoGetter: "VpcCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcRef", GoGetter: "VpcRef"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayId", GoGetter: "VpnGatewayId"},
 		},
 		func() interface{} {
@@ -9409,6 +9740,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointRef", GoGetter: "VpcEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcEndpoint{}
@@ -9427,6 +9759,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceId", GoGetter: "VpcEndpointServiceId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceName", GoGetter: "VpcEndpointServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceRef", GoGetter: "VpcEndpointServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcEndpointService{}
@@ -9460,6 +9793,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTunnelState", GoMethod: "MetricTunnelState"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnConnectionRef", GoGetter: "VpnConnectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnId", GoGetter: "VpnId"},
 		},
 		func() interface{} {
@@ -9478,6 +9812,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "gatewayId", GoGetter: "GatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayRef", GoGetter: "VpnGatewayRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpnGateway{}
@@ -9770,12 +10105,20 @@ func init() {
 			"R7I": InstanceClass_R7I,
 			"MEMORY7_INTEL": InstanceClass_MEMORY7_INTEL,
 			"R7IZ": InstanceClass_R7IZ,
+			"MEMORY8_INTEL_BASE": InstanceClass_MEMORY8_INTEL_BASE,
+			"R8I": InstanceClass_R8I,
+			"MEMORY8_INTEL_FLEX": InstanceClass_MEMORY8_INTEL_FLEX,
+			"R8I_FLEX": InstanceClass_R8I_FLEX,
 			"MEMORY7_AMD": InstanceClass_MEMORY7_AMD,
 			"R7A": InstanceClass_R7A,
 			"MEMORY8_GRAVITON": InstanceClass_MEMORY8_GRAVITON,
 			"R8G": InstanceClass_R8G,
 			"MEMORY8_GRAVITON4_NVME_DRIVE": InstanceClass_MEMORY8_GRAVITON4_NVME_DRIVE,
 			"R8GD": InstanceClass_R8GD,
+			"MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH": InstanceClass_MEMORY8_GRAVITON4_HIGH_NETWORK_BANDWIDTH,
+			"R8GN": InstanceClass_R8GN,
+			"MEMORY8_GRAVITON4_EBS_OPTIMIZED": InstanceClass_MEMORY8_GRAVITON4_EBS_OPTIMIZED,
+			"R8GB": InstanceClass_R8GB,
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"C3": InstanceClass_C3,
 			"COMPUTE4": InstanceClass_COMPUTE4,
@@ -9820,6 +10163,10 @@ func init() {
 			"C7I": InstanceClass_C7I,
 			"COMPUTE7_INTEL_FLEX": InstanceClass_COMPUTE7_INTEL_FLEX,
 			"C7I_FLEX": InstanceClass_C7I_FLEX,
+			"COMPUTE8_INTEL": InstanceClass_COMPUTE8_INTEL,
+			"C8I": InstanceClass_C8I,
+			"COMPUTE8_INTEL_FLEX": InstanceClass_COMPUTE8_INTEL_FLEX,
+			"C8I_FLEX": InstanceClass_C8I_FLEX,
 			"COMPUTE7_AMD": InstanceClass_COMPUTE7_AMD,
 			"C7A": InstanceClass_C7A,
 			"STORAGE2": InstanceClass_STORAGE2,
@@ -9856,6 +10203,8 @@ func init() {
 			"I7I": InstanceClass_I7I,
 			"STORAGE8_GRAVITON": InstanceClass_STORAGE8_GRAVITON,
 			"I8G": InstanceClass_I8G,
+			"STORAGE8_GRAVITON_STORAGE_OPTIMIZED": InstanceClass_STORAGE8_GRAVITON_STORAGE_OPTIMIZED,
+			"I8GE": InstanceClass_I8GE,
 			"BURSTABLE2": InstanceClass_BURSTABLE2,
 			"T2": InstanceClass_T2,
 			"BURSTABLE3": InstanceClass_BURSTABLE3,
@@ -9942,12 +10291,18 @@ func init() {
 			"M7GD": InstanceClass_M7GD,
 			"STANDARD8_GRAVITON4_NVME_DRIVE": InstanceClass_STANDARD8_GRAVITON4_NVME_DRIVE,
 			"M8GD": InstanceClass_M8GD,
+			"STANDARD8_INTEL": InstanceClass_STANDARD8_INTEL,
+			"M8I": InstanceClass_M8I,
+			"STANDARD8_INTEL_FLEX": InstanceClass_STANDARD8_INTEL_FLEX,
+			"M8I_FLEX": InstanceClass_M8I_FLEX,
 			"STANDARD7_INTEL": InstanceClass_STANDARD7_INTEL,
 			"M7I": InstanceClass_M7I,
 			"STANDARD7_INTEL_FLEX": InstanceClass_STANDARD7_INTEL_FLEX,
 			"M7I_FLEX": InstanceClass_M7I_FLEX,
 			"STANDARD7_AMD": InstanceClass_STANDARD7_AMD,
 			"M7A": InstanceClass_M7A,
+			"STANDARD8_AMD": InstanceClass_STANDARD8_AMD,
+			"M8A": InstanceClass_M8A,
 			"HIGH_COMPUTE_MEMORY1": InstanceClass_HIGH_COMPUTE_MEMORY1,
 			"Z1D": InstanceClass_Z1D,
 			"INFERENCE1": InstanceClass_INFERENCE1,
@@ -9985,6 +10340,14 @@ func init() {
 		reflect.TypeOf((*InstanceConnectEndpointReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.InstanceGeneration",
+		reflect.TypeOf((*InstanceGeneration)(nil)).Elem(),
+		map[string]interface{}{
+			"CURRENT": InstanceGeneration_CURRENT,
+			"PREVIOUS": InstanceGeneration_PREVIOUS,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ec2.InstanceInitiatedShutdownBehavior",
 		reflect.TypeOf((*InstanceInitiatedShutdownBehavior)(nil)).Elem(),
 		map[string]interface{}{
@@ -10017,6 +10380,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.InstanceRequireImdsv2AspectProps",
 		reflect.TypeOf((*InstanceRequireImdsv2AspectProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.InstanceRequirementsConfig",
+		reflect.TypeOf((*InstanceRequirementsConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ec2.InstanceSize",
@@ -10344,6 +10711,31 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference",
 		reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.LocalGatewayVirtualInterfaceGroupReference",
+		reflect.TypeOf((*LocalGatewayVirtualInterfaceGroupReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.LocalGatewayVirtualInterfaceReference",
+		reflect.TypeOf((*LocalGatewayVirtualInterfaceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.LocalStorage",
+		reflect.TypeOf((*LocalStorage)(nil)).Elem(),
+		map[string]interface{}{
+			"INCLUDED": LocalStorage_INCLUDED,
+			"REQUIRED": LocalStorage_REQUIRED,
+			"EXCLUDED": LocalStorage_EXCLUDED,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.LocalStorageType",
+		reflect.TypeOf((*LocalStorageType)(nil)).Elem(),
+		map[string]interface{}{
+			"HDD": LocalStorageType_HDD,
+			"SSD": LocalStorageType_SSD,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.LocationPackageOptions",

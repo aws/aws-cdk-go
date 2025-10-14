@@ -418,6 +418,7 @@ func init() {
 		"aws-cdk-lib.aws_mediapackagev2.IChannelGroupRef",
 		reflect.TypeOf((*IChannelGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "channelGroupRef", GoGetter: "ChannelGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -430,6 +431,7 @@ func init() {
 		"aws-cdk-lib.aws_mediapackagev2.IChannelPolicyRef",
 		reflect.TypeOf((*IChannelPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "channelPolicyRef", GoGetter: "ChannelPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -442,6 +444,7 @@ func init() {
 		"aws-cdk-lib.aws_mediapackagev2.IChannelRef",
 		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -455,6 +458,7 @@ func init() {
 		reflect.TypeOf((*IOriginEndpointPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originEndpointPolicyRef", GoGetter: "OriginEndpointPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginEndpointPolicyRef{}
@@ -467,6 +471,7 @@ func init() {
 		reflect.TypeOf((*IOriginEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originEndpointRef", GoGetter: "OriginEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginEndpointRef{}

@@ -106,7 +106,7 @@ type ProviderProps struct {
 	// AWS KMS key used to encrypt provider lambda's environment variables.
 	// Default: -  AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
-	ProviderFunctionEnvEncryption awskms.IKey `field:"optional" json:"providerFunctionEnvEncryption" yaml:"providerFunctionEnvEncryption"`
+	ProviderFunctionEnvEncryption awskms.IKeyRef `field:"optional" json:"providerFunctionEnvEncryption" yaml:"providerFunctionEnvEncryption"`
 	// Provider Lambda name.
 	//
 	// The provider lambda function name.

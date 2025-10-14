@@ -40,6 +40,10 @@ func validatePrivateHostedZone_FromLookupParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validatePrivateHostedZone_FromPrivateHostedZoneAttributesParameters(scope constructs.Construct, id *string, attrs *PrivateHostedZoneAttributes) error {
+	return nil
+}
+
 func validatePrivateHostedZone_FromPrivateHostedZoneIdParameters(scope constructs.Construct, id *string, privateHostedZoneId *string) error {
 	return nil
 }

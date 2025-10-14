@@ -23,7 +23,7 @@ package awss3tables
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergschema.html
 //
 type CfnTable_IcebergSchemaProperty struct {
-	// Contains details about the schema for an Iceberg table.
+	// The schema fields for the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergschema.html#cfn-s3tables-table-icebergschema-schemafieldlist
 	//
 	SchemaFieldList interface{} `field:"required" json:"schemaFieldList" yaml:"schemaFieldList"`

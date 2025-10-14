@@ -134,7 +134,7 @@ func (j *jsiiProxy_OpenIdConnectPrincipal) PrincipalAccount() *string {
 }
 
 
-func NewOpenIdConnectPrincipal(openIdConnectProvider IOpenIdConnectProvider, conditions *map[string]interface{}) OpenIdConnectPrincipal {
+func NewOpenIdConnectPrincipal(openIdConnectProvider IOIDCProviderRef, conditions *map[string]interface{}) OpenIdConnectPrincipal {
 	_init_.Initialize()
 
 	if err := validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider); err != nil {
@@ -151,7 +151,7 @@ func NewOpenIdConnectPrincipal(openIdConnectProvider IOpenIdConnectProvider, con
 	return &j
 }
 
-func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectProvider IOpenIdConnectProvider, conditions *map[string]interface{}) {
+func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectProvider IOIDCProviderRef, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(

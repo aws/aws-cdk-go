@@ -18,7 +18,7 @@ import (
 //   var deploymentStrategy deploymentStrategy
 //   var environment environment
 //   var key key
-//   var role role
+//   var roleRef iRoleRef
 //   var validator iValidator
 //
 //   sourcedConfigurationOptions := &SourcedConfigurationOptions{
@@ -33,7 +33,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
-//   	RetrievalRole: role,
+//   	RetrievalRole: roleRef,
 //   	Type: awscdk.*Aws_appconfig.ConfigurationType_FREEFORM,
 //   	Validators: []*iValidator{
 //   		validator,
@@ -91,7 +91,7 @@ type SourcedConfigurationOptions struct {
 	// The IAM role to retrieve the configuration.
 	// Default: - A role is generated.
 	//
-	RetrievalRole awsiam.IRole `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
+	RetrievalRole awsiam.IRoleRef `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
 	// The version number of the sourced configuration to deploy.
 	//
 	// If this is not specified,

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnRoutingProfile) validateSetInstanceArnParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnRoutingProfile) validateSetManualAssignmentQueueConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRoutingProfile) validateSetMediaConcurrenciesParameters(val interface{}) error {
 	return nil
 }

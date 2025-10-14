@@ -127,6 +127,7 @@ func init() {
 		reflect.TypeOf((*IProfilePermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "profilePermissionRef", GoGetter: "ProfilePermissionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProfilePermissionRef{}
@@ -158,6 +159,7 @@ func init() {
 		reflect.TypeOf((*ISigningProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "signingProfileRef", GoGetter: "SigningProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISigningProfileRef{}

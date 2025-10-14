@@ -29,6 +29,7 @@ package awsmedialive
 //   	ShadowOpacity: jsii.Number(123),
 //   	ShadowXOffset: jsii.Number(123),
 //   	ShadowYOffset: jsii.Number(123),
+//   	SubtitleRows: jsii.String("subtitleRows"),
 //   	TeletextGridControl: jsii.String("teletextGridControl"),
 //   	XPosition: jsii.Number(123),
 //   	YPosition: jsii.Number(123),
@@ -121,6 +122,9 @@ type CfnChannel_DvbSubDestinationSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-shadowyoffset
 	//
 	ShadowYOffset *float64 `field:"optional" json:"shadowYOffset" yaml:"shadowYOffset"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-subtitlerows
+	//
+	SubtitleRows *string `field:"optional" json:"subtitleRows" yaml:"subtitleRows"`
 	// Controls whether a fixed grid size is used to generate the output subtitles bitmap.
 	//
 	// This applies to only Teletext inputs and DVB-Sub/Burn-in outputs.

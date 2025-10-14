@@ -40,6 +40,7 @@ type BucketBase interface {
 	BucketDualStackDomainName() *string
 	// The name of the bucket.
 	BucketName() *string
+	// A reference to a Bucket resource.
 	BucketRef() *BucketReference
 	// The regional domain name of the specified bucket.
 	BucketRegionalDomainName() *string

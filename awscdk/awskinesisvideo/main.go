@@ -124,6 +124,7 @@ func init() {
 		reflect.TypeOf((*ISignalingChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "signalingChannelRef", GoGetter: "SignalingChannelRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISignalingChannelRef{}
@@ -136,6 +137,7 @@ func init() {
 		reflect.TypeOf((*IStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamRef{}

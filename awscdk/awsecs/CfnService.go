@@ -47,6 +47,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var hookDetails interface{}
+//
 //   cfnService := awscdk.Aws_ecs.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
 //   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
 //   	CapacityProviderStrategy: []interface{}{
@@ -77,6 +79,9 @@ import (
 //   					jsii.String("lifecycleStages"),
 //   				},
 //   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				HookDetails: hookDetails,
 //   			},
 //   		},
 //   		MaximumPercent: jsii.Number(123),

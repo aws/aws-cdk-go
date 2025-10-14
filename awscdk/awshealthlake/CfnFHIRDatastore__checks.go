@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnFHIRDatastore_FromDatastoreIdParameters(scope constructs.Construct, id *string, datastoreId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if datastoreId == nil {
+		return fmt.Errorf("parameter datastoreId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnFHIRDatastore_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

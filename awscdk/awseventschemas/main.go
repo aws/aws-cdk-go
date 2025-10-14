@@ -253,6 +253,7 @@ func init() {
 		"aws-cdk-lib.aws_eventschemas.IDiscovererRef",
 		reflect.TypeOf((*IDiscovererRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "discovererRef", GoGetter: "DiscovererRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -266,6 +267,7 @@ func init() {
 		reflect.TypeOf((*IRegistryPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "registryPolicyRef", GoGetter: "RegistryPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegistryPolicyRef{}
@@ -278,6 +280,7 @@ func init() {
 		reflect.TypeOf((*IRegistryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "registryRef", GoGetter: "RegistryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegistryRef{}
@@ -290,6 +293,7 @@ func init() {
 		reflect.TypeOf((*ISchemaRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "schemaRef", GoGetter: "SchemaRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchemaRef{}

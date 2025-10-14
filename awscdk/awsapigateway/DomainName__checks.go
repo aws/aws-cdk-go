@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStage, options *ApiMappingOptions) error {
+func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStageRef, options *ApiMappingOptions) error {
 	if targetStage == nil {
 		return fmt.Errorf("parameter targetStage is required, but nil was provided")
 	}
@@ -23,7 +23,7 @@ func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStag
 	return nil
 }
 
-func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApi, options *BasePathMappingOptions) error {
+func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApiRef, options *BasePathMappingOptions) error {
 	if targetApi == nil {
 		return fmt.Errorf("parameter targetApi is required, but nil was provided")
 	}

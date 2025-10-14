@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnImageRecipe) validateSetAdditionalInstanceConfigurationPar
 	return nil
 }
 
+func (j *jsiiProxy_CfnImageRecipe) validateSetAmiTagsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImageRecipe) validateSetBlockDeviceMappingsParameters(val interface{}) error {
 	return nil
 }

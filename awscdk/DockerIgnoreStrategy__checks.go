@@ -16,9 +16,9 @@ func (d *jsiiProxy_DockerIgnoreStrategy) validateAddParameters(pattern *string) 
 	return nil
 }
 
-func (d *jsiiProxy_DockerIgnoreStrategy) validateCompletelyIgnoresParameters(absoluteFilePath *string) error {
-	if absoluteFilePath == nil {
-		return fmt.Errorf("parameter absoluteFilePath is required, but nil was provided")
+func (d *jsiiProxy_DockerIgnoreStrategy) validateCompletelyIgnoresParameters(absoluteDirectoryPath *string) error {
+	if absoluteDirectoryPath == nil {
+		return fmt.Errorf("parameter absoluteDirectoryPath is required, but nil was provided")
 	}
 
 	return nil

@@ -252,6 +252,7 @@ type CfnPlan interface {
 	AttrHealthChecksForPlan() awscdk.IResolvable
 	// The owner of a plan.
 	AttrOwner() *string
+	AttrPlanHealthChecks() *[]*string
 	AttrRoute53HealthChecks() awscdk.IResolvable
 	// The version for the plan.
 	AttrVersion() *string
@@ -501,6 +502,16 @@ func (j *jsiiProxy_CfnPlan) AttrOwner() *string {
 	_jsii_.Get(
 		j,
 		"attrOwner",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlan) AttrPlanHealthChecks() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrPlanHealthChecks",
 		&returns,
 	)
 	return returns

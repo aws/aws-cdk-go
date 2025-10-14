@@ -21,6 +21,8 @@ type ITaskDefinition interface {
 	IsExternalCompatible() *bool
 	// Return true if the task definition can be run on a Fargate cluster.
 	IsFargateCompatible() *bool
+	// Return true if the task definition can be run on Managed Instances.
+	IsManagedInstancesCompatible() *bool
 	// The networking mode to use for the containers in the task.
 	NetworkMode() NetworkMode
 	// ARN of this task definition.
@@ -79,6 +81,16 @@ func (j *jsiiProxy_ITaskDefinition) IsFargateCompatible() *bool {
 	_jsii_.Get(
 		j,
 		"isFargateCompatible",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskDefinition) IsManagedInstancesCompatible() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isManagedInstancesCompatible",
 		&returns,
 	)
 	return returns

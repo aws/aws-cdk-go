@@ -57,6 +57,14 @@ import (
 //   				ObjectKey: jsii.String("objectKey"),
 //   			},
 //   			ComputeType: awscdk.Aws_codebuild.ComputeType_SMALL,
+//   			DockerServer: &DockerServerOptions{
+//   				ComputeType: awscdk.*Aws_codebuild.DockerServerComputeType_SMALL,
+//
+//   				// the properties below are optional
+//   				SecurityGroups: []iSecurityGroup{
+//   					securityGroup,
+//   				},
+//   			},
 //   			EnvironmentVariables: map[string]buildEnvironmentVariable{
 //   				"environmentVariablesKey": &buildEnvironmentVariable{
 //   					"value": value,
@@ -91,7 +99,7 @@ import (
 //   		RolePolicy: []*policyStatement{
 //   			policyStatement,
 //   		},
-//   		SecurityGroups: []iSecurityGroup{
+//   		SecurityGroups: []*iSecurityGroup{
 //   			securityGroup,
 //   		},
 //   		SubnetSelection: &SubnetSelection{

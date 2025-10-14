@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAppBlockBuilder) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnAppBlockBuilder_FromAppBlockBuilderArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAppBlockBuilder_FromAppBlockBuilderNameParameters(scope constructs.Construct, id *string, appBlockBuilderName *string) error {
+	return nil
+}
+
 func validateCfnAppBlockBuilder_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -382,6 +382,7 @@ func init() {
 		"aws-cdk-lib.aws_sso.IApplicationAssignmentRef",
 		reflect.TypeOf((*IApplicationAssignmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationAssignmentRef", GoGetter: "ApplicationAssignmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -394,6 +395,7 @@ func init() {
 		"aws-cdk-lib.aws_sso.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -406,6 +408,7 @@ func init() {
 		"aws-cdk-lib.aws_sso.IAssignmentRef",
 		reflect.TypeOf((*IAssignmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "assignmentRef", GoGetter: "AssignmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -418,6 +421,7 @@ func init() {
 		"aws-cdk-lib.aws_sso.IInstanceAccessControlAttributeConfigurationRef",
 		reflect.TypeOf((*IInstanceAccessControlAttributeConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceAccessControlAttributeConfigurationRef", GoGetter: "InstanceAccessControlAttributeConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -430,6 +434,7 @@ func init() {
 		"aws-cdk-lib.aws_sso.IInstanceRef",
 		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -443,6 +448,7 @@ func init() {
 		reflect.TypeOf((*IPermissionSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionSetRef", GoGetter: "PermissionSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPermissionSetRef{}

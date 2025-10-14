@@ -425,6 +425,7 @@ func init() {
 		"aws-cdk-lib.aws_iottwinmaker.IComponentTypeRef",
 		reflect.TypeOf((*IComponentTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "componentTypeRef", GoGetter: "ComponentTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -437,6 +438,7 @@ func init() {
 		"aws-cdk-lib.aws_iottwinmaker.IEntityRef",
 		reflect.TypeOf((*IEntityRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "entityRef", GoGetter: "EntityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -450,6 +452,7 @@ func init() {
 		reflect.TypeOf((*ISceneRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sceneRef", GoGetter: "SceneRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISceneRef{}
@@ -462,6 +465,7 @@ func init() {
 		reflect.TypeOf((*ISyncJobRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "syncJobRef", GoGetter: "SyncJobRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISyncJobRef{}
@@ -474,6 +478,7 @@ func init() {
 		reflect.TypeOf((*IWorkspaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRef", GoGetter: "WorkspaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkspaceRef{}

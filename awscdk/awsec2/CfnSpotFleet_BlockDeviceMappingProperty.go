@@ -29,7 +29,9 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html
 //
 type CfnSpotFleet_BlockDeviceMappingProperty struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// The device name.
+	//
+	// For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
 	//
 	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`

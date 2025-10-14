@@ -26,6 +26,7 @@ import (
 //   	OriginShieldEnabled: jsii.Boolean(false),
 //   	OriginShieldRegion: jsii.String("originShieldRegion"),
 //   	ReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	ResponseCompletionTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   }
 //
 type VpcOriginProps struct {
@@ -65,6 +66,16 @@ type VpcOriginProps struct {
 	// Default: - origin shield not enabled.
 	//
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// The time that a request from CloudFront to the origin can stay open and wait for a response.
+	//
+	// If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+	//
+	// Valid values are 1-3600 seconds, inclusive.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout
+	//
+	// Default: undefined -  AWS CloudFront default is not enforcing a maximum value.
+	//
+	ResponseCompletionTimeout awscdk.Duration `field:"optional" json:"responseCompletionTimeout" yaml:"responseCompletionTimeout"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').

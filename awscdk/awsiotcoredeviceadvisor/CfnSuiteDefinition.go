@@ -75,9 +75,7 @@ type CfnSuiteDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The configuration of the Suite Definition.
-	//
-	// Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+	// Gets the suite definition configuration.
 	SuiteDefinitionConfiguration() interface{}
 	SetSuiteDefinitionConfiguration(val interface{})
 	// A reference to a SuiteDefinition resource.
@@ -453,6 +451,44 @@ func (j *jsiiProxy_CfnSuiteDefinition)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new ISuiteDefinitionRef from an ARN.
+func CfnSuiteDefinition_FromSuiteDefinitionArn(scope constructs.Construct, id *string, arn *string) ISuiteDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnSuiteDefinition_FromSuiteDefinitionArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ISuiteDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"fromSuiteDefinitionArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ISuiteDefinitionRef from a suiteDefinitionId.
+func CfnSuiteDefinition_FromSuiteDefinitionId(scope constructs.Construct, id *string, suiteDefinitionId *string) ISuiteDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnSuiteDefinition_FromSuiteDefinitionIdParameters(scope, id, suiteDefinitionId); err != nil {
+		panic(err)
+	}
+	var returns ISuiteDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"fromSuiteDefinitionId",
+		[]interface{}{scope, id, suiteDefinitionId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

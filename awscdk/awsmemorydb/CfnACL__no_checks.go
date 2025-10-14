@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnACL) validateValidatePropertiesParameters(_properties inte
 	return nil
 }
 
+func validateCfnACL_FromACLArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnACL_FromAclNameParameters(scope constructs.Construct, id *string, aclName *string) error {
+	return nil
+}
+
 func validateCfnACL_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

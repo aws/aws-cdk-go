@@ -9,6 +9,10 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// > The AWS IoT SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 .
+//
+// If you would like to use the AWS IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html) .
+//
 // Creates a dashboard in an AWS IoT SiteWise Monitor project.
 //
 // Example:
@@ -509,6 +513,44 @@ func (j *jsiiProxy_CfnDashboard)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new IDashboardRef from an ARN.
+func CfnDashboard_FromDashboardArn(scope constructs.Construct, id *string, arn *string) IDashboardRef {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_FromDashboardArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDashboardRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"fromDashboardArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDashboardRef from a dashboardId.
+func CfnDashboard_FromDashboardId(scope constructs.Construct, id *string, dashboardId *string) IDashboardRef {
+	_init_.Initialize()
+
+	if err := validateCfnDashboard_FromDashboardIdParameters(scope, id, dashboardId); err != nil {
+		panic(err)
+	}
+	var returns IDashboardRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"fromDashboardId",
+		[]interface{}{scope, id, dashboardId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -16,13 +16,13 @@ import (
 // for the VPC you're configuring for private hosted zones.
 //
 // Example:
-//   var vpc vpc
-//
-//
-//   zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &PrivateHostedZoneProps{
-//   	ZoneName: jsii.String("fully.qualified.domain.com"),
-//   	Vpc: Vpc,
+//   privateZoneFromAttributes := route53.PrivateHostedZone_FromPrivateHostedZoneAttributes(this, jsii.String("MyPrivateZone"), &PrivateHostedZoneAttributes{
+//   	ZoneName: jsii.String("example.local"),
+//   	HostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
 //   })
+//
+//   // Does not know zoneName
+//   privateZoneFromId := route53.PrivateHostedZone_FromPrivateHostedZoneId(this, jsii.String("MyPrivateZone"), jsii.String("ZOJJZC49E0EPZ"))
 //
 type PrivateHostedZone interface {
 	HostedZone
@@ -283,6 +283,27 @@ func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query 
 		"aws-cdk-lib.aws_route53.PrivateHostedZone",
 		"fromLookup",
 		[]interface{}{scope, id, query},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports a private hosted zone from another stack.
+//
+// Use when both hosted zone ID and hosted zone name are known.
+func PrivateHostedZone_FromPrivateHostedZoneAttributes(scope constructs.Construct, id *string, attrs *PrivateHostedZoneAttributes) IPrivateHostedZone {
+	_init_.Initialize()
+
+	if err := validatePrivateHostedZone_FromPrivateHostedZoneAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns IPrivateHostedZone
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"fromPrivateHostedZoneAttributes",
+		[]interface{}{scope, id, attrs},
 		&returns,
 	)
 

@@ -10,6 +10,23 @@ package awsomics
 //
 //   cfnWorkflowProps := &CfnWorkflowProps{
 //   	Accelerators: jsii.String("accelerators"),
+//   	ContainerRegistryMap: &ContainerRegistryMapProperty{
+//   		ImageMappings: []interface{}{
+//   			&ImageMappingProperty{
+//   				DestinationImage: jsii.String("destinationImage"),
+//   				SourceImage: jsii.String("sourceImage"),
+//   			},
+//   		},
+//   		RegistryMappings: []interface{}{
+//   			&RegistryMappingProperty{
+//   				EcrAccountId: jsii.String("ecrAccountId"),
+//   				EcrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
+//   				UpstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
+//   				UpstreamRepositoryPrefix: jsii.String("upstreamRepositoryPrefix"),
+//   			},
+//   		},
+//   	},
+//   	ContainerRegistryMapUri: jsii.String("containerRegistryMapUri"),
 //   	DefinitionRepository: &DefinitionRepositoryProperty{
 //   		ConnectionArn: jsii.String("connectionArn"),
 //   		ExcludeFilePatterns: []*string{
@@ -50,6 +67,15 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-accelerators
 	//
 	Accelerators *string `field:"optional" json:"accelerators" yaml:"accelerators"`
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries.
+	//
+	// For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-containerregistrymap
+	//
+	ContainerRegistryMap interface{} `field:"optional" json:"containerRegistryMap" yaml:"containerRegistryMap"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-containerregistrymapuri
+	//
+	ContainerRegistryMapUri *string `field:"optional" json:"containerRegistryMapUri" yaml:"containerRegistryMapUri"`
 	// Contains information about a source code repository that hosts the workflow definition files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-definitionrepository
 	//

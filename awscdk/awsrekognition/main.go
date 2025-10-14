@@ -220,6 +220,7 @@ func init() {
 		"aws-cdk-lib.aws_rekognition.ICollectionRef",
 		reflect.TypeOf((*ICollectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "collectionRef", GoGetter: "CollectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -233,6 +234,7 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}
@@ -245,6 +247,7 @@ func init() {
 		reflect.TypeOf((*IStreamProcessorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamProcessorRef", GoGetter: "StreamProcessorRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamProcessorRef{}

@@ -500,6 +500,25 @@ func (j *jsiiProxy_CfnLaunchTemplate)SetVersionDescription(val *string) {
 	)
 }
 
+// Creates a new ILaunchTemplateRef from a launchTemplateId.
+func CfnLaunchTemplate_FromLaunchTemplateId(scope constructs.Construct, id *string, launchTemplateId *string) ILaunchTemplateRef {
+	_init_.Initialize()
+
+	if err := validateCfnLaunchTemplate_FromLaunchTemplateIdParameters(scope, id, launchTemplateId); err != nil {
+		panic(err)
+	}
+	var returns ILaunchTemplateRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate",
+		"fromLaunchTemplateId",
+		[]interface{}{scope, id, launchTemplateId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

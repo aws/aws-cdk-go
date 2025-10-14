@@ -624,6 +624,44 @@ func (j *jsiiProxy_CfnRepository)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IRepositoryRef from an ARN.
+func CfnRepository_FromRepositoryArn(scope constructs.Construct, id *string, arn *string) IRepositoryRef {
+	_init_.Initialize()
+
+	if err := validateCfnRepository_FromRepositoryArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IRepositoryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnRepository",
+		"fromRepositoryArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IRepositoryRef from a repositoryName.
+func CfnRepository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) IRepositoryRef {
+	_init_.Initialize()
+
+	if err := validateCfnRepository_FromRepositoryNameParameters(scope, id, repositoryName); err != nil {
+		panic(err)
+	}
+	var returns IRepositoryRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecr.CfnRepository",
+		"fromRepositoryName",
+		[]interface{}{scope, id, repositoryName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -24,10 +24,11 @@ import (
 //
 //   var bucket bucket
 //   var caCertificate caCertificate
-//   var key key
+//   var keyRef iKeyRef
 //   var optionGroup optionGroup
 //   var parameterGroup parameterGroup
 //   var role role
+//   var roleRef iRoleRef
 //   var securityGroup securityGroup
 //   var subnet subnet
 //   var subnetFilter subnetFilter
@@ -53,7 +54,7 @@ import (
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
-//   	DomainRole: role,
+//   	DomainRole: roleRef,
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	EngineLifecycleSupport: awscdk.*Aws_rds.EngineLifecycleSupport_OPEN_SOURCE_RDS_EXTENDED_SUPPORT,
 //   	IamAuthentication: jsii.Boolean(false),
@@ -61,12 +62,12 @@ import (
 //   	Iops: jsii.Number(123),
 //   	MaxAllocatedStorage: jsii.Number(123),
 //   	MonitoringInterval: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	MonitoringRole: role,
+//   	MonitoringRole: roleRef,
 //   	MultiAz: jsii.Boolean(false),
 //   	NetworkType: awscdk.*Aws_rds.NetworkType_IPV4,
 //   	OptionGroup: optionGroup,
 //   	ParameterGroup: parameterGroup,
-//   	PerformanceInsightEncryptionKey: key,
+//   	PerformanceInsightEncryptionKey: keyRef,
 //   	PerformanceInsightRetention: awscdk.*Aws_rds.PerformanceInsightRetention_DEFAULT,
 //   	Port: jsii.Number(123),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
@@ -191,7 +192,7 @@ type DatabaseInstanceNewProps struct {
 	// AmazonRDSDirectoryServiceAccess or equivalent.
 	// Default: - The role will be created for you if `DatabaseInstanceNewProps#domain` is specified.
 	//
-	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
+	DomainRole awsiam.IRoleRef `field:"optional" json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
 	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
@@ -237,7 +238,7 @@ type DatabaseInstanceNewProps struct {
 	// Role that will be used to manage DB instance monitoring.
 	// Default: - A role is automatically created for you.
 	//
-	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
+	MonitoringRole awsiam.IRoleRef `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
 	// Default: false.
 	//
@@ -257,7 +258,7 @@ type DatabaseInstanceNewProps struct {
 	// The AWS KMS key for encryption of Performance Insights data.
 	// Default: - default master key.
 	//
-	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKeyRef `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
 	//
 	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.
@@ -366,12 +367,12 @@ type DatabaseInstanceNewProps struct {
 	// SQL Server where the default is always 125 MiBps).
 	//
 	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
-	// The storage type.
+	// The storage type to associate with the DB instance.
 	//
-	// Storage types supported are gp2, io1, standard.
+	// Storage types supported are gp2, gp3, io1, io2, and standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Default: GP2.
+	// Default: StorageType.GP2
 	//
 	StorageType StorageType `field:"optional" json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.

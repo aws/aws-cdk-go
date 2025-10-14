@@ -31,16 +31,19 @@ package awskinesisanalytics
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html
 //
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type CfnApplicationOutputV2Props struct {
 	// The name of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-applicationname
 	//
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
 	//
 	// The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-output
 	//
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	Output interface{} `field:"required" json:"output" yaml:"output"`
 }
 

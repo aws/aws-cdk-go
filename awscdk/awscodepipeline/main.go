@@ -492,6 +492,7 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.ICustomActionTypeRef",
 		reflect.TypeOf((*ICustomActionTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customActionTypeRef", GoGetter: "CustomActionTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -531,6 +532,7 @@ func init() {
 		reflect.TypeOf((*IPipelineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPipelineRef{}
@@ -557,6 +559,7 @@ func init() {
 		reflect.TypeOf((*IWebhookRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "webhookRef", GoGetter: "WebhookRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebhookRef{}

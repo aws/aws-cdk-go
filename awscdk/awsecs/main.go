@@ -359,11 +359,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "managedInstancesProvider", GoGetter: "ManagedInstancesProvider"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -392,12 +394,68 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.AcceleratorCountRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_AcceleratorCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.AcceleratorTotalMemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty",
 		reflect.TypeOf((*CfnCapacityProvider_AutoScalingGroupProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.BaselineEbsBandwidthMbpsRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.InstanceLaunchTemplateProperty",
+		reflect.TypeOf((*CfnCapacityProvider_InstanceLaunchTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.InstanceRequirementsRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_InstanceRequirementsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.ManagedInstancesNetworkConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_ManagedInstancesNetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.ManagedInstancesProviderProperty",
+		reflect.TypeOf((*CfnCapacityProvider_ManagedInstancesProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.ManagedInstancesStorageConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_ManagedInstancesStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.ManagedScalingProperty",
 		reflect.TypeOf((*CfnCapacityProvider_ManagedScalingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.MemoryGiBPerVCpuRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_MemoryGiBPerVCpuRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.MemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_MemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.NetworkBandwidthGbpsRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_NetworkBandwidthGbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.NetworkInterfaceCountRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.TotalLocalStorageGBRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.VCpuCountRangeRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_VCpuCountRangeRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProviderProps",
@@ -1093,12 +1151,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addCapacity", GoMethod: "AddCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCapacityProviderStrategy", GoMethod: "AddDefaultCapacityProviderStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCloudMapNamespace", GoMethod: "AddDefaultCloudMapNamespace"},
+			_jsii_.MemberMethod{JsiiMethod: "addManagedInstancesCapacityProvider", GoMethod: "AddManagedInstancesCapacityProvider"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForTasks", GoMethod: "ArnForTasks"},
 			_jsii_.MemberProperty{JsiiProperty: "autoscalingGroup", GoGetter: "AutoscalingGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityProviderNames", GoGetter: "CapacityProviderNames"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterScopedCapacityProviderNames", GoGetter: "ClusterScopedCapacityProviderNames"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCapacityProviderStrategy", GoGetter: "DefaultCapacityProviderStrategy"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCloudMapNamespace", GoGetter: "DefaultCloudMapNamespace"},
@@ -1160,6 +1220,10 @@ func init() {
 			"FARGATE": Compatibility_FARGATE,
 			"EC2_AND_FARGATE": Compatibility_EC2_AND_FARGATE,
 			"EXTERNAL": Compatibility_EXTERNAL,
+			"MANAGED_INSTANCES": Compatibility_MANAGED_INSTANCES,
+			"EC2_AND_MANAGED_INSTANCES": Compatibility_EC2_AND_MANAGED_INSTANCES,
+			"FARGATE_AND_MANAGED_INSTANCES": Compatibility_FARGATE_AND_MANAGED_INSTANCES,
+			"FARGATE_AND_EC2_AND_MANAGED_INSTANCES": Compatibility_FARGATE_AND_EC2_AND_MANAGED_INSTANCES,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1499,6 +1563,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
@@ -1687,6 +1752,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
@@ -1813,6 +1879,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "memoryMiB", GoGetter: "MemoryMiB"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -2043,6 +2110,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.ICapacityProviderRef",
 		reflect.TypeOf((*ICapacityProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderRef", GoGetter: "CapacityProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2078,6 +2146,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.IClusterCapacityProviderAssociationsRef",
 		reflect.TypeOf((*IClusterCapacityProviderAssociationsRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterCapacityProviderAssociationsRef", GoGetter: "ClusterCapacityProviderAssociationsRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2090,6 +2159,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2136,6 +2206,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -2193,6 +2264,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -2233,6 +2305,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -2250,6 +2323,7 @@ func init() {
 		reflect.TypeOf((*IPrimaryTaskSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "primaryTaskSetRef", GoGetter: "PrimaryTaskSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrimaryTaskSetRef{}
@@ -2279,6 +2353,7 @@ func init() {
 		reflect.TypeOf((*IServiceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceRef{}
@@ -2297,6 +2372,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -2324,6 +2400,7 @@ func init() {
 		reflect.TypeOf((*ITaskDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionRef", GoGetter: "TaskDefinitionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITaskDefinitionRef{}
@@ -2336,6 +2413,7 @@ func init() {
 		reflect.TypeOf((*ITaskSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "taskSetRef", GoGetter: "TaskSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITaskSetRef{}
@@ -2346,6 +2424,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.InferenceAccelerator",
 		reflect.TypeOf((*InferenceAccelerator)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.InstanceMonitoring",
+		reflect.TypeOf((*InstanceMonitoring)(nil)).Elem(),
+		map[string]interface{}{
+			"BASIC": InstanceMonitoring_BASIC,
+			"DETAILED": InstanceMonitoring_DETAILED,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecs.IpcMode",
@@ -2471,6 +2557,25 @@ func init() {
 			"BOTTLEROCKET": MachineImageType_BOTTLEROCKET,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.ManagedInstancesCapacityProvider",
+		reflect.TypeOf((*ManagedInstancesCapacityProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderName", GoGetter: "CapacityProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ManagedInstancesCapacityProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ManagedInstancesCapacityProviderProps",
+		reflect.TypeOf((*ManagedInstancesCapacityProviderProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ManagedStorageConfiguration",
 		reflect.TypeOf((*ManagedStorageConfiguration)(nil)).Elem(),
@@ -2552,6 +2657,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.PrimaryTaskSetReference",
 		reflect.TypeOf((*PrimaryTaskSetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.PropagateManagedInstancesTags",
+		reflect.TypeOf((*PropagateManagedInstancesTags)(nil)).Elem(),
+		map[string]interface{}{
+			"CAPACITY_PROVIDER": PropagateManagedInstancesTags_CAPACITY_PROVIDER,
+			"NONE": PropagateManagedInstancesTags_NONE,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecs.PropagatedTagSource",
@@ -2823,6 +2936,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isManagedInstancesCompatible", GoGetter: "IsManagedInstancesCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},

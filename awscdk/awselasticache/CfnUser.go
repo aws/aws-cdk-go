@@ -586,6 +586,44 @@ func (j *jsiiProxy_CfnUser)SetUserName(val *string) {
 	)
 }
 
+// Creates a new IUserRef from an ARN.
+func CfnUser_FromUserArn(scope constructs.Construct, id *string, arn *string) IUserRef {
+	_init_.Initialize()
+
+	if err := validateCfnUser_FromUserArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IUserRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnUser",
+		"fromUserArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IUserRef from a userId.
+func CfnUser_FromUserId(scope constructs.Construct, id *string, userId *string) IUserRef {
+	_init_.Initialize()
+
+	if err := validateCfnUser_FromUserIdParameters(scope, id, userId); err != nil {
+		panic(err)
+	}
+	var returns IUserRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnUser",
+		"fromUserId",
+		[]interface{}{scope, id, userId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

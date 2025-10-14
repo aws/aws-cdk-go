@@ -522,11 +522,27 @@ func init() {
 			"LAMBDA_8GB": ComputeType_LAMBDA_8GB,
 			"LAMBDA_10GB": ComputeType_LAMBDA_10GB,
 			"ATTRIBUTE_BASED": ComputeType_ATTRIBUTE_BASED,
+			"CUSTOM_INSTANCE_TYPE": ComputeType_CUSTOM_INSTANCE_TYPE,
 		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.DockerImageOptions",
 		reflect.TypeOf((*DockerImageOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codebuild.DockerServerComputeType",
+		reflect.TypeOf((*DockerServerComputeType)(nil)).Elem(),
+		map[string]interface{}{
+			"SMALL": DockerServerComputeType_SMALL,
+			"MEDIUM": DockerServerComputeType_MEDIUM,
+			"LARGE": DockerServerComputeType_LARGE,
+			"X_LARGE": DockerServerComputeType_X_LARGE,
+			"X2_LARGE": DockerServerComputeType_X2_LARGE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.DockerServerOptions",
+		reflect.TypeOf((*DockerServerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.EfsFileSystemLocationProps",
@@ -607,6 +623,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "computeType", GoGetter: "ComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetArn", GoGetter: "FleetArn"},
@@ -614,6 +631,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -636,6 +654,15 @@ func init() {
 			"X_LARGE": FleetComputeType_X_LARGE,
 			"X2_LARGE": FleetComputeType_X2_LARGE,
 			"ATTRIBUTE_BASED": FleetComputeType_ATTRIBUTE_BASED,
+			"CUSTOM_INSTANCE_TYPE": FleetComputeType_CUSTOM_INSTANCE_TYPE,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codebuild.FleetOverflowBehavior",
+		reflect.TypeOf((*FleetOverflowBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"QUEUE": FleetOverflowBehavior_QUEUE,
+			"ON_DEMAND": FleetOverflowBehavior_ON_DEMAND,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -767,15 +794,19 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "computeType", GoGetter: "ComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetArn", GoGetter: "FleetArn"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetName", GoGetter: "FleetName"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFleet{}
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -784,6 +815,7 @@ func init() {
 		"aws-cdk-lib.aws_codebuild.IFleetRef",
 		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -837,6 +869,7 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}
@@ -867,6 +900,7 @@ func init() {
 		reflect.TypeOf((*IReportGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "reportGroupRef", GoGetter: "ReportGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReportGroupRef{}
@@ -892,6 +926,7 @@ func init() {
 		reflect.TypeOf((*ISourceCredentialRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceCredentialRef", GoGetter: "SourceCredentialRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISourceCredentialRef{}

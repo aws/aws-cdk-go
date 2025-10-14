@@ -38,7 +38,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ConnectionLogOptions: &ConnectionLogOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -49,6 +48,7 @@ import (
 //   	ServerCertificateArn: jsii.String("serverCertificateArn"),
 //
 //   	// the properties below are optional
+//   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ClientConnectOptions: &ClientConnectOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -671,9 +671,6 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetAuthenticationOptions(val interface{}
 }
 
 func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientCidrBlock(val *string) {
-	if err := j.validateSetClientCidrBlockParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"clientCidrBlock",
@@ -831,6 +828,25 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetVpnPort(val *float64) {
 		"vpnPort",
 		val,
 	)
+}
+
+// Creates a new IClientVpnEndpointRef from a clientVpnEndpointId.
+func CfnClientVpnEndpoint_FromClientVpnEndpointId(scope constructs.Construct, id *string, clientVpnEndpointId *string) IClientVpnEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnClientVpnEndpoint_FromClientVpnEndpointIdParameters(scope, id, clientVpnEndpointId); err != nil {
+		panic(err)
+	}
+	var returns IClientVpnEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint",
+		"fromClientVpnEndpointId",
+		[]interface{}{scope, id, clientVpnEndpointId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

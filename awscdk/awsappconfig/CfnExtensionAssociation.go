@@ -529,6 +529,44 @@ func (j *jsiiProxy_CfnExtensionAssociation)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IExtensionAssociationRef from an ARN.
+func CfnExtensionAssociation_FromExtensionAssociationArn(scope constructs.Construct, id *string, arn *string) IExtensionAssociationRef {
+	_init_.Initialize()
+
+	if err := validateCfnExtensionAssociation_FromExtensionAssociationArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IExtensionAssociationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appconfig.CfnExtensionAssociation",
+		"fromExtensionAssociationArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IExtensionAssociationRef from a extensionAssociationId.
+func CfnExtensionAssociation_FromExtensionAssociationId(scope constructs.Construct, id *string, extensionAssociationId *string) IExtensionAssociationRef {
+	_init_.Initialize()
+
+	if err := validateCfnExtensionAssociation_FromExtensionAssociationIdParameters(scope, id, extensionAssociationId); err != nil {
+		panic(err)
+	}
+	var returns IExtensionAssociationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appconfig.CfnExtensionAssociation",
+		"fromExtensionAssociationId",
+		[]interface{}{scope, id, extensionAssociationId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

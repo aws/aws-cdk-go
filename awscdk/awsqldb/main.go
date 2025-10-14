@@ -130,6 +130,7 @@ func init() {
 		"aws-cdk-lib.aws_qldb.ILedgerRef",
 		reflect.TypeOf((*ILedgerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ledgerRef", GoGetter: "LedgerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -143,6 +144,7 @@ func init() {
 		reflect.TypeOf((*IStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamRef{}

@@ -22,7 +22,7 @@ import (
 //   		Google: &IdentityPoolGoogleLoginProvider{
 //   			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 //   		},
-//   		OpenIdConnectProviders: []iOpenIdConnectProvider{
+//   		OpenIdConnectProviders: []iOIDCProviderRef{
 //   			openIdConnectProvider,
 //   		},
 //   		CustomProvider: jsii.String("my-custom-provider.example.com"),

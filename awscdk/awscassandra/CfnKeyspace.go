@@ -467,6 +467,25 @@ func (j *jsiiProxy_CfnKeyspace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IKeyspaceRef from a keyspaceName.
+func CfnKeyspace_FromKeyspaceName(scope constructs.Construct, id *string, keyspaceName *string) IKeyspaceRef {
+	_init_.Initialize()
+
+	if err := validateCfnKeyspace_FromKeyspaceNameParameters(scope, id, keyspaceName); err != nil {
+		panic(err)
+	}
+	var returns IKeyspaceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"fromKeyspaceName",
+		[]interface{}{scope, id, keyspaceName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

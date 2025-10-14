@@ -1278,6 +1278,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IAccessGrantRef",
 		reflect.TypeOf((*IAccessGrantRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessGrantRef", GoGetter: "AccessGrantRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1290,6 +1291,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IAccessGrantsInstanceRef",
 		reflect.TypeOf((*IAccessGrantsInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessGrantsInstanceRef", GoGetter: "AccessGrantsInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1302,6 +1304,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IAccessGrantsLocationRef",
 		reflect.TypeOf((*IAccessGrantsLocationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessGrantsLocationRef", GoGetter: "AccessGrantsLocationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1314,6 +1317,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IAccessPointRef",
 		reflect.TypeOf((*IAccessPointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessPointRef", GoGetter: "AccessPointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1337,6 +1341,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "bucketDomainName", GoGetter: "BucketDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketDualStackDomainName", GoGetter: "BucketDualStackDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketName", GoGetter: "BucketName"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketRef", GoGetter: "BucketRef"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketRegionalDomainName", GoGetter: "BucketRegionalDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketWebsiteDomainName", GoGetter: "BucketWebsiteDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketWebsiteUrl", GoGetter: "BucketWebsiteUrl"},
@@ -1385,6 +1390,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IBucketPolicyRef",
 		reflect.TypeOf((*IBucketPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucketPolicyRef", GoGetter: "BucketPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1397,6 +1403,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IBucketRef",
 		reflect.TypeOf((*IBucketRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucketRef", GoGetter: "BucketRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1409,6 +1416,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IMultiRegionAccessPointPolicyRef",
 		reflect.TypeOf((*IMultiRegionAccessPointPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "multiRegionAccessPointPolicyRef", GoGetter: "MultiRegionAccessPointPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1421,6 +1429,7 @@ func init() {
 		"aws-cdk-lib.aws_s3.IMultiRegionAccessPointRef",
 		reflect.TypeOf((*IMultiRegionAccessPointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "multiRegionAccessPointRef", GoGetter: "MultiRegionAccessPointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1434,6 +1443,7 @@ func init() {
 		reflect.TypeOf((*IStorageLensGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "storageLensGroupRef", GoGetter: "StorageLensGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStorageLensGroupRef{}
@@ -1446,6 +1456,7 @@ func init() {
 		reflect.TypeOf((*IStorageLensRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "storageLensRef", GoGetter: "StorageLensRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStorageLensRef{}

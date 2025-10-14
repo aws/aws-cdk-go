@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnLogicallyAirGappedBackupVault_FromBackupVaultNameParameters(scope constructs.Construct, id *string, backupVaultName *string) error {
+	return nil
+}
+
 func validateCfnLogicallyAirGappedBackupVault_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

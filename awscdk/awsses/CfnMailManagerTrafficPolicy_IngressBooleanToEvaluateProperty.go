@@ -28,6 +28,7 @@ type CfnMailManagerTrafficPolicy_IngressBooleanToEvaluateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate-analysis
 	//
 	Analysis interface{} `field:"optional" json:"analysis" yaml:"analysis"`
+	// The structure type for a boolean condition that provides the address lists to evaluate incoming traffic on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate-isinaddresslist
 	//
 	IsInAddressList interface{} `field:"optional" json:"isInAddressList" yaml:"isInAddressList"`

@@ -73,3 +73,13 @@ func (j *jsiiProxy_IVpcLink) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IVpcLink) VpcLinkRef() *VpcLinkReference {
+	var returns *VpcLinkReference
+	_jsii_.Get(
+		j,
+		"vpcLinkRef",
+		&returns,
+	)
+	return returns
+}
+

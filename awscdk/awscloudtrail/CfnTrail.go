@@ -826,6 +826,44 @@ func (j *jsiiProxy_CfnTrail)SetTrailName(val *string) {
 	)
 }
 
+// Creates a new ITrailRef from an ARN.
+func CfnTrail_FromTrailArn(scope constructs.Construct, id *string, arn *string) ITrailRef {
+	_init_.Initialize()
+
+	if err := validateCfnTrail_FromTrailArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ITrailRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
+		"fromTrailArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ITrailRef from a trailName.
+func CfnTrail_FromTrailName(scope constructs.Construct, id *string, trailName *string) ITrailRef {
+	_init_.Initialize()
+
+	if err := validateCfnTrail_FromTrailNameParameters(scope, id, trailName); err != nil {
+		panic(err)
+	}
+	var returns ITrailRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
+		"fromTrailName",
+		[]interface{}{scope, id, trailName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

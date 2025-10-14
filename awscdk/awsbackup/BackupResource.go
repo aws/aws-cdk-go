@@ -181,7 +181,7 @@ func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 }
 
 // An EC2 instance.
-func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
+func BackupResource_FromEc2Instance(instance awsec2.IInstanceRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromEc2InstanceParameters(instance); err != nil {

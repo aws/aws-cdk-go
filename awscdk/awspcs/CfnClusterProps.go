@@ -62,6 +62,10 @@ type CfnClusterProps struct {
 	//
 	Scheduler interface{} `field:"required" json:"scheduler" yaml:"scheduler"`
 	// The size of the cluster.
+	//
+	// - `SMALL` : 32 compute nodes and 256 jobs
+	// - `MEDIUM` : 512 compute nodes and 8192 jobs
+	// - `LARGE` : 2048 compute nodes and 16,384 jobs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-cluster.html#cfn-pcs-cluster-size
 	//
 	Size *string `field:"required" json:"size" yaml:"size"`

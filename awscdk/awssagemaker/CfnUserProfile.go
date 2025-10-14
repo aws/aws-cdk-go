@@ -683,6 +683,25 @@ func (j *jsiiProxy_CfnUserProfile)SetUserSettings(val interface{}) {
 	)
 }
 
+// Creates a new IUserProfileRef from an ARN.
+func CfnUserProfile_FromUserProfileArn(scope constructs.Construct, id *string, arn *string) IUserProfileRef {
+	_init_.Initialize()
+
+	if err := validateCfnUserProfile_FromUserProfileArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IUserProfileRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile",
+		"fromUserProfileArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

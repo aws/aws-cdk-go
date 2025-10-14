@@ -40,6 +40,7 @@ type FlowLog interface {
 	Env() *awscdk.ResourceEnvironment
 	// The Id of the VPC Flow Log.
 	FlowLogId() *string
+	// A reference to a FlowLog resource.
 	FlowLogRef() *FlowLogReference
 	// The iam role used to publish logs to CloudWatch.
 	IamRole() awsiam.IRole

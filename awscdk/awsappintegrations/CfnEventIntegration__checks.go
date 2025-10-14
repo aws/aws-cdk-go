@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnEventIntegration) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnEventIntegration_FromEventIntegrationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnEventIntegration_FromEventIntegrationNameParameters(scope constructs.Construct, id *string, eventIntegrationName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if eventIntegrationName == nil {
+		return fmt.Errorf("parameter eventIntegrationName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnEventIntegration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

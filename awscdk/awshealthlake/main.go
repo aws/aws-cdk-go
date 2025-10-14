@@ -98,6 +98,7 @@ func init() {
 		"aws-cdk-lib.aws_healthlake.IFHIRDatastoreRef",
 		reflect.TypeOf((*IFHIRDatastoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fhirDatastoreRef", GoGetter: "FhirDatastoreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

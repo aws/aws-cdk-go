@@ -16,15 +16,19 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	BackupSubnetCidr: jsii.String("backupSubnetCidr"),
 //   	ClientSubnetCidr: jsii.String("clientSubnetCidr"),
+//   	CustomDomainName: jsii.String("customDomainName"),
 //   	DefaultDnsPrefix: jsii.String("defaultDnsPrefix"),
 //   	DeleteAssociatedResources: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
+//   	S3Access: jsii.String("s3Access"),
+//   	S3PolicyDocument: jsii.String("s3PolicyDocument"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	ZeroEtlAccess: jsii.String("zeroEtlAccess"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html
@@ -52,6 +56,10 @@ type CfnOdbNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-clientsubnetcidr
 	//
 	ClientSubnetCidr *string `field:"optional" json:"clientSubnetCidr" yaml:"clientSubnetCidr"`
+	// The domain name for the resources in the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-customdomainname
+	//
+	CustomDomainName *string `field:"optional" json:"customDomainName" yaml:"customDomainName"`
 	// The DNS prefix to the default DNS domain name.
 	//
 	// The default DNS domain name is oraclevcn.com.
@@ -70,9 +78,21 @@ type CfnOdbNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// The configuration for Amazon S3 access from the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-s3access
+	//
+	S3Access *string `field:"optional" json:"s3Access" yaml:"s3Access"`
+	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-s3policydocument
+	//
+	S3PolicyDocument *string `field:"optional" json:"s3PolicyDocument" yaml:"s3PolicyDocument"`
 	// Tags to assign to the Odb Network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The configuration for Zero-ETL access from the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-zeroetlaccess
+	//
+	ZeroEtlAccess *string `field:"optional" json:"zeroEtlAccess" yaml:"zeroEtlAccess"`
 }
 

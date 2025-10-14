@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
-func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(_stage IStage) error {
+func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(_stage IStageRef) error {
 	if _stage == nil {
 		return fmt.Errorf("parameter _stage is required, but nil was provided")
 	}

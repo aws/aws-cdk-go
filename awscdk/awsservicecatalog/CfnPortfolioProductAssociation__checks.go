@@ -179,22 +179,6 @@ func validateCfnPortfolioProductAssociation_IsConstructParameters(x interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnPortfolioProductAssociation) validateSetPortfolioIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnPortfolioProductAssociation) validateSetProductIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnPortfolioProductAssociationParameters(scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -204,9 +188,6 @@ func validateNewCfnPortfolioProductAssociationParameters(scope constructs.Constr
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

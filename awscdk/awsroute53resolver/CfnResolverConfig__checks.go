@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnResolverConfig) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnResolverConfig_FromResourceIdParameters(scope constructs.Construct, id *string, resourceId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if resourceId == nil {
+		return fmt.Errorf("parameter resourceId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnResolverConfig_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

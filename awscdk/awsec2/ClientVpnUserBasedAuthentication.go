@@ -62,7 +62,7 @@ func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) Clien
 }
 
 // Federated authentication.
-func ClientVpnUserBasedAuthentication_Federated(samlProvider awsiam.ISamlProvider, selfServiceSamlProvider awsiam.ISamlProvider) ClientVpnUserBasedAuthentication {
+func ClientVpnUserBasedAuthentication_Federated(samlProvider awsiam.ISAMLProviderRef, selfServiceSamlProvider awsiam.ISAMLProviderRef) ClientVpnUserBasedAuthentication {
 	_init_.Initialize()
 
 	if err := validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider); err != nil {

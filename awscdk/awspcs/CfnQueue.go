@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::PCS::Queue` resource creates an AWS PCS queue.
+// Creates an AWS PCS queue resource.
+//
+// For more information, see [Creating a queue in AWS PCS](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_queues_create.html) in the *AWS PCS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,6 +28,14 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	SlurmConfiguration: &SlurmConfigurationProperty{
+//   		SlurmCustomSettings: []interface{}{
+//   			&SlurmCustomSettingProperty{
+//   				ParameterName: jsii.String("parameterName"),
+//   				ParameterValue: jsii.String("parameterValue"),
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -46,7 +56,7 @@ type CfnQueue interface {
 	AttrId() *string
 	// The provisioning status of the queue.
 	//
-	// The provisioning status doesn't indicate the overall health of the queue.
+	// > The provisioning status doesn't indicate the overall health of the queue. > The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED` . For more information, see [Frequently asked questions about Slurm versions in AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/slurm-versions_faq.html) in the *AWS PCS User Guide* .
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -87,6 +97,9 @@ type CfnQueue interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Additional options related to the Slurm scheduler.
+	SlurmConfiguration() interface{}
+	SetSlurmConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -402,6 +415,16 @@ func (j *jsiiProxy_CfnQueue) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) SlurmConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"slurmConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -496,6 +519,17 @@ func (j *jsiiProxy_CfnQueue)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetSlurmConfiguration(val interface{}) {
+	if err := j.validateSetSlurmConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"slurmConfiguration",
 		val,
 	)
 }

@@ -20,6 +20,8 @@ type IStateMachine interface {
 	GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity read permissions for this state machine.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permission to redrive the execution of the state machine.
+	GrantRedriveExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start an execution of this state machine.
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start a synchronous execution of this state machine.
@@ -119,6 +121,22 @@ func (i *jsiiProxy_IStateMachine) GrantRead(identity awsiam.IGrantable) awsiam.G
 	_jsii_.Invoke(
 		i,
 		"grantRead",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStateMachine) GrantRedriveExecution(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantRedriveExecutionParameters(identity); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantRedriveExecution",
 		[]interface{}{identity},
 		&returns,
 	)

@@ -80,6 +80,10 @@ func validateCfnLoadBalancer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) validateSetEnableCapacityReservationProvisionStabilizeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) validateSetLoadBalancerAttributesParameters(val interface{}) error {
 	return nil
 }

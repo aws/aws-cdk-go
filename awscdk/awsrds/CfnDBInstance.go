@@ -329,6 +329,9 @@ type CfnDBInstance interface {
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	ManageMasterUserPassword() interface{}
 	SetManageMasterUserPassword(val interface{})
+	// Specifies the authentication type for the master user.
+	MasterUserAuthenticationType() *string
+	SetMasterUserAuthenticationType(val *string)
 	// The master user name for the DB instance.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
@@ -1381,6 +1384,16 @@ func (j *jsiiProxy_CfnDBInstance) ManageMasterUserPassword() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) MasterUserAuthenticationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"masterUserAuthenticationType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) MasterUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -2219,6 +2232,14 @@ func (j *jsiiProxy_CfnDBInstance)SetManageMasterUserPassword(val interface{}) {
 	_jsii_.Set(
 		j,
 		"manageMasterUserPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetMasterUserAuthenticationType(val *string) {
+	_jsii_.Set(
+		j,
+		"masterUserAuthenticationType",
 		val,
 	)
 }

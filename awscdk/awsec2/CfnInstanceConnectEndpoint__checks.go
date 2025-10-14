@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnInstanceConnectEndpoint) validateValidatePropertiesParamet
 	return nil
 }
 
+func validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointIdParameters(scope constructs.Construct, id *string, instanceConnectEndpointId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if instanceConnectEndpointId == nil {
+		return fmt.Errorf("parameter instanceConnectEndpointId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnInstanceConnectEndpoint_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

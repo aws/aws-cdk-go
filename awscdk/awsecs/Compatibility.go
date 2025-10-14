@@ -54,5 +54,13 @@ const (
 	Compatibility_EC2_AND_FARGATE Compatibility = "EC2_AND_FARGATE"
 	// The task should specify the External launch type.
 	Compatibility_EXTERNAL Compatibility = "EXTERNAL"
+	// The task should specify the Managed Instances launch type.
+	Compatibility_MANAGED_INSTANCES Compatibility = "MANAGED_INSTANCES"
+	// The task can specify either the EC2 or Managed Instances launch types.
+	Compatibility_EC2_AND_MANAGED_INSTANCES Compatibility = "EC2_AND_MANAGED_INSTANCES"
+	// The task can specify either the Fargate or Managed Instances launch types.
+	Compatibility_FARGATE_AND_MANAGED_INSTANCES Compatibility = "FARGATE_AND_MANAGED_INSTANCES"
+	// The task can specify either the Fargate, EC2 or Managed Instances launch types.
+	Compatibility_FARGATE_AND_EC2_AND_MANAGED_INSTANCES Compatibility = "FARGATE_AND_EC2_AND_MANAGED_INSTANCES"
 )
 

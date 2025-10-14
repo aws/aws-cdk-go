@@ -1100,3 +1100,14 @@ func MariaDbEngineVersion_VER_11_4_7() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_11_8_3() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_11_8_3",
+		&returns,
+	)
+	return returns
+}
+

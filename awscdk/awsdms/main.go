@@ -850,6 +850,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.ICertificateRef",
 		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -862,6 +863,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.IDataMigrationRef",
 		reflect.TypeOf((*IDataMigrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataMigrationRef", GoGetter: "DataMigrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -874,6 +876,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.IDataProviderRef",
 		reflect.TypeOf((*IDataProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataProviderRef", GoGetter: "DataProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -886,6 +889,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.IEndpointRef",
 		reflect.TypeOf((*IEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "endpointRef", GoGetter: "EndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -898,6 +902,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.IEventSubscriptionRef",
 		reflect.TypeOf((*IEventSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eventSubscriptionRef", GoGetter: "EventSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -910,6 +915,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.IInstanceProfileRef",
 		reflect.TypeOf((*IInstanceProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceProfileRef", GoGetter: "InstanceProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -922,6 +928,7 @@ func init() {
 		"aws-cdk-lib.aws_dms.IMigrationProjectRef",
 		reflect.TypeOf((*IMigrationProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "migrationProjectRef", GoGetter: "MigrationProjectRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -935,6 +942,7 @@ func init() {
 		reflect.TypeOf((*IReplicationConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationConfigRef", GoGetter: "ReplicationConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationConfigRef{}
@@ -947,6 +955,7 @@ func init() {
 		reflect.TypeOf((*IReplicationInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationInstanceRef", GoGetter: "ReplicationInstanceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationInstanceRef{}
@@ -959,6 +968,7 @@ func init() {
 		reflect.TypeOf((*IReplicationSubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationSubnetGroupRef", GoGetter: "ReplicationSubnetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationSubnetGroupRef{}
@@ -971,6 +981,7 @@ func init() {
 		reflect.TypeOf((*IReplicationTaskRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationTaskRef", GoGetter: "ReplicationTaskRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationTaskRef{}

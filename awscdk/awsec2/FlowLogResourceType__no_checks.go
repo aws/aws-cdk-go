@@ -8,7 +8,7 @@ func validateFlowLogResourceType_FromNetworkInterfaceIdParameters(id *string) er
 	return nil
 }
 
-func validateFlowLogResourceType_FromSubnetParameters(subnet ISubnet) error {
+func validateFlowLogResourceType_FromSubnetParameters(subnet ISubnetRef) error {
 	return nil
 }
 

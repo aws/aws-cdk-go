@@ -160,6 +160,16 @@ func (j *jsiiProxy_IRestApi) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_IRestApi) RestApiRef() *RestApiReference {
+	var returns *RestApiReference
+	_jsii_.Get(
+		j,
+		"restApiRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IRestApi) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

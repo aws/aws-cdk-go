@@ -52,6 +52,12 @@ type Permission struct {
 	// Default: - No functionUrlAuthType.
 	//
 	FunctionUrlAuthType FunctionUrlAuthType `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
+	// The condition key for limiting the scope of lambda:InvokeFunction action to Function URL only.
+	//
+	// When set to true, it restricts the principal in this policy to perform invokes for the resource only via Function URLs.
+	// Default: - false.
+	//
+	InvokedViaFunctionUrl *bool `field:"optional" json:"invokedViaFunctionUrl" yaml:"invokedViaFunctionUrl"`
 	// The organization you want to grant permissions to.
 	//
 	// Use this ONLY if you

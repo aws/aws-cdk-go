@@ -24,6 +24,8 @@ package awssagemaker
 //   	InstanceStorageConfigs: []interface{}{
 //   		&ClusterInstanceStorageConfigProperty{
 //   			EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
+//   				RootVolume: jsii.Boolean(false),
+//   				VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   				VolumeSizeInGb: jsii.Number(123),
 //   			},
 //   		},

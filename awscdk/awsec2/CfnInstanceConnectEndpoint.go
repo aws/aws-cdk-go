@@ -502,6 +502,25 @@ func (j *jsiiProxy_CfnInstanceConnectEndpoint)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IInstanceConnectEndpointRef from a instanceConnectEndpointId.
+func CfnInstanceConnectEndpoint_FromInstanceConnectEndpointId(scope constructs.Construct, id *string, instanceConnectEndpointId *string) IInstanceConnectEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointIdParameters(scope, id, instanceConnectEndpointId); err != nil {
+		panic(err)
+	}
+	var returns IInstanceConnectEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInstanceConnectEndpoint",
+		"fromInstanceConnectEndpointId",
+		[]interface{}{scope, id, instanceConnectEndpointId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

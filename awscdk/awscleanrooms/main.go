@@ -38,6 +38,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "errorMessageConfiguration", GoGetter: "ErrorMessageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "format", GoGetter: "Format"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -102,6 +103,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysisTemplate_AnalysisTemplateArtifactsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.ErrorMessageConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysisTemplate_ErrorMessageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnAnalysisTemplate.HashProperty",
 		reflect.TypeOf((*CfnAnalysisTemplate_HashProperty)(nil)).Elem(),
 	)
@@ -128,6 +133,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCollaborationIdentifier", GoGetter: "AttrCollaborationIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "autoApprovedChangeTypes", GoGetter: "AutoApprovedChangeTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -757,6 +763,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.IAnalysisTemplateRef",
 		reflect.TypeOf((*IAnalysisTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "analysisTemplateRef", GoGetter: "AnalysisTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -769,6 +776,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.ICollaborationRef",
 		reflect.TypeOf((*ICollaborationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "collaborationRef", GoGetter: "CollaborationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -781,6 +789,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.IConfiguredTableAssociationRef",
 		reflect.TypeOf((*IConfiguredTableAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configuredTableAssociationRef", GoGetter: "ConfiguredTableAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -793,6 +802,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.IConfiguredTableRef",
 		reflect.TypeOf((*IConfiguredTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configuredTableRef", GoGetter: "ConfiguredTableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -805,6 +815,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.IIdMappingTableRef",
 		reflect.TypeOf((*IIdMappingTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "idMappingTableRef", GoGetter: "IdMappingTableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -817,6 +828,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.IIdNamespaceAssociationRef",
 		reflect.TypeOf((*IIdNamespaceAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "idNamespaceAssociationRef", GoGetter: "IdNamespaceAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -829,6 +841,7 @@ func init() {
 		"aws-cdk-lib.aws_cleanrooms.IMembershipRef",
 		reflect.TypeOf((*IMembershipRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "membershipRef", GoGetter: "MembershipRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -842,6 +855,7 @@ func init() {
 		reflect.TypeOf((*IPrivacyBudgetTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "privacyBudgetTemplateRef", GoGetter: "PrivacyBudgetTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrivacyBudgetTemplateRef{}

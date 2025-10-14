@@ -21,10 +21,22 @@ package awsquicksight
 //   	DataPointTooltipOption: &DataPointTooltipOptionProperty{
 //   		AvailabilityStatus: jsii.String("availabilityStatus"),
 //   	},
+//   	DataQaEnabledOption: &DataQAEnabledOptionProperty{
+//   		AvailabilityStatus: jsii.String("availabilityStatus"),
+//   	},
+//   	DataStoriesSharingOption: &DataStoriesSharingOptionProperty{
+//   		AvailabilityStatus: jsii.String("availabilityStatus"),
+//   	},
+//   	ExecutiveSummaryOption: &ExecutiveSummaryOptionProperty{
+//   		AvailabilityStatus: jsii.String("availabilityStatus"),
+//   	},
 //   	ExportToCsvOption: &ExportToCSVOptionProperty{
 //   		AvailabilityStatus: jsii.String("availabilityStatus"),
 //   	},
 //   	ExportWithHiddenFieldsOption: &ExportWithHiddenFieldsOptionProperty{
+//   		AvailabilityStatus: jsii.String("availabilityStatus"),
+//   	},
+//   	QuickSuiteActionsOption: &QuickSuiteActionsOptionProperty{
 //   		AvailabilityStatus: jsii.String("availabilityStatus"),
 //   	},
 //   	SheetControlsOption: &SheetControlsOptionProperty{
@@ -65,6 +77,20 @@ type CfnDashboard_DashboardPublishOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datapointtooltipoption
 	//
 	DataPointTooltipOption interface{} `field:"optional" json:"dataPointTooltipOption" yaml:"dataPointTooltipOption"`
+	// Adds Q&A capabilities to an Amazon QuickSight dashboard.
+	//
+	// If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-dataqaenabledoption
+	//
+	DataQaEnabledOption interface{} `field:"optional" json:"dataQaEnabledOption" yaml:"dataQaEnabledOption"`
+	// Data stories sharing option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datastoriessharingoption
+	//
+	DataStoriesSharingOption interface{} `field:"optional" json:"dataStoriesSharingOption" yaml:"dataStoriesSharingOption"`
+	// Executive summary option.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-executivesummaryoption
+	//
+	ExecutiveSummaryOption interface{} `field:"optional" json:"executiveSummaryOption" yaml:"executiveSummaryOption"`
 	// Export to .csv option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
 	//
@@ -73,6 +99,9 @@ type CfnDashboard_DashboardPublishOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exportwithhiddenfieldsoption
 	//
 	ExportWithHiddenFieldsOption interface{} `field:"optional" json:"exportWithHiddenFieldsOption" yaml:"exportWithHiddenFieldsOption"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-quicksuiteactionsoption
+	//
+	QuickSuiteActionsOption interface{} `field:"optional" json:"quickSuiteActionsOption" yaml:"quickSuiteActionsOption"`
 	// Sheet controls option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
 	//

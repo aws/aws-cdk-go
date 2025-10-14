@@ -216,10 +216,10 @@ var samlProvider samlProvider
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
 	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
-		OpenIdConnectProviders: []iOpenIdConnectProvider{
+		OpenIdConnectProviders: []iOIDCProviderRef{
 			openIdConnectProvider,
 		},
-		SamlProviders: []iSamlProvider{
+		SamlProviders: []iSAMLProviderRef{
 			samlProvider,
 		},
 	},
@@ -244,7 +244,7 @@ awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 		Google: &IdentityPoolGoogleLoginProvider{
 			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 		},
-		OpenIdConnectProviders: []iOpenIdConnectProvider{
+		OpenIdConnectProviders: []iOIDCProviderRef{
 			openIdConnectProvider,
 		},
 		CustomProvider: jsii.String("my-custom-provider.example.com"),

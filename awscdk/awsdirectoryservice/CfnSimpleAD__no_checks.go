@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnSimpleAD) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnSimpleAD_FromDirectoryIdParameters(scope constructs.Construct, id *string, directoryId *string) error {
+	return nil
+}
+
 func validateCfnSimpleAD_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

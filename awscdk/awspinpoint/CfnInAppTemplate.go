@@ -574,6 +574,44 @@ func (j *jsiiProxy_CfnInAppTemplate)SetTemplateName(val *string) {
 	)
 }
 
+// Creates a new IInAppTemplateRef from an ARN.
+func CfnInAppTemplate_FromInAppTemplateArn(scope constructs.Construct, id *string, arn *string) IInAppTemplateRef {
+	_init_.Initialize()
+
+	if err := validateCfnInAppTemplate_FromInAppTemplateArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IInAppTemplateRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnInAppTemplate",
+		"fromInAppTemplateArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IInAppTemplateRef from a templateName.
+func CfnInAppTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) IInAppTemplateRef {
+	_init_.Initialize()
+
+	if err := validateCfnInAppTemplate_FromTemplateNameParameters(scope, id, templateName); err != nil {
+		panic(err)
+	}
+	var returns IInAppTemplateRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_pinpoint.CfnInAppTemplate",
+		"fromTemplateName",
+		[]interface{}{scope, id, templateName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

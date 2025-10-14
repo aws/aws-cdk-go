@@ -8,11 +8,11 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkAcl networkAcl
+//   var networkAclRef iNetworkAclRef
 //   var subnet subnet
 //
 //   subnetNetworkAclAssociationProps := &SubnetNetworkAclAssociationProps{
-//   	NetworkAcl: networkAcl,
+//   	NetworkAcl: networkAclRef,
 //   	Subnet: subnet,
 //
 //   	// the properties below are optional
@@ -21,7 +21,7 @@ package awsec2
 //
 type SubnetNetworkAclAssociationProps struct {
 	// The Network ACL this association is defined for.
-	NetworkAcl INetworkAcl `field:"required" json:"networkAcl" yaml:"networkAcl"`
+	NetworkAcl INetworkAclRef `field:"required" json:"networkAcl" yaml:"networkAcl"`
 	// ID of the Subnet.
 	Subnet ISubnet `field:"required" json:"subnet" yaml:"subnet"`
 	// The name of the SubnetNetworkAclAssociation.

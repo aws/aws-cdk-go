@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnFuotaTask) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnFuotaTask_FromFuotaTaskArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnFuotaTask_FromFuotaTaskIdParameters(scope constructs.Construct, id *string, fuotaTaskId *string) error {
+	return nil
+}
+
 func validateCfnFuotaTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

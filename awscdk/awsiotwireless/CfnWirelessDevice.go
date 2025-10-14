@@ -649,6 +649,44 @@ func (j *jsiiProxy_CfnWirelessDevice)SetType(val *string) {
 	)
 }
 
+// Creates a new IWirelessDeviceRef from an ARN.
+func CfnWirelessDevice_FromWirelessDeviceArn(scope constructs.Construct, id *string, arn *string) IWirelessDeviceRef {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDevice_FromWirelessDeviceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IWirelessDeviceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"fromWirelessDeviceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IWirelessDeviceRef from a wirelessDeviceId.
+func CfnWirelessDevice_FromWirelessDeviceId(scope constructs.Construct, id *string, wirelessDeviceId *string) IWirelessDeviceRef {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDevice_FromWirelessDeviceIdParameters(scope, id, wirelessDeviceId); err != nil {
+		panic(err)
+	}
+	var returns IWirelessDeviceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"fromWirelessDeviceId",
+		[]interface{}{scope, id, wirelessDeviceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

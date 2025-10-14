@@ -7,16 +7,13 @@ import (
 // Options for a client VPN endpoint.
 //
 // Example:
-//   endpoint := vpc.addClientVpnEndpoint(jsii.String("Endpoint"), &ClientVpnEndpointOptions{
+//   vpc.addClientVpnEndpoint(jsii.String("Endpoint"), &ClientVpnEndpointOptions{
 //   	Cidr: jsii.String("10.100.0.0/16"),
 //   	ServerCertificateArn: jsii.String("arn:aws:acm:us-east-1:123456789012:certificate/server-certificate-id"),
+//   	// Mutual authentication
+//   	ClientCertificateArn: jsii.String("arn:aws:acm:us-east-1:123456789012:certificate/client-certificate-id"),
+//   	// User-based authentication
 //   	UserBasedAuthentication: ec2.ClientVpnUserBasedAuthentication_Federated(samlProvider),
-//   	AuthorizeAllUsersToVpcCidr: jsii.Boolean(false),
-//   })
-//
-//   endpoint.AddAuthorizationRule(jsii.String("Rule"), &ClientVpnAuthorizationRuleOptions{
-//   	Cidr: jsii.String("10.0.10.0/32"),
-//   	GroupId: jsii.String("group-id"),
 //   })
 //
 type ClientVpnEndpointOptions struct {
@@ -70,6 +67,15 @@ type ClientVpnEndpointOptions struct {
 	// Default: - no description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeout` is reached.
+	//
+	// If `true`, users are prompted to reconnect client VPN.
+	// If `false`, client VPN attempts to reconnect automatically.
+	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-max-duration.html
+	//
+	// Default: undefined - AWS Client VPN default is true.
+	//
+	DisconnectOnSessionTimeout *bool `field:"optional" json:"disconnectOnSessionTimeout" yaml:"disconnectOnSessionTimeout"`
 	// Information about the DNS servers to be used for DNS resolution.
 	//
 	// A Client VPN endpoint can have up to two DNS servers.

@@ -14,19 +14,6 @@ package awsamazonmq
 //   	EngineType: jsii.String("engineType"),
 //   	HostInstanceType: jsii.String("hostInstanceType"),
 //   	PubliclyAccessible: jsii.Boolean(false),
-//   	Users: []interface{}{
-//   		&UserProperty{
-//   			Password: jsii.String("password"),
-//   			Username: jsii.String("username"),
-//
-//   			// the properties below are optional
-//   			ConsoleAccess: jsii.Boolean(false),
-//   			Groups: []*string{
-//   				jsii.String("groups"),
-//   			},
-//   			ReplicationUser: jsii.Boolean(false),
-//   		},
-//   	},
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
@@ -50,7 +37,6 @@ package awsamazonmq
 //   		},
 //   		RoleBase: jsii.String("roleBase"),
 //   		RoleSearchMatching: jsii.String("roleSearchMatching"),
-//   		ServiceAccountPassword: jsii.String("serviceAccountPassword"),
 //   		ServiceAccountUsername: jsii.String("serviceAccountUsername"),
 //   		UserBase: jsii.String("userBase"),
 //   		UserSearchMatching: jsii.String("userSearchMatching"),
@@ -58,6 +44,7 @@ package awsamazonmq
 //   		// the properties below are optional
 //   		RoleName: jsii.String("roleName"),
 //   		RoleSearchSubtree: jsii.Boolean(false),
+//   		ServiceAccountPassword: jsii.String("serviceAccountPassword"),
 //   		UserRoleName: jsii.String("userRoleName"),
 //   		UserSearchSubtree: jsii.Boolean(false),
 //   	},
@@ -81,6 +68,19 @@ package awsamazonmq
 //   		&tagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Users: []interface{}{
+//   		&UserProperty{
+//   			Password: jsii.String("password"),
+//   			Username: jsii.String("username"),
+//
+//   			// the properties below are optional
+//   			ConsoleAccess: jsii.Boolean(false),
+//   			Groups: []*string{
+//   				jsii.String("groups"),
+//   			},
+//   			ReplicationUser: jsii.Boolean(false),
 //   		},
 //   	},
 //   }
@@ -118,12 +118,6 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
 	//
 	PubliclyAccessible interface{} `field:"required" json:"publiclyAccessible" yaml:"publiclyAccessible"`
-	// The list of broker users (persons or applications) who can access queues and topics.
-	//
-	// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
-	//
-	Users interface{} `field:"required" json:"users" yaml:"users"`
 	// Optional.
 	//
 	// The authentication strategy used to secure the broker. The default is `SIMPLE` .
@@ -200,5 +194,11 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
 	//
 	Tags *[]*CfnBroker_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
+	// The list of broker users (persons or applications) who can access queues and topics.
+	//
+	// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
+	//
+	Users interface{} `field:"optional" json:"users" yaml:"users"`
 }
 

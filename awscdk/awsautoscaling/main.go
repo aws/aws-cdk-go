@@ -873,6 +873,7 @@ func init() {
 		"aws-cdk-lib.aws_autoscaling.IAutoScalingGroupRef",
 		reflect.TypeOf((*IAutoScalingGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroupRef", GoGetter: "AutoScalingGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -885,6 +886,7 @@ func init() {
 		"aws-cdk-lib.aws_autoscaling.ILaunchConfigurationRef",
 		reflect.TypeOf((*ILaunchConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "launchConfigurationRef", GoGetter: "LaunchConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -913,6 +915,7 @@ func init() {
 		"aws-cdk-lib.aws_autoscaling.ILifecycleHookRef",
 		reflect.TypeOf((*ILifecycleHookRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "lifecycleHookRef", GoGetter: "LifecycleHookRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -936,6 +939,7 @@ func init() {
 		reflect.TypeOf((*IScalingPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingPolicyRef", GoGetter: "ScalingPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScalingPolicyRef{}
@@ -948,6 +952,7 @@ func init() {
 		reflect.TypeOf((*IScheduledActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduledActionRef", GoGetter: "ScheduledActionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduledActionRef{}
@@ -960,6 +965,7 @@ func init() {
 		reflect.TypeOf((*IWarmPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "warmPoolRef", GoGetter: "WarmPoolRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWarmPoolRef{}

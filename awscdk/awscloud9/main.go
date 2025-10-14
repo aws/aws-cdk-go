@@ -82,6 +82,7 @@ func init() {
 		"aws-cdk-lib.aws_cloud9.IEnvironmentEC2Ref",
 		reflect.TypeOf((*IEnvironmentEC2Ref)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "environmentEc2Ref", GoGetter: "EnvironmentEc2Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

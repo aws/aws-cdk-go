@@ -34,8 +34,8 @@ type BasePathMappingProps struct {
 	//
 	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
 	// The DomainName to associate with this base path mapping.
-	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
+	DomainName IDomainNameRef `field:"required" json:"domainName" yaml:"domainName"`
 	// The RestApi resource to target.
-	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
+	RestApi IRestApiRef `field:"required" json:"restApi" yaml:"restApi"`
 }
 

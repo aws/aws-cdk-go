@@ -70,6 +70,16 @@ func init() {
 		reflect.TypeOf((*AliasRecordTargetConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.Alpn",
+		reflect.TypeOf((*Alpn)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Alpn{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.CaaAmazonRecord",
 		reflect.TypeOf((*CaaAmazonRecord)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -798,6 +808,45 @@ func init() {
 		"aws-cdk-lib.aws_route53.HostedZoneReference",
 		reflect.TypeOf((*HostedZoneReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.HttpsRecord",
+		reflect.TypeOf((*HttpsRecord)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HttpsRecord{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_RecordSet)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.HttpsRecordProps",
+		reflect.TypeOf((*HttpsRecordProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.HttpsRecordServiceModeProps",
+		reflect.TypeOf((*HttpsRecordServiceModeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.HttpsRecordValue",
+		reflect.TypeOf((*HttpsRecordValue)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HttpsRecordValue{}
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_route53.IAliasRecordTarget",
 		reflect.TypeOf((*IAliasRecordTarget)(nil)).Elem(),
@@ -812,6 +861,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.ICidrCollectionRef",
 		reflect.TypeOf((*ICidrCollectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cidrCollectionRef", GoGetter: "CidrCollectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -824,6 +874,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IDNSSECRef",
 		reflect.TypeOf((*IDNSSECRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dnssecRef", GoGetter: "DnssecRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -852,6 +903,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IHealthCheckRef",
 		reflect.TypeOf((*IHealthCheckRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "healthCheckRef", GoGetter: "HealthCheckRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -884,6 +936,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IHostedZoneRef",
 		reflect.TypeOf((*IHostedZoneRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hostedZoneRef", GoGetter: "HostedZoneRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -914,6 +967,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IKeySigningKeyRef",
 		reflect.TypeOf((*IKeySigningKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "keySigningKeyRef", GoGetter: "KeySigningKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -983,6 +1037,7 @@ func init() {
 		reflect.TypeOf((*IRecordSetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "recordSetGroupRef", GoGetter: "RecordSetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRecordSetGroupRef{}
@@ -995,6 +1050,7 @@ func init() {
 		reflect.TypeOf((*IRecordSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "recordSetRef", GoGetter: "RecordSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRecordSetRef{}
@@ -1139,6 +1195,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.PrivateHostedZoneAttributes",
+		reflect.TypeOf((*PrivateHostedZoneAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.PrivateHostedZoneProps",
 		reflect.TypeOf((*PrivateHostedZoneProps)(nil)).Elem(),
 	)
@@ -1281,6 +1341,45 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.SrvRecordValue",
 		reflect.TypeOf((*SrvRecordValue)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.SvcbRecord",
+		reflect.TypeOf((*SvcbRecord)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SvcbRecord{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_RecordSet)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.SvcbRecordProps",
+		reflect.TypeOf((*SvcbRecordProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.SvcbRecordServiceModeProps",
+		reflect.TypeOf((*SvcbRecordServiceModeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.SvcbRecordValue",
+		reflect.TypeOf((*SvcbRecordValue)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_SvcbRecordValue{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.TxtRecord",

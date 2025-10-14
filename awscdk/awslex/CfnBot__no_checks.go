@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnBot) validateSetDataPrivacyParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnBot) validateSetErrorLogSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBot) validateSetIdleSessionTtlInSecondsParameters(val *float64) error {
 	return nil
 }

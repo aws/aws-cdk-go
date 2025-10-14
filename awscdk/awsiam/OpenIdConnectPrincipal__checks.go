@@ -38,7 +38,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) validateWithConditionsParameters(cond
 	return nil
 }
 
-func validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider IOpenIdConnectProvider) error {
+func validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider IOIDCProviderRef) error {
 	if openIdConnectProvider == nil {
 		return fmt.Errorf("parameter openIdConnectProvider is required, but nil was provided")
 	}

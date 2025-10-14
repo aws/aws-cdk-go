@@ -32,10 +32,10 @@ import (
 //   				"dimension": jsii.Number(123),
 //   				"index": jsii.Boolean(false),
 //   				"method": &MethodProperty{
-//   					"engine": jsii.String("engine"),
 //   					"name": jsii.String("name"),
 //
 //   					// the properties below are optional
+//   					"engine": jsii.String("engine"),
 //   					"parameters": &ParametersProperty{
 //   						"efConstruction": jsii.Number(123),
 //   						"m": jsii.Number(123),

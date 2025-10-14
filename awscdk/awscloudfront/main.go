@@ -1769,6 +1769,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IAnycastIpListRef",
 		reflect.TypeOf((*IAnycastIpListRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "anycastIpListRef", GoGetter: "AnycastIpListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1782,6 +1783,7 @@ func init() {
 		reflect.TypeOf((*ICachePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "cachePolicyId", GoGetter: "CachePolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "cachePolicyRef", GoGetter: "CachePolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1794,6 +1796,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.ICachePolicyRef",
 		reflect.TypeOf((*ICachePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cachePolicyRef", GoGetter: "CachePolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1806,6 +1809,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.ICloudFrontOriginAccessIdentityRef",
 		reflect.TypeOf((*ICloudFrontOriginAccessIdentityRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cloudFrontOriginAccessIdentityRef", GoGetter: "CloudFrontOriginAccessIdentityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1818,6 +1822,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IConnectionGroupRef",
 		reflect.TypeOf((*IConnectionGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connectionGroupRef", GoGetter: "ConnectionGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1830,6 +1835,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IContinuousDeploymentPolicyRef",
 		reflect.TypeOf((*IContinuousDeploymentPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "continuousDeploymentPolicyRef", GoGetter: "ContinuousDeploymentPolicyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1846,6 +1852,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "distributionArn", GoGetter: "DistributionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionDomainName", GoGetter: "DistributionDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionId", GoGetter: "DistributionId"},
+			_jsii_.MemberProperty{JsiiProperty: "distributionRef", GoGetter: "DistributionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantCreateInvalidation", GoMethod: "GrantCreateInvalidation"},
@@ -1863,6 +1870,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IDistributionRef",
 		reflect.TypeOf((*IDistributionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "distributionRef", GoGetter: "DistributionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1875,6 +1883,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IDistributionTenantRef",
 		reflect.TypeOf((*IDistributionTenantRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "distributionTenantRef", GoGetter: "DistributionTenantRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1891,6 +1900,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1905,6 +1915,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IFunctionRef",
 		reflect.TypeOf((*IFunctionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1920,6 +1931,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyGroupId", GoGetter: "KeyGroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "keyGroupRef", GoGetter: "KeyGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1934,6 +1946,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IKeyGroupRef",
 		reflect.TypeOf((*IKeyGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "keyGroupRef", GoGetter: "KeyGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1950,6 +1963,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreArn", GoGetter: "KeyValueStoreArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreId", GoGetter: "KeyValueStoreId"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreRef", GoGetter: "KeyValueStoreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreStatus", GoGetter: "KeyValueStoreStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1965,6 +1979,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IKeyValueStoreRef",
 		reflect.TypeOf((*IKeyValueStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreRef", GoGetter: "KeyValueStoreRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1977,6 +1992,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IMonitoringSubscriptionRef",
 		reflect.TypeOf((*IMonitoringSubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "monitoringSubscriptionRef", GoGetter: "MonitoringSubscriptionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2016,6 +2032,7 @@ func init() {
 		reflect.TypeOf((*IOriginAccessControlRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessControlRef", GoGetter: "OriginAccessControlRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginAccessControlRef{}
@@ -2028,6 +2045,7 @@ func init() {
 		reflect.TypeOf((*IOriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFrontOriginAccessIdentityRef", GoGetter: "CloudFrontOriginAccessIdentityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -2037,6 +2055,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginAccessIdentity{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICloudFrontOriginAccessIdentityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
@@ -2048,6 +2067,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyId", GoGetter: "OriginRequestPolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyRef", GoGetter: "OriginRequestPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginRequestPolicy{}
@@ -2060,6 +2080,7 @@ func init() {
 		reflect.TypeOf((*IOriginRequestPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyRef", GoGetter: "OriginRequestPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginRequestPolicyRef{}
@@ -2075,10 +2096,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "publicKeyId", GoGetter: "PublicKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "publicKeyRef", GoGetter: "PublicKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicKey{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPublicKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -2088,6 +2111,7 @@ func init() {
 		reflect.TypeOf((*IPublicKeyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "publicKeyRef", GoGetter: "PublicKeyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicKeyRef{}
@@ -2104,6 +2128,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigArn", GoGetter: "RealtimeLogConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigName", GoGetter: "RealtimeLogConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigRef", GoGetter: "RealtimeLogConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -2118,6 +2143,7 @@ func init() {
 		reflect.TypeOf((*IRealtimeLogConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeLogConfigRef", GoGetter: "RealtimeLogConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRealtimeLogConfigRef{}
@@ -2131,6 +2157,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyId", GoGetter: "ResponseHeadersPolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyRef", GoGetter: "ResponseHeadersPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResponseHeadersPolicy{}
@@ -2143,6 +2170,7 @@ func init() {
 		reflect.TypeOf((*IResponseHeadersPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyRef", GoGetter: "ResponseHeadersPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResponseHeadersPolicyRef{}
@@ -2155,6 +2183,7 @@ func init() {
 		reflect.TypeOf((*IStreamingDistributionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "streamingDistributionRef", GoGetter: "StreamingDistributionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamingDistributionRef{}
@@ -2173,10 +2202,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcOriginArn", GoGetter: "VpcOriginArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcOriginId", GoGetter: "VpcOriginId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcOriginRef", GoGetter: "VpcOriginRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcOrigin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcOriginRef)
 			return &j
 		},
 	)
@@ -2185,6 +2216,7 @@ func init() {
 		reflect.TypeOf((*IVpcOriginRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcOriginRef", GoGetter: "VpcOriginRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcOriginRef{}
@@ -2322,6 +2354,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arn", GoMethod: "Arn"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFrontOriginAccessIdentityRef", GoGetter: "CloudFrontOriginAccessIdentityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudFrontOriginAccessIdentityS3CanonicalUserId", GoGetter: "CloudFrontOriginAccessIdentityS3CanonicalUserId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -2354,6 +2387,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
 		},
 		func() interface{} {
 			j := jsiiProxy_OriginBase{}
@@ -2372,6 +2406,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.OriginFailoverConfig",
 		reflect.TypeOf((*OriginFailoverConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.OriginIpAddressType",
+		reflect.TypeOf((*OriginIpAddressType)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": OriginIpAddressType_IPV4,
+			"IPV6": OriginIpAddressType_IPV6,
+			"DUALSTACK": OriginIpAddressType_DUALSTACK,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.OriginOptions",
@@ -2493,6 +2536,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "publicKeyId", GoGetter: "PublicKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "publicKeyRef", GoGetter: "PublicKeyRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -2677,6 +2721,7 @@ func init() {
 			"TLS_V1_2_2018": SecurityPolicyProtocol_TLS_V1_2_2018,
 			"TLS_V1_2_2019": SecurityPolicyProtocol_TLS_V1_2_2019,
 			"TLS_V1_2_2021": SecurityPolicyProtocol_TLS_V1_2_2021,
+			"TLS_V1_3_2025": SecurityPolicyProtocol_TLS_V1_3_2025,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2755,6 +2800,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcOriginArn", GoGetter: "VpcOriginArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcOriginId", GoGetter: "VpcOriginId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcOriginRef", GoGetter: "VpcOriginRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VpcOrigin{}

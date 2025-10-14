@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnFunctionDefinition) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnFunctionDefinition_FromFunctionDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnFunctionDefinition_FromFunctionDefinitionIdParameters(scope constructs.Construct, id *string, functionDefinitionId *string) error {
+	return nil
+}
+
 func validateCfnFunctionDefinition_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

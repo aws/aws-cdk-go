@@ -247,7 +247,7 @@ type BedrockCreateModelCustomizationJobProps struct {
 	// To pass this role to Amazon Bedrock, the caller of this API must have the iam:PassRole permission.
 	// Default: - use auto generated role.
 	//
-	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 	// The S3 bucket configuration where the validation data is stored.
 	//
 	// If you don't provide a validation dataset, specify the evaluation percentage by the `Evaluation percentage` hyperparameter.

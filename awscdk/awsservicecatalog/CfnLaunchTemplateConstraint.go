@@ -35,6 +35,7 @@ type CfnLaunchTemplateConstraint interface {
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	// Unique identifier for the constraint.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

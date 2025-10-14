@@ -664,6 +664,44 @@ func (j *jsiiProxy_CfnAppBlockBuilder)SetVpcConfig(val interface{}) {
 	)
 }
 
+// Creates a new IAppBlockBuilderRef from an ARN.
+func CfnAppBlockBuilder_FromAppBlockBuilderArn(scope constructs.Construct, id *string, arn *string) IAppBlockBuilderRef {
+	_init_.Initialize()
+
+	if err := validateCfnAppBlockBuilder_FromAppBlockBuilderArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAppBlockBuilderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnAppBlockBuilder",
+		"fromAppBlockBuilderArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAppBlockBuilderRef from a appBlockBuilderName.
+func CfnAppBlockBuilder_FromAppBlockBuilderName(scope constructs.Construct, id *string, appBlockBuilderName *string) IAppBlockBuilderRef {
+	_init_.Initialize()
+
+	if err := validateCfnAppBlockBuilder_FromAppBlockBuilderNameParameters(scope, id, appBlockBuilderName); err != nil {
+		panic(err)
+	}
+	var returns IAppBlockBuilderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnAppBlockBuilder",
+		"fromAppBlockBuilderName",
+		[]interface{}{scope, id, appBlockBuilderName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

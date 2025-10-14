@@ -55,6 +55,16 @@ func (j *jsiiProxy_IApiKey) KeyId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IApiKey) ApiKeyRef() *ApiKeyReference {
+	var returns *ApiKeyReference
+	_jsii_.Get(
+		j,
+		"apiKeyRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IApiKey) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(

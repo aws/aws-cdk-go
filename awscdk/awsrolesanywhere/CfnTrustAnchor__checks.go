@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnTrustAnchor) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnTrustAnchor_FromTrustAnchorArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTrustAnchor_FromTrustAnchorIdParameters(scope constructs.Construct, id *string, trustAnchorId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if trustAnchorId == nil {
+		return fmt.Errorf("parameter trustAnchorId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrustAnchor_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

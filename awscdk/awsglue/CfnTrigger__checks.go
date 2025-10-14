@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnTrigger) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnTrigger_FromTriggerNameParameters(scope constructs.Construct, id *string, triggerName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if triggerName == nil {
+		return fmt.Errorf("parameter triggerName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnTrigger_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -622,6 +622,25 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup)SetRegionalConfigurations(val inter
 	)
 }
 
+// Creates a new IGlobalReplicationGroupRef from a globalReplicationGroupId.
+func CfnGlobalReplicationGroup_FromGlobalReplicationGroupId(scope constructs.Construct, id *string, globalReplicationGroupId *string) IGlobalReplicationGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupIdParameters(scope, id, globalReplicationGroupId); err != nil {
+		panic(err)
+	}
+	var returns IGlobalReplicationGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
+		"fromGlobalReplicationGroupId",
+		[]interface{}{scope, id, globalReplicationGroupId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -614,6 +614,25 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IFHIRDatastoreRef from a datastoreId.
+func CfnFHIRDatastore_FromDatastoreId(scope constructs.Construct, id *string, datastoreId *string) IFHIRDatastoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnFHIRDatastore_FromDatastoreIdParameters(scope, id, datastoreId); err != nil {
+		panic(err)
+	}
+	var returns IFHIRDatastoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore",
+		"fromDatastoreId",
+		[]interface{}{scope, id, datastoreId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

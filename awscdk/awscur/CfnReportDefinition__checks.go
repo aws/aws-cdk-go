@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnReportDefinition) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnReportDefinition_FromReportNameParameters(scope constructs.Construct, id *string, reportName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if reportName == nil {
+		return fmt.Errorf("parameter reportName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnReportDefinition_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -250,6 +266,16 @@ func (j *jsiiProxy_CfnReportDefinition) validateSetS3PrefixParameters(val *strin
 func (j *jsiiProxy_CfnReportDefinition) validateSetS3RegionParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnReportDefinition) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

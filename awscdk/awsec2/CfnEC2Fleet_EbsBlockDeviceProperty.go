@@ -48,7 +48,7 @@ type CfnEC2Fleet_EbsBlockDeviceProperty struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `gp3` : 3,000 - 80,000 IOPS
 	// - `io1` : 100 - 64,000 IOPS
 	// - `io2` : 100 - 256,000 IOPS
 	//
@@ -74,7 +74,8 @@ type CfnEC2Fleet_EbsBlockDeviceProperty struct {
 	//
 	// The following are the supported sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `gp2` : 1 - 16,384 GiB
+	// - `gp3` : 1 - 65,536 GiB
 	// - `io1` : 4 - 16,384 GiB
 	// - `io2` : 4 - 65,536 GiB
 	// - `st1` and `sc1` : 125 - 16,384 GiB

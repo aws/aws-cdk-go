@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnLaunchTemplate) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnLaunchTemplate_FromLaunchTemplateIdParameters(scope constructs.Construct, id *string, launchTemplateId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if launchTemplateId == nil {
+		return fmt.Errorf("parameter launchTemplateId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLaunchTemplate_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

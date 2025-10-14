@@ -497,6 +497,25 @@ func (j *jsiiProxy_CfnCRL)SetTrustAnchorArn(val *string) {
 	)
 }
 
+// Creates a new ICRLRef from a crlId.
+func CfnCRL_FromCrlId(scope constructs.Construct, id *string, crlId *string) ICRLRef {
+	_init_.Initialize()
+
+	if err := validateCfnCRL_FromCrlIdParameters(scope, id, crlId); err != nil {
+		panic(err)
+	}
+	var returns ICRLRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rolesanywhere.CfnCRL",
+		"fromCrlId",
+		[]interface{}{scope, id, crlId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

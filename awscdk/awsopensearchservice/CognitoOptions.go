@@ -26,7 +26,7 @@ type CognitoOptions struct {
 	// It must have the `AmazonESCognitoAccess` policy attached to it.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html#cognito-auth-prereq
 	//
-	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
+	Role awsiam.IRoleRef `field:"required" json:"role" yaml:"role"`
 	// The Amazon Cognito user pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 }

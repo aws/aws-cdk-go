@@ -466,6 +466,28 @@ func InterfaceVpcEndpointAwsService_BEDROCK_AGENT_RUNTIME() InterfaceVpcEndpoint
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_BEDROCK_AGENTCORE() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"BEDROCK_AGENTCORE",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_BEDROCK_AGENTCORE_GATEWAY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"BEDROCK_AGENTCORE_GATEWAY",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_BEDROCK_DATA_AUTOMATION() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

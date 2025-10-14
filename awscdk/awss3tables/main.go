@@ -303,6 +303,7 @@ func init() {
 		"aws-cdk-lib.aws_s3tables.INamespaceRef",
 		reflect.TypeOf((*INamespaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "namespaceRef", GoGetter: "NamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -316,6 +317,7 @@ func init() {
 		reflect.TypeOf((*ITableBucketPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tableBucketPolicyRef", GoGetter: "TableBucketPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableBucketPolicyRef{}
@@ -328,6 +330,7 @@ func init() {
 		reflect.TypeOf((*ITableBucketRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tableBucketRef", GoGetter: "TableBucketRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableBucketRef{}
@@ -340,6 +343,7 @@ func init() {
 		reflect.TypeOf((*ITablePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tablePolicyRef", GoGetter: "TablePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITablePolicyRef{}
@@ -352,6 +356,7 @@ func init() {
 		reflect.TypeOf((*ITableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableRef{}

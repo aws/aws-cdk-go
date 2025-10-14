@@ -102,6 +102,7 @@ func init() {
 		"aws-cdk-lib.aws_auditmanager.IAssessmentRef",
 		reflect.TypeOf((*IAssessmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "assessmentRef", GoGetter: "AssessmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -510,6 +510,44 @@ func (j *jsiiProxy_CfnRouteServer)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IRouteServerRef from an ARN.
+func CfnRouteServer_FromRouteServerArn(scope constructs.Construct, id *string, arn *string) IRouteServerRef {
+	_init_.Initialize()
+
+	if err := validateCfnRouteServer_FromRouteServerArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IRouteServerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteServer",
+		"fromRouteServerArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IRouteServerRef from a routeServerId.
+func CfnRouteServer_FromRouteServerId(scope constructs.Construct, id *string, routeServerId *string) IRouteServerRef {
+	_init_.Initialize()
+
+	if err := validateCfnRouteServer_FromRouteServerIdParameters(scope, id, routeServerId); err != nil {
+		panic(err)
+	}
+	var returns IRouteServerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnRouteServer",
+		"fromRouteServerId",
+		[]interface{}{scope, id, routeServerId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

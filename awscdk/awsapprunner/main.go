@@ -377,6 +377,7 @@ func init() {
 		"aws-cdk-lib.aws_apprunner.IAutoScalingConfigurationRef",
 		reflect.TypeOf((*IAutoScalingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationRef", GoGetter: "AutoScalingConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -390,6 +391,7 @@ func init() {
 		reflect.TypeOf((*IObservabilityConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationRef", GoGetter: "ObservabilityConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IObservabilityConfigurationRef{}
@@ -402,6 +404,7 @@ func init() {
 		reflect.TypeOf((*IServiceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceRef{}
@@ -414,6 +417,7 @@ func init() {
 		reflect.TypeOf((*IVpcConnectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorRef", GoGetter: "VpcConnectorRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcConnectorRef{}
@@ -426,6 +430,7 @@ func init() {
 		reflect.TypeOf((*IVpcIngressConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionRef", GoGetter: "VpcIngressConnectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcIngressConnectionRef{}

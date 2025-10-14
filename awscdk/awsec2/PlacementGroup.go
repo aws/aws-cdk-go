@@ -57,6 +57,7 @@ type PlacementGroup interface {
 	PhysicalName() *string
 	// The name of this placement group.
 	PlacementGroupName() *string
+	// A reference to a PlacementGroup resource.
 	PlacementGroupRef() *PlacementGroupReference
 	// Places instances on distinct hardware.
 	//

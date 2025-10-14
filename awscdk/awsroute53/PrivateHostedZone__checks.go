@@ -125,6 +125,25 @@ func validatePrivateHostedZone_FromLookupParameters(scope constructs.Construct, 
 	return nil
 }
 
+func validatePrivateHostedZone_FromPrivateHostedZoneAttributesParameters(scope constructs.Construct, id *string, attrs *PrivateHostedZoneAttributes) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validatePrivateHostedZone_FromPrivateHostedZoneIdParameters(scope constructs.Construct, id *string, privateHostedZoneId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

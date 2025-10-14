@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateValidatePropertiesP
 	return nil
 }
 
+func validateCfnLogicallyAirGappedBackupVault_FromBackupVaultNameParameters(scope constructs.Construct, id *string, backupVaultName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if backupVaultName == nil {
+		return fmt.Errorf("parameter backupVaultName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnLogicallyAirGappedBackupVault_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

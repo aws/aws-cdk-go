@@ -660,6 +660,44 @@ func (j *jsiiProxy_CfnNetworkInsightsPath)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new INetworkInsightsPathRef from an ARN.
+func CfnNetworkInsightsPath_FromNetworkInsightsPathArn(scope constructs.Construct, id *string, arn *string) INetworkInsightsPathRef {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsPath_FromNetworkInsightsPathArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns INetworkInsightsPathRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPath",
+		"fromNetworkInsightsPathArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new INetworkInsightsPathRef from a networkInsightsPathId.
+func CfnNetworkInsightsPath_FromNetworkInsightsPathId(scope constructs.Construct, id *string, networkInsightsPathId *string) INetworkInsightsPathRef {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkInsightsPath_FromNetworkInsightsPathIdParameters(scope, id, networkInsightsPathId); err != nil {
+		panic(err)
+	}
+	var returns INetworkInsightsPathRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPath",
+		"fromNetworkInsightsPathId",
+		[]interface{}{scope, id, networkInsightsPathId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

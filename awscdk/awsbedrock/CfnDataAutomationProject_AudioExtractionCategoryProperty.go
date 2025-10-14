@@ -12,6 +12,16 @@ package awsbedrock
 //   	State: jsii.String("state"),
 //
 //   	// the properties below are optional
+//   	TypeConfiguration: &AudioExtractionCategoryTypeConfigurationProperty{
+//   		Transcript: &TranscriptConfigurationProperty{
+//   			ChannelLabeling: &ChannelLabelingConfigurationProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   			SpeakerLabeling: &SpeakerLabelingConfigurationProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   		},
+//   	},
 //   	Types: []*string{
 //   		jsii.String("types"),
 //   	},
@@ -24,6 +34,12 @@ type CfnDataAutomationProject_AudioExtractionCategoryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html#cfn-bedrock-dataautomationproject-audioextractioncategory-state
 	//
 	State *string `field:"required" json:"state" yaml:"state"`
+	// This element contains information about extractions from different types.
+	//
+	// Used to enable speaker and channel labeling for transcripts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html#cfn-bedrock-dataautomationproject-audioextractioncategory-typeconfiguration
+	//
+	TypeConfiguration interface{} `field:"optional" json:"typeConfiguration" yaml:"typeConfiguration"`
 	// The types of data to generate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html#cfn-bedrock-dataautomationproject-audioextractioncategory-types
 	//

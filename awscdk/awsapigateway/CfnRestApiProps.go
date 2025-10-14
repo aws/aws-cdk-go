@@ -46,6 +46,7 @@ import (
 //   		"parametersKey": jsii.String("parameters"),
 //   	},
 //   	Policy: policy,
+//   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -145,6 +146,9 @@ type CfnRestApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
 	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-securitypolicy
+	//
+	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 	// The key-value map of strings.
 	//
 	// The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.

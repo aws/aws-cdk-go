@@ -156,7 +156,7 @@ iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &Accou
 	CheckConfiguration: &CheckConfiguration{
 		DeviceCertificateAgeCheck: jsii.Boolean(true),
 		// The default value is 365 days
-		// Valid values range from 30 days (minimum) to 3652 days (10 years, maximum)
+		// Valid values range from 30 days (minimum) to 3650 days (10 years, maximum)
 		DeviceCertificateAgeCheckDuration: awscdk.Duration_Days(jsii.Number(365)),
 	},
 })

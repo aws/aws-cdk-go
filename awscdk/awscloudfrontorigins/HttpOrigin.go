@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfrontorigins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -35,6 +36,10 @@ type HttpOrigin interface {
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 	RenderVpcOriginConfig() *awscloudfront.CfnDistribution_VpcOriginConfigProperty
+	// Validates that responseCompletionTimeout is greater than or equal to readTimeout when both are specified.
+	//
+	// This method should be called by subclasses that support readTimeout.
+	ValidateResponseCompletionTimeoutWithReadTimeout(responseCompletionTimeout awscdk.Duration, readTimeout awscdk.Duration)
 }
 
 // The jsii proxy struct for HttpOrigin
@@ -122,5 +127,13 @@ func (h *jsiiProxy_HttpOrigin) RenderVpcOriginConfig() *awscloudfront.CfnDistrib
 	)
 
 	return returns
+}
+
+func (h *jsiiProxy_HttpOrigin) ValidateResponseCompletionTimeoutWithReadTimeout(responseCompletionTimeout awscdk.Duration, readTimeout awscdk.Duration) {
+	_jsii_.InvokeVoid(
+		h,
+		"validateResponseCompletionTimeoutWithReadTimeout",
+		[]interface{}{responseCompletionTimeout, readTimeout},
+	)
 }
 

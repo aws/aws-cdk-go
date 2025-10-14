@@ -35,6 +35,6 @@ type EncryptionAtRestOptions struct {
 	// Default: - uses default aws/es KMS key.
 	//
 	// Deprecated: use opensearchservice module instead.
-	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

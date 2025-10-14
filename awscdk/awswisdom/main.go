@@ -993,6 +993,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAIAgentRef",
 		reflect.TypeOf((*IAIAgentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aiAgentRef", GoGetter: "AiAgentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1005,6 +1006,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAIAgentVersionRef",
 		reflect.TypeOf((*IAIAgentVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aiAgentVersionRef", GoGetter: "AiAgentVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1017,6 +1019,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAIGuardrailRef",
 		reflect.TypeOf((*IAIGuardrailRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aiGuardrailRef", GoGetter: "AiGuardrailRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1029,6 +1032,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAIGuardrailVersionRef",
 		reflect.TypeOf((*IAIGuardrailVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aiGuardrailVersionRef", GoGetter: "AiGuardrailVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1041,6 +1045,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAIPromptRef",
 		reflect.TypeOf((*IAIPromptRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aiPromptRef", GoGetter: "AiPromptRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1053,6 +1058,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAIPromptVersionRef",
 		reflect.TypeOf((*IAIPromptVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aiPromptVersionRef", GoGetter: "AiPromptVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1065,6 +1071,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAssistantAssociationRef",
 		reflect.TypeOf((*IAssistantAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "assistantAssociationRef", GoGetter: "AssistantAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1077,6 +1084,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IAssistantRef",
 		reflect.TypeOf((*IAssistantRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "assistantRef", GoGetter: "AssistantRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1089,6 +1097,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IKnowledgeBaseRef",
 		reflect.TypeOf((*IKnowledgeBaseRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "knowledgeBaseRef", GoGetter: "KnowledgeBaseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1101,6 +1110,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IMessageTemplateRef",
 		reflect.TypeOf((*IMessageTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "messageTemplateRef", GoGetter: "MessageTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1113,6 +1123,7 @@ func init() {
 		"aws-cdk-lib.aws_wisdom.IMessageTemplateVersionRef",
 		reflect.TypeOf((*IMessageTemplateVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "messageTemplateVersionRef", GoGetter: "MessageTemplateVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1126,6 +1137,7 @@ func init() {
 		reflect.TypeOf((*IQuickResponseRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "quickResponseRef", GoGetter: "QuickResponseRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IQuickResponseRef{}

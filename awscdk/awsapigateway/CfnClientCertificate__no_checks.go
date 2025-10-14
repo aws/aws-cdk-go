@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnClientCertificate) validateValidatePropertiesParameters(_p
 	return nil
 }
 
+func validateCfnClientCertificate_FromClientCertificateIdParameters(scope constructs.Construct, id *string, clientCertificateId *string) error {
+	return nil
+}
+
 func validateCfnClientCertificate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

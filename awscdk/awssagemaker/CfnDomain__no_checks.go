@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnDomain) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnDomain_FromDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnDomain_FromDomainIdParameters(scope constructs.Construct, id *string, domainId *string) error {
+	return nil
+}
+
 func validateCfnDomain_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

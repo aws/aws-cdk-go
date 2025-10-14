@@ -59,6 +59,7 @@ type OpenIdConnectProvider interface {
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
+	// A reference to a OIDCProvider resource.
 	OidcProviderRef() *OIDCProviderReference
 	// The Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
 	OpenIdConnectProviderArn() *string

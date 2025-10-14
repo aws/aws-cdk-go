@@ -41,7 +41,7 @@ type CfnPredefinedAttribute interface {
 	awscdk.CfnResource
 	IPredefinedAttributeRef
 	awscdk.IInspectable
-	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	// Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.
 	AttributeConfiguration() interface{}
 	SetAttributeConfiguration(val interface{})
 	// Last modified region.
@@ -77,7 +77,7 @@ type CfnPredefinedAttribute interface {
 	Node() constructs.Node
 	// A reference to a PredefinedAttribute resource.
 	PredefinedAttributeRef() *PredefinedAttributeReference
-	// The assigned purposes of the predefined attribute.
+	// Values that enable you to categorize your predefined attributes.
 	Purposes() *[]*string
 	SetPurposes(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

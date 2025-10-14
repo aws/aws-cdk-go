@@ -9,7 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// > The AWS IoT SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 .
+//
+// If you would like to use the AWS IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html) .
+//
 // Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.
+//
+// > Support for access policies that use an SSO Group as the identity is not supported at this time.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -458,6 +464,44 @@ func (j *jsiiProxy_CfnAccessPolicy)SetAccessPolicyResource(val interface{}) {
 		"accessPolicyResource",
 		val,
 	)
+}
+
+// Creates a new IAccessPolicyRef from an ARN.
+func CfnAccessPolicy_FromAccessPolicyArn(scope constructs.Construct, id *string, arn *string) IAccessPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPolicy_FromAccessPolicyArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAccessPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"fromAccessPolicyArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAccessPolicyRef from a accessPolicyId.
+func CfnAccessPolicy_FromAccessPolicyId(scope constructs.Construct, id *string, accessPolicyId *string) IAccessPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPolicy_FromAccessPolicyIdParameters(scope, id, accessPolicyId); err != nil {
+		panic(err)
+	}
+	var returns IAccessPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"fromAccessPolicyId",
+		[]interface{}{scope, id, accessPolicyId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

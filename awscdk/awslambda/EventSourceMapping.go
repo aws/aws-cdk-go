@@ -105,6 +105,7 @@ type EventSourceMapping interface {
 	EventSourceMappingArn() *string
 	// The identifier for this EventSourceMapping.
 	EventSourceMappingId() *string
+	// A reference to a EventSourceMapping resource.
 	EventSourceMappingRef() *EventSourceMappingReference
 	// The tree node.
 	Node() constructs.Node

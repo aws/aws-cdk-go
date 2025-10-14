@@ -569,6 +569,25 @@ func (j *jsiiProxy_CfnProvisioningTemplate)SetTemplateType(val *string) {
 	)
 }
 
+// Creates a new IProvisioningTemplateRef from a templateName.
+func CfnProvisioningTemplate_FromTemplateName(scope constructs.Construct, id *string, templateName *string) IProvisioningTemplateRef {
+	_init_.Initialize()
+
+	if err := validateCfnProvisioningTemplate_FromTemplateNameParameters(scope, id, templateName); err != nil {
+		panic(err)
+	}
+	var returns IProvisioningTemplateRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnProvisioningTemplate",
+		"fromTemplateName",
+		[]interface{}{scope, id, templateName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

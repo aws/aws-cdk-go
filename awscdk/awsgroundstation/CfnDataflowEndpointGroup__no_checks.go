@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnDataflowEndpointGroup_FromDataflowEndpointGroupIdParameters(scope constructs.Construct, id *string, dataflowEndpointGroupId *string) error {
+	return nil
+}
+
 func validateCfnDataflowEndpointGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

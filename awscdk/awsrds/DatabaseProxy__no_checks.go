@@ -4,6 +4,10 @@ package awsrds
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (d *jsiiProxy_DatabaseProxy) validateAddEndpointParameters(id *string, options *DatabaseProxyEndpointOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseProxy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

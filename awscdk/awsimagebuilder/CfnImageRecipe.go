@@ -43,6 +43,9 @@ import (
 //   		},
 //   		UserDataOverride: jsii.String("userDataOverride"),
 //   	},
+//   	AmiTags: map[string]*string{
+//   		"amiTagsKey": jsii.String("amiTags"),
+//   	},
 //   	BlockDeviceMappings: []interface{}{
 //   		&InstanceBlockDeviceMappingProperty{
 //   			DeviceName: jsii.String("deviceName"),
@@ -77,6 +80,9 @@ type CfnImageRecipe interface {
 	// Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration.
 	AdditionalInstanceConfiguration() interface{}
 	SetAdditionalInstanceConfiguration(val interface{})
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+	AmiTags() interface{}
+	SetAmiTags(val interface{})
 	// Returns the Amazon Resource Name (ARN) of the image recipe.
 	//
 	// For example, `arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/mybasicrecipe/2019.12.03` .
@@ -294,6 +300,16 @@ func (j *jsiiProxy_CfnImageRecipe) AdditionalInstanceConfiguration() interface{}
 	_jsii_.Get(
 		j,
 		"additionalInstanceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) AmiTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"amiTags",
 		&returns,
 	)
 	return returns
@@ -554,6 +570,17 @@ func (j *jsiiProxy_CfnImageRecipe)SetAdditionalInstanceConfiguration(val interfa
 	_jsii_.Set(
 		j,
 		"additionalInstanceConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageRecipe)SetAmiTags(val interface{}) {
+	if err := j.validateSetAmiTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"amiTags",
 		val,
 	)
 }

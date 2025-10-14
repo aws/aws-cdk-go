@@ -161,6 +161,16 @@ func (j *jsiiProxy_ISecurityGroup) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_ISecurityGroup) SecurityGroupRef() *SecurityGroupReference {
+	var returns *SecurityGroupReference
+	_jsii_.Get(
+		j,
+		"securityGroupRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ISecurityGroup) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

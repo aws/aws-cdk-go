@@ -187,12 +187,24 @@ type FargateClusterProps struct {
 	// Default: - none.
 	//
 	RemotePodNetworks *[]*RemotePodNetwork `field:"optional" json:"remotePodNetworks" yaml:"remotePodNetworks"`
+	// The removal policy applied to all CloudFormation resources created by this construct when they are no longer managed by CloudFormation.
+	//
+	// This can happen in one of three situations:
+	// - The resource is removed from the template, so CloudFormation stops managing it;
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it;
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	//
+	// This affects the EKS cluster itself, associated IAM roles, node groups, security groups, VPC
+	// and any other CloudFormation resources managed by this construct.
+	// Default: - Resources will be deleted.
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
 	// Default: - By default, Kubernetes stores all secret object data within etcd and
 	//   all etcd volumes used by Amazon EKS are encrypted at the disk-level
 	//   using AWS-Managed encryption keys.
 	//
-	SecretsEncryptionKey awskms.IKey `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//

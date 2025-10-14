@@ -600,6 +600,25 @@ func (j *jsiiProxy_CfnCapacityReservationFleet)SetTotalTargetCapacity(val *float
 	)
 }
 
+// Creates a new ICapacityReservationFleetRef from a capacityReservationFleetId.
+func CfnCapacityReservationFleet_FromCapacityReservationFleetId(scope constructs.Construct, id *string, capacityReservationFleetId *string) ICapacityReservationFleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnCapacityReservationFleet_FromCapacityReservationFleetIdParameters(scope, id, capacityReservationFleetId); err != nil {
+		panic(err)
+	}
+	var returns ICapacityReservationFleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleet",
+		"fromCapacityReservationFleetId",
+		[]interface{}{scope, id, capacityReservationFleetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

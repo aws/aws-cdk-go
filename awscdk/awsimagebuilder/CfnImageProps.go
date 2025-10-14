@@ -28,6 +28,9 @@ package awsimagebuilder
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
 //   	InfrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
+//   	LoggingConfiguration: &ImageLoggingConfigurationProperty{
+//   		LogGroupName: jsii.String("logGroupName"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -85,6 +88,12 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
 	//
 	InfrastructureConfigurationArn *string `field:"optional" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
+	// The logging configuration that's defined for the image.
+	//
+	// Image Builder uses the defined settings to direct execution log output during image creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-loggingconfiguration
+	//
+	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// The tags of the image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
 	//

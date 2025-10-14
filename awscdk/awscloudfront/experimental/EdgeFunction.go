@@ -68,6 +68,7 @@ type EdgeFunction interface {
 	FunctionArn() *string
 	// The name of the function.
 	FunctionName() *string
+	// A reference to a Function resource.
 	FunctionRef() *awslambda.FunctionReference
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
@@ -109,6 +110,7 @@ type EdgeFunction interface {
 	Stack() awscdk.Stack
 	// The most recently deployed version of this function.
 	Version() *string
+	// A reference to a Version resource.
 	VersionRef() *awslambda.VersionReference
 	// Defines an alias for this version.
 	AddAlias(aliasName *string, options *awslambda.AliasOptions) awslambda.Alias

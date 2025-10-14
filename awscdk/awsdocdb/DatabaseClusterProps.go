@@ -14,7 +14,6 @@ import (
 // Example:
 //   var vpc vpc
 //
-//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{
 //   		Username: jsii.String("myuser"),
@@ -24,12 +23,10 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+//   	DeletionProtection: jsii.Boolean(true),
 //   })
 //
 type DatabaseClusterProps struct {
-	// What type of instance to start for the replicas.
-	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Username and password for the administrative user.
 	MasterUser *Login `field:"required" json:"masterUser" yaml:"masterUser"`
 	// What subnets to run the DocumentDB instances in.
@@ -108,6 +105,7 @@ type DatabaseClusterProps struct {
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
+	// Only applicable for provisioned clusters.
 	// Default: - `dbClusterName` is used with the word "Instance" appended. If `dbClusterName` is not provided, the
 	// identifier is automatically generated.
 	//
@@ -124,6 +122,12 @@ type DatabaseClusterProps struct {
 	// Default: 1.
 	//
 	Instances *float64 `field:"optional" json:"instances" yaml:"instances"`
+	// What type of instance to start for the replicas.
+	//
+	// Required for provisioned clusters, not applicable for serverless clusters.
+	// Default: None.
+	//
+	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The KMS key for storage encryption.
 	// Default: - default master key.
 	//
@@ -172,6 +176,12 @@ type DatabaseClusterProps struct {
 	// Default: - `RemovalPolicy.DESTROY` when `removalPolicy` is set to `SNAPSHOT`, `removalPolicy` otherwise.
 	//
 	SecurityGroupRemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"securityGroupRemovalPolicy" yaml:"securityGroupRemovalPolicy"`
+	// ServerlessV2 scaling configuration.
+	//
+	// When specified, the cluster will be created as a serverless cluster.
+	// Default: None.
+	//
+	ServerlessV2ScalingConfiguration *ServerlessV2ScalingConfiguration `field:"optional" json:"serverlessV2ScalingConfiguration" yaml:"serverlessV2ScalingConfiguration"`
 	// Whether to enable storage encryption.
 	// Default: true.
 	//

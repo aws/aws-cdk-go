@@ -211,6 +211,16 @@ func (j *jsiiProxy_IRole) PrincipalAccount() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IRole) RoleRef() *RoleReference {
+	var returns *RoleReference
+	_jsii_.Get(
+		j,
+		"roleRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IRole) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

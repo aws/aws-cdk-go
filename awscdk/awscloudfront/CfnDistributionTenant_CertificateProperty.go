@@ -1,7 +1,7 @@
 package awscloudfront
 
 
-// The AWS Certificate Manager (ACM) certificate associated with your distribution.
+// The Certificate Manager (ACM) certificate associated with your distribution.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

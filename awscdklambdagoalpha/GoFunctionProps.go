@@ -108,7 +108,7 @@ type GoFunctionProps struct {
 	// Default: - Not Sign the Code.
 	//
 	// Experimental.
-	CodeSigningConfig awslambda.ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig awslambda.ICodeSigningConfigRef `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Default: - default options as described in `VersionOptions`.
 	//
@@ -155,7 +155,7 @@ type GoFunctionProps struct {
 	// Default: - AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
 	// Experimental.
-	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Default: 512 MiB.
 	//

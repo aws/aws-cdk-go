@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnMonitor) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnMonitor_FromMonitorArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnMonitor_FromMonitorNameParameters(scope constructs.Construct, id *string, monitorName *string) error {
+	return nil
+}
+
 func validateCfnMonitor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

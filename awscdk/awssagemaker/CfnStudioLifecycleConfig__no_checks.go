@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnStudioLifecycleConfig) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnStudioLifecycleConfig_FromStudioLifecycleConfigNameParameters(scope constructs.Construct, id *string, studioLifecycleConfigName *string) error {
+	return nil
+}
+
 func validateCfnStudioLifecycleConfig_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

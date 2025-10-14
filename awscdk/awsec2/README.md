@@ -1536,6 +1536,21 @@ endpoint := vpc.addClientVpnEndpoint(jsii.String("Endpoint"), &ClientVpnEndpoint
 })
 ```
 
+To control whether clients are automatically disconnected when the maximum session duration is reached, use the `disconnectOnSessionTimeout` prop.
+By default (`true`), clients are disconnected and must manually reconnect.
+Set to `false` to allow automatic reconnection attempts:
+
+```go
+endpoint := vpc.addClientVpnEndpoint(jsii.String("Endpoint"), &ClientVpnEndpointOptions{
+	Cidr: jsii.String("10.100.0.0/16"),
+	ServerCertificateArn: jsii.String("arn:aws:acm:us-east-1:123456789012:certificate/server-certificate-id"),
+	ClientCertificateArn: jsii.String("arn:aws:acm:us-east-1:123456789012:certificate/client-certificate-id"),
+	DisconnectOnSessionTimeout: jsii.Boolean(false),
+})
+```
+
+Detail information about maximum VPN session duration timeout can be found in the [AWS documentation](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-max-duration.html).
+
 ## Instances
 
 You can use the `Instance` class to start up a single EC2 instance. For production setups, we recommend
@@ -2085,7 +2100,7 @@ volume := ec2.NewVolume(this, jsii.String("Volume"), &VolumeProps{
 	Encrypted: jsii.Boolean(true),
 })
 
-volume.grantAttachVolume(role, []iInstance{
+volume.grantAttachVolume(role, []iInstanceRef{
 	instance,
 })
 ```

@@ -30,7 +30,7 @@ import (
 type CfnDomainNameProps struct {
 	// The Amazon Resource Name (ARN) of the certificate.
 	//
-	// This will be an AWS Certificate Manager certificate.
+	// This will be an Certificate Manager certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-certificatearn
 	//
 	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`

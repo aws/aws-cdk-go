@@ -20,6 +20,10 @@ import (
 //
 //   cfnSecurityConfig := awscdk.Aws_opensearchserverless.NewCfnSecurityConfig(this, jsii.String("MyCfnSecurityConfig"), &CfnSecurityConfigProps{
 //   	Description: jsii.String("description"),
+//   	IamFederationOptions: &IamFederationConfigOptionsProperty{
+//   		GroupAttribute: jsii.String("groupAttribute"),
+//   		UserAttribute: jsii.String("userAttribute"),
+//   	},
 //   	IamIdentityCenterOptions: &IamIdentityCenterConfigOptionsProperty{
 //   		InstanceArn: jsii.String("instanceArn"),
 //
@@ -71,6 +75,9 @@ type CfnSecurityConfig interface {
 	// The description of the security configuration.
 	Description() *string
 	SetDescription(val *string)
+	// Describes IAM federation options in the form of a key-value map.
+	IamFederationOptions() interface{}
+	SetIamFederationOptions(val interface{})
 	// Describes IAM Identity Center options in the form of a key-value map.
 	IamIdentityCenterOptions() interface{}
 	SetIamIdentityCenterOptions(val interface{})
@@ -343,6 +350,16 @@ func (j *jsiiProxy_CfnSecurityConfig) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSecurityConfig) IamFederationOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"iamFederationOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityConfig) IamIdentityCenterOptions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -485,6 +502,17 @@ func (j *jsiiProxy_CfnSecurityConfig)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityConfig)SetIamFederationOptions(val interface{}) {
+	if err := j.validateSetIamFederationOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"iamFederationOptions",
 		val,
 	)
 }

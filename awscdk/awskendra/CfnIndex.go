@@ -685,6 +685,44 @@ func (j *jsiiProxy_CfnIndex)SetUserTokenConfigurations(val interface{}) {
 	)
 }
 
+// Creates a new IIndexRef from an ARN.
+func CfnIndex_FromIndexArn(scope constructs.Construct, id *string, arn *string) IIndexRef {
+	_init_.Initialize()
+
+	if err := validateCfnIndex_FromIndexArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IIndexRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"fromIndexArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IIndexRef from a indexId.
+func CfnIndex_FromIndexId(scope constructs.Construct, id *string, indexId *string) IIndexRef {
+	_init_.Initialize()
+
+	if err := validateCfnIndex_FromIndexIdParameters(scope, id, indexId); err != nil {
+		panic(err)
+	}
+	var returns IIndexRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"fromIndexId",
+		[]interface{}{scope, id, indexId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

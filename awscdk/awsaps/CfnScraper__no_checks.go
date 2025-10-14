@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnScraper) validateSetScrapeConfigurationParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnScraper) validateSetScraperLoggingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnScraper) validateSetSourceParameters(val interface{}) error {
 	return nil
 }

@@ -42,7 +42,14 @@ import (
 //   		ImageTestsEnabled: jsii.Boolean(false),
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	LoggingConfiguration: &PipelineLoggingConfigurationProperty{
+//   		ImageLogGroupName: jsii.String("imageLogGroupName"),
+//   		PipelineLogGroupName: jsii.String("pipelineLogGroupName"),
+//   	},
 //   	Schedule: &ScheduleProperty{
+//   		AutoDisablePolicy: &AutoDisablePolicyProperty{
+//   			FailureCount: jsii.Number(123),
+//   		},
 //   		PipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
 //   		ScheduleExpression: jsii.String("scheduleExpression"),
 //   	},
@@ -118,6 +125,9 @@ type CfnImagePipeline interface {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn() *string
 	SetInfrastructureConfigurationArn(val *string)
+	// Defines logging configuration for the output image.
+	LoggingConfiguration() interface{}
+	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -464,6 +474,16 @@ func (j *jsiiProxy_CfnImagePipeline) InfrastructureConfigurationArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImagePipeline) LoggingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImagePipeline) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -692,6 +712,17 @@ func (j *jsiiProxy_CfnImagePipeline)SetInfrastructureConfigurationArn(val *strin
 	_jsii_.Set(
 		j,
 		"infrastructureConfigurationArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImagePipeline)SetLoggingConfiguration(val interface{}) {
+	if err := j.validateSetLoggingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"loggingConfiguration",
 		val,
 	)
 }

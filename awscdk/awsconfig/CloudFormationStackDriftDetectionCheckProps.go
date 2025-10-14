@@ -54,6 +54,6 @@ type CloudFormationStackDriftDetectionCheckProps struct {
 	// refer to https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html.
 	// Default: - A role will be created.
 	//
-	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

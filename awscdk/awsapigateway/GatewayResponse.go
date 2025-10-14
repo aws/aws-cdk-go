@@ -45,6 +45,7 @@ type GatewayResponse interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// A reference to a GatewayResponse resource.
 	GatewayResponseRef() *GatewayResponseReference
 	// The tree node.
 	Node() constructs.Node

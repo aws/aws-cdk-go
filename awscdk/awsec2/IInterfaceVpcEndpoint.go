@@ -80,3 +80,13 @@ func (j *jsiiProxy_IInterfaceVpcEndpoint) VpcEndpointId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IInterfaceVpcEndpoint) VpcEndpointRef() *VPCEndpointReference {
+	var returns *VPCEndpointReference
+	_jsii_.Get(
+		j,
+		"vpcEndpointRef",
+		&returns,
+	)
+	return returns
+}
+

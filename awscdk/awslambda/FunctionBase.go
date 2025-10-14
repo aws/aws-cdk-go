@@ -40,6 +40,7 @@ type FunctionBase interface {
 	FunctionArn() *string
 	// The name of the function.
 	FunctionName() *string
+	// A reference to a Function resource.
 	FunctionRef() *FunctionReference
 	// The principal this Lambda Function is running as.
 	GrantPrincipal() awsiam.IPrincipal

@@ -20,6 +20,10 @@ func (c *jsiiProxy_Cluster) validateAddDefaultCloudMapNamespaceParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddManagedInstancesCapacityProviderParameters(provider ManagedInstancesCapacityProvider) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

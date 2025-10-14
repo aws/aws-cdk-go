@@ -101,6 +101,7 @@ func init() {
 		reflect.TypeOf((*IScalingPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingPlanRef", GoGetter: "ScalingPlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScalingPlanRef{}

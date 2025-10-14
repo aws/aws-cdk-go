@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucketRef iBucketRef
 //
 //   s3EventSelector := &S3EventSelector{
-//   	Bucket: bucket,
+//   	Bucket: bucketRef,
 //
 //   	// the properties below are optional
 //   	ObjectPrefix: jsii.String("objectPrefix"),
@@ -23,7 +23,7 @@ import (
 //
 type S3EventSelector struct {
 	// S3 bucket.
-	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// Data events for objects whose key matches this prefix will be logged.
 	// Default: - all objects.
 	//

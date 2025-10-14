@@ -654,6 +654,25 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetTrafficMirrorFilterId(val *stri
 	)
 }
 
+// Creates a new ITrafficMirrorFilterRuleRef from a trafficMirrorFilterRuleId.
+func CfnTrafficMirrorFilterRule_FromTrafficMirrorFilterRuleId(scope constructs.Construct, id *string, trafficMirrorFilterRuleId *string) ITrafficMirrorFilterRuleRef {
+	_init_.Initialize()
+
+	if err := validateCfnTrafficMirrorFilterRule_FromTrafficMirrorFilterRuleIdParameters(scope, id, trafficMirrorFilterRuleId); err != nil {
+		panic(err)
+	}
+	var returns ITrafficMirrorFilterRuleRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterRule",
+		"fromTrafficMirrorFilterRuleId",
+		[]interface{}{scope, id, trafficMirrorFilterRuleId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

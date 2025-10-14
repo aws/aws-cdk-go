@@ -987,6 +987,25 @@ func (j *jsiiProxy_CfnCluster)SetVisibleToAllUsers(val interface{}) {
 	)
 }
 
+// Creates a new IClusterRef from a clusterId.
+func CfnCluster_FromClusterId(scope constructs.Construct, id *string, clusterId *string) IClusterRef {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_FromClusterIdParameters(scope, id, clusterId); err != nil {
+		panic(err)
+	}
+	var returns IClusterRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_emr.CfnCluster",
+		"fromClusterId",
+		[]interface{}{scope, id, clusterId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

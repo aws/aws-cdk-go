@@ -18,36 +18,40 @@ import (
 // OUTPUT: the ClusterId.
 //
 // Example:
-//   clusterRole := iam.NewRole(this, jsii.String("ClusterRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
-//   })
-//
-//   serviceRole := iam.NewRole(this, jsii.String("ServiceRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
-//   })
-//
-//   autoScalingRole := iam.NewRole(this, jsii.String("AutoScalingRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticmapreduce.amazonaws.com")),
-//   })
-//
-//   autoScalingRole.AssumeRolePolicy.AddStatements(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Effect: iam.Effect_ALLOW,
-//   	Principals: []iPrincipal{
-//   		iam.NewServicePrincipal(jsii.String("application-autoscaling.amazonaws.com")),
-//   	},
-//   	Actions: []*string{
-//   		jsii.String("sts:AssumeRole"),
-//   	},
-//   }))
-//
-//   tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
+//   tasks.NewEmrCreateCluster(this, jsii.String("CreateCluster"), &EmrCreateClusterProps{
 //   	Instances: &InstancesConfigProperty{
+//   		InstanceFleets: []instanceFleetConfigProperty{
+//   			&instanceFleetConfigProperty{
+//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_CORE,
+//   				InstanceTypeConfigs: []instanceTypeConfigProperty{
+//   					&instanceTypeConfigProperty{
+//   						InstanceType: jsii.String("m5.xlarge"),
+//   					},
+//   				},
+//   				TargetOnDemandCapacity: jsii.Number(1),
+//   			},
+//   			&instanceFleetConfigProperty{
+//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
+//   				InstanceTypeConfigs: []*instanceTypeConfigProperty{
+//   					&instanceTypeConfigProperty{
+//   						InstanceType: jsii.String("m5.xlarge"),
+//   					},
+//   				},
+//   				TargetOnDemandCapacity: jsii.Number(1),
+//   			},
+//   		},
 //   	},
-//   	ClusterRole: ClusterRole,
-//   	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
-//   	ServiceRole: ServiceRole,
-//   	AutoScalingRole: AutoScalingRole,
+//   	Name: jsii.String("ClusterName"),
+//   	ReleaseLabel: jsii.String("emr-7.9.0"),
+//   	ManagedScalingPolicy: &ManagedScalingPolicyProperty{
+//   		ComputeLimits: &ManagedScalingComputeLimitsProperty{
+//   			UnitType: tasks.EmrCreateCluster.ComputeLimitsUnitType_INSTANCE_FLEET_UNITS,
+//   			MaximumCapacityUnits: jsii.Number(4),
+//   			MinimumCapacityUnits: jsii.Number(1),
+//   			MaximumOnDemandCapacityUnits: jsii.Number(4),
+//   			MaximumCoreCapacityUnits: jsii.Number(2),
+//   		},
+//   	},
 //   })
 //
 type EmrCreateCluster interface {

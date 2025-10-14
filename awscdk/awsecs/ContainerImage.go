@@ -12,34 +12,26 @@ import (
 // Constructs for types of container images.
 //
 // Example:
-//   var vpc vpc
+//   var myFileSystem iFileSystem
+//   var myJobRole role
 //
+//   myFileSystem.GrantRead(myJobRole)
 //
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   	EnableFargateCapacityProviders: jsii.Boolean(true),
-//   })
-//
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   })
-//
-//   ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			CapacityProvider: jsii.String("FARGATE_SPOT"),
-//   			Weight: jsii.Number(2),
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   		Volumes: []ecsVolume{
+//   			batch.*ecsVolume_Efs(&EfsVolumeOptions{
+//   				Name: jsii.String("myVolume"),
+//   				FileSystem: myFileSystem,
+//   				ContainerPath: jsii.String("/Volumes/myVolume"),
+//   				UseJobRole: jsii.Boolean(true),
+//   			}),
 //   		},
-//   		&capacityProviderStrategy{
-//   			CapacityProvider: jsii.String("FARGATE"),
-//   			Weight: jsii.Number(1),
-//   		},
-//   	},
+//   		JobRole: myJobRole,
+//   	}),
 //   })
 //
 type ContainerImage interface {

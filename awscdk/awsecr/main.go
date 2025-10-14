@@ -453,6 +453,7 @@ func init() {
 		reflect.TypeOf((*IPublicRepositoryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "publicRepositoryRef", GoGetter: "PublicRepositoryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicRepositoryRef{}
@@ -465,6 +466,7 @@ func init() {
 		reflect.TypeOf((*IPullThroughCacheRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pullThroughCacheRuleRef", GoGetter: "PullThroughCacheRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPullThroughCacheRuleRef{}
@@ -477,6 +479,7 @@ func init() {
 		reflect.TypeOf((*IRegistryPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "registryPolicyRef", GoGetter: "RegistryPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegistryPolicyRef{}
@@ -489,6 +492,7 @@ func init() {
 		reflect.TypeOf((*IRegistryScanningConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "registryScanningConfigurationRef", GoGetter: "RegistryScanningConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegistryScanningConfigurationRef{}
@@ -501,6 +505,7 @@ func init() {
 		reflect.TypeOf((*IReplicationConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationConfigurationRef", GoGetter: "ReplicationConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationConfigurationRef{}
@@ -545,6 +550,7 @@ func init() {
 		reflect.TypeOf((*IRepositoryCreationTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryCreationTemplateRef", GoGetter: "RepositoryCreationTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepositoryCreationTemplateRef{}
@@ -557,6 +563,7 @@ func init() {
 		reflect.TypeOf((*IRepositoryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepositoryRef{}
@@ -716,6 +723,8 @@ func init() {
 		map[string]interface{}{
 			"MUTABLE": TagMutability_MUTABLE,
 			"IMMUTABLE": TagMutability_IMMUTABLE,
+			"IMMUTABLE_WITH_EXCLUSION": TagMutability_IMMUTABLE_WITH_EXCLUSION,
+			"MUTABLE_WITH_EXCLUSION": TagMutability_MUTABLE_WITH_EXCLUSION,
 		},
 	)
 	_jsii_.RegisterEnum(

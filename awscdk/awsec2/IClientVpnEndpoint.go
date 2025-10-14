@@ -57,6 +57,16 @@ func (j *jsiiProxy_IClientVpnEndpoint) TargetNetworksAssociated() constructs.IDe
 	return returns
 }
 
+func (j *jsiiProxy_IClientVpnEndpoint) ClientVpnEndpointRef() *ClientVpnEndpointReference {
+	var returns *ClientVpnEndpointReference
+	_jsii_.Get(
+		j,
+		"clientVpnEndpointRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IClientVpnEndpoint) Connections() Connections {
 	var returns Connections
 	_jsii_.Get(

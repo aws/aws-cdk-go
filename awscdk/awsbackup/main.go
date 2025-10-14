@@ -726,6 +726,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.IBackupPlanRef",
 		reflect.TypeOf((*IBackupPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "backupPlanRef", GoGetter: "BackupPlanRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -738,6 +739,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.IBackupSelectionRef",
 		reflect.TypeOf((*IBackupSelectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "backupSelectionRef", GoGetter: "BackupSelectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -768,6 +770,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.IBackupVaultRef",
 		reflect.TypeOf((*IBackupVaultRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "backupVaultRef", GoGetter: "BackupVaultRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -780,6 +783,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.IFrameworkRef",
 		reflect.TypeOf((*IFrameworkRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "frameworkRef", GoGetter: "FrameworkRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -792,6 +796,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.ILogicallyAirGappedBackupVaultRef",
 		reflect.TypeOf((*ILogicallyAirGappedBackupVaultRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logicallyAirGappedBackupVaultRef", GoGetter: "LogicallyAirGappedBackupVaultRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -805,6 +810,7 @@ func init() {
 		reflect.TypeOf((*IReportPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "reportPlanRef", GoGetter: "ReportPlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReportPlanRef{}
@@ -817,6 +823,7 @@ func init() {
 		reflect.TypeOf((*IRestoreTestingPlanRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "restoreTestingPlanRef", GoGetter: "RestoreTestingPlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRestoreTestingPlanRef{}
@@ -829,6 +836,7 @@ func init() {
 		reflect.TypeOf((*IRestoreTestingSelectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "restoreTestingSelectionRef", GoGetter: "RestoreTestingSelectionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRestoreTestingSelectionRef{}

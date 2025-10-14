@@ -482,6 +482,44 @@ func (j *jsiiProxy_CfnCertificateProvider)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new ICertificateProviderRef from an ARN.
+func CfnCertificateProvider_FromCertificateProviderArn(scope constructs.Construct, id *string, arn *string) ICertificateProviderRef {
+	_init_.Initialize()
+
+	if err := validateCfnCertificateProvider_FromCertificateProviderArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns ICertificateProviderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCertificateProvider",
+		"fromCertificateProviderArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ICertificateProviderRef from a certificateProviderName.
+func CfnCertificateProvider_FromCertificateProviderName(scope constructs.Construct, id *string, certificateProviderName *string) ICertificateProviderRef {
+	_init_.Initialize()
+
+	if err := validateCfnCertificateProvider_FromCertificateProviderNameParameters(scope, id, certificateProviderName); err != nil {
+		panic(err)
+	}
+	var returns ICertificateProviderRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnCertificateProvider",
+		"fromCertificateProviderName",
+		[]interface{}{scope, id, certificateProviderName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

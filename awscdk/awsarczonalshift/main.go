@@ -125,6 +125,7 @@ func init() {
 		"aws-cdk-lib.aws_arczonalshift.IAutoshiftObserverNotificationStatusRef",
 		reflect.TypeOf((*IAutoshiftObserverNotificationStatusRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "autoshiftObserverNotificationStatusRef", GoGetter: "AutoshiftObserverNotificationStatusRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -138,6 +139,7 @@ func init() {
 		reflect.TypeOf((*IZonalAutoshiftConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "zonalAutoshiftConfigurationRef", GoGetter: "ZonalAutoshiftConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IZonalAutoshiftConfigurationRef{}

@@ -311,6 +311,7 @@ func init() {
 		reflect.TypeOf((*ISubscriptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subscriptionRef", GoGetter: "SubscriptionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubscriptionRef{}
@@ -359,6 +360,7 @@ func init() {
 		reflect.TypeOf((*ITopicInlinePolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "topicInlinePolicyRef", GoGetter: "TopicInlinePolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopicInlinePolicyRef{}
@@ -371,6 +373,7 @@ func init() {
 		reflect.TypeOf((*ITopicPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "topicPolicyRef", GoGetter: "TopicPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopicPolicyRef{}
@@ -383,6 +386,7 @@ func init() {
 		reflect.TypeOf((*ITopicRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "topicRef", GoGetter: "TopicRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopicRef{}

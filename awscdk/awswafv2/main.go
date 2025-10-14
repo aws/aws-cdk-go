@@ -960,6 +960,7 @@ func init() {
 		"aws-cdk-lib.aws_wafv2.IIPSetRef",
 		reflect.TypeOf((*IIPSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "ipSetRef", GoGetter: "IpSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -972,6 +973,7 @@ func init() {
 		"aws-cdk-lib.aws_wafv2.ILoggingConfigurationRef",
 		reflect.TypeOf((*ILoggingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfigurationRef", GoGetter: "LoggingConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -989,6 +991,7 @@ func init() {
 		reflect.TypeOf((*IRegexPatternSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "regexPatternSetRef", GoGetter: "RegexPatternSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRegexPatternSetRef{}
@@ -1001,6 +1004,7 @@ func init() {
 		reflect.TypeOf((*IRuleGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleGroupRef", GoGetter: "RuleGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuleGroupRef{}
@@ -1013,6 +1017,7 @@ func init() {
 		reflect.TypeOf((*IWebACLAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "webAclAssociationRef", GoGetter: "WebAclAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebACLAssociationRef{}
@@ -1025,6 +1030,7 @@ func init() {
 		reflect.TypeOf((*IWebACLRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "webAclRef", GoGetter: "WebAclRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWebACLRef{}

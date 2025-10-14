@@ -29,7 +29,7 @@ import (
 //
 type S3DownloadOptions struct {
 	// Name of the S3 bucket to download from.
-	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucketRef `field:"required" json:"bucket" yaml:"bucket"`
 	// The key of the file to download.
 	BucketKey *string `field:"required" json:"bucketKey" yaml:"bucketKey"`
 	// The name of the local file.

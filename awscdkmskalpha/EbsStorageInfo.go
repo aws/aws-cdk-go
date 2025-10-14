@@ -12,10 +12,10 @@ import (
 //   import msk_alpha "github.com/aws/aws-cdk-go/awscdkmskalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
+//   var keyRef iKeyRef
 //
 //   ebsStorageInfo := &EbsStorageInfo{
-//   	EncryptionKey: key,
+//   	EncryptionKey: keyRef,
 //   	VolumeSize: jsii.Number(123),
 //   }
 //
@@ -25,7 +25,7 @@ type EbsStorageInfo struct {
 	// Default: Uses AWS managed CMK (aws/kafka).
 	//
 	// Experimental.
-	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	// Default: 1000.
 	//

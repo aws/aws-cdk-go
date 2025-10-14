@@ -54,6 +54,9 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	ErrorMessageConfiguration: &ErrorMessageConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	Schema: &AnalysisSchemaProperty{
 //   		ReferencedTables: []*string{
 //   			jsii.String("referencedTables"),
@@ -129,6 +132,9 @@ type CfnAnalysisTemplate interface {
 	// The description of the analysis template.
 	Description() *string
 	SetDescription(val *string)
+	// The configuration that specifies the level of detail in error messages returned by analyses using this template.
+	ErrorMessageConfiguration() interface{}
+	SetErrorMessageConfiguration(val interface{})
 	// The format of the analysis template.
 	Format() *string
 	SetFormat(val *string)
@@ -469,6 +475,16 @@ func (j *jsiiProxy_CfnAnalysisTemplate) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalysisTemplate) ErrorMessageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"errorMessageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnalysisTemplate) Format() *string {
 	var returns *string
 	_jsii_.Get(
@@ -642,6 +658,17 @@ func (j *jsiiProxy_CfnAnalysisTemplate)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalysisTemplate)SetErrorMessageConfiguration(val interface{}) {
+	if err := j.validateSetErrorMessageConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"errorMessageConfiguration",
 		val,
 	)
 }

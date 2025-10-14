@@ -77,6 +77,16 @@ func (j *jsiiProxy_IKeyValueStore) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_IKeyValueStore) KeyValueStoreRef() *KeyValueStoreReference {
+	var returns *KeyValueStoreReference
+	_jsii_.Get(
+		j,
+		"keyValueStoreRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IKeyValueStore) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

@@ -603,6 +603,25 @@ func (j *jsiiProxy_CfnDeployment)SetTargetArn(val *string) {
 	)
 }
 
+// Creates a new IDeploymentRef from a deploymentId.
+func CfnDeployment_FromDeploymentId(scope constructs.Construct, id *string, deploymentId *string) IDeploymentRef {
+	_init_.Initialize()
+
+	if err := validateCfnDeployment_FromDeploymentIdParameters(scope, id, deploymentId); err != nil {
+		panic(err)
+	}
+	var returns IDeploymentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment",
+		"fromDeploymentId",
+		[]interface{}{scope, id, deploymentId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnScript) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnScript_FromScriptArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnScript_FromScriptIdParameters(scope constructs.Construct, id *string, scriptId *string) error {
+	return nil
+}
+
 func validateCfnScript_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

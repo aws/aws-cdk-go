@@ -42,6 +42,8 @@ type CfnTransitGatewayPeering interface {
 	AttrCreatedAt() *string
 	// The edge location for the peer.
 	AttrEdgeLocation() *string
+	// Errors from the last modification of the transit gateway peering.
+	AttrLastModificationErrors() *[]*string
 	// The ID of the account owner.
 	AttrOwnerAccountId() *string
 	// The ID of the peering.
@@ -274,6 +276,16 @@ func (j *jsiiProxy_CfnTransitGatewayPeering) AttrEdgeLocation() *string {
 	_jsii_.Get(
 		j,
 		"attrEdgeLocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeering) AttrLastModificationErrors() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns

@@ -253,7 +253,9 @@ import (
 //   		Role: taskRole,
 //   	},
 //   	CustomAmiId: jsii.String("customAmiId"),
+//   	EbsRootVolumeIops: jsii.Number(123),
 //   	EbsRootVolumeSize: size,
+//   	EbsRootVolumeThroughput: jsii.Number(123),
 //   	Heartbeat: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	HeartbeatTimeout: timeout,
 //   	InputPath: jsii.String("inputPath"),
@@ -268,6 +270,17 @@ import (
 //   		KdcAdminPassword: jsii.String("kdcAdminPassword"),
 //   	},
 //   	LogUri: jsii.String("logUri"),
+//   	ManagedScalingPolicy: &ManagedScalingPolicyProperty{
+//   		ComputeLimits: &ManagedScalingComputeLimitsProperty{
+//   			MaximumCapacityUnits: jsii.Number(123),
+//   			MinimumCapacityUnits: jsii.Number(123),
+//   			UnitType: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.ComputeLimitsUnitType_INSTANCE_FLEET_UNITS,
+//
+//   			// the properties below are optional
+//   			MaximumCoreCapacityUnits: jsii.Number(123),
+//   			MaximumOnDemandCapacityUnits: jsii.Number(123),
+//   		},
+//   	},
 //   	OutputPath: jsii.String("outputPath"),
 //   	QueryLanguage: awscdk.*Aws_stepfunctions.QueryLanguage_JSON_PATH,
 //   	ReleaseLabel: jsii.String("releaseLabel"),
@@ -428,10 +441,28 @@ type EmrCreateClusterJsonPathProps struct {
 	// Default: - None.
 	//
 	CustomAmiId *string `field:"optional" json:"customAmiId" yaml:"customAmiId"`
+	// The IOPS of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
+	//
+	// Requires EMR release label 6.15.0 or above.
+	// Must be in range [3000, 16000].
+	// See: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami-root-volume-size.html#emr-root-volume-overview
+	//
+	// Default: - EMR selected default.
+	//
+	EbsRootVolumeIops *float64 `field:"optional" json:"ebsRootVolumeIops" yaml:"ebsRootVolumeIops"`
 	// The size of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
 	// Default: - EMR selected default.
 	//
 	EbsRootVolumeSize awscdk.Size `field:"optional" json:"ebsRootVolumeSize" yaml:"ebsRootVolumeSize"`
+	// The throughput, in MiB/s, of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
+	//
+	// Requires EMR release label 6.15.0 or above.
+	// Must be in range [125, 1000].
+	// See: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami-root-volume-size.html#emr-root-volume-overview
+	//
+	// Default: - EMR selected default.
+	//
+	EbsRootVolumeThroughput *float64 `field:"optional" json:"ebsRootVolumeThroughput" yaml:"ebsRootVolumeThroughput"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
 	// Default: - None.
 	//
@@ -440,6 +471,10 @@ type EmrCreateClusterJsonPathProps struct {
 	// Default: - None.
 	//
 	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
+	// The specified managed scaling policy for an Amazon EMR cluster.
+	// Default: - None.
+	//
+	ManagedScalingPolicy *EmrCreateCluster_ManagedScalingPolicyProperty `field:"optional" json:"managedScalingPolicy" yaml:"managedScalingPolicy"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	// Default: - EMR selected default.
 	//

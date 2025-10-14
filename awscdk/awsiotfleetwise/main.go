@@ -605,6 +605,7 @@ func init() {
 		"aws-cdk-lib.aws_iotfleetwise.ICampaignRef",
 		reflect.TypeOf((*ICampaignRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "campaignRef", GoGetter: "CampaignRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -617,6 +618,7 @@ func init() {
 		"aws-cdk-lib.aws_iotfleetwise.IDecoderManifestRef",
 		reflect.TypeOf((*IDecoderManifestRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "decoderManifestRef", GoGetter: "DecoderManifestRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -629,6 +631,7 @@ func init() {
 		"aws-cdk-lib.aws_iotfleetwise.IFleetRef",
 		reflect.TypeOf((*IFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -641,6 +644,7 @@ func init() {
 		"aws-cdk-lib.aws_iotfleetwise.IModelManifestRef",
 		reflect.TypeOf((*IModelManifestRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelManifestRef", GoGetter: "ModelManifestRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -654,6 +658,7 @@ func init() {
 		reflect.TypeOf((*ISignalCatalogRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "signalCatalogRef", GoGetter: "SignalCatalogRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISignalCatalogRef{}
@@ -666,6 +671,7 @@ func init() {
 		reflect.TypeOf((*IStateTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stateTemplateRef", GoGetter: "StateTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStateTemplateRef{}
@@ -678,6 +684,7 @@ func init() {
 		reflect.TypeOf((*IVehicleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "vehicleRef", GoGetter: "VehicleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVehicleRef{}

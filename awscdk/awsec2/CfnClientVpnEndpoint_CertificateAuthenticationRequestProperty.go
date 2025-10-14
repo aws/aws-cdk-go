@@ -17,7 +17,7 @@ package awsec2
 type CfnClientVpnEndpoint_CertificateAuthenticationRequestProperty struct {
 	// The ARN of the client certificate.
 	//
-	// The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
+	// The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html#cfn-ec2-clientvpnendpoint-certificateauthenticationrequest-clientrootcertificatechainarn
 	//
 	ClientRootCertificateChainArn *string `field:"required" json:"clientRootCertificateChainArn" yaml:"clientRootCertificateChainArn"`

@@ -297,6 +297,7 @@ func init() {
 		reflect.TypeOf((*IScalableTargetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScalableTargetRef{}
@@ -309,6 +310,7 @@ func init() {
 		reflect.TypeOf((*IScalingPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingPolicyRef", GoGetter: "ScalingPolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScalingPolicyRef{}

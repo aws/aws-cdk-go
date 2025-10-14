@@ -177,3 +177,13 @@ func (j *jsiiProxy_IUser) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IUser) UserRef() *UserReference {
+	var returns *UserReference
+	_jsii_.Get(
+		j,
+		"userRef",
+		&returns,
+	)
+	return returns
+}
+

@@ -608,6 +608,44 @@ func (j *jsiiProxy_CfnDirectoryBucket)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDirectoryBucketRef from a bucketName.
+func CfnDirectoryBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) IDirectoryBucketRef {
+	_init_.Initialize()
+
+	if err := validateCfnDirectoryBucket_FromBucketNameParameters(scope, id, bucketName); err != nil {
+		panic(err)
+	}
+	var returns IDirectoryBucketRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket",
+		"fromBucketName",
+		[]interface{}{scope, id, bucketName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDirectoryBucketRef from an ARN.
+func CfnDirectoryBucket_FromDirectoryBucketArn(scope constructs.Construct, id *string, arn *string) IDirectoryBucketRef {
+	_init_.Initialize()
+
+	if err := validateCfnDirectoryBucket_FromDirectoryBucketArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDirectoryBucketRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket",
+		"fromDirectoryBucketArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

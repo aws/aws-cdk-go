@@ -30,6 +30,12 @@ package awscodebuild
 //   	BuildEnvironment: &BuildEnvironment{
 //   		ComputeType: codebuild.ComputeType_LARGE,
 //   		Privileged: jsii.Boolean(true),
+//   		DockerServer: &DockerServerOptions{
+//   			ComputeType: codebuild.DockerServerComputeType_SMALL,
+//   			SecurityGroups: []iSecurityGroup{
+//   				mySecurityGroup,
+//   			},
+//   		},
 //   	},
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
 //   	FileSystemLocations: []iFileSystemLocation{
@@ -46,7 +52,7 @@ package awscodebuild
 //   	SubnetSelection: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   	},
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []*iSecurityGroup{
 //   		mySecurityGroup,
 //   	},
 //
@@ -76,5 +82,6 @@ const (
 	ComputeType_LAMBDA_8GB ComputeType = "LAMBDA_8GB"
 	ComputeType_LAMBDA_10GB ComputeType = "LAMBDA_10GB"
 	ComputeType_ATTRIBUTE_BASED ComputeType = "ATTRIBUTE_BASED"
+	ComputeType_CUSTOM_INSTANCE_TYPE ComputeType = "CUSTOM_INSTANCE_TYPE"
 )
 

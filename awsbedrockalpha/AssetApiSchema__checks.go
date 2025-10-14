@@ -36,7 +36,7 @@ func validateAssetApiSchema_FromLocalAssetParameters(path *string) error {
 	return nil
 }
 
-func validateAssetApiSchema_FromS3FileParameters(bucket awss3.IBucket, objectKey *string) error {
+func validateAssetApiSchema_FromS3FileParameters(bucket awss3.IBucketRef, objectKey *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")
 	}

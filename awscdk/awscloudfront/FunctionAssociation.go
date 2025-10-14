@@ -10,17 +10,17 @@ package awscloudfront
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
+//   var functionRef iFunctionRef
 //
 //   functionAssociation := &FunctionAssociation{
 //   	EventType: awscdk.Aws_cloudfront.FunctionEventType_VIEWER_REQUEST,
-//   	Function: function_,
+//   	Function: functionRef,
 //   }
 //
 type FunctionAssociation struct {
 	// The type of event which should invoke the function.
 	EventType FunctionEventType `field:"required" json:"eventType" yaml:"eventType"`
 	// The CloudFront function that will be invoked.
-	Function IFunction `field:"required" json:"function" yaml:"function"`
+	Function IFunctionRef `field:"required" json:"function" yaml:"function"`
 }
 

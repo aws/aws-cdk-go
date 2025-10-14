@@ -269,6 +269,16 @@ func (j *jsiiProxy_IResource) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_IResource) ResourceRef() *ResourceReference {
+	var returns *ResourceReference
+	_jsii_.Get(
+		j,
+		"resourceRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IResource) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnOrganizationConfigRule_FromOrganizationConfigRuleIdParameters(scope constructs.Construct, id *string, organizationConfigRuleId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if organizationConfigRuleId == nil {
+		return fmt.Errorf("parameter organizationConfigRuleId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnOrganizationConfigRule_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

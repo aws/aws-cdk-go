@@ -538,6 +538,25 @@ func (j *jsiiProxy_CfnDHCPOptions)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDHCPOptionsRef from a dhcpOptionsId.
+func CfnDHCPOptions_FromDhcpOptionsId(scope constructs.Construct, id *string, dhcpOptionsId *string) IDHCPOptionsRef {
+	_init_.Initialize()
+
+	if err := validateCfnDHCPOptions_FromDhcpOptionsIdParameters(scope, id, dhcpOptionsId); err != nil {
+		panic(err)
+	}
+	var returns IDHCPOptionsRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnDHCPOptions",
+		"fromDhcpOptionsId",
+		[]interface{}{scope, id, dhcpOptionsId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

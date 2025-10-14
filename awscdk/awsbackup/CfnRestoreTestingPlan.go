@@ -535,6 +535,25 @@ func (j *jsiiProxy_CfnRestoreTestingPlan)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IRestoreTestingPlanRef from an ARN.
+func CfnRestoreTestingPlan_FromRestoreTestingPlanArn(scope constructs.Construct, id *string, arn *string) IRestoreTestingPlanRef {
+	_init_.Initialize()
+
+	if err := validateCfnRestoreTestingPlan_FromRestoreTestingPlanArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IRestoreTestingPlanRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnRestoreTestingPlan",
+		"fromRestoreTestingPlanArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

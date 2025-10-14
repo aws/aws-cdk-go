@@ -83,6 +83,8 @@ type FargateTaskDefinition interface {
 	IsExternalCompatible() *bool
 	// Return true if the task definition can be run on a Fargate cluster.
 	IsFargateCompatible() *bool
+	// Return true if the task definition can be run on Managed Instances.
+	IsManagedInstancesCompatible() *bool
 	// The amount (in MiB) of memory used by the task.
 	MemoryMiB() *float64
 	// The Docker networking mode to use for the containers in the task.
@@ -299,6 +301,16 @@ func (j *jsiiProxy_FargateTaskDefinition) IsFargateCompatible() *bool {
 	_jsii_.Get(
 		j,
 		"isFargateCompatible",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateTaskDefinition) IsManagedInstancesCompatible() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isManagedInstancesCompatible",
 		&returns,
 	)
 	return returns

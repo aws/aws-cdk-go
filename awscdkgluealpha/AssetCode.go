@@ -22,7 +22,7 @@ import (
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var key key
+//   var keyRef iKeyRef
 //   var localBundling iLocalBundling
 //
 //   assetCode := glue_alpha.NewAssetCode(jsii.String("path"), &AssetOptions{
@@ -72,7 +72,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: key,
+//   	SourceKMSKey: keyRef,
 //   })
 //
 // Experimental.

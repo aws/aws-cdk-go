@@ -99,7 +99,7 @@ type CfnAccessPoint interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// A configuration used when creating an Object Lambda Access Point.
+	// > Amazon S3 Object Lambda will no longer be open to new customers starting on 11/7/2025.
 	ObjectLambdaConfiguration() interface{}
 	SetObjectLambdaConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

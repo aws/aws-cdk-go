@@ -506,6 +506,25 @@ func (j *jsiiProxy_CfnPortfolio)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IPortfolioRef from a portfolioId.
+func CfnPortfolio_FromPortfolioId(scope constructs.Construct, id *string, portfolioId *string) IPortfolioRef {
+	_init_.Initialize()
+
+	if err := validateCfnPortfolio_FromPortfolioIdParameters(scope, id, portfolioId); err != nil {
+		panic(err)
+	}
+	var returns IPortfolioRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.CfnPortfolio",
+		"fromPortfolioId",
+		[]interface{}{scope, id, portfolioId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

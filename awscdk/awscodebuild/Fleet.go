@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,6 +41,8 @@ type Fleet interface {
 	// See: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.ComputeType.html
 	//
 	ComputeType() FleetComputeType
+	// The network connections associated with this Fleet's security group(s) in the configured VPC.
+	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -54,6 +58,8 @@ type Fleet interface {
 	FleetArn() *string
 	// The name of the fleet.
 	FleetName() *string
+	// The grant principal for this Fleet's service role.
+	GrantPrincipal() awsiam.IPrincipal
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -110,6 +116,16 @@ func (j *jsiiProxy_Fleet) ComputeType() FleetComputeType {
 	return returns
 }
 
+func (j *jsiiProxy_Fleet) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Fleet) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
@@ -145,6 +161,16 @@ func (j *jsiiProxy_Fleet) FleetName() *string {
 	_jsii_.Get(
 		j,
 		"fleetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Fleet) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
 		&returns,
 	)
 	return returns

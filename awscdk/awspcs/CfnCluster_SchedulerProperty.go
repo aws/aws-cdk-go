@@ -21,6 +21,10 @@ type CfnCluster_SchedulerProperty struct {
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The version of the specified scheduling software that AWS PCS uses to manage cluster scaling and job scheduling.
+	//
+	// For more information, see [Slurm versions in AWS PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html) in the *AWS PCS User Guide* .
+	//
+	// Valid Values: `23.11 | 24.05 | 24.11`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-scheduler.html#cfn-pcs-cluster-scheduler-version
 	//
 	Version *string `field:"required" json:"version" yaml:"version"`

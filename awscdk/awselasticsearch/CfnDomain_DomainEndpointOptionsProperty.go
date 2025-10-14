@@ -27,7 +27,7 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpoint
 	//
 	CustomEndpoint *string `field:"optional" json:"customEndpoint" yaml:"customEndpoint"`
-	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate.
+	// The Certificate Manager ARN for your domain's SSL/TLS certificate.
 	//
 	// Required if you enabled a custom endpoint for the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html#cfn-elasticsearch-domain-domainendpointoptions-customendpointcertificatearn

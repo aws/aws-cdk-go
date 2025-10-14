@@ -133,6 +133,7 @@ func init() {
 		"aws-cdk-lib.aws_neptunegraph.IGraphRef",
 		reflect.TypeOf((*IGraphRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "graphRef", GoGetter: "GraphRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -146,6 +147,7 @@ func init() {
 		reflect.TypeOf((*IPrivateGraphEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "privateGraphEndpointRef", GoGetter: "PrivateGraphEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrivateGraphEndpointRef{}

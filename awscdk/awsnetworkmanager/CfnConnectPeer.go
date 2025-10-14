@@ -60,6 +60,8 @@ type CfnConnectPeer interface {
 	AttrCreatedAt() *string
 	// The Connect peer Regions where edges are located.
 	AttrEdgeLocation() *string
+	// Describes the error associated with the attachment request.
+	AttrLastModificationErrors() *[]*string
 	// The state of the Connect peer.
 	//
 	// This will be: `REJECTED` | `PENDING_ATTACHMENT_ACCEPTANCE` | `CREATING` | `FAILED` | `AVAILABLE` | `UPDATING` | `PENDING_NETWORK_UPDATE` | `PENDING_TAG_ACCEPTANCE` | `DELETING` .
@@ -362,6 +364,16 @@ func (j *jsiiProxy_CfnConnectPeer) AttrEdgeLocation() *string {
 	_jsii_.Get(
 		j,
 		"attrEdgeLocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectPeer) AttrLastModificationErrors() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns

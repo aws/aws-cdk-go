@@ -373,6 +373,16 @@ func (j *jsiiProxy_IVersion) FunctionName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IVersion) FunctionRef() *FunctionReference {
+	var returns *FunctionReference
+	_jsii_.Get(
+		j,
+		"functionRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IVersion) GrantPrincipal() awsiam.IPrincipal {
 	var returns awsiam.IPrincipal
 	_jsii_.Get(
@@ -448,6 +458,16 @@ func (j *jsiiProxy_IVersion) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVersion) VersionRef() *VersionReference {
+	var returns *VersionReference
+	_jsii_.Get(
+		j,
+		"versionRef",
 		&returns,
 	)
 	return returns

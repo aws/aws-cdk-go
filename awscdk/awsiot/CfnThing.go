@@ -419,6 +419,44 @@ func (j *jsiiProxy_CfnThing)SetThingName(val *string) {
 	)
 }
 
+// Creates a new IThingRef from an ARN.
+func CfnThing_FromThingArn(scope constructs.Construct, id *string, arn *string) IThingRef {
+	_init_.Initialize()
+
+	if err := validateCfnThing_FromThingArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IThingRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnThing",
+		"fromThingArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IThingRef from a thingName.
+func CfnThing_FromThingName(scope constructs.Construct, id *string, thingName *string) IThingRef {
+	_init_.Initialize()
+
+	if err := validateCfnThing_FromThingNameParameters(scope, id, thingName); err != nil {
+		panic(err)
+	}
+	var returns IThingRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnThing",
+		"fromThingName",
+		[]interface{}{scope, id, thingName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

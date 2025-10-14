@@ -30,7 +30,7 @@ type CfnMailManagerAddonSubscriptionProps struct {
 	//
 	// You can only have one subscription for each Add On name.
 	//
-	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`.
+	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddonsubscription.html#cfn-ses-mailmanageraddonsubscription-addonname
 	//
 	AddonName *string `field:"required" json:"addonName" yaml:"addonName"`

@@ -508,6 +508,44 @@ func (j *jsiiProxy_CfnDomainName)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDomainNameRef from a domainName.
+func CfnDomainName_FromDomainName(scope constructs.Construct, id *string, domainName *string) IDomainNameRef {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_FromDomainNameParameters(scope, id, domainName); err != nil {
+		panic(err)
+	}
+	var returns IDomainNameRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appsync.CfnDomainName",
+		"fromDomainName",
+		[]interface{}{scope, id, domainName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDomainNameRef from an ARN.
+func CfnDomainName_FromDomainNameArn(scope constructs.Construct, id *string, arn *string) IDomainNameRef {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_FromDomainNameArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDomainNameRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appsync.CfnDomainName",
+		"fromDomainNameArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

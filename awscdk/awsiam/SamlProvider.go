@@ -43,6 +43,7 @@ type SamlProvider interface {
 	PhysicalName() *string
 	// The Amazon Resource Name (ARN) of the provider.
 	SamlProviderArn() *string
+	// A reference to a SAMLProvider resource.
 	SamlProviderRef() *SAMLProviderReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

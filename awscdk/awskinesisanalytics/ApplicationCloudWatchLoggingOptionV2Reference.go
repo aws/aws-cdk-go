@@ -12,8 +12,10 @@ package awskinesisanalytics
 //   	ApplicationCloudWatchLoggingOptionId: jsii.String("applicationCloudWatchLoggingOptionId"),
 //   }
 //
+// Deprecated: use `aws-kinesisanalyticsv2` instead.
 type ApplicationCloudWatchLoggingOptionV2Reference struct {
 	// The Id of the ApplicationCloudWatchLoggingOption resource.
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplicationCloudWatchLoggingOptionId *string `field:"required" json:"applicationCloudWatchLoggingOptionId" yaml:"applicationCloudWatchLoggingOptionId"`
 }
 

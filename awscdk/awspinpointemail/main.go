@@ -291,6 +291,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpointemail.IConfigurationSetEventDestinationRef",
 		reflect.TypeOf((*IConfigurationSetEventDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configurationSetEventDestinationRef", GoGetter: "ConfigurationSetEventDestinationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -303,6 +304,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpointemail.IConfigurationSetRef",
 		reflect.TypeOf((*IConfigurationSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configurationSetRef", GoGetter: "ConfigurationSetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -315,6 +317,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpointemail.IDedicatedIpPoolRef",
 		reflect.TypeOf((*IDedicatedIpPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dedicatedIpPoolRef", GoGetter: "DedicatedIpPoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -327,6 +330,7 @@ func init() {
 		"aws-cdk-lib.aws_pinpointemail.IIdentityRef",
 		reflect.TypeOf((*IIdentityRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "identityRef", GoGetter: "IdentityRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

@@ -2,6 +2,7 @@ package awss3
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Example:
@@ -9,19 +10,26 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//   var policyDocument policyDocument
 //
 //   bucketPolicyProps := &BucketPolicyProps{
 //   	Bucket: bucket,
 //
 //   	// the properties below are optional
+//   	Document: policyDocument,
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   }
 //
 type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.
 	Bucket IBucket `field:"required" json:"bucket" yaml:"bucket"`
+	// Policy document to apply to the bucket.
+	// Default: - A new empty PolicyDocument will be created.
+	//
+	Document awsiam.PolicyDocument `field:"optional" json:"document" yaml:"document"`
 	// Policy to apply when the policy is removed from this stack.
 	// Default: - RemovalPolicy.DESTROY.
 	//

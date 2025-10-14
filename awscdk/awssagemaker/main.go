@@ -178,12 +178,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrClusterStatus", GoGetter: "AttrClusterStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFailureMessage", GoGetter: "AttrFailureMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScaling", GoGetter: "AutoScaling"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterRole", GoGetter: "ClusterRole"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -227,6 +229,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.CapacitySizeConfigProperty",
 		reflect.TypeOf((*CfnCluster_CapacitySizeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterAutoScalingConfigProperty",
+		reflect.TypeOf((*CfnCluster_ClusterAutoScalingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterEbsVolumeConfigProperty",
@@ -3503,6 +3509,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IAppImageConfigRef",
 		reflect.TypeOf((*IAppImageConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "appImageConfigRef", GoGetter: "AppImageConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3515,6 +3522,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IAppRef",
 		reflect.TypeOf((*IAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "appRef", GoGetter: "AppRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3527,6 +3535,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3539,6 +3548,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.ICodeRepositoryRef",
 		reflect.TypeOf((*ICodeRepositoryRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "codeRepositoryRef", GoGetter: "CodeRepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3551,6 +3561,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IDataQualityJobDefinitionRef",
 		reflect.TypeOf((*IDataQualityJobDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataQualityJobDefinitionRef", GoGetter: "DataQualityJobDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3563,6 +3574,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IDeviceFleetRef",
 		reflect.TypeOf((*IDeviceFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deviceFleetRef", GoGetter: "DeviceFleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3575,6 +3587,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IDeviceRef",
 		reflect.TypeOf((*IDeviceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deviceRef", GoGetter: "DeviceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3587,6 +3600,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IDomainRef",
 		reflect.TypeOf((*IDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3617,6 +3631,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IEndpointConfigRef",
 		reflect.TypeOf((*IEndpointConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "endpointConfigRef", GoGetter: "EndpointConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3629,6 +3644,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IEndpointRef",
 		reflect.TypeOf((*IEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "endpointRef", GoGetter: "EndpointRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3641,6 +3657,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IFeatureGroupRef",
 		reflect.TypeOf((*IFeatureGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "featureGroupRef", GoGetter: "FeatureGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3653,6 +3670,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IImageRef",
 		reflect.TypeOf((*IImageRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "imageRef", GoGetter: "ImageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3665,6 +3683,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IImageVersionRef",
 		reflect.TypeOf((*IImageVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "imageVersionRef", GoGetter: "ImageVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3677,6 +3696,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IInferenceComponentRef",
 		reflect.TypeOf((*IInferenceComponentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "inferenceComponentRef", GoGetter: "InferenceComponentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3689,6 +3709,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IInferenceExperimentRef",
 		reflect.TypeOf((*IInferenceExperimentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "inferenceExperimentRef", GoGetter: "InferenceExperimentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3701,6 +3722,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IMlflowTrackingServerRef",
 		reflect.TypeOf((*IMlflowTrackingServerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "mlflowTrackingServerRef", GoGetter: "MlflowTrackingServerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3713,6 +3735,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelBiasJobDefinitionRef",
 		reflect.TypeOf((*IModelBiasJobDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelBiasJobDefinitionRef", GoGetter: "ModelBiasJobDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3725,6 +3748,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelCardRef",
 		reflect.TypeOf((*IModelCardRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelCardRef", GoGetter: "ModelCardRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3737,6 +3761,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelExplainabilityJobDefinitionRef",
 		reflect.TypeOf((*IModelExplainabilityJobDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelExplainabilityJobDefinitionRef", GoGetter: "ModelExplainabilityJobDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3749,6 +3774,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelPackageGroupRef",
 		reflect.TypeOf((*IModelPackageGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelPackageGroupRef", GoGetter: "ModelPackageGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3761,6 +3787,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelPackageRef",
 		reflect.TypeOf((*IModelPackageRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelPackageRef", GoGetter: "ModelPackageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3773,6 +3800,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelQualityJobDefinitionRef",
 		reflect.TypeOf((*IModelQualityJobDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelQualityJobDefinitionRef", GoGetter: "ModelQualityJobDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3785,6 +3813,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IModelRef",
 		reflect.TypeOf((*IModelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modelRef", GoGetter: "ModelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3797,6 +3826,7 @@ func init() {
 		"aws-cdk-lib.aws_sagemaker.IMonitoringScheduleRef",
 		reflect.TypeOf((*IMonitoringScheduleRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "monitoringScheduleRef", GoGetter: "MonitoringScheduleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -3810,6 +3840,7 @@ func init() {
 		reflect.TypeOf((*INotebookInstanceLifecycleConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "notebookInstanceLifecycleConfigRef", GoGetter: "NotebookInstanceLifecycleConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INotebookInstanceLifecycleConfigRef{}
@@ -3822,6 +3853,7 @@ func init() {
 		reflect.TypeOf((*INotebookInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "notebookInstanceRef", GoGetter: "NotebookInstanceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INotebookInstanceRef{}
@@ -3834,6 +3866,7 @@ func init() {
 		reflect.TypeOf((*IPartnerAppRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "partnerAppRef", GoGetter: "PartnerAppRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPartnerAppRef{}
@@ -3864,6 +3897,7 @@ func init() {
 		reflect.TypeOf((*IPipelineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPipelineRef{}
@@ -3876,6 +3910,7 @@ func init() {
 		reflect.TypeOf((*IProcessingJobRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "processingJobRef", GoGetter: "ProcessingJobRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProcessingJobRef{}
@@ -3888,6 +3923,7 @@ func init() {
 		reflect.TypeOf((*IProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProjectRef{}
@@ -3900,6 +3936,7 @@ func init() {
 		reflect.TypeOf((*ISpaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "spaceRef", GoGetter: "SpaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISpaceRef{}
@@ -3912,6 +3949,7 @@ func init() {
 		reflect.TypeOf((*IStudioLifecycleConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "studioLifecycleConfigRef", GoGetter: "StudioLifecycleConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStudioLifecycleConfigRef{}
@@ -3924,6 +3962,7 @@ func init() {
 		reflect.TypeOf((*IUserProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userProfileRef", GoGetter: "UserProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserProfileRef{}
@@ -3936,6 +3975,7 @@ func init() {
 		reflect.TypeOf((*IWorkteamRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workteamRef", GoGetter: "WorkteamRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkteamRef{}

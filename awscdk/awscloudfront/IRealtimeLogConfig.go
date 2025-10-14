@@ -75,6 +75,16 @@ func (j *jsiiProxy_IRealtimeLogConfig) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_IRealtimeLogConfig) RealtimeLogConfigRef() *RealtimeLogConfigReference {
+	var returns *RealtimeLogConfigReference
+	_jsii_.Get(
+		j,
+		"realtimeLogConfigRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IRealtimeLogConfig) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(

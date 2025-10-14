@@ -292,6 +292,16 @@ func (j *jsiiProxy_IAlias) Version() IVersion {
 	return returns
 }
 
+func (j *jsiiProxy_IAlias) AliasRef() *AliasReference {
+	var returns *AliasReference
+	_jsii_.Get(
+		j,
+		"aliasRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IAlias) Architecture() Architecture {
 	var returns Architecture
 	_jsii_.Get(
@@ -337,6 +347,16 @@ func (j *jsiiProxy_IAlias) FunctionName() *string {
 	_jsii_.Get(
 		j,
 		"functionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAlias) FunctionRef() *FunctionReference {
+	var returns *FunctionReference
+	_jsii_.Get(
+		j,
+		"functionRef",
 		&returns,
 	)
 	return returns

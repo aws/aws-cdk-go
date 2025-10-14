@@ -156,7 +156,7 @@ type FargateServiceProps struct {
 	// of a Classic Load Balancer.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html
 	//
-	// Default: AvailabilityZoneRebalancing.DISABLED
+	// Default: AvailabilityZoneRebalancing.ENABLED
 	//
 	AvailabilityZoneRebalancing AvailabilityZoneRebalancing `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// The platform version on which to run your service.

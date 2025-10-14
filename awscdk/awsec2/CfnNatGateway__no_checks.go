@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnNatGateway) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnNatGateway_FromNatGatewayIdParameters(scope constructs.Construct, id *string, natGatewayId *string) error {
+	return nil
+}
+
 func validateCfnNatGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

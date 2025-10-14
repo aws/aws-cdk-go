@@ -26,6 +26,13 @@ package awsworkspacesinstances
 //   			VirtualName: jsii.String("virtualName"),
 //   		},
 //   	},
+//   	CapacityReservationSpecification: &CapacityReservationSpecificationProperty{
+//   		CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   		CapacityReservationTarget: &CapacityReservationTargetProperty{
+//   			CapacityReservationId: jsii.String("capacityReservationId"),
+//   			CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   		},
+//   	},
 //   	CpuOptions: &CpuOptionsRequestProperty{
 //   		CoreCount: jsii.Number(123),
 //   		ThreadsPerCore: jsii.Number(123),
@@ -35,6 +42,7 @@ package awsworkspacesinstances
 //   	},
 //   	DisableApiStop: jsii.Boolean(false),
 //   	EbsOptimized: jsii.Boolean(false),
+//   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	EnclaveOptions: &EnclaveOptionsRequestProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -42,9 +50,25 @@ package awsworkspacesinstances
 //   		Configured: jsii.Boolean(false),
 //   	},
 //   	IamInstanceProfile: &IamInstanceProfileSpecificationProperty{
+//   		Arn: jsii.String("arn"),
 //   		Name: jsii.String("name"),
 //   	},
+//   	InstanceMarketOptions: &InstanceMarketOptionsRequestProperty{
+//   		MarketType: jsii.String("marketType"),
+//   		SpotOptions: &SpotMarketOptionsProperty{
+//   			InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
+//   			MaxPrice: jsii.String("maxPrice"),
+//   			SpotInstanceType: jsii.String("spotInstanceType"),
+//   			ValidUntilUtc: jsii.String("validUntilUtc"),
+//   		},
+//   	},
+//   	Ipv6AddressCount: jsii.Number(123),
 //   	KeyName: jsii.String("keyName"),
+//   	LicenseSpecifications: []interface{}{
+//   		&LicenseConfigurationRequestProperty{
+//   			LicenseConfigurationArn: jsii.String("licenseConfigurationArn"),
+//   		},
+//   	},
 //   	MaintenanceOptions: &InstanceMaintenanceOptionsRequestProperty{
 //   		AutoRecovery: jsii.String("autoRecovery"),
 //   	},
@@ -73,7 +97,9 @@ package awsworkspacesinstances
 //   	},
 //   	Placement: &PlacementProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
+//   		GroupId: jsii.String("groupId"),
 //   		GroupName: jsii.String("groupName"),
+//   		PartitionNumber: jsii.Number(123),
 //   		Tenancy: jsii.String("tenancy"),
 //   	},
 //   	PrivateDnsNameOptions: &PrivateDnsNameOptionsRequestProperty{
@@ -81,6 +107,7 @@ package awsworkspacesinstances
 //   		EnableResourceNameDnsARecord: jsii.Boolean(false),
 //   		HostnameType: jsii.String("hostnameType"),
 //   	},
+//   	SubnetId: jsii.String("subnetId"),
 //   	TagSpecifications: []interface{}{
 //   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
@@ -107,6 +134,9 @@ type CfnWorkspaceInstance_ManagedInstanceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-blockdevicemappings
 	//
 	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-capacityreservationspecification
+	//
+	CapacityReservationSpecification interface{} `field:"optional" json:"capacityReservationSpecification" yaml:"capacityReservationSpecification"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-cpuoptions
 	//
 	CpuOptions interface{} `field:"optional" json:"cpuOptions" yaml:"cpuOptions"`
@@ -119,6 +149,9 @@ type CfnWorkspaceInstance_ManagedInstanceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-ebsoptimized
 	//
 	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-enableprimaryipv6
+	//
+	EnablePrimaryIpv6 interface{} `field:"optional" json:"enablePrimaryIpv6" yaml:"enablePrimaryIpv6"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-enclaveoptions
 	//
 	EnclaveOptions interface{} `field:"optional" json:"enclaveOptions" yaml:"enclaveOptions"`
@@ -128,9 +161,18 @@ type CfnWorkspaceInstance_ManagedInstanceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-iaminstanceprofile
 	//
 	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-instancemarketoptions
+	//
+	InstanceMarketOptions interface{} `field:"optional" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-ipv6addresscount
+	//
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-keyname
 	//
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-licensespecifications
+	//
+	LicenseSpecifications interface{} `field:"optional" json:"licenseSpecifications" yaml:"licenseSpecifications"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-maintenanceoptions
 	//
 	MaintenanceOptions interface{} `field:"optional" json:"maintenanceOptions" yaml:"maintenanceOptions"`
@@ -152,6 +194,9 @@ type CfnWorkspaceInstance_ManagedInstanceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-privatednsnameoptions
 	//
 	PrivateDnsNameOptions interface{} `field:"optional" json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-subnetid
+	//
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-tagspecifications
 	//
 	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`

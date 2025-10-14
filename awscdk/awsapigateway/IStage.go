@@ -103,3 +103,13 @@ func (j *jsiiProxy_IStage) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IStage) StageRef() *StageReference {
+	var returns *StageReference
+	_jsii_.Get(
+		j,
+		"stageRef",
+		&returns,
+	)
+	return returns
+}
+

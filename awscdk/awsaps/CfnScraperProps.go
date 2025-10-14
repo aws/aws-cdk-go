@@ -40,6 +40,25 @@ import (
 //   		SourceRoleArn: jsii.String("sourceRoleArn"),
 //   		TargetRoleArn: jsii.String("targetRoleArn"),
 //   	},
+//   	ScraperLoggingConfiguration: &ScraperLoggingConfigurationProperty{
+//   		LoggingDestination: &ScraperLoggingDestinationProperty{
+//   			CloudWatchLogs: &CloudWatchLogDestinationProperty{
+//   				LogGroupArn: jsii.String("logGroupArn"),
+//   			},
+//   		},
+//   		ScraperComponents: []interface{}{
+//   			&ScraperComponentProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Config: &ComponentConfigProperty{
+//   					Options: map[string]*string{
+//   						"optionsKey": jsii.String("options"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -71,6 +90,10 @@ type CfnScraperProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-roleconfiguration
 	//
 	RoleConfiguration interface{} `field:"optional" json:"roleConfiguration" yaml:"roleConfiguration"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-scraperloggingconfiguration
+	//
+	ScraperLoggingConfiguration interface{} `field:"optional" json:"scraperLoggingConfiguration" yaml:"scraperLoggingConfiguration"`
 	// (Optional) The list of tag keys and values associated with the scraper.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-tags
 	//

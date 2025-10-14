@@ -80,6 +80,14 @@ func validateCfnWorkflowVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkflowVersion) validateSetContainerRegistryMapParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnWorkflowVersion) validateSetDefinitionRepositoryParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkflowVersion) validateSetParameterTemplateParameters(val interface{}) error {
 	return nil
 }

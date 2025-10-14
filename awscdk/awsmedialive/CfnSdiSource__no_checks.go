@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnSdiSource) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnSdiSource_FromSdiSourceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnSdiSource_FromSdiSourceIdParameters(scope constructs.Construct, id *string, sdiSourceId *string) error {
+	return nil
+}
+
 func validateCfnSdiSource_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -187,3 +187,13 @@ func (j *jsiiProxy_IVpnConnection) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_IVpnConnection) VpnConnectionRef() *VPNConnectionReference {
+	var returns *VPNConnectionReference
+	_jsii_.Get(
+		j,
+		"vpnConnectionRef",
+		&returns,
+	)
+	return returns
+}
+

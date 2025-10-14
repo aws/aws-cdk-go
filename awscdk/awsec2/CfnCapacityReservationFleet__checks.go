@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnCapacityReservationFleet_FromCapacityReservationFleetIdParameters(scope constructs.Construct, id *string, capacityReservationFleetId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if capacityReservationFleetId == nil {
+		return fmt.Errorf("parameter capacityReservationFleetId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCapacityReservationFleet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

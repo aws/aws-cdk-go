@@ -37,7 +37,6 @@ type CfnPortfolioShare interface {
 	// The AWS account ID.
 	AccountId() *string
 	SetAccountId(val *string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -238,16 +237,6 @@ func (j *jsiiProxy_CfnPortfolioShare) AccountId() *string {
 	_jsii_.Get(
 		j,
 		"accountId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPortfolioShare) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

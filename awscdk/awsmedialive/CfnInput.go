@@ -843,6 +843,44 @@ func (j *jsiiProxy_CfnInput)SetVpc(val interface{}) {
 	)
 }
 
+// Creates a new IInputRef from an ARN.
+func CfnInput_FromInputArn(scope constructs.Construct, id *string, arn *string) IInputRef {
+	_init_.Initialize()
+
+	if err := validateCfnInput_FromInputArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IInputRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnInput",
+		"fromInputArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IInputRef from a inputId.
+func CfnInput_FromInputId(scope constructs.Construct, id *string, inputId *string) IInputRef {
+	_init_.Initialize()
+
+	if err := validateCfnInput_FromInputIdParameters(scope, id, inputId); err != nil {
+		panic(err)
+	}
+	var returns IInputRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_medialive.CfnInput",
+		"fromInputId",
+		[]interface{}{scope, id, inputId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

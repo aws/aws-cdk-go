@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnAuthorizer) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnAuthorizer_FromAuthorizerArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAuthorizer_FromAuthorizerNameParameters(scope constructs.Construct, id *string, authorizerName *string) error {
+	return nil
+}
+
 func validateCfnAuthorizer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

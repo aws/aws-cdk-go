@@ -548,6 +548,44 @@ func (j *jsiiProxy_CfnBackupVault)SetNotifications(val interface{}) {
 	)
 }
 
+// Creates a new IBackupVaultRef from an ARN.
+func CfnBackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, arn *string) IBackupVaultRef {
+	_init_.Initialize()
+
+	if err := validateCfnBackupVault_FromBackupVaultArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IBackupVaultRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnBackupVault",
+		"fromBackupVaultArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IBackupVaultRef from a backupVaultName.
+func CfnBackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) IBackupVaultRef {
+	_init_.Initialize()
+
+	if err := validateCfnBackupVault_FromBackupVaultNameParameters(scope, id, backupVaultName); err != nil {
+		panic(err)
+	}
+	var returns IBackupVaultRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnBackupVault",
+		"fromBackupVaultName",
+		[]interface{}{scope, id, backupVaultName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

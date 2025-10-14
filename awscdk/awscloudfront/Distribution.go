@@ -41,6 +41,7 @@ type Distribution interface {
 	DistributionDomainName() *string
 	// The distribution ID for this distribution.
 	DistributionId() *string
+	// A reference to a Distribution resource.
 	DistributionRef() *DistributionReference
 	// The domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
 	DomainName() *string

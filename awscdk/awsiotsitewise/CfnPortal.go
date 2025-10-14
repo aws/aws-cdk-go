@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a portal, which can contain projects and dashboards.
+// > The AWS IoT SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 .
 //
-// AWS IoT SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal users and manage user permissions.
+// If you would like to use the AWS IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html) .
+//
+// Creates a portal, which can contain projects and dashboards. AWS IoT SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal users and manage user permissions.
 //
 // > Before you can sign in to a new portal, you must add at least one identity to that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) in the *AWS IoT SiteWise User Guide* .
 //
@@ -660,6 +662,44 @@ func (j *jsiiProxy_CfnPortal)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new IPortalRef from an ARN.
+func CfnPortal_FromPortalArn(scope constructs.Construct, id *string, arn *string) IPortalRef {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_FromPortalArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IPortalRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"fromPortalArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPortalRef from a portalId.
+func CfnPortal_FromPortalId(scope constructs.Construct, id *string, portalId *string) IPortalRef {
+	_init_.Initialize()
+
+	if err := validateCfnPortal_FromPortalIdParameters(scope, id, portalId); err != nil {
+		panic(err)
+	}
+	var returns IPortalRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"fromPortalId",
+		[]interface{}{scope, id, portalId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

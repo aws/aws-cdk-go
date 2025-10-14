@@ -84,6 +84,14 @@ func (j *jsiiProxy_CfnEventSubscription) validateSetEnabledParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventSubscription) validateSetSnsTopicArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEventSubscription) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEventSubscriptionParameters(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) error {
 	return nil
 }

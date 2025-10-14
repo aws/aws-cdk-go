@@ -215,6 +215,7 @@ func init() {
 		"aws-cdk-lib.aws_budgets.IBudgetRef",
 		reflect.TypeOf((*IBudgetRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "budgetRef", GoGetter: "BudgetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -227,6 +228,7 @@ func init() {
 		"aws-cdk-lib.aws_budgets.IBudgetsActionRef",
 		reflect.TypeOf((*IBudgetsActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "budgetsActionRef", GoGetter: "BudgetsActionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

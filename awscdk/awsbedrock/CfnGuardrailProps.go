@@ -40,6 +40,10 @@ type CfnGuardrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-automatedreasoningpolicyconfig
+	//
+	AutomatedReasoningPolicyConfig interface{} `field:"optional" json:"automatedReasoningPolicyConfig" yaml:"automatedReasoningPolicyConfig"`
 	// The content filter policies to configure for the guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contentpolicyconfig
 	//

@@ -24,6 +24,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AnalyticsEngine: jsii.String("analyticsEngine"),
+//   	AutoApprovedChangeTypes: []*string{
+//   		jsii.String("autoApprovedChangeTypes"),
+//   	},
 //   	CreatorMemberAbilities: []*string{
 //   		jsii.String("creatorMemberAbilities"),
 //   	},
@@ -117,6 +120,9 @@ type CfnCollaboration interface {
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
 	AttrCollaborationIdentifier() *string
+	// The types of change requests that are automatically approved for this collaboration.
+	AutoApprovedChangeTypes() *[]*string
+	SetAutoApprovedChangeTypes(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -357,6 +363,16 @@ func (j *jsiiProxy_CfnCollaboration) AttrCollaborationIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"attrCollaborationIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCollaboration) AutoApprovedChangeTypes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"autoApprovedChangeTypes",
 		&returns,
 	)
 	return returns
@@ -624,6 +640,14 @@ func (j *jsiiProxy_CfnCollaboration)SetAnalyticsEngine(val *string) {
 	_jsii_.Set(
 		j,
 		"analyticsEngine",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollaboration)SetAutoApprovedChangeTypes(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"autoApprovedChangeTypes",
 		val,
 	)
 }

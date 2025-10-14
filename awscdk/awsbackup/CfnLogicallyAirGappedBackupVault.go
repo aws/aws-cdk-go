@@ -567,6 +567,25 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetNotifications(val interfa
 	)
 }
 
+// Creates a new ILogicallyAirGappedBackupVaultRef from a backupVaultName.
+func CfnLogicallyAirGappedBackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) ILogicallyAirGappedBackupVaultRef {
+	_init_.Initialize()
+
+	if err := validateCfnLogicallyAirGappedBackupVault_FromBackupVaultNameParameters(scope, id, backupVaultName); err != nil {
+		panic(err)
+	}
+	var returns ILogicallyAirGappedBackupVaultRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.CfnLogicallyAirGappedBackupVault",
+		"fromBackupVaultName",
+		[]interface{}{scope, id, backupVaultName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

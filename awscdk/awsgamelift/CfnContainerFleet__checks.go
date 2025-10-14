@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnContainerFleet) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnContainerFleet_FromFleetIdParameters(scope constructs.Construct, id *string, fleetId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if fleetId == nil {
+		return fmt.Errorf("parameter fleetId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnContainerFleet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

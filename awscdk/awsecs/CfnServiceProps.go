@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var hookDetails interface{}
+//
 //   cfnServiceProps := &CfnServiceProps{
 //   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
 //   	CapacityProviderStrategy: []interface{}{
@@ -41,6 +43,9 @@ import (
 //   					jsii.String("lifecycleStages"),
 //   				},
 //   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				HookDetails: hookDetails,
 //   			},
 //   		},
 //   		MaximumPercent: jsii.Number(123),
@@ -232,9 +237,14 @@ type CfnServiceProps struct {
 	// Indicates whether to use Availability Zone rebalancing for the service.
 	//
 	// For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the **Amazon Elastic Container Service Developer Guide** .
+	//
+	// The default behavior of `AvailabilityZoneRebalancing` differs between create and update requests:
+	//
+	// - For create service requests, when no value is specified for `AvailabilityZoneRebalancing` , Amazon ECS defaults the value to `ENABLED` .
+	// - For update service requests, when no value is specified for `AvailabilityZoneRebalancing` , Amazon ECS defaults to the existing service’s `AvailabilityZoneRebalancing` value. If the service never had an `AvailabilityZoneRebalancing` value set, Amazon ECS treats this as `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-availabilityzonerebalancing
 	//
-	// Default: - "DISABLED".
+	// Default: - "ENABLED".
 	//
 	AvailabilityZoneRebalancing *string `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
@@ -291,9 +301,9 @@ type CfnServiceProps struct {
 	ForceNewDeployment interface{} `field:"optional" json:"forceNewDeployment" yaml:"forceNewDeployment"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	//
-	// If you don't specify a health check grace period value, the default value of `0` is used. If you don't use any of the health checks, then `healthCheckGracePeriodSeconds` is unused.
+	// If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then `healthCheckGracePeriodSeconds` is unused.
 	//
-	// If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+	// If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
 	//
 	HealthCheckGracePeriodSeconds *float64 `field:"optional" json:"healthCheckGracePeriodSeconds" yaml:"healthCheckGracePeriodSeconds"`

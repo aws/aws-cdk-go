@@ -20,7 +20,7 @@ import (
 //
 //   var albControllerVersion albControllerVersion
 //   var endpointAccess endpointAccess
-//   var key key
+//   var keyRef iKeyRef
 //   var kubernetesVersion kubernetesVersion
 //   var layerVersion layerVersion
 //   var policy interface{}
@@ -67,7 +67,7 @@ import (
 //   	MastersRole: role,
 //   	Prune: jsii.Boolean(false),
 //   	Role: role,
-//   	SecretsEncryptionKey: key,
+//   	SecretsEncryptionKey: keyRef,
 //   	SecurityGroup: securityGroup,
 //   	ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   	Tags: map[string]*string{
@@ -167,7 +167,7 @@ type ClusterCommonOptions struct {
 	//   using AWS-Managed encryption keys.
 	//
 	// Experimental.
-	SecretsEncryptionKey awskms.IKey `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKeyRef `field:"optional" json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// Security Group to use for Control Plane ENIs.
 	// Default: - A security group is automatically created.
 	//

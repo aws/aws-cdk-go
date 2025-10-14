@@ -58,6 +58,7 @@ type ServiceAccount interface {
 	// The namespace where the service account is located in.
 	// Experimental.
 	ServiceAccountNamespace() *string
+	// Add to the policy of this principal.
 	// Deprecated: use `addToPrincipalPolicy()`.
 	AddToPolicy(statement awsiam.PolicyStatement) *bool
 	// Add to the policy of this principal.

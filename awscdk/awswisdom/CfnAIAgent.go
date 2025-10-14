@@ -704,6 +704,25 @@ func (j *jsiiProxy_CfnAIAgent)SetType(val *string) {
 	)
 }
 
+// Creates a new IAIAgentRef from an ARN.
+func CfnAIAgent_FromAIAgentArn(scope constructs.Construct, id *string, arn *string) IAIAgentRef {
+	_init_.Initialize()
+
+	if err := validateCfnAIAgent_FromAIAgentArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IAIAgentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent",
+		"fromAIAgentArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

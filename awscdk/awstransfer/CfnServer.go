@@ -110,7 +110,9 @@ type CfnServer interface {
 	//
 	// The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
 	AttrState() *string
-	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate.
+	// The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate.
+	//
+	// Required when `Protocols` is set to `FTPS` .
 	Certificate() *string
 	SetCertificate(val *string)
 	// Options for this resource, such as condition, update policy etc.

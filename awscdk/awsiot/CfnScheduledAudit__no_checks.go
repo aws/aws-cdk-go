@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnScheduledAudit) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
+func validateCfnScheduledAudit_FromScheduledAuditArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnScheduledAudit_FromScheduledAuditNameParameters(scope constructs.Construct, id *string, scheduledAuditName *string) error {
+	return nil
+}
+
 func validateCfnScheduledAudit_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

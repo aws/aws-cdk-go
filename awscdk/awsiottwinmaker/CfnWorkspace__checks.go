@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnWorkspace) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
+func validateCfnWorkspace_FromWorkspaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnWorkspace_FromWorkspaceIdParameters(scope constructs.Construct, id *string, workspaceId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if workspaceId == nil {
+		return fmt.Errorf("parameter workspaceId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnWorkspace_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

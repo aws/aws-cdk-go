@@ -1,7 +1,7 @@
 package awsappmesh
 
 
-// An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
+// An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

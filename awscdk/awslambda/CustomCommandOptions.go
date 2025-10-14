@@ -19,7 +19,7 @@ import (
 //   var commandOptions interface{}
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var key key
+//   var keyRef iKeyRef
 //   var localBundling iLocalBundling
 //
 //   customCommandOptions := &CustomCommandOptions{
@@ -72,7 +72,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: key,
+//   	SourceKMSKey: keyRef,
 //   }
 //
 type CustomCommandOptions struct {
@@ -166,7 +166,7 @@ type CustomCommandOptions struct {
 	// The ARN of the KMS key used to encrypt the handler code.
 	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
 	//
-	SourceKMSKey awskms.IKey `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
+	SourceKMSKey awskms.IKeyRef `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 	// options that are passed to the spawned process, which determine the characteristics of the spawned process.
 	// Default: : see `child_process.SpawnSyncOptions` (https://nodejs.org/api/child_process.html#child_processspawnsynccommand-args-options).
 	//

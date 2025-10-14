@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnApplicationV2) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnApplicationV2_FromApplicationNameParameters(scope constructs.Construct, id *string, applicationName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if applicationName == nil {
+		return fmt.Errorf("parameter applicationName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnApplicationV2_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

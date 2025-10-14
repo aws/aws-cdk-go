@@ -730,6 +730,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticache.ICacheClusterRef",
 		reflect.TypeOf((*ICacheClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cacheClusterRef", GoGetter: "CacheClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -742,6 +743,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticache.IGlobalReplicationGroupRef",
 		reflect.TypeOf((*IGlobalReplicationGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "globalReplicationGroupRef", GoGetter: "GlobalReplicationGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -755,6 +757,7 @@ func init() {
 		reflect.TypeOf((*IParameterGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "parameterGroupRef", GoGetter: "ParameterGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IParameterGroupRef{}
@@ -767,6 +770,7 @@ func init() {
 		reflect.TypeOf((*IReplicationGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationGroupRef", GoGetter: "ReplicationGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReplicationGroupRef{}
@@ -779,6 +783,7 @@ func init() {
 		reflect.TypeOf((*ISecurityGroupIngressRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupIngressRef", GoGetter: "SecurityGroupIngressRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityGroupIngressRef{}
@@ -791,6 +796,7 @@ func init() {
 		reflect.TypeOf((*ISecurityGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroupRef", GoGetter: "SecurityGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityGroupRef{}
@@ -803,6 +809,7 @@ func init() {
 		reflect.TypeOf((*IServerlessCacheRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheRef", GoGetter: "ServerlessCacheRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServerlessCacheRef{}
@@ -815,6 +822,7 @@ func init() {
 		reflect.TypeOf((*ISubnetGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetGroupRef", GoGetter: "SubnetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetGroupRef{}
@@ -827,6 +835,7 @@ func init() {
 		reflect.TypeOf((*IUserGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userGroupRef", GoGetter: "UserGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserGroupRef{}
@@ -839,6 +848,7 @@ func init() {
 		reflect.TypeOf((*IUserRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserRef{}

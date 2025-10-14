@@ -2127,6 +2127,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IAccountAuditConfigurationRef",
 		reflect.TypeOf((*IAccountAuditConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accountAuditConfigurationRef", GoGetter: "AccountAuditConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2139,6 +2140,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IAuthorizerRef",
 		reflect.TypeOf((*IAuthorizerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2151,6 +2153,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IBillingGroupRef",
 		reflect.TypeOf((*IBillingGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "billingGroupRef", GoGetter: "BillingGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2163,6 +2166,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.ICACertificateRef",
 		reflect.TypeOf((*ICACertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "caCertificateRef", GoGetter: "CaCertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2175,6 +2179,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.ICertificateProviderRef",
 		reflect.TypeOf((*ICertificateProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateProviderRef", GoGetter: "CertificateProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2187,6 +2192,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.ICertificateRef",
 		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2199,6 +2205,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.ICommandRef",
 		reflect.TypeOf((*ICommandRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "commandRef", GoGetter: "CommandRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2211,6 +2218,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.ICustomMetricRef",
 		reflect.TypeOf((*ICustomMetricRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customMetricRef", GoGetter: "CustomMetricRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2223,6 +2231,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IDimensionRef",
 		reflect.TypeOf((*IDimensionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dimensionRef", GoGetter: "DimensionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2235,6 +2244,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IDomainConfigurationRef",
 		reflect.TypeOf((*IDomainConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainConfigurationRef", GoGetter: "DomainConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2247,6 +2257,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IEncryptionConfigurationRef",
 		reflect.TypeOf((*IEncryptionConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfigurationRef", GoGetter: "EncryptionConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2259,6 +2270,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IFleetMetricRef",
 		reflect.TypeOf((*IFleetMetricRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fleetMetricRef", GoGetter: "FleetMetricRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2271,6 +2283,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IJobTemplateRef",
 		reflect.TypeOf((*IJobTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "jobTemplateRef", GoGetter: "JobTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2283,6 +2296,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.ILoggingRef",
 		reflect.TypeOf((*ILoggingRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "loggingRef", GoGetter: "LoggingRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2295,6 +2309,7 @@ func init() {
 		"aws-cdk-lib.aws_iot.IMitigationActionRef",
 		reflect.TypeOf((*IMitigationActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "mitigationActionRef", GoGetter: "MitigationActionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2308,6 +2323,7 @@ func init() {
 		reflect.TypeOf((*IPolicyPrincipalAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "policyPrincipalAttachmentRef", GoGetter: "PolicyPrincipalAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyPrincipalAttachmentRef{}
@@ -2320,6 +2336,7 @@ func init() {
 		reflect.TypeOf((*IPolicyRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyRef{}
@@ -2332,6 +2349,7 @@ func init() {
 		reflect.TypeOf((*IProvisioningTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "provisioningTemplateRef", GoGetter: "ProvisioningTemplateRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IProvisioningTemplateRef{}
@@ -2344,6 +2362,7 @@ func init() {
 		reflect.TypeOf((*IResourceSpecificLoggingRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceSpecificLoggingRef", GoGetter: "ResourceSpecificLoggingRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceSpecificLoggingRef{}
@@ -2356,6 +2375,7 @@ func init() {
 		reflect.TypeOf((*IRoleAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "roleAliasRef", GoGetter: "RoleAliasRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoleAliasRef{}
@@ -2368,6 +2388,7 @@ func init() {
 		reflect.TypeOf((*IScheduledAuditRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduledAuditRef", GoGetter: "ScheduledAuditRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduledAuditRef{}
@@ -2380,6 +2401,7 @@ func init() {
 		reflect.TypeOf((*ISecurityProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "securityProfileRef", GoGetter: "SecurityProfileRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISecurityProfileRef{}
@@ -2392,6 +2414,7 @@ func init() {
 		reflect.TypeOf((*ISoftwarePackageRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "softwarePackageRef", GoGetter: "SoftwarePackageRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISoftwarePackageRef{}
@@ -2404,6 +2427,7 @@ func init() {
 		reflect.TypeOf((*ISoftwarePackageVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "softwarePackageVersionRef", GoGetter: "SoftwarePackageVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISoftwarePackageVersionRef{}
@@ -2416,6 +2440,7 @@ func init() {
 		reflect.TypeOf((*IThingGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "thingGroupRef", GoGetter: "ThingGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThingGroupRef{}
@@ -2428,6 +2453,7 @@ func init() {
 		reflect.TypeOf((*IThingPrincipalAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "thingPrincipalAttachmentRef", GoGetter: "ThingPrincipalAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThingPrincipalAttachmentRef{}
@@ -2440,6 +2466,7 @@ func init() {
 		reflect.TypeOf((*IThingRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "thingRef", GoGetter: "ThingRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThingRef{}
@@ -2452,6 +2479,7 @@ func init() {
 		reflect.TypeOf((*IThingTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "thingTypeRef", GoGetter: "ThingTypeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThingTypeRef{}
@@ -2464,6 +2492,7 @@ func init() {
 		reflect.TypeOf((*ITopicRuleDestinationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "topicRuleDestinationRef", GoGetter: "TopicRuleDestinationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopicRuleDestinationRef{}
@@ -2476,6 +2505,7 @@ func init() {
 		reflect.TypeOf((*ITopicRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "topicRuleRef", GoGetter: "TopicRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITopicRuleRef{}

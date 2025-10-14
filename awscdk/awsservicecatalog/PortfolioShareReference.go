@@ -9,11 +9,14 @@ package awsservicecatalog
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   portfolioShareReference := &PortfolioShareReference{
-//   	PortfolioShareId: jsii.String("portfolioShareId"),
+//   	AccountId: jsii.String("accountId"),
+//   	PortfolioId: jsii.String("portfolioId"),
 //   }
 //
 type PortfolioShareReference struct {
-	// The Id of the PortfolioShare resource.
-	PortfolioShareId *string `field:"required" json:"portfolioShareId" yaml:"portfolioShareId"`
+	// The AccountId of the PortfolioShare resource.
+	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
+	// The PortfolioId of the PortfolioShare resource.
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 }
 

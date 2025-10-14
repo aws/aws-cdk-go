@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTrigger) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnTrigger_FromTriggerNameParameters(scope constructs.Construct, id *string, triggerName *string) error {
+	return nil
+}
+
 func validateCfnTrigger_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

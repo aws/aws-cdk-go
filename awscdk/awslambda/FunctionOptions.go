@@ -28,11 +28,11 @@ import (
 //
 //   var adotLayerVersion adotLayerVersion
 //   var architecture architecture
-//   var codeSigningConfig codeSigningConfig
+//   var codeSigningConfigRef iCodeSigningConfigRef
 //   var destination iDestination
 //   var eventSource iEventSource
 //   var fileSystem fileSystem
-//   var key key
+//   var keyRef iKeyRef
 //   var lambdaInsightsVersion lambdaInsightsVersion
 //   var layerVersion layerVersion
 //   var logGroup logGroup
@@ -61,7 +61,7 @@ import (
 //   	ApplicationLogLevel: jsii.String("applicationLogLevel"),
 //   	ApplicationLogLevelV2: awscdk.*Aws_lambda.ApplicationLogLevel_INFO,
 //   	Architecture: architecture,
-//   	CodeSigningConfig: codeSigningConfig,
+//   	CodeSigningConfig: codeSigningConfigRef,
 //   	CurrentVersionOptions: &VersionOptions{
 //   		CodeSha256: jsii.String("codeSha256"),
 //   		Description: jsii.String("description"),
@@ -79,7 +79,7 @@ import (
 //   	Environment: map[string]*string{
 //   		"environmentKey": jsii.String("environment"),
 //   	},
-//   	EnvironmentEncryption: key,
+//   	EnvironmentEncryption: keyRef,
 //   	EphemeralStorageSize: size,
 //   	Events: []*iEventSource{
 //   		eventSource,
@@ -215,7 +215,7 @@ type FunctionOptions struct {
 	// Code signing config associated with this function.
 	// Default: - Not Sign the Code.
 	//
-	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfigRef `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Default: - default options as described in `VersionOptions`.
 	//
@@ -255,7 +255,7 @@ type FunctionOptions struct {
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Default: - AWS Lambda creates and uses an AWS managed customer master key (CMK).
 	//
-	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Default: 512 MiB.
 	//

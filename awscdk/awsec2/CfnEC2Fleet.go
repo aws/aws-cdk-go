@@ -812,6 +812,25 @@ func (j *jsiiProxy_CfnEC2Fleet)SetValidUntil(val *string) {
 	)
 }
 
+// Creates a new IEC2FleetRef from a fleetId.
+func CfnEC2Fleet_FromFleetId(scope constructs.Construct, id *string, fleetId *string) IEC2FleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnEC2Fleet_FromFleetIdParameters(scope, id, fleetId); err != nil {
+		panic(err)
+	}
+	var returns IEC2FleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet",
+		"fromFleetId",
+		[]interface{}{scope, id, fleetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

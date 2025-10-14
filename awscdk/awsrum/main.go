@@ -103,6 +103,7 @@ func init() {
 		"aws-cdk-lib.aws_rum.IAppMonitorRef",
 		reflect.TypeOf((*IAppMonitorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "appMonitorRef", GoGetter: "AppMonitorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

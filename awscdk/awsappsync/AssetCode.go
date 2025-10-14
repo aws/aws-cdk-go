@@ -20,7 +20,7 @@ import (
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
-//   var key key
+//   var keyRef iKeyRef
 //   var localBundling iLocalBundling
 //
 //   assetCode := awscdk.Aws_appsync.NewAssetCode(jsii.String("path"), &AssetOptions{
@@ -70,7 +70,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	SourceKMSKey: key,
+//   	SourceKMSKey: keyRef,
 //   })
 //
 type AssetCode interface {

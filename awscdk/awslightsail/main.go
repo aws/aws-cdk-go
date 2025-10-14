@@ -448,6 +448,73 @@ func init() {
 		reflect.TypeOf((*CfnDiskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lightsail.CfnDiskSnapshot",
+		reflect.TypeOf((*CfnDiskSnapshot)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDiskSnapshotArn", GoGetter: "AttrDiskSnapshotArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFromDiskName", GoGetter: "AttrFromDiskName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIsFromAutoSnapshot", GoGetter: "AttrIsFromAutoSnapshot"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLocation", GoGetter: "AttrLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProgress", GoGetter: "AttrProgress"},
+			_jsii_.MemberProperty{JsiiProperty: "attrResourceType", GoGetter: "AttrResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSizeInGb", GoGetter: "AttrSizeInGb"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSupportCode", GoGetter: "AttrSupportCode"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "diskName", GoGetter: "DiskName"},
+			_jsii_.MemberProperty{JsiiProperty: "diskSnapshotName", GoGetter: "DiskSnapshotName"},
+			_jsii_.MemberProperty{JsiiProperty: "diskSnapshotRef", GoGetter: "DiskSnapshotRef"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDiskSnapshot{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDiskSnapshotRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lightsail.CfnDiskSnapshot.LocationProperty",
+		reflect.TypeOf((*CfnDiskSnapshot_LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lightsail.CfnDiskSnapshotProps",
+		reflect.TypeOf((*CfnDiskSnapshotProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lightsail.CfnDistribution",
 		reflect.TypeOf((*CfnDistribution)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -966,6 +1033,10 @@ func init() {
 		reflect.TypeOf((*DiskReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lightsail.DiskSnapshotReference",
+		reflect.TypeOf((*DiskSnapshotReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lightsail.DistributionReference",
 		reflect.TypeOf((*DistributionReference)(nil)).Elem(),
 	)
@@ -977,6 +1048,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IAlarmRef",
 		reflect.TypeOf((*IAlarmRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "alarmRef", GoGetter: "AlarmRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -989,6 +1061,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IBucketRef",
 		reflect.TypeOf((*IBucketRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucketRef", GoGetter: "BucketRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1001,6 +1074,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.ICertificateRef",
 		reflect.TypeOf((*ICertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1013,6 +1087,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IContainerRef",
 		reflect.TypeOf((*IContainerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "containerRef", GoGetter: "ContainerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1025,6 +1100,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IDatabaseRef",
 		reflect.TypeOf((*IDatabaseRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "databaseRef", GoGetter: "DatabaseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1037,6 +1113,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IDiskRef",
 		reflect.TypeOf((*IDiskRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "diskRef", GoGetter: "DiskRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1046,9 +1123,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_lightsail.IDiskSnapshotRef",
+		reflect.TypeOf((*IDiskSnapshotRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "diskSnapshotRef", GoGetter: "DiskSnapshotRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDiskSnapshotRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_lightsail.IDistributionRef",
 		reflect.TypeOf((*IDistributionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "distributionRef", GoGetter: "DistributionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1061,6 +1152,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IDomainRef",
 		reflect.TypeOf((*IDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainRef", GoGetter: "DomainRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1073,6 +1165,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IInstanceRef",
 		reflect.TypeOf((*IInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1085,6 +1178,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.IInstanceSnapshotRef",
 		reflect.TypeOf((*IInstanceSnapshotRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "instanceSnapshotRef", GoGetter: "InstanceSnapshotRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1097,6 +1191,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.ILoadBalancerRef",
 		reflect.TypeOf((*ILoadBalancerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1109,6 +1204,7 @@ func init() {
 		"aws-cdk-lib.aws_lightsail.ILoadBalancerTlsCertificateRef",
 		reflect.TypeOf((*ILoadBalancerTlsCertificateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerTlsCertificateRef", GoGetter: "LoadBalancerTlsCertificateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1122,6 +1218,7 @@ func init() {
 		reflect.TypeOf((*IStaticIpRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "staticIpRef", GoGetter: "StaticIpRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStaticIpRef{}

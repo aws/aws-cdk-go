@@ -656,6 +656,44 @@ func (j *jsiiProxy_CfnApplicationInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IApplicationInstanceRef from an ARN.
+func CfnApplicationInstance_FromApplicationInstanceArn(scope constructs.Construct, id *string, arn *string) IApplicationInstanceRef {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationInstance_FromApplicationInstanceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IApplicationInstanceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnApplicationInstance",
+		"fromApplicationInstanceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IApplicationInstanceRef from a applicationInstanceId.
+func CfnApplicationInstance_FromApplicationInstanceId(scope constructs.Construct, id *string, applicationInstanceId *string) IApplicationInstanceRef {
+	_init_.Initialize()
+
+	if err := validateCfnApplicationInstance_FromApplicationInstanceIdParameters(scope, id, applicationInstanceId); err != nil {
+		panic(err)
+	}
+	var returns IApplicationInstanceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_panorama.CfnApplicationInstance",
+		"fromApplicationInstanceId",
+		[]interface{}{scope, id, applicationInstanceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

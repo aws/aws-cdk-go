@@ -32,7 +32,14 @@ package awsimagebuilder
 //   		ImageTestsEnabled: jsii.Boolean(false),
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	LoggingConfiguration: &PipelineLoggingConfigurationProperty{
+//   		ImageLogGroupName: jsii.String("imageLogGroupName"),
+//   		PipelineLogGroupName: jsii.String("pipelineLogGroupName"),
+//   	},
 //   	Schedule: &ScheduleProperty{
+//   		AutoDisablePolicy: &AutoDisablePolicyProperty{
+//   			FailureCount: jsii.Number(123),
+//   		},
 //   		PipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
 //   		ScheduleExpression: jsii.String("scheduleExpression"),
 //   	},
@@ -102,6 +109,10 @@ type CfnImagePipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
 	//
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
+	// Defines logging configuration for the output image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-loggingconfiguration
+	//
+	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// The schedule of the image pipeline.
 	//
 	// A schedule configures how often and when a pipeline automatically creates a new image.

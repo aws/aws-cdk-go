@@ -881,6 +881,25 @@ func (j *jsiiProxy_CfnSubnet)SetVpcId(val *string) {
 	)
 }
 
+// Creates a new ISubnetRef from a subnetId.
+func CfnSubnet_FromSubnetId(scope constructs.Construct, id *string, subnetId *string) ISubnetRef {
+	_init_.Initialize()
+
+	if err := validateCfnSubnet_FromSubnetIdParameters(scope, id, subnetId); err != nil {
+		panic(err)
+	}
+	var returns ISubnetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnSubnet",
+		"fromSubnetId",
+		[]interface{}{scope, id, subnetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

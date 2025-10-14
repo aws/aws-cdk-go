@@ -17,9 +17,7 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html
 //
 type CfnConfigurationSet_DeliveryOptionsProperty struct {
-	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
-	//
-	// If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	// The name of the configuration set used when sent through a configuration set with archiving enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html#cfn-ses-configurationset-deliveryoptions-maxdeliveryseconds
 	//
 	MaxDeliverySeconds *float64 `field:"optional" json:"maxDeliverySeconds" yaml:"maxDeliverySeconds"`

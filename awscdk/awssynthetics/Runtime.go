@@ -102,6 +102,39 @@ func Runtime_SYNTHETICS_NODEJS_PLAYWRIGHT_2_0() Runtime {
 	return returns
 }
 
+func Runtime_SYNTHETICS_NODEJS_PLAYWRIGHT_3_0() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_synthetics.Runtime",
+		"SYNTHETICS_NODEJS_PLAYWRIGHT_3_0",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_SYNTHETICS_NODEJS_PUPPETEER_10_0() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_synthetics.Runtime",
+		"SYNTHETICS_NODEJS_PUPPETEER_10_0",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_SYNTHETICS_NODEJS_PUPPETEER_11_0() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_synthetics.Runtime",
+		"SYNTHETICS_NODEJS_PUPPETEER_11_0",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_5() Runtime {
 	_init_.Initialize()
 	var returns Runtime

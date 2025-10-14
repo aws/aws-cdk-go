@@ -41,6 +41,7 @@ type Group interface {
 	GroupArn() *string
 	// Returns the IAM Group Name.
 	GroupName() *string
+	// A reference to a Group resource.
 	GroupRef() *GroupReference
 	// The tree node.
 	Node() constructs.Node

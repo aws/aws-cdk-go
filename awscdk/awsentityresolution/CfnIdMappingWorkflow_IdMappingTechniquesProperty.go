@@ -10,6 +10,7 @@ package awsentityresolution
 //
 //   idMappingTechniquesProperty := &IdMappingTechniquesProperty{
 //   	IdMappingType: jsii.String("idMappingType"),
+//   	NormalizationVersion: jsii.String("normalizationVersion"),
 //   	ProviderProperties: &ProviderPropertiesProperty{
 //   		ProviderServiceArn: jsii.String("providerServiceArn"),
 //
@@ -45,6 +46,9 @@ type CfnIdMappingWorkflow_IdMappingTechniquesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-idmappingtype
 	//
 	IdMappingType *string `field:"optional" json:"idMappingType" yaml:"idMappingType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-normalizationversion
+	//
+	NormalizationVersion *string `field:"optional" json:"normalizationVersion" yaml:"normalizationVersion"`
 	// An object which defines any additional configurations required by the provider service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-providerproperties
 	//

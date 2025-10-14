@@ -124,6 +124,16 @@ func (j *jsiiProxy_IGroup) GrantPrincipal() IPrincipal {
 	return returns
 }
 
+func (j *jsiiProxy_IGroup) GroupRef() *GroupReference {
+	var returns *GroupReference
+	_jsii_.Get(
+		j,
+		"groupRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IGroup) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

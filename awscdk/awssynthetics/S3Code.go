@@ -17,9 +17,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucketRef iBucketRef
 //
-//   s3Code := awscdk.Aws_synthetics.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
+//   s3Code := awscdk.Aws_synthetics.NewS3Code(bucketRef, jsii.String("key"), jsii.String("objectVersion"))
 //
 type S3Code interface {
 	Code
@@ -32,7 +32,7 @@ type jsiiProxy_S3Code struct {
 	jsiiProxy_Code
 }
 
-func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
+func NewS3Code(bucket awss3.IBucketRef, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	if err := validateNewS3CodeParameters(bucket, key); err != nil {
@@ -49,7 +49,7 @@ func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code 
 	return &j
 }
 
-func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersion *string) {
+func NewS3Code_Override(s S3Code, bucket awss3.IBucketRef, key *string, objectVersion *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -92,7 +92,7 @@ func S3Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) Asse
 // Returns: `S3Code` associated with the specified S3 object.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_WritingCanary.html#CloudWatch_Synthetics_Canaries_write_from_scratch
 //
-func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
+func S3Code_FromBucket(bucket awss3.IBucketRef, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	if err := validateS3Code_FromBucketParameters(bucket, key); err != nil {

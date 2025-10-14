@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnTrafficMirrorSession_FromTrafficMirrorSessionIdParameters(scope constructs.Construct, id *string, trafficMirrorSessionId *string) error {
+	return nil
+}
+
 func validateCfnTrafficMirrorSession_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

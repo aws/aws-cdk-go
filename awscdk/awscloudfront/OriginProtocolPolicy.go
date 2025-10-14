@@ -10,6 +10,7 @@ package awscloudfront
 //   	ConnectionAttempts: jsii.Number(3),
 //   	ConnectionTimeout: awscdk.Duration_Seconds(jsii.Number(5)),
 //   	ReadTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
+//   	ResponseCompletionTimeout: awscdk.Duration_*Seconds(jsii.Number(120)),
 //   	KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
 //   	ProtocolPolicy: cloudfront.OriginProtocolPolicy_MATCH_VIEWER,
 //   })

@@ -145,6 +145,7 @@ func init() {
 		"aws-cdk-lib.aws_ivschat.ILoggingConfigurationRef",
 		reflect.TypeOf((*ILoggingConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfigurationRef", GoGetter: "LoggingConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -158,6 +159,7 @@ func init() {
 		reflect.TypeOf((*IRoomRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "roomRef", GoGetter: "RoomRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoomRef{}

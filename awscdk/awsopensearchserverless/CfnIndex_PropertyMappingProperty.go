@@ -17,10 +17,10 @@ package awsopensearchserverless
 //   	Dimension: jsii.Number(123),
 //   	Index: jsii.Boolean(false),
 //   	Method: &MethodProperty{
-//   		Engine: jsii.String("engine"),
 //   		Name: jsii.String("name"),
 //
 //   		// the properties below are optional
+//   		Engine: jsii.String("engine"),
 //   		Parameters: &ParametersProperty{
 //   			EfConstruction: jsii.Number(123),
 //   			M: jsii.Number(123),

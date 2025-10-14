@@ -451,6 +451,25 @@ func (j *jsiiProxy_CfnCarrierGateway)SetVpcId(val *string) {
 	)
 }
 
+// Creates a new ICarrierGatewayRef from a carrierGatewayId.
+func CfnCarrierGateway_FromCarrierGatewayId(scope constructs.Construct, id *string, carrierGatewayId *string) ICarrierGatewayRef {
+	_init_.Initialize()
+
+	if err := validateCfnCarrierGateway_FromCarrierGatewayIdParameters(scope, id, carrierGatewayId); err != nil {
+		panic(err)
+	}
+	var returns ICarrierGatewayRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnCarrierGateway",
+		"fromCarrierGatewayId",
+		[]interface{}{scope, id, carrierGatewayId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

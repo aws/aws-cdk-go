@@ -109,6 +109,16 @@ func (j *jsiiProxy_IDistribution) DistributionId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IDistribution) DistributionRef() *DistributionReference {
+	var returns *DistributionReference
+	_jsii_.Get(
+		j,
+		"distributionRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IDistribution) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(

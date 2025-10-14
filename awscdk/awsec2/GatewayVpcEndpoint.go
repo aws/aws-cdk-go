@@ -79,6 +79,7 @@ type GatewayVpcEndpoint interface {
 	// The gateway VPC endpoint identifier.
 	VpcEndpointId() *string
 	VpcEndpointNetworkInterfaceIds() *[]*string
+	// A reference to a VPCEndpoint resource.
 	VpcEndpointRef() *VPCEndpointReference
 	// Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal.
 	//

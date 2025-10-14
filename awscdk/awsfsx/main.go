@@ -585,6 +585,7 @@ func init() {
 		"aws-cdk-lib.aws_fsx.IDataRepositoryAssociationRef",
 		reflect.TypeOf((*IDataRepositoryAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataRepositoryAssociationRef", GoGetter: "DataRepositoryAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -610,6 +611,7 @@ func init() {
 		"aws-cdk-lib.aws_fsx.IFileSystemRef",
 		reflect.TypeOf((*IFileSystemRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "fileSystemRef", GoGetter: "FileSystemRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -623,6 +625,7 @@ func init() {
 		reflect.TypeOf((*IS3AccessPointAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "s3AccessPointAttachmentRef", GoGetter: "S3AccessPointAttachmentRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IS3AccessPointAttachmentRef{}
@@ -635,6 +638,7 @@ func init() {
 		reflect.TypeOf((*ISnapshotRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "snapshotRef", GoGetter: "SnapshotRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISnapshotRef{}
@@ -647,6 +651,7 @@ func init() {
 		reflect.TypeOf((*IStorageVirtualMachineRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "storageVirtualMachineRef", GoGetter: "StorageVirtualMachineRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStorageVirtualMachineRef{}
@@ -659,6 +664,7 @@ func init() {
 		reflect.TypeOf((*IVolumeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "volumeRef", GoGetter: "VolumeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVolumeRef{}

@@ -102,7 +102,7 @@ func FlowLogResourceType_FromNetworkInterfaceId(id *string) FlowLogResourceType 
 }
 
 // The subnet to attach the Flow Log to.
-func FlowLogResourceType_FromSubnet(subnet ISubnet) FlowLogResourceType {
+func FlowLogResourceType_FromSubnet(subnet ISubnetRef) FlowLogResourceType {
 	_init_.Initialize()
 
 	if err := validateFlowLogResourceType_FromSubnetParameters(subnet); err != nil {

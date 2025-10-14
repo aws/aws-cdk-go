@@ -80,6 +80,10 @@ func validateCfnCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetAutoScalingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetInstanceGroupsParameters(val interface{}) error {
 	return nil
 }

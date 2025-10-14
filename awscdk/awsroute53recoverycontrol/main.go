@@ -259,6 +259,7 @@ func init() {
 		"aws-cdk-lib.aws_route53recoverycontrol.IClusterRef",
 		reflect.TypeOf((*IClusterRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -271,6 +272,7 @@ func init() {
 		"aws-cdk-lib.aws_route53recoverycontrol.IControlPanelRef",
 		reflect.TypeOf((*IControlPanelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "controlPanelRef", GoGetter: "ControlPanelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -284,6 +286,7 @@ func init() {
 		reflect.TypeOf((*IRoutingControlRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routingControlRef", GoGetter: "RoutingControlRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoutingControlRef{}
@@ -296,6 +299,7 @@ func init() {
 		reflect.TypeOf((*ISafetyRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "safetyRuleRef", GoGetter: "SafetyRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISafetyRuleRef{}

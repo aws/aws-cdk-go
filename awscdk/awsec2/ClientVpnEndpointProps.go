@@ -35,6 +35,7 @@ import (
 //   		Enforced: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
 //   	},
@@ -117,6 +118,15 @@ type ClientVpnEndpointProps struct {
 	// Default: - no description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeout` is reached.
+	//
+	// If `true`, users are prompted to reconnect client VPN.
+	// If `false`, client VPN attempts to reconnect automatically.
+	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-max-duration.html
+	//
+	// Default: undefined - AWS Client VPN default is true.
+	//
+	DisconnectOnSessionTimeout *bool `field:"optional" json:"disconnectOnSessionTimeout" yaml:"disconnectOnSessionTimeout"`
 	// Information about the DNS servers to be used for DNS resolution.
 	//
 	// A Client VPN endpoint can have up to two DNS servers.

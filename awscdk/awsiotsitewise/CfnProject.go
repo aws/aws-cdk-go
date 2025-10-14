@@ -9,6 +9,10 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// > The AWS IoT SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 .
+//
+// If you would like to use the AWS IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html) .
+//
 // Creates a project in the specified portal.
 //
 // > Make sure that the project name and description don't contain confidential information.
@@ -510,6 +514,44 @@ func (j *jsiiProxy_CfnProject)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new IProjectRef from an ARN.
+func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) IProjectRef {
+	_init_.Initialize()
+
+	if err := validateCfnProject_FromProjectArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IProjectRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"fromProjectArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IProjectRef from a projectId.
+func CfnProject_FromProjectId(scope constructs.Construct, id *string, projectId *string) IProjectRef {
+	_init_.Initialize()
+
+	if err := validateCfnProject_FromProjectIdParameters(scope, id, projectId); err != nil {
+		panic(err)
+	}
+	var returns IProjectRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"fromProjectId",
+		[]interface{}{scope, id, projectId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

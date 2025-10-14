@@ -473,6 +473,7 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IDetectorRef",
 		reflect.TypeOf((*IDetectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "detectorRef", GoGetter: "DetectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -485,6 +486,7 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IEntityTypeRef",
 		reflect.TypeOf((*IEntityTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "entityTypeRef", GoGetter: "EntityTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -497,6 +499,7 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IEventTypeRef",
 		reflect.TypeOf((*IEventTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eventTypeRef", GoGetter: "EventTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -509,6 +512,7 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.ILabelRef",
 		reflect.TypeOf((*ILabelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "labelRef", GoGetter: "LabelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -521,6 +525,7 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IListRef",
 		reflect.TypeOf((*IListRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "listRef", GoGetter: "ListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -534,6 +539,7 @@ func init() {
 		reflect.TypeOf((*IOutcomeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outcomeRef", GoGetter: "OutcomeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOutcomeRef{}
@@ -546,6 +552,7 @@ func init() {
 		reflect.TypeOf((*IVariableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "variableRef", GoGetter: "VariableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVariableRef{}

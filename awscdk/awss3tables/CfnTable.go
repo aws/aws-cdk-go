@@ -18,6 +18,9 @@ import (
 // - If you use this operation with the optional `encryptionConfiguration` request parameter you must have the `s3tables:PutTableEncryption` permission.
 //
 // > Additionally, If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html) .
+// - **Cloud Development Kit** - To use S3 Tables AWS CDK constructs, add the `@aws-cdk/aws-s3tables-alpha` dependency with one of the following options:
+//
+// - NPM: `npm i.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -73,7 +76,7 @@ type CfnTable interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Settings governing the Compaction maintenance action.
+	// Contains details about the compaction settings for an Iceberg table.
 	Compaction() interface{}
 	SetCompaction(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -98,7 +101,7 @@ type CfnTable interface {
 	SetNamespace(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Format of the table.
+	// The format of the table.
 	OpenTableFormat() *string
 	SetOpenTableFormat(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -106,14 +109,14 @@ type CfnTable interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Contains details about the snapshot management settings for an Iceberg table.
+	// Contains details about the Iceberg snapshot management settings for the table.
 	SnapshotManagement() interface{}
 	SetSnapshotManagement(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The Amazon Resource Name (ARN) of the specified table bucket.
+	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	TableBucketArn() *string
 	SetTableBucketArn(val *string)
 	// The name for the table.

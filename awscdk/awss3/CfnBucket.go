@@ -1053,6 +1053,44 @@ func (j *jsiiProxy_CfnBucket)SetWebsiteConfiguration(val interface{}) {
 	)
 }
 
+// Creates a new IBucketRef from an ARN.
+func CfnBucket_FromBucketArn(scope constructs.Construct, id *string, arn *string) IBucketRef {
+	_init_.Initialize()
+
+	if err := validateCfnBucket_FromBucketArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IBucketRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnBucket",
+		"fromBucketArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IBucketRef from a bucketName.
+func CfnBucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) IBucketRef {
+	_init_.Initialize()
+
+	if err := validateCfnBucket_FromBucketNameParameters(scope, id, bucketName); err != nil {
+		panic(err)
+	}
+	var returns IBucketRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.CfnBucket",
+		"fromBucketName",
+		[]interface{}{scope, id, bucketName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

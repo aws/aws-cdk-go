@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnSubnet) validateValidatePropertiesParameters(_properties i
 	return nil
 }
 
+func validateCfnSubnet_FromSubnetIdParameters(scope constructs.Construct, id *string, subnetId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if subnetId == nil {
+		return fmt.Errorf("parameter subnetId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSubnet_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

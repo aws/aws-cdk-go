@@ -12,7 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnClusterProps := &CfnClusterProps{
+//   	AutoScaling: &ClusterAutoScalingConfigProperty{
+//   		Mode: jsii.String("mode"),
+//
+//   		// the properties below are optional
+//   		AutoScalerType: jsii.String("autoScalerType"),
+//   	},
 //   	ClusterName: jsii.String("clusterName"),
+//   	ClusterRole: jsii.String("clusterRole"),
 //   	InstanceGroups: []interface{}{
 //   		&ClusterInstanceGroupProperty{
 //   			ExecutionRole: jsii.String("executionRole"),
@@ -30,6 +37,8 @@ import (
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
+//   						RootVolume: jsii.Boolean(false),
+//   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
 //   				},
@@ -99,6 +108,8 @@ import (
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
+//   						RootVolume: jsii.Boolean(false),
+//   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
 //   				},
@@ -137,10 +148,18 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html
 //
 type CfnClusterProps struct {
+	// Configuration for cluster auto-scaling.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-autoscaling
+	//
+	AutoScaling interface{} `field:"optional" json:"autoScaling" yaml:"autoScaling"`
 	// The name of the SageMaker HyperPod cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-clustername
 	//
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
+	// The cluster role for the autoscaler to assume.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-clusterrole
+	//
+	ClusterRole *string `field:"optional" json:"clusterRole" yaml:"clusterRole"`
 	// The instance groups of the SageMaker HyperPod cluster.
 	//
 	// To delete an instance group, remove it from the array.

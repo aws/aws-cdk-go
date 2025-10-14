@@ -179,6 +179,30 @@ func validateCfnGuardrail_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGuardrail) validateSetAutomatedReasoningPolicyConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGuardrail_AutomatedReasoningPolicyConfigProperty:
+		val := val.(*CfnGuardrail_AutomatedReasoningPolicyConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGuardrail_AutomatedReasoningPolicyConfigProperty:
+		val_ := val.(CfnGuardrail_AutomatedReasoningPolicyConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGuardrail_AutomatedReasoningPolicyConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnGuardrail) validateSetBlockedInputMessagingParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

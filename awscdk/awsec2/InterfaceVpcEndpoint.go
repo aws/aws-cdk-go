@@ -76,6 +76,7 @@ type InterfaceVpcEndpoint interface {
 	VpcEndpointId() *string
 	// One or more network interfaces for the interface VPC endpoint.
 	VpcEndpointNetworkInterfaceIds() *[]*string
+	// A reference to a VPCEndpoint resource.
 	VpcEndpointRef() *VPCEndpointReference
 	// Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal.
 	//

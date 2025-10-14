@@ -557,6 +557,44 @@ func (j *jsiiProxy_CfnMap)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IMapRef from an ARN.
+func CfnMap_FromMapArn(scope constructs.Construct, id *string, arn *string) IMapRef {
+	_init_.Initialize()
+
+	if err := validateCfnMap_FromMapArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IMapRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnMap",
+		"fromMapArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IMapRef from a mapName.
+func CfnMap_FromMapName(scope constructs.Construct, id *string, mapName *string) IMapRef {
+	_init_.Initialize()
+
+	if err := validateCfnMap_FromMapNameParameters(scope, id, mapName); err != nil {
+		panic(err)
+	}
+	var returns IMapRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_location.CfnMap",
+		"fromMapName",
+		[]interface{}{scope, id, mapName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

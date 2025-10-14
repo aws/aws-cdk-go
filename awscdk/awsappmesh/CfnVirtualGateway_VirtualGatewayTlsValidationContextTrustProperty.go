@@ -25,7 +25,7 @@ package awsappmesh
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html
 //
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextTrustProperty struct {
-	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
+	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html#cfn-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust-acm
 	//
 	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`

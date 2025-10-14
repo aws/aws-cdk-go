@@ -42,6 +42,6 @@ type EncryptionAtRestOptions struct {
 	// Supply if using KMS key for encryption at rest.
 	// Default: - uses default aws/es KMS key.
 	//
-	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

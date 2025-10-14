@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnVerifiedAccessEndpoint) validateValidatePropertiesParamete
 	return nil
 }
 
+func validateCfnVerifiedAccessEndpoint_FromVerifiedAccessEndpointIdParameters(scope constructs.Construct, id *string, verifiedAccessEndpointId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if verifiedAccessEndpointId == nil {
+		return fmt.Errorf("parameter verifiedAccessEndpointId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVerifiedAccessEndpoint_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

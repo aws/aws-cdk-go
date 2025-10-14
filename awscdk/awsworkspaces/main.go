@@ -211,6 +211,7 @@ func init() {
 		"aws-cdk-lib.aws_workspaces.IConnectionAliasRef",
 		reflect.TypeOf((*IConnectionAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connectionAliasRef", GoGetter: "ConnectionAliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -224,6 +225,7 @@ func init() {
 		reflect.TypeOf((*IWorkspaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRef", GoGetter: "WorkspaceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkspaceRef{}
@@ -236,6 +238,7 @@ func init() {
 		reflect.TypeOf((*IWorkspacesPoolRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "workspacesPoolRef", GoGetter: "WorkspacesPoolRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkspacesPoolRef{}

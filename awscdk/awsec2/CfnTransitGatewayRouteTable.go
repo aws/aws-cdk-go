@@ -425,6 +425,25 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTable)SetTransitGatewayId(val *string) 
 	)
 }
 
+// Creates a new ITransitGatewayRouteTableRef from a transitGatewayRouteTableId.
+func CfnTransitGatewayRouteTable_FromTransitGatewayRouteTableId(scope constructs.Construct, id *string, transitGatewayRouteTableId *string) ITransitGatewayRouteTableRef {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayRouteTable_FromTransitGatewayRouteTableIdParameters(scope, id, transitGatewayRouteTableId); err != nil {
+		panic(err)
+	}
+	var returns ITransitGatewayRouteTableRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTable",
+		"fromTransitGatewayRouteTableId",
+		[]interface{}{scope, id, transitGatewayRouteTableId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

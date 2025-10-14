@@ -125,6 +125,15 @@ type ManagedEc2EcsComputeEnvironmentProps struct {
 	// `SPOT_CAPACITY_OPTIMIZED` if using Spot instances.
 	//
 	AllocationStrategy AllocationStrategy `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
+	// Use batch's default instance types.
+	//
+	// A simpler way to choose up-to-date instance classes based on region
+	// instead of specifying exact instance classes.
+	// See: https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html
+	//
+	// Default: - choose from instanceTypes and instanceClasses.
+	//
+	DefaultInstanceClasses *[]DefaultInstanceClass `field:"optional" json:"defaultInstanceClasses" yaml:"defaultInstanceClasses"`
 	// Configure which AMIs this Compute Environment can launch.
 	//
 	// If you specify this property with only `image` specified, then the
@@ -174,7 +183,7 @@ type ManagedEc2EcsComputeEnvironmentProps struct {
 	//
 	// Default: - no placement group.
 	//
-	PlacementGroup awsec2.IPlacementGroup `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup awsec2.IPlacementGroupRef `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
 	//
 	// For example, if your maximum percentage is 20%, the Spot price must be
@@ -199,6 +208,7 @@ type ManagedEc2EcsComputeEnvironmentProps struct {
 	// (of the same architecture) in addition to the optimal instance classes.
 	// Default: true.
 	//
+	// Deprecated: use defaultInstanceClasses instead.
 	UseOptimalInstanceClasses *bool `field:"optional" json:"useOptimalInstanceClasses" yaml:"useOptimalInstanceClasses"`
 }
 

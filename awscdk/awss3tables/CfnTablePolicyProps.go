@@ -18,10 +18,11 @@ package awss3tables
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablepolicy.html
 //
 type CfnTablePolicyProps struct {
+	// The `JSON` that defines the policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablepolicy.html#cfn-s3tables-tablepolicy-resourcepolicy
 	//
 	ResourcePolicy interface{} `field:"required" json:"resourcePolicy" yaml:"resourcePolicy"`
-	// The Amazon Resource Name (ARN) of the specified table.
+	// The Amazon Resource Name (ARN) of the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablepolicy.html#cfn-s3tables-tablepolicy-tablearn
 	//
 	TableArn *string `field:"required" json:"tableArn" yaml:"tableArn"`

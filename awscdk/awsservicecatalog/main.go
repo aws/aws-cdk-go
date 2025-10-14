@@ -501,7 +501,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -559,7 +558,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -988,6 +986,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalog.IAcceptedPortfolioShareRef",
 		reflect.TypeOf((*IAcceptedPortfolioShareRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "acceptedPortfolioShareRef", GoGetter: "AcceptedPortfolioShareRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1000,6 +999,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalog.ICloudFormationProductRef",
 		reflect.TypeOf((*ICloudFormationProductRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProductRef", GoGetter: "CloudFormationProductRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1012,6 +1012,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalog.ICloudFormationProvisionedProductRef",
 		reflect.TypeOf((*ICloudFormationProvisionedProductRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProvisionedProductRef", GoGetter: "CloudFormationProvisionedProductRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1024,6 +1025,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalog.ILaunchNotificationConstraintRef",
 		reflect.TypeOf((*ILaunchNotificationConstraintRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "launchNotificationConstraintRef", GoGetter: "LaunchNotificationConstraintRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1036,6 +1038,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalog.ILaunchRoleConstraintRef",
 		reflect.TypeOf((*ILaunchRoleConstraintRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "launchRoleConstraintRef", GoGetter: "LaunchRoleConstraintRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1048,6 +1051,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalog.ILaunchTemplateConstraintRef",
 		reflect.TypeOf((*ILaunchTemplateConstraintRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "launchTemplateConstraintRef", GoGetter: "LaunchTemplateConstraintRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1091,6 +1095,7 @@ func init() {
 		reflect.TypeOf((*IPortfolioPrincipalAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "portfolioPrincipalAssociationRef", GoGetter: "PortfolioPrincipalAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortfolioPrincipalAssociationRef{}
@@ -1103,6 +1108,7 @@ func init() {
 		reflect.TypeOf((*IPortfolioProductAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "portfolioProductAssociationRef", GoGetter: "PortfolioProductAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortfolioProductAssociationRef{}
@@ -1115,6 +1121,7 @@ func init() {
 		reflect.TypeOf((*IPortfolioRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "portfolioRef", GoGetter: "PortfolioRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortfolioRef{}
@@ -1127,6 +1134,7 @@ func init() {
 		reflect.TypeOf((*IPortfolioShareRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "portfolioShareRef", GoGetter: "PortfolioShareRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortfolioShareRef{}
@@ -1158,6 +1166,7 @@ func init() {
 		reflect.TypeOf((*IResourceUpdateConstraintRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceUpdateConstraintRef", GoGetter: "ResourceUpdateConstraintRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceUpdateConstraintRef{}
@@ -1170,6 +1179,7 @@ func init() {
 		reflect.TypeOf((*IServiceActionAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceActionAssociationRef", GoGetter: "ServiceActionAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceActionAssociationRef{}
@@ -1182,6 +1192,7 @@ func init() {
 		reflect.TypeOf((*IServiceActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceActionRef", GoGetter: "ServiceActionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IServiceActionRef{}
@@ -1194,6 +1205,7 @@ func init() {
 		reflect.TypeOf((*IStackSetConstraintRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stackSetConstraintRef", GoGetter: "StackSetConstraintRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackSetConstraintRef{}
@@ -1206,6 +1218,7 @@ func init() {
 		reflect.TypeOf((*ITagOptionAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tagOptionAssociationRef", GoGetter: "TagOptionAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITagOptionAssociationRef{}
@@ -1218,6 +1231,7 @@ func init() {
 		reflect.TypeOf((*ITagOptionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tagOptionRef", GoGetter: "TagOptionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITagOptionRef{}

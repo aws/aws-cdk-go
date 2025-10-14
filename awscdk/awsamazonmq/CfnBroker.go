@@ -43,19 +43,6 @@ import (
 //   	EngineType: jsii.String("engineType"),
 //   	HostInstanceType: jsii.String("hostInstanceType"),
 //   	PubliclyAccessible: jsii.Boolean(false),
-//   	Users: []interface{}{
-//   		&UserProperty{
-//   			Password: jsii.String("password"),
-//   			Username: jsii.String("username"),
-//
-//   			// the properties below are optional
-//   			ConsoleAccess: jsii.Boolean(false),
-//   			Groups: []*string{
-//   				jsii.String("groups"),
-//   			},
-//   			ReplicationUser: jsii.Boolean(false),
-//   		},
-//   	},
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
@@ -79,7 +66,6 @@ import (
 //   		},
 //   		RoleBase: jsii.String("roleBase"),
 //   		RoleSearchMatching: jsii.String("roleSearchMatching"),
-//   		ServiceAccountPassword: jsii.String("serviceAccountPassword"),
 //   		ServiceAccountUsername: jsii.String("serviceAccountUsername"),
 //   		UserBase: jsii.String("userBase"),
 //   		UserSearchMatching: jsii.String("userSearchMatching"),
@@ -87,6 +73,7 @@ import (
 //   		// the properties below are optional
 //   		RoleName: jsii.String("roleName"),
 //   		RoleSearchSubtree: jsii.Boolean(false),
+//   		ServiceAccountPassword: jsii.String("serviceAccountPassword"),
 //   		UserRoleName: jsii.String("userRoleName"),
 //   		UserSearchSubtree: jsii.Boolean(false),
 //   	},
@@ -110,6 +97,19 @@ import (
 //   		&tagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Users: []interface{}{
+//   		&UserProperty{
+//   			Password: jsii.String("password"),
+//   			Username: jsii.String("username"),
+//
+//   			// the properties below are optional
+//   			ConsoleAccess: jsii.Boolean(false),
+//   			Groups: []*string{
+//   				jsii.String("groups"),
+//   			},
+//   			ReplicationUser: jsii.Boolean(false),
 //   		},
 //   	},
 //   })
@@ -138,6 +138,10 @@ type CfnBroker interface {
 	// `1`.
 	AttrConfigurationRevision() *float64
 	AttrConsoleUrLs() *[]*string
+	// The version in use.
+	//
+	// This may have more precision than the specified EngineVersion.
+	AttrEngineVersionCurrent() *string
 	// Required.
 	//
 	// The unique ID that Amazon MQ generates for the configuration.
@@ -451,6 +455,16 @@ func (j *jsiiProxy_CfnBroker) AttrConsoleUrLs() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrConsoleUrLs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBroker) AttrEngineVersionCurrent() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEngineVersionCurrent",
 		&returns,
 	)
 	return returns
@@ -1061,6 +1075,25 @@ func (j *jsiiProxy_CfnBroker)SetUsers(val interface{}) {
 		"users",
 		val,
 	)
+}
+
+// Creates a new IBrokerRef from an ARN.
+func CfnBroker_FromBrokerArn(scope constructs.Construct, id *string, arn *string) IBrokerRef {
+	_init_.Initialize()
+
+	if err := validateCfnBroker_FromBrokerArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IBrokerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"fromBrokerArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

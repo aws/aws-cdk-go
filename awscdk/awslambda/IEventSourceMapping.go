@@ -67,6 +67,16 @@ func (j *jsiiProxy_IEventSourceMapping) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_IEventSourceMapping) EventSourceMappingRef() *EventSourceMappingReference {
+	var returns *EventSourceMappingReference
+	_jsii_.Get(
+		j,
+		"eventSourceMappingRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IEventSourceMapping) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(

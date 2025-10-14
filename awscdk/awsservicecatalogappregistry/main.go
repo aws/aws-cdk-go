@@ -244,6 +244,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalogappregistry.IApplicationRef",
 		reflect.TypeOf((*IApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -256,6 +257,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalogappregistry.IAttributeGroupAssociationRef",
 		reflect.TypeOf((*IAttributeGroupAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "attributeGroupAssociationRef", GoGetter: "AttributeGroupAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -268,6 +270,7 @@ func init() {
 		"aws-cdk-lib.aws_servicecatalogappregistry.IAttributeGroupRef",
 		reflect.TypeOf((*IAttributeGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "attributeGroupRef", GoGetter: "AttributeGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -281,6 +284,7 @@ func init() {
 		reflect.TypeOf((*IResourceAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceAssociationRef", GoGetter: "ResourceAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceAssociationRef{}

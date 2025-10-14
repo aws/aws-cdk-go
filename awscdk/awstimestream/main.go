@@ -346,6 +346,7 @@ func init() {
 		"aws-cdk-lib.aws_timestream.IDatabaseRef",
 		reflect.TypeOf((*IDatabaseRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "databaseRef", GoGetter: "DatabaseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -358,6 +359,7 @@ func init() {
 		"aws-cdk-lib.aws_timestream.IInfluxDBInstanceRef",
 		reflect.TypeOf((*IInfluxDBInstanceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "influxDbInstanceRef", GoGetter: "InfluxDbInstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -371,6 +373,7 @@ func init() {
 		reflect.TypeOf((*IScheduledQueryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduledQueryRef", GoGetter: "ScheduledQueryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScheduledQueryRef{}
@@ -383,6 +386,7 @@ func init() {
 		reflect.TypeOf((*ITableRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableRef{}

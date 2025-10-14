@@ -36,6 +36,7 @@ type KeyValueStore interface {
 	KeyValueStoreArn() *string
 	// The Unique ID of the Key Value Store.
 	KeyValueStoreId() *string
+	// A reference to a KeyValueStore resource.
 	KeyValueStoreRef() *KeyValueStoreReference
 	// The status of the Key Value Store.
 	KeyValueStoreStatus() *string

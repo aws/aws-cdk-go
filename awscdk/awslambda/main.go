@@ -847,6 +847,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "invokedViaFunctionUrl", GoGetter: "InvokedViaFunctionUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -1500,6 +1501,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPermission", GoMethod: "AddPermission"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "aliasName", GoGetter: "AliasName"},
+			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAsyncInvoke", GoMethod: "ConfigureAsyncInvoke"},
@@ -1507,6 +1509,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeCompositePrincipal", GoMethod: "GrantInvokeCompositePrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeLatestVersion", GoMethod: "GrantInvokeLatestVersion"},
@@ -1538,6 +1541,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.IAliasRef",
 		reflect.TypeOf((*IAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aliasRef", GoGetter: "AliasRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1553,6 +1557,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "codeSigningConfigArn", GoGetter: "CodeSigningConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "codeSigningConfigId", GoGetter: "CodeSigningConfigId"},
+			_jsii_.MemberProperty{JsiiProperty: "codeSigningConfigRef", GoGetter: "CodeSigningConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1568,6 +1573,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.ICodeSigningConfigRef",
 		reflect.TypeOf((*ICodeSigningConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "codeSigningConfigRef", GoGetter: "CodeSigningConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1590,6 +1596,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.IEventInvokeConfigRef",
 		reflect.TypeOf((*IEventInvokeConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eventInvokeConfigRef", GoGetter: "EventInvokeConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1626,6 +1633,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "eventSourceMappingArn", GoGetter: "EventSourceMappingArn"},
 			_jsii_.MemberProperty{JsiiProperty: "eventSourceMappingId", GoGetter: "EventSourceMappingId"},
+			_jsii_.MemberProperty{JsiiProperty: "eventSourceMappingRef", GoGetter: "EventSourceMappingRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1640,6 +1648,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.IEventSourceMappingRef",
 		reflect.TypeOf((*IEventSourceMappingRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "eventSourceMappingRef", GoGetter: "EventSourceMappingRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1664,6 +1673,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeCompositePrincipal", GoMethod: "GrantInvokeCompositePrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeLatestVersion", GoMethod: "GrantInvokeLatestVersion"},
@@ -1696,6 +1706,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.IFunctionRef",
 		reflect.TypeOf((*IFunctionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1732,6 +1743,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "compatibleRuntimes", GoGetter: "CompatibleRuntimes"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "layerVersionArn", GoGetter: "LayerVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "layerVersionRef", GoGetter: "LayerVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1746,6 +1758,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.ILayerVersionPermissionRef",
 		reflect.TypeOf((*ILayerVersionPermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "layerVersionPermissionRef", GoGetter: "LayerVersionPermissionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1758,6 +1771,7 @@ func init() {
 		"aws-cdk-lib.aws_lambda.ILayerVersionRef",
 		reflect.TypeOf((*ILayerVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "layerVersionRef", GoGetter: "LayerVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -1771,6 +1785,7 @@ func init() {
 		reflect.TypeOf((*IPermissionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionRef", GoGetter: "PermissionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPermissionRef{}
@@ -1807,6 +1822,7 @@ func init() {
 		reflect.TypeOf((*IUrlRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "urlRef", GoGetter: "UrlRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUrlRef{}
@@ -1832,6 +1848,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeCompositePrincipal", GoMethod: "GrantInvokeCompositePrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeLatestVersion", GoMethod: "GrantInvokeLatestVersion"},
@@ -1852,6 +1869,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+			_jsii_.MemberProperty{JsiiProperty: "versionRef", GoGetter: "VersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVersion{}
@@ -1865,6 +1883,7 @@ func init() {
 		reflect.TypeOf((*IVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "versionRef", GoGetter: "VersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVersionRef{}

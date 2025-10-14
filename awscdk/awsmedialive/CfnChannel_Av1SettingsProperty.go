@@ -31,6 +31,7 @@ package awsmedialive
 //   	Level: jsii.String("level"),
 //   	LookAheadRateControl: jsii.String("lookAheadRateControl"),
 //   	MaxBitrate: jsii.Number(123),
+//   	MinBitrate: jsii.Number(123),
 //   	MinIInterval: jsii.Number(123),
 //   	ParDenominator: jsii.Number(123),
 //   	ParNumerator: jsii.Number(123),
@@ -83,6 +84,9 @@ type CfnChannel_Av1SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-maxbitrate
 	//
 	MaxBitrate *float64 `field:"optional" json:"maxBitrate" yaml:"maxBitrate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-minbitrate
+	//
+	MinBitrate *float64 `field:"optional" json:"minBitrate" yaml:"minBitrate"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-miniinterval
 	//
 	MinIInterval *float64 `field:"optional" json:"minIInterval" yaml:"minIInterval"`

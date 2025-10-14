@@ -872,6 +872,7 @@ func init() {
 		"aws-cdk-lib.aws_config.IAggregationAuthorizationRef",
 		reflect.TypeOf((*IAggregationAuthorizationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aggregationAuthorizationRef", GoGetter: "AggregationAuthorizationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -884,6 +885,7 @@ func init() {
 		"aws-cdk-lib.aws_config.IConfigRuleRef",
 		reflect.TypeOf((*IConfigRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -896,6 +898,7 @@ func init() {
 		"aws-cdk-lib.aws_config.IConfigurationAggregatorRef",
 		reflect.TypeOf((*IConfigurationAggregatorRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configurationAggregatorRef", GoGetter: "ConfigurationAggregatorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -908,6 +911,7 @@ func init() {
 		"aws-cdk-lib.aws_config.IConfigurationRecorderRef",
 		reflect.TypeOf((*IConfigurationRecorderRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configurationRecorderRef", GoGetter: "ConfigurationRecorderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -920,6 +924,7 @@ func init() {
 		"aws-cdk-lib.aws_config.IConformancePackRef",
 		reflect.TypeOf((*IConformancePackRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "conformancePackRef", GoGetter: "ConformancePackRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -932,6 +937,7 @@ func init() {
 		"aws-cdk-lib.aws_config.IDeliveryChannelRef",
 		reflect.TypeOf((*IDeliveryChannelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deliveryChannelRef", GoGetter: "DeliveryChannelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -945,6 +951,7 @@ func init() {
 		reflect.TypeOf((*IOrganizationConfigRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "organizationConfigRuleRef", GoGetter: "OrganizationConfigRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationConfigRuleRef{}
@@ -957,6 +964,7 @@ func init() {
 		reflect.TypeOf((*IOrganizationConformancePackRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "organizationConformancePackRef", GoGetter: "OrganizationConformancePackRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOrganizationConformancePackRef{}
@@ -969,6 +977,7 @@ func init() {
 		reflect.TypeOf((*IRemediationConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "remediationConfigurationRef", GoGetter: "RemediationConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRemediationConfigurationRef{}
@@ -1000,6 +1009,7 @@ func init() {
 		reflect.TypeOf((*IStoredQueryRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "storedQueryRef", GoGetter: "StoredQueryRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStoredQueryRef{}

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnEventBus) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnEventBus_FromEventBusArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnEventBus_FromEventBusNameParameters(scope constructs.Construct, id *string, eventBusName *string) error {
+	return nil
+}
+
 func validateCfnEventBus_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

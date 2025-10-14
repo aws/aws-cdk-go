@@ -155,6 +155,38 @@ func (c *jsiiProxy_CfnInputSecurityGroup) validateValidatePropertiesParameters(_
 	return nil
 }
 
+func validateCfnInputSecurityGroup_FromInputSecurityGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnInputSecurityGroup_FromInputSecurityGroupIdParameters(scope constructs.Construct, id *string, inputSecurityGroupId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if inputSecurityGroupId == nil {
+		return fmt.Errorf("parameter inputSecurityGroupId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnInputSecurityGroup_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

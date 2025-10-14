@@ -46,12 +46,15 @@ package awsmedialive
 //   	FlickerAq: jsii.String("flickerAq"),
 //   	FramerateDenominator: jsii.Number(123),
 //   	FramerateNumerator: jsii.Number(123),
+//   	GopBReference: jsii.String("gopBReference"),
 //   	GopClosedCadence: jsii.Number(123),
+//   	GopNumBFrames: jsii.Number(123),
 //   	GopSize: jsii.Number(123),
 //   	GopSizeUnits: jsii.String("gopSizeUnits"),
 //   	Level: jsii.String("level"),
 //   	LookAheadRateControl: jsii.String("lookAheadRateControl"),
 //   	MaxBitrate: jsii.Number(123),
+//   	MinBitrate: jsii.Number(123),
 //   	MinIInterval: jsii.Number(123),
 //   	MinQp: jsii.Number(123),
 //   	MvOverPictureBoundaries: jsii.String("mvOverPictureBoundaries"),
@@ -64,6 +67,7 @@ package awsmedialive
 //   	ScanType: jsii.String("scanType"),
 //   	SceneChangeDetect: jsii.String("sceneChangeDetect"),
 //   	Slices: jsii.Number(123),
+//   	SubgopLength: jsii.String("subgopLength"),
 //   	Tier: jsii.String("tier"),
 //   	TileHeight: jsii.Number(123),
 //   	TilePadding: jsii.String("tilePadding"),
@@ -139,12 +143,18 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-frameratenumerator
 	//
 	FramerateNumerator *float64 `field:"optional" json:"framerateNumerator" yaml:"framerateNumerator"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopbreference
+	//
+	GopBReference *string `field:"optional" json:"gopBReference" yaml:"gopBReference"`
 	// Frequency of closed GOPs.
 	//
 	// In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopclosedcadence
 	//
 	GopClosedCadence *float64 `field:"optional" json:"gopClosedCadence" yaml:"gopClosedCadence"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopnumbframes
+	//
+	GopNumBFrames *float64 `field:"optional" json:"gopNumBFrames" yaml:"gopNumBFrames"`
 	// GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
 	//
 	// If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
@@ -172,6 +182,9 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-maxbitrate
 	//
 	MaxBitrate *float64 `field:"optional" json:"maxBitrate" yaml:"maxBitrate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-minbitrate
+	//
+	MinBitrate *float64 `field:"optional" json:"minBitrate" yaml:"minBitrate"`
 	// Only meaningful if sceneChangeDetect is set to enabled.
 	//
 	// Defaults to 5 if multiplex rate control is used. Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
@@ -233,6 +246,9 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-slices
 	//
 	Slices *float64 `field:"optional" json:"slices" yaml:"slices"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-subgoplength
+	//
+	SubgopLength *string `field:"optional" json:"subgopLength" yaml:"subgopLength"`
 	// H.265 Tier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tier
 	//

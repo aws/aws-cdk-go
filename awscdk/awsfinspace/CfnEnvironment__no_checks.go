@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnEnvironment) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnEnvironment_FromEnvironmentArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnEnvironment_FromEnvironmentIdParameters(scope constructs.Construct, id *string, environmentId *string) error {
+	return nil
+}
+
 func validateCfnEnvironment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

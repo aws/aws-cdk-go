@@ -239,6 +239,30 @@ func (j *jsiiProxy_CfnAnalysisTemplate) validateSetAnalysisParametersParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalysisTemplate) validateSetErrorMessageConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAnalysisTemplate_ErrorMessageConfigurationProperty:
+		val := val.(*CfnAnalysisTemplate_ErrorMessageConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAnalysisTemplate_ErrorMessageConfigurationProperty:
+		val_ := val.(CfnAnalysisTemplate_ErrorMessageConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnalysisTemplate_ErrorMessageConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnalysisTemplate) validateSetFormatParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

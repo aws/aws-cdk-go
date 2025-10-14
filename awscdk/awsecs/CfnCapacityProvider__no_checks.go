@@ -68,6 +68,10 @@ func (c *jsiiProxy_CfnCapacityProvider) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constructs.Construct, id *string, capacityProviderName *string) error {
+	return nil
+}
+
 func validateCfnCapacityProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -81,6 +85,10 @@ func validateCfnCapacityProvider_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnCapacityProvider) validateSetAutoScalingGroupProviderParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCapacityProvider) validateSetManagedInstancesProviderParameters(val interface{}) error {
 	return nil
 }
 

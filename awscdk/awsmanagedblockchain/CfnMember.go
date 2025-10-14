@@ -494,6 +494,25 @@ func (j *jsiiProxy_CfnMember)SetNetworkId(val *string) {
 	)
 }
 
+// Creates a new IMemberRef from a memberId.
+func CfnMember_FromMemberId(scope constructs.Construct, id *string, memberId *string) IMemberRef {
+	_init_.Initialize()
+
+	if err := validateCfnMember_FromMemberIdParameters(scope, id, memberId); err != nil {
+		panic(err)
+	}
+	var returns IMemberRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
+		"fromMemberId",
+		[]interface{}{scope, id, memberId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

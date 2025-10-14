@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnSimpleAD) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnSimpleAD_FromDirectoryIdParameters(scope constructs.Construct, id *string, directoryId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if directoryId == nil {
+		return fmt.Errorf("parameter directoryId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnSimpleAD_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

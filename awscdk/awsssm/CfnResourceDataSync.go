@@ -600,6 +600,25 @@ func (j *jsiiProxy_CfnResourceDataSync)SetSyncType(val *string) {
 	)
 }
 
+// Creates a new IResourceDataSyncRef from a syncName.
+func CfnResourceDataSync_FromSyncName(scope constructs.Construct, id *string, syncName *string) IResourceDataSyncRef {
+	_init_.Initialize()
+
+	if err := validateCfnResourceDataSync_FromSyncNameParameters(scope, id, syncName); err != nil {
+		panic(err)
+	}
+	var returns IResourceDataSyncRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.CfnResourceDataSync",
+		"fromSyncName",
+		[]interface{}{scope, id, syncName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

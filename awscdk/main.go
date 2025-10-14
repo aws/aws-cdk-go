@@ -2274,6 +2274,7 @@ func init() {
 		"aws-cdk-lib.ICustomResourceRef",
 		reflect.TypeOf((*ICustomResourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customResourceRef", GoGetter: "CustomResourceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2296,6 +2297,7 @@ func init() {
 		"aws-cdk-lib.IGuardHookRef",
 		reflect.TypeOf((*IGuardHookRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "guardHookRef", GoGetter: "GuardHookRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2308,6 +2310,7 @@ func init() {
 		"aws-cdk-lib.IHookDefaultVersionRef",
 		reflect.TypeOf((*IHookDefaultVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hookDefaultVersionRef", GoGetter: "HookDefaultVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2320,6 +2323,7 @@ func init() {
 		"aws-cdk-lib.IHookTypeConfigRef",
 		reflect.TypeOf((*IHookTypeConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hookTypeConfigRef", GoGetter: "HookTypeConfigRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2332,6 +2336,7 @@ func init() {
 		"aws-cdk-lib.IHookVersionRef",
 		reflect.TypeOf((*IHookVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hookVersionRef", GoGetter: "HookVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2354,6 +2359,7 @@ func init() {
 		"aws-cdk-lib.ILambdaHookRef",
 		reflect.TypeOf((*ILambdaHookRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "lambdaHookRef", GoGetter: "LambdaHookRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2386,6 +2392,7 @@ func init() {
 		"aws-cdk-lib.IMacroRef",
 		reflect.TypeOf((*IMacroRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "macroRef", GoGetter: "MacroRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2398,6 +2405,7 @@ func init() {
 		"aws-cdk-lib.IModuleDefaultVersionRef",
 		reflect.TypeOf((*IModuleDefaultVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "moduleDefaultVersionRef", GoGetter: "ModuleDefaultVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2410,6 +2418,7 @@ func init() {
 		"aws-cdk-lib.IModuleVersionRef",
 		reflect.TypeOf((*IModuleVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "moduleVersionRef", GoGetter: "ModuleVersionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -2477,6 +2486,7 @@ func init() {
 		reflect.TypeOf((*IPublicTypeVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "publicTypeVersionRef", GoGetter: "PublicTypeVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicTypeVersionRef{}
@@ -2489,6 +2499,7 @@ func init() {
 		reflect.TypeOf((*IPublisherRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "publisherRef", GoGetter: "PublisherRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublisherRef{}
@@ -2543,6 +2554,7 @@ func init() {
 		reflect.TypeOf((*IResourceDefaultVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceDefaultVersionRef", GoGetter: "ResourceDefaultVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceDefaultVersionRef{}
@@ -2555,6 +2567,7 @@ func init() {
 		reflect.TypeOf((*IResourceVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceVersionRef", GoGetter: "ResourceVersionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResourceVersionRef{}
@@ -2625,6 +2638,7 @@ func init() {
 		reflect.TypeOf((*IStackRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stackRef", GoGetter: "StackRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackRef{}
@@ -2637,6 +2651,7 @@ func init() {
 		reflect.TypeOf((*IStackSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stackSetRef", GoGetter: "StackSetRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStackSetRef{}
@@ -2741,6 +2756,7 @@ func init() {
 		reflect.TypeOf((*ITypeActivationRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "typeActivationRef", GoGetter: "TypeActivationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITypeActivationRef{}
@@ -2753,6 +2769,7 @@ func init() {
 		reflect.TypeOf((*IWaitConditionHandleRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "waitConditionHandleRef", GoGetter: "WaitConditionHandleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWaitConditionHandleRef{}
@@ -2765,6 +2782,7 @@ func init() {
 		reflect.TypeOf((*IWaitConditionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "waitConditionRef", GoGetter: "WaitConditionRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IWaitConditionRef{}

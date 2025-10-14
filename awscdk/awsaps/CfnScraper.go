@@ -53,6 +53,25 @@ import (
 //   		SourceRoleArn: jsii.String("sourceRoleArn"),
 //   		TargetRoleArn: jsii.String("targetRoleArn"),
 //   	},
+//   	ScraperLoggingConfiguration: &ScraperLoggingConfigurationProperty{
+//   		LoggingDestination: &ScraperLoggingDestinationProperty{
+//   			CloudWatchLogs: &CloudWatchLogDestinationProperty{
+//   				LogGroupArn: jsii.String("logGroupArn"),
+//   			},
+//   		},
+//   		ScraperComponents: []interface{}{
+//   			&ScraperComponentProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Config: &ComponentConfigProperty{
+//   					Options: map[string]*string{
+//   						"optionsKey": jsii.String("options"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -120,6 +139,9 @@ type CfnScraper interface {
 	// The configuration in use by the scraper.
 	ScrapeConfiguration() interface{}
 	SetScrapeConfiguration(val interface{})
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+	ScraperLoggingConfiguration() interface{}
+	SetScraperLoggingConfiguration(val interface{})
 	// A reference to a Scraper resource.
 	ScraperRef() *ScraperReference
 	// The Amazon EKS cluster from which the scraper collects metrics.
@@ -430,6 +452,16 @@ func (j *jsiiProxy_CfnScraper) ScrapeConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScraper) ScraperLoggingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"scraperLoggingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScraper) ScraperRef() *ScraperReference {
 	var returns *ScraperReference
 	_jsii_.Get(
@@ -555,6 +587,17 @@ func (j *jsiiProxy_CfnScraper)SetScrapeConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"scrapeConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScraper)SetScraperLoggingConfiguration(val interface{}) {
+	if err := j.validateSetScraperLoggingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"scraperLoggingConfiguration",
 		val,
 	)
 }

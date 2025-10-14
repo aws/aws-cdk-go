@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnQueue) validateSetComputeNodeGroupConfigurationsParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueue) validateSetSlurmConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnQueueParameters(scope constructs.Construct, id *string, props *CfnQueueProps) error {
 	return nil
 }

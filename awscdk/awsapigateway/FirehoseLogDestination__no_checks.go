@@ -4,7 +4,7 @@ package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(stage IStage) error {
+func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(stage IStageRef) error {
 	return nil
 }
 

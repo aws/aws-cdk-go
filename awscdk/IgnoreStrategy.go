@@ -23,10 +23,10 @@ import (
 type IgnoreStrategy interface {
 	// Adds another pattern.
 	Add(pattern *string)
-	// Determines whether a given file path should be ignored and have all of its children ignored if its a directory.
+	// Determines whether a given directory path should be ignored and have all of its children ignored.
 	//
-	// Returns: `true` if the file should be ignored.
-	CompletelyIgnores(absoluteFilePath *string) *bool
+	// Returns: `true` if the directory and all of its children should be ignored.
+	CompletelyIgnores(absoluteDirectoryPath *string) *bool
 	// Determines whether a given file path should be ignored or not.
 	//
 	// Returns: `true` if the file should be ignored.
@@ -143,8 +143,8 @@ func (i *jsiiProxy_IgnoreStrategy) Add(pattern *string) {
 	)
 }
 
-func (i *jsiiProxy_IgnoreStrategy) CompletelyIgnores(absoluteFilePath *string) *bool {
-	if err := i.validateCompletelyIgnoresParameters(absoluteFilePath); err != nil {
+func (i *jsiiProxy_IgnoreStrategy) CompletelyIgnores(absoluteDirectoryPath *string) *bool {
+	if err := i.validateCompletelyIgnoresParameters(absoluteDirectoryPath); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -152,7 +152,7 @@ func (i *jsiiProxy_IgnoreStrategy) CompletelyIgnores(absoluteFilePath *string) *
 	_jsii_.Invoke(
 		i,
 		"completelyIgnores",
-		[]interface{}{absoluteFilePath},
+		[]interface{}{absoluteDirectoryPath},
 		&returns,
 	)
 

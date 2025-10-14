@@ -70,6 +70,7 @@ func init() {
 		"aws-cdk-lib.aws_iotthingsgraph.IFlowTemplateRef",
 		reflect.TypeOf((*IFlowTemplateRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "flowTemplateRef", GoGetter: "FlowTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {

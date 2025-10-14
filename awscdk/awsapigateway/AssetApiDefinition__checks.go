@@ -20,7 +20,7 @@ func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope constructs.Construct, restApi IRestApi) error {
+func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope constructs.Construct, restApi IRestApiRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

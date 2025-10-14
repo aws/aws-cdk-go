@@ -340,6 +340,7 @@ func init() {
 		"aws-cdk-lib.aws_amplifyuibuilder.IComponentRef",
 		reflect.TypeOf((*IComponentRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "componentRef", GoGetter: "ComponentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -352,6 +353,7 @@ func init() {
 		"aws-cdk-lib.aws_amplifyuibuilder.IFormRef",
 		reflect.TypeOf((*IFormRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "formRef", GoGetter: "FormRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
@@ -365,6 +367,7 @@ func init() {
 		reflect.TypeOf((*IThemeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "themeRef", GoGetter: "ThemeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IThemeRef{}

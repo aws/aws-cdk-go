@@ -567,6 +567,25 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy)SetTrafficPolicyName(val *string)
 	)
 }
 
+// Creates a new IMailManagerTrafficPolicyRef from a trafficPolicyId.
+func CfnMailManagerTrafficPolicy_FromTrafficPolicyId(scope constructs.Construct, id *string, trafficPolicyId *string) IMailManagerTrafficPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerTrafficPolicy_FromTrafficPolicyIdParameters(scope, id, trafficPolicyId); err != nil {
+		panic(err)
+	}
+	var returns IMailManagerTrafficPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",
+		"fromTrafficPolicyId",
+		[]interface{}{scope, id, trafficPolicyId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

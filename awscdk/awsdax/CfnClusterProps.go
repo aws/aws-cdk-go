@@ -82,6 +82,11 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The IP address type of the cluster. Values are:.
+	//
+	// - `ipv4` - IPv4 addresses only
+	// - `ipv6` - IPv6 addresses only
+	// - `dual_stack` - Both IPv4 and IPv6 addresses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-networktype
 	//
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`

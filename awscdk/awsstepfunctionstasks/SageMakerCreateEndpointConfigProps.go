@@ -143,7 +143,7 @@ type SageMakerCreateEndpointConfigProps struct {
 	// AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	// Default: - None.
 	//
-	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Tags to be applied to the endpoint configuration.
 	// Default: - No tags.
 	//

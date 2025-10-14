@@ -2424,6 +2424,15 @@ func init() {
 			"COUNT_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_COUNT_PER_SECOND,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ComputeLimitsUnitType",
+		reflect.TypeOf((*EmrCreateCluster_ComputeLimitsUnitType)(nil)).Elem(),
+		map[string]interface{}{
+			"INSTANCE_FLEET_UNITS": EmrCreateCluster_ComputeLimitsUnitType_INSTANCE_FLEET_UNITS,
+			"INSTANCES": EmrCreateCluster_ComputeLimitsUnitType_INSTANCES,
+			"VCPU": EmrCreateCluster_ComputeLimitsUnitType_VCPU,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ConfigurationProperty",
 		reflect.TypeOf((*EmrCreateCluster_ConfigurationProperty)(nil)).Elem(),
@@ -2496,6 +2505,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.KerberosAttributesProperty",
 		reflect.TypeOf((*EmrCreateCluster_KerberosAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ManagedScalingComputeLimitsProperty",
+		reflect.TypeOf((*EmrCreateCluster_ManagedScalingComputeLimitsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ManagedScalingPolicyProperty",
+		reflect.TypeOf((*EmrCreateCluster_ManagedScalingPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.MetricDimensionProperty",

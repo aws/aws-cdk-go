@@ -79,6 +79,8 @@ type CfnVpcAttachment interface {
 	AttrCreatedAt() *string
 	// The Region where the core network edge is located.
 	AttrEdgeLocation() *string
+	// Errors from the last modification of the attachment.
+	AttrLastModificationErrors() *[]*string
 	// The name of the network function group.
 	AttrNetworkFunctionGroupName() *string
 	// The ID of the VPC attachment owner.
@@ -351,6 +353,16 @@ func (j *jsiiProxy_CfnVpcAttachment) AttrEdgeLocation() *string {
 	_jsii_.Get(
 		j,
 		"attrEdgeLocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) AttrLastModificationErrors() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrLastModificationErrors",
 		&returns,
 	)
 	return returns
@@ -709,6 +721,25 @@ func (j *jsiiProxy_CfnVpcAttachment)SetVpcArn(val *string) {
 		"vpcArn",
 		val,
 	)
+}
+
+// Creates a new IVpcAttachmentRef from a attachmentId.
+func CfnVpcAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) IVpcAttachmentRef {
+	_init_.Initialize()
+
+	if err := validateCfnVpcAttachment_FromAttachmentIdParameters(scope, id, attachmentId); err != nil {
+		panic(err)
+	}
+	var returns IVpcAttachmentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment",
+		"fromAttachmentId",
+		[]interface{}{scope, id, attachmentId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

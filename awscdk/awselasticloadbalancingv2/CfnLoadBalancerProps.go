@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLoadBalancerProps := &CfnLoadBalancerProps{
+//   	EnableCapacityReservationProvisionStabilize: jsii.Boolean(false),
 //   	EnablePrefixForIpv6SourceNat: jsii.String("enablePrefixForIpv6SourceNat"),
 //   	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: jsii.String("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"),
 //   	IpAddressType: jsii.String("ipAddressType"),
@@ -56,6 +57,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 //
 type CfnLoadBalancerProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enablecapacityreservationprovisionstabilize
+	//
+	// Default: - false.
+	//
+	EnableCapacityReservationProvisionStabilize interface{} `field:"optional" json:"enableCapacityReservationProvisionStabilize" yaml:"enableCapacityReservationProvisionStabilize"`
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT.
 	//
 	// The IP address type must be `dualstack` . The default value is `off` .

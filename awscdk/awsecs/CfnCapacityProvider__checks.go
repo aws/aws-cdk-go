@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnCapacityProvider) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnCapacityProvider_FromCapacityProviderNameParameters(scope constructs.Construct, id *string, capacityProviderName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if capacityProviderName == nil {
+		return fmt.Errorf("parameter capacityProviderName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCapacityProvider_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -197,6 +213,30 @@ func (j *jsiiProxy_CfnCapacityProvider) validateSetAutoScalingGroupProviderParam
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCapacityProvider_AutoScalingGroupProviderProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCapacityProvider) validateSetManagedInstancesProviderParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCapacityProvider_ManagedInstancesProviderProperty:
+		val := val.(*CfnCapacityProvider_ManagedInstancesProviderProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCapacityProvider_ManagedInstancesProviderProperty:
+		val_ := val.(CfnCapacityProvider_ManagedInstancesProviderProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCapacityProvider_ManagedInstancesProviderProperty; received %#v (a %T)", val, val)
 		}
 	}
 

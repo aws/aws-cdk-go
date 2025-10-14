@@ -155,6 +155,22 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnVPCPeeringConnection_FromVpcPeeringConnectionIdParameters(scope constructs.Construct, id *string, vpcPeeringConnectionId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if vpcPeeringConnectionId == nil {
+		return fmt.Errorf("parameter vpcPeeringConnectionId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnVPCPeeringConnection_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

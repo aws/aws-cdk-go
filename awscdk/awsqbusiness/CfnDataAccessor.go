@@ -683,6 +683,25 @@ func (j *jsiiProxy_CfnDataAccessor)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IDataAccessorRef from an ARN.
+func CfnDataAccessor_FromDataAccessorArn(scope constructs.Construct, id *string, arn *string) IDataAccessorRef {
+	_init_.Initialize()
+
+	if err := validateCfnDataAccessor_FromDataAccessorArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IDataAccessorRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor",
+		"fromDataAccessorArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

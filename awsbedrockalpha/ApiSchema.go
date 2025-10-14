@@ -127,7 +127,7 @@ func ApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 
 // Creates an API Schema from an S3 File.
 // Experimental.
-func ApiSchema_FromS3File(bucket awss3.IBucket, objectKey *string) S3ApiSchema {
+func ApiSchema_FromS3File(bucket awss3.IBucketRef, objectKey *string) S3ApiSchema {
 	_init_.Initialize()
 
 	if err := validateApiSchema_FromS3FileParameters(bucket, objectKey); err != nil {

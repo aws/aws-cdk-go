@@ -46,6 +46,7 @@ type OpenIdConnectProvider interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// A reference to a OIDCProvider resource.
 	// Experimental.
 	OidcProviderRef() *awsiam.OIDCProviderReference
 	// The Amazon Resource Name (ARN) of the IAM OpenID Connect provider.

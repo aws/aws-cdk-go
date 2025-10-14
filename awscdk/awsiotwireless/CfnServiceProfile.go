@@ -680,6 +680,44 @@ func (j *jsiiProxy_CfnServiceProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IServiceProfileRef from an ARN.
+func CfnServiceProfile_FromServiceProfileArn(scope constructs.Construct, id *string, arn *string) IServiceProfileRef {
+	_init_.Initialize()
+
+	if err := validateCfnServiceProfile_FromServiceProfileArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IServiceProfileRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"fromServiceProfileArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IServiceProfileRef from a serviceProfileId.
+func CfnServiceProfile_FromServiceProfileId(scope constructs.Construct, id *string, serviceProfileId *string) IServiceProfileRef {
+	_init_.Initialize()
+
+	if err := validateCfnServiceProfile_FromServiceProfileIdParameters(scope, id, serviceProfileId); err != nil {
+		panic(err)
+	}
+	var returns IServiceProfileRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"fromServiceProfileId",
+		[]interface{}{scope, id, serviceProfileId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

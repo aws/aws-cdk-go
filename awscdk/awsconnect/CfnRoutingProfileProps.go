@@ -30,6 +30,14 @@ import (
 //
 //   	// the properties below are optional
 //   	AgentAvailabilityTimer: jsii.String("agentAvailabilityTimer"),
+//   	ManualAssignmentQueueConfigs: []interface{}{
+//   		&RoutingProfileManualAssignmentQueueConfigProperty{
+//   			QueueReference: &RoutingProfileQueueReferenceProperty{
+//   				Channel: jsii.String("channel"),
+//   				QueueArn: jsii.String("queueArn"),
+//   			},
+//   		},
+//   	},
 //   	QueueConfigs: []interface{}{
 //   		&RoutingProfileQueueConfigProperty{
 //   			Delay: jsii.Number(123),
@@ -75,6 +83,10 @@ type CfnRoutingProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-agentavailabilitytimer
 	//
 	AgentAvailabilityTimer *string `field:"optional" json:"agentAvailabilityTimer" yaml:"agentAvailabilityTimer"`
+	// Contains information about the queue and channel for manual assignment behaviour can be enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-manualassignmentqueueconfigs
+	//
+	ManualAssignmentQueueConfigs interface{} `field:"optional" json:"manualAssignmentQueueConfigs" yaml:"manualAssignmentQueueConfigs"`
 	// The inbound queues associated with the routing profile.
 	//
 	// If no queue is added, the agent can make only outbound calls.

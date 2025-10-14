@@ -47,6 +47,12 @@ type StreamProps struct {
 	// Default: 1.
 	//
 	ShardCount *float64 `field:"optional" json:"shardCount" yaml:"shardCount"`
+	// A list of shard-level metrics in properties to enable enhanced monitoring mode.
+	// See: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html#kinesis-metrics-shard
+	//
+	// Default: undefined - AWS Kinesis default is disabled.
+	//
+	ShardLevelMetrics *[]ShardLevelMetrics `field:"optional" json:"shardLevelMetrics" yaml:"shardLevelMetrics"`
 	// The capacity mode of this stream.
 	// Default: StreamMode.PROVISIONED
 	//

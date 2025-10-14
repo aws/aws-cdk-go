@@ -518,6 +518,44 @@ func (j *jsiiProxy_CfnScript)SetVersion(val *string) {
 	)
 }
 
+// Creates a new IScriptRef from an ARN.
+func CfnScript_FromScriptArn(scope constructs.Construct, id *string, arn *string) IScriptRef {
+	_init_.Initialize()
+
+	if err := validateCfnScript_FromScriptArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IScriptRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"fromScriptArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IScriptRef from a scriptId.
+func CfnScript_FromScriptId(scope constructs.Construct, id *string, scriptId *string) IScriptRef {
+	_init_.Initialize()
+
+	if err := validateCfnScript_FromScriptIdParameters(scope, id, scriptId); err != nil {
+		panic(err)
+	}
+	var returns IScriptRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_gamelift.CfnScript",
+		"fromScriptId",
+		[]interface{}{scope, id, scriptId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

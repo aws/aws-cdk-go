@@ -31,11 +31,11 @@ type CfnHookVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html#cfn-cloudformation-hookversion-schemahandlerpackage
 	//
 	SchemaHandlerPackage *string `field:"required" json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
-	// The unique name for your hook.
+	// The unique name for your Hook.
 	//
-	// Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook` .
+	// Specifies a three-part namespace for your Hook, with a recommended pattern of `Organization::Service::Hook` .
 	//
-	// > The following organization namespaces are reserved and can't be used in your hook type names:
+	// > The following organization namespaces are reserved and can't be used in your Hook type names:
 	// >
 	// > - `Alexa`
 	// > - `AMZN`

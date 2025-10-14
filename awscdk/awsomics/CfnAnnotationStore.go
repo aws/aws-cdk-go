@@ -9,6 +9,10 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// > AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting November 7, 2025.
+//
+// If you would like to use variant stores or annotation stores, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html) .
+//
 // Creates an annotation store.
 //
 // Example:
@@ -628,6 +632,25 @@ func (j *jsiiProxy_CfnAnnotationStore)SetTagsRaw(val *map[string]*string) {
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new IAnnotationStoreRef from a annotationStoreName.
+func CfnAnnotationStore_FromAnnotationStoreName(scope constructs.Construct, id *string, annotationStoreName *string) IAnnotationStoreRef {
+	_init_.Initialize()
+
+	if err := validateCfnAnnotationStore_FromAnnotationStoreNameParameters(scope, id, annotationStoreName); err != nil {
+		panic(err)
+	}
+	var returns IAnnotationStoreRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_omics.CfnAnnotationStore",
+		"fromAnnotationStoreName",
+		[]interface{}{scope, id, annotationStoreName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

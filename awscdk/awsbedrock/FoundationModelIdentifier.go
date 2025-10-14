@@ -783,6 +783,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_4_20250514_V1_0() Foundat
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_4_5_20250929_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_SONNET_4_5_20250929_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -970,6 +981,17 @@ func FoundationModelIdentifier_COHERE_EMBED_MULTILINGUAL_V3_0_512() FoundationMo
 	return returns
 }
 
+func FoundationModelIdentifier_COHERE_EMBED_V4() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"COHERE_EMBED_V4",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_COHERE_RERANK_V3_5() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -987,6 +1009,17 @@ func FoundationModelIdentifier_DEEP_SEEK_R1_V1_0() FoundationModelIdentifier {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"DEEP_SEEK_R1_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_DEEP_SEEK_V3_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"DEEP_SEEK_V3_V1_0",
 		&returns,
 	)
 	return returns
@@ -1328,6 +1361,50 @@ func FoundationModelIdentifier_OPENAI_GPT_OSS_20B_1() FoundationModelIdentifier 
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"OPENAI_GPT_OSS_20B_1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_235B_A22B_2507_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_235B_A22B_2507_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_32B_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_32B_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_CODER_30B_A3B_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_CODER_30B_A3B_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_CODER_480B_A35B_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_CODER_480B_A35B_V1_0",
 		&returns,
 	)
 	return returns

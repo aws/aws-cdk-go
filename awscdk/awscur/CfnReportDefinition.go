@@ -37,6 +37,12 @@ import (
 //   		jsii.String("additionalSchemaElements"),
 //   	},
 //   	BillingViewArn: jsii.String("billingViewArn"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html
@@ -45,6 +51,7 @@ type CfnReportDefinition interface {
 	awscdk.CfnResource
 	IReportDefinitionRef
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// A list of manifests that you want AWS to create for this report.
 	AdditionalArtifacts() *[]*string
 	SetAdditionalArtifacts(val *[]*string)
@@ -54,6 +61,8 @@ type CfnReportDefinition interface {
 	// The Amazon Resource Name (ARN) of the billing view.
 	BillingViewArn() *string
 	SetBillingViewArn(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -110,6 +119,9 @@ type CfnReportDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to be assigned to the report definition resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The granularity of the line items in the report.
 	TimeUnit() *string
 	SetTimeUnit(val *string)
@@ -258,6 +270,7 @@ type jsiiProxy_CfnReportDefinition struct {
 	internal.Type__awscdkCfnResource
 	jsiiProxy_IReportDefinitionRef
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnReportDefinition) AdditionalArtifacts() *[]*string {
@@ -285,6 +298,16 @@ func (j *jsiiProxy_CfnReportDefinition) BillingViewArn() *string {
 	_jsii_.Get(
 		j,
 		"billingViewArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReportDefinition) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -460,6 +483,16 @@ func (j *jsiiProxy_CfnReportDefinition) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReportDefinition) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReportDefinition) TimeUnit() *string {
 	var returns *string
 	_jsii_.Get(
@@ -630,6 +663,17 @@ func (j *jsiiProxy_CfnReportDefinition)SetS3Region(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnReportDefinition)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnReportDefinition)SetTimeUnit(val *string) {
 	if err := j.validateSetTimeUnitParameters(val); err != nil {
 		panic(err)
@@ -639,6 +683,25 @@ func (j *jsiiProxy_CfnReportDefinition)SetTimeUnit(val *string) {
 		"timeUnit",
 		val,
 	)
+}
+
+// Creates a new IReportDefinitionRef from a reportName.
+func CfnReportDefinition_FromReportName(scope constructs.Construct, id *string, reportName *string) IReportDefinitionRef {
+	_init_.Initialize()
+
+	if err := validateCfnReportDefinition_FromReportNameParameters(scope, id, reportName); err != nil {
+		panic(err)
+	}
+	var returns IReportDefinitionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cur.CfnReportDefinition",
+		"fromReportName",
+		[]interface{}{scope, id, reportName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

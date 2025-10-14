@@ -822,6 +822,44 @@ func (j *jsiiProxy_CfnInferenceExperiment)SetType(val *string) {
 	)
 }
 
+// Creates a new IInferenceExperimentRef from an ARN.
+func CfnInferenceExperiment_FromInferenceExperimentArn(scope constructs.Construct, id *string, arn *string) IInferenceExperimentRef {
+	_init_.Initialize()
+
+	if err := validateCfnInferenceExperiment_FromInferenceExperimentArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IInferenceExperimentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnInferenceExperiment",
+		"fromInferenceExperimentArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IInferenceExperimentRef from a inferenceExperimentName.
+func CfnInferenceExperiment_FromInferenceExperimentName(scope constructs.Construct, id *string, inferenceExperimentName *string) IInferenceExperimentRef {
+	_init_.Initialize()
+
+	if err := validateCfnInferenceExperiment_FromInferenceExperimentNameParameters(scope, id, inferenceExperimentName); err != nil {
+		panic(err)
+	}
+	var returns IInferenceExperimentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sagemaker.CfnInferenceExperiment",
+		"fromInferenceExperimentName",
+		[]interface{}{scope, id, inferenceExperimentName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

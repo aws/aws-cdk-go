@@ -444,6 +444,25 @@ func (j *jsiiProxy_CfnDatabase)SetDatabaseName(val *string) {
 	)
 }
 
+// Creates a new IDatabaseRef from a databaseName.
+func CfnDatabase_FromDatabaseName(scope constructs.Construct, id *string, databaseName *string) IDatabaseRef {
+	_init_.Initialize()
+
+	if err := validateCfnDatabase_FromDatabaseNameParameters(scope, id, databaseName); err != nil {
+		panic(err)
+	}
+	var returns IDatabaseRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnDatabase",
+		"fromDatabaseName",
+		[]interface{}{scope, id, databaseName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

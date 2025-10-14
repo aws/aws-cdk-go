@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates an AWS Migration Hub Refactor Spaces service.
+// > AWS Migration Hub will no longer be open to new customers starting November 7, 2025.
 //
-// The account owner of the service is always the environment owner, regardless of which account in the environment creates the service. Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda function endpoint.
+// To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub , explore [AWS Migration Hub](https://docs.aws.amazon.com/https://aws.amazon.com/transform) .
+//
+// Creates an AWS Migration Hub Refactor Spaces service. The account owner of the service is always the environment owner, regardless of which account in the environment creates the service. Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda function endpoint.
 //
 // > If an AWS resource is launched in a service VPC, and you want it to be accessible to all of an environment’s services with VPCs and routes, apply the `RefactorSpacesSecurityGroup` to the resource. Alternatively, to add more cross-account constraints, apply your own security group.
 //

@@ -20,5 +20,7 @@ type JobStateTimeLimitActionsAction string
 const (
 	// Cancel the job.
 	JobStateTimeLimitActionsAction_CANCEL JobStateTimeLimitActionsAction = "CANCEL"
+	// Terminate the job.
+	JobStateTimeLimitActionsAction_TERMINATE JobStateTimeLimitActionsAction = "TERMINATE"
 )
 

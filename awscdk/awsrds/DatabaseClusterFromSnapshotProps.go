@@ -342,7 +342,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// If specified, `storageEncrypted` will be set to `true`.
 	// Default: - if storageEncrypted is true then the default master key, no key otherwise.
 	//
-	StorageEncryptionKey awskms.IKey `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
+	StorageEncryptionKey awskms.IKeyRef `field:"optional" json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// The storage type to be associated with the DB cluster.
 	// Default: - DBClusterStorageType.AURORA
 	//

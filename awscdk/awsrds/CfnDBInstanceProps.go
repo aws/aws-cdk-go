@@ -69,6 +69,7 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LicenseModel: jsii.String("licenseModel"),
 //   	ManageMasterUserPassword: jsii.Boolean(false),
+//   	MasterUserAuthenticationType: jsii.String("masterUserAuthenticationType"),
 //   	MasterUsername: jsii.String("masterUsername"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MasterUserSecret: &MasterUserSecretProperty{
@@ -809,6 +810,19 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-managemasteruserpassword
 	//
 	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
+	// Specifies the authentication type for the master user.
+	//
+	// With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+	//
+	// You can specify one of the following values:
+	//
+	// - `password` - Use standard database authentication with a password.
+	// - `iam-db-auth` - Use IAM database authentication for the master user.
+	//
+	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserauthenticationtype
+	//
+	MasterUserAuthenticationType *string `field:"optional" json:"masterUserAuthenticationType" yaml:"masterUserAuthenticationType"`
 	// The master user name for the DB instance.
 	//
 	// > If you specify the `SourceDBInstanceIdentifier` or `DBSnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
