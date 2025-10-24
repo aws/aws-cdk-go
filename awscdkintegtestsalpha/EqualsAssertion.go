@@ -15,8 +15,8 @@ import (
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //
-//   var actualResult actualResult
-//   var expectedResult expectedResult
+//   var actualResult ActualResult
+//   var expectedResult ExpectedResult
 //
 //   equalsAssertion := integ_tests_alpha.NewEqualsAssertion(this, jsii.String("MyEqualsAssertion"), &EqualsAssertionProps{
 //   	Actual: actualResult,

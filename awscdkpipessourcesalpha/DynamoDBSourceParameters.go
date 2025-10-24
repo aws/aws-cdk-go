@@ -7,7 +7,7 @@ import (
 // Parameters for the DynamoDB source.
 //
 // Example:
-//   var targetQueue queue
+//   var targetQueue Queue
 //   table := ddb.NewTableV2(this, jsii.String("MyTable"), &TablePropsV2{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),

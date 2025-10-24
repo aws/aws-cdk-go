@@ -18,7 +18,7 @@ import (
 // there are still tasks running on them.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{

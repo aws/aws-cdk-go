@@ -13,8 +13,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   pipelineNotifyOnOptions := &PipelineNotifyOnOptions{
-//   	Events: []pipelineNotificationEvents{
-//   		awscdk.Aws_codepipeline.*pipelineNotificationEvents_PIPELINE_EXECUTION_FAILED,
+//   	Events: []PipelineNotificationEvents{
+//   		awscdk.Aws_codepipeline.PipelineNotificationEvents_PIPELINE_EXECUTION_FAILED,
 //   	},
 //
 //   	// the properties below are optional

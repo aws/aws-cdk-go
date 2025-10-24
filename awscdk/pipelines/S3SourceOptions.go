@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   s3SourceOptions := &S3SourceOptions{
 //   	ActionName: jsii.String("actionName"),

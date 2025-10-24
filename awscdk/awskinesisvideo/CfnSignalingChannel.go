@@ -21,8 +21,8 @@ import (
 //   cfnSignalingChannel := awscdk.Aws_kinesisvideo.NewCfnSignalingChannel(this, jsii.String("MyCfnSignalingChannel"), &CfnSignalingChannelProps{
 //   	MessageTtlSeconds: jsii.Number(123),
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

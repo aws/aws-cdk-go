@@ -11,25 +11,25 @@ import (
 //   vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 //
 //   vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{
-//   	LogFormat: []logFormat{
-//   		ec2.*logFormat_DST_PORT(),
-//   		ec2.*logFormat_SRC_PORT(),
+//   	LogFormat: []LogFormat{
+//   		ec2.LogFormat_DST_PORT(),
+//   		ec2.LogFormat_SRC_PORT(),
 //   	},
 //   })
 //
 //   // If you just want to add a field to the default field
 //   vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{
-//   	LogFormat: []*logFormat{
-//   		ec2.*logFormat_VERSION(),
-//   		ec2.*logFormat_ALL_DEFAULT_FIELDS(),
+//   	LogFormat: []LogFormat{
+//   		ec2.LogFormat_VERSION(),
+//   		ec2.LogFormat_ALL_DEFAULT_FIELDS(),
 //   	},
 //   })
 //
 //   // If AWS CDK does not support the new fields
 //   vpc.addFlowLog(jsii.String("FlowLog"), &FlowLogOptions{
-//   	LogFormat: []*logFormat{
-//   		ec2.*logFormat_SRC_PORT(),
-//   		ec2.*logFormat_Custom(jsii.String("${new-field}")),
+//   	LogFormat: []LogFormat{
+//   		ec2.LogFormat_SRC_PORT(),
+//   		ec2.LogFormat_Custom(jsii.String("${new-field}")),
 //   	},
 //   })
 //

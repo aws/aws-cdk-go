@@ -8,9 +8,9 @@ package awscodepipeline
 //
 // Example:
 //   // Insert a new Stage at an arbitrary point
-//   var pipeline pipeline
-//   var anotherStage iStage
-//   var yetAnotherStage iStage
+//   var pipeline Pipeline
+//   var anotherStage IStage
+//   var yetAnotherStage IStage
 //
 //
 //   someStage := pipeline.AddStage(&StageOptions{

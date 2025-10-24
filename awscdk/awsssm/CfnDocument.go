@@ -16,8 +16,8 @@ import (
 // > This resource does not support AWS CloudFormation drift detection.
 //
 // Example:
-//   var application application
-//   var document cfnDocument
+//   var application Application
+//   var document CfnDocument
 //
 //
 //   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{

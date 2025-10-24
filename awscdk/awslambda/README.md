@@ -38,12 +38,12 @@ runtime code.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
-var key key
+var key Key
 
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
 
-options := map[string]key{
+options := map[string]Key{
 	"sourceKMSKey": key,
 }
 fnBucket := lambda.NewFunction(this, jsii.String("myFunction2"), &FunctionProps{
@@ -211,7 +211,7 @@ as choosing the log group:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var logGroup iLogGroup
+var logGroup ILogGroup
 
 
 lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
@@ -320,7 +320,7 @@ modify and invoke your functions.
 
 ```go
 // Grant permissions to a service
-var fn function
+var fn Function
 
 principal := iam.NewServicePrincipal(jsii.String("my-service"))
 
@@ -341,7 +341,7 @@ that accesses the function or layer).
 > By default `fn.grantInvoke()` grants permission to the principal to invoke any version of the function, including all past ones. If you only want the principal to be granted permission to invoke the latest version or the unqualified Lambda ARN, use `grantInvokeLatestVersion(grantee)`.
 
 ```go
-var fn function
+var fn Function
 
 principal := iam.NewServicePrincipal(jsii.String("my-service"))
 // Grant invoke only to latest version and unqualified lambda arn
@@ -351,8 +351,8 @@ fn.GrantInvokeLatestVersion(principal)
 If you want to grant access for invoking a specific version of Lambda function, you can use `fn.grantInvokeVersion(grantee, version)`
 
 ```go
-var fn function
-var version iVersion
+var fn Function
+var version IVersion
 
 principal := iam.NewServicePrincipal(jsii.String("my-service"))
 // Grant invoke only to the specific version
@@ -367,7 +367,7 @@ in the AWS Lambda Developer Guide.
 
 ```go
 // Grant permissions to an entire AWS organization
-var fn function
+var fn Function
 
 org := iam.NewOrganizationPrincipal(jsii.String("o-xxxxxxxxxx"))
 
@@ -382,7 +382,7 @@ AWS account or role as the `principal`:
 
 ```go
 // Grant permission to an account ONLY IF they are part of the organization
-var fn function
+var fn Function
 
 account := iam.NewAccountPrincipal(jsii.String("123456789012"))
 
@@ -397,7 +397,7 @@ in the AWS Lambda Developer Guide.
 
 ```go
 // Grant permission to other AWS account
-var fn function
+var fn Function
 
 account := iam.NewAccountPrincipal(jsii.String("123456789012"))
 
@@ -418,7 +418,7 @@ operation (see above), these conditions will be automatically added to the
 resource policy.
 
 ```go
-var fn function
+var fn Function
 
 servicePrincipal := iam.NewServicePrincipal(jsii.String("my-service"))
 sourceArn := "arn:aws:s3:::amzn-s3-demo-bucket"
@@ -440,7 +440,7 @@ fn.GrantInvoke(servicePrincipalWithConditions)
 To grant invoke permissions to a `CompositePrincipal` use the `grantInvokeCompositePrincipal` method:
 
 ```go
-var fn function
+var fn Function
 
 compositePrincipal := iam.NewCompositePrincipal(
 iam.NewOrganizationPrincipal(jsii.String("o-zzzzzzzzzz")),
@@ -467,7 +467,7 @@ The function version includes the following information:
 You could create a version to your lambda function using the `Version` construct.
 
 ```go
-var fn function
+var fn Function
 
 version := lambda.NewVersion(this, jsii.String("MyVersion"), &VersionProps{
 	Lambda: fn,
@@ -629,8 +629,8 @@ To create a Function URL which can be called by an IAM identity, call `addFuncti
 
 ```go
 // Can be a Function or an Alias
-var fn function
-var myRole role
+var fn Function
+var myRole Role
 
 
 fnUrl := fn.AddFunctionUrl()
@@ -650,7 +650,7 @@ To create a Function URL which can be called anonymously, pass `authType: Functi
 
 ```go
 // Can be a Function or an Alias
-var fn function
+var fn Function
 
 
 fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
@@ -680,7 +680,7 @@ will need to configure cross-origin resource sharing to allow the call (if you d
 not do this, your browser will refuse to make the call):
 
 ```go
-var fn function
+var fn Function
 
 
 fn.AddFunctionUrl(&FunctionUrlOptions{
@@ -700,7 +700,7 @@ fn.AddFunctionUrl(&FunctionUrlOptions{
 Invoke mode determines how AWS Lambda invokes your function. You can configure the invoke mode when creating a Function URL using the invokeMode property
 
 ```go
-var fn function
+var fn Function
 
 
 fn.AddFunctionUrl(&FunctionUrlOptions{
@@ -719,8 +719,8 @@ granting permissions to other AWS accounts or organizations.
 ```go
 layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &LayerVersionProps{
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("layer-code"))),
-	CompatibleRuntimes: []runtime{
-		lambda.*runtime_NODEJS_LATEST(),
+	CompatibleRuntimes: []Runtime{
+		lambda.Runtime_NODEJS_LATEST(),
 	},
 	License: jsii.String("Apache-2.0"),
 	Description: jsii.String("A layer to test the L2 construct"),
@@ -739,8 +739,8 @@ layer.addPermission(jsii.String("remote-account-grant"), &LayerVersionPermission
 lambda.NewFunction(stack, jsii.String("MyLayeredLambda"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("foo")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.*runtime_NODEJS_LATEST(),
-	Layers: []iLayerVersion{
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
+	Layers: []ILayerVersion{
 		layer,
 	},
 })
@@ -781,9 +781,9 @@ Similarly, lambda layer versions can also be tagged with architectures it is com
 lambda.NewLayerVersion(this, jsii.String("MyLayer"), &LayerVersionProps{
 	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-	CompatibleArchitectures: []architecture{
-		lambda.*architecture_X86_64(),
-		lambda.*architecture_ARM_64(),
+	CompatibleArchitectures: []Architecture{
+		lambda.Architecture_X86_64(),
+		lambda.Architecture_ARM_64(),
 	},
 })
 ```
@@ -898,7 +898,7 @@ rule:
 import "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 rule := events.NewRule(this, jsii.String("Schedule Rule"), &RuleProps{
 	Schedule: events.Schedule_Cron(&CronOptions{
@@ -928,7 +928,7 @@ For example, the following code adds an SQS queue as an event source for a funct
 import eventsources "github.com/aws/aws-cdk-go/awscdk"
 import sqs "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 queue := sqs.NewQueue(this, jsii.String("Queue"))
 fn.AddEventSource(eventsources.NewSqsEventSource(queue))
@@ -940,16 +940,16 @@ The following code adds an S3 bucket notification as an event source:
 import eventsources "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
 fn.AddEventSource(eventsources.NewS3EventSource(bucket, &S3EventSourceProps{
-	Events: []eventType{
-		s3.*eventType_OBJECT_CREATED,
-		s3.*eventType_OBJECT_REMOVED,
+	Events: []EventType{
+		s3.EventType_OBJECT_CREATED,
+		s3.EventType_OBJECT_REMOVED,
 	},
-	Filters: []notificationKeyFilter{
-		&notificationKeyFilter{
+	Filters: []NotificationKeyFilter{
+		&NotificationKeyFilter{
 			Prefix: jsii.String("subdir/"),
 		},
 	},
@@ -962,7 +962,7 @@ The following code adds an DynamoDB notification as an event source filtering in
 import eventsources "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 	PartitionKey: &Attribute{
@@ -988,7 +988,7 @@ import eventsources "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 	PartitionKey: &Attribute{
@@ -1039,7 +1039,7 @@ The following code shows how to opt in for the enhanced metrics.
 import eventsources "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 	PartitionKey: &Attribute{
@@ -1198,7 +1198,7 @@ For more examples, see our [the integration test](test/integ.lambda-adot.ts).
 If you want to retrieve the ARN of the ADOT Lambda layer without enabling ADOT in a Lambda function:
 
 ```go
-var fn function
+var fn Function
 
 layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.Stack, fn.Architecture)
 ```
@@ -1263,7 +1263,7 @@ You can use Application AutoScaling to automatically configure the provisioned c
 ```go
 import appscaling "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 alias := fn.AddAlias(jsii.String("prod"))
 
@@ -1299,10 +1299,10 @@ import "github.com/aws/aws-cdk-go/awscdk"
  * has a minCapacity of 3 and maxCapacity of 50
  */
 type testStack struct {
-	stack
+	Stack
 }
 
-func newTestStack(scope app, id *string) *testStack {
+func newTestStack(scope App, id *string) *testStack {
 	this := &testStack{}
 	cdk.NewStack_Override(this, scope, id)
 
@@ -1491,16 +1491,16 @@ natProvider := ec2.NatProvider_Gateway()
 // create dual-stack VPC
 vpc := ec2.NewVpc(this, jsii.String("DualStackVpc"), &VpcProps{
 	IpProtocol: ec2.IpProtocol_DUAL_STACK,
-	SubnetConfiguration: []subnetConfiguration{
-		&subnetConfiguration{
+	SubnetConfiguration: []SubnetConfiguration{
+		&SubnetConfiguration{
 			Name: jsii.String("Ipv6Public1"),
 			SubnetType: ec2.SubnetType_PUBLIC,
 		},
-		&subnetConfiguration{
+		&SubnetConfiguration{
 			Name: jsii.String("Ipv6Public2"),
 			SubnetType: ec2.SubnetType_PUBLIC,
 		},
-		&subnetConfiguration{
+		&SubnetConfiguration{
 			Name: jsii.String("Ipv6Private1"),
 			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 		},
@@ -1509,7 +1509,7 @@ vpc := ec2.NewVpc(this, jsii.String("DualStackVpc"), &VpcProps{
 })
 
 natGatewayId := natProvider.ConfiguredGateways[0].GatewayId
-(vpc.PrivateSubnets[0].(privateSubnet)).AddIpv6Nat64Route(natGatewayId)
+(vpc.PrivateSubnets[0].(PrivateSubnet)).AddIpv6Nat64Route(natGatewayId)
 
 fn := lambda.NewFunction(this, jsii.String("Lambda_with_IPv6_VPC"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("def main(event, context): pass")),
@@ -1653,7 +1653,7 @@ signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), 
 })
 
 codeSigningConfig := lambda.NewCodeSigningConfig(this, jsii.String("CodeSigningConfig"), &CodeSigningConfigProps{
-	SigningProfiles: []iSigningProfile{
+	SigningProfiles: []ISigningProfile{
 		signingProfile,
 	},
 })

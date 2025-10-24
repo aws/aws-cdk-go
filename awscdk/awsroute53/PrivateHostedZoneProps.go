@@ -7,7 +7,7 @@ import (
 // Properties to create a Route 53 private hosted zone.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &PrivateHostedZoneProps{

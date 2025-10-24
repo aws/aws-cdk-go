@@ -13,10 +13,10 @@ import (
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var alarm alarm
-//   var fn function
-//   var alias alias
-//   var version version
+//   var alarm Alarm
+//   var fn Function
+//   var alias Alias
+//   var version Version
 //
 //
 //   // Attach a Lambda Function when alarm triggers

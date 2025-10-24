@@ -4,12 +4,12 @@ package awscloudwatch
 // Statistic to use over the aggregation period.
 //
 // Example:
-//   var matchmakingRuleSet matchmakingRuleSet
+//   var matchmakingRuleSet MatchmakingRuleSet
 //
 //   // Alarm that triggers when the per-second average of not placed matches exceed 10%
 //   ruleEvaluationRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
 //   	Expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
-//   	UsingMetrics: map[string]iMetric{
+//   	UsingMetrics: map[string]IMetric{
 //   		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
 //   			"statistic": cloudwatch.Statistic_SUM,
 //   		}),

@@ -4,7 +4,7 @@ package awsrds
 // The network type of the DB instance.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //   // VPC and subnets must have IPv6 CIDR blocks
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{

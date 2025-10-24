@@ -8,7 +8,7 @@ import (
 // Construction properties for a DatabaseSecret.
 //
 // Example:
-//   var cluster databaseCluster
+//   var cluster DatabaseCluster
 //
 //   myUserSecret := docdb.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &DatabaseSecretProps{
 //   	Username: jsii.String("myuser"),

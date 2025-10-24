@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fragmentConcatenator iFragmentConcatenator
+//   var fragmentConcatenator IFragmentConcatenator
 //
 //   defaultTokenResolver := cdk.NewDefaultTokenResolver(fragmentConcatenator)
 //

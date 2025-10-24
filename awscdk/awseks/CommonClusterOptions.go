@@ -14,12 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var kubernetesVersion kubernetesVersion
-//   var role role
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var kubernetesVersion KubernetesVersion
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   commonClusterOptions := &CommonClusterOptions{
 //   	Version: kubernetesVersion,
@@ -31,17 +31,17 @@ import (
 //   	Role: role,
 //   	SecurityGroup: securityGroup,
 //   	Vpc: vpc,
-//   	VpcSubnets: []subnetSelection{
-//   		&subnetSelection{
+//   	VpcSubnets: []SubnetSelection{
+//   		&SubnetSelection{
 //   			AvailabilityZones: []*string{
 //   				jsii.String("availabilityZones"),
 //   			},
 //   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
+//   			SubnetFilters: []SubnetFilter{
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []iSubnet{
+//   			Subnets: []ISubnet{
 //   				subnet,
 //   			},
 //   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

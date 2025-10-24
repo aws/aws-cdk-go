@@ -12,8 +12,8 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var zone publicHostedZone
-//   var vpces vpcEndpointService
+//   var zone PublicHostedZone
+//   var vpces VpcEndpointService
 //
 //
 //   awscdk.NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &VpcEndpointServiceDomainNameProps{

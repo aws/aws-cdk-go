@@ -4,7 +4,7 @@ package awscloudfront
 // Defines what protocols CloudFront will use to connect to an origin.
 //
 // Example:
-//   var loadBalancer applicationLoadBalancer
+//   var loadBalancer ApplicationLoadBalancer
 //
 //   origin := origins.NewLoadBalancerV2Origin(loadBalancer, &LoadBalancerV2OriginProps{
 //   	ConnectionAttempts: jsii.Number(3),

@@ -6,9 +6,9 @@ package awsecs
 // The port mapping for it must already have been created through addPortMapping().
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var vpc vpc
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var vpc Vpc
 //
 //   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,

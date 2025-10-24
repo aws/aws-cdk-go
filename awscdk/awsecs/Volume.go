@@ -9,9 +9,9 @@ package awsecs
 // For more information, see [Using Data Volumes in Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 //
 // Example:
-//   var container containerDefinition
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var container ContainerDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //
 //   volumeFromSnapshot := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume"), &ServiceManagedVolumeProps{

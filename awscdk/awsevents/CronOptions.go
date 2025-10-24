@@ -10,7 +10,7 @@ package awsevents
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
+//   var fn Function
 //
 //   rule := events.NewRule(this, jsii.String("Schedule Rule"), &RuleProps{
 //   	Schedule: events.Schedule_Cron(&CronOptions{

@@ -16,10 +16,10 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
-//   var workerTypeV2 workerTypeV2
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
+//   var workerTypeV2 WorkerTypeV2
 //
 //   glueStartJobRunJsonPathProps := &GlueStartJobRunJsonPathProps{
 //   	GlueJobName: jsii.String("glueJobName"),

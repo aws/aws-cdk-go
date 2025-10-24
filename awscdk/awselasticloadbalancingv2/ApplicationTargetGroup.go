@@ -13,7 +13,7 @@ import (
 // Define an Application Target Group.
 //
 // Example:
-//   var alb applicationLoadBalancer
+//   var alb ApplicationLoadBalancer
 //
 //   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),

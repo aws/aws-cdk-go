@@ -15,7 +15,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var size size
+//   var size Size
 //
 //   emptyDirVolume := awscdk.Aws_batch.NewEmptyDirVolume(&EmptyDirVolumeOptions{
 //   	Name: jsii.String("name"),

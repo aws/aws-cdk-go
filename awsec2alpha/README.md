@@ -29,7 +29,7 @@ Below is an example of creating a VPC with both IPv4 and IPv6 support:
 stack := awscdk.Newstack()
 awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
-	SecondaryAddressBlocks: []iIpAddresses{
+	SecondaryAddressBlocks: []IIpAddresses{
 		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonProvidedIpv6"),
 		}),
@@ -49,7 +49,7 @@ To enable the `mapPublicIpOnLaunch` feature (which is `false` by default), set t
 ```go
 stack := awscdk.Newstack()
 myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
-	SecondaryAddressBlocks: []iIpAddresses{
+	SecondaryAddressBlocks: []IIpAddresses{
 		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonProvidedIp"),
 		}),
@@ -107,7 +107,7 @@ ipamPrivatePool.ProvisionCidr(jsii.String("PrivatePoolACidrA"), &IpamPoolCidrPro
 
 awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
-	SecondaryAddressBlocks: []iIpAddresses{
+	SecondaryAddressBlocks: []IIpAddresses{
 		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonIpv6"),
 		}),
@@ -148,7 +148,7 @@ Once you have provisioned your address block, you can use the IPv6 in your VPC a
 ```go
 myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
-	SecondaryAddressBlocks: []iIpAddresses{
+	SecondaryAddressBlocks: []IIpAddresses{
 		awsec2alpha.IpAddresses_Ipv6ByoipPool(&Ipv6PoolSecondaryAddressProps{
 			CidrBlockName: jsii.String("MyByoipCidrBlock"),
 			Ipv6PoolId: jsii.String("ipv6pool-ec2-someHashValue"),
@@ -213,7 +213,7 @@ Note: `EgressOnlyInternetGateway` can only be used to set up outbound IPv6 routi
 stack := awscdk.Newstack()
 myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
-	SecondaryAddressBlocks: []iIpAddresses{
+	SecondaryAddressBlocks: []IIpAddresses{
 		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonProvided"),
 		}),
@@ -280,7 +280,7 @@ subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 dynamoEndpoint := ec2.NewGatewayVpcEndpoint(this, jsii.String("DynamoEndpoint"), &GatewayVpcEndpointProps{
 	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
 	Vpc: myVpc,
-	Subnets: []subnetSelection{
+	Subnets: []SubnetSelection{
 		subnet,
 	},
 })
@@ -469,7 +469,7 @@ The `Subnets` parameter accepts a `SubnetFilter`, which can be based on a `Subne
 stack := awscdk.Newstack()
 myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
-	SecondaryAddressBlocks: []iIpAddresses{
+	SecondaryAddressBlocks: []IIpAddresses{
 		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonProvided"),
 		}),
@@ -487,8 +487,8 @@ subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 })
 
 myVpc.AddEgressOnlyInternetGateway(&EgressOnlyInternetGatewayOptions{
-	Subnets: []subnetSelection{
-		&subnetSelection{
+	Subnets: []SubnetSelection{
+		&SubnetSelection{
 			SubnetType: awscdk.SubnetType_PRIVATE,
 		},
 	},
@@ -553,8 +553,8 @@ The code example below provides the definition for setting up a VPN gateway with
 stack := awscdk.Newstack()
 myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
 vpnGateway := myVpc.EnableVpnGatewayV2(&VPNGatewayV2Options{
-	VpnRoutePropagation: []subnetSelection{
-		&subnetSelection{
+	VpnRoutePropagation: []SubnetSelection{
+		&SubnetSelection{
 			SubnetType: awscdk.SubnetType_PUBLIC,
 		},
 	},
@@ -617,7 +617,7 @@ mySubnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 
 myVpc.AddInternetGateway(&InternetGatewayOptions{
 	Ipv4Destination: jsii.String("192.168.0.0/16"),
-	Subnets: []subnetSelection{
+	Subnets: []SubnetSelection{
 		mySubnet,
 	},
 })
@@ -629,8 +629,8 @@ myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
 
 myVpc.AddInternetGateway(&InternetGatewayOptions{
 	Ipv4Destination: jsii.String("192.168.0.0/16"),
-	Subnets: []subnetSelection{
-		&subnetSelection{
+	Subnets: []SubnetSelection{
+		&SubnetSelection{
 			SubnetType: awscdk.SubnetType_PRIVATE_WITH_EGRESS,
 		},
 	},
@@ -691,29 +691,29 @@ stack := awscdk.Newstack()
 importedVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(this, jsii.String("ImportedVPC"), &VpcV2Attributes{
 	VpcId: jsii.String("vpc-XXX"),
 	VpcCidrBlock: jsii.String("10.1.0.0/16"),
-	SecondaryCidrBlocks: []vPCCidrBlockattributes{
-		&vPCCidrBlockattributes{
+	SecondaryCidrBlocks: []VPCCidrBlockattributes{
+		&VPCCidrBlockattributes{
 			CidrBlock: jsii.String("10.2.0.0/16"),
 			CidrBlockName: jsii.String("ImportedBlock1"),
 		},
-		&vPCCidrBlockattributes{
+		&VPCCidrBlockattributes{
 			Ipv6IpamPoolId: jsii.String("ipam-pool-XXX"),
 			Ipv6NetmaskLength: jsii.Number(52),
 			CidrBlockName: jsii.String("ImportedIpamIpv6"),
 		},
-		&vPCCidrBlockattributes{
+		&VPCCidrBlockattributes{
 			Ipv4IpamPoolId: jsii.String("ipam-pool-XXX"),
 			Ipv4IpamProvisionedCidrs: []*string{
 				jsii.String("10.2.0.0/16"),
 			},
 			CidrBlockName: jsii.String("ImportedIpamIpv4"),
 		},
-		&vPCCidrBlockattributes{
+		&VPCCidrBlockattributes{
 			AmazonProvidedIpv6CidrBlock: jsii.Boolean(true),
 		},
 	},
-	Subnets: []subnetV2Attributes{
-		&subnetV2Attributes{
+	Subnets: []SubnetV2Attributes{
+		&SubnetV2Attributes{
 			SubnetName: jsii.String("IsolatedSubnet2"),
 			SubnetId: jsii.String("subnet-03cd773c0fe08ed26"),
 			SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
@@ -721,7 +721,7 @@ importedVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(this, jsii.String("Imported
 			Ipv4CidrBlock: jsii.String("10.2.0.0/24"),
 			RouteTableId: jsii.String("rtb-0871c310f98da2cbb"),
 		},
-		&subnetV2Attributes{
+		&SubnetV2Attributes{
 			SubnetId: jsii.String("subnet-0fa477e01db27d820"),
 			SubnetType: awscdk.SubnetType_PUBLIC,
 			AvailabilityZone: jsii.String("us-west-2b"),
@@ -866,7 +866,7 @@ transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGate
 // Create a basic attachment
 attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
 	Vpc: myVpc,
-	Subnets: []iSubnet{
+	Subnets: []ISubnet{
 		subnet1,
 		subnet2,
 	},
@@ -875,7 +875,7 @@ attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcO
 // Create an attachment with optional parameters
 attachmentWithOptions := transitGateway.attachVpc(jsii.String("VpcAttachmentWithOptions"), &AttachVpcOptions{
 	Vpc: myVpc,
-	Subnets: []*iSubnet{
+	Subnets: []ISubnet{
 		subnet1,
 	},
 	VpcAttachmentOptions: map[string]*bool{
@@ -913,12 +913,12 @@ propagationRouteTable2 := transitGateway.addRouteTable(jsii.String("PropagationR
 // Create an attachment with automatically created association + propagations
 attachmentWithRoutes := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
 	Vpc: myVpc,
-	Subnets: []iSubnet{
+	Subnets: []ISubnet{
 		subnet1,
 		subnet2,
 	},
 	AssociationRouteTable: associationRouteTable,
-	PropagationRouteTables: []iTransitGatewayRouteTable{
+	PropagationRouteTables: []ITransitGatewayRouteTable{
 		propagationRouteTable1,
 		propagationRouteTable2,
 	},
@@ -945,7 +945,7 @@ subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 
 attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
 	Vpc: myVpc,
-	Subnets: []iSubnet{
+	Subnets: []ISubnet{
 		subnet,
 	},
 })
@@ -973,7 +973,7 @@ subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 })
 attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
 	Vpc: myVpc,
-	Subnets: []iSubnet{
+	Subnets: []ISubnet{
 		subnet,
 	},
 })

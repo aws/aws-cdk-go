@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   // Creates a distribution from an EC2 instance
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   // Create an EC2 instance in a VPC. 'subnetType' can be private.
 //   instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{

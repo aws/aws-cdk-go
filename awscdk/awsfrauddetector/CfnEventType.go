@@ -27,8 +27,8 @@ import (
 //   			Inline: jsii.Boolean(false),
 //   			LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   			Name: jsii.String("name"),
-//   			Tags: []cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -46,8 +46,8 @@ import (
 //   			Inline: jsii.Boolean(false),
 //   			LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   			Name: jsii.String("name"),
-//   			Tags: []*cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -63,8 +63,8 @@ import (
 //   			Inline: jsii.Boolean(false),
 //   			LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   			Name: jsii.String("name"),
-//   			Tags: []*cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -75,8 +75,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	Tags: []*cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

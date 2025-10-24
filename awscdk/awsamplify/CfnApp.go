@@ -83,8 +83,8 @@ import (
 //   	OauthToken: jsii.String("oauthToken"),
 //   	Platform: jsii.String("platform"),
 //   	Repository: jsii.String("repository"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

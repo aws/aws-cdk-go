@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var storageClass storageClass
+//   var storageClass StorageClass
 //   var tagFilters interface{}
 //
 //   lifecycleRule := &LifecycleRule{
@@ -26,8 +26,8 @@ import (
 //   	Id: jsii.String("id"),
 //   	NoncurrentVersionExpiration: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	NoncurrentVersionsToRetain: jsii.Number(123),
-//   	NoncurrentVersionTransitions: []noncurrentVersionTransition{
-//   		&noncurrentVersionTransition{
+//   	NoncurrentVersionTransitions: []NoncurrentVersionTransition{
+//   		&NoncurrentVersionTransition{
 //   			StorageClass: storageClass,
 //   			TransitionAfter: cdk.Duration_*Minutes(jsii.Number(30)),
 //
@@ -41,8 +41,8 @@ import (
 //   	TagFilters: map[string]interface{}{
 //   		"tagFiltersKey": tagFilters,
 //   	},
-//   	Transitions: []transition{
-//   		&transition{
+//   	Transitions: []Transition{
+//   		&Transition{
 //   			StorageClass: storageClass,
 //
 //   			// the properties below are optional

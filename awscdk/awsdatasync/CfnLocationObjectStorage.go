@@ -38,8 +38,8 @@ import (
 //   	ServerPort: jsii.Number(123),
 //   	ServerProtocol: jsii.String("serverProtocol"),
 //   	Subdirectory: jsii.String("subdirectory"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

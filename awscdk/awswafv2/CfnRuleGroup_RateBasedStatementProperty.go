@@ -59,13 +59,13 @@ package awswafv2
 //   var ip interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var rateBasedStatementProperty_ rateBasedStatementProperty
+//   var rateBasedStatementProperty_ RateBasedStatementProperty
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
+//   var statementProperty_ StatementProperty
 //   var uriPath interface{}
 //
-//   rateBasedStatementProperty := &rateBasedStatementProperty{
+//   rateBasedStatementProperty := &RateBasedStatementProperty{
 //   	AggregateKeyType: jsii.String("aggregateKeyType"),
 //   	Limit: jsii.Number(123),
 //
@@ -135,7 +135,7 @@ package awswafv2
 //   		FallbackBehavior: jsii.String("fallbackBehavior"),
 //   		HeaderName: jsii.String("headerName"),
 //   	},
-//   	ScopeDownStatement: &statementProperty{
+//   	ScopeDownStatement: &StatementProperty{
 //   		AndStatement: &AndStatementProperty{
 //   			Statements: []interface{}{
 //   				statementProperty_,

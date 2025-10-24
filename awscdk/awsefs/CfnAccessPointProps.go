@@ -12,8 +12,8 @@ package awsefs
 //   	FileSystemId: jsii.String("fileSystemId"),
 //
 //   	// the properties below are optional
-//   	AccessPointTags: []accessPointTagProperty{
-//   		&accessPointTagProperty{
+//   	AccessPointTags: []AccessPointTagProperty{
+//   		&AccessPointTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

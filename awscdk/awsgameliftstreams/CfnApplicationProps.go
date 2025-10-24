@@ -46,9 +46,9 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gameliftstreams-application.html#cfn-gameliftstreams-application-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
-	// The path and file name of the executable file that launches the content for streaming.
+	// The relative path and file name of the executable file that Amazon GameLift Streams will stream.
 	//
-	// Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+	// Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gameliftstreams-application.html#cfn-gameliftstreams-application-executablepath
 	//
 	ExecutablePath *string `field:"required" json:"executablePath" yaml:"executablePath"`

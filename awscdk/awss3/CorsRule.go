@@ -9,8 +9,8 @@ package awss3
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   corsRule := &CorsRule{
-//   	AllowedMethods: []httpMethods{
-//   		awscdk.Aws_s3.*httpMethods_GET,
+//   	AllowedMethods: []HttpMethods{
+//   		awscdk.Aws_s3.HttpMethods_GET,
 //   	},
 //   	AllowedOrigins: []*string{
 //   		jsii.String("allowedOrigins"),

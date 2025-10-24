@@ -20,7 +20,7 @@ import (
 //   			Mutable: jsii.Boolean(true),
 //   		},
 //   	},
-//   	CustomAttributes: map[string]iCustomAttribute{
+//   	CustomAttributes: map[string]ICustomAttribute{
 //   		"myappid": cognito.NewStringAttribute(&StringAttributeProps{
 //   			"minLen": jsii.Number(5),
 //   			"maxLen": jsii.Number(15),

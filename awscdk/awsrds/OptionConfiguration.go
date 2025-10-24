@@ -12,15 +12,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
-//   var vpc vpc
+//   var securityGroup SecurityGroup
+//   var vpc Vpc
 //
 //   optionConfiguration := &OptionConfiguration{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Port: jsii.Number(123),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	Settings: map[string]*string{

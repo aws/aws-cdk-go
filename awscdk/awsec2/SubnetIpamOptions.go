@@ -9,8 +9,8 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   subnetIpamOptions := &SubnetIpamOptions{
-//   	AllocatedSubnets: []allocatedSubnet{
-//   		&allocatedSubnet{
+//   	AllocatedSubnets: []AllocatedSubnet{
+//   		&AllocatedSubnet{
 //   			Cidr: jsii.String("cidr"),
 //
 //   			// the properties below are optional

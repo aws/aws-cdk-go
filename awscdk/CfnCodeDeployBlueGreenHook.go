@@ -10,13 +10,13 @@ import (
 // A CloudFormation Hook for CodeDeploy blue-green ECS deployments.
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   var cfnTemplate CfnInclude
 //
 //   // mutating the hook
-//   var myRole role
+//   var myRole Role
 //
 //   hook := cfnTemplate.GetHook(jsii.String("MyOutput"))
-//   codeDeployHook := hook.(cfnCodeDeployBlueGreenHook)
+//   codeDeployHook := hook.(CfnCodeDeployBlueGreenHook)
 //   codeDeployHook.serviceRole = myRole.RoleArn
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html#blue-green-template-reference

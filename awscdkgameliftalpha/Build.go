@@ -17,7 +17,7 @@ import (
 // a zip file with all of the components of the game server build.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 //   	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),

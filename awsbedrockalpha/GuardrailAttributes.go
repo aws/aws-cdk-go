@@ -7,7 +7,7 @@ import (
 // ****************************************************************************                     ATTRS FOR IMPORTED CONSTRUCT ***************************************************************************.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //   cmk := kms.NewKey(this, jsii.String("cmk"), &KeyProps{
 //   })

@@ -8,11 +8,11 @@ import (
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myLambdaFunction function
-//   var destinationBucket bucket
+//   var myLambdaFunction Function
+//   var destinationBucket Bucket
 //   //(Optional) if provided, the resulting processed file would be uploaded to the destinationBucket under the destinationKey name.
 //   var destinationKey string
-//   var role role
+//   var role Role
 //
 //
 //   s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{

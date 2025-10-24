@@ -9,8 +9,8 @@ import (
 // Example:
 //   app := awscdk.NewApp()
 //   associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-//   	Applications: []targetApplication{
-//   		appreg.*targetApplication_ExistingApplicationFromArn(&ExistingTargetApplicationOptions{
+//   	Applications: []TargetApplication{
+//   		appreg.TargetApplication_ExistingApplicationFromArn(&ExistingTargetApplicationOptions{
 //   			ApplicationArnValue: jsii.String("arn:aws:servicecatalog:us-east-1:123456789012:/applications/applicationId"),
 //   			StackName: jsii.String("MyAssociatedApplicationStack"),
 //   		}),

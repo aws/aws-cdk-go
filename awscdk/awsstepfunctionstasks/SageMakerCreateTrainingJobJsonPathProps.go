@@ -19,25 +19,25 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var dockerImage dockerImage
+//   var dockerImage DockerImage
 //   var hyperparameters interface{}
-//   var instanceType instanceType
-//   var key key
+//   var instanceType InstanceType
+//   var key Key
 //   var resultSelector interface{}
-//   var role role
-//   var s3Location s3Location
-//   var size size
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskRole taskRole
-//   var timeout timeout
-//   var vpc vpc
+//   var role Role
+//   var s3Location S3Location
+//   var size Size
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var taskRole TaskRole
+//   var timeout Timeout
+//   var vpc Vpc
 //
 //   sageMakerCreateTrainingJobJsonPathProps := &SageMakerCreateTrainingJobJsonPathProps{
 //   	AlgorithmSpecification: &AlgorithmSpecification{
 //   		AlgorithmName: jsii.String("algorithmName"),
-//   		MetricDefinitions: []metricDefinition{
-//   			&metricDefinition{
+//   		MetricDefinitions: []MetricDefinition{
+//   			&MetricDefinition{
 //   				Name: jsii.String("name"),
 //   				Regex: jsii.String("regex"),
 //   			},
@@ -70,8 +70,8 @@ import (
 //   	Hyperparameters: map[string]interface{}{
 //   		"hyperparametersKey": hyperparameters,
 //   	},
-//   	InputDataConfig: []channel{
-//   		&channel{
+//   	InputDataConfig: []Channel{
+//   		&Channel{
 //   			ChannelName: jsii.String("channelName"),
 //   			DataSource: &DataSource{
 //   				S3DataSource: &S3DataSource{
@@ -131,11 +131,11 @@ import (
 //   				jsii.String("availabilityZones"),
 //   			},
 //   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
+//   			SubnetFilters: []SubnetFilter{
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []iSubnet{
+//   			Subnets: []ISubnet{
 //   				subnet,
 //   			},
 //   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

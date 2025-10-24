@@ -12,7 +12,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var metric metric
+//   var metric Metric
 //
 //   anomalyDetectionMetricOptions := &AnomalyDetectionMetricOptions{
 //   	Metric: metric,

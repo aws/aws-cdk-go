@@ -23,8 +23,8 @@ package cloudassemblyschema
 //   	ListenerPort: jsii.Number(123),
 //   	ListenerProtocol: awscdk.*Cloud_assembly_schema.LoadBalancerListenerProtocol_HTTP,
 //   	LoadBalancerArn: jsii.String("loadBalancerArn"),
-//   	LoadBalancerTags: []tag{
-//   		&tag{
+//   	LoadBalancerTags: []Tag{
+//   		&Tag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

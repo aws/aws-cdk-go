@@ -12,7 +12,7 @@ import (
 //   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 //   		"version": jsii.String("0.2"),
 //   	}),
-//   	FileSystemLocations: []iFileSystemLocation{
+//   	FileSystemLocations: []IFileSystemLocation{
 //   		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
 //   			Identifier: jsii.String("myidentifier2"),
 //   			Location: jsii.String("myclodation.mydnsroot.com:/loc"),

@@ -25,11 +25,11 @@ import (
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
 //   	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&replicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-2"),
 //   		},
 //   	},

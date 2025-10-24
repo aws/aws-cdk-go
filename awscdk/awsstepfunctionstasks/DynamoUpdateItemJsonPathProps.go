@@ -17,14 +17,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var dynamoAttributeValue dynamoAttributeValue
+//   var dynamoAttributeValue DynamoAttributeValue
 //   var resultSelector interface{}
-//   var table table
-//   var taskRole taskRole
-//   var timeout timeout
+//   var table Table
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   dynamoUpdateItemJsonPathProps := &DynamoUpdateItemJsonPathProps{
-//   	Key: map[string]*dynamoAttributeValue{
+//   	Key: map[string]DynamoAttributeValue{
 //   		"keyKey": dynamoAttributeValue,
 //   	},
 //   	Table: table,
@@ -41,7 +41,7 @@ import (
 //   	ExpressionAttributeNames: map[string]*string{
 //   		"expressionAttributeNamesKey": jsii.String("expressionAttributeNames"),
 //   	},
-//   	ExpressionAttributeValues: map[string]*dynamoAttributeValue{
+//   	ExpressionAttributeValues: map[string]DynamoAttributeValue{
 //   		"expressionAttributeValuesKey": dynamoAttributeValue,
 //   	},
 //   	Heartbeat: cdk.Duration_Minutes(jsii.Number(30)),

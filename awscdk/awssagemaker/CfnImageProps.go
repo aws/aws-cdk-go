@@ -18,8 +18,8 @@ import (
 //   	// the properties below are optional
 //   	ImageDescription: jsii.String("imageDescription"),
 //   	ImageDisplayName: jsii.String("imageDisplayName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

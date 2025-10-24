@@ -7,14 +7,14 @@ import (
 // Represents timeouts for GRPC protocols.
 //
 // Example:
-//   var router virtualRouter
-//   var node virtualNode
+//   var router VirtualRouter
+//   var node VirtualNode
 //
 //
 //   router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 //   	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
-//   		WeightedTargets: []weightedTarget{
-//   			&weightedTarget{
+//   		WeightedTargets: []WeightedTarget{
+//   			&WeightedTarget{
 //   				VirtualNode: node,
 //   			},
 //   		},

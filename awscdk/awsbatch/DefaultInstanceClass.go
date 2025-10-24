@@ -8,8 +8,8 @@ package awsbatch
 //
 //   batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 //   	Vpc: Vpc,
-//   	DefaultInstanceClasses: []defaultInstanceClass{
-//   		batch.*defaultInstanceClass_ARM64,
+//   	DefaultInstanceClasses: []DefaultInstanceClass{
+//   		batch.DefaultInstanceClass_ARM64,
 //   	},
 //   })
 //

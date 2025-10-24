@@ -11,9 +11,9 @@ import (
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var table table
+//   var table Table
 //
-//   var fn function
+//   var fn Function
 //
 //   fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_LATEST,

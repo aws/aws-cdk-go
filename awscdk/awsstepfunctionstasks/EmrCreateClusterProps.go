@@ -11,20 +11,20 @@ import (
 // Example:
 //   tasks.NewEmrCreateCluster(this, jsii.String("CreateCluster"), &EmrCreateClusterProps{
 //   	Instances: &InstancesConfigProperty{
-//   		InstanceFleets: []instanceFleetConfigProperty{
-//   			&instanceFleetConfigProperty{
+//   		InstanceFleets: []InstanceFleetConfigProperty{
+//   			&InstanceFleetConfigProperty{
 //   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_CORE,
-//   				InstanceTypeConfigs: []instanceTypeConfigProperty{
-//   					&instanceTypeConfigProperty{
+//   				InstanceTypeConfigs: []InstanceTypeConfigProperty{
+//   					&InstanceTypeConfigProperty{
 //   						InstanceType: jsii.String("m5.xlarge"),
 //   					},
 //   				},
 //   				TargetOnDemandCapacity: jsii.Number(1),
 //   			},
-//   			&instanceFleetConfigProperty{
+//   			&InstanceFleetConfigProperty{
 //   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
-//   				InstanceTypeConfigs: []*instanceTypeConfigProperty{
-//   					&instanceTypeConfigProperty{
+//   				InstanceTypeConfigs: []InstanceTypeConfigProperty{
+//   					&InstanceTypeConfigProperty{
 //   						InstanceType: jsii.String("m5.xlarge"),
 //   					},
 //   				},

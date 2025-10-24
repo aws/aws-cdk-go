@@ -4,7 +4,7 @@ package awsbatch
 // Props to configure a JobQueue.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
@@ -16,8 +16,8 @@ package awsbatch
 //   })
 //
 //   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	ComputeEnvironments: []orderedComputeEnvironment{
-//   		&orderedComputeEnvironment{
+//   	ComputeEnvironments: []OrderedComputeEnvironment{
+//   		&OrderedComputeEnvironment{
 //   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
 //   				Vpc: *Vpc,
 //   			}),

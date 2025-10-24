@@ -8,7 +8,7 @@ package awselasticloadbalancingv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkListenerAction networkListenerAction
+//   var networkListenerAction NetworkListenerAction
 //
 //   addNetworkActionProps := &AddNetworkActionProps{
 //   	Action: networkListenerAction,

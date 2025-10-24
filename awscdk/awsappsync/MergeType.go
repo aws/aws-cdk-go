@@ -23,12 +23,12 @@ package awsappsync
 //   mergedApi := appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
 //   	Name: jsii.String("MergedAPI"),
 //   	Definition: appsync.Definition_FromSourceApis(&SourceApiOptions{
-//   		SourceApis: []sourceApi{
-//   			&sourceApi{
+//   		SourceApis: []SourceApi{
+//   			&SourceApi{
 //   				SourceApi: firstApi,
 //   				MergeType: appsync.MergeType_MANUAL_MERGE,
 //   			},
-//   			&sourceApi{
+//   			&SourceApi{
 //   				SourceApi: secondApi,
 //   				MergeType: appsync.MergeType_AUTO_MERGE,
 //   			},

@@ -9,7 +9,7 @@ package awscloudwatch
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var metric metric
+//   var metric Metric
 //   var renderingProperties interface{}
 //   var value interface{}
 //
@@ -17,7 +17,7 @@ package awscloudwatch
 //   	MathExpression: &MetricExpressionConfig{
 //   		Expression: jsii.String("expression"),
 //   		Period: jsii.Number(123),
-//   		UsingMetrics: map[string]iMetric{
+//   		UsingMetrics: map[string]IMetric{
 //   			"usingMetricsKey": metric,
 //   		},
 //
@@ -34,8 +34,8 @@ package awscloudwatch
 //   		// the properties below are optional
 //   		Account: jsii.String("account"),
 //   		AccountOverride: jsii.String("accountOverride"),
-//   		Dimensions: []dimension{
-//   			&dimension{
+//   		Dimensions: []Dimension{
+//   			&Dimension{
 //   				Name: jsii.String("name"),
 //   				Value: value,
 //   			},
@@ -50,7 +50,7 @@ package awscloudwatch
 //   	SearchExpression: &MetricExpressionConfig{
 //   		Expression: jsii.String("expression"),
 //   		Period: jsii.Number(123),
-//   		UsingMetrics: map[string]*iMetric{
+//   		UsingMetrics: map[string]IMetric{
 //   			"usingMetricsKey": metric,
 //   		},
 //

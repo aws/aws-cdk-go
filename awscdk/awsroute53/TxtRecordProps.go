@@ -7,7 +7,7 @@ import (
 // Construction properties for a TxtRecord.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   route53.NewTxtRecord(this, jsii.String("TXTRecord"), &TxtRecordProps{

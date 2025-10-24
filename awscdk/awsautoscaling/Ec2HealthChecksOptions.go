@@ -7,7 +7,7 @@ import (
 // EC2 Heath checks options.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{

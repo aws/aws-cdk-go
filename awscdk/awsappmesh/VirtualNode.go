@@ -17,7 +17,7 @@ import (
 // should be specified as a backend.
 //
 // Example:
-//   var mesh mesh
+//   var mesh Mesh
 //   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
@@ -27,8 +27,8 @@ import (
 //   service := namespace.CreateService(jsii.String("Svc"))
 //   node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-//   	Listeners: []virtualNodeListener{
-//   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 //   			OutlierDetection: &OutlierDetection{
 //   				BaseEjectionDuration: awscdk.Duration_Seconds(jsii.Number(10)),
 //   				Interval: awscdk.Duration_*Seconds(jsii.Number(30)),

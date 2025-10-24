@@ -9,12 +9,12 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
-//   var key key
+//   var key Key
 //
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //
-//   options := map[string]key{
+//   options := map[string]Key{
 //   	"sourceKMSKey": key,
 //   }
 //   fnBucket := lambda.NewFunction(this, jsii.String("myFunction2"), &FunctionProps{

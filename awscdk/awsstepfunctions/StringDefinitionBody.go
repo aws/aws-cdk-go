@@ -14,7 +14,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var chainable iChainable
+//   var chainable IChainable
 //
 //   stringDefinitionBody := awscdk.Aws_stepfunctions.StringDefinitionBody_FromChainable(chainable)
 //

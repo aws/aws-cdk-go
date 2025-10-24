@@ -18,10 +18,10 @@ import (
 //   repo2 := ecr.Repository_FromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo2"))
 //
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
-//   	DockerCredentials: []dockerCredential{
-//   		pipelines.*dockerCredential_DockerHub(dockerHubSecret),
-//   		pipelines.*dockerCredential_CustomRegistry(jsii.String("dockerregistry.example.com"), customRegSecret),
-//   		pipelines.*dockerCredential_Ecr([]iRepository{
+//   	DockerCredentials: []DockerCredential{
+//   		pipelines.DockerCredential_DockerHub(dockerHubSecret),
+//   		pipelines.DockerCredential_CustomRegistry(jsii.String("dockerregistry.example.com"), customRegSecret),
+//   		pipelines.DockerCredential_Ecr([]IRepository{
 //   			repo1,
 //   			repo2,
 //   		}),

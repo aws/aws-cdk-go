@@ -24,14 +24,14 @@ import (
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
 //   	},
 //   })
 //
-//   globalTable.AddReplica(&replicaTableProps{
+//   globalTable.AddReplica(&ReplicaTableProps{
 //   	Region: jsii.String("us-east-2"),
 //   	DeletionProtection: jsii.Boolean(true),
 //   })

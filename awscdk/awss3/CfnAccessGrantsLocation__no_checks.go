@@ -80,6 +80,14 @@ func validateCfnAccessGrantsLocation_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccessGrantsLocation) validateSetIamRoleArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnAccessGrantsLocation) validateSetLocationScopeParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAccessGrantsLocation) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

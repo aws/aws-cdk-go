@@ -17,7 +17,7 @@ package awscognito
 //
 //   userServer := pool.addResourceServer(jsii.String("ResourceServer"), &UserPoolResourceServerOptions{
 //   	Identifier: jsii.String("users"),
-//   	Scopes: []resourceServerScope{
+//   	Scopes: []ResourceServerScope{
 //   		readOnlyScope,
 //   		fullAccessScope,
 //   	},
@@ -27,8 +27,8 @@ package awscognito
 //   	// ...
 //   	OAuth: &OAuthSettings{
 //   		// ...
-//   		Scopes: []oAuthScope{
-//   			cognito.*oAuthScope_ResourceServer(userServer, readOnlyScope),
+//   		Scopes: []OAuthScope{
+//   			cognito.OAuthScope_ResourceServer(userServer, readOnlyScope),
 //   		},
 //   	},
 //   })
@@ -37,8 +37,8 @@ package awscognito
 //   	// ...
 //   	OAuth: &OAuthSettings{
 //   		// ...
-//   		Scopes: []*oAuthScope{
-//   			cognito.*oAuthScope_*ResourceServer(userServer, fullAccessScope),
+//   		Scopes: []OAuthScope{
+//   			cognito.OAuthScope_*ResourceServer(userServer, fullAccessScope),
 //   		},
 //   	},
 //   })

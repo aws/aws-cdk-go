@@ -15,7 +15,7 @@ import (
 //   import kms "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var kmsKey iKey
+//   var kmsKey IKey
 //
 //
 //   stack := awscdk.Newstack()

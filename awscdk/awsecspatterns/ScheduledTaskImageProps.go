@@ -10,9 +10,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var containerImage containerImage
-//   var logDriver logDriver
-//   var secret secret
+//   var containerImage ContainerImage
+//   var logDriver LogDriver
+//   var secret Secret
 //
 //   scheduledTaskImageProps := &ScheduledTaskImageProps{
 //   	Image: containerImage,
@@ -26,7 +26,7 @@ import (
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	LogDriver: logDriver,
-//   	Secrets: map[string]*secret{
+//   	Secrets: map[string]Secret{
 //   		"secretsKey": secret,
 //   	},
 //   }

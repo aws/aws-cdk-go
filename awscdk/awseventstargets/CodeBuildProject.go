@@ -15,9 +15,9 @@ import (
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var repo repository
-//   var project pipelineProject
-//   var myTopic topic
+//   var repo Repository
+//   var project PipelineProject
+//   var myTopic Topic
 //
 //
 //   // starts a CodeBuild project when a commit is pushed to the "main" branch of the repo

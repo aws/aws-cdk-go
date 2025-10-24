@@ -11,8 +11,8 @@ import (
 // Defines a {proxy+} greedy resource and an ANY method on a route.
 //
 // Example:
-//   var resource resource
-//   var handler function
+//   var resource Resource
+//   var handler Function
 //
 //   proxy := resource.AddProxy(&ProxyResourceOptions{
 //   	DefaultIntegration: apigateway.NewLambdaIntegration(handler),

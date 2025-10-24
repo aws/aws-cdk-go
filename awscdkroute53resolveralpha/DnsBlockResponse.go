@@ -10,8 +10,8 @@ import (
 // The way that you want DNS Firewall to block the request.
 //
 // Example:
-//   var myBlockList firewallDomainList
-//   var ruleGroup firewallRuleGroup
+//   var myBlockList FirewallDomainList
+//   var ruleGroup FirewallRuleGroup
 //
 //
 //   ruleGroup.AddRule(&FirewallRule{

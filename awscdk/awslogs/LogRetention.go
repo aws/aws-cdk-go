@@ -22,7 +22,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   logRetention := awscdk.Aws_logs.NewLogRetention(this, jsii.String("MyLogRetention"), &LogRetentionProps{
 //   	LogGroupName: jsii.String("logGroupName"),

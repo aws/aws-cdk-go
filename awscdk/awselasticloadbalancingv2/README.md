@@ -15,8 +15,8 @@ and adding Targets to the Listener:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var asg autoScalingGroup
-var vpc vpc
+var asg AutoScalingGroup
+var vpc Vpc
 
 
 // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -41,7 +41,7 @@ listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProp
 // target to the listener.
 listener.AddTargets(jsii.String("ApplicationFleet"), &AddApplicationTargetsProps{
 	Port: jsii.Number(8080),
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		asg,
 	},
 })
@@ -61,7 +61,7 @@ One (or more) security groups can be associated with the load balancer;
 if a security group isn't provided, one will be automatically created.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 securityGroup1 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup1"), &SecurityGroupProps{
@@ -87,23 +87,23 @@ AutoScalingGroup only if the requested host in the request is either for
 `example.com/ok` or `example.com/path`:
 
 ```go
-var listener applicationListener
-var asg autoScalingGroup
+var listener ApplicationListener
+var asg AutoScalingGroup
 
 
 listener.AddTargets(jsii.String("Example.Com Fleet"), &AddApplicationTargetsProps{
 	Priority: jsii.Number(10),
-	Conditions: []listenerCondition{
-		elbv2.*listenerCondition_HostHeaders([]*string{
+	Conditions: []ListenerCondition{
+		elbv2.ListenerCondition_HostHeaders([]*string{
 			jsii.String("example.com"),
 		}),
-		elbv2.*listenerCondition_PathPatterns([]*string{
+		elbv2.ListenerCondition_PathPatterns([]*string{
 			jsii.String("/ok"),
 			jsii.String("/path"),
 		}),
 	},
 	Port: jsii.Number(8080),
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		asg,
 	},
 })
@@ -160,13 +160,13 @@ Balancer that the other two convenience methods don't:
 Here's an example of serving a fixed response at the `/ok` URL:
 
 ```go
-var listener applicationListener
+var listener ApplicationListener
 
 
 listener.AddAction(jsii.String("Fixed"), &AddApplicationActionProps{
 	Priority: jsii.Number(10),
-	Conditions: []listenerCondition{
-		elbv2.*listenerCondition_PathPatterns([]*string{
+	Conditions: []ListenerCondition{
+		elbv2.ListenerCondition_PathPatterns([]*string{
 			jsii.String("/ok"),
 		}),
 	},
@@ -180,8 +180,8 @@ listener.AddAction(jsii.String("Fixed"), &AddApplicationActionProps{
 Here's an example of using OIDC authentication before forwarding to a TargetGroup:
 
 ```go
-var listener applicationListener
-var myTargetGroup applicationTargetGroup
+var listener ApplicationListener
+var myTargetGroup ApplicationTargetGroup
 
 
 listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
@@ -195,7 +195,7 @@ listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
 		UserInfoEndpoint: jsii.String("..."),
 
 		// Next
-		Next: elbv2.ListenerAction_Forward([]iApplicationTargetGroup{
+		Next: elbv2.ListenerAction_Forward([]IApplicationTargetGroup{
 			myTargetGroup,
 		}),
 	}),
@@ -205,7 +205,7 @@ listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
 If you just want to redirect all incoming traffic on one port to another port, you can use the following code:
 
 ```go
-var lb applicationLoadBalancer
+var lb ApplicationLoadBalancer
 
 
 lb.AddRedirect(&ApplicationLoadBalancerRedirectConfig{
@@ -228,7 +228,7 @@ ingress rules then set `open: false` and use the listener's `connections` object
 You can modify attributes of Application Load Balancers:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -286,7 +286,7 @@ The only server-side encryption option that's supported is Amazon S3-managed key
 Documentation: [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html)
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 bucket := s3.NewBucket(this, jsii.String("ALBAccessLogsBucket"), &BucketProps{
@@ -305,7 +305,7 @@ Like access log bucket, the only server-side encryption option that's supported 
 Documentation: [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-connection-logging.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-connection-logging.html)
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 bucket := s3.NewBucket(this, jsii.String("ALBConnectionLogsBucket"), &BucketProps{
@@ -323,7 +323,7 @@ lb.LogConnectionLogs(bucket)
 You can create a dualstack Network Load Balancer using the `ipAddressType` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -335,7 +335,7 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 By setting `DUAL_STACK_WITHOUT_PUBLIC_IPV4`, you can provision load balancers without public IPv4s:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -351,7 +351,7 @@ You can define a [reserved LCU for your Application Load Balancer](https://docs.
 To reserve an LCU, you must specify a `minimumCapacityUnit`.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -367,10 +367,10 @@ Network Load Balancers are defined in a similar way to Application Load
 Balancers:
 
 ```go
-var vpc vpc
-var asg autoScalingGroup
-var sg1 iSecurityGroup
-var sg2 iSecurityGroup
+var vpc Vpc
+var asg AutoScalingGroup
+var sg1 ISecurityGroup
+var sg2 ISecurityGroup
 
 
 // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -378,7 +378,7 @@ var sg2 iSecurityGroup
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
-	SecurityGroups: []*iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		sg1,
 	},
 })
@@ -392,7 +392,7 @@ listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
 // Add targets on a particular port.
 listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
 	Port: jsii.Number(443),
-	Targets: []iNetworkLoadBalancerTarget{
+	Targets: []INetworkLoadBalancerTarget{
 		asg,
 	},
 })
@@ -405,7 +405,7 @@ sent to a Network Load Balancer through AWS PrivateLink.
 The evaluation is enabled by default.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
@@ -429,7 +429,7 @@ for more information.
 You can create a dualstack Network Load Balancer using the `ipAddressType` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
@@ -442,7 +442,7 @@ You can configure whether to use an IPv6 prefix from each subnet for source NAT 
 This must be enabled if you want to create a dualstack Network Load Balancer with a listener that uses UDP protocol.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
@@ -462,7 +462,7 @@ listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
 You can specify the subnets for a Network Load Balancer easily by setting the `vpcSubnets` property.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
@@ -476,11 +476,11 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 If you want to configure detailed information about the subnets, you can use the `subnetMappings` property as follows:
 
 ```go
-var vpc iVpc
-var dualstackVpc iVpc
-var subnet iSubnet
-var dualstackSubnet iSubnet
-var cfnEip cfnEIP
+var vpc IVpc
+var dualstackVpc IVpc
+var subnet ISubnet
+var dualstackSubnet ISubnet
+var cfnEip CfnEIP
 
 
 // Internet facing Network Load Balancer with an Elastic IPv4 address
@@ -488,8 +488,8 @@ var cfnEip cfnEIP
 elbv2.NewNetworkLoadBalancer(this, jsii.String("InternetFacingLb"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
-	SubnetMappings: []subnetMapping{
-		&subnetMapping{
+	SubnetMappings: []SubnetMapping{
+		&SubnetMapping{
 			Subnet: *Subnet,
 			// The allocation ID of the Elastic IP address
 			AllocationId: cfnEip.AttrAllocationId,
@@ -502,8 +502,8 @@ elbv2.NewNetworkLoadBalancer(this, jsii.String("InternetFacingLb"), &NetworkLoad
 elbv2.NewNetworkLoadBalancer(this, jsii.String("InternalLb"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(false),
-	SubnetMappings: []*subnetMapping{
-		&subnetMapping{
+	SubnetMappings: []SubnetMapping{
+		&SubnetMapping{
 			Subnet: *Subnet,
 			// The private IPv4 address from the subnet
 			// The address must be in the subnet's CIDR range and
@@ -520,8 +520,8 @@ elbv2.NewNetworkLoadBalancer(this, jsii.String("DualstackLb"), &NetworkLoadBalan
 	// Configure the dualstack Network Load Balancer
 	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 	EnablePrefixForIpv6SourceNat: jsii.Boolean(true),
-	SubnetMappings: []*subnetMapping{
-		&subnetMapping{
+	SubnetMappings: []SubnetMapping{
+		&SubnetMapping{
 			Subnet: dualstackSubnet,
 			// The IPv6 address from the subnet
 			// `ipAddresstype` must be `DUAL_STACK` or `DUAL_STACK_WITHOUT_PUBLIC_IPV4` to set the IPv6 address.
@@ -539,7 +539,7 @@ elbv2.NewNetworkLoadBalancer(this, jsii.String("DualstackLb"), &NetworkLoadBalan
 You can modify attributes of Network Load Balancers:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
@@ -566,13 +566,13 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 You can modify attributes of Network Load Balancer Listener:
 
 ```go
-var lb networkLoadBalancer
-var group networkTargetGroup
+var lb NetworkLoadBalancer
+var group NetworkTargetGroup
 
 
 listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
 	Port: jsii.Number(80),
-	DefaultAction: elbv2.NetworkListenerAction_Forward([]iNetworkTargetGroup{
+	DefaultAction: elbv2.NetworkListenerAction_Forward([]INetworkTargetGroup{
 		group,
 	}),
 
@@ -586,15 +586,15 @@ listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
 Network Load Balancer implements EC2 `IConnectable` and exposes `connections` property. EC2 Connections allows manage the allowed network connections for constructs with Security Groups. This class makes it easy to allow network connections to and from security groups, and between security groups individually. One thing to keep in mind is that network load balancers do not have security groups, and no automatic security group configuration is done for you. You will have to configure the security groups of the target yourself to allow traffic by clients and/or load balancer instances, depending on your target types.
 
 ```go
-var vpc vpc
-var sg1 iSecurityGroup
-var sg2 iSecurityGroup
+var vpc Vpc
+var sg1 ISecurityGroup
+var sg2 ISecurityGroup
 
 
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
-	SecurityGroups: []*iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		sg1,
 	},
 })
@@ -611,7 +611,7 @@ When requesting a LCU reservation, convert your capacity needs from Mbps to LCUs
 To reserve an LCU, you must specify a `minimumCapacityUnit`.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
@@ -636,14 +636,14 @@ and add it to the listener by calling `addTargetGroups` instead of `addTargets`.
 `addTargets()` will always return the Target Group it just created for you:
 
 ```go
-var listener networkListener
-var asg1 autoScalingGroup
-var asg2 autoScalingGroup
+var listener NetworkListener
+var asg1 AutoScalingGroup
+var asg2 AutoScalingGroup
 
 
 group := listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
 	Port: jsii.Number(443),
-	Targets: []iNetworkLoadBalancerTarget{
+	Targets: []INetworkLoadBalancerTarget{
 		asg1,
 	},
 })
@@ -658,7 +658,7 @@ By default, an Application Load Balancer routes each request independently to a 
 Application Load Balancers support both duration-based cookies (`lb_cookie`) and application-based cookies (`app_cookie`). The key to managing sticky sessions is determining how long your load balancer should consistently route the user's request to the same target. Sticky sessions are enabled at the target group level. You can use a combination of duration-based stickiness, application-based stickiness, and no stickiness across all of your target groups.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 // Target group with duration-based stickiness with load-balancer generated cookie
@@ -688,7 +688,7 @@ After you enable slow start for a target group, its targets enter slow start mod
 The allowed range is 30-900 seconds (15 minutes). The default is 0 seconds (disabled).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 // Target group with slow start mode enabled
@@ -707,7 +707,7 @@ For more information see: [https://docs.aws.amazon.com/elasticloadbalancing/late
 By default, Application Load Balancers send requests to targets using HTTP/1.1. You can use the [protocol version](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-protocol-version) to send requests to targets using HTTP/2 or gRPC.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
@@ -734,7 +734,7 @@ Also you can't use this algorithm with slow start mode.
 For more information, see [Routing algorithms](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#modify-routing-algorithm) and [Automatic Target Weights (ATW)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{
@@ -753,7 +753,7 @@ If not specified, it will use the load balancer's configuration.
 For more information, see [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{
@@ -775,7 +775,7 @@ If you set the `ipAddressType` property to `IPV6`, the VPC for the target group 
 For more information, see IP address type for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-ip-address-type) and [Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-ip-address-type).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 ipv4ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("IPv4ApplicationTargetGroup"), &ApplicationTargetGroupProps{
@@ -814,7 +814,7 @@ You can set target group health setting at target group level by setting `target
 For more information, see [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{
@@ -838,15 +838,15 @@ To use a Lambda Function as a target, use the integration class in the
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var lambdaFunction function
-var lb applicationLoadBalancer
+var lambdaFunction Function
+var lb ApplicationLoadBalancer
 
 
 listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 	Port: jsii.Number(80),
 })
 listener.AddTargets(jsii.String("Targets"), &AddApplicationTargetsProps{
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		targets.NewLambdaTarget(lambdaFunction),
 	},
 
@@ -868,14 +868,14 @@ When using a Lambda function as a target, you can enable [multi-value headers](h
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
-var lambdaFunction function
+var vpc Vpc
+var lambdaFunction Function
 
 
 // Create a target group with multi-value headers enabled
 targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("LambdaTargetGroup"), &ApplicationTargetGroupProps{
 	Vpc: Vpc,
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		targets.NewLambdaTarget(lambdaFunction),
 	},
 
@@ -896,7 +896,7 @@ import targets "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import patterns "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 
 task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &FargateTaskDefinitionProps{
@@ -905,8 +905,8 @@ task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &FargateTaskDefi
 })
 task.AddContainer(jsii.String("nginx"), &ContainerDefinitionOptions{
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
-	PortMappings: []portMapping{
-		&portMapping{
+	PortMappings: []PortMapping{
+		&PortMapping{
 			ContainerPort: jsii.Number(80),
 		},
 	},
@@ -929,7 +929,7 @@ listener := nlb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
 })
 
 listener.AddTargets(jsii.String("Targets"), &AddNetworkTargetsProps{
-	Targets: []iNetworkLoadBalancerTarget{
+	Targets: []INetworkLoadBalancerTarget{
 		targets.NewAlbListenerTarget(svc.Listener),
 	},
 	Port: jsii.Number(80),
@@ -947,13 +947,13 @@ Only the network load balancer is allowed to add the application load balancer a
 Health checks are configured upon creation of a target group:
 
 ```go
-var listener applicationListener
-var asg autoScalingGroup
+var listener ApplicationListener
+var asg AutoScalingGroup
 
 
 listener.AddTargets(jsii.String("AppFleet"), &AddApplicationTargetsProps{
 	Port: jsii.Number(8080),
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		asg,
 	},
 	HealthCheck: &HealthCheck{
@@ -972,14 +972,14 @@ you're routing traffic to, the security group already allows the traffic.
 If not, you will have to configure the security groups appropriately:
 
 ```go
-var lb applicationLoadBalancer
-var listener applicationListener
-var asg autoScalingGroup
+var lb ApplicationLoadBalancer
+var listener ApplicationListener
+var asg AutoScalingGroup
 
 
 listener.AddTargets(jsii.String("AppFleet"), &AddApplicationTargetsProps{
 	Port: jsii.Number(8080),
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		asg,
 	},
 	HealthCheck: &HealthCheck{
@@ -1018,10 +1018,10 @@ load balancing target:
 type myTarget struct {
 }
 
-func (this *myTarget) attachToApplicationTargetGroup(targetGroup applicationTargetGroup) loadBalancerTargetProps {
+func (this *myTarget) attachToApplicationTargetGroup(targetGroup ApplicationTargetGroup) LoadBalancerTargetProps {
 	// If we need to add security group rules
 	// targetGroup.registerConnectable(...);
-	return &loadBalancerTargetProps{
+	return &LoadBalancerTargetProps{
 		TargetType: elbv2.TargetType_IP,
 		TargetJson: map[string]interface{}{
 			"id": jsii.String("1.2.3.4"),
@@ -1046,8 +1046,8 @@ case for ECS Services for example), take a resource dependency on
 `targetGroup.loadBalancerAttached` as follows:
 
 ```go
-var resource resource
-var targetGroup applicationTargetGroup
+var resource Resource
+var targetGroup ApplicationTargetGroup
 
 
 // Make sure that the listener has been created, and so the TargetGroup
@@ -1153,7 +1153,7 @@ You may create metrics for Load Balancers and Target Groups through the `metrics
 **Load Balancer:**
 
 ```go
-var alb iApplicationLoadBalancer
+var alb IApplicationLoadBalancer
 
 
 albMetrics := alb.Metrics
@@ -1163,7 +1163,7 @@ metricConnectionCount := albMetrics.ActiveConnectionCount()
 **Target Group:**
 
 ```go
-var targetGroup iApplicationTargetGroup
+var targetGroup IApplicationTargetGroup
 
 
 targetGroupMetrics := targetGroup.Metrics
@@ -1173,7 +1173,7 @@ metricHealthyHostCount := targetGroupMetrics.HealthyHostCount()
 Metrics are also available to imported resources:
 
 ```go
-var stack stack
+var stack Stack
 
 
 targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
@@ -1188,7 +1188,7 @@ Notice that TargetGroups must be imported by supplying the Load Balancer too, ot
 throw an error:
 
 ```go
-var stack stack
+var stack Stack
 
 targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{
 	TargetGroupArn: awscdk.Fn_ImportValue(jsii.String("TargetGroupArn")),
@@ -1221,9 +1221,9 @@ For more information, see [Mutual authentication with TLS in Application Load Ba
 ```go
 import acm "github.com/aws/aws-cdk-go/awscdk"
 
-var certificate certificate
-var lb applicationLoadBalancer
-var bucket bucket
+var certificate Certificate
+var lb ApplicationLoadBalancer
+var bucket Bucket
 
 
 trustStore := elbv2.NewTrustStore(this, jsii.String("Store"), &TrustStoreProps{
@@ -1234,7 +1234,7 @@ trustStore := elbv2.NewTrustStore(this, jsii.String("Store"), &TrustStoreProps{
 lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 	Port: jsii.Number(443),
 	Protocol: elbv2.ApplicationProtocol_HTTPS,
-	Certificates: []iListenerCertificate{
+	Certificates: []IListenerCertificate{
 		certificate,
 	},
 	// mTLS settings
@@ -1254,14 +1254,14 @@ lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 Optionally, you can create a certificate revocation list for a trust store by creating an instance of `TrustStoreRevocation`.
 
 ```go
-var trustStore trustStore
-var bucket bucket
+var trustStore TrustStore
+var bucket Bucket
 
 
 elbv2.NewTrustStoreRevocation(this, jsii.String("Revocation"), &TrustStoreRevocationProps{
 	TrustStore: TrustStore,
-	RevocationContents: []revocationContent{
-		&revocationContent{
+	RevocationContents: []RevocationContent{
+		&RevocationContent{
 			RevocationType: elbv2.RevocationType_CRL,
 			Bucket: *Bucket,
 			Key: jsii.String("crl.pem"),

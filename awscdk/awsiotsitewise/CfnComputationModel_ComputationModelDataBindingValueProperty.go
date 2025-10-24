@@ -8,9 +8,9 @@ package awsiotsitewise
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var computationModelDataBindingValueProperty_ computationModelDataBindingValueProperty
+//   var computationModelDataBindingValueProperty_ ComputationModelDataBindingValueProperty
 //
-//   computationModelDataBindingValueProperty := &computationModelDataBindingValueProperty{
+//   computationModelDataBindingValueProperty := &ComputationModelDataBindingValueProperty{
 //   	AssetModelProperty: &AssetModelPropertyBindingValueProperty{
 //   		AssetModelId: jsii.String("assetModelId"),
 //   		PropertyId: jsii.String("propertyId"),

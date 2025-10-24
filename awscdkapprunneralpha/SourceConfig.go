@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var gitHubConnection gitHubConnection
-//   var repository repository
-//   var runtime runtime
-//   var secret secret
+//   var gitHubConnection GitHubConnection
+//   var repository Repository
+//   var runtime Runtime
+//   var secret Secret
 //
 //   sourceConfig := &SourceConfig{
 //   	CodeRepository: &CodeRepositoryProps{
@@ -31,7 +31,7 @@ import (
 //   				Environment: map[string]*string{
 //   					"environmentKey": jsii.String("environment"),
 //   				},
-//   				EnvironmentSecrets: map[string]*secret{
+//   				EnvironmentSecrets: map[string]Secret{
 //   					"environmentSecretsKey": secret,
 //   				},
 //   				EnvironmentVariables: map[string]*string{
@@ -58,7 +58,7 @@ import (
 //   			Environment: map[string]*string{
 //   				"environmentKey": jsii.String("environment"),
 //   			},
-//   			EnvironmentSecrets: map[string]*secret{
+//   			EnvironmentSecrets: map[string]Secret{
 //   				"environmentSecretsKey": secret,
 //   			},
 //   			EnvironmentVariables: map[string]*string{

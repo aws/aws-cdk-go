@@ -9,12 +9,12 @@ import (
 // Construction properties for `EcsDeploymentGroup`.
 //
 // Example:
-//   var myApplication ecsApplication
-//   var cluster cluster
-//   var taskDefinition fargateTaskDefinition
-//   var blueTargetGroup iTargetGroup
-//   var greenTargetGroup iTargetGroup
-//   var listener iApplicationListener
+//   var myApplication EcsApplication
+//   var cluster Cluster
+//   var taskDefinition FargateTaskDefinition
+//   var blueTargetGroup ITargetGroup
+//   var greenTargetGroup ITargetGroup
+//   var listener IApplicationListener
 //
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{

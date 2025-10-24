@@ -4,7 +4,7 @@ package awsrds
 // The database insights mode.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA(),

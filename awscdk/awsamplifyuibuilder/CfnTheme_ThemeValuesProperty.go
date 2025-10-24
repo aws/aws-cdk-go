@@ -8,9 +8,9 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var themeValuesProperty_ themeValuesProperty
+//   var themeValuesProperty_ ThemeValuesProperty
 //
-//   themeValuesProperty := &themeValuesProperty{
+//   themeValuesProperty := &ThemeValuesProperty{
 //   	Key: jsii.String("key"),
 //   	Value: &ThemeValueProperty{
 //   		Children: []interface{}{

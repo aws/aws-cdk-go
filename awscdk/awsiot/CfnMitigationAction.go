@@ -49,8 +49,8 @@ import (
 //
 //   	// the properties below are optional
 //   	ActionName: jsii.String("actionName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventBus eventBus
-//   var graphqlApi graphqlApi
-//   var role role
+//   var eventBus EventBus
+//   var graphqlApi GraphqlApi
+//   var role Role
 //
 //   eventBridgeDataSourceProps := &EventBridgeDataSourceProps{
 //   	Api: graphqlApi,

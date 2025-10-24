@@ -10,8 +10,8 @@ import (
 // Construction properties of the `S3DeployAction S3 deploy Action`.
 //
 // Example:
-//   var sourceArtifact artifact
-//   var outputArtifact artifact
+//   var sourceArtifact Artifact
+//   var outputArtifact Artifact
 //
 //
 //   commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{

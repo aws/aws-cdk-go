@@ -16,21 +16,21 @@ import (
 //   type myAspect struct {
 //   }
 //
-//   func (this *myAspect) visit(node iConstruct) {
+//   func (this *myAspect) visit(node IConstruct) {
 //   	if *node instanceof cdk.CfnResource && *node.CfnResourceType == "Foo::Bar" {
 //   		this.error(*node, jsii.String("we do not want a Foo::Bar resource"))
 //   	}
 //   }
 //
-//   func (this *myAspect) error(node iConstruct, message *string) {
+//   func (this *myAspect) error(node IConstruct, message *string) {
 //   	cdk.Annotations_Of(*node).AddError(*message)
 //   }
 //
 //   type myStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newMyStack(scope construct, id *string) *myStack {
+//   func newMyStack(scope Construct, id *string) *myStack {
 //   	this := &myStack{}
 //   	cdk.NewStack_Override(this, scope, id)
 //
@@ -51,7 +51,7 @@ type Annotations interface {
 	// The acknowledgement will apply to all child scopes.
 	//
 	// Example:
-	//   var myConstruct construct
+	//   var myConstruct Construct
 	//
 	//   awscdk.Annotations_Of(myConstruct).AcknowledgeInfo(jsii.String("SomeInfoId"), jsii.String("This info can be ignored because..."))
 	//
@@ -61,7 +61,7 @@ type Annotations interface {
 	// The acknowledgement will apply to all child scopes.
 	//
 	// Example:
-	//   var myConstruct construct
+	//   var myConstruct Construct
 	//
 	//   awscdk.Annotations_Of(myConstruct).AcknowledgeWarning(jsii.String("SomeWarningId"), jsii.String("This warning can be ignored because..."))
 	//
@@ -89,7 +89,7 @@ type Annotations interface {
 	// If the info is acknowledged using `acknowledgeInfo()`, it will not be shown by the CLI.
 	//
 	// Example:
-	//   var myConstruct construct
+	//   var myConstruct Construct
 	//
 	//   awscdk.Annotations_Of(myConstruct).AddInfoV2(jsii.String("my-library:Construct.someInfo"), jsii.String("Some message explaining the info"))
 	//
@@ -112,7 +112,7 @@ type Annotations interface {
 	// the CLI, and will not cause `--strict` mode to fail synthesis.
 	//
 	// Example:
-	//   var myConstruct construct
+	//   var myConstruct Construct
 	//
 	//   awscdk.Annotations_Of(myConstruct).AddWarningV2(jsii.String("my-library:Construct.someWarning"), jsii.String("Some message explaining the warning"))
 	//

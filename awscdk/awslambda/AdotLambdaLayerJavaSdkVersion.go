@@ -10,7 +10,7 @@ import (
 // The collection of versions of the ADOT Lambda Layer for Java SDK.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //   layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.Stack, fn.Architecture)
 //

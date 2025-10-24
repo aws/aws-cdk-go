@@ -7,8 +7,8 @@ package awss3outposts
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   filterAndOperatorProperty := &FilterAndOperatorProperty{
-//   	Tags: []filterTagProperty{
-//   		&filterTagProperty{
+//   	Tags: []FilterTagProperty{
+//   		&FilterTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

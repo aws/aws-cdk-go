@@ -17,7 +17,7 @@ import (
 // a zip file with all of the components of the realtime game server script.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   gamelift.NewScript(this, jsii.String("Script"), &ScriptProps{
 //   	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),

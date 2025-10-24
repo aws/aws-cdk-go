@@ -16,13 +16,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var containerImage containerImage
-//   var ecsVolume ecsVolume
-//   var linuxParameters linuxParameters
-//   var logDriver logDriver
-//   var role role
-//   var secret secret
-//   var size size
+//   var containerImage ContainerImage
+//   var ecsVolume EcsVolume
+//   var linuxParameters LinuxParameters
+//   var logDriver LogDriver
+//   var role Role
+//   var secret Secret
+//   var size Size
 //
 //   ecsContainerDefinitionProps := &EcsContainerDefinitionProps{
 //   	Cpu: jsii.Number(123),
@@ -42,11 +42,11 @@ import (
 //   	LinuxParameters: linuxParameters,
 //   	Logging: logDriver,
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: map[string]*secret{
+//   	Secrets: map[string]Secret{
 //   		"secretsKey": secret,
 //   	},
 //   	User: jsii.String("user"),
-//   	Volumes: []*ecsVolume{
+//   	Volumes: []EcsVolume{
 //   		ecsVolume,
 //   	},
 //   }

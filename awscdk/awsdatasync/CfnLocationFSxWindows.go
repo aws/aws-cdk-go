@@ -27,8 +27,8 @@ import (
 //   	FsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	Password: jsii.String("password"),
 //   	Subdirectory: jsii.String("subdirectory"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

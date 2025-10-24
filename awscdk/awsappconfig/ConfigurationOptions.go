@@ -12,22 +12,22 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var deploymentStrategy deploymentStrategy
-//   var environment environment
-//   var key key
-//   var validator iValidator
+//   var deploymentStrategy DeploymentStrategy
+//   var environment Environment
+//   var key Key
+//   var validator IValidator
 //
 //   configurationOptions := &ConfigurationOptions{
 //   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	DeploymentKey: key,
 //   	DeploymentStrategy: deploymentStrategy,
-//   	DeployTo: []iEnvironment{
+//   	DeployTo: []IEnvironment{
 //   		environment,
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Type: awscdk.*Aws_appconfig.ConfigurationType_FREEFORM,
-//   	Validators: []*iValidator{
+//   	Validators: []IValidator{
 //   		validator,
 //   	},
 //   }

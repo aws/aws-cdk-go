@@ -12,10 +12,10 @@ import (
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   vpcConnectorAttributes := &VpcConnectorAttributes{
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	VpcConnectorArn: jsii.String("vpcConnectorArn"),

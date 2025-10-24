@@ -4,8 +4,8 @@ package awsservicecatalog
 // Properties for TagOptions.
 //
 // Example:
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var portfolio Portfolio
+//   var product CloudFormationProduct
 //
 //
 //   tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &TagOptionsProps{

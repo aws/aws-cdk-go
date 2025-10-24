@@ -161,16 +161,16 @@ When you stream content to an Amazon IVS channel, auto-record-to-s3 uses the sou
 For more information, see [Discovering the Renditions of a Recording](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html#r2s3-recording-renditions).
 
 ```go
-var recordingBucket bucket
+var recordingBucket Bucket
 
 
 recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
 	Bucket: recordingBucket,
 
 	// set rendition configuration
-	RenditionConfiguration: ivs.RenditionConfiguration_Custom([]resolution{
-		ivs.*resolution_HD,
-		ivs.*resolution_SD,
+	RenditionConfiguration: ivs.RenditionConfiguration_Custom([]Resolution{
+		ivs.Resolution_HD,
+		ivs.Resolution_SD,
 	}),
 })
 ```
@@ -184,16 +184,16 @@ Thumbnail intervals may range from 1 second to 60 seconds; by default, thumbnail
 For more information, see [Thumbnails](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html#r2s3-thumbnails).
 
 ```go
-var recordingBucket bucket
+var recordingBucket Bucket
 
 
 recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
 	Bucket: recordingBucket,
 
 	// set thumbnail settings
-	ThumbnailConfiguration: ivs.ThumbnailConfiguration_Interval(ivs.Resolution_HD, []storage{
-		ivs.*storage_LATEST,
-		ivs.*storage_SEQUENTIAL,
+	ThumbnailConfiguration: ivs.ThumbnailConfiguration_Interval(ivs.Resolution_HD, []Storage{
+		ivs.Storage_LATEST,
+		ivs.Storage_SEQUENTIAL,
 	}, awscdk.Duration_Seconds(jsii.Number(30))),
 })
 ```
@@ -207,7 +207,7 @@ In other words, if a broadcast disconnects and then reconnects within the specif
 For more information, see [Merge Fragmented Streams](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html#r2s3-merge-fragmented-streams).
 
 ```go
-var recordingBucket bucket
+var recordingBucket Bucket
 
 
 recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
@@ -223,7 +223,7 @@ recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("Recor
 To enable recording for a channel, specify the recording configuration when creating the channel:
 
 ```go
-var recordingConfiguration recordingConfiguration
+var recordingConfiguration RecordingConfiguration
 
 
 channel := ivs.NewChannel(this, jsii.String("Channel"), &ChannelProps{

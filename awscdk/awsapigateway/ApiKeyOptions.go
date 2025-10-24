@@ -4,7 +4,7 @@ package awsapigateway
 // The options for creating an API Key.
 //
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //   key := api.AddApiKey(jsii.String("ApiKey"), &ApiKeyOptions{
 //   	ApiKeyName: jsii.String("myApiKey1"),

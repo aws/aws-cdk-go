@@ -10,7 +10,7 @@ import (
 )
 
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //
 //   // We define the JSON Schema for the transformed valid response
@@ -21,11 +21,11 @@ import (
 //   		Schema: apigateway.JsonSchemaVersion_DRAFT4,
 //   		Title: jsii.String("pollResponse"),
 //   		Type: apigateway.JsonSchemaType_OBJECT,
-//   		Properties: map[string]jsonSchema{
-//   			"state": &jsonSchema{
+//   		Properties: map[string]JsonSchema{
+//   			"state": &JsonSchema{
 //   				"type": apigateway.JsonSchemaType_STRING,
 //   			},
-//   			"greeting": &jsonSchema{
+//   			"greeting": &JsonSchema{
 //   				"type": apigateway.JsonSchemaType_STRING,
 //   			},
 //   		},
@@ -36,15 +36,15 @@ import (
 //   errorResponseModel := api.AddModel(jsii.String("ErrorResponseModel"), &ModelOptions{
 //   	ContentType: jsii.String("application/json"),
 //   	ModelName: jsii.String("ErrorResponseModel"),
-//   	Schema: &jsonSchema{
+//   	Schema: &JsonSchema{
 //   		Schema: apigateway.JsonSchemaVersion_DRAFT4,
 //   		Title: jsii.String("errorResponse"),
 //   		Type: apigateway.JsonSchemaType_OBJECT,
-//   		Properties: map[string]*jsonSchema{
-//   			"state": &jsonSchema{
+//   		Properties: map[string]JsonSchema{
+//   			"state": &JsonSchema{
 //   				"type": apigateway.JsonSchemaType_STRING,
 //   			},
-//   			"message": &jsonSchema{
+//   			"message": &JsonSchema{
 //   				"type": apigateway.JsonSchemaType_STRING,
 //   			},
 //   		},

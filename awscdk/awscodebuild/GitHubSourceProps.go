@@ -8,8 +8,8 @@ package awscodebuild
 //   	Owner: jsii.String("aws"),
 //   	WebhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
-//   	WebhookFilters: []filterGroup{
-//   		codebuild.*filterGroup_InEventOf(codebuild.EventAction_WORKFLOW_JOB_QUEUED).AndRepositoryNameIs(jsii.String("aws-.*")).AndRepositoryNameIsNot(jsii.String("aws-cdk-lib")),
+//   	WebhookFilters: []FilterGroup{
+//   		codebuild.FilterGroup_InEventOf(codebuild.EventAction_WORKFLOW_JOB_QUEUED).AndRepositoryNameIs(jsii.String("aws-.*")).AndRepositoryNameIsNot(jsii.String("aws-cdk-lib")),
 //   	},
 //   })
 //

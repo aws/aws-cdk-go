@@ -21,7 +21,7 @@ import (
 //   })
 //
 //   // ... with Matchers embedded
-//   tags.HasValues(map[string]matcher{
+//   tags.HasValues(map[string]Matcher{
 //   	"tag-name": awscdk.Match_stringLikeRegexp(jsii.String("value")),
 //   })
 //

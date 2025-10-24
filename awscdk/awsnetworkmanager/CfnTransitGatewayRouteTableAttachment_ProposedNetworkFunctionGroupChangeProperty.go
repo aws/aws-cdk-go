@@ -14,8 +14,8 @@ import (
 //   proposedNetworkFunctionGroupChangeProperty := &ProposedNetworkFunctionGroupChangeProperty{
 //   	AttachmentPolicyRuleNumber: jsii.Number(123),
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

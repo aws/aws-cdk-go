@@ -9,8 +9,8 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   allocateCidrRequest := &AllocateCidrRequest{
-//   	RequestedSubnets: []requestedSubnet{
-//   		&requestedSubnet{
+//   	RequestedSubnets: []RequestedSubnet{
+//   		&RequestedSubnet{
 //   			AvailabilityZone: jsii.String("availabilityZone"),
 //   			Configuration: &SubnetConfiguration{
 //   				Name: jsii.String("name"),

@@ -16,8 +16,8 @@ import (
 //   	CaCertificatesBundleS3Key: jsii.String("caCertificatesBundleS3Key"),
 //   	CaCertificatesBundleS3ObjectVersion: jsii.String("caCertificatesBundleS3ObjectVersion"),
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

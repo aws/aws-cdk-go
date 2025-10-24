@@ -136,11 +136,17 @@ import (
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	TieredStorageConfig: &TieredStorageConfigProperty{
+//   		Mode: jsii.String("mode"),
+//
+//   		// the properties below are optional
+//   		InstanceMemoryAllocationPercentage: jsii.Number(123),
 //   	},
 //   	VpcConfig: &VpcConfigProperty{
 //   		SecurityGroupIds: []*string{
@@ -228,6 +234,9 @@ type CfnCluster interface {
 	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// Configuration for tiered storage in the SageMaker HyperPod cluster.
+	TieredStorageConfig() interface{}
+	SetTieredStorageConfig(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -609,6 +618,16 @@ func (j *jsiiProxy_CfnCluster) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) TieredStorageConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tieredStorageConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -750,6 +769,17 @@ func (j *jsiiProxy_CfnCluster)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetTieredStorageConfig(val interface{}) {
+	if err := j.validateSetTieredStorageConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tieredStorageConfig",
 		val,
 	)
 }

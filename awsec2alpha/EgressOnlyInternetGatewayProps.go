@@ -7,7 +7,7 @@ package awsec2alpha
 //   stack := awscdk.Newstack()
 //   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 //   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
-//   	SecondaryAddressBlocks: []iIpAddresses{
+//   	SecondaryAddressBlocks: []IIpAddresses{
 //   		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 //   			CidrBlockName: jsii.String("AmazonProvided"),
 //   		}),

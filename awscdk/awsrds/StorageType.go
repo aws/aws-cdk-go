@@ -4,7 +4,7 @@ package awsrds
 // The type of storage.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{

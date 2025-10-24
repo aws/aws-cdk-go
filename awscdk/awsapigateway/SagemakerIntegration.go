@@ -10,8 +10,8 @@ import (
 // Integrates an AWS Sagemaker Endpoint to an API Gateway method.
 //
 // Example:
-//   var resource resource
-//   var endpoint iEndpoint
+//   var resource Resource
+//   var endpoint IEndpoint
 //
 //   resource.AddMethod(jsii.String("POST"), apigateway.NewSagemakerIntegration(endpoint))
 //

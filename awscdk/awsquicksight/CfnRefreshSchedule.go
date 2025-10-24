@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a refresh schedule for a dataset in QuickSight .
+// Creates a refresh schedule for a dataset in Quick Suite .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

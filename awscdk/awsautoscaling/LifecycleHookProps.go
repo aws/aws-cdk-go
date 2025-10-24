@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
-//   var lifecycleHookTarget iLifecycleHookTarget
-//   var role role
+//   var autoScalingGroup AutoScalingGroup
+//   var lifecycleHookTarget ILifecycleHookTarget
+//   var role Role
 //
 //   lifecycleHookProps := &LifecycleHookProps{
 //   	AutoScalingGroup: autoScalingGroup,

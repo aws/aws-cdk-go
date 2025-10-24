@@ -7,7 +7,7 @@ import (
 // Properties for a tracker.
 //
 // Example:
-//   var role role
+//   var role Role
 //
 //
 //   tracker := location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{

@@ -7,8 +7,8 @@ import (
 // SQS target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
 //
 //   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{

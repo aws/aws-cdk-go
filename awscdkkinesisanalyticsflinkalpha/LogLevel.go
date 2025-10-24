@@ -4,7 +4,7 @@ package awscdkkinesisanalyticsflinkalpha
 // Available log levels for Flink applications.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 //   	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),

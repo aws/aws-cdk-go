@@ -3,7 +3,7 @@ package awsquicksight
 
 // A `CategoryFilter` filters text values.
 //
-// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

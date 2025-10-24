@@ -15,14 +15,14 @@ import (
 // Example:
 //   import sagemaker "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pipeline iPipeline
+//   var pipeline IPipeline
 //
 //
 //   awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 //   	Schedule: awscdk.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
 //   	Target: targets.NewSageMakerStartPipelineExecution(pipeline, &SageMakerStartPipelineExecutionProps{
-//   		PipelineParameterList: []sageMakerPipelineParameter{
-//   			&sageMakerPipelineParameter{
+//   		PipelineParameterList: []SageMakerPipelineParameter{
+//   			&SageMakerPipelineParameter{
 //   				Name: jsii.String("parameter-name"),
 //   				Value: jsii.String("parameter-value"),
 //   			},

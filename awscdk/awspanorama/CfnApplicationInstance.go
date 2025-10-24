@@ -35,8 +35,8 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RuntimeRoleArn: jsii.String("runtimeRoleArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

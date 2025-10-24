@@ -12,7 +12,7 @@ import (
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   defaultRole := iam.NewRole(this, jsii.String("DefaultRole"), &RoleProps{
@@ -24,7 +24,7 @@ import (
 //   		MasterUsername: jsii.String("admin"),
 //   	},
 //   	Vpc: Vpc,
-//   	Roles: []iRole{
+//   	Roles: []IRole{
 //   		defaultRole,
 //   	},
 //   	DefaultRole: defaultRole,

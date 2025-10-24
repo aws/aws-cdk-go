@@ -14,7 +14,7 @@ import (
 // Example:
 //   import redshiftserverless "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var workgroup cfnWorkgroup
+//   var workgroup CfnWorkgroup
 //
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{

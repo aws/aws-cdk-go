@@ -11,7 +11,7 @@ import (
 // and no CloudWatch log group can be specified.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 //   	LoggingConfig: firehose.NewDisableLogging(),

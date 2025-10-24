@@ -12,7 +12,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var construct construct
+//   var construct Construct
 //
 //   injectionContext := &InjectionContext{
 //   	Id: jsii.String("id"),

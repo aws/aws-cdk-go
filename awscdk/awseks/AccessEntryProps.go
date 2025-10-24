@@ -8,11 +8,11 @@ package awseks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var accessPolicy accessPolicy
-//   var cluster cluster
+//   var accessPolicy AccessPolicy
+//   var cluster Cluster
 //
 //   accessEntryProps := &AccessEntryProps{
-//   	AccessPolicies: []iAccessPolicy{
+//   	AccessPolicies: []IAccessPolicy{
 //   		accessPolicy,
 //   	},
 //   	Cluster: cluster,

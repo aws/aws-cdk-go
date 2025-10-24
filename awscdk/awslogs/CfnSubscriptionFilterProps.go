@@ -16,6 +16,10 @@ package awslogs
 //   	// the properties below are optional
 //   	ApplyOnTransformedLogs: jsii.Boolean(false),
 //   	Distribution: jsii.String("distribution"),
+//   	EmitSystemFields: []*string{
+//   		jsii.String("emitSystemFields"),
+//   	},
+//   	FieldSelectionCriteria: jsii.String("fieldSelectionCriteria"),
 //   	FilterName: jsii.String("filterName"),
 //   	RoleArn: jsii.String("roleArn"),
 //   }
@@ -51,6 +55,18 @@ type CfnSubscriptionFilterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-distribution
 	//
 	Distribution *string `field:"optional" json:"distribution" yaml:"distribution"`
+	// The list of system fields that are included in the log events sent to the subscription destination.
+	//
+	// Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-emitsystemfields
+	//
+	EmitSystemFields *[]*string `field:"optional" json:"emitSystemFields" yaml:"emitSystemFields"`
+	// The filter expression that specifies which log events are processed by this subscription filter based on system fields.
+	//
+	// Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-fieldselectioncriteria
+	//
+	FieldSelectionCriteria *string `field:"optional" json:"fieldSelectionCriteria" yaml:"fieldSelectionCriteria"`
 	// The name of the subscription filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-filtername
 	//

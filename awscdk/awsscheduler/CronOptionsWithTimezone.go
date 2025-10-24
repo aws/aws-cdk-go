@@ -10,7 +10,7 @@ import (
 // a field implies '*' or '?', whichever one is appropriate.
 //
 // Example:
-//   var target lambdaInvoke
+//   var target LambdaInvoke
 //
 //
 //   rateBasedSchedule := awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{

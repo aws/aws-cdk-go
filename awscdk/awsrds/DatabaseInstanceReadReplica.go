@@ -17,9 +17,9 @@ import (
 // A read replica database instance.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
-//   var sourceInstance databaseInstance
+//   var sourceInstance DatabaseInstance
 //
 //   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
 //   	SnapshotIdentifier: jsii.String("my-snapshot"),

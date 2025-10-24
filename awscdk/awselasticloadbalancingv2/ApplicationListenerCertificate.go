@@ -15,14 +15,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationListener applicationListener
-//   var listenerCertificate listenerCertificate
+//   var applicationListener ApplicationListener
+//   var listenerCertificate ListenerCertificate
 //
 //   applicationListenerCertificate := awscdk.Aws_elasticloadbalancingv2.NewApplicationListenerCertificate(this, jsii.String("MyApplicationListenerCertificate"), &ApplicationListenerCertificateProps{
 //   	Listener: applicationListener,
 //
 //   	// the properties below are optional
-//   	Certificates: []iListenerCertificate{
+//   	Certificates: []IListenerCertificate{
 //   		listenerCertificate,
 //   	},
 //   })

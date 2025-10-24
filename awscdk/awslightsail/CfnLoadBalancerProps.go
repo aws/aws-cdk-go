@@ -23,8 +23,8 @@ import (
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	SessionStickinessEnabled: jsii.Boolean(false),
 //   	SessionStickinessLbCookieDurationSeconds: jsii.String("sessionStickinessLbCookieDurationSeconds"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

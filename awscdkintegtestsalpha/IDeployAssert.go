@@ -28,8 +28,8 @@ type IDeployAssert interface {
 	// - The AWS SDK for JavaScript v3 command class name (`GetObjectCommand`).
 	//
 	// Example:
-	//   var app app
-	//   var integ integTest
+	//   var app App
+	//   var integ IntegTest
 	//
 	//   integ.Assertions.AwsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
 	//   	"QueueUrl": jsii.String("url"),
@@ -51,8 +51,8 @@ type IDeployAssert interface {
 	// Assert that the ExpectedResult is equal to the ActualResult.
 	//
 	// Example:
-	//   var integ integTest
-	//   var apiCall awsApiCall
+	//   var integ IntegTest
+	//   var apiCall AwsApiCall
 	//
 	//   integ.Assertions.Expect(jsii.String("invoke"), awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 	//   	"Payload": jsii.String("OK"),
@@ -63,8 +63,8 @@ type IDeployAssert interface {
 	// Make an HTTP call to the provided endpoint.
 	//
 	// Example:
-	//   var app app
-	//   var integ integTest
+	//   var app App
+	//   var integ IntegTest
 	//
 	//   call := integ.Assertions.HttpApiCall(jsii.String("https://example.com/test"))
 	//   call.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
@@ -76,8 +76,8 @@ type IDeployAssert interface {
 	// Invoke a lambda function and return the response which can be asserted.
 	//
 	// Example:
-	//   var app app
-	//   var integ integTest
+	//   var app App
+	//   var integ IntegTest
 	//
 	//   invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
 	//   	FunctionName: jsii.String("my-function"),

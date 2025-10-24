@@ -16,9 +16,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var webSocketApi webSocketApi
-//   var webSocketRouteAuthorizer iWebSocketRouteAuthorizer
-//   var webSocketRouteIntegration webSocketRouteIntegration
+//   var webSocketApi WebSocketApi
+//   var webSocketRouteAuthorizer IWebSocketRouteAuthorizer
+//   var webSocketRouteIntegration WebSocketRouteIntegration
 //
 //   webSocketRoute := awscdk.Aws_apigatewayv2.NewWebSocketRoute(this, jsii.String("MyWebSocketRoute"), &WebSocketRouteProps{
 //   	Integration: webSocketRouteIntegration,

@@ -7,7 +7,7 @@ import (
 // Additional Heath checks options.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -16,10 +16,10 @@ import (
 //   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
 //   	HealthChecks: autoscaling.HealthChecks_WithAdditionalChecks(&AdditionalHealthChecksOptions{
 //   		GracePeriod: awscdk.Duration_Seconds(jsii.Number(100)),
-//   		AdditionalTypes: []additionalHealthCheckType{
-//   			autoscaling.*additionalHealthCheckType_EBS,
-//   			autoscaling.*additionalHealthCheckType_ELB,
-//   			autoscaling.*additionalHealthCheckType_VPC_LATTICE,
+//   		AdditionalTypes: []AdditionalHealthCheckType{
+//   			autoscaling.AdditionalHealthCheckType_EBS,
+//   			autoscaling.AdditionalHealthCheckType_ELB,
+//   			autoscaling.AdditionalHealthCheckType_VPC_LATTICE,
 //   		},
 //   	}),
 //   })

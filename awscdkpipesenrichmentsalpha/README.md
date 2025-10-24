@@ -29,10 +29,10 @@ Pipe enrichments are invoked prior to sending the events to a target of a EventB
 A Lambda function can be used to enrich events of a pipe.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
-var enrichmentFunction function
+var enrichmentFunction Function
 
 
 enrichment := enrichments.NewLambdaEnrichment(enrichmentFunction)
@@ -53,10 +53,10 @@ Step Functions state machine can be used to enrich events of a pipe.
 > Visit [Amazon EventBridge Pipes event enrichment](https://docs.aws.amazon.com/eventbridge/latest/userguide/pipes-enrichment.html) for more details.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
-var enrichmentStateMachine stateMachine
+var enrichmentStateMachine StateMachine
 
 
 enrichment := enrichments.NewStepFunctionsEnrichment(enrichmentStateMachine)
@@ -73,10 +73,10 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 API destination can be used to enrich events of a pipe.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
-var apiDestination apiDestination
+var apiDestination ApiDestination
 
 
 enrichment := enrichments.NewApiDestinationEnrichment(apiDestination)
@@ -94,10 +94,10 @@ API Gateway can be used to enrich events of a pipe.
 Pipes only supports API Gateway REST APIs. HTTP APIs are not supported.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
-var restApi restApi
+var restApi RestApi
 
 
 enrichment := enrichments.NewApiGatewayEnrichment(restApi)

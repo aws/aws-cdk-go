@@ -17,7 +17,7 @@ type IBucket interface {
 	// Adds a bucket notification event destination.
 	//
 	// Example:
-	//   var myLambda function
+	//   var myLambda Function
 	//
 	//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 	//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), &NotificationKeyFilter{

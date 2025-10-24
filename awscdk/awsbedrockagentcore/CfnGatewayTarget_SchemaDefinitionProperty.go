@@ -8,9 +8,9 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var schemaDefinitionProperty_ schemaDefinitionProperty
+//   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
-//   schemaDefinitionProperty := &schemaDefinitionProperty{
+//   schemaDefinitionProperty := &SchemaDefinitionProperty{
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional

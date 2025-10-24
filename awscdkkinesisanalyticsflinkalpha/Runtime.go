@@ -8,7 +8,7 @@ import (
 // Available Flink runtimes for Kinesis Analytics.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 //   	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),

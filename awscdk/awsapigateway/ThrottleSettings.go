@@ -4,7 +4,7 @@ package awsapigateway
 // Container for defining throttling parameters to API stages or methods.
 //
 // Example:
-//   var integration lambdaIntegration
+//   var integration LambdaIntegration
 //
 //
 //   api := apigateway.NewRestApi(this, jsii.String("hello-api"))

@@ -42,8 +42,8 @@ image := sagemaker.ContainerImage_FromAsset(path.join(jsii.String("path"), jsii.
 modelData := sagemaker.ModelData_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
 
 model := sagemaker.NewModel(this, jsii.String("PrimaryContainerModel"), &ModelProps{
-	Containers: []containerDefinition{
-		&containerDefinition{
+	Containers: []ContainerDefinition{
+		&ContainerDefinition{
 			Image: image,
 			ModelData: modelData,
 		},
@@ -62,25 +62,25 @@ additional containers for your model:
 ```go
 import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
-var image1 containerImage
-var modelData1 modelData
-var image2 containerImage
-var modelData2 modelData
-var image3 containerImage
-var modelData3 modelData
+var image1 ContainerImage
+var modelData1 ModelData
+var image2 ContainerImage
+var modelData2 ModelData
+var image3 ContainerImage
+var modelData3 ModelData
 
 
 model := sagemaker.NewModel(this, jsii.String("InferencePipelineModel"), &ModelProps{
-	Containers: []containerDefinition{
-		&containerDefinition{
+	Containers: []ContainerDefinition{
+		&ContainerDefinition{
 			Image: image1,
 			ModelData: modelData1,
 		},
-		&containerDefinition{
+		&ContainerDefinition{
 			Image: image2,
 			ModelData: modelData2,
 		},
-		&containerDefinition{
+		&ContainerDefinition{
 			Image: image3,
 			ModelData: modelData3,
 		},
@@ -99,13 +99,13 @@ To enable network isolation, set the `networkIsolation` property to `true`:
 ```go
 import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
-var image containerImage
-var modelData modelData
+var image ContainerImage
+var modelData ModelData
 
 
 model := sagemaker.NewModel(this, jsii.String("ContainerModel"), &ModelProps{
-	Containers: []containerDefinition{
-		&containerDefinition{
+	Containers: []ContainerDefinition{
+		&ContainerDefinition{
 			Image: *Image,
 			ModelData: *ModelData,
 		},
@@ -211,18 +211,18 @@ model B:
 ```go
 import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
-var modelA model
-var modelB model
+var modelA Model
+var modelB Model
 
 
 endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &EndpointConfigProps{
-	InstanceProductionVariants: []instanceProductionVariantProps{
-		&instanceProductionVariantProps{
+	InstanceProductionVariants: []InstanceProductionVariantProps{
+		&InstanceProductionVariantProps{
 			Model: modelA,
 			VariantName: jsii.String("modelA"),
 			InitialVariantWeight: jsii.Number(2),
 		},
-		&instanceProductionVariantProps{
+		&InstanceProductionVariantProps{
 			Model: modelB,
 			VariantName: jsii.String("variantB"),
 			InitialVariantWeight: jsii.Number(1),
@@ -243,7 +243,7 @@ API. Defining an endpoint requires at minimum the associated endpoint configurat
 ```go
 import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
-var endpointConfig endpointConfig
+var endpointConfig EndpointConfig
 
 
 endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &EndpointProps{
@@ -258,13 +258,13 @@ To enable autoscaling on the production variant, use the `autoScaleInstanceCount
 ```go
 import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
-var model model
+var model Model
 
 
 variantName := "my-variant"
 endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &EndpointConfigProps{
-	InstanceProductionVariants: []instanceProductionVariantProps{
-		&instanceProductionVariantProps{
+	InstanceProductionVariants: []InstanceProductionVariantProps{
+		&InstanceProductionVariantProps{
 			Model: model,
 			VariantName: variantName,
 		},
@@ -294,7 +294,7 @@ methods:
 ```go
 import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 
-var endpointConfig endpointConfig
+var endpointConfig EndpointConfig
 
 
 endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &EndpointProps{

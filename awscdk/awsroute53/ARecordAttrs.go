@@ -7,7 +7,7 @@ import (
 // Construction properties to import existing ARecord as target.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   targetRecord := "existing.record.cdk.local"

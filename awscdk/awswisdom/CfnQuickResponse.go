@@ -38,8 +38,8 @@ import (
 //   	IsActive: jsii.Boolean(false),
 //   	Language: jsii.String("language"),
 //   	ShortcutKey: jsii.String("shortcutKey"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

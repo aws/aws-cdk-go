@@ -129,11 +129,17 @@ import (
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	TieredStorageConfig: &TieredStorageConfigProperty{
+//   		Mode: jsii.String("mode"),
+//
+//   		// the properties below are optional
+//   		InstanceMemoryAllocationPercentage: jsii.Number(123),
 //   	},
 //   	VpcConfig: &VpcConfigProperty{
 //   		SecurityGroupIds: []*string{
@@ -196,6 +202,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Configuration for tiered storage in the SageMaker HyperPod cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-tieredstorageconfig
+	//
+	TieredStorageConfig interface{} `field:"optional" json:"tieredStorageConfig" yaml:"tieredStorageConfig"`
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to.
 	//
 	// You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .

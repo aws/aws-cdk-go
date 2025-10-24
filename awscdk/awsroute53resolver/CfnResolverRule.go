@@ -24,8 +24,8 @@ import (
 //   	DomainName: jsii.String("domainName"),
 //   	Name: jsii.String("name"),
 //   	ResolverEndpointId: jsii.String("resolverEndpointId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

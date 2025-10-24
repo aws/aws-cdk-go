@@ -8,8 +8,8 @@ import (
 // The options to enabling AWS Cloud Map for an Amazon ECS service.
 //
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var taskDefinition TaskDefinition
+//   var cluster Cluster
 //
 //
 //   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{

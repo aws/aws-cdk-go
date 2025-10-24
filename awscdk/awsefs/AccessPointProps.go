@@ -8,7 +8,7 @@ package awsefs
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fileSystem fileSystem
+//   var fileSystem FileSystem
 //
 //   accessPointProps := &AccessPointProps{
 //   	FileSystem: fileSystem,

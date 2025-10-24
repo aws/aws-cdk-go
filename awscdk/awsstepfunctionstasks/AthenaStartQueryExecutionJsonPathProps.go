@@ -16,10 +16,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var key key
+//   var key Key
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   athenaStartQueryExecutionJsonPathProps := &AthenaStartQueryExecutionJsonPathProps{
 //   	QueryString: jsii.String("queryString"),

@@ -7,8 +7,8 @@ import (
 // The options for using a cloudmap service.
 //
 // Example:
-//   var cloudMapService service
-//   var ecsService fargateService
+//   var cloudMapService Service
+//   var ecsService FargateService
 //
 //
 //   ecsService.AssociateCloudMapService(&AssociateCloudMapServiceOptions{

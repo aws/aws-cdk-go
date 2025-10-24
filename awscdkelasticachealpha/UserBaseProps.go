@@ -8,7 +8,7 @@ package awscdkelasticachealpha
 //   // The values are placeholders you should change.
 //   import elasticache_alpha "github.com/aws/aws-cdk-go/awscdkelasticachealpha"
 //
-//   var accessControl accessControl
+//   var accessControl AccessControl
 //
 //   userBaseProps := &UserBaseProps{
 //   	AccessControl: accessControl,

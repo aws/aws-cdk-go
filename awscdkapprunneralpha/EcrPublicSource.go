@@ -14,7 +14,7 @@ import (
 //   // The values are placeholders you should change.
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
-//   var secret secret
+//   var secret Secret
 //
 //   ecrPublicSource := apprunner_alpha.NewEcrPublicSource(&EcrPublicProps{
 //   	ImageIdentifier: jsii.String("imageIdentifier"),
@@ -24,7 +24,7 @@ import (
 //   		Environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
 //   		},
-//   		EnvironmentSecrets: map[string]*secret{
+//   		EnvironmentSecrets: map[string]Secret{
 //   			"environmentSecretsKey": secret,
 //   		},
 //   		EnvironmentVariables: map[string]*string{

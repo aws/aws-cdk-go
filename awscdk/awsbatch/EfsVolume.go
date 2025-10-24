@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fileSystem fileSystem
+//   var fileSystem FileSystem
 //
 //   efsVolume := awscdk.Aws_batch.NewEfsVolume(&EfsVolumeOptions{
 //   	ContainerPath: jsii.String("containerPath"),

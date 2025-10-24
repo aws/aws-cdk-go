@@ -16,9 +16,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var caCertificate caCertificate
-//   var databaseCluster databaseCluster
-//   var instanceType instanceType
+//   var caCertificate CaCertificate
+//   var databaseCluster DatabaseCluster
+//   var instanceType InstanceType
 //
 //   databaseInstanceProps := &DatabaseInstanceProps{
 //   	Cluster: databaseCluster,

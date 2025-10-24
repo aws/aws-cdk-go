@@ -19,13 +19,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
-//   var bucket bucket
-//   var key key
-//   var logGroup logGroup
-//   var namespace iNamespace
-//   var securityGroup securityGroup
-//   var vpc vpc
+//   var autoScalingGroup AutoScalingGroup
+//   var bucket Bucket
+//   var key Key
+//   var logGroup LogGroup
+//   var namespace INamespace
+//   var securityGroup SecurityGroup
+//   var vpc Vpc
 //
 //   clusterAttributes := &ClusterAttributes{
 //   	ClusterName: jsii.String("clusterName"),
@@ -47,7 +47,7 @@ import (
 //   		Logging: awscdk.Aws_ecs.ExecuteCommandLogging_NONE,
 //   	},
 //   	HasEc2Capacity: jsii.Boolean(false),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

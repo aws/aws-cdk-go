@@ -4,8 +4,8 @@ package awscdkgameliftalpha
 // Priority to condider when placing new game sessions.
 //
 // Example:
-//   var fleet buildFleet
-//   var topic topic
+//   var fleet BuildFleet
+//   var topic Topic
 //
 //
 //   gamelift.NewGameSessionQueue(this, jsii.String("MyGameSessionQueue"), &GameSessionQueueProps{
@@ -15,12 +15,12 @@ package awscdkgameliftalpha
 //   		jsii.String("eu-west-1"),
 //   		jsii.String("eu-west-2"),
 //   	},
-//   	Destinations: []iGameSessionQueueDestination{
+//   	Destinations: []IGameSessionQueueDestination{
 //   		fleet,
 //   	},
 //   	NotificationTarget: topic,
-//   	PlayerLatencyPolicies: []playerLatencyPolicy{
-//   		&playerLatencyPolicy{
+//   	PlayerLatencyPolicies: []PlayerLatencyPolicy{
+//   		&PlayerLatencyPolicy{
 //   			MaximumIndividualPlayerLatency: awscdk.Duration_Millis(jsii.Number(100)),
 //   			PolicyDuration: awscdk.Duration_Seconds(jsii.Number(300)),
 //   		},
@@ -30,11 +30,11 @@ package awscdkgameliftalpha
 //   			jsii.String("eu-west-1"),
 //   			jsii.String("eu-west-2"),
 //   		},
-//   		PriorityOrder: []priorityType{
-//   			gamelift.*priorityType_LATENCY,
-//   			gamelift.*priorityType_COST,
-//   			gamelift.*priorityType_DESTINATION,
-//   			gamelift.*priorityType_LOCATION,
+//   		PriorityOrder: []PriorityType{
+//   			gamelift.PriorityType_LATENCY,
+//   			gamelift.PriorityType_COST,
+//   			gamelift.PriorityType_DESTINATION,
+//   			gamelift.PriorityType_LOCATION,
 //   		},
 //   	},
 //   	Timeout: awscdk.Duration_*Seconds(jsii.Number(300)),

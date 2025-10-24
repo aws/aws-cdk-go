@@ -13,8 +13,8 @@ package awslogs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   copyValueProperty := &CopyValueProperty{
-//   	Entries: []copyValueEntryProperty{
-//   		&copyValueEntryProperty{
+//   	Entries: []CopyValueEntryProperty{
+//   		&CopyValueEntryProperty{
 //   			Source: jsii.String("source"),
 //   			Target: jsii.String("target"),
 //

@@ -18,7 +18,7 @@ import (
 // - The status of an Amazon Route 53 routing control.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   healthCheck := route53.NewHealthCheck(this, jsii.String("HealthCheck"), &HealthCheckProps{

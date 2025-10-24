@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instanceType instanceType
-//   var launchTemplate launchTemplate
+//   var instanceType InstanceType
+//   var launchTemplate LaunchTemplate
 //
 //   launchTemplateOverrides := &LaunchTemplateOverrides{
 //   	InstanceRequirements: &InstanceRequirementsProperty{

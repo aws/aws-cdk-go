@@ -16,12 +16,12 @@ import (
 // For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   var listener listener
-//   var eip cfnEIP
+//   var listener Listener
+//   var eip CfnEIP
 //
 //
 //   listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-//   	Endpoints: []iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewCfnEipEndpoint(eip, &CfnEipEndpointProps{
 //   			Weight: jsii.Number(128),
 //   		}),

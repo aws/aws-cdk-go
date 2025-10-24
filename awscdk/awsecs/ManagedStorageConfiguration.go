@@ -7,7 +7,7 @@ import (
 // Kms Keys for encryption ECS managed storage.
 //
 // Example:
-//   var key key
+//   var key Key
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{

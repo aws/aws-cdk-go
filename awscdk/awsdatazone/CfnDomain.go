@@ -32,8 +32,8 @@ import (
 //   		Type: jsii.String("type"),
 //   		UserAssignment: jsii.String("userAssignment"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

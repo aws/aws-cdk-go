@@ -21,7 +21,7 @@ import (
 // When updating the fleet-id an alias points to, there is a transition period of up to 2 minutes where game sessions on the alias may end up on the old fleet.
 //
 // Example:
-//   var fleet buildFleet
+//   var fleet BuildFleet
 //
 //
 //   // Add an alias to an existing fleet using a dedicated fleet method

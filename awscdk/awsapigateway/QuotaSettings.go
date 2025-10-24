@@ -4,13 +4,13 @@ package awsapigateway
 // Specifies the maximum number of requests that clients can make to API Gateway APIs.
 //
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 //   	CustomerId: jsii.String("hello-customer"),
-//   	ApiStages: []usagePlanPerApiStage{
-//   		&usagePlanPerApiStage{
+//   	ApiStages: []UsagePlanPerApiStage{
+//   		&UsagePlanPerApiStage{
 //   			Stage: api.DeploymentStage,
 //   		},
 //   	},

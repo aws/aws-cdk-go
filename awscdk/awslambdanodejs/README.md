@@ -386,8 +386,8 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 		VolumesFrom: []*string{
 			jsii.String("777f7dc92da7"),
 		},
-		Volumes: []dockerVolume{
-			&dockerVolume{
+		Volumes: []DockerVolume{
+			&DockerVolume{
 				HostPath: jsii.String("/host-path"),
 				ContainerPath: jsii.String("/container-path"),
 			},

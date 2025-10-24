@@ -7,7 +7,7 @@ import (
 )
 
 // Example:
-//   var sourceQueue queue
+//   var sourceQueue Queue
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{

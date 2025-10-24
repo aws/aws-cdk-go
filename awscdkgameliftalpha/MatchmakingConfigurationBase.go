@@ -19,7 +19,7 @@ import (
 //   import gamelift_alpha "github.com/aws/aws-cdk-go/awscdkgameliftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var topic topic
+//   var topic Topic
 //
 //   matchmakingConfigurationBase := gamelift_alpha.MatchmakingConfigurationBase_FromMatchmakingConfigurationAttributes(this, jsii.String("MyMatchmakingConfigurationBase"), &MatchmakingConfigurationAttributes{
 //   	MatchmakingConfigurationArn: jsii.String("matchmakingConfigurationArn"),

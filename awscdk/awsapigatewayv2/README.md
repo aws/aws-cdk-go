@@ -59,7 +59,7 @@ As an early example, we have a website for a bookstore where the following code 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var bookStoreDefaultFn function
+var bookStoreDefaultFn Function
 
 
 getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
@@ -69,15 +69,15 @@ httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/books"),
-	Methods: []httpMethod{
-		apigwv2.*httpMethod_GET,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_GET,
 	},
 	Integration: getBooksIntegration,
 })
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/books"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_ANY,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_ANY,
 	},
 	Integration: bookStoreDefaultIntegration,
 })
@@ -139,11 +139,11 @@ apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &HttpApiProps{
 		AllowHeaders: []*string{
 			jsii.String("Authorization"),
 		},
-		AllowMethods: []corsHttpMethod{
-			apigwv2.*corsHttpMethod_GET,
-			apigwv2.*corsHttpMethod_HEAD,
-			apigwv2.*corsHttpMethod_OPTIONS,
-			apigwv2.*corsHttpMethod_POST,
+		AllowMethods: []CorsHttpMethod{
+			apigwv2.CorsHttpMethod_GET,
+			apigwv2.CorsHttpMethod_HEAD,
+			apigwv2.CorsHttpMethod_OPTIONS,
+			apigwv2.CorsHttpMethod_POST,
 		},
 		AllowOrigins: []*string{
 			jsii.String("*"),
@@ -163,7 +163,7 @@ Use `HttpStage` to create a Stage resource for HTTP APIs. The following code set
 `https://{api_id}.execute-api.{region}.amazonaws.com/beta`.
 
 ```go
-var api httpApi
+var api HttpApi
 
 
 apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
@@ -189,7 +189,7 @@ custom domain to the `$default` stage of the API.
 import acm "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var handler function
+var handler Function
 
 
 certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
@@ -215,7 +215,7 @@ property. Valid values are `IPV4` (default) and `DUAL_STACK`.
 ```go
 import acm "github.com/aws/aws-cdk-go/awscdk"
 
-var certificate iCertificate
+var certificate ICertificate
 var domainName string
 
 
@@ -233,8 +233,8 @@ Learn more at [Migrating a custom domain name](https://docs.aws.amazon.com/apiga
 To associate a specific `Stage` to a custom domain mapping -
 
 ```go
-var api httpApi
-var dn domainName
+var api HttpApi
+var dn DomainName
 
 
 api.AddStage(jsii.String("beta"), &HttpStageOptions{
@@ -253,8 +253,8 @@ The same domain name can be associated with stages across different `HttpApi` as
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var handler function
-var dn domainName
+var handler Function
+var dn DomainName
 
 
 apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
@@ -280,7 +280,7 @@ with 3 API mapping resources across different APIs and Stages.
 You can retrieve the full domain URL with mapping key using the `domainUrl` property as so -
 
 ```go
-var apiDemo httpApi
+var apiDemo HttpApi
 
 demoDomainUrl := apiDemo.DefaultStage.DomainUrl
 ```
@@ -292,7 +292,7 @@ Mutual TLS can be configured to limit access to your API based by using client c
 ```go
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import acm "github.com/aws/aws-cdk-go/awscdk"
-var bucket bucket
+var bucket Bucket
 
 
 certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
@@ -372,7 +372,7 @@ Any existing `VpcLink` resource can be imported into the CDK app via the `VpcLin
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 awesomeLink := apigwv2.VpcLink_FromVpcLinkAttributes(this, jsii.String("awesome-vpc-link"), &VpcLinkAttributes{
 	VpcLinkId: jsii.String("us-east-1_oiuR12Abd"),
@@ -409,13 +409,13 @@ Read more at [Configure logging for HTTP APIs in API Gateway](https://docs.aws.a
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
-var api httpApi
-var logGroup logGroup
+var api HttpApi
+var logGroup LogGroup
 
 
 stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
 	HttpApi: api,
-	AccessLogSettings: map[string]iAccessLogDestination{
+	AccessLogSettings: map[string]IAccessLogDestination{
 		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
 	},
 })
@@ -427,8 +427,8 @@ The following code will generate the access log in the [CLF format](https://en.w
 import apigw "github.com/aws/aws-cdk-go/awscdk"
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
-var api httpApi
-var logGroup logGroup
+var api HttpApi
+var logGroup LogGroup
 
 
 stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
@@ -447,8 +447,8 @@ You can also configure your own access log format by using the `AccessLogFormat.
 import "github.com/aws/aws-cdk-go/awscdk"
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
-var api httpApi
-var logGroup logGroup
+var api HttpApi
+var logGroup LogGroup
 
 
 stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
@@ -482,9 +482,9 @@ To add the default WebSocket routes supported by API Gateway (`$connect`, `$disc
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var connectHandler function
-var disconnectHandler function
-var defaultHandler function
+var connectHandler Function
+var disconnectHandler Function
+var defaultHandler Function
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
@@ -510,7 +510,7 @@ apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
 To retrieve a websocket URL and a callback URL:
 
 ```go
-var webSocketStage webSocketStage
+var webSocketStage WebSocketStage
 
 
 webSocketURL := webSocketStage.url
@@ -523,7 +523,7 @@ To add any other route:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var messageHandler function
+var messageHandler Function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
@@ -536,7 +536,7 @@ To add a route that can return a result:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var messageHandler function
+var messageHandler Function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
@@ -585,7 +585,7 @@ Grant permission to use API Gateway Management API of a WebSocket API by calling
 You can use Management API to send a callback message to a connected client, get connection information, or disconnect the client. Learn more at [Use @connections commands in your backend service](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 
 ```go
-var fn function
+var fn Function
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
@@ -626,7 +626,7 @@ Common config for both HTTP API and WebSocket API
 Represents a collection of route settings.
 
 ```go
-var api httpApi
+var api HttpApi
 
 
 apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
@@ -725,7 +725,7 @@ API Keys for WebSocket APIs are associated through Usage Plans, not directly to 
 imported stage and then associate the API key with that Usage Plan.
 
 ```go
-var webSocketApi iWebSocketApi
+var webSocketApi IWebSocketApi
 
 
 importedStage := apigwv2.WebSocketStage_FromWebSocketStageAttributes(this, jsii.String("imported-stage"), &WebSocketStageAttributes{
@@ -736,8 +736,8 @@ importedStage := apigwv2.WebSocketStage_FromWebSocketStageAttributes(this, jsii.
 apiKey := apigwv2.NewApiKey(this, jsii.String("MyApiKey"))
 
 usagePlan := apigwv2.NewUsagePlan(this, jsii.String("MyUsagePlan"), &UsagePlanProps{
-	ApiStages: []usagePlanPerApiStage{
-		&usagePlanPerApiStage{
+	ApiStages: []UsagePlanPerApiStage{
+		&UsagePlanPerApiStage{
 			Api: webSocketApi,
 			Stage: importedStage,
 		},
@@ -754,8 +754,8 @@ It is possible to specify multiple API keys for a given Usage Plan, by calling `
 When using multiple API keys, you may need to ensure that the CloudFormation logical ids of the API keys remain consistent across deployments. You can set the logical id as part of the `addApiKey()` method
 
 ```go
-var usagePlan usagePlan
-var apiKey apiKey
+var usagePlan UsagePlan
+var apiKey ApiKey
 
 
 usagePlan.addApiKey(apiKey, &AddApiKeyOptions{
@@ -772,14 +772,14 @@ The API key created has the specified rate limits, such as quota and throttles, 
 The following example shows how to use a rate limited api key :
 
 ```go
-var api webSocketApi
-var stage webSocketStage
+var api WebSocketApi
+var stage WebSocketStage
 
 
 key := apigwv2.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 	CustomerId: jsii.String("test-customer"),
-	ApiStages: []usagePlanPerApiStage{
-		&usagePlanPerApiStage{
+	ApiStages: []UsagePlanPerApiStage{
+		&UsagePlanPerApiStage{
 			Api: api,
 			Stage: stage,
 		},

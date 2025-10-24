@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var computationModelDataBindingValueProperty_ computationModelDataBindingValueProperty
+//   var computationModelDataBindingValueProperty_ ComputationModelDataBindingValueProperty
 //
 //   cfnComputationModel := awscdk.Aws_iotsitewise.NewCfnComputationModel(this, jsii.String("MyCfnComputationModel"), &CfnComputationModelProps{
 //   	ComputationModelConfiguration: &ComputationModelConfigurationProperty{
@@ -26,7 +26,7 @@ import (
 //   		},
 //   	},
 //   	ComputationModelDataBinding: map[string]interface{}{
-//   		"computationModelDataBindingKey": &computationModelDataBindingValueProperty{
+//   		"computationModelDataBindingKey": &ComputationModelDataBindingValueProperty{
 //   			"assetModelProperty": &AssetModelPropertyBindingValueProperty{
 //   				"assetModelId": jsii.String("assetModelId"),
 //   				"propertyId": jsii.String("propertyId"),
@@ -44,8 +44,8 @@ import (
 //
 //   	// the properties below are optional
 //   	ComputationModelDescription: jsii.String("computationModelDescription"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

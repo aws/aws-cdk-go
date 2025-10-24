@@ -4,7 +4,7 @@ package awseks
 // Properties for defining service accounts.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   eks.NewServiceAccount(this, jsii.String("ServiceAccount"), &ServiceAccountProps{

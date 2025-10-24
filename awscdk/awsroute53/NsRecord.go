@@ -11,7 +11,7 @@ import (
 // A DNS NS record.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   route53.NewNsRecord(this, jsii.String("NSRecord"), &NsRecordProps{

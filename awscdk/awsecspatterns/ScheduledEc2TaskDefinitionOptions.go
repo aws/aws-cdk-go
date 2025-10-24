@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var ec2TaskDefinition ec2TaskDefinition
+//   var ec2TaskDefinition Ec2TaskDefinition
 //
 //   scheduledEc2TaskDefinitionOptions := &ScheduledEc2TaskDefinitionOptions{
 //   	TaskDefinition: ec2TaskDefinition,

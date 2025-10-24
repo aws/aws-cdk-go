@@ -16,8 +16,8 @@ package awssynthetics
 //   		Handler: jsii.String("index.handler"),
 //   	}),
 //   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_7_0(),
-//   	ArtifactsBucketLifecycleRules: []lifecycleRule{
-//   		&lifecycleRule{
+//   	ArtifactsBucketLifecycleRules: []LifecycleRule{
+//   		&LifecycleRule{
 //   			Expiration: awscdk.Duration_Days(jsii.Number(30)),
 //   		},
 //   	},

@@ -15,7 +15,7 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var booksDefaultFn function
+//   var booksDefaultFn Function
 //
 //   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 //
@@ -23,8 +23,8 @@ import (
 //
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/books"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_GET,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_GET,
 //   	},
 //   	Integration: booksIntegration,
 //   })

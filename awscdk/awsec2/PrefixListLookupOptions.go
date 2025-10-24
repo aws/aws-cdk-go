@@ -4,7 +4,7 @@ package awsec2
 // Properties for looking up an existing managed prefix list.
 //
 // Example:
-//   var alb applicationLoadBalancer
+//   var alb ApplicationLoadBalancer
 //
 //
 //   cfOriginFacing := ec2.PrefixList_FromLookup(this, jsii.String("CloudFrontOriginFacing"), &PrefixListLookupOptions{

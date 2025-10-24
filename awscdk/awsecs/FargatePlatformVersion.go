@@ -4,7 +4,7 @@ package awsecs
 // The platform version on which to run your service.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 //   	Cluster: Cluster,

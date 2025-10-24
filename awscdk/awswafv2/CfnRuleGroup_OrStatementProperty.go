@@ -17,16 +17,16 @@ package awswafv2
 //   var httpMethod interface{}
 //   var ip interface{}
 //   var method interface{}
-//   var orStatementProperty_ orStatementProperty
+//   var orStatementProperty_ OrStatementProperty
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
+//   var statementProperty_ StatementProperty
 //   var uriPath interface{}
 //
-//   orStatementProperty := &orStatementProperty{
+//   orStatementProperty := &OrStatementProperty{
 //   	Statements: []interface{}{
-//   		&statementProperty{
+//   		&StatementProperty{
 //   			AndStatement: &AndStatementProperty{
 //   				Statements: []interface{}{
 //   					statementProperty_,

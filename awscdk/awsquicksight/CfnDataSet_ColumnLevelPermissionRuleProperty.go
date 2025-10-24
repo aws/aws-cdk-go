@@ -26,7 +26,7 @@ type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
 	//
 	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
-	// An array of Amazon Resource Names (ARNs) for QuickSight users or groups.
+	// An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
 	//
 	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`

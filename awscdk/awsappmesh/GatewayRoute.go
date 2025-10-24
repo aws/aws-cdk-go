@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var gatewayRouteSpec gatewayRouteSpec
-//   var virtualGateway virtualGateway
+//   var gatewayRouteSpec GatewayRouteSpec
+//   var virtualGateway VirtualGateway
 //
 //   gatewayRoute := awscdk.Aws_appmesh.NewGatewayRoute(this, jsii.String("MyGatewayRoute"), &GatewayRouteProps{
 //   	RouteSpec: gatewayRouteSpec,

@@ -10,7 +10,7 @@ package awsbedrock
 //
 //   var additionalModelRequestFields interface{}
 //   var collector interface{}
-//   var flowDefinitionProperty_ flowDefinitionProperty
+//   var flowDefinitionProperty_ FlowDefinitionProperty
 //   var input interface{}
 //   var iterator interface{}
 //   var loopInput interface{}
@@ -22,7 +22,7 @@ package awsbedrock
 //
 //   	// the properties below are optional
 //   	CustomerEncryptionKeyArn: jsii.String("customerEncryptionKeyArn"),
-//   	Definition: &flowDefinitionProperty{
+//   	Definition: &FlowDefinitionProperty{
 //   		Connections: []interface{}{
 //   			&FlowConnectionProperty{
 //   				Name: jsii.String("name"),

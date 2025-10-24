@@ -22,14 +22,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instanceEngine iInstanceEngine
-//   var securityGroup securityGroup
+//   var instanceEngine IInstanceEngine
+//   var securityGroup SecurityGroup
 //
 //   databaseInstanceBase := awscdk.Aws_rds.DatabaseInstanceBase_FromDatabaseInstanceAttributes(this, jsii.String("MyDatabaseInstanceBase"), &DatabaseInstanceAttributes{
 //   	InstanceEndpointAddress: jsii.String("instanceEndpointAddress"),
 //   	InstanceIdentifier: jsii.String("instanceIdentifier"),
 //   	Port: jsii.Number(123),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //

@@ -10,17 +10,17 @@ import (
 // Multiple stages that are deployed in parallel.
 //
 // Example:
-//   var pipeline codePipeline
+//   var pipeline CodePipeline
 //
 //   europeWave := pipeline.AddWave(jsii.String("Europe"))
 //   europeWave.AddStage(
-//   NewMyApplicationStage(this, jsii.String("Ireland"), &stageProps{
+//   NewMyApplicationStage(this, jsii.String("Ireland"), &StageProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("eu-west-1"),
 //   	},
 //   }))
 //   europeWave.AddStage(
-//   NewMyApplicationStage(this, jsii.String("Germany"), &stageProps{
+//   NewMyApplicationStage(this, jsii.String("Germany"), &StageProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("eu-central-1"),
 //   	},

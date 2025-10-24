@@ -21,8 +21,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	FinalBakeTimeInMinutes: jsii.Number(123),
 //   	GrowthType: jsii.String("growthType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

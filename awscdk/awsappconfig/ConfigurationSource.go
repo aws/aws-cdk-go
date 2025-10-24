@@ -14,8 +14,8 @@ import (
 // Defines the integrated configuration sources.
 //
 // Example:
-//   var application application
-//   var bucket bucket
+//   var application Application
+//   var bucket Bucket
 //
 //
 //   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{

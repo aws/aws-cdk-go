@@ -96,7 +96,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 	Resources: []*string{
 		bucket.ArnForObjects(jsii.String("file.txt")),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountRootPrincipal(),
 	},
 }))
@@ -117,7 +117,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 	Resources: []*string{
 		bucket.ArnForObjects(jsii.String("file.txt")),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountRootPrincipal(),
 	},
 }))
@@ -137,7 +137,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 	Resources: []*string{
 		bucket.ArnForObjects(jsii.String("file.txt")),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountRootPrincipal(),
 	},
 }))
@@ -158,7 +158,7 @@ Instead, buckets have "grant" methods called to give prepackaged sets of permiss
 to other resources. For example:
 
 ```go
-var myLambda function
+var myLambda Function
 
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
@@ -214,11 +214,11 @@ To use a bucket in a different stack in the same CDK application, pass the objec
  * Stack that defines the bucket
  */
 type producer struct {
-	stack
-	myBucket bucket
+	Stack
+	myBucket Bucket
 }
 
-func newProducer(scope construct, id *string, props stackProps) *producer {
+func newProducer(scope Construct, id *string, props StackProps) *producer {
 	this := &producer{}
 	newStack_Override(this, scope, id, props)
 
@@ -230,18 +230,18 @@ func newProducer(scope construct, id *string, props stackProps) *producer {
 }
 
 type consumerProps struct {
-	stackProps
-	userBucket iBucket
+	StackProps
+	userBucket IBucket
 }
 
 /**
  * Stack that consumes the bucket
  */
 type consumer struct {
-	stack
+	Stack
 }
 
-func newConsumer(scope construct, id *string, props consumerProps) *consumer {
+func newConsumer(scope Construct, id *string, props consumerProps) *consumer {
 	this := &consumer{}
 	newStack_Override(this, scope, id, props)
 
@@ -268,7 +268,7 @@ permitted for buckets created before March 1, 2018. For buckets created after th
 are not allowed in the bucket name.
 
 ```go
-var myLambda function
+var myLambda Function
 
 bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &BucketAttributes{
 	BucketArn: jsii.String("arn:aws:s3:::amzn-s3-demo-bucket"),
@@ -327,7 +327,7 @@ following example will notify `myQueue` when objects prefixed with `foo/` and
 have the `.jpg` suffix are removed from the bucket.
 
 ```go
-var myQueue queue
+var myQueue Queue
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
@@ -339,7 +339,7 @@ bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(m
 Adding notifications on existing buckets:
 
 ```go
-var topic topic
+var topic Topic
 
 bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &BucketAttributes{
 	BucketArn: jsii.String("arn:aws:s3:::amzn-s3-demo-bucket"),
@@ -350,7 +350,7 @@ bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewSnsDestination(t
 If you do not want for S3 to validate permissions of Amazon SQS, Amazon SNS, and Lambda destinations you can use the `notificationsSkipDestinationValidation` flag:
 
 ```go
-var myQueue queue
+var myQueue Queue
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	NotificationsSkipDestinationValidation: jsii.Boolean(true),
@@ -364,7 +364,7 @@ function that implements this feature. If you want to use your own role instead,
 you should provide it in the `Bucket` constructor:
 
 ```go
-var myRole iRole
+var myRole IRole
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	NotificationsHandlerRole: myRole,
@@ -596,7 +596,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		accessLogsBucket.BucketArn,
 		accessLogsBucket.ArnForObjects(jsii.String("*")),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAnyPrincipal(),
 	},
 }))
@@ -658,15 +658,15 @@ You can configure multiple inventory lists for a bucket. You can configure what 
 inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 
 dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &BucketProps{
-	Inventories: []inventory{
-		&inventory{
+	Inventories: []Inventory{
+		&Inventory{
 			Frequency: s3.InventoryFrequency_DAILY,
 			IncludeObjectVersions: s3.InventoryObjectVersion_CURRENT,
 			Destination: &InventoryDestination{
 				Bucket: inventoryBucket,
 			},
 		},
-		&inventory{
+		&Inventory{
 			Frequency: s3.InventoryFrequency_WEEKLY,
 			IncludeObjectVersions: s3.InventoryObjectVersion_ALL,
 			Destination: &InventoryDestination{
@@ -718,8 +718,8 @@ Alternatively, you can also define multiple `websiteRoutingRules`, to define com
 
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &BucketProps{
-	WebsiteRoutingRules: []routingRule{
-		&routingRule{
+	WebsiteRoutingRules: []RoutingRule{
+		&RoutingRule{
 			HostName: jsii.String("www.example.com"),
 			HttpRedirectCode: jsii.String("302"),
 			Protocol: s3.RedirectProtocol_HTTPS,
@@ -849,14 +849,14 @@ bucket.TransferAccelerationUrlForObject(jsii.String("objectname"))
 
 ```go
 s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
-	IntelligentTieringConfigurations: []intelligentTieringConfiguration{
-		&intelligentTieringConfiguration{
+	IntelligentTieringConfigurations: []IntelligentTieringConfiguration{
+		&IntelligentTieringConfiguration{
 			Name: jsii.String("foo"),
 			Prefix: jsii.String("folder/name"),
 			ArchiveAccessTierTime: awscdk.Duration_Days(jsii.Number(90)),
 			DeepArchiveAccessTierTime: awscdk.Duration_*Days(jsii.Number(180)),
-			Tags: []tag{
-				&tag{
+			Tags: []Tag{
+				&Tag{
 					Key: jsii.String("tagname"),
 					Value: jsii.String("tagvalue"),
 				},
@@ -872,8 +872,8 @@ s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
-	LifecycleRules: []lifecycleRule{
-		&lifecycleRule{
+	LifecycleRules: []LifecycleRule{
+		&LifecycleRule{
 			AbortIncompleteMultipartUploadAfter: awscdk.Duration_Minutes(jsii.Number(30)),
 			Enabled: jsii.Boolean(false),
 			Expiration: awscdk.Duration_Days(jsii.Number(30)),
@@ -884,8 +884,8 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 
 			// the properties below are optional
 			NoncurrentVersionsToRetain: jsii.Number(123),
-			NoncurrentVersionTransitions: []noncurrentVersionTransition{
-				&noncurrentVersionTransition{
+			NoncurrentVersionTransitions: []NoncurrentVersionTransition{
+				&NoncurrentVersionTransition{
 					StorageClass: s3.StorageClass_GLACIER(),
 					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 
@@ -896,8 +896,8 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 			ObjectSizeGreaterThan: jsii.Number(500),
 			Prefix: jsii.String("prefix"),
 			ObjectSizeLessThan: jsii.Number(10000),
-			Transitions: []transition{
-				&transition{
+			Transitions: []Transition{
+				&Transition{
 					StorageClass: s3.StorageClass_GLACIER(),
 
 					// exactly one of transitionAfter or transitionDate must be specified
@@ -924,20 +924,20 @@ property. Custom filters always take precedence over the default transition beha
 ```go
 s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 	TransitionDefaultMinimumObjectSize: s3.TransitionDefaultMinimumObjectSize_VARIES_BY_STORAGE_CLASS,
-	LifecycleRules: []lifecycleRule{
-		&lifecycleRule{
-			Transitions: []transition{
-				&transition{
+	LifecycleRules: []LifecycleRule{
+		&LifecycleRule{
+			Transitions: []Transition{
+				&Transition{
 					StorageClass: s3.StorageClass_DEEP_ARCHIVE(),
 					TransitionAfter: awscdk.Duration_Days(jsii.Number(30)),
 				},
 			},
 		},
-		&lifecycleRule{
+		&LifecycleRule{
 			ObjectSizeLessThan: jsii.Number(300000),
 			ObjectSizeGreaterThan: jsii.Number(200000),
-			Transitions: []*transition{
-				&transition{
+			Transitions: []Transition{
+				&Transition{
 					StorageClass: s3.StorageClass_ONE_ZONE_INFREQUENT_ACCESS(),
 					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 				},
@@ -991,11 +991,11 @@ The destination buckets can be in different AWS Regions or within the same Regio
 To replicate objects to a destination bucket, you can specify the `replicationRules` property:
 
 ```go
-var destinationBucket1 iBucket
-var destinationBucket2 iBucket
-var replicationRole iRole
-var encryptionKey iKey
-var destinationEncryptionKey iKey
+var destinationBucket1 IBucket
+var destinationBucket2 IBucket
+var replicationRole IRole
+var encryptionKey IKey
+var destinationEncryptionKey IKey
 
 
 sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
@@ -1005,8 +1005,8 @@ sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
 	EncryptionKey: EncryptionKey,
 	// Optional. If not specified, a new role will be created.
 	ReplicationRole: ReplicationRole,
-	ReplicationRules: []replicationRule{
-		&replicationRule{
+	ReplicationRules: []ReplicationRule{
+		&ReplicationRule{
 			// The destination bucket for the replication rule.
 			Destination: destinationBucket1,
 			// The priority of the rule.
@@ -1016,7 +1016,7 @@ sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
 			// It is essential to specify priority explicitly when the replication configuration has multiple rules.
 			Priority: jsii.Number(1),
 		},
-		&replicationRule{
+		&ReplicationRule{
 			Destination: destinationBucket2,
 			Priority: jsii.Number(2),
 			// Whether to specify S3 Replication Time Control (S3 RTC).
@@ -1044,8 +1044,8 @@ sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
 				// The prefix filter for the rule.
 				Prefix: jsii.String("prefix"),
 				// The tag filter for the rule.
-				Tags: []tag{
-					&tag{
+				Tags: []Tag{
+					&Tag{
 						Key: jsii.String("tagKey"),
 						Value: jsii.String("tagValue"),
 					},
@@ -1060,11 +1060,11 @@ sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
 sourceBucket.GrantReplicationPermission(replicationRole, &GrantReplicationPermissionProps{
 	// Optional. Specify the KMS key to use for decrypting objects in the source bucket.
 	SourceDecryptionKey: encryptionKey,
-	Destinations: []grantReplicationPermissionDestinationProps{
-		&grantReplicationPermissionDestinationProps{
+	Destinations: []GrantReplicationPermissionDestinationProps{
+		&GrantReplicationPermissionDestinationProps{
 			Bucket: destinationBucket1,
 		},
-		&grantReplicationPermissionDestinationProps{
+		&GrantReplicationPermissionDestinationProps{
 			Bucket: destinationBucket2,
 			EncryptionKey: destinationEncryptionKey,
 		},
@@ -1090,15 +1090,15 @@ so you will need to [configure the necessary bucket policy](https://docs.aws.ama
 
 ```go
 // The destination bucket in a different account.
-var destinationBucket iBucket
-var replicationRole iRole
+var destinationBucket IBucket
+var replicationRole IRole
 
 sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
 	Versioned: jsii.Boolean(true),
 	// Optional. If not specified, a new role will be created.
 	ReplicationRole: ReplicationRole,
-	ReplicationRules: []replicationRule{
-		&replicationRule{
+	ReplicationRules: []ReplicationRule{
+		&ReplicationRule{
 			Destination: destinationBucket,
 			Priority: jsii.Number(1),
 			// Whether to want to change replica ownership to the AWS account that owns the destination bucket.

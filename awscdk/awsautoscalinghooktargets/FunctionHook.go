@@ -22,8 +22,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
-//   var key key
+//   var function_ Function
+//   var key Key
 //
 //   functionHook := awscdk.Aws_autoscaling_hooktargets.NewFunctionHook(function_, key)
 //

@@ -18,8 +18,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
-//   var webSocketApi webSocketApi
+//   var role Role
+//   var webSocketApi WebSocketApi
 //
 //   webSocketIntegration := awscdk.Aws_apigatewayv2.NewWebSocketIntegration(this, jsii.String("MyWebSocketIntegration"), &WebSocketIntegrationProps{
 //   	IntegrationType: awscdk.*Aws_apigatewayv2.WebSocketIntegrationType_AWS_PROXY,

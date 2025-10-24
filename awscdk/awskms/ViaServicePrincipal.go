@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var principal iPrincipal
+//   var principal IPrincipal
 //
 //   viaServicePrincipal := awscdk.Aws_kms.NewViaServicePrincipal(jsii.String("serviceName"), principal)
 //

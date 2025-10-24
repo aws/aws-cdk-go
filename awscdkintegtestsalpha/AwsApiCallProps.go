@@ -4,7 +4,7 @@ package awscdkintegtestsalpha
 // Construct that creates a custom resource that will perform a query using the AWS SDK.
 //
 // Example:
-//   var myAppStack stack
+//   var myAppStack Stack
 //
 //
 //   awscdkintegtestsalpha.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &AwsApiCallProps{

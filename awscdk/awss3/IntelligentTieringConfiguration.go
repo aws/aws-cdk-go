@@ -19,8 +19,8 @@ import (
 //   	ArchiveAccessTierTime: cdk.Duration_Minutes(jsii.Number(30)),
 //   	DeepArchiveAccessTierTime: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	Prefix: jsii.String("prefix"),
-//   	Tags: []tag{
-//   		&tag{
+//   	Tags: []Tag{
+//   		&Tag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

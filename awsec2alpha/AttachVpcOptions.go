@@ -20,7 +20,7 @@ import (
 //
 //   attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
 //   	Vpc: myVpc,
-//   	Subnets: []iSubnet{
+//   	Subnets: []ISubnet{
 //   		subnet,
 //   	},
 //   })

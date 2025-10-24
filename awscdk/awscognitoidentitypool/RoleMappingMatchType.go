@@ -6,22 +6,22 @@ package awscognitoidentitypool
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var adminRole role
-//   var nonAdminRole role
+//   var adminRole Role
+//   var nonAdminRole Role
 //
 //   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 //   	IdentityPoolName: jsii.String("myidentitypool"),
 //   	// Assign specific roles to users based on whether or not the custom admin claim is passed from the identity provider
-//   	RoleMappings: []identityPoolRoleMapping{
-//   		&identityPoolRoleMapping{
+//   	RoleMappings: []IdentityPoolRoleMapping{
+//   		&IdentityPoolRoleMapping{
 //   			ProviderUrl: awscdk.IdentityPoolProviderUrl_AMAZON(),
-//   			Rules: []roleMappingRule{
-//   				&roleMappingRule{
+//   			Rules: []RoleMappingRule{
+//   				&RoleMappingRule{
 //   					Claim: jsii.String("custom:admin"),
 //   					ClaimValue: jsii.String("admin"),
 //   					MappedRole: adminRole,
 //   				},
-//   				&roleMappingRule{
+//   				&RoleMappingRule{
 //   					Claim: jsii.String("custom:admin"),
 //   					ClaimValue: jsii.String("admin"),
 //   					MatchType: awscdk.RoleMappingMatchType_NOTEQUAL,

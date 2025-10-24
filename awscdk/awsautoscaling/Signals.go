@@ -16,9 +16,9 @@ import (
 // Signals are used both during intial creation and subsequent updates.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //
 //
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{

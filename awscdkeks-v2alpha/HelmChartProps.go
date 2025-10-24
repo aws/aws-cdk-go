@@ -8,7 +8,7 @@ import (
 // Helm Chart properties.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // option 1: use a construct
 //   // option 1: use a construct

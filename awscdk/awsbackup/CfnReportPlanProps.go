@@ -21,8 +21,8 @@ import (
 //   	// the properties below are optional
 //   	ReportPlanDescription: jsii.String("reportPlanDescription"),
 //   	ReportPlanName: jsii.String("reportPlanName"),
-//   	ReportPlanTags: []cfnTag{
-//   		&cfnTag{
+//   	ReportPlanTags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

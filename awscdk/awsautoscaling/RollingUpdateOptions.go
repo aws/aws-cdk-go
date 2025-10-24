@@ -17,8 +17,8 @@ import (
 //   	MinInstancesInService: jsii.Number(123),
 //   	MinSuccessPercentage: jsii.Number(123),
 //   	PauseTime: cdk.Duration_Minutes(jsii.Number(30)),
-//   	SuspendProcesses: []scalingProcess{
-//   		awscdk.Aws_autoscaling.*scalingProcess_LAUNCH,
+//   	SuspendProcesses: []ScalingProcess{
+//   		awscdk.Aws_autoscaling.ScalingProcess_LAUNCH,
 //   	},
 //   	WaitOnResourceSignals: jsii.Boolean(false),
 //   }

@@ -8,10 +8,10 @@ package awselasticloadbalancingv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var listenerCondition listenerCondition
+//   var listenerCondition ListenerCondition
 //
 //   addRuleProps := &AddRuleProps{
-//   	Conditions: []*listenerCondition{
+//   	Conditions: []ListenerCondition{
 //   		listenerCondition,
 //   	},
 //   	Priority: jsii.Number(123),

@@ -11,7 +11,7 @@ import (
 // An Amazon Data Firehose delivery stream source.
 //
 // Example:
-//   var destination iDestination
+//   var destination IDestination
 //
 //   sourceStream := kinesis.NewStream(this, jsii.String("Source Stream"))
 //

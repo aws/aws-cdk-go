@@ -10,8 +10,8 @@ import (
 // Widgets will be laid out next to each other.
 //
 // Example:
-//   var widgetA iWidget
-//   var widgetB iWidget
+//   var widgetA IWidget
+//   var widgetB IWidget
 //
 //
 //   cloudwatch.NewColumn(widgetA, widgetB)

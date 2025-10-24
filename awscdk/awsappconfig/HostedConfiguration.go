@@ -12,14 +12,14 @@ import (
 // A hosted configuration represents configuration stored in the AWS AppConfig hosted configuration store.
 //
 // Example:
-//   var application application
-//   var fn function
+//   var application Application
+//   var fn Function
 //
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 //   	Application: Application,
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Validators: []iValidator{
+//   	Validators: []IValidator{
 //   		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
 //   		appconfig.LambdaValidator_FromFunction(fn),
 //   	},

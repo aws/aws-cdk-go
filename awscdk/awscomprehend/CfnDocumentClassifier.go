@@ -64,8 +64,8 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   		S3Uri: jsii.String("s3Uri"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

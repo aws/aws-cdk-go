@@ -6,7 +6,7 @@ import (
 )
 
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //
 //   workerUtilizationMetric := cloudwatch.NewMetric(&MetricProps{
@@ -16,16 +16,16 @@ import (
 //
 //   autoScalingGroup.scaleOnMetric(jsii.String("ScaleToCPU"), &BasicStepScalingPolicyProps{
 //   	Metric: workerUtilizationMetric,
-//   	ScalingSteps: []scalingInterval{
-//   		&scalingInterval{
+//   	ScalingSteps: []ScalingInterval{
+//   		&ScalingInterval{
 //   			Upper: jsii.Number(10),
 //   			Change: -jsii.Number(1),
 //   		},
-//   		&scalingInterval{
+//   		&ScalingInterval{
 //   			Lower: jsii.Number(50),
 //   			Change: +jsii.Number(1),
 //   		},
-//   		&scalingInterval{
+//   		&ScalingInterval{
 //   			Lower: jsii.Number(70),
 //   			Change: +jsii.Number(3),
 //   		},

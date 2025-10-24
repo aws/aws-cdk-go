@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var dataQualityTargetTable dataQualityTargetTable
+//   var dataQualityTargetTable DataQualityTargetTable
 //
 //   dataQualityRuleset := glue_alpha.NewDataQualityRuleset(this, jsii.String("MyDataQualityRuleset"), &DataQualityRulesetProps{
 //   	RulesetDqdl: jsii.String("rulesetDqdl"),

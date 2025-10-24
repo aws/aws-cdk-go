@@ -17,9 +17,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
-//   var graphqlApi graphqlApi
-//   var role role
+//   var function_ Function
+//   var graphqlApi GraphqlApi
+//   var role Role
 //
 //   lambdaDataSource := awscdk.Aws_appsync.NewLambdaDataSource(this, jsii.String("MyLambdaDataSource"), &LambdaDataSourceProps{
 //   	Api: graphqlApi,

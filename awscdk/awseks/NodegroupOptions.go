@@ -8,10 +8,10 @@ import (
 // The Nodegroup Options for addNodeGroup() method.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddNodegroupCapacity(jsii.String("extra-ng-spot"), &NodegroupOptions{
-//   	InstanceTypes: []instanceType{
+//   	InstanceTypes: []InstanceType{
 //   		ec2.NewInstanceType(jsii.String("c5.large")),
 //   		ec2.NewInstanceType(jsii.String("c5a.large")),
 //   		ec2.NewInstanceType(jsii.String("c5d.large")),

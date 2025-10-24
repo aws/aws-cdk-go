@@ -4,8 +4,8 @@ package awsapigateway
 // Options to the UsagePlan.addApiKey() method.
 //
 // Example:
-//   var usageplan usagePlan
-//   var apiKey apiKey
+//   var usageplan UsagePlan
+//   var apiKey ApiKey
 //
 //
 //   usageplan.addApiKey(apiKey, &AddApiKeyOptions{

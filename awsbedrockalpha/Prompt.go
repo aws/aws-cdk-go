@@ -39,7 +39,7 @@ import (
 //   	PromptName: jsii.String("prompt1"),
 //   	Description: jsii.String("my first prompt"),
 //   	DefaultVariant: variant1,
-//   	Variants: []iPromptVariant{
+//   	Variants: []IPromptVariant{
 //   		variant1,
 //   	},
 //   	KmsKey: cmk,

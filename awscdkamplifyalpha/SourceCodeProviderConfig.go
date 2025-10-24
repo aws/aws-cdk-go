@@ -12,7 +12,7 @@ import (
 //   import amplify_alpha "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secretValue secretValue
+//   var secretValue SecretValue
 //
 //   sourceCodeProviderConfig := &SourceCodeProviderConfig{
 //   	Repository: jsii.String("repository"),

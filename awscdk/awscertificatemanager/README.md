@@ -65,7 +65,7 @@ cert := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
 		jsii.String("cool.example.com"),
 		jsii.String("test.example.net"),
 	},
-	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]iHostedZone{
+	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]IHostedZone{
 		"test.example.com": exampleCom,
 		"cool.example.com": exampleCom,
 		"test.example.net": exampleNet,
@@ -103,7 +103,7 @@ in order to access the cross stack/region certificate.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var app app
+var app App
 
 
 stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
@@ -222,7 +222,7 @@ renewal ussing the following code:
 ```go
 import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
-var myHostedZone hostedZone
+var myHostedZone HostedZone
 
 certificate := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
 	DomainName: jsii.String("hello.example.com"),

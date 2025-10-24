@@ -22,8 +22,8 @@ import (
 //
 //   cfnOptOutList := awscdk.Aws_smsvoice.NewCfnOptOutList(this, jsii.String("MyCfnOptOutList"), &CfnOptOutListProps{
 //   	OptOutListName: jsii.String("optOutListName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

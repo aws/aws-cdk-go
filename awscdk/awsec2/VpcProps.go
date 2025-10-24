@@ -8,8 +8,8 @@ package awsec2
 //   	Cidr: jsii.String("10.0.0.0/16"),
 //   	NatGateways: jsii.Number(0),
 //   	MaxAzs: jsii.Number(3),
-//   	SubnetConfiguration: []subnetConfiguration{
-//   		&subnetConfiguration{
+//   	SubnetConfiguration: []SubnetConfiguration{
+//   		&SubnetConfiguration{
 //   			Name: jsii.String("public-subnet-1"),
 //   			SubnetType: ec2.SubnetType_PUBLIC,
 //   			CidrMask: jsii.Number(24),

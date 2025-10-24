@@ -9,12 +9,12 @@ package awsstepfunctions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var itemBatcher itemBatcher
-//   var itemReader iItemReader
+//   var itemBatcher ItemBatcher
+//   var itemReader IItemReader
 //   var itemSelector interface{}
 //   var resultSelector interface{}
-//   var resultWriter resultWriter
-//   var resultWriterV2 resultWriterV2
+//   var resultWriter ResultWriter
+//   var resultWriterV2 ResultWriterV2
 //
 //   distributedMapJsonPathProps := &DistributedMapJsonPathProps{
 //   	Assign: map[string]interface{}{

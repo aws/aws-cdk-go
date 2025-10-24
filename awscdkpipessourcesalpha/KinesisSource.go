@@ -12,8 +12,8 @@ import (
 // A source that reads from Kinesis.
 //
 // Example:
-//   var sourceStream stream
-//   var targetQueue queue
+//   var sourceStream Stream
+//   var targetQueue Queue
 //
 //
 //   pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{

@@ -52,8 +52,8 @@ import (
 //   	},
 //   	ServerUrl: jsii.String("serverUrl"),
 //   	State: jsii.String("state"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -640,25 +640,6 @@ func (j *jsiiProxy_CfnPlugin)SetType(val *string) {
 		"type",
 		val,
 	)
-}
-
-// Creates a new IPluginRef from an ARN.
-func CfnPlugin_FromPluginArn(scope constructs.Construct, id *string, arn *string) IPluginRef {
-	_init_.Initialize()
-
-	if err := validateCfnPlugin_FromPluginArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IPluginRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_qbusiness.CfnPlugin",
-		"fromPluginArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

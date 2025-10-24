@@ -8,7 +8,7 @@ package appstagingsynthesizeralpha
 //   // The values are placeholders you should change.
 //   import app_staging_synthesizer_alpha "github.com/aws/aws-cdk-go/appstagingsynthesizeralpha"
 //
-//   var bootstrapRole bootstrapRole
+//   var bootstrapRole BootstrapRole
 //
 //   stagingRoles := &StagingRoles{
 //   	DockerAssetPublishingRole: bootstrapRole,

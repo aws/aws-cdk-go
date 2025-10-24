@@ -69,8 +69,8 @@ and want to associate all stacks in the `App` scope to `MyAssociatedApplication`
 ```go
 app := awscdk.NewApp()
 associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-	Applications: []targetApplication{
-		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+	Applications: []TargetApplication{
+		appreg.TargetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
 			ApplicationName: jsii.String("MyAssociatedApplication"),
 			// 'Application containing stacks deployed via CDK.' is the default
 			ApplicationDescription: jsii.String("Associated Application description"),
@@ -94,8 +94,8 @@ If you want to remove the output, then use as shown in the example below:
 ```go
 app := awscdk.NewApp()
 associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-	Applications: []targetApplication{
-		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+	Applications: []TargetApplication{
+		appreg.TargetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
 			ApplicationName: jsii.String("MyAssociatedApplication"),
 			// 'Application containing stacks deployed via CDK.' is the default
 			ApplicationDescription: jsii.String("Associated Application description"),
@@ -120,8 +120,8 @@ and want to associate all stacks in the `App` scope to your imported application
 ```go
 app := awscdk.NewApp()
 associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-	Applications: []targetApplication{
-		appreg.*targetApplication_ExistingApplicationFromArn(&ExistingTargetApplicationOptions{
+	Applications: []TargetApplication{
+		appreg.TargetApplication_ExistingApplicationFromArn(&ExistingTargetApplicationOptions{
 			ApplicationArnValue: jsii.String("arn:aws:servicecatalog:us-east-1:123456789012:/applications/applicationId"),
 			StackName: jsii.String("MyAssociatedApplicationStack"),
 		}),
@@ -140,8 +140,8 @@ import cdk "github.com/aws/aws-cdk-go/awscdk"
 app := awscdk.NewApp()
 
 associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-	Applications: []targetApplication{
-		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+	Applications: []TargetApplication{
+		appreg.TargetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
 			ApplicationName: jsii.String("MyAssociatedApplication"),
 			// 'Application containing stacks deployed via CDK.' is the default
 			ApplicationDescription: jsii.String("Associated Application description"),
@@ -174,15 +174,15 @@ Pipeline, as shown in the example below:
 import "github.com/aws/aws-cdk-go/awscdk"
 import codepipeline "github.com/aws/aws-cdk-go/awscdk"
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
-var repo repository
-var pipeline codePipeline
-var beta stage
+var repo Repository
+var pipeline CodePipeline
+var beta Stage
 
 type applicationPipelineStack struct {
-	stack
+	Stack
 }
 
-func newApplicationPipelineStack(scope app, id *string, props applicationPipelineStackProps) *applicationPipelineStack {
+func newApplicationPipelineStack(scope App, id *string, props applicationPipelineStackProps) *applicationPipelineStack {
 	this := &applicationPipelineStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
@@ -193,14 +193,14 @@ func newApplicationPipelineStack(scope app, id *string, props applicationPipelin
 }
 
 type applicationPipelineStackProps struct {
-	stackProps
-	application applicationAssociator
+	StackProps
+	application ApplicationAssociator
 }
 
 app := awscdk.NewApp()
 associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-	Applications: []targetApplication{
-		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+	Applications: []TargetApplication{
+		appreg.TargetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
 			ApplicationName: jsii.String("MyPipelineAssociatedApplication"),
 			StackName: jsii.String("MyPipelineAssociatedApplicationStack"),
 			Env: &Environment{
@@ -232,8 +232,8 @@ as shown in the example below:
 ```go
 app := awscdk.NewApp()
 associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-	Applications: []targetApplication{
-		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+	Applications: []TargetApplication{
+		appreg.TargetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
 			AssociateCrossAccountStacks: jsii.Boolean(true),
 			ApplicationName: jsii.String("MyAssociatedApplication"),
 			Env: &Environment{
@@ -298,8 +298,8 @@ CDK will fail at deploy time.
 You can create and associate an attribute group to an application with the `addAttributeGroup()` API:
 
 ```go
-var application application
-var attributeGroup attributeGroup
+var application Application
+var attributeGroup AttributeGroup
 
 application.addAttributeGroup(jsii.String("MyAttributeGroupId"), &AttributeGroupAssociationProps{
 	AttributeGroupName: jsii.String("MyAttributeGroupName"),
@@ -314,8 +314,8 @@ application.addAttributeGroup(jsii.String("MyAttributeGroupId"), &AttributeGroup
 You can associate an application with an attribute group with `associateWith`:
 
 ```go
-var application application
-var attributeGroup attributeGroup
+var application Application
+var attributeGroup AttributeGroup
 
 attributeGroup.associateWith(application)
 ```
@@ -325,7 +325,7 @@ attributeGroup.associateWith(application)
 You can associate a stack with an application with the `associateApplicationWithStack()` API:
 
 ```go
-var application application
+var application Application
 app := awscdk.NewApp()
 myStack := awscdk.Newstack(app, jsii.String("MyStack"))
 application.associateApplicationWithStack(myStack)
@@ -339,9 +339,9 @@ You can share your AppRegistry applications and attribute groups with AWS Organi
 
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var application application
-var myRole iRole
-var myUser iUser
+var application Application
+var myRole IRole
+var myUser IUser
 
 application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
 	Name: jsii.String("MyShare"),
@@ -351,10 +351,10 @@ application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
 	OrganizationArns: []*string{
 		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
 	},
-	Roles: []*iRole{
+	Roles: []IRole{
 		myRole,
 	},
-	Users: []*iUser{
+	Users: []IUser{
 		myUser,
 	},
 })
@@ -364,7 +364,7 @@ E.g., sharing an application with multiple accounts and allowing the accounts to
 
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var application application
+var application Application
 
 application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
 	Name: jsii.String("MyShare"),
@@ -380,9 +380,9 @@ application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
 
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var attributeGroup attributeGroup
-var myRole iRole
-var myUser iUser
+var attributeGroup AttributeGroup
+var myRole IRole
+var myUser IUser
 
 attributeGroup.shareAttributeGroup(jsii.String("MyShareId"), &ShareOptions{
 	Name: jsii.String("MyShare"),
@@ -392,10 +392,10 @@ attributeGroup.shareAttributeGroup(jsii.String("MyShareId"), &ShareOptions{
 	OrganizationArns: []*string{
 		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
 	},
-	Roles: []*iRole{
+	Roles: []IRole{
 		myRole,
 	},
-	Users: []*iUser{
+	Users: []IUser{
 		myUser,
 	},
 })
@@ -405,7 +405,7 @@ E.g., sharing an application with multiple accounts and allowing the accounts to
 
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var attributeGroup attributeGroup
+var attributeGroup AttributeGroup
 
 attributeGroup.shareAttributeGroup(jsii.String("MyShareId"), &ShareOptions{
 	Name: jsii.String("MyShare"),

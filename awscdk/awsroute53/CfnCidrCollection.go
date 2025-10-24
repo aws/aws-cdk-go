@@ -12,7 +12,7 @@ import (
 // Creates a CIDR collection in the current AWS account.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   cidrCollection := route53.NewCfnCidrCollection(this, jsii.String("CidrCollection"), &CfnCidrCollectionProps{

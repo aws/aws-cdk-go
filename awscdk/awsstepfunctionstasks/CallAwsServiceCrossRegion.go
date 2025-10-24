@@ -17,7 +17,7 @@ import (
 // This task creates a Lambda function to call cross-region AWS API and invokes it.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //
 //   getObject := tasks.NewCallAwsServiceCrossRegion(this, jsii.String("GetObject"), &CallAwsServiceCrossRegionProps{
 //   	Region: jsii.String("ap-northeast-1"),

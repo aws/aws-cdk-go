@@ -46,9 +46,9 @@ import (
 // For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
 //
 // Example:
-//   var scope construct
-//   var parent construct
-//   var bucket cfnBucket
+//   var scope Construct
+//   var parent Construct
+//   var bucket CfnBucket
 //
 //
 //   // Apply DESTROY policy to all resources in a scope

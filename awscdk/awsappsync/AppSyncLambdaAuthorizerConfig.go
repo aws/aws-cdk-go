@@ -11,7 +11,7 @@ import (
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var handler function
+//   var handler Function
 //
 //
 //   iamProvider := &AppSyncAuthProvider{
@@ -35,19 +35,19 @@ import (
 //   	ApiName: jsii.String("api"),
 //   	AuthorizationConfig: &EventApiAuthConfig{
 //   		// set auth providers
-//   		AuthProviders: []appSyncAuthProvider{
+//   		AuthProviders: []AppSyncAuthProvider{
 //   			iamProvider,
 //   			apiKeyProvider,
 //   			lambdaProvider,
 //   		},
-//   		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_IAM,
+//   		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_IAM,
 //   		},
-//   		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
-//   		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_LAMBDA,
+//   		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_LAMBDA,
 //   		},
 //   	},
 //   })

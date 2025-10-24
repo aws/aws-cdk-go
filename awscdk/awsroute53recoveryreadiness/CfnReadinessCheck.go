@@ -25,8 +25,8 @@ import (
 //   cfnReadinessCheck := awscdk.Aws_route53recoveryreadiness.NewCfnReadinessCheck(this, jsii.String("MyCfnReadinessCheck"), &CfnReadinessCheckProps{
 //   	ReadinessCheckName: jsii.String("readinessCheckName"),
 //   	ResourceSetName: jsii.String("resourceSetName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

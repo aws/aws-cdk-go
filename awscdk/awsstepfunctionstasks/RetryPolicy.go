@@ -10,10 +10,10 @@ import (
 //   import scheduler "github.com/aws/aws-cdk-go/awscdk"
 //   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
-//   var scheduleGroup cfnScheduleGroup
-//   var targetQueue queue
-//   var deadLetterQueue queue
+//   var key Key
+//   var scheduleGroup CfnScheduleGroup
+//   var targetQueue Queue
+//   var deadLetterQueue Queue
 //
 //
 //   schedulerRole := iam.NewRole(this, jsii.String("SchedulerRole"), &RoleProps{

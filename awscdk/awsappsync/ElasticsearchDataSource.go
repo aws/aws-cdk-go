@@ -17,9 +17,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var domain domain
-//   var graphqlApi graphqlApi
-//   var role role
+//   var domain Domain
+//   var graphqlApi GraphqlApi
+//   var role Role
 //
 //   elasticsearchDataSource := awscdk.Aws_appsync.NewElasticsearchDataSource(this, jsii.String("MyElasticsearchDataSource"), &ElasticsearchDataSourceProps{
 //   	Api: graphqlApi,

@@ -41,8 +41,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	InactiveDate: jsii.String("inactiveDate"),
 //   	PrivateKey: jsii.String("privateKey"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

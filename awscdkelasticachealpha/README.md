@@ -40,8 +40,8 @@ The serverless cache has a default port `6379`.
 This example allows an EC2 instance to connect to the serverless cache:
 
 ```go
-var serverlessCache serverlessCache
-var instance instance
+var serverlessCache ServerlessCache
+var instance Instance
 
 
 // allow the EC2 instance to connect to serverless cache on default port 6379
@@ -61,7 +61,7 @@ You can configure usage limits on both cache data storage and ECPU/second for yo
 For more infomation, see [Setting scaling limits to manage costs](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Scaling.html#Pre-Scaling).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
@@ -94,7 +94,7 @@ For more information, see [Scheduling automatic backups](https://docs.aws.amazon
 To enable automatic backups, set the `backupRetentionLimit` property. You can also specify the snapshot creation time by setting `backupTime` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
@@ -114,7 +114,7 @@ serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessC
 You can create a final backup by setting `backupNameBeforeDeletion` property.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
@@ -130,7 +130,7 @@ serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessC
 You can restore from backups by setting snapshot ARNs to `backupArnsToRestore` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
@@ -163,8 +163,8 @@ To use CMK, set your CMK to the `kmsKey` property:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var kmsKey key
-var vpc vpc
+var kmsKey Key
+var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
@@ -183,7 +183,7 @@ You can monitor your serverless cache using CloudWatch Metrics via the `metric` 
 For more information about serverless cache metrics, see [Serverless metrics and events for Valkey and Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-metrics-events-redis.html) and [Serverless metrics and events for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-metrics-events.memcached.html).
 
 ```go
-var serverlessCache serverlessCache
+var serverlessCache ServerlessCache
 
 
 // The 5 minutes average of the total number of successful read-only key lookups in the cache.
@@ -207,12 +207,12 @@ elastiCacheProcessingUnits.CreateAlarm(this, jsii.String("ElastiCacheProcessingU
 To import an existing ServerlessCache, use the `ServerlessCache.fromServerlessCacheAttributes` method:
 
 ```go
-var securityGroup securityGroup
+var securityGroup SecurityGroup
 
 
 importedServerlessCache := elasticache.ServerlessCache_FromServerlessCacheAttributes(this, jsii.String("ImportedServerlessCache"), &ServerlessCacheAttributes{
 	ServerlessCacheName: jsii.String("my-serverless-cache"),
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		securityGroup,
 	},
 })
@@ -229,7 +229,7 @@ newDefaultUser := elasticache.NewNoPasswordUser(this, jsii.String("NoPasswordUse
 })
 
 userGroup := elasticache.NewUserGroup(this, jsii.String("UserGroup"), &UserGroupProps{
-	Users: []iUser{
+	Users: []IUser{
 		newDefaultUser,
 	},
 })
@@ -294,7 +294,7 @@ user := elasticache.NewPasswordUser(this, jsii.String("User"), &PasswordUserProp
 	UserName: jsii.String("my-user-name"),
 
 	// set up to two passwords
-	Passwords: []secretValue{
+	Passwords: []SecretValue{
 		awscdk.SecretValue_SecretsManager(jsii.String("SecretIdForPassword")),
 		awscdk.SecretValue_*SecretsManager(jsii.String("AnotherSecretIdForPassword")),
 	},
@@ -361,14 +361,14 @@ Next, use the `UserGroup` construct to create a user group and add users to it.
 Ensure that you include either the original default user or a new default user:
 
 ```go
-var newDefaultUser iUser
-var user iUser
-var anotherUser iUser
+var newDefaultUser IUser
+var user IUser
+var anotherUser IUser
 
 
 userGroup := elasticache.NewUserGroup(this, jsii.String("UserGroup"), &UserGroupProps{
 	// add users including default user
-	Users: []*iUser{
+	Users: []IUser{
 		newDefaultUser,
 		user,
 	},
@@ -383,8 +383,8 @@ userGroup.AddUser(anotherUser)
 Finally, assign a user group to cache:
 
 ```go
-var vpc vpc
-var userGroup userGroup
+var vpc Vpc
+var userGroup UserGroup
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
@@ -407,9 +407,9 @@ For more information, see [Authenticating with IAM](https://docs.aws.amazon.com/
 To grant permissions, you can use the `grantConnect` method in `IamUser` and `ServerlessCache` constructs:
 
 ```go
-var user iamUser
-var serverlessCache serverlessCache
-var role role
+var user IamUser
+var serverlessCache ServerlessCache
+var role Role
 
 
 // grant "elasticache:Connect" action permissions to role

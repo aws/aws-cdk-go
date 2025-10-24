@@ -4,8 +4,8 @@ package awscloudwatch
 // Properties for an AlarmWidget.
 //
 // Example:
-//   var dashboard dashboard
-//   var errorAlarm alarm
+//   var dashboard Dashboard
+//   var errorAlarm Alarm
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewAlarmWidget(&AlarmWidgetProps{

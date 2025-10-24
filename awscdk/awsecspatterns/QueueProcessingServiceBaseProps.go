@@ -19,16 +19,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var containerImage containerImage
-//   var logDriver logDriver
-//   var queue queue
-//   var secret secret
-//   var vpc vpc
+//   var cluster Cluster
+//   var containerImage ContainerImage
+//   var logDriver LogDriver
+//   var queue Queue
+//   var secret Secret
+//   var vpc Vpc
 //
 //   queueProcessingServiceBaseProps := &QueueProcessingServiceBaseProps{
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
 //
 //   			// the properties below are optional
@@ -67,8 +67,8 @@ import (
 //   	PropagateTags: awscdk.*Aws_ecs.PropagatedTagSource_SERVICE,
 //   	Queue: queue,
 //   	RetentionPeriod: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	ScalingSteps: []scalingInterval{
-//   		&scalingInterval{
+//   	ScalingSteps: []ScalingInterval{
+//   		&ScalingInterval{
 //   			Change: jsii.Number(123),
 //
 //   			// the properties below are optional
@@ -76,7 +76,7 @@ import (
 //   			Upper: jsii.Number(123),
 //   		},
 //   	},
-//   	Secrets: map[string]*secret{
+//   	Secrets: map[string]Secret{
 //   		"secretsKey": secret,
 //   	},
 //   	ServiceName: jsii.String("serviceName"),

@@ -8,8 +8,8 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientVpnEndpoint clientVpnEndpoint
-//   var clientVpnRouteTarget clientVpnRouteTarget
+//   var clientVpnEndpoint ClientVpnEndpoint
+//   var clientVpnRouteTarget ClientVpnRouteTarget
 //
 //   clientVpnRouteProps := &ClientVpnRouteProps{
 //   	Cidr: jsii.String("cidr"),

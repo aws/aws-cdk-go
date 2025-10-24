@@ -8,13 +8,13 @@ import (
 // Properties for the CloudFormationDeployStackSetAction.
 //
 // Example:
-//   var pipeline pipeline
-//   var sourceOutput artifact
+//   var pipeline Pipeline
+//   var sourceOutput Artifact
 //
 //
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("DeployStackSets"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		// First, update the StackSet itself with the newest template
 //   		codepipeline_actions.NewCloudFormationDeployStackSetAction(&CloudFormationDeployStackSetActionProps{
 //   			ActionName: jsii.String("UpdateStackSet"),

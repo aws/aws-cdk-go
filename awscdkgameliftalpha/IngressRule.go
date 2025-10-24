@@ -13,8 +13,8 @@ package awscdkgameliftalpha
 //   // The values are placeholders you should change.
 //   import gamelift_alpha "github.com/aws/aws-cdk-go/awscdkgameliftalpha"
 //
-//   var peer iPeer
-//   var port port
+//   var peer IPeer
+//   var port Port
 //
 //   ingressRule := &IngressRule{
 //   	Port: port,

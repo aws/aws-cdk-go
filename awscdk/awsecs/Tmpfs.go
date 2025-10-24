@@ -13,8 +13,8 @@ package awsecs
 //   	Size: jsii.Number(123),
 //
 //   	// the properties below are optional
-//   	MountOptions: []tmpfsMountOption{
-//   		awscdk.Aws_ecs.*tmpfsMountOption_DEFAULTS,
+//   	MountOptions: []TmpfsMountOption{
+//   		awscdk.Aws_ecs.TmpfsMountOption_DEFAULTS,
 //   	},
 //   }
 //

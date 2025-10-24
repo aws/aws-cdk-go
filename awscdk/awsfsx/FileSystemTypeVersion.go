@@ -4,7 +4,7 @@ package awsfsx
 // The Lustre version for the file system.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{

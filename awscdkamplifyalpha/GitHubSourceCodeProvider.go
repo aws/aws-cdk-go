@@ -14,15 +14,15 @@ import (
 //   		Repository: jsii.String("<repo>"),
 //   		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 //   	}),
-//   	CustomResponseHeaders: []customResponseHeader{
-//   		&customResponseHeader{
+//   	CustomResponseHeaders: []CustomResponseHeader{
+//   		&CustomResponseHeader{
 //   			Pattern: jsii.String("*.json"),
 //   			Headers: map[string]*string{
 //   				"custom-header-name-1": jsii.String("custom-header-value-1"),
 //   				"custom-header-name-2": jsii.String("custom-header-value-2"),
 //   			},
 //   		},
-//   		&customResponseHeader{
+//   		&CustomResponseHeader{
 //   			Pattern: jsii.String("/path/*"),
 //   			Headers: map[string]*string{
 //   				"custom-header-name-1": jsii.String("custom-header-value-2"),

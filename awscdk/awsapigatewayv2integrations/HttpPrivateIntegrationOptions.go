@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameterMapping parameterMapping
-//   var vpcLink vpcLink
+//   var parameterMapping ParameterMapping
+//   var vpcLink VpcLink
 //
 //   httpPrivateIntegrationOptions := &HttpPrivateIntegrationOptions{
 //   	Method: awscdk.Aws_apigatewayv2.HttpMethod_ANY,

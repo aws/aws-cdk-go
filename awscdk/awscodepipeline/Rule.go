@@ -8,29 +8,29 @@ import (
 // Represents a rule in AWS CodePipeline that can be used to add conditions and controls to pipeline execution.
 //
 // Example:
-//   var sourceAction codeStarConnectionsSourceAction
-//   var buildAction codeBuildAction
+//   var sourceAction CodeStarConnectionsSourceAction
+//   var buildAction CodeBuildAction
 //
 //
 //   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 //   	PipelineType: codepipeline.PipelineType_V2,
-//   	Stages: []stageProps{
-//   		&stageProps{
+//   	Stages: []StageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Source"),
-//   			Actions: []iAction{
+//   			Actions: []IAction{
 //   				sourceAction,
 //   			},
 //   		},
-//   		&stageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Build"),
-//   			Actions: []*iAction{
+//   			Actions: []IAction{
 //   				buildAction,
 //   			},
 //   			// BeforeEntry condition - checks before entering the stage
 //   			BeforeEntry: &Conditions{
-//   				Conditions: []condition{
-//   					&condition{
-//   						Rules: []rule{
+//   				Conditions: []Condition{
+//   					&Condition{
+//   						Rules: []Rule{
 //   							codepipeline.NewRule(&RuleProps{
 //   								Name: jsii.String("LambdaCheck"),
 //   								Provider: jsii.String("LambdaInvoke"),
@@ -46,10 +46,10 @@ import (
 //   			},
 //   			// OnSuccess condition - checks after successful stage completion
 //   			OnSuccess: &Conditions{
-//   				Conditions: []*condition{
-//   					&condition{
+//   				Conditions: []Condition{
+//   					&Condition{
 //   						Result: codepipeline.Result_FAIL,
-//   						Rules: []*rule{
+//   						Rules: []Rule{
 //   							codepipeline.NewRule(&RuleProps{
 //   								Name: jsii.String("CloudWatchCheck"),
 //   								Provider: jsii.String("LambdaInvoke"),
@@ -67,10 +67,10 @@ import (
 //   			},
 //   			// OnFailure condition - handles stage failure
 //   			OnFailure: &FailureConditions{
-//   				Conditions: []*condition{
-//   					&condition{
+//   				Conditions: []Condition{
+//   					&Condition{
 //   						Result: codepipeline.Result_ROLLBACK,
-//   						Rules: []*rule{
+//   						Rules: []Rule{
 //   							codepipeline.NewRule(&RuleProps{
 //   								Name: jsii.String("RollBackOnFailure"),
 //   								Provider: jsii.String("LambdaInvoke"),

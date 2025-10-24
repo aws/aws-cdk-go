@@ -45,8 +45,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	SoftwareSetUpdateMode: jsii.String("softwareSetUpdateMode"),
 //   	SoftwareSetUpdateSchedule: jsii.String("softwareSetUpdateSchedule"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

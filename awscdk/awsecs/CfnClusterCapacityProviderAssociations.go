@@ -17,9 +17,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnClusterCapacityProviderAssociations := awscdk.Aws_ecs.NewCfnClusterCapacityProviderAssociations(this, jsii.String("MyCfnClusterCapacityProviderAssociations"), &CfnClusterCapacityProviderAssociationsProps{
-//   	CapacityProviders: []*string{
-//   		jsii.String("capacityProviders"),
-//   	},
 //   	Cluster: jsii.String("cluster"),
 //   	DefaultCapacityProviderStrategy: []interface{}{
 //   		&CapacityProviderStrategyProperty{
@@ -29,6 +26,11 @@ import (
 //   			Base: jsii.Number(123),
 //   			Weight: jsii.Number(123),
 //   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	CapacityProviders: []*string{
+//   		jsii.String("capacityProviders"),
 //   	},
 //   })
 //
@@ -395,9 +397,6 @@ func NewCfnClusterCapacityProviderAssociations_Override(c CfnClusterCapacityProv
 }
 
 func (j *jsiiProxy_CfnClusterCapacityProviderAssociations)SetCapacityProviders(val *[]*string) {
-	if err := j.validateSetCapacityProvidersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"capacityProviders",

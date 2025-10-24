@@ -15,7 +15,7 @@ import (
 // and execute them in sequence with Pipeline Resolvers.
 //
 // Example:
-//   var api graphqlApi
+//   var api GraphqlApi
 //
 //
 //   appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{

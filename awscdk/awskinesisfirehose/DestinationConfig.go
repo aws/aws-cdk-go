@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var dependable iDependable
+//   var dependable IDependable
 //
 //   destinationConfig := &DestinationConfig{
-//   	Dependables: []*iDependable{
+//   	Dependables: []IDependable{
 //   		dependable,
 //   	},
 //   	ExtendedS3DestinationConfiguration: &ExtendedS3DestinationConfigurationProperty{

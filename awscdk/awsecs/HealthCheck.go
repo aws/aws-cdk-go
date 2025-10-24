@@ -7,8 +7,8 @@ import (
 // The health check command and associated configuration parameters for the container.
 //
 // Example:
-//   var vpc vpc
-//   var securityGroup securityGroup
+//   var vpc Vpc
+//   var securityGroup SecurityGroup
 //
 //   queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 //   	Vpc: Vpc,

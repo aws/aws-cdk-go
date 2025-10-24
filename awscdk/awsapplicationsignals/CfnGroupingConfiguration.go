@@ -36,7 +36,7 @@ type CfnGroupingConfiguration interface {
 	awscdk.CfnResource
 	IGroupingConfigurationRef
 	awscdk.IInspectable
-	// The identifier for the specified AWS account.
+	// The 12 digit AWS Account ID for the account.
 	AttrAccountId() *string
 	// The timestamp when this grouping configuration was last updated.
 	//

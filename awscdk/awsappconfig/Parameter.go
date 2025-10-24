@@ -8,21 +8,21 @@ import (
 // Defines a parameter for an extension.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //
 //   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
+//   	Actions: []Action{
 //   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+//   			ActionPoints: []ActionPoint{
+//   				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 //   			},
 //   			EventDestination: appconfig.NewLambdaDestination(fn),
 //   		}),
 //   	},
-//   	Parameters: []parameter{
-//   		appconfig.*parameter_Required(jsii.String("testParam"), jsii.String("true")),
-//   		appconfig.*parameter_NotRequired(jsii.String("testNotRequiredParam")),
+//   	Parameters: []Parameter{
+//   		appconfig.Parameter_Required(jsii.String("testParam"), jsii.String("true")),
+//   		appconfig.Parameter_NotRequired(jsii.String("testNotRequiredParam")),
 //   	},
 //   })
 //

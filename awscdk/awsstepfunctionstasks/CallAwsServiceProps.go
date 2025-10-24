@@ -9,7 +9,7 @@ import (
 // Properties for calling an AWS service's API action from your state machine.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //
 //   getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &CallAwsServiceProps{
 //   	Service: jsii.String("s3"),

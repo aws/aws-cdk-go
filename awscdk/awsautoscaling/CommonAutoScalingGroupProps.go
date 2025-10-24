@@ -18,25 +18,25 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var blockDeviceVolume blockDeviceVolume
-//   var groupMetrics groupMetrics
-//   var healthCheck healthCheck
-//   var healthChecks healthChecks
-//   var keyPair keyPair
-//   var scalingEvents scalingEvents
-//   var signals signals
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var topic topic
-//   var updatePolicy updatePolicy
+//   var blockDeviceVolume BlockDeviceVolume
+//   var groupMetrics GroupMetrics
+//   var healthCheck HealthCheck
+//   var healthChecks HealthChecks
+//   var keyPair KeyPair
+//   var scalingEvents ScalingEvents
+//   var signals Signals
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var topic Topic
+//   var updatePolicy UpdatePolicy
 //
 //   commonAutoScalingGroupProps := &CommonAutoScalingGroupProps{
 //   	AllowAllOutbound: jsii.Boolean(false),
 //   	AssociatePublicIpAddress: jsii.Boolean(false),
 //   	AutoScalingGroupName: jsii.String("autoScalingGroupName"),
 //   	AzCapacityDistributionStrategy: awscdk.Aws_autoscaling.CapacityDistributionStrategy_BALANCED_ONLY,
-//   	BlockDevices: []blockDevice{
-//   		&blockDevice{
+//   	BlockDevices: []BlockDevice{
+//   		&BlockDevice{
 //   			DeviceName: jsii.String("deviceName"),
 //   			Volume: blockDeviceVolume,
 //   		},
@@ -45,7 +45,7 @@ import (
 //   	Cooldown: cdk.Duration_Minutes(jsii.Number(30)),
 //   	DefaultInstanceWarmup: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	DesiredCapacity: jsii.Number(123),
-//   	GroupMetrics: []*groupMetrics{
+//   	GroupMetrics: []GroupMetrics{
 //   		groupMetrics,
 //   	},
 //   	HealthCheck: healthCheck,
@@ -58,8 +58,8 @@ import (
 //   	MaxInstanceLifetime: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	MinCapacity: jsii.Number(123),
 //   	NewInstancesProtectedFromScaleIn: jsii.Boolean(false),
-//   	Notifications: []notificationConfiguration{
-//   		&notificationConfiguration{
+//   	Notifications: []NotificationConfiguration{
+//   		&NotificationConfiguration{
 //   			Topic: topic,
 //
 //   			// the properties below are optional
@@ -69,8 +69,8 @@ import (
 //   	Signals: signals,
 //   	SpotPrice: jsii.String("spotPrice"),
 //   	SsmSessionPermissions: jsii.Boolean(false),
-//   	TerminationPolicies: []terminationPolicy{
-//   		awscdk.*Aws_autoscaling.*terminationPolicy_ALLOCATION_STRATEGY,
+//   	TerminationPolicies: []TerminationPolicy{
+//   		awscdk.*Aws_autoscaling.TerminationPolicy_ALLOCATION_STRATEGY,
 //   	},
 //   	TerminationPolicyCustomLambdaFunctionArn: jsii.String("terminationPolicyCustomLambdaFunctionArn"),
 //   	UpdatePolicy: updatePolicy,
@@ -79,11 +79,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

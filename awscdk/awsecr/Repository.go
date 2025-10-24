@@ -13,19 +13,15 @@ import (
 // Define an ECR repository.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   repo := ecr.NewRepository(this, jsii.String("Repo"))
-//   lambdaHandler := lambda.NewFunction(this, jsii.String("LambdaFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Code: lambda.Code_FromInline(jsii.String("# dummy func")),
-//   	Handler: jsii.String("index.handler"),
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+//   	RepositoryName: jsii.String("test-agent-runtime"),
 //   })
+//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
-//   repo.OnEvent(jsii.String("OnEventTargetLambda"), &OnEventOptions{
-//   	Target: awscdk.NewLambdaFunction(lambdaHandler),
+//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+//   	RuntimeName: jsii.String("myAgent"),
+//   	AgentRuntimeArtifact: agentRuntimeArtifact,
+//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
 //   })
 //
 type Repository interface {

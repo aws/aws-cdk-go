@@ -13,8 +13,8 @@ import (
 // A EventBridge Pipes target that sends messages to an SQS queue.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
 //
 //   pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{

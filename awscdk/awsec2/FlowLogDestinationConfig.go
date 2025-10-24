@@ -16,9 +16,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var logGroup logGroup
-//   var role role
+//   var bucket Bucket
+//   var logGroup LogGroup
+//   var role Role
 //
 //   flowLogDestinationConfig := &FlowLogDestinationConfig{
 //   	LogDestinationType: awscdk.Aws_ec2.FlowLogDestinationType_CLOUD_WATCH_LOGS,

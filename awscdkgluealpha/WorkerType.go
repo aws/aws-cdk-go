@@ -6,9 +6,9 @@ package awscdkgluealpha
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
-//   var stack stack
-//   var role iRole
-//   var script code
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
 //   glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 //   	JobName: jsii.String("PySparkETLJobCustomName"),
@@ -22,7 +22,7 @@ package awscdkgluealpha
 //   	WorkerType: glue.WorkerType_G_2X,
 //   	MaxConcurrentRuns: jsii.Number(100),
 //   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-//   	Connections: []iConnection{
+//   	Connections: []IConnection{
 //   		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 //   	},
 //   	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),

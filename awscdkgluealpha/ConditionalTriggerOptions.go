@@ -10,13 +10,13 @@ package awscdkgluealpha
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnCrawler cfnCrawler
-//   var job job
-//   var securityConfiguration securityConfiguration
+//   var cfnCrawler CfnCrawler
+//   var job Job
+//   var securityConfiguration SecurityConfiguration
 //
 //   conditionalTriggerOptions := &ConditionalTriggerOptions{
-//   	Actions: []action{
-//   		&action{
+//   	Actions: []Action{
+//   		&Action{
 //   			Arguments: map[string]*string{
 //   				"argumentsKey": jsii.String("arguments"),
 //   			},
@@ -27,8 +27,8 @@ package awscdkgluealpha
 //   		},
 //   	},
 //   	Predicate: &Predicate{
-//   		Conditions: []condition{
-//   			&condition{
+//   		Conditions: []Condition{
+//   			&Condition{
 //   				CrawlerName: jsii.String("crawlerName"),
 //   				CrawlState: glue_alpha.CrawlerState_RUNNING,
 //   				Job: job,

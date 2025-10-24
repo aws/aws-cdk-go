@@ -8,11 +8,11 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   clientVpnEndpointAttributes := &ClientVpnEndpointAttributes{
 //   	EndpointId: jsii.String("endpointId"),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

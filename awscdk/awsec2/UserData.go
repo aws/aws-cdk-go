@@ -10,7 +10,7 @@ import (
 // Instance User Data.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   userData := ec2.UserData_ForLinux()
 //   userData.AddCommands(jsii.String("set -o xtrace"),

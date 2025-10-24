@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnListenerRule) validateSetPriorityParameters(val *float64) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnListenerRule) validateSetTransformsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnListenerRuleParameters(scope constructs.Construct, id *string, props *CfnListenerRuleProps) error {
 	return nil
 }

@@ -12,7 +12,7 @@ import (
 // A interface VPC endpoint.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &InterfaceVpcEndpointProps{

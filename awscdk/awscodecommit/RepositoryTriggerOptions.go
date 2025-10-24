@@ -13,8 +13,8 @@ package awscodecommit
 //   		jsii.String("branches"),
 //   	},
 //   	CustomData: jsii.String("customData"),
-//   	Events: []repositoryEventTrigger{
-//   		awscdk.Aws_codecommit.*repositoryEventTrigger_ALL,
+//   	Events: []RepositoryEventTrigger{
+//   		awscdk.Aws_codecommit.RepositoryEventTrigger_ALL,
 //   	},
 //   	Name: jsii.String("name"),
 //   }

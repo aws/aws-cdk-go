@@ -12,9 +12,9 @@ import (
 //   import servicecatalogappregistry_alpha "github.com/aws/aws-cdk-go/awscdkservicecatalogappregistryalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var permissionsBoundary permissionsBoundary
-//   var propertyInjector iPropertyInjector
-//   var stackSynthesizer stackSynthesizer
+//   var permissionsBoundary PermissionsBoundary
+//   var propertyInjector IPropertyInjector
+//   var stackSynthesizer StackSynthesizer
 //
 //   targetApplicationCommonOptions := &TargetApplicationCommonOptions{
 //   	AnalyticsReporting: jsii.Boolean(false),
@@ -29,7 +29,7 @@ import (
 //   		jsii.String("notificationArns"),
 //   	},
 //   	PermissionsBoundary: permissionsBoundary,
-//   	PropertyInjectors: []*iPropertyInjector{
+//   	PropertyInjectors: []IPropertyInjector{
 //   		propertyInjector,
 //   	},
 //   	StackId: jsii.String("stackId"),

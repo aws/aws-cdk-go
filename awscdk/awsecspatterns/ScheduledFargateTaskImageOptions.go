@@ -7,7 +7,7 @@ import (
 // The properties for the ScheduledFargateTask using an image.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 //   	Cluster: Cluster,

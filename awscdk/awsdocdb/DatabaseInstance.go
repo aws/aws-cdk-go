@@ -19,9 +19,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var caCertificate caCertificate
-//   var databaseCluster databaseCluster
-//   var instanceType instanceType
+//   var caCertificate CaCertificate
+//   var databaseCluster DatabaseCluster
+//   var instanceType InstanceType
 //
 //   databaseInstance := awscdk.Aws_docdb.NewDatabaseInstance(this, jsii.String("MyDatabaseInstance"), &DatabaseInstanceProps{
 //   	Cluster: databaseCluster,

@@ -91,7 +91,7 @@ Subscribe an AWS Lambda function to your topic:
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var myFunction function
+var myFunction Function
 
 
 myTopic := sns.NewTopic(this, jsii.String("myTopic"))
@@ -150,7 +150,7 @@ Subscribe an Amazon Data Firehose delivery stream to your topic:
 
 ```go
 import firehose "github.com/aws/aws-cdk-go/awscdk"
-var stream deliveryStream
+var stream DeliveryStream
 
 
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
@@ -162,7 +162,7 @@ To remove any Amazon SNS metadata from published messages, specify `rawMessageDe
 
 ```go
 import firehose "github.com/aws/aws-cdk-go/awscdk"
-var stream deliveryStream
+var stream DeliveryStream
 
 
 myTopic := sns.NewTopic(this, jsii.String("Topic"))

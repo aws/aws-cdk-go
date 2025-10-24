@@ -8,7 +8,7 @@ package awsbedrockalpha
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var agentAlias agentAlias
+//   var agentAlias AgentAlias
 //
 //   agentGenAiResourceProps := &AgentGenAiResourceProps{
 //   	AgentAlias: agentAlias,

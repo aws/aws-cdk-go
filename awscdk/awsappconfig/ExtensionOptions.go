@@ -8,13 +8,13 @@ package awsappconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameter parameter
+//   var parameter Parameter
 //
 //   extensionOptions := &ExtensionOptions{
 //   	Description: jsii.String("description"),
 //   	ExtensionName: jsii.String("extensionName"),
 //   	LatestVersionNumber: jsii.Number(123),
-//   	Parameters: []*parameter{
+//   	Parameters: []Parameter{
 //   		parameter,
 //   	},
 //   }

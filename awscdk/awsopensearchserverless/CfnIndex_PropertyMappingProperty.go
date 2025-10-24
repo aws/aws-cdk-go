@@ -8,9 +8,9 @@ package awsopensearchserverless
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMappingProperty_ propertyMappingProperty
+//   var propertyMappingProperty_ PropertyMappingProperty
 //
-//   propertyMappingProperty := &propertyMappingProperty{
+//   propertyMappingProperty := &PropertyMappingProperty{
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional

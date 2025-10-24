@@ -118,8 +118,8 @@ domain := awscdk.Domain_FromDomainAttributes(this, jsii.String("ImportedDomain")
 Helper methods also exist for managing access to the domain.
 
 ```go
-var fn function
-var domain domain
+var fn Function
+var domain Domain
 
 
 // Grant write access to the app-search index
@@ -183,7 +183,7 @@ which security groups will be attached to the domain. By default, CDK will selec
 Helper methods exist to access common domain metrics for example:
 
 ```go
-var domain domain
+var domain Domain
 
 freeStorageSpace := domain.metricFreeStorageSpace()
 masterSysMemoryUtilization := domain.metric(jsii.String("MasterSysMemoryUtilization"))
@@ -279,14 +279,14 @@ For simple permissions the `accessPolicies` constructor may be sufficient:
 ```go
 domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
-	AccessPolicies: []policyStatement{
+	AccessPolicies: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("es:*ESHttpPost"),
 				jsii.String("es:ESHttpPut*"),
 			},
 			Effect: iam.Effect_ALLOW,
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewAccountPrincipal(jsii.String("123456789012")),
 			},
 			Resources: []*string{
@@ -312,7 +312,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("es:ESHttpPut"),
 	},
 	Effect: iam.Effect_ALLOW,
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
 	Resources: []*string{
@@ -325,7 +325,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("es:ESHttpGet"),
 	},
 	Effect: iam.Effect_ALLOW,
-	Principals: []*iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
 	Resources: []*string{
@@ -470,7 +470,7 @@ The domain can be configured to use Amazon Cognito authentication for OpenSearch
 > Visit [Configuring Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) for more details.
 
 ```go
-var cognitoConfigurationRole role
+var cognitoConfigurationRole Role
 
 
 domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
@@ -567,8 +567,8 @@ import opensearch "github.com/aws/aws-cdk-go/awscdk"
 domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
 	Capacity: &CapacityConfig{
-		NodeOptions: []nodeOptions{
-			&nodeOptions{
+		NodeOptions: []NodeOptions{
+			&NodeOptions{
 				NodeType: opensearch.NodeType_COORDINATOR,
 				NodeConfig: &NodeConfig{
 					Enabled: jsii.Boolean(true),

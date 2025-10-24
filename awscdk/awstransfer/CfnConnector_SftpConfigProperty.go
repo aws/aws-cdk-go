@@ -37,6 +37,8 @@ type CfnConnector_SftpConfigProperty struct {
 	//
 	// > `TrustedHostKeys` is optional for `CreateConnector` . If not provided, you can use `TestConnection` to retrieve the server host key during the initial connection attempt, and subsequently update the connector with the observed host key.
 	//
+	// When creating connectors with egress config (VPC_LATTICE type connectors), since host name is not something we can verify, the only accepted trusted host key format is `key-type key-body` without the host name. For example: `ssh-rsa AAAAB3Nza...<long-string-for-public-key>`
+	//
 	// The three standard SSH public key format elements are `<key type>` , `<body base64>` , and an optional `<comment>` , with spaces between each element. Specify only the `<key type>` and `<body base64>` : do not enter the `<comment>` portion of the key.
 	//
 	// For the trusted host key, AWS Transfer Family accepts RSA and ECDSA keys.
@@ -50,9 +52,11 @@ type CfnConnector_SftpConfigProperty struct {
 	//
 	// This prints the public host key to standard output.
 	//
-	// `ftp.host.com ssh-rsa AAAAB3Nza...<long-string-for-public-key`
+	// `ftp.host.com ssh-rsa AAAAB3Nza...<long-string-for-public-key>`
 	//
 	// Copy and paste this string into the `TrustedHostKeys` field for the `create-connector` command or into the *Trusted host keys* field in the console.
+	//
+	// For VPC Lattice type connectors (VPC_LATTICE), remove the hostname from the key and use only the `key-type key-body` format. In this example, it should be: `ssh-rsa AAAAB3Nza...<long-string-for-public-key>`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-trustedhostkeys
 	//
 	TrustedHostKeys *[]*string `field:"optional" json:"trustedHostKeys" yaml:"trustedHostKeys"`

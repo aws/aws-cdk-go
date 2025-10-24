@@ -30,8 +30,8 @@ import (
 //   	PreserveOnDelete: jsii.Boolean(false),
 //   	ResolveConflicts: jsii.String("resolveConflicts"),
 //   	ServiceAccountRoleArn: jsii.String("serviceAccountRoleArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

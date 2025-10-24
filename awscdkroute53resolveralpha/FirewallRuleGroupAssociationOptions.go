@@ -9,8 +9,8 @@ import (
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var ruleGroup firewallRuleGroup
-//   var myVpc vpc
+//   var ruleGroup FirewallRuleGroup
+//   var myVpc Vpc
 //
 //
 //   ruleGroup.Associate(jsii.String("Association"), &FirewallRuleGroupAssociationOptions{

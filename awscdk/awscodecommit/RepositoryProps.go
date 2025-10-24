@@ -5,7 +5,7 @@ import (
 )
 
 // Example:
-//   var project pipelineProject
+//   var project PipelineProject
 //
 //   repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &RepositoryProps{
 //   	RepositoryName: jsii.String("MyRepository"),
@@ -22,7 +22,7 @@ import (
 //   	ActionName: jsii.String("CodeBuild"),
 //   	Project: Project,
 //   	Input: sourceOutput,
-//   	Outputs: []artifact{
+//   	Outputs: []Artifact{
 //   		codepipeline.NewArtifact(),
 //   	},
 //   	 // optional
@@ -32,16 +32,16 @@ import (
 //   })
 //
 //   codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
-//   	Stages: []stageProps{
-//   		&stageProps{
+//   	Stages: []StageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Source"),
-//   			Actions: []iAction{
+//   			Actions: []IAction{
 //   				sourceAction,
 //   			},
 //   		},
-//   		&stageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Build"),
-//   			Actions: []*iAction{
+//   			Actions: []IAction{
 //   				buildAction,
 //   			},
 //   		},

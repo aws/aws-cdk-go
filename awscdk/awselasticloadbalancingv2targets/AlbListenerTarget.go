@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import patterns "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &FargateTaskDefinitionProps{
@@ -23,8 +23,8 @@ import (
 //   })
 //   task.AddContainer(jsii.String("nginx"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
+//   	PortMappings: []PortMapping{
+//   		&PortMapping{
 //   			ContainerPort: jsii.Number(80),
 //   		},
 //   	},
@@ -47,7 +47,7 @@ import (
 //   })
 //
 //   listener.AddTargets(jsii.String("Targets"), &AddNetworkTargetsProps{
-//   	Targets: []iNetworkLoadBalancerTarget{
+//   	Targets: []INetworkLoadBalancerTarget{
 //   		targets.NewAlbListenerTarget(svc.Listener),
 //   	},
 //   	Port: jsii.Number(80),

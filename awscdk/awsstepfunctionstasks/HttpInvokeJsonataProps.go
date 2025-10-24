@@ -10,7 +10,7 @@ import (
 //
 // Example:
 //   import events "github.com/aws/aws-cdk-go/awscdk"
-//   var connection connection
+//   var connection Connection
 //
 //
 //   getIssue := tasks.HttpInvoke_Jsonata(this, jsii.String("Get Issue"), &HttpInvokeJsonataProps{

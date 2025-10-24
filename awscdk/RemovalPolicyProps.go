@@ -4,9 +4,9 @@ package awscdk
 // Properties for applying a removal policy.
 //
 // Example:
-//   var scope construct
-//   var parent construct
-//   var bucket cfnBucket
+//   var scope Construct
+//   var parent Construct
+//   var bucket CfnBucket
 //
 //
 //   // Apply DESTROY policy to all resources in a scope

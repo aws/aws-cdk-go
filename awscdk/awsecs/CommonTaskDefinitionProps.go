@@ -15,8 +15,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var proxyConfiguration proxyConfiguration
-//   var role role
+//   var proxyConfiguration ProxyConfiguration
+//   var role Role
 //
 //   commonTaskDefinitionProps := &CommonTaskDefinitionProps{
 //   	EnableFaultInjection: jsii.Boolean(false),
@@ -24,8 +24,8 @@ import (
 //   	Family: jsii.String("family"),
 //   	ProxyConfiguration: proxyConfiguration,
 //   	TaskRole: role,
-//   	Volumes: []volume{
-//   		&volume{
+//   	Volumes: []Volume{
+//   		&Volume{
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional

@@ -95,12 +95,18 @@ import (
 //   		&RuleConditionProperty{
 //   			Field: jsii.String("field"),
 //   			HostHeaderConfig: &HostHeaderConfigProperty{
+//   				RegexValues: []*string{
+//   					jsii.String("regexValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
 //   			},
 //   			HttpHeaderConfig: &HttpHeaderConfigProperty{
 //   				HttpHeaderName: jsii.String("httpHeaderName"),
+//   				RegexValues: []*string{
+//   					jsii.String("regexValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
@@ -111,6 +117,9 @@ import (
 //   				},
 //   			},
 //   			PathPatternConfig: &PathPatternConfigProperty{
+//   				RegexValues: []*string{
+//   					jsii.String("regexValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
@@ -122,6 +131,9 @@ import (
 //   						Value: jsii.String("value"),
 //   					},
 //   				},
+//   			},
+//   			RegexValues: []*string{
+//   				jsii.String("regexValues"),
 //   			},
 //   			SourceIpConfig: &SourceIpConfigProperty{
 //   				Values: []*string{
@@ -137,6 +149,29 @@ import (
 //
 //   	// the properties below are optional
 //   	ListenerArn: jsii.String("listenerArn"),
+//   	Transforms: []interface{}{
+//   		&TransformProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			HostHeaderRewriteConfig: &RewriteConfigObjectProperty{
+//   				Rewrites: []interface{}{
+//   					&RewriteConfigProperty{
+//   						Regex: jsii.String("regex"),
+//   						Replace: jsii.String("replace"),
+//   					},
+//   				},
+//   			},
+//   			UrlRewriteConfig: &RewriteConfigObjectProperty{
+//   				Rewrites: []interface{}{
+//   					&RewriteConfigProperty{
+//   						Regex: jsii.String("regex"),
+//   						Replace: jsii.String("replace"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
@@ -195,6 +230,8 @@ type CfnListenerRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Transforms() interface{}
+	SetTransforms(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -492,6 +529,16 @@ func (j *jsiiProxy_CfnListenerRule) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnListenerRule) Transforms() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"transforms",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnListenerRule) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -577,6 +624,17 @@ func (j *jsiiProxy_CfnListenerRule)SetPriority(val *float64) {
 	_jsii_.Set(
 		j,
 		"priority",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnListenerRule)SetTransforms(val interface{}) {
+	if err := j.validateSetTransformsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"transforms",
 		val,
 	)
 }

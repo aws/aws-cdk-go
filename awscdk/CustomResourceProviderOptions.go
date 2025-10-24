@@ -9,7 +9,7 @@ package awscdk
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyStatements interface{}
-//   var size size
+//   var size Size
 //
 //   customResourceProviderOptions := &CustomResourceProviderOptions{
 //   	Description: jsii.String("description"),

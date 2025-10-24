@@ -7,8 +7,8 @@ import (
 // Properties for constructing a Key Signing Key.
 //
 // Example:
-//   var hostedZone hostedZone
-//   var kmsKey key
+//   var hostedZone HostedZone
+//   var kmsKey Key
 //
 //   route53.NewKeySigningKey(this, jsii.String("KeySigningKey"), &KeySigningKeyProps{
 //   	HostedZone: HostedZone,

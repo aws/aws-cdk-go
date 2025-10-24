@@ -335,6 +335,7 @@ import (
 //   			},
 //   		},
 //   		ExecutionRoleIdentityConfig: jsii.String("executionRoleIdentityConfig"),
+//   		IpAddressType: jsii.String("ipAddressType"),
 //   		RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   			DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -366,8 +367,8 @@ import (
 //   		jsii.String("subnetIds"),
 //   	},
 //   	TagPropagation: jsii.String("tagPropagation"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

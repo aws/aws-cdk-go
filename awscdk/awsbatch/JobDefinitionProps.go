@@ -13,7 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   var retryStrategy retryStrategy
+//   var retryStrategy RetryStrategy
 //
 //   jobDefinitionProps := &JobDefinitionProps{
 //   	JobDefinitionName: jsii.String("jobDefinitionName"),
@@ -21,7 +21,7 @@ import (
 //   		"parametersKey": parameters,
 //   	},
 //   	RetryAttempts: jsii.Number(123),
-//   	RetryStrategies: []*retryStrategy{
+//   	RetryStrategies: []RetryStrategy{
 //   		retryStrategy,
 //   	},
 //   	SchedulingPriority: jsii.Number(123),

@@ -57,8 +57,8 @@ import (
 //   	DefaultRoute: &DefaultRouteInputProperty{
 //   		ActivationState: jsii.String("activationState"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

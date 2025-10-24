@@ -36,8 +36,8 @@ import (
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

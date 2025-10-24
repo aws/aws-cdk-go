@@ -14,8 +14,8 @@ import (
 // Example:
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
-//   var logGroup logGroup
+//   var fn Function
+//   var logGroup LogGroup
 //
 //
 //   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{

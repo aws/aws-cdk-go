@@ -8,12 +8,12 @@ package awsglobalaccelerator
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var accelerator accelerator
+//   var accelerator Accelerator
 //
 //   listenerProps := &ListenerProps{
 //   	Accelerator: accelerator,
-//   	PortRanges: []portRange{
-//   		&portRange{
+//   	PortRanges: []PortRange{
+//   		&PortRange{
 //   			FromPort: jsii.Number(123),
 //
 //   			// the properties below are optional

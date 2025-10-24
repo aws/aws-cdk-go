@@ -12,8 +12,8 @@ import (
 //   import route53resolver_alpha "github.com/aws/aws-cdk-go/awscdkroute53resolveralpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var firewallRuleGroup firewallRuleGroup
-//   var vpc vpc
+//   var firewallRuleGroup FirewallRuleGroup
+//   var vpc Vpc
 //
 //   firewallRuleGroupAssociationProps := &FirewallRuleGroupAssociationProps{
 //   	FirewallRuleGroup: firewallRuleGroup,

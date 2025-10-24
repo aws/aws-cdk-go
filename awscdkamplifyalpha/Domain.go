@@ -13,9 +13,9 @@ import (
 // An Amplify Console domain.
 //
 // Example:
-//   var amplifyApp app
-//   var main branch
-//   var dev branch
+//   var amplifyApp App
+//   var main Branch
+//   var dev Branch
 //
 //
 //   domain := amplifyApp.AddDomain(jsii.String("example.com"), &DomainOptions{

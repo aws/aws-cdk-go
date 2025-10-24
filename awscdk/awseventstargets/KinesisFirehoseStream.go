@@ -18,8 +18,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnDeliveryStream cfnDeliveryStream
-//   var ruleTargetInput ruleTargetInput
+//   var cfnDeliveryStream CfnDeliveryStream
+//   var ruleTargetInput RuleTargetInput
 //
 //   kinesisFirehoseStream := awscdk.Aws_events_targets.NewKinesisFirehoseStream(cfnDeliveryStream, &KinesisFirehoseStreamProps{
 //   	Message: ruleTargetInput,

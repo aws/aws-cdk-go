@@ -14,11 +14,11 @@ import (
 // A StepFunctions task to call DynamoDeleteItem.
 //
 // Example:
-//   var myTable table
+//   var myTable Table
 //
 //   tasks.NewDynamoDeleteItem(this, jsii.String("DeleteItem"), &DynamoDeleteItemProps{
-//   	Key: map[string]dynamoAttributeValue{
-//   		"MessageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
+//   	Key: map[string]DynamoAttributeValue{
+//   		"MessageId": tasks.DynamoAttributeValue_fromString(jsii.String("message-007")),
 //   	},
 //   	Table: myTable,
 //   	ResultPath: sfn.JsonPath_DISCARD(),

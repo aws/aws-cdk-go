@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var proxyConfiguration proxyConfiguration
-//   var role role
+//   var proxyConfiguration ProxyConfiguration
+//   var role Role
 //
 //   externalTaskDefinitionProps := &ExternalTaskDefinitionProps{
 //   	EnableFaultInjection: jsii.Boolean(false),
@@ -22,8 +22,8 @@ import (
 //   	NetworkMode: awscdk.Aws_ecs.NetworkMode_NONE,
 //   	ProxyConfiguration: proxyConfiguration,
 //   	TaskRole: role,
-//   	Volumes: []volume{
-//   		&volume{
+//   	Volumes: []Volume{
+//   		&Volume{
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional

@@ -102,9 +102,9 @@ type CfnListenerRule_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
 	//
 	FixedResponseConfig interface{} `field:"optional" json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
-	// Information for creating an action that distributes requests among one or more target groups.
+	// Information for creating an action that distributes requests among multiple target groups. Specify only when `Type` is `forward` .
 	//
-	// For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
+	// If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
 	//
 	ForwardConfig interface{} `field:"optional" json:"forwardConfig" yaml:"forwardConfig"`
@@ -122,7 +122,7 @@ type CfnListenerRule_ActionProperty struct {
 	RedirectConfig interface{} `field:"optional" json:"redirectConfig" yaml:"redirectConfig"`
 	// The Amazon Resource Name (ARN) of the target group.
 	//
-	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to one or more target groups, use `ForwardConfig` instead.
+	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to multiple target groups, you must use `ForwardConfig` instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-targetgrouparn
 	//
 	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`

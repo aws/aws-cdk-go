@@ -13,6 +13,7 @@ package awscloudfront
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	Tags: &TagsProperty{
 //   		Items: []interface{}{
 //   			&CfnTag{
@@ -34,6 +35,9 @@ type CfnAnycastIpListProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// A complex type that contains zero or more `Tag` elements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-tags
 	//

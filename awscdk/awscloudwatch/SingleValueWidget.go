@@ -8,11 +8,11 @@ import (
 // A dashboard widget that displays the most recent value for every metric.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
-//   	Metrics: []iMetric{
+//   	Metrics: []IMetric{
 //   	},
 //
 //   	Period: awscdk.Duration_Minutes(jsii.Number(15)),

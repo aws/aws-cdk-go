@@ -14,9 +14,9 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnCrawler cfnCrawler
-//   var job job
-//   var securityConfiguration securityConfiguration
+//   var cfnCrawler CfnCrawler
+//   var job Job
+//   var securityConfiguration SecurityConfiguration
 //
 //   action := &Action{
 //   	Arguments: map[string]*string{

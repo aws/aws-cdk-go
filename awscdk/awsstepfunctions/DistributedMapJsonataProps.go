@@ -9,13 +9,13 @@ package awsstepfunctions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var itemBatcher itemBatcher
-//   var itemReader iItemReader
+//   var itemBatcher ItemBatcher
+//   var itemReader IItemReader
 //   var itemSelector interface{}
 //   var outputs interface{}
-//   var provideItems provideItems
-//   var resultWriter resultWriter
-//   var resultWriterV2 resultWriterV2
+//   var provideItems ProvideItems
+//   var resultWriter ResultWriter
+//   var resultWriterV2 ResultWriterV2
 //
 //   distributedMapJsonataProps := &DistributedMapJsonataProps{
 //   	Assign: map[string]interface{}{

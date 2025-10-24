@@ -144,7 +144,7 @@ Each of these synthesizers takes configuration arguments. To configure
 a stack with a synthesizer, pass it as one of its properties:
 
 ```go
-NewMyStack(app, jsii.String("MyStack"), &stackProps{
+NewMyStack(app, jsii.String("MyStack"), &StackProps{
 	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
 		FileAssetsBucketName: jsii.String("amzn-s3-demo-bucket"),
 	}),
@@ -165,12 +165,12 @@ These options are available via the `DefaultStackSynthesizer` properties:
 
 ```go
 type myStack struct {
-	stack
+	Stack
 }
 
-func newMyStack(scope construct, id *string, props stackProps) *myStack {
+func newMyStack(scope Construct, id *string, props StackProps) *myStack {
 	this := &myStack{}
-	newStack_Override(this, scope, id, &stackProps{
+	newStack_Override(this, scope, id, &StackProps{
 		(SpreadAssignment ...props
 				Props),
 		Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
@@ -205,12 +205,12 @@ You can pass session tags for each [role created during bootstrap](https://docs.
 
 ```go
 type myStack struct {
-	stack
+	Stack
 }
 
-func newMyStack(parent construct, id *string, props stackProps) *myStack {
+func newMyStack(parent Construct, id *string, props StackProps) *myStack {
 	this := &myStack{}
-	newStack_Override(this, parent, id, &stackProps{
+	newStack_Override(this, parent, id, &StackProps{
 		(SpreadAssignment ...props
 				Props),
 		Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
@@ -272,10 +272,10 @@ The following example will define a single top-level stack that contains two nes
 
 ```go
 type myNestedStack struct {
-	nestedStack
+	NestedStack
 }
 
-func newMyNestedStack(scope construct, id *string, props nestedStackProps) *myNestedStack {
+func newMyNestedStack(scope Construct, id *string, props NestedStackProps) *myNestedStack {
 	this := &myNestedStack{}
 	cfn.NewNestedStack_Override(this, scope, id, props)
 
@@ -284,10 +284,10 @@ func newMyNestedStack(scope construct, id *string, props nestedStackProps) *myNe
 }
 
 type myParentStack struct {
-	stack
+	Stack
 }
 
-func newMyParentStack(scope construct, id *string, props stackProps) *myParentStack {
+func newMyParentStack(scope Construct, id *string, props StackProps) *myParentStack {
 	this := &myParentStack{}
 	newStack_Override(this, scope, id, props)
 
@@ -319,7 +319,7 @@ prod := map[string]*string{
 	"region": jsii.String("us-east-1"),
 }
 
-stack1 := NewStackThatProvidesABucket(app, jsii.String("Stack1"), &stackProps{
+stack1 := NewStackThatProvidesABucket(app, jsii.String("Stack1"), &StackProps{
 	Env: prod,
 })
 
@@ -349,7 +349,7 @@ enabled it is possible to do something like creating a CloudFront distribution i
 an ACM certificate in `us-east-1`.
 
 ```go
-stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-east-1"),
 	},
@@ -360,7 +360,7 @@ cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
 	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 })
 
-stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-east-2"),
 	},
@@ -535,7 +535,7 @@ this purpose.
 use the region and account of the stack you're calling it on:
 
 ```go
-var stack stack
+var stack Stack
 
 
 // Builds "arn:<PARTITION>:lambda:<REGION>:<ACCOUNT>:function:MyFunction"
@@ -553,7 +553,7 @@ but in case of a deploy-time value be aware that the result will be another
 deploy-time value which cannot be inspected in the CDK application.
 
 ```go
-var stack stack
+var stack Stack
 
 
 // Extracts the function name out of an AWS Lambda Function ARN
@@ -704,12 +704,12 @@ Here is a basic pattern for defining stack singletons in the CDK. The following
 examples ensures that only a single SNS topic is defined:
 
 ```go
-func getOrCreate(scope *construct) topic {
+func getOrCreate(scope Construct) Topic {
 	stack := awscdk.stack_Of(*scope)
 	uniqueid := "GloballyUniqueIdForSingleton" // For example, a UUID from `uuidgen`
 	existing := stack.Node.TryFindChild(uniqueid)
 	if existing {
-		return existing.(topic)
+		return existing.(Topic)
 	}
 	return sns.NewTopic(stack, uniqueid)
 }
@@ -854,17 +854,17 @@ exports.handler = async (e) => {
 import "github.com/aws/constructs-go/constructs"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-type sumProps struct {
+type SumProps struct {
 	lhs *f64
 	rhs *f64
 }
 
 type Sum struct {
-	construct
+	Construct
 	result *f64
 }result *f64
 
-func NewSum(scope construct, id *string, props sumProps) *Sum {
+func NewSum(scope Construct, id *string, props SumProps) *Sum {
 	this := &Sum{}
 	newConstruct_Override(this, scope, id)
 
@@ -980,7 +980,7 @@ awscdk.NewCfnOutput(this, jsii.String("OutputName"), &CfnOutputProps{
 You can also use the `exportValue` method to export values as stack outputs:
 
 ```go
-var stack stack
+var stack Stack
 
 
 stack.ExportValue(myBucket.BucketName, &ExportValueOptions{
@@ -1055,7 +1055,7 @@ accessing those through the `cfnOptions` property:
 rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
 })
 // -or-
-rawBucketAlt := myBucket.Node.defaultChild.(cfnBucket)
+rawBucketAlt := myBucket.Node.defaultChild.(CfnBucket)
 
 // then
 rawBucket.CfnOptions.Condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &CfnConditionProps{
@@ -1109,7 +1109,7 @@ The format of the timeout is `PT#H#M#S`. In the example below AWS Cloudformation
 `CREATE_COMPLETE`.
 
 ```go
-var resource cfnResource
+var resource CfnResource
 
 
 resource.CfnOptions.CreationPolicy = &CfnCreationPolicy{
@@ -1163,7 +1163,7 @@ stage := awscdk.Fn_ConditionIf(isProd.LogicalId, jsii.String("Beta"), jsii.Strin
 // Make Bucket creation condition to IsProduction by accessing
 // and overriding the CloudFormation resource
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-cfnBucket := myBucket.Node.defaultChild.(cfnBucket)
+cfnBucket := myBucket.Node.defaultChild.(CfnBucket)
 cfnBucket.CfnOptions.Condition = isProd
 ```
 
@@ -1228,7 +1228,7 @@ since the top-level key is an unresolved token. The call to `findInMap` will ret
 `{ "Fn::FindInMap": [ "RegionTable", { "Ref": "AWS::Region" }, "regionName" ] }`.
 
 ```go
-var regionTable cfnMapping
+var regionTable CfnMapping
 
 
 regionTable.FindInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
@@ -1274,9 +1274,9 @@ awscdk.NewCfnDynamicReference(awscdk.CfnDynamicReferenceService_SECRETS_MANAGER,
 The `RemovalPolicies` class provides a convenient way to manage removal policies for AWS CDK resources within a construct scope. It allows you to apply removal policies to multiple resources at once, with options to include or exclude specific resource types.
 
 ```go
-var scope construct
-var parent construct
-var bucket cfnBucket
+var scope Construct
+var parent Construct
+var bucket CfnBucket
 
 
 // Apply DESTROY policy to all resources in a scope
@@ -1328,7 +1328,7 @@ awscdk.MissingRemovalPolicies_Of(*scope).Retain()
 Both RemovalPolicies and MissingRemovalPolicies are implemented as [Aspects](#aspects). You can control the order in which they're applied using the priority parameter:
 
 ```go
-var stack stack
+var stack Stack
 
 
 // Apply in a specific order based on priority
@@ -1370,7 +1370,7 @@ The `CfnResource` class allows emitting arbitrary entries in the
 [Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html) section of the CloudFormation template.
 
 ```go
-awscdk.NewCfnResource(this, jsii.String("ResourceId"), &cfnResourceProps{
+awscdk.NewCfnResource(this, jsii.String("ResourceId"), &CfnResourceProps{
 	Type: jsii.String("AWS::S3::Bucket"),
 	Properties: map[string]interface{}{
 		"BucketName": jsii.String("amzn-s3-demo-bucket"),
@@ -1389,7 +1389,7 @@ include fragments of an existing template verbatim in the synthesized template.
 This can be achieved using the `CfnInclude` class.
 
 ```go
-awscdk.NewCfnInclude(this, jsii.String("ID"), &cfnIncludeProps{
+awscdk.NewCfnInclude(this, jsii.String("ID"), &CfnIncludeProps{
 	template: map[string]map[string]map[string]interface{}{
 		"Resources": map[string]map[string]interface{}{
 			"Bucket": map[string]interface{}{
@@ -1413,7 +1413,7 @@ nested stacks belonging to that stack as well. You can enable termination protec
 on a stack by setting the `terminationProtection` prop to `true`.
 
 ```go
-stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
+stack := awscdk.Newstack(app, jsii.String("StackName"), &StackProps{
 	TerminationProtection: jsii.Boolean(true),
 })
 ```
@@ -1421,7 +1421,7 @@ stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
 You can also set termination protection with the setter after you've instantiated the stack.
 
 ```go
-stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
+stack := awscdk.Newstack(app, jsii.String("StackName"), &StackProps{
 })
 stack.terminationProtection = true
 ```
@@ -1433,7 +1433,7 @@ By default, termination protection is disabled.
 You can add a description of the stack in the same way as `StackProps`.
 
 ```go
-stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
+stack := awscdk.Newstack(app, jsii.String("StackName"), &StackProps{
 	Description: jsii.String("This is a description."),
 })
 ```
@@ -1443,7 +1443,7 @@ stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
 You can add one or more SNS Topic ARNs to any Stack:
 
 ```go
-stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
+stack := awscdk.Newstack(app, jsii.String("StackName"), &StackProps{
 	NotificationArns: []*string{
 		jsii.String("arn:aws:sns:us-east-1:123456789012:Topic"),
 	},
@@ -1634,7 +1634,7 @@ To use one or more validation plugins in your application, use the
 ```go
 // globally for the entire app (an app is a stage)
 app := awscdk.NewApp(&AppProps{
-	PolicyValidationBeta1: []iPolicyValidationPluginBeta1{
+	PolicyValidationBeta1: []IPolicyValidationPluginBeta1{
 		// These hypothetical classes implement IPolicyValidationPluginBeta1:
 		NewThirdPartyPluginX(),
 		NewThirdPartyPluginY(),
@@ -1643,7 +1643,7 @@ app := awscdk.NewApp(&AppProps{
 
 // only apply to a particular stage
 prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
-	PolicyValidationBeta1: []*iPolicyValidationPluginBeta1{
+	PolicyValidationBeta1: []IPolicyValidationPluginBeta1{
 		NewThirdPartyPluginX(),
 	},
 })
@@ -1711,20 +1711,20 @@ type myPlugin struct {
 	name
 }
 
-func (this *myPlugin) validate(context iPolicyValidationContextBeta1) policyValidationPluginReportBeta1 {
+func (this *myPlugin) validate(context IPolicyValidationContextBeta1) PolicyValidationPluginReportBeta1 {
 	// First read the templates using context.templatePaths...
 
 	// ...then perform the validation, and then compose and return the report.
 	// Using hard-coded values here for better clarity:
-	return &policyValidationPluginReportBeta1{
+	return &PolicyValidationPluginReportBeta1{
 		Success: jsii.Boolean(false),
-		Violations: []policyViolationBeta1{
-			&policyViolationBeta1{
+		Violations: []PolicyViolationBeta1{
+			&PolicyViolationBeta1{
 				RuleName: jsii.String("CKV_AWS_117"),
 				Description: jsii.String("Ensure that AWS Lambda function is configured inside a VPC"),
 				Fix: jsii.String("https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1"),
-				ViolatingResources: []policyViolatingResourceBeta1{
-					&policyViolatingResourceBeta1{
+				ViolatingResources: []PolicyViolatingResourceBeta1{
+					&PolicyViolatingResourceBeta1{
 						ResourceLogicalId: jsii.String("MyFunction3BAA72D1"),
 						TemplatePath: jsii.String("/home/johndoe/myapp/cdk.out/MyService.template.json"),
 						Locations: []*string{
@@ -1822,7 +1822,7 @@ Here is a simple example of creating and applying an Aspect on a Stack to enable
 type enableBucketVersioning struct {
 }
 
-func (this *enableBucketVersioning) visit(node iConstruct) {
+func (this *enableBucketVersioning) visit(node IConstruct) {
 	if *node instanceof s3.CfnBucket {
 		*node.VersioningConfiguration = &VersioningConfigurationProperty{
 			Status: jsii.String("Enabled"),
@@ -1898,12 +1898,12 @@ construct tree is fully validated before being synthesized.
 type mutatingAspect struct {
 }
 
-func (this *mutatingAspect) visit(node iConstruct) {}
+func (this *mutatingAspect) visit(node IConstruct) {}
 
 type validationAspect struct {
 }
 
-func (this *validationAspect) visit(node iConstruct) {}
+func (this *validationAspect) visit(node IConstruct) {}
 
 stack := awscdk.Newstack()
 
@@ -1923,7 +1923,7 @@ The `AspectApplication` class represents an Aspect that is applied to a node of 
 Users can access AspectApplications on a node by calling `applied` from the Aspects class as follows:
 
 ```go
-var root construct
+var root Construct
 
 app := awscdk.NewApp()
 stack := NewMyStack(app, jsii.String("MyStack"))
@@ -1968,8 +1968,8 @@ func newApiKeyPropsInjector() *apiKeyPropsInjector {
 	return this
 }
 
-func (this *apiKeyPropsInjector) inject(originalProps apiKeyProps, context injectionContext) apiKeyProps {
-	return &apiKeyProps{
+func (this *apiKeyPropsInjector) inject(originalProps ApiKeyProps, context InjectionContext) ApiKeyProps {
+	return &ApiKeyProps{
 		Enabled: jsii.Boolean(false),
 		ApiKeyName: originalProps.ApiKeyName,
 		CustomerId: originalProps.CustomerId,
@@ -1995,11 +1995,11 @@ Here is an example of how builders can use the injector the org created.
 
 ```go
 stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
-	PropertyInjectors: []iPropertyInjector{
+	PropertyInjectors: []IPropertyInjector{
 		NewApiKeyPropsInjector(),
 	},
 })
-api.NewApiKey(stack, jsii.String("my-api-key"), &apiKeyProps{
+api.NewApiKey(stack, jsii.String("my-api-key"), &ApiKeyProps{
 })
 ```
 
@@ -2008,7 +2008,7 @@ This is equivalent to:
 ```go
 stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
 })
-api.NewApiKey(stack, jsii.String("my-api-key"), &apiKeyProps{
+api.NewApiKey(stack, jsii.String("my-api-key"), &ApiKeyProps{
 	Enabled: jsii.Boolean(false),
 })
 ```
@@ -2023,7 +2023,7 @@ If you specify two or more injectors for the same Constructs, the last one is in
 
 ```go
 stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
-	PropertyInjectors: []iPropertyInjector{
+	PropertyInjectors: []IPropertyInjector{
 		NewApiKeyPropsInjector(),
 		NewAnotherApiKeyPropsInjector(),
 	},

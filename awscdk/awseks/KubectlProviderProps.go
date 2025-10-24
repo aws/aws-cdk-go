@@ -8,7 +8,7 @@ package awseks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   kubectlProviderProps := &KubectlProviderProps{
 //   	Cluster: cluster,

@@ -16,8 +16,8 @@ import (
 //
 //   var assign interface{}
 //   var outputs interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   glueDataBrewStartJobRunJsonataProps := &GlueDataBrewStartJobRunJsonataProps{
 //   	Name: jsii.String("name"),

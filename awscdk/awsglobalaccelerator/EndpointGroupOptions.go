@@ -7,12 +7,12 @@ import (
 // Basic options for creating a new EndpointGroup.
 //
 // Example:
-//   var alb applicationLoadBalancer
-//   var listener listener
+//   var alb ApplicationLoadBalancer
+//   var listener Listener
 //
 //
 //   listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-//   	Endpoints: []iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &ApplicationLoadBalancerEndpointOptions{
 //   			Weight: jsii.Number(128),
 //   			PreserveClientIp: jsii.Boolean(true),

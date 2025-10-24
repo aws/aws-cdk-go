@@ -4,8 +4,8 @@ package awseks
 // Options for adding an AutoScalingGroup as capacity.
 //
 // Example:
-//   var cluster cluster
-//   var asg autoScalingGroup
+//   var cluster Cluster
+//   var asg AutoScalingGroup
 //
 //   cluster.connectAutoScalingGroupCapacity(asg, &AutoScalingGroupOptions{
 //   })

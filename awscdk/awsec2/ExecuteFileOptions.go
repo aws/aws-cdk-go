@@ -6,7 +6,7 @@ package awsec2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instance instance
+//   var instance Instance
 //
 //
 //   asset := awscdk.NewAsset(this, jsii.String("Asset"), &AssetProps{

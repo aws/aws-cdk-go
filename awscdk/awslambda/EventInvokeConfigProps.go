@@ -12,8 +12,8 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var destination iDestination
-//   var function_ function
+//   var destination IDestination
+//   var function_ Function
 //
 //   eventInvokeConfigProps := &EventInvokeConfigProps{
 //   	Function: function_,

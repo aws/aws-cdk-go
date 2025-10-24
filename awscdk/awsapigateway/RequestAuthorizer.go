@@ -15,8 +15,8 @@ import (
 // Based on the request, authorization is performed by a lambda function.
 //
 // Example:
-//   var authFn function
-//   var books resource
+//   var authFn Function
+//   var books Resource
 //
 //
 //   auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &RequestAuthorizerProps{

@@ -13,10 +13,10 @@ import (
 // A Lambda enrichment for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
-//   var enrichmentFunction function
+//   var enrichmentFunction Function
 //
 //
 //   enrichment := enrichments.NewLambdaEnrichment(enrichmentFunction)

@@ -48,7 +48,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		sourceAction,
 //   	},
 //   })
@@ -325,9 +325,9 @@ func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 // secret values.
 //
 // Example:
-//   var secret secretValue
+//   var secret SecretValue
 //
-//   jsonSecret := map[string]secretValue{
+//   jsonSecret := map[string]SecretValue{
 //   	"username": awscdk.SecretValue_unsafePlainText(jsii.String("myUsername")),
 //   	"password": secret,
 //   }

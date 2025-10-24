@@ -14,17 +14,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var containerDefinition ContainerDefinition
+//   var taskDefinition TaskDefinition
 //
 //   commonEcsRunTaskProps := &CommonEcsRunTaskProps{
 //   	Cluster: cluster,
 //   	TaskDefinition: taskDefinition,
 //
 //   	// the properties below are optional
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
+//   	ContainerOverrides: []ContainerOverride{
+//   		&ContainerOverride{
 //   			ContainerDefinition: containerDefinition,
 //
 //   			// the properties below are optional
@@ -32,8 +32,8 @@ import (
 //   				jsii.String("command"),
 //   			},
 //   			Cpu: jsii.Number(123),
-//   			Environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
+//   			Environment: []TaskEnvironmentVariable{
+//   				&TaskEnvironmentVariable{
 //   					Name: jsii.String("name"),
 //   					Value: jsii.String("value"),
 //   				},

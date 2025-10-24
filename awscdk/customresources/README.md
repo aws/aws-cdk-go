@@ -34,9 +34,9 @@ with a `CustomResource` and a user-provided AWS Lambda function which implements
 the actual handler.
 
 ```go
-var onEvent function
-var isComplete function
-var myRole role
+var onEvent Function
+var isComplete Function
+var myRole Role
 
 
 myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
@@ -342,7 +342,7 @@ lambda.NewFunction(this, jsii.String("OnEventHandler"), &FunctionProps{
 	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromInline(jsii.String("my code")),
-	InitialPolicy: []policyStatement{
+	InitialPolicy: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("s3:GetObject*"),
@@ -436,9 +436,9 @@ stacks it may be useful to manually set a name for the Provider Function Lambda 
 have a predefined service token ARN.
 
 ```go
-var onEvent function
-var isComplete function
-var myRole role
+var onEvent Function
+var isComplete Function
+var myRole Role
 
 myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 	OnEventHandler: onEvent,
@@ -459,9 +459,9 @@ be able to view, manage and audit the key usage.
 ```go
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
-var onEvent function
-var isComplete function
-var myRole role
+var onEvent Function
+var isComplete Function
+var myRole Role
 
 
 key := kms.NewKey(this, jsii.String("MyKey"))
@@ -611,7 +611,7 @@ Use the `role`, `timeout`, `memorySize`, `logGroup`, `functionName` and `removal
 the Lambda function implementing the custom resource:
 
 ```go
-var myRole role
+var myRole Role
 
 cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
 	Role: myRole,
@@ -637,7 +637,7 @@ Additionally, the Lambda function can be placed in a private VPC by using the `v
 and `vpcSubnets` properties.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cr.NewAwsCustomResource(this, jsii.String("CustomizedInVpc"), &AwsCustomResourceProps{
 	Vpc: Vpc,
@@ -857,8 +857,8 @@ cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourcePro
 		Action: jsii.String("GetCallerIdentity"),
 		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 	},
-	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{
-		iam.*policyStatement_FromJson(map[string]*string{
+	Policy: cr.AwsCustomResourcePolicy_FromStatements([]PolicyStatement{
+		iam.PolicyStatement_FromJson(map[string]*string{
 			"Effect": jsii.String("Allow"),
 			"Action": jsii.String("sts:AssumeRole"),
 			"Resource": crossAccountRoleArn,
@@ -894,7 +894,7 @@ stack := cdk.NewStack(app, jsii.String("Stack"))
 websiteBucket := s3.NewBucket(stack, jsii.String("WebsiteBucket"), &BucketProps{
 })
 s3deploy.NewBucketDeployment(stack, jsii.String("s3deploy"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
 			"a": jsii.String("b"),
 		}),
@@ -918,7 +918,7 @@ stackA := cdk.NewStack(app, jsii.String("stackA"))
 websiteBucketA := s3.NewBucket(stackA, jsii.String("WebsiteBucketA"), &BucketProps{
 })
 s3deploy.NewBucketDeployment(stackA, jsii.String("s3deployA"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
 			"a": jsii.String("b"),
 		}),
@@ -931,7 +931,7 @@ stackB := cdk.NewStack(app, jsii.String("stackB"))
 websiteBucketB := s3.NewBucket(stackB, jsii.String("WebsiteBucketB"), &BucketProps{
 })
 s3deploy.NewBucketDeployment(stackB, jsii.String("s3deployB"), &BucketDeploymentProps{
-	Sources: []*iSource{
+	Sources: []ISource{
 		s3deploy.Source_*JsonData(jsii.String("file.json"), map[string]*string{
 			"a": jsii.String("b"),
 		}),
@@ -957,7 +957,7 @@ nestedStackA := cdk.NewNestedStack(stack, jsii.String("NestedStackA"))
 websiteBucketA := s3.NewBucket(nestedStackA, jsii.String("WebsiteBucketA"), &BucketProps{
 })
 s3deploy.NewBucketDeployment(nestedStackA, jsii.String("s3deployA"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
 			"a": jsii.String("b"),
 		}),
@@ -970,7 +970,7 @@ nestedStackB := cdk.NewNestedStack(stack, jsii.String("NestedStackB"))
 websiteBucketB := s3.NewBucket(nestedStackB, jsii.String("WebsiteBucketB"), &BucketProps{
 })
 s3deploy.NewBucketDeployment(nestedStackB, jsii.String("s3deployB"), &BucketDeploymentProps{
-	Sources: []*iSource{
+	Sources: []ISource{
 		s3deploy.Source_*JsonData(jsii.String("file.json"), map[string]*string{
 			"a": jsii.String("b"),
 		}),
@@ -1018,7 +1018,7 @@ awscdk.CustomResourceConfig_Of(app).AddLambdaRuntime(lambda.Runtime_PYTHON_3_12(
 websiteBucket := s3.NewBucket(stack, jsii.String("WebsiteBucket"), &BucketProps{
 })
 s3deploy.NewBucketDeployment(stack, jsii.String("s3deploy"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
 			"a": jsii.String("b"),
 		}),

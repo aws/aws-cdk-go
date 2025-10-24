@@ -63,7 +63,7 @@ importedFileSystem := efs.FileSystem_FromFileSystemAttributes(this, jsii.String(
 To initialize a One Zone file system use the `oneZone` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 efs.NewFileSystem(this, jsii.String("OneZoneFileSystem"), &FileSystemProps{
@@ -78,7 +78,7 @@ efs.NewFileSystem(this, jsii.String("OneZoneFileSystem"), &FileSystemProps{
 To specify a different availability zone:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 efs.NewFileSystem(this, jsii.String("OneZoneFileSystem"), &FileSystemProps{
@@ -103,7 +103,7 @@ This is to prevent deployment failures due to cross-AZ configurations.
 You can create a replica of your EFS file system in the AWS Region of your preference.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 // auto generate a regional replication destination file system
@@ -146,13 +146,13 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("elasticfilesystem:ClientWrite"),
 				jsii.String("elasticfilesystem:ClientMount"),
 			},
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewAccountRootPrincipal(),
 			},
 			Resources: []*string{
@@ -178,7 +178,7 @@ Alternatively, a resource policy can be added later using `addToResourcePolicy(s
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
-var statement policyStatement
+var statement PolicyStatement
 
 fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
 	Vpc: ec2.NewVpc(this, jsii.String("VPC")),

@@ -10,14 +10,14 @@ import (
 // Represents the configuration for an ECS Service managed EBS volume.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
 //
 //   container := taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
+//   	PortMappings: []PortMapping{
+//   		&PortMapping{
 //   			ContainerPort: jsii.Number(80),
 //   			Protocol: ecs.Protocol_TCP,
 //   		},
@@ -30,8 +30,8 @@ import (
 //   		Size: awscdk.Size_Gibibytes(jsii.Number(15)),
 //   		VolumeType: ec2.EbsDeviceVolumeType_GP3,
 //   		FileSystemType: ecs.FileSystemType_XFS,
-//   		TagSpecifications: []eBSTagSpecification{
-//   			&eBSTagSpecification{
+//   		TagSpecifications: []EBSTagSpecification{
+//   			&EBSTagSpecification{
 //   				Tags: map[string]*string{
 //   					"purpose": jsii.String("production"),
 //   				},

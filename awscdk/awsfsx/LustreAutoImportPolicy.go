@@ -6,8 +6,8 @@ package awsfsx
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
-//   var bucket bucket
+//   var vpc Vpc
+//   var bucket Bucket
 //
 //
 //   lustreConfiguration := map[string]interface{}{

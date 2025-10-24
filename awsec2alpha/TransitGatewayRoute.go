@@ -17,8 +17,8 @@ import (
 //   // The values are placeholders you should change.
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //
-//   var transitGatewayAttachment iTransitGatewayAttachment
-//   var transitGatewayRouteTable transitGatewayRouteTable
+//   var transitGatewayAttachment ITransitGatewayAttachment
+//   var transitGatewayRouteTable TransitGatewayRouteTable
 //
 //   transitGatewayRoute := ec2_alpha.NewTransitGatewayRoute(this, jsii.String("MyTransitGatewayRoute"), &TransitGatewayRouteProps{
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),

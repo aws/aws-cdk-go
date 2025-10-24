@@ -117,8 +117,8 @@ import (
 //   		TagSpecifications: []interface{}{
 //   			&TagSpecificationProperty{
 //   				ResourceType: jsii.String("resourceType"),
-//   				Tags: []cfnTag{
-//   					&cfnTag{
+//   				Tags: []CfnTag{
+//   					&CfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},
@@ -127,8 +127,8 @@ import (
 //   		},
 //   		UserData: jsii.String("userData"),
 //   	},
-//   	Tags: []*cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

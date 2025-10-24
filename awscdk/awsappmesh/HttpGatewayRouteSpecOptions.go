@@ -4,8 +4,8 @@ package awsappmesh
 // Properties specific for HTTP Based GatewayRoutes.
 //
 // Example:
-//   var gateway virtualGateway
-//   var virtualService virtualService
+//   var gateway VirtualGateway
+//   var virtualService VirtualService
 //
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &GatewayRouteBaseProps{

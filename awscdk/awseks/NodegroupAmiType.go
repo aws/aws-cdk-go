@@ -10,11 +10,11 @@ package awseks
 // Non-GPU instances should use the `AL2_x86_64` AMI type, which uses the Amazon EKS-optimized Linux AMI.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddNodegroupCapacity(jsii.String("BottlerocketNvidiaNG"), &NodegroupOptions{
 //   	AmiType: eks.NodegroupAmiType_BOTTLEROCKET_X86_64_NVIDIA,
-//   	InstanceTypes: []instanceType{
+//   	InstanceTypes: []InstanceType{
 //   		ec2.NewInstanceType(jsii.String("g4dn.xlarge")),
 //   	},
 //   })

@@ -6,8 +6,8 @@ package awscognito
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
-//   var certificate certificate
+//   var vpc Vpc
+//   var certificate Certificate
 //
 //
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -28,15 +28,15 @@ package awscognito
 //   		Flows: &OAuthFlows{
 //   			AuthorizationCodeGrant: jsii.Boolean(true),
 //   		},
-//   		Scopes: []oAuthScope{
-//   			awscdk.*Aws_cognito.*oAuthScope_EMAIL(),
+//   		Scopes: []OAuthScope{
+//   			awscdk.*Aws_cognito.OAuthScope_EMAIL(),
 //   		},
 //   		CallbackUrls: []*string{
 //   			fmt.Sprintf("https://%v/oauth2/idpresponse", lb.LoadBalancerDnsName),
 //   		},
 //   	},
 //   })
-//   cfnClient := userPoolClient.Node.defaultChild.(cfnUserPoolClient)
+//   cfnClient := userPoolClient.Node.defaultChild.(CfnUserPoolClient)
 //   cfnClient.AddPropertyOverride(jsii.String("RefreshTokenValidity"), jsii.Number(1))
 //   cfnClient.AddPropertyOverride(jsii.String("SupportedIdentityProviders"), []interface{}{
 //   	jsii.String("COGNITO"),
@@ -51,7 +51,7 @@ package awscognito
 //
 //   lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(443),
-//   	Certificates: []iListenerCertificate{
+//   	Certificates: []IListenerCertificate{
 //   		certificate,
 //   	},
 //   	DefaultAction: actions.NewAuthenticateCognitoAction(&AuthenticateCognitoActionProps{

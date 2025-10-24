@@ -7,17 +7,17 @@ import (
 // Construction properties for a VpcEndpointService.
 //
 // Example:
-//   var networkLoadBalancer networkLoadBalancer
+//   var networkLoadBalancer NetworkLoadBalancer
 //
 //
 //   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &VpcEndpointServiceProps{
-//   	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
+//   	VpcEndpointServiceLoadBalancers: []IVpcEndpointServiceLoadBalancer{
 //   		networkLoadBalancer,
 //   	},
 //   	// Support both IPv4 and IPv6 connections to the endpoint service
-//   	SupportedIpAddressTypes: []ipAddressType{
-//   		ec2.*ipAddressType_IPV4,
-//   		ec2.*ipAddressType_IPV6,
+//   	SupportedIpAddressTypes: []IpAddressType{
+//   		ec2.IpAddressType_IPV4,
+//   		ec2.IpAddressType_IPV6,
 //   	},
 //   })
 //

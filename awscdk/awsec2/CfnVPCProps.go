@@ -18,8 +18,8 @@ import (
 //   	InstanceTenancy: jsii.String("instanceTenancy"),
 //   	Ipv4IpamPoolId: jsii.String("ipv4IpamPoolId"),
 //   	Ipv4NetmaskLength: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

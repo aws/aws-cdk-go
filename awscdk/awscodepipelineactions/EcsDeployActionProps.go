@@ -12,13 +12,13 @@ import (
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var service fargateService
+//   var service FargateService
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   buildOutput := codepipeline.NewArtifact()
 //   deployStage := pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Deploy"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		codepipeline_actions.NewEcsDeployAction(&EcsDeployActionProps{
 //   			ActionName: jsii.String("DeployAction"),
 //   			Service: *Service,

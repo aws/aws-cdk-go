@@ -23,8 +23,8 @@ import (
 //   		MemoryLimitMiB: jsii.Number(512),
 //   	},
 //   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-//   	Tags: []tag{
-//   		&tag{
+//   	Tags: []Tag{
+//   		&Tag{
 //   			Key: jsii.String("my-tag"),
 //   			Value: jsii.String("my-tag-value"),
 //   		},

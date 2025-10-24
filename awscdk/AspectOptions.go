@@ -7,12 +7,12 @@ package awscdk
 //   type mutatingAspect struct {
 //   }
 //
-//   func (this *mutatingAspect) visit(node iConstruct) {}
+//   func (this *mutatingAspect) visit(node IConstruct) {}
 //
 //   type validationAspect struct {
 //   }
 //
-//   func (this *validationAspect) visit(node iConstruct) {}
+//   func (this *validationAspect) visit(node IConstruct) {}
 //
 //   stack := awscdk.Newstack()
 //

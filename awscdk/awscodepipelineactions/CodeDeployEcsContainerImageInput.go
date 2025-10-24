@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var artifact artifact
+//   var artifact Artifact
 //
 //   codeDeployEcsContainerImageInput := &CodeDeployEcsContainerImageInput{
 //   	Input: artifact,

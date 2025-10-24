@@ -8,7 +8,7 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var version version
+//   var version Version
 //
 //   versionWeight := &VersionWeight{
 //   	Version: version,

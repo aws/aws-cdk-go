@@ -42,6 +42,9 @@ type CfnCanary_VisualReferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
 	//
 	BaseScreenshots interface{} `field:"optional" json:"baseScreenshots" yaml:"baseScreenshots"`
+	// The browser type associated with this visual reference configuration.
+	//
+	// Valid values are `CHROME` and `FIREFOX` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-browsertype
 	//
 	BrowserType *string `field:"optional" json:"browserType" yaml:"browserType"`

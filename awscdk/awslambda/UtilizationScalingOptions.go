@@ -9,7 +9,7 @@ import (
 // Example:
 //   import appscaling "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
+//   var fn Function
 //
 //   alias := fn.AddAlias(jsii.String("prod"))
 //

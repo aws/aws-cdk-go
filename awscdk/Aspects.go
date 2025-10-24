@@ -16,21 +16,21 @@ import (
 //   type myAspect struct {
 //   }
 //
-//   func (this *myAspect) visit(node iConstruct) {
+//   func (this *myAspect) visit(node IConstruct) {
 //   	if *node instanceof cdk.CfnResource && *node.CfnResourceType == "Foo::Bar" {
 //   		this.error(*node, jsii.String("we do not want a Foo::Bar resource"))
 //   	}
 //   }
 //
-//   func (this *myAspect) error(node iConstruct, message *string) {
+//   func (this *myAspect) error(node IConstruct, message *string) {
 //   	cdk.Annotations_Of(*node).AddError(*message)
 //   }
 //
 //   type myStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newMyStack(scope construct, id *string) *myStack {
+//   func newMyStack(scope Construct, id *string) *myStack {
 //   	this := &myStack{}
 //   	cdk.NewStack_Override(this, scope, id)
 //

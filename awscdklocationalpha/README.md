@@ -30,7 +30,7 @@ You can evaluate locations against a geofence collection resource and get notifi
 update crosses the boundary of any of the geofences in the geofence collection.
 
 ```go
-var key key
+var key Key
 
 
 location.NewGeofenceCollection(this, jsii.String("GeofenceCollection"), &GeofenceCollectionProps{
@@ -44,7 +44,7 @@ Use the `grant()` or `grantRead()` method to grant the given identity permission
 on the geofence collection:
 
 ```go
-var role role
+var role Role
 
 
 geofenceCollection := location.NewGeofenceCollection(this, jsii.String("GeofenceCollection"), &GeofenceCollectionProps{
@@ -63,7 +63,7 @@ For more information, see [Trackers](https://docs.aws.amazon.com/location/latest
 To create a tracker, define a `Tracker`:
 
 ```go
-var key key
+var key Key
 
 
 location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{
@@ -77,7 +77,7 @@ Use the `grant()`, `grantUpdateDevicePositions()` or `grantRead()` method to gra
 on the geofence collection:
 
 ```go
-var role role
+var role Role
 
 
 tracker := location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{
@@ -90,14 +90,14 @@ tracker.GrantRead(role)
 If you want to associate a tracker with geofence collections, define a `geofenceCollections` property or use the `addGeofenceCollections()` method.
 
 ```go
-var geofenceCollection geofenceCollection
-var geofenceCollectionForAdd geofenceCollection
-var tracker tracker
+var geofenceCollection GeofenceCollection
+var geofenceCollectionForAdd GeofenceCollection
+var tracker Tracker
 
 
 tracker := location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{
 	TrackerName: jsii.String("MyTracker"),
-	GeofenceCollections: []iGeofenceCollection{
+	GeofenceCollections: []IGeofenceCollection{
 		geofenceCollection,
 	},
 })
@@ -117,14 +117,14 @@ To create an API key, define an `ApiKey`:
 ```go
 location.NewApiKey(this, jsii.String("APIKeyAny"), &ApiKeyProps{
 	// specify allowed actions
-	AllowMapsActions: []allowMapsAction{
-		location.*allowMapsAction_GET_STATIC_MAP,
+	AllowMapsActions: []AllowMapsAction{
+		location.AllowMapsAction_GET_STATIC_MAP,
 	},
-	AllowPlacesActions: []allowPlacesAction{
-		location.*allowPlacesAction_GET_PLACE,
+	AllowPlacesActions: []AllowPlacesAction{
+		location.AllowPlacesAction_GET_PLACE,
 	},
-	AllowRoutesActions: []allowRoutesAction{
-		location.*allowRoutesAction_CALCULATE_ISOLINES,
+	AllowRoutesActions: []AllowRoutesAction{
+		location.AllowRoutesAction_CALCULATE_ISOLINES,
 	},
 })
 ```
@@ -163,7 +163,7 @@ Use the `grant()` or `grantRendering()` method to grant the given identity permi
 on the map:
 
 ```go
-var role role
+var role Role
 
 
 map := location.NewMap(this, jsii.String("Map"), &MapProps{
@@ -193,7 +193,7 @@ Use the `grant()` or `grantSearch()` method to grant the given identity permissi
 on the place index:
 
 ```go
-var role role
+var role Role
 
 
 placeIndex := location.NewPlaceIndex(this, jsii.String("PlaceIndex"))
@@ -220,7 +220,7 @@ Use the `grant()` or `grantRead()` method to grant the given identity permission
 on the route calculator:
 
 ```go
-var role role
+var role Role
 
 
 routeCalculator := location.NewRouteCalculator(this, jsii.String("RouteCalculator"), &RouteCalculatorProps{

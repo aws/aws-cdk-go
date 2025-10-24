@@ -8,13 +8,13 @@ package awsappconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var monitor monitor
+//   var monitor Monitor
 //
 //   environmentOptions := &EnvironmentOptions{
 //   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	Description: jsii.String("description"),
 //   	EnvironmentName: jsii.String("environmentName"),
-//   	Monitors: []*monitor{
+//   	Monitors: []Monitor{
 //   		monitor,
 //   	},
 //   }

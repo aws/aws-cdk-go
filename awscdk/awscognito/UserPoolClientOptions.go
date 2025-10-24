@@ -13,8 +13,8 @@ import (
 //   		Flows: &OAuthFlows{
 //   			AuthorizationCodeGrant: jsii.Boolean(true),
 //   		},
-//   		Scopes: []oAuthScope{
-//   			cognito.*oAuthScope_OPENID(),
+//   		Scopes: []OAuthScope{
+//   			cognito.OAuthScope_OPENID(),
 //   		},
 //   		CallbackUrls: []*string{
 //   			jsii.String("https://my-app-domain.com/welcome"),

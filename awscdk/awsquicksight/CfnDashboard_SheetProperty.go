@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// A *sheet* , which is an object that contains a set of visuals that are viewed together on one page in Amazon QuickSight.
+// A *sheet* , which is an object that contains a set of visuals that are viewed together on one page in Quick Sight.
 //
 // Every analysis and dashboard contains at least one sheet. Each sheet contains at least one visualization widget, for example a chart, pivot table, or narrative insight. Sheets can be associated with other components, such as controls, filters, and so on.
 //
@@ -20,7 +20,7 @@ package awsquicksight
 type CfnDashboard_SheetProperty struct {
 	// The name of a sheet.
 	//
-	// This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// This name is displayed on the sheet's tab in the Quick Sight console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html#cfn-quicksight-dashboard-sheet-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

@@ -8,13 +8,13 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventRecordFormat eventRecordFormat
-//   var kafkaSchemaValidationAttribute kafkaSchemaValidationAttribute
+//   var eventRecordFormat EventRecordFormat
+//   var kafkaSchemaValidationAttribute KafkaSchemaValidationAttribute
 //
 //   schemaRegistryProps := &SchemaRegistryProps{
 //   	EventRecordFormat: eventRecordFormat,
-//   	SchemaValidationConfigs: []kafkaSchemaValidationConfig{
-//   		&kafkaSchemaValidationConfig{
+//   	SchemaValidationConfigs: []KafkaSchemaValidationConfig{
+//   		&KafkaSchemaValidationConfig{
 //   			Attribute: kafkaSchemaValidationAttribute,
 //   		},
 //   	},

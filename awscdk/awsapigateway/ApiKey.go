@@ -18,7 +18,7 @@ import (
 // Example:
 //   stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
 //   })
-//   api.NewApiKey(stack, jsii.String("my-api-key"), &apiKeyProps{
+//   api.NewApiKey(stack, jsii.String("my-api-key"), &ApiKeyProps{
 //   	Enabled: jsii.Boolean(false),
 //   })
 //

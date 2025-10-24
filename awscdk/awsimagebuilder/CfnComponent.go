@@ -55,6 +55,16 @@ type CfnComponent interface {
 	//
 	// For example `true` or `false` .
 	AttrEncrypted() awscdk.IResolvable
+	// The latest version references of the component.
+	AttrLatestVersion() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the component.
+	AttrLatestVersionArn() *string
+	// The latest version ARN of the created component, with the same major version.
+	AttrLatestVersionMajor() *string
+	// The latest version ARN of the created component, with the same minor version.
+	AttrLatestVersionMinor() *string
+	// The latest version ARN of the created component, with the same patch version.
+	AttrLatestVersionPatch() *string
 	// Returns the name of the component.
 	AttrName() *string
 	// Image Builder determines the component type based on the phases that are defined in the component document.
@@ -288,6 +298,56 @@ func (j *jsiiProxy_CfnComponent) AttrEncrypted() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrEncrypted",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) AttrLatestVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLatestVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) AttrLatestVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) AttrLatestVersionMajor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMajor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) AttrLatestVersionMinor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMinor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) AttrLatestVersionPatch() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionPatch",
 		&returns,
 	)
 	return returns

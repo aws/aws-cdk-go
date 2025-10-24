@@ -23,8 +23,8 @@ import (
 //   	// the properties below are optional
 //   	InputDescription: jsii.String("inputDescription"),
 //   	InputName: jsii.String("inputName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

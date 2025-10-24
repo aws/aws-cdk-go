@@ -9,7 +9,7 @@ import (
 // Props for defining an S3 destination of an Amazon Data Firehose delivery stream.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
@@ -39,9 +39,9 @@ type S3BucketProps struct {
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Amazon Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
-	// Minimum: Size.mebibytes(1)
+	// Minimum: Size.mebibytes(1) when record data format conversion is disabled, Size.mebibytes(64) when it is enabled
 	// Maximum: Size.mebibytes(128)
-	// Default: Size.mebibytes(5)
+	// Default: Size.mebibytes(5) when record data format conversion is disabled, Size.mebibytes(128) when it is enabled
 	//
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Amazon Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
@@ -90,6 +90,12 @@ type S3BucketProps struct {
 	// Default: - source records will not be backed up to S3.
 	//
 	S3Backup *DestinationS3BackupProps `field:"optional" json:"s3Backup" yaml:"s3Backup"`
+	// The input format, output format, and schema config for converting data from the JSON format to the Parquet or ORC format before writing to Amazon S3.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
+	//
+	// Default: no data format conversion is done.
+	//
+	DataFormatConversion *DataFormatConversionProps `field:"optional" json:"dataFormatConversion" yaml:"dataFormatConversion"`
 	// Specify a file extension.
 	//
 	// It will override the default file extension appended by Data Format Conversion or S3 compression features such as `.parquet` or `.gz`.

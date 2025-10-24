@@ -25,8 +25,8 @@ import (
 //   cfnThingGroup := awscdk.Aws_iot.NewCfnThingGroup(this, jsii.String("MyCfnThingGroup"), &CfnThingGroupProps{
 //   	ParentGroupName: jsii.String("parentGroupName"),
 //   	QueryString: jsii.String("queryString"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

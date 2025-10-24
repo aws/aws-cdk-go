@@ -1,9 +1,9 @@
 package awsemrserverless
 
 
-// The IAM IdentityCenter configuration for trusted-identity-propagation on this application.
+// The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation.
 //
-// Supported with release labels emr-7.8.0 and above.
+// This configuration allows identity propagation between integrated services and the Identity Center instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awsemrserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-identitycenterconfiguration.html
 //
 type CfnApplication_IdentityCenterConfigurationProperty struct {
-	// The IAM IdentityCenter instance arn.
+	// The ARN of the IAM Identity Center instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-identitycenterconfiguration.html#cfn-emrserverless-application-identitycenterconfiguration-identitycenterinstancearn
 	//
 	IdentityCenterInstanceArn *string `field:"optional" json:"identityCenterInstanceArn" yaml:"identityCenterInstanceArn"`

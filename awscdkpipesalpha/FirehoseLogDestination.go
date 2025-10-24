@@ -16,7 +16,7 @@ import (
 //   import pipes_alpha "github.com/aws/aws-cdk-go/awscdkpipesalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var deliveryStream deliveryStream
+//   var deliveryStream DeliveryStream
 //
 //   firehoseLogDestination := pipes_alpha.NewFirehoseLogDestination(deliveryStream)
 //

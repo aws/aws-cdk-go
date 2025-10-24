@@ -10,9 +10,9 @@ package awsconnect
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var evaluationFormSectionProperty_ evaluationFormSectionProperty
+//   var evaluationFormSectionProperty_ EvaluationFormSectionProperty
 //
-//   evaluationFormSectionProperty := &evaluationFormSectionProperty{
+//   evaluationFormSectionProperty := &EvaluationFormSectionProperty{
 //   	RefId: jsii.String("refId"),
 //   	Title: jsii.String("title"),
 //
@@ -26,6 +26,36 @@ package awsconnect
 //   				Title: jsii.String("title"),
 //
 //   				// the properties below are optional
+//   				Enablement: &EvaluationFormItemEnablementConfigurationProperty{
+//   					Action: jsii.String("action"),
+//   					Condition: &EvaluationFormItemEnablementConditionProperty{
+//   						Operands: []interface{}{
+//   							&EvaluationFormItemEnablementConditionOperandProperty{
+//   								Expression: &EvaluationFormItemEnablementExpressionProperty{
+//   									Comparator: jsii.String("comparator"),
+//   									Source: &EvaluationFormItemEnablementSourceProperty{
+//   										Type: jsii.String("type"),
+//
+//   										// the properties below are optional
+//   										RefId: jsii.String("refId"),
+//   									},
+//   									Values: []interface{}{
+//   										&EvaluationFormItemEnablementSourceValueProperty{
+//   											RefId: jsii.String("refId"),
+//   											Type: jsii.String("type"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						Operator: jsii.String("operator"),
+//   					},
+//
+//   					// the properties below are optional
+//   					DefaultAction: jsii.String("defaultAction"),
+//   				},
 //   				Instructions: jsii.String("instructions"),
 //   				NotApplicableEnabled: jsii.Boolean(false),
 //   				QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
@@ -35,6 +65,9 @@ package awsconnect
 //
 //   						// the properties below are optional
 //   						Automation: &EvaluationFormNumericQuestionAutomationProperty{
+//   							AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   								SourceType: jsii.String("sourceType"),
+//   							},
 //   							PropertyValue: &NumericQuestionPropertyValueAutomationProperty{
 //   								Label: jsii.String("label"),
 //   							},
@@ -46,6 +79,9 @@ package awsconnect
 //
 //   								// the properties below are optional
 //   								AutomaticFail: jsii.Boolean(false),
+//   								AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   									TargetSection: jsii.String("targetSection"),
+//   								},
 //   								Score: jsii.Number(123),
 //   							},
 //   						},
@@ -58,6 +94,9 @@ package awsconnect
 //
 //   								// the properties below are optional
 //   								AutomaticFail: jsii.Boolean(false),
+//   								AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   									TargetSection: jsii.String("targetSection"),
+//   								},
 //   								Score: jsii.Number(123),
 //   							},
 //   						},
@@ -75,9 +114,19 @@ package awsconnect
 //   							},
 //
 //   							// the properties below are optional
+//   							AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   								SourceType: jsii.String("sourceType"),
+//   							},
 //   							DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   						},
 //   						DisplayAs: jsii.String("displayAs"),
+//   					},
+//   					Text: &EvaluationFormTextQuestionPropertiesProperty{
+//   						Automation: &EvaluationFormTextQuestionAutomationProperty{
+//   							AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   								SourceType: jsii.String("sourceType"),
+//   							},
+//   						},
 //   					},
 //   				},
 //   				Weight: jsii.Number(123),

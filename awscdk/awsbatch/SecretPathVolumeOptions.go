@@ -4,7 +4,7 @@ package awsbatch
 // Options for a Kubernetes SecretPath Volume.
 //
 // Example:
-//   var jobDefn eksJobDefinition
+//   var jobDefn EksJobDefinition
 //
 //   jobDefn.Container.AddVolume(batch.EksVolume_EmptyDir(&EmptyDirVolumeOptions{
 //   	Name: jsii.String("emptyDir"),

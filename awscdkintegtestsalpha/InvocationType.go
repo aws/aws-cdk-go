@@ -6,14 +6,14 @@ package awscdkintegtestsalpha
 // Default is REQUEST_RESPONSE.
 //
 // Example:
-//   var app app
-//   var stack stack
-//   var queue queue
-//   var fn iFunction
+//   var app App
+//   var stack Stack
+//   var queue Queue
+//   var fn IFunction
 //
 //
 //   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-//   	TestCases: []*stack{
+//   	TestCases: []Stack{
 //   		stack,
 //   	},
 //   })

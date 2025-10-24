@@ -4,8 +4,8 @@ package awscodedeploy
 // Construction properties of `LambdaDeploymentConfig`.
 //
 // Example:
-//   var application lambdaApplication
-//   var alias alias
+//   var application LambdaApplication
+//   var alias Alias
 //   config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
 //   	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
 //   		Interval: awscdk.Duration_Minutes(jsii.Number(15)),

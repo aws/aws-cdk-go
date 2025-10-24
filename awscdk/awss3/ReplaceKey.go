@@ -7,8 +7,8 @@ import (
 
 // Example:
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &BucketProps{
-//   	WebsiteRoutingRules: []routingRule{
-//   		&routingRule{
+//   	WebsiteRoutingRules: []RoutingRule{
+//   		&RoutingRule{
 //   			HostName: jsii.String("www.example.com"),
 //   			HttpRedirectCode: jsii.String("302"),
 //   			Protocol: s3.RedirectProtocol_HTTPS,

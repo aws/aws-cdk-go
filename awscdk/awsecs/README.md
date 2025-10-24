@@ -12,7 +12,7 @@ The following example creates an Amazon ECS cluster, adds capacity to it, and
 runs a service on it:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 // Create an ECS cluster
@@ -81,7 +81,7 @@ tasks on. You can run many tasks on a single cluster.
 The following code creates a cluster that can run AWS Fargate tasks:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -92,7 +92,7 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 By default, storage is encrypted with AWS-managed key. You can specify customer-managed key using:
 
 ```go
-var key key
+var key Key
 
 
 cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -123,7 +123,7 @@ with various instance types.
 The following example creates an Amazon ECS cluster and adds capacity to it:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -166,7 +166,7 @@ to periodically update to the latest AMI manually by using the [CDK CLI
 context management commands](https://docs.aws.amazon.com/cdk/latest/guide/context.html):
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(&EcsOptimizedImageOptions{
@@ -185,7 +185,7 @@ so that if the value in the cache needs to be updated, it does not need to be up
 for all constructs at the same time.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(&EcsOptimizedImageOptions{
@@ -200,7 +200,7 @@ autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &A
 To use `LaunchTemplate` with `AsgCapacityProvider`, make sure to specify the `userData` in the `LaunchTemplate`:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &LaunchTemplateProps{
 	InstanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
@@ -234,8 +234,8 @@ The following code retrieve the Amazon Resource Names (ARNs) of tasks that are a
 It's useful when you want to grant permissions to a task to access other AWS resources.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 taskARNs := cluster.ArnForTasks(jsii.String("*")) // arn:aws:ecs:<region>:<regionId>:task/<clusterName>/*
 
@@ -256,8 +256,8 @@ This method grants the `ecs:UpdateTaskProtection` permission to a specified IAM 
 
 ```go
 // Assume 'cluster' is an instance of ecs.Cluster
-var cluster cluster
-var taskRole role
+var cluster Cluster
+var taskRole Role
 
 
 // Grant ECS Task Protection permissions to the role
@@ -275,7 +275,7 @@ The following example will create a capacity with self-managed Amazon EC2 capaci
 The following example adds Bottlerocket capacity to the cluster:
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 
 cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
@@ -288,7 +288,7 @@ cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
 You can also specify an NVIDIA-compatible AMI such as in this example:
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 
 cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
@@ -307,7 +307,7 @@ for use when launching your EC2 instances that are powered by Arm-based AWS
 Graviton Processors.
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 
 cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
@@ -320,7 +320,7 @@ cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
 Bottlerocket is also supported:
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 
 cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
@@ -335,7 +335,7 @@ cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
 To launch Amazon EC2 Inf1, Trn1 or Inf2 instances, you can use the Amazon ECS optimized Amazon Linux 2 (Neuron) AMI. It comes pre-configured with AWS Inferentia and AWS Trainium drivers and the AWS Neuron runtime for Docker which makes running machine learning inference workloads easier on Amazon ECS.
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 
 cluster.AddCapacity(jsii.String("neuron-cluster"), &AddCapacityOptions{
@@ -350,7 +350,7 @@ cluster.AddCapacity(jsii.String("neuron-cluster"), &AddCapacityOptions{
 To add spot instances into the cluster, you must specify the `spotPrice` in the `ecs.AddCapacityOptions` and optionally enable the `spotInstanceDraining` property.
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 
 // Add an AutoScalingGroup with spot instances to the existing cluster
@@ -374,8 +374,8 @@ then you may do so by providing a KMS key for the `topicEncryptionKey` property 
 
 ```go
 // Given
-var cluster cluster
-var key key
+var cluster Cluster
+var key Key
 
 // Then, use that key to encrypt the lifecycle-event SNS Topic.
 cluster.AddCapacity(jsii.String("ASGEncryptedSNS"), &AddCapacityOptions{
@@ -491,14 +491,14 @@ You can specify container properties when you add them to the task definition, o
 To add a port mapping when adding a container to the task definition, specify the `portMappings` option:
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 
 taskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	MemoryLimitMiB: jsii.Number(1024),
-	PortMappings: []portMapping{
-		&portMapping{
+	PortMappings: []PortMapping{
+		&PortMapping{
 			ContainerPort: jsii.Number(3000),
 		},
 	},
@@ -508,7 +508,7 @@ taskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOpt
 To add port mappings directly to a container definition, call `addPortMappings()`:
 
 ```go
-var container containerDefinition
+var container ContainerDefinition
 
 
 container.AddPortMappings(&PortMapping{
@@ -525,11 +525,11 @@ Docker recommends that you turn off the `docker-proxy` in the Docker daemon conf
 For more information, see [Issue #11185](https://github.com/moby/moby/issues/11185) on the GitHub website.
 
 ```go
-var container containerDefinition
+var container ContainerDefinition
 
 
 container.AddPortMappings(&PortMapping{
-	ContainerPort: ecs.*containerDefinition_CONTAINER_PORT_USE_RANGE(),
+	ContainerPort: ecs.ContainerDefinition_CONTAINER_PORT_USE_RANGE(),
 	ContainerPortRange: jsii.String("8080-8081"),
 })
 ```
@@ -573,7 +573,7 @@ taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefin
 To grant a principal permission to run your `TaskDefinition`, you can use the `TaskDefinition.grantRun()` method:
 
 ```go
-var role iGrantable
+var role IGrantable
 
 taskDef := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
 	Cpu: jsii.String("512"),
@@ -591,7 +591,7 @@ This parameter corresponds to `OpenStdin` in the [Create a container](https://do
 and the `--interactive` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 
 taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
@@ -622,11 +622,11 @@ obtained from either DockerHub or from ECR repositories, built directly from a l
 To pass environment variables to the container, you can use the `environment`, `environmentFiles`, and `secrets` props.
 
 ```go
-var secret secret
-var dbSecret secret
-var parameter stringParameter
-var taskDefinition taskDefinition
-var s3Bucket bucket
+var secret Secret
+var dbSecret Secret
+var parameter StringParameter
+var taskDefinition TaskDefinition
+var s3Bucket Bucket
 
 
 newContainer := taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
@@ -636,25 +636,25 @@ newContainer := taskDefinition.AddContainer(jsii.String("container"), &Container
 		 // clear text, not for sensitive data
 		"STAGE": jsii.String("prod"),
 	},
-	EnvironmentFiles: []environmentFile{
-		ecs.*environmentFile_FromAsset(jsii.String("./demo-env-file.env")),
-		ecs.*environmentFile_FromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
+	EnvironmentFiles: []EnvironmentFile{
+		ecs.EnvironmentFile_FromAsset(jsii.String("./demo-env-file.env")),
+		ecs.EnvironmentFile_FromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
 	},
-	Secrets: map[string]secret{
+	Secrets: map[string]Secret{
 		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
-		"SECRET": ecs.*secret_fromSecretsManager(secret),
-		"DB_PASSWORD": ecs.*secret_fromSecretsManager(dbSecret, jsii.String("password")),
+		"SECRET": ecs.Secret_fromSecretsManager(secret),
+		"DB_PASSWORD": ecs.Secret_fromSecretsManager(dbSecret, jsii.String("password")),
 		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
-		"API_KEY": ecs.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
+		"API_KEY": ecs.Secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 			"versionId": jsii.String("12345"),
 		}, jsii.String("apiKey")),
 		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
-		"PARAMETER": ecs.*secret_fromSsmParameter(parameter),
+		"PARAMETER": ecs.Secret_fromSsmParameter(parameter),
 	},
 })
 newContainer.AddEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
-newContainer.AddSecret(jsii.String("API_KEY"), ecs.secret_FromSecretsManager(secret))
-newContainer.AddSecret(jsii.String("DB_PASSWORD"), ecs.secret_FromSecretsManager(secret, jsii.String("password")))
+newContainer.AddSecret(jsii.String("API_KEY"), ecs.Secret_FromSecretsManager(secret))
+newContainer.AddSecret(jsii.String("DB_PASSWORD"), ecs.Secret_FromSecretsManager(secret, jsii.String("password")))
 ```
 
 The task execution role is automatically granted read permissions on the secrets/parameters. Further details provided in the AWS documentation
@@ -665,7 +665,7 @@ about [specifying environment variables](https://docs.aws.amazon.com/AmazonECS/l
 To apply additional linux-specific options related to init process and memory management to the container, use the `linuxParameters` property:
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 
 taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
@@ -685,14 +685,14 @@ taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOption
 To set system controls (kernel parameters) on the container, use the `systemControls` prop:
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 
 taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	MemoryLimitMiB: jsii.Number(1024),
-	SystemControls: []systemControl{
-		&systemControl{
+	SystemControls: []SystemControl{
+		&SystemControl{
 			Namespace: jsii.String("net.ipv6.conf.all.default.disable_ipv6"),
 			Value: jsii.String("1"),
 		},
@@ -706,7 +706,7 @@ To enable a restart policy for the container, set `enableRestartPolicy` to true 
 `restartIgnoredExitCodes` and `restartAttemptPeriod` if necessary.
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 
 taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
@@ -742,7 +742,7 @@ ecs.NewEc2TaskDefinition(this, jsii.String("Ec2TaskDefinition"), &Ec2TaskDefinit
 You can add labels to the container with the `dockerLabels` property or with the `addDockerLabel` method:
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 
 container := taskDefinition.AddContainer(jsii.String("cont"), &ContainerDefinitionOptions{
@@ -775,8 +775,8 @@ taskDefinition.AddContainer(jsii.String("windowsservercore"), &ContainerDefiniti
 	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
 		StreamPrefix: jsii.String("win-iis-on-fargate"),
 	}),
-	PortMappings: []portMapping{
-		&portMapping{
+	PortMappings: []PortMapping{
+		&PortMapping{
 			ContainerPort: jsii.Number(80),
 		},
 	},
@@ -794,8 +794,8 @@ A domian-joined gMSA container looks like:
 
 ```go
 // Make sure the task definition's execution role has permissions to read from the S3 bucket or SSM parameter where the CredSpec file is stored.
-var parameter iParameter
-var taskDefinition taskDefinition
+var parameter IParameter
+var taskDefinition TaskDefinition
 
 
 // Domain-joined gMSA container from a SSM parameter
@@ -803,7 +803,7 @@ taskDefinition.AddContainer(jsii.String("gmsa-domain-joined-container"), &Contai
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	Cpu: jsii.Number(128),
 	MemoryLimitMiB: jsii.Number(256),
-	CredentialSpecs: []credentialSpec{
+	CredentialSpecs: []CredentialSpec{
 		ecs.DomainJoinedCredentialSpec_FromSsmParameter(parameter),
 	},
 })
@@ -813,8 +813,8 @@ A domianless gMSA container looks like:
 
 ```go
 // Make sure the task definition's execution role has permissions to read from the S3 bucket or SSM parameter where the CredSpec file is stored.
-var bucket bucket
-var taskDefinition taskDefinition
+var bucket Bucket
+var taskDefinition TaskDefinition
 
 
 // Domainless gMSA container from a S3 bucket object.
@@ -822,7 +822,7 @@ taskDefinition.AddContainer(jsii.String("gmsa-domainless-container"), &Container
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	Cpu: jsii.Number(128),
 	MemoryLimitMiB: jsii.Number(256),
-	CredentialSpecs: []credentialSpec{
+	CredentialSpecs: []CredentialSpec{
 		ecs.DomainlessCredentialSpec_FromS3Bucket(bucket, jsii.String("credSpec")),
 	},
 })
@@ -847,8 +847,8 @@ taskDefinition.AddContainer(jsii.String("webarm64"), &ContainerDefinitionOptions
 	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
 		StreamPrefix: jsii.String("graviton2-on-fargate"),
 	}),
-	PortMappings: []portMapping{
-		&portMapping{
+	PortMappings: []PortMapping{
+		&PortMapping{
 			ContainerPort: jsii.Number(80),
 		},
 	},
@@ -864,8 +864,8 @@ If a task fails,
 Amazon ECS automatically restarts the task.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -879,8 +879,8 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 ECS Anywhere service definition looks like:
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
@@ -901,8 +901,8 @@ for example through CodeDeploy.
 To set a specific revision number or the special `latest` revision, use the `taskDefinitionRevision` parameter:
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
@@ -934,8 +934,8 @@ You can optionally enable `rollback` for automatic rollback.
 See [Using the deployment circuit breaker](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) for more details.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
@@ -970,9 +970,9 @@ changes the status of the primary deployment to COMPLETED.
 ```go
 import cw "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster cluster
-var taskDefinition taskDefinition
-var elbAlarm alarm
+var cluster Cluster
+var taskDefinition TaskDefinition
+var elbAlarm Alarm
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -1036,8 +1036,8 @@ Option 1, defining a physical name for the alarm:
 ```go
 import cw "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -1066,8 +1066,8 @@ Option 2, defining a physical name for the service:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 serviceName := "MyFargateService"
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -1111,9 +1111,9 @@ on the service, there will be no restrictions on the alarm name.
 `Services` are load balancing targets and can be added to a target group, which will be attached to an application/network load balancers:
 
 ```go
-var vpc vpc
-var cluster cluster
-var taskDefinition taskDefinition
+var vpc Vpc
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
@@ -1130,13 +1130,13 @@ listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProp
 })
 targetGroup1 := listener.AddTargets(jsii.String("ECS1"), &AddApplicationTargetsProps{
 	Port: jsii.Number(80),
-	Targets: []iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		service,
 	},
 })
 targetGroup2 := listener.AddTargets(jsii.String("ECS2"), &AddApplicationTargetsProps{
 	Port: jsii.Number(80),
-	Targets: []*iApplicationLoadBalancerTarget{
+	Targets: []IApplicationLoadBalancerTarget{
 		service.LoadBalancerTarget(&LoadBalancerTargetOptions{
 			ContainerName: jsii.String("MyContainer"),
 			ContainerPort: jsii.Number(8080),
@@ -1152,9 +1152,9 @@ Note that in the example above, the default `service` only allows you to registe
 Alternatively, you can also create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
-var vpc vpc
+var cluster Cluster
+var taskDefinition TaskDefinition
+var vpc Vpc
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
@@ -1199,9 +1199,9 @@ for the alternatives.
 `Services` can also be directly attached to a classic load balancer as targets:
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
-var vpc vpc
+var cluster Cluster
+var taskDefinition TaskDefinition
+var vpc Vpc
 
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
@@ -1221,9 +1221,9 @@ lb.AddTarget(service)
 Similarly, if you want to have more control over load balancer targeting:
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
-var vpc vpc
+var cluster Cluster
+var taskDefinition TaskDefinition
+var vpc Vpc
 
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
@@ -1289,9 +1289,9 @@ placement strategies. This ensures that the service has equal availability in
 each AZ.
 
 ```go
-var vpc vpc
-var cluster cluster
-var taskDefinition taskDefinition
+var vpc Vpc
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -1322,8 +1322,8 @@ AZs, to ensure an even spread.
 You can enabled Availability Zone rebalancing when creating your service:
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -1354,8 +1354,8 @@ You can configure the task count of a service to match demand. Task auto-scaling
 configured by calling `autoScaleTaskCount()`:
 
 ```go
-var target applicationTargetGroup
-var service baseService
+var target ApplicationTargetGroup
+var service BaseService
 
 scaling := service.AutoScaleTaskCount(&EnableScalingProps{
 	MaxCapacity: jsii.Number(10),
@@ -1379,7 +1379,7 @@ To start an Amazon ECS task on an Amazon EC2-backed Cluster, instantiate an
 `aws-cdk-lib/aws-events-targets.EcsTask` instead of an `Ec2Service`:
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -1402,11 +1402,11 @@ rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	TaskCount: jsii.Number(1),
-	ContainerOverrides: []containerOverride{
-		&containerOverride{
+	ContainerOverrides: []ContainerOverride{
+		&ContainerOverride{
 			ContainerName: jsii.String("TheContainer"),
-			Environment: []taskEnvironmentVariable{
-				&taskEnvironmentVariable{
+			Environment: []TaskEnvironmentVariable{
+				&TaskEnvironmentVariable{
 					Name: jsii.String("I_WAS_TRIGGERED"),
 					Value: jsii.String("From CloudWatch Events"),
 				},
@@ -1499,7 +1499,7 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 ### splunk Log Driver
 
 ```go
-var secret secret
+var secret Secret
 
 
 // Create a Task Definition for the container to start
@@ -1547,8 +1547,8 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 To pass secrets to the log configuration, use the `secretOptions` property of the log configuration. The task execution role is automatically granted read permissions on the secrets/parameters.
 
 ```go
-var secret secret
-var parameter stringParameter
+var secret Secret
+var parameter StringParameter
 
 
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -1558,10 +1558,10 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 	Logging: ecs.LogDrivers_Firelens(&FireLensLogDriverProps{
 		Options: map[string]interface{}{
 		},
-		SecretOptions: map[string]secret{
+		SecretOptions: map[string]Secret{
 			 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store
-			"apikey": ecs.*secret_fromSecretsManager(secret),
-			"host": ecs.*secret_fromSsmParameter(parameter),
+			"apikey": ecs.Secret_fromSecretsManager(secret),
+			"host": ecs.Secret_fromSsmParameter(parameter),
 		},
 	}),
 })
@@ -1617,8 +1617,8 @@ To register your ECS service with a CloudMap Service Registry, you may add the
 `cloudMapOptions` property to your service:
 
 ```go
-var taskDefinition taskDefinition
-var cluster cluster
+var taskDefinition TaskDefinition
+var cluster Cluster
 
 
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
@@ -1636,8 +1636,8 @@ By default, `SRV` DNS record types will target the default container and default
 port. However, you may target a different container and port on the same ECS task:
 
 ```go
-var taskDefinition taskDefinition
-var cluster cluster
+var taskDefinition TaskDefinition
+var cluster Cluster
 
 
 // Add a container to the task definition
@@ -1672,8 +1672,8 @@ You may associate an ECS service with a specific CloudMap service. To do
 this, use the service's `associateCloudMapService` method:
 
 ```go
-var cloudMapService service
-var ecsService fargateService
+var cloudMapService Service
+var ecsService FargateService
 
 
 ecsService.AssociateCloudMapService(&AssociateCloudMapServiceOptions{
@@ -1698,7 +1698,7 @@ cluster. This will add both `FARGATE` and `FARGATE_SPOT` as available capacity
 providers on your cluster.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &ClusterProps{
@@ -1716,12 +1716,12 @@ ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
-	CapacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE_SPOT"),
 			Weight: jsii.Number(2),
 		},
-		&capacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE"),
 			Weight: jsii.Number(1),
 		},
@@ -1765,7 +1765,7 @@ Infrastructure maintenance and updates are preformed without disruptions to work
 To use managed instance draining, set enableManagedDraining to true.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -1797,8 +1797,8 @@ ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
-	CapacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: capacityProvider.CapacityProviderName,
 			Weight: jsii.Number(1),
 		},
@@ -1813,9 +1813,9 @@ Managed Instances Capacity Providers allow you to use AWS-managed EC2 instances 
 To create a Managed Instances Capacity Provider, you need to specify the required EC2 instance profile, and networking configuration. You can also define detailed instance requirements to control which types of instances are used for your workloads.
 
 ```go
-var vpc vpc
-var infrastructureRole role
-var instanceProfile instanceProfile
+var vpc Vpc
+var infrastructureRole Role
+var instanceProfile InstanceProfile
 
 
 cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -1827,7 +1827,7 @@ miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String(
 	InfrastructureRole: InfrastructureRole,
 	Ec2InstanceProfile: instanceProfile,
 	Subnets: vpc.PrivateSubnets,
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
 			Vpc: *Vpc,
 		}),
@@ -1835,15 +1835,18 @@ miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String(
 	InstanceRequirements: &InstanceRequirementsConfig{
 		VCpuCountMin: jsii.Number(1),
 		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-		CpuManufacturers: []cpuManufacturer{
-			ec2.*cpuManufacturer_INTEL,
+		CpuManufacturers: []CpuManufacturer{
+			ec2.CpuManufacturer_INTEL,
 		},
-		AcceleratorManufacturers: []acceleratorManufacturer{
-			ec2.*acceleratorManufacturer_NVIDIA,
+		AcceleratorManufacturers: []AcceleratorManufacturer{
+			ec2.AcceleratorManufacturer_NVIDIA,
 		},
 	},
 	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 })
+
+// Optionally configure security group rules using IConnectable interface
+miCapacityProvider.Connections.AllowFrom(ec2.Peer_Ipv4(vpc.VpcCidrBlock), ec2.Port_Tcp(jsii.Number(80)))
 
 // Add the capacity provider to the cluster
 cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
@@ -1859,8 +1862,8 @@ ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
-	CapacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: miCapacityProvider.CapacityProviderName,
 			Weight: jsii.Number(1),
 		},
@@ -1871,9 +1874,9 @@ ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 You can specify detailed instance requirements to control which types of instances are used:
 
 ```go
-var infrastructureRole role
-var instanceProfile instanceProfile
-var vpc vpc
+var infrastructureRole Role
+var instanceProfile InstanceProfile
+var vpc Vpc
 
 
 miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
@@ -1888,12 +1891,12 @@ miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String(
 		MemoryMax: awscdk.Size_*Gibibytes(jsii.Number(32)),
 
 		// CPU preferences
-		CpuManufacturers: []cpuManufacturer{
-			ec2.*cpuManufacturer_INTEL,
-			ec2.*cpuManufacturer_AMD,
+		CpuManufacturers: []CpuManufacturer{
+			ec2.CpuManufacturer_INTEL,
+			ec2.CpuManufacturer_AMD,
 		},
-		InstanceGenerations: []instanceGeneration{
-			ec2.*instanceGeneration_CURRENT,
+		InstanceGenerations: []InstanceGeneration{
+			ec2.InstanceGeneration_CURRENT,
 		},
 
 		// Instance type filtering
@@ -1907,22 +1910,22 @@ miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String(
 		BareMetal: ec2.BareMetal_EXCLUDED,
 
 		// Accelerator requirements (for ML/AI workloads)
-		AcceleratorTypes: []acceleratorType{
-			ec2.*acceleratorType_GPU,
+		AcceleratorTypes: []AcceleratorType{
+			ec2.AcceleratorType_GPU,
 		},
-		AcceleratorManufacturers: []acceleratorManufacturer{
-			ec2.*acceleratorManufacturer_NVIDIA,
+		AcceleratorManufacturers: []AcceleratorManufacturer{
+			ec2.AcceleratorManufacturer_NVIDIA,
 		},
-		AcceleratorNames: []acceleratorName{
-			ec2.*acceleratorName_T4,
-			ec2.*acceleratorName_V100,
+		AcceleratorNames: []AcceleratorName{
+			ec2.AcceleratorName_T4,
+			ec2.AcceleratorName_V100,
 		},
 		AcceleratorCountMin: jsii.Number(1),
 
 		// Storage requirements
 		LocalStorage: ec2.LocalStorage_REQUIRED,
-		LocalStorageTypes: []localStorageType{
-			ec2.*localStorageType_SSD,
+		LocalStorageTypes: []LocalStorageType{
+			ec2.LocalStorageType_SSD,
 		},
 		TotalLocalStorageGBMin: jsii.Number(100),
 
@@ -1947,7 +1950,7 @@ For more information visit https://docs.aws.amazon.com/AmazonECS/latest/develope
 When the service does not have a capacity provider strategy, the cluster's default capacity provider strategy will be used. Default Capacity Provider Strategy can be added by using the method `addDefaultCapacityProviderStrategy`. A capacity provider strategy cannot contain a mix of EC2 Autoscaling Group capacity providers and Fargate providers.
 
 ```go
-var capacityProvider asgCapacityProvider
+var capacityProvider AsgCapacityProvider
 
 
 cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
@@ -1955,13 +1958,13 @@ cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 })
 cluster.AddAsgCapacityProvider(capacityProvider)
 
-cluster.AddDefaultCapacityProviderStrategy([]capacityProviderStrategy{
-	&capacityProviderStrategy{
+cluster.AddDefaultCapacityProviderStrategy([]CapacityProviderStrategy{
+	&CapacityProviderStrategy{
 		CapacityProvider: jsii.String("FARGATE"),
 		Base: jsii.Number(10),
 		Weight: jsii.Number(50),
 	},
-	&capacityProviderStrategy{
+	&CapacityProviderStrategy{
 		CapacityProvider: jsii.String("FARGATE_SPOT"),
 		Weight: jsii.Number(50),
 	},
@@ -1969,7 +1972,7 @@ cluster.AddDefaultCapacityProviderStrategy([]capacityProviderStrategy{
 ```
 
 ```go
-var capacityProvider asgCapacityProvider
+var capacityProvider AsgCapacityProvider
 
 
 cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
@@ -1977,8 +1980,8 @@ cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 })
 cluster.AddAsgCapacityProvider(capacityProvider)
 
-cluster.AddDefaultCapacityProviderStrategy([]capacityProviderStrategy{
-	&capacityProviderStrategy{
+cluster.AddDefaultCapacityProviderStrategy([]CapacityProviderStrategy{
+	&CapacityProviderStrategy{
 		CapacityProvider: capacityProvider.CapacityProviderName,
 	},
 })
@@ -2010,7 +2013,7 @@ field and set it to a list of device names used for the inference accelerators. 
 list should match a `DeviceName` for an `InferenceAccelerator` specified in the task definition.
 
 ```go
-var taskDefinition taskDefinition
+var taskDefinition TaskDefinition
 
 inferenceAcceleratorResources := []*string{
 	"device1",
@@ -2033,8 +2036,8 @@ To enable the ECS Exec feature for your containers, set the boolean flag `enable
 your `Ec2Service`, `FargateService` or `ExternalService`.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
@@ -2057,7 +2060,7 @@ of the `executeCommandConfiguration`. To use this key for encrypting CloudWatch 
 to these resources on creation.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 
@@ -2097,9 +2100,9 @@ To enable Service Connect, you must have created a CloudMap namespace. The CDK c
 or you can specify a custom namespace. You must also have created a named port mapping on at least one container in your Task Definition.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
-var containerOptions containerDefinitionOptions
+var cluster Cluster
+var taskDefinition TaskDefinition
+var containerOptions ContainerDefinitionOptions
 
 
 container := taskDefinition.AddContainer(jsii.String("MyContainer"), containerOptions)
@@ -2118,8 +2121,8 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
 	ServiceConnectConfiguration: &ServiceConnectProps{
-		Services: []serviceConnectService{
-			&serviceConnectService{
+		Services: []ServiceConnectService{
+			&ServiceConnectService{
 				PortMappingName: jsii.String("api"),
 				DnsName: jsii.String("http-api"),
 				Port: jsii.Number(80),
@@ -2135,8 +2138,8 @@ be routed to the container's port 8080.
 To opt a service into using service connect without advertising a port, simply call the 'enableServiceConnect' method on an initialized service.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -2150,8 +2153,8 @@ service.EnableServiceConnect()
 Service Connect also allows custom logging, Service Discovery name, and configuration of the port where service connect traffic is received.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &FargateServiceProps{
@@ -2162,8 +2165,8 @@ customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &
 		LogDriver: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
 			StreamPrefix: jsii.String("sc-traffic"),
 		}),
-		Services: []serviceConnectService{
-			&serviceConnectService{
+		Services: []ServiceConnectService{
+			&ServiceConnectService{
 				PortMappingName: jsii.String("api"),
 				DnsName: jsii.String("customized-api"),
 				Port: jsii.Number(80),
@@ -2181,8 +2184,8 @@ To set a timeout for service connect, use `idleTimeout` and `perRequestTimeout`.
 the `idleTimeout` is reached and not the `perRequestTimeout`.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -2190,8 +2193,8 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
 	ServiceConnectConfiguration: &ServiceConnectProps{
-		Services: []serviceConnectService{
-			&serviceConnectService{
+		Services: []ServiceConnectService{
+			&ServiceConnectService{
 				PortMappingName: jsii.String("api"),
 				IdleTimeout: awscdk.Duration_Minutes(jsii.Number(5)),
 				PerRequestTimeout: awscdk.Duration_*Minutes(jsii.Number(5)),
@@ -2216,14 +2219,14 @@ You can only attach a single volume for each task in the ECS Service.
 To add an empty EBS Volume to an ECS Service, call service.addVolume().
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
 
 container := taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	PortMappings: []portMapping{
-		&portMapping{
+	PortMappings: []PortMapping{
+		&PortMapping{
 			ContainerPort: jsii.Number(80),
 			Protocol: ecs.Protocol_TCP,
 		},
@@ -2236,8 +2239,8 @@ volume := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume"), &ServiceMa
 		Size: awscdk.Size_Gibibytes(jsii.Number(15)),
 		VolumeType: ec2.EbsDeviceVolumeType_GP3,
 		FileSystemType: ecs.FileSystemType_XFS,
-		TagSpecifications: []eBSTagSpecification{
-			&eBSTagSpecification{
+		TagSpecifications: []EBSTagSpecification{
+			&EBSTagSpecification{
 				Tags: map[string]*string{
 					"purpose": jsii.String("production"),
 				},
@@ -2266,9 +2269,9 @@ service.AddVolume(volume)
 To create an EBS volume from an existing snapshot by specifying the `snapShotId` while adding a volume to the service.
 
 ```go
-var container containerDefinition
-var cluster cluster
-var taskDefinition taskDefinition
+var container ContainerDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 volumeFromSnapshot := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume"), &ServiceManagedVolumeProps{
@@ -2335,8 +2338,8 @@ to the task definition.
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
 taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
-	Ulimits: []ulimit{
-		&ulimit{
+	Ulimits: []Ulimit{
+		&Ulimit{
 			HardLimit: jsii.Number(128),
 			Name: ecs.UlimitName_RSS,
 			SoftLimit: jsii.Number(128),
@@ -2358,18 +2361,18 @@ The `tls` property is an object with the following properties:
 * `kmsKey`: The KMS key used for encryption and decryption.
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
-var kmsKey iKey
-var role iRole
+var cluster Cluster
+var taskDefinition TaskDefinition
+var kmsKey IKey
+var role IRole
 
 
 service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	ServiceConnectConfiguration: &ServiceConnectProps{
-		Services: []serviceConnectService{
-			&serviceConnectService{
+		Services: []ServiceConnectService{
+			&ServiceConnectService{
 				Tls: &ServiceConnectTlsConfiguration{
 					Role: *Role,
 					KmsKey: *KmsKey,
@@ -2392,12 +2395,12 @@ Amazon ECS supports native blue/green deployments that allow you to deploy new v
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster cluster
-var taskDefinition taskDefinition
-var lambdaHook function
-var blueTargetGroup applicationTargetGroup
-var greenTargetGroup applicationTargetGroup
-var prodListenerRule applicationListenerRule
+var cluster Cluster
+var taskDefinition TaskDefinition
+var lambdaHook Function
+var blueTargetGroup ApplicationTargetGroup
+var greenTargetGroup ApplicationTargetGroup
+var prodListenerRule ApplicationListenerRule
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -2407,8 +2410,8 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 })
 
 service.AddLifecycleHook(ecs.NewDeploymentLifecycleLambdaTarget(lambdaHook, jsii.String("PreScaleHook"), &DeploymentLifecycleLambdaTargetProps{
-	LifecycleStages: []deploymentLifecycleStage{
-		ecs.*deploymentLifecycleStage_PRE_SCALE_UP,
+	LifecycleStages: []DeploymentLifecycleStage{
+		ecs.DeploymentLifecycleStage_PRE_SCALE_UP,
 	},
 }))
 
@@ -2430,8 +2433,8 @@ target.AttachToApplicationTargetGroup(blueTargetGroup)
 You can specify whether service use Daemon scheduling strategy by specifying `daemon` option in Service constructs. See [differences between Daemon and Replica scheduling strategy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
+var cluster Cluster
+var taskDefinition TaskDefinition
 
 
 ecs.NewEc2Service(this, jsii.String("Ec2Service"), &Ec2ServiceProps{

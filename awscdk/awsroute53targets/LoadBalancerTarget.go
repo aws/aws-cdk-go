@@ -14,8 +14,8 @@ import (
 // Example:
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var lb applicationLoadBalancer
+//   var zone HostedZone
+//   var lb ApplicationLoadBalancer
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{

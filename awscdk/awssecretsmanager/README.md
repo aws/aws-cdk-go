@@ -10,7 +10,7 @@ To have SecretsManager generate a new secret value automatically,
 follow this example:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{
@@ -45,7 +45,7 @@ provision the secret in *AWS SecretsManager* and use the `Secret.fromSecretArn`
 or `Secret.fromSecretAttributes` method to make it available in your CDK Application:
 
 ```go
-var encryptionKey key
+var encryptionKey Key
 
 secret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("ImportedSecret"), &SecretAttributes{
 	SecretArn: jsii.String("arn:aws:secretsmanager:<region>:<account-id-number>:secret:<secret-name>-<random-6-characters>"),
@@ -77,7 +77,7 @@ secret.grantWrite(role)
 If, as in the following example, your secret was created with a KMS key:
 
 ```go
-var role role
+var role Role
 
 key := kms.NewKey(this, jsii.String("KMS"))
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
@@ -111,7 +111,7 @@ A rotation schedule can be added to a Secret using a custom Lambda function:
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 
@@ -144,9 +144,9 @@ MariaDB, SQLServer, Redshift and MongoDB (both for the single and multi user sch
 When deployed in a VPC, the hosted rotation implements `ec2.IConnectable`:
 
 ```go
-var myVpc iVpc
-var dbConnections connections
-var secret secret
+var myVpc IVpc
+var dbConnections Connections
+var secret Secret
 
 
 myHostedRotation := secretsmanager.HostedRotation_MysqlSingleUser(&SingleUserHostedRotationOptions{
@@ -170,9 +170,9 @@ See also [Automating secret creation in AWS CloudFormation](https://docs.aws.ama
 Define a `SecretRotation` to rotate database credentials:
 
 ```go
-var mySecret secret
-var myDatabase iConnectable
-var myVpc vpc
+var mySecret Secret
+var myDatabase IConnectable
+var myVpc Vpc
 
 
 secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
@@ -204,10 +204,10 @@ The secret must be a JSON string with the following format:
 For the multi user scheme, a `masterSecret` must be specified:
 
 ```go
-var myUserSecret secret
-var myMasterSecret secret
-var myDatabase iConnectable
-var myVpc vpc
+var myUserSecret Secret
+var myMasterSecret Secret
+var myDatabase IConnectable
+var myVpc Vpc
 
 
 secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
@@ -224,10 +224,10 @@ secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRot
 By default, any stack updates will cause AWS Secrets Manager to rotate a secret immediately. To prevent this behavior and wait until the next scheduled rotation window specified via the `automaticallyAfter` property, set the `rotateImmediatelyOnUpdate` property to false:
 
 ```go
-var myUserSecret secret
-var myMasterSecret secret
-var myDatabase iConnectable
-var myVpc vpc
+var myUserSecret Secret
+var myMasterSecret Secret
+var myDatabase IConnectable
+var myVpc Vpc
 
 
 secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{
@@ -271,14 +271,14 @@ mySecretFromAttrs := secretsmanager.Secret_FromSecretAttributes(this, jsii.Strin
 Secrets can be replicated to multiple regions by specifying `replicaRegions`:
 
 ```go
-var myKey key
+var myKey Key
 
 secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
-	ReplicaRegions: []replicaRegion{
-		&replicaRegion{
+	ReplicaRegions: []ReplicaRegion{
+		&ReplicaRegion{
 			Region: jsii.String("eu-west-1"),
 		},
-		&replicaRegion{
+		&ReplicaRegion{
 			Region: jsii.String("eu-central-1"),
 			EncryptionKey: myKey,
 		},
@@ -309,14 +309,14 @@ For example:
 In order to create this type of secret, use the `secretObjectValue` input prop.
 
 ```go
-var stack stack
+var stack Stack
 user := iam.NewUser(this, jsii.String("User"))
 accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
 	User: User,
 })
 
 secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
-	SecretObjectValue: map[string]secretValue{
+	SecretObjectValue: map[string]SecretValue{
 		"username": awscdk.SecretValue_unsafePlainText(user.userName),
 		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),
 		"password": accessKey.secretAccessKey,

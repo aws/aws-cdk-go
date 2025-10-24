@@ -11,14 +11,14 @@ import (
 // Use an Amazon SQS queue as an event destination.
 //
 // Example:
-//   var queue queue
+//   var queue Queue
 //
 //
 //   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
+//   	Actions: []Action{
 //   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+//   			ActionPoints: []ActionPoint{
+//   				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 //   			},
 //   			EventDestination: appconfig.NewSqsDestination(queue),
 //   		}),

@@ -16,13 +16,13 @@ import (
 // Example:
 //   import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
-//   var image containerImage
-//   var modelData modelData
+//   var image ContainerImage
+//   var modelData ModelData
 //
 //
 //   model := sagemaker.NewModel(this, jsii.String("ContainerModel"), &ModelProps{
-//   	Containers: []containerDefinition{
-//   		&containerDefinition{
+//   	Containers: []ContainerDefinition{
+//   		&ContainerDefinition{
 //   			Image: *Image,
 //   			ModelData: *ModelData,
 //   		},

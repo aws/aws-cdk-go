@@ -14,16 +14,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var filterOrPolicy filterOrPolicy
-//   var queue queue
-//   var subscriptionFilter subscriptionFilter
+//   var filterOrPolicy FilterOrPolicy
+//   var queue Queue
+//   var subscriptionFilter SubscriptionFilter
 //
 //   emailSubscriptionProps := &EmailSubscriptionProps{
 //   	DeadLetterQueue: queue,
-//   	FilterPolicy: map[string]*subscriptionFilter{
+//   	FilterPolicy: map[string]SubscriptionFilter{
 //   		"filterPolicyKey": subscriptionFilter,
 //   	},
-//   	FilterPolicyWithMessageBody: map[string]*filterOrPolicy{
+//   	FilterPolicyWithMessageBody: map[string]FilterOrPolicy{
 //   		"filterPolicyWithMessageBodyKey": filterOrPolicy,
 //   	},
 //   	Json: jsii.Boolean(false),

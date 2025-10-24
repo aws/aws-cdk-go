@@ -13,9 +13,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var filterOrPolicy filterOrPolicy
-//   var queue queue
-//   var subscriptionFilter subscriptionFilter
+//   var filterOrPolicy FilterOrPolicy
+//   var queue Queue
+//   var subscriptionFilter SubscriptionFilter
 //
 //   subscriptionOptions := &SubscriptionOptions{
 //   	Endpoint: jsii.String("endpoint"),
@@ -40,10 +40,10 @@ import (
 //   			MaxReceivesPerSecond: jsii.Number(123),
 //   		},
 //   	},
-//   	FilterPolicy: map[string]*subscriptionFilter{
+//   	FilterPolicy: map[string]SubscriptionFilter{
 //   		"filterPolicyKey": subscriptionFilter,
 //   	},
-//   	FilterPolicyWithMessageBody: map[string]*filterOrPolicy{
+//   	FilterPolicyWithMessageBody: map[string]FilterOrPolicy{
 //   		"filterPolicyWithMessageBodyKey": filterOrPolicy,
 //   	},
 //   	RawMessageDelivery: jsii.Boolean(false),

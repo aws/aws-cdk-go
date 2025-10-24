@@ -9,8 +9,8 @@ package awsapigatewayv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   grantInvokeOptions := &GrantInvokeOptions{
-//   	HttpMethods: []httpMethod{
-//   		awscdk.Aws_apigatewayv2.*httpMethod_ANY,
+//   	HttpMethods: []HttpMethod{
+//   		awscdk.Aws_apigatewayv2.HttpMethod_ANY,
 //   	},
 //   }
 //

@@ -8,11 +8,11 @@ import (
 // Kafka cluster version.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 //   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+//   	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 //   	Vpc: Vpc,
 //   	EncryptionInTransit: &EncryptionInTransitConfig{
 //   		ClientBroker: msk.ClientBrokerEncryption_TLS,
@@ -417,6 +417,17 @@ func KafkaVersion_V4_0_X_KRAFT() KafkaVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		"V4_0_X_KRAFT",
+		&returns,
+	)
+	return returns
+}
+
+func KafkaVersion_V4_1_X_KRAFT() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V4_1_X_KRAFT",
 		&returns,
 	)
 	return returns

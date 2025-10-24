@@ -12,7 +12,7 @@ import (
 //   import gamelift_alpha "github.com/aws/aws-cdk-go/awscdkgameliftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   fleetAttributes := &FleetAttributes{
 //   	FleetArn: jsii.String("fleetArn"),

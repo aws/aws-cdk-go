@@ -13,8 +13,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   repositoryNotifyOnOptions := &RepositoryNotifyOnOptions{
-//   	Events: []repositoryNotificationEvents{
-//   		awscdk.Aws_codecommit.*repositoryNotificationEvents_COMMIT_COMMENT,
+//   	Events: []RepositoryNotificationEvents{
+//   		awscdk.Aws_codecommit.RepositoryNotificationEvents_COMMIT_COMMENT,
 //   	},
 //
 //   	// the properties below are optional

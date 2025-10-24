@@ -42,8 +42,8 @@ package awsapigateway
 //   })
 //
 //   restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-//   	IntegrationResponses: []integrationResponse{
-//   		&integrationResponse{
+//   	IntegrationResponses: []IntegrationResponse{
+//   		&IntegrationResponse{
 //   			StatusCode: jsii.String("200"),
 //   		},
 //   	},
@@ -52,8 +52,8 @@ package awsapigateway
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
 //   }), &MethodOptions{
-//   	MethodResponses: []methodResponse{
-//   		&methodResponse{
+//   	MethodResponses: []MethodResponse{
+//   		&MethodResponse{
 //   			StatusCode: jsii.String("200"),
 //   		},
 //   	},
@@ -61,8 +61,8 @@ package awsapigateway
 //   })
 //
 //   restapi.Root.ResourceForPath(jsii.String("auth")).AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-//   	IntegrationResponses: []*integrationResponse{
-//   		&integrationResponse{
+//   	IntegrationResponses: []IntegrationResponse{
+//   		&IntegrationResponse{
 //   			StatusCode: jsii.String("200"),
 //   		},
 //   	},
@@ -71,8 +71,8 @@ package awsapigateway
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
 //   }), &MethodOptions{
-//   	MethodResponses: []*methodResponse{
-//   		&methodResponse{
+//   	MethodResponses: []MethodResponse{
+//   		&MethodResponse{
 //   			StatusCode: jsii.String("200"),
 //   		},
 //   	},

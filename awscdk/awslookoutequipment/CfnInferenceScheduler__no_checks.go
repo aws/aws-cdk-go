@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnInferenceScheduler) validateValidatePropertiesParameters(_
 	return nil
 }
 
-func validateCfnInferenceScheduler_FromInferenceSchedulerArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnInferenceScheduler_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

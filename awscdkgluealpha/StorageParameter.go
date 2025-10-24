@@ -12,18 +12,18 @@ import (
 // The list of storage parameters currently known within the CDK is listed.
 //
 // Example:
-//   var myDatabase database
+//   var myDatabase Database
 //
 //   glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
-//   	StorageParameters: []storageParameter{
-//   		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
-//   		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),
-//   		glue.*storageParameter_Custom(jsii.String("separatorChar"), jsii.String(",")),
+//   	StorageParameters: []StorageParameter{
+//   		glue.StorageParameter_SkipHeaderLineCount(jsii.Number(1)),
+//   		glue.StorageParameter_CompressionType(glue.CompressionType_GZIP),
+//   		glue.StorageParameter_Custom(jsii.String("separatorChar"), jsii.String(",")),
 //   	},
 //   	// ...
 //   	Database: myDatabase,
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			Type: glue.Schema_STRING(),
 //   		},

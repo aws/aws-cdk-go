@@ -4,8 +4,8 @@ package awscdkroute53resolveralpha
 // A Firewall Rule.
 //
 // Example:
-//   var myBlockList firewallDomainList
-//   var ruleGroup firewallRuleGroup
+//   var myBlockList FirewallDomainList
+//   var ruleGroup FirewallRuleGroup
 //
 //
 //   ruleGroup.AddRule(&FirewallRule{

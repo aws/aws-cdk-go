@@ -27,12 +27,12 @@ import (
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
 //   policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 //   	AssignSids: jsii.Boolean(true),
-//   	Statements: []policyStatement{
+//   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
 //   				jsii.String("sns:Subscribe"),
 //   			},
-//   			Principals: []iPrincipal{
+//   			Principals: []IPrincipal{
 //   				iam.NewAnyPrincipal(),
 //   			},
 //   			Resources: []*string{
@@ -43,7 +43,7 @@ import (
 //   })
 //
 //   topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps{
-//   	Topics: []iTopic{
+//   	Topics: []ITopic{
 //   		topic,
 //   	},
 //   	PolicyDocument: PolicyDocument,

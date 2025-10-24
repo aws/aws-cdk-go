@@ -33,7 +33,7 @@ import cdk "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdkgluealpha"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var stack stack
+var stack Stack
 var accountId string
 
 
@@ -46,12 +46,12 @@ database := awscdkgluealpha.NewDatabase(this, jsii.String("Database"))
 
 table := awscdkgluealpha.NewS3Table(this, jsii.String("Table"), &S3TableProps{
 	Database: Database,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: awscdkgluealpha.Schema_STRING(),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			Type: awscdkgluealpha.Schema_STRING(),
 		},
@@ -59,7 +59,7 @@ table := awscdkgluealpha.NewS3Table(this, jsii.String("Table"), &S3TableProps{
 	DataFormat: awscdkgluealpha.DataFormat_CSV(),
 })
 
-synthesizer := stack.Synthesizer.(defaultStackSynthesizer)
+synthesizer := stack.Synthesizer.(DefaultStackSynthesizer)
 awscdk.NewCfnDataLakeSettings(this, jsii.String("DataLakeSettings"), &CfnDataLakeSettingsProps{
 	Admins: []interface{}{
 		&DataLakePrincipalProperty{

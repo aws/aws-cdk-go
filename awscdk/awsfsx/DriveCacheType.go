@@ -4,7 +4,7 @@ package awsfsx
 // The type of drive cache used by PERSISTENT_1 file systems that are provisioned with HDD storage devices.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{

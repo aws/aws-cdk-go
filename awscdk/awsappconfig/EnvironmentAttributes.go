@@ -8,8 +8,8 @@ package awsappconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var application application
-//   var monitor monitor
+//   var application Application
+//   var monitor Monitor
 //
 //   environmentAttributes := &EnvironmentAttributes{
 //   	Application: application,
@@ -17,7 +17,7 @@ package awsappconfig
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	Monitors: []*monitor{
+//   	Monitors: []Monitor{
 //   		monitor,
 //   	},
 //   	Name: jsii.String("name"),

@@ -20,6 +20,9 @@ package awscloudfront
 //   	LastModifiedTime: jsii.String("lastModifiedTime"),
 //   	Name: jsii.String("name"),
 //   	Status: jsii.String("status"),
+//
+//   	// the properties below are optional
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html
@@ -55,5 +58,8 @@ type CfnAnycastIpList_AnycastIpListProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 }
 

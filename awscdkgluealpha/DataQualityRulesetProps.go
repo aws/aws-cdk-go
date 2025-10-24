@@ -8,7 +8,7 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var dataQualityTargetTable dataQualityTargetTable
+//   var dataQualityTargetTable DataQualityTargetTable
 //
 //   dataQualityRulesetProps := &DataQualityRulesetProps{
 //   	RulesetDqdl: jsii.String("rulesetDqdl"),

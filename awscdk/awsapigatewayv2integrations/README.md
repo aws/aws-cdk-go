@@ -38,7 +38,7 @@ The following code configures a route `GET /books` with a Lambda proxy integrati
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var booksDefaultFn function
+var booksDefaultFn Function
 
 booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 
@@ -46,8 +46,8 @@ httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/books"),
-	Methods: []httpMethod{
-		apigwv2.*httpMethod_GET,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_GET,
 	},
 	Integration: booksIntegration,
 })
@@ -73,8 +73,8 @@ httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/books"),
-	Methods: []httpMethod{
-		apigwv2.*httpMethod_GET,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_GET,
 	},
 	Integration: booksIntegration,
 })
@@ -93,14 +93,14 @@ The following code configures a Step Functions integrations:
 import "github.com/aws/aws-cdk-go/awscdk"
 import sfn "github.com/aws/aws-cdk-go/awscdk"
 
-var stateMachine stateMachine
-var httpApi httpApi
+var stateMachine StateMachine
+var httpApi HttpApi
 
 
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/start"),
-	Methods: []httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
 		StateMachine: *StateMachine,
@@ -110,8 +110,8 @@ httpApi.AddRoutes(&AddRoutesOptions{
 
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/start-sync"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartSyncExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
 		StateMachine: *StateMachine,
@@ -121,8 +121,8 @@ httpApi.AddRoutes(&AddRoutesOptions{
 
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/stop"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StopExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
 		StateMachine: *StateMachine,
@@ -149,15 +149,15 @@ The following code configures a SQS integrations:
 import sqs "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var queue iQueue
-var httpApi httpApi
+var queue IQueue
+var httpApi HttpApi
 
 
 // default integration (send message)
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/default"),
-	Methods: []httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpSqsIntegration(jsii.String("defaultIntegration"), &HttpSqsIntegrationProps{
 		Queue: *Queue,
@@ -166,8 +166,8 @@ httpApi.AddRoutes(&AddRoutesOptions{
 // send message integration
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/send-message"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpSqsIntegration(jsii.String("sendMessageIntegration"), &HttpSqsIntegrationProps{
 		Queue: *Queue,
@@ -177,8 +177,8 @@ httpApi.AddRoutes(&AddRoutesOptions{
 // receive message integration
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/receive-message"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpSqsIntegration(jsii.String("receiveMessageIntegration"), &HttpSqsIntegrationProps{
 		Queue: *Queue,
@@ -188,8 +188,8 @@ httpApi.AddRoutes(&AddRoutesOptions{
 // delete message integration
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/delete-message"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpSqsIntegration(jsii.String("deleteMessageIntegration"), &HttpSqsIntegrationProps{
 		Queue: *Queue,
@@ -199,8 +199,8 @@ httpApi.AddRoutes(&AddRoutesOptions{
 // purge queue integration
 httpApi.AddRoutes(&AddRoutesOptions{
 	Path: jsii.String("/purge-queue"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Integration: awscdk.NewHttpSqsIntegration(jsii.String("purgeQueueIntegration"), &HttpSqsIntegrationProps{
 		Queue: *Queue,
@@ -217,7 +217,7 @@ The default parameter mapping settings for each subtype are as follows:
 
 ```go
 import sqs "github.com/aws/aws-cdk-go/awscdk"
-var queue iQueue
+var queue IQueue
 
 
 // SQS_SEND_MESSAGE
@@ -334,7 +334,7 @@ The following example creates a new header - `header2` - as a copy of `header1` 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var lb applicationLoadBalancer
+var lb ApplicationLoadBalancer
 
 listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 	Port: jsii.Number(80),
@@ -355,7 +355,7 @@ To add mapping keys and values not yet supported by the CDK, use the `custom()` 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var lb applicationLoadBalancer
+var lb ApplicationLoadBalancer
 
 listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 	Port: jsii.Number(80),
@@ -387,7 +387,7 @@ The following code configures a `sendMessage` route with a Lambda integration
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var messageHandler function
+var messageHandler Function
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
@@ -414,8 +414,8 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
-var apiRole role
-var table table
+var apiRole Role
+var table Table
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))

@@ -13,7 +13,7 @@ import (
 // An EventBridge Pipes target that sends messages to an EventBridge API destination.
 //
 // Example:
-//   var sourceQueue queue
+//   var sourceQueue Queue
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{

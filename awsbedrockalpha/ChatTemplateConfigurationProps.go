@@ -8,12 +8,12 @@ package awsbedrockalpha
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var chatMessage chatMessage
-//   var tool tool
-//   var toolChoice toolChoice
+//   var chatMessage ChatMessage
+//   var tool Tool
+//   var toolChoice ToolChoice
 //
 //   chatTemplateConfigurationProps := &ChatTemplateConfigurationProps{
-//   	Messages: []*chatMessage{
+//   	Messages: []ChatMessage{
 //   		chatMessage,
 //   	},
 //
@@ -24,7 +24,7 @@ package awsbedrockalpha
 //   	System: jsii.String("system"),
 //   	ToolConfiguration: &ToolConfiguration{
 //   		ToolChoice: toolChoice,
-//   		Tools: []*tool{
+//   		Tools: []Tool{
 //   			tool,
 //   		},
 //   	},

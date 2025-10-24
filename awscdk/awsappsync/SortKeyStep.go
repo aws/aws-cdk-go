@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var assign assign
+//   var assign Assign
 //
 //   sortKeyStep := awscdk.Aws_appsync.NewSortKeyStep(assign, jsii.String("skey"))
 //

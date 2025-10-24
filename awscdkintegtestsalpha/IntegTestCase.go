@@ -21,10 +21,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stack stack
+//   var stack Stack
 //
 //   integTestCase := integ_tests_alpha.NewIntegTestCase(this, jsii.String("MyIntegTestCase"), &IntegTestCaseProps{
-//   	Stacks: []*stack{
+//   	Stacks: []Stack{
 //   		stack,
 //   	},
 //

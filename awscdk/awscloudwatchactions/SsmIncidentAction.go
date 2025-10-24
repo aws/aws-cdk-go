@@ -12,7 +12,7 @@ import (
 // Use an SSM Incident Response Plan as an Alarm action.
 //
 // Example:
-//   var alarm alarm
+//   var alarm Alarm
 //
 //   // Create an Incident Manager incident based on a specific response plan
 //   alarm.AddAlarmAction(

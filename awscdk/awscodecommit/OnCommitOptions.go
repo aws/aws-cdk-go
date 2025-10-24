@@ -11,7 +11,7 @@ import (
 //   import codecommit "github.com/aws/aws-cdk-go/awscdk"
 //   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var repo repository
+//   var repo Repository
 //
 //   myTopic := sns.NewTopic(this, jsii.String("Topic"))
 //

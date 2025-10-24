@@ -13,10 +13,10 @@ import (
 // An API Gateway enrichment for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
-//   var restApi restApi
+//   var restApi RestApi
 //
 //
 //   enrichment := enrichments.NewApiGatewayEnrichment(restApi)

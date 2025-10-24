@@ -13,7 +13,7 @@ websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &BucketProps{
 })
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
 	DestinationBucket: websiteBucket,
@@ -41,17 +41,17 @@ will ensure the bucket deployment has finished before the resource that uses
 the bucket is created:
 
 ```go
-var websiteBucket bucket
+var websiteBucket Bucket
 
 
 deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
 	DestinationBucket: websiteBucket,
 })
 
-NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]iBucket{
+NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]IBucket{
 	// Use 'deployment.deployedBucket' instead of 'websiteBucket' here
 	"bucket": deployment.deployedBucket,
 })
@@ -60,11 +60,11 @@ NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]iBu
 It is also possible to add additional sources using the `addSource` method.
 
 ```go
-var websiteBucket iBucket
+var websiteBucket IBucket
 
 
 deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
 	DestinationBucket: websiteBucket,
@@ -94,11 +94,11 @@ When this happens, users can use the public `handlerRole` property of `BucketDep
 add the KMS permissions:
 
 ```go
-var destinationBucket bucket
+var destinationBucket Bucket
 
 
 deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
 	},
 	DestinationBucket: DestinationBucket,
@@ -202,10 +202,10 @@ when the `BucketDeployment` resource is created or updated. You can use the opti
 this behavior, in which case the files will not be deleted.
 
 ```go
-var destinationBucket bucket
+var destinationBucket Bucket
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutDeletingFilesOnDestination"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
 	DestinationBucket: DestinationBucket,
@@ -219,10 +219,10 @@ each with its own characteristics. For example, you can set different cache-cont
 based on file extensions:
 
 ```go
-var destinationBucket bucket
+var destinationBucket Bucket
 
 s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website"), &AssetOptions{
 			Exclude: []*string{
 				jsii.String("index.html"),
@@ -230,15 +230,15 @@ s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeplo
 		}),
 	},
 	DestinationBucket: DestinationBucket,
-	CacheControl: []cacheControl{
-		s3deploy.*cacheControl_MaxAge(awscdk.Duration_Days(jsii.Number(365))),
-		s3deploy.*cacheControl_Immutable(),
+	CacheControl: []CacheControl{
+		s3deploy.CacheControl_MaxAge(awscdk.Duration_Days(jsii.Number(365))),
+		s3deploy.CacheControl_Immutable(),
 	},
 	Prune: jsii.Boolean(false),
 })
 
 s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketDeploymentProps{
-	Sources: []*iSource{
+	Sources: []ISource{
 		s3deploy.Source_*Asset(jsii.String("./website"), &AssetOptions{
 			Exclude: []*string{
 				jsii.String("*"),
@@ -247,8 +247,8 @@ s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketD
 		}),
 	},
 	DestinationBucket: DestinationBucket,
-	CacheControl: []*cacheControl{
-		s3deploy.*cacheControl_*MaxAge(awscdk.Duration_Seconds(jsii.Number(0))),
+	CacheControl: []CacheControl{
+		s3deploy.CacheControl_*MaxAge(awscdk.Duration_Seconds(jsii.Number(0))),
 	},
 	Prune: jsii.Boolean(false),
 })
@@ -259,10 +259,10 @@ s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketD
 There are two points at which filters are evaluated in a deployment: asset bundling and the actual deployment. If you simply want to exclude files in the asset bundling process, you should leverage the `exclude` property of `AssetOptions` when defining your source:
 
 ```go
-var destinationBucket bucket
+var destinationBucket Bucket
 
 s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website"), &AssetOptions{
 			Exclude: []*string{
 				jsii.String("*"),
@@ -277,10 +277,10 @@ s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketD
 If you want to specify filters to be used in the deployment process, you can use the `exclude` and `include` filters on `BucketDeployment`.  If excluded, these files will not be deployed to the destination bucket. In addition, if the file already exists in the destination bucket, it will not be deleted if you are using the `prune` option:
 
 ```go
-var destinationBucket bucket
+var destinationBucket Bucket
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployButExcludeSpecificFiles"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
 	DestinationBucket: DestinationBucket,
@@ -325,7 +325,7 @@ websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &BucketProps{
 })
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
 	DestinationBucket: websiteBucket,
@@ -342,9 +342,9 @@ s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeployme
 	ContentLanguage: jsii.String("en"),
 	StorageClass: s3deploy.StorageClass_INTELLIGENT_TIERING,
 	ServerSideEncryption: s3deploy.ServerSideEncryption_AES_256,
-	CacheControl: []cacheControl{
-		s3deploy.*cacheControl_SetPublic(),
-		s3deploy.*cacheControl_MaxAge(awscdk.Duration_Hours(jsii.Number(1))),
+	CacheControl: []CacheControl{
+		s3deploy.CacheControl_SetPublic(),
+		s3deploy.CacheControl_MaxAge(awscdk.Duration_Hours(jsii.Number(1))),
 	},
 	AccessControl: s3.BucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
 })
@@ -369,7 +369,7 @@ distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &D
 })
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
 	DestinationBucket: bucket,
@@ -385,12 +385,12 @@ By default, the deployment will wait for invalidation to succeed to complete. Th
 ```go
 import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 
-var bucket iBucket
-var distribution iDistribution
+var bucket IBucket
+var distribution IDistribution
 
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployWithInvalidation"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
 	DestinationBucket: bucket,
@@ -411,11 +411,11 @@ In cases where bucket policy restrictions require signed content payloads, you c
 generation of a signed `x-amz-content-sha256` request header with `signContent: true`.
 
 ```go
-var bucket iBucket
+var bucket IBucket
 
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployWithSignedPayloads"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	},
 	DestinationBucket: bucket,
@@ -442,13 +442,13 @@ resource handler.
 When using `Source.jsonData` with CDK Tokens (references to construct properties), you may need to enable the escaping option. This is particularly important when the referenced properties might contain special characters that require proper JSON escaping (like double quotes, line breaks, etc.).
 
 ```go
-var bucket bucket
-var param stringParameter
+var bucket Bucket
+var param StringParameter
 
 
 // Example with a secret value that contains double quotes
 deployment := s3deploy.NewBucketDeployment(this, jsii.String("JsonDeployment"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("config.json"), map[string]interface{}{
 			"api_endpoint": jsii.String("https://api.example.com"),
 			"secretValue": param.stringValue,
@@ -478,12 +478,12 @@ Please note that creating VPC inline may cause stack deletion failures. It is sh
 To avoid such condition, keep your network infra (VPC) in a separate stack and pass as props.
 
 ```go
-var destinationBucket bucket
-var vpc vpc
+var destinationBucket Bucket
+var vpc Vpc
 
 
 s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithEfsStorage"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
 	DestinationBucket: DestinationBucket,
@@ -506,9 +506,9 @@ For example:
 import sns "github.com/aws/aws-cdk-go/awscdk"
 import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 
-var destinationBucket bucket
-var topic topic
-var tg applicationTargetGroup
+var destinationBucket Bucket
+var topic Topic
+var tg ApplicationTargetGroup
 
 
 appConfig := map[string]interface{}{
@@ -518,7 +518,7 @@ appConfig := map[string]interface{}{
 }
 
 s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("config.json"), appConfig),
 	},
 	DestinationBucket: DestinationBucket,
@@ -542,11 +542,11 @@ specify the substitutions in CDK like this:
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var myLambdaFunction function
-var destinationBucket bucket
+var myLambdaFunction Function
+var destinationBucket Bucket
 //(Optional) if provided, the resulting processed file would be uploaded to the destinationBucket under the destinationKey name.
 var destinationKey string
-var role role
+var role Role
 
 
 s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
@@ -575,11 +575,11 @@ You can use the option `extract: false` to disable this behavior, in which case,
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var destinationBucket bucket
+var destinationBucket Bucket
 
 
 myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
 	DestinationBucket: DestinationBucket,
@@ -598,11 +598,11 @@ By default, the keys of the source objects copied to the destination bucket are 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var destinationBucket bucket
+var destinationBucket Bucket
 
 
 myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 	},
 	DestinationBucket: DestinationBucket,

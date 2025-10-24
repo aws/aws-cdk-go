@@ -127,7 +127,7 @@ The following example defines a state machine in `JSONata` that calls a fictiona
 
 ```go
 import events "github.com/aws/aws-cdk-go/awscdk"
-var connection connection
+var connection Connection
 
 
 getIssue := tasks.HttpInvoke_Jsonata(this, jsii.String("Get Issue"), &HttpInvokeJsonataProps{
@@ -175,8 +175,8 @@ example](https://docs.aws.amazon.com/step-functions/latest/dg/sample-project-job
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var submitLambda function
-var getStatusLambda function
+var submitLambda Function
+var getStatusLambda Function
 
 
 submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvokeProps{
@@ -258,8 +258,8 @@ Use `assign` to express the above example in AWS CDK. You can use both JSONata a
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var callApiFunc function
-var useVariableFunc function
+var callApiFunc Function
+var useVariableFunc Function
 
 step1 := tasks.LambdaInvoke_Jsonata(this, jsii.String("Step 1"), &LambdaInvokeJsonataProps{
 	LambdaFunction: callApiFunc,
@@ -410,7 +410,7 @@ function as you invoke it, use `JsonPath.stringAt('$.OrderId')`, like so:
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var orderFn function
+var orderFn Function
 
 
 submitJob := tasks.NewLambdaInvoke(this, jsii.String("InvokeOrderProcessor"), &LambdaInvokeProps{
@@ -1221,8 +1221,8 @@ This can be achieved by providing the optional `credentials` property which allo
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var submitLambda function
-var iamRole role
+var submitLambda Function
+var iamRole Role
 
 
 // use a fixed role for all task invocations
@@ -1251,7 +1251,7 @@ Therefore, it is possible to change the `integrationPattern` of services, to ena
 ```go
 import glue "github.com/aws/aws-cdk-go/awscdkgluealpha"
 
-var submitGlue job
+var submitGlue Job
 
 
 submitJob := tasks.NewGlueStartJobRun(this, jsii.String("Submit Job"), &GlueStartJobRunProps{
@@ -1289,12 +1289,12 @@ type myJobProps struct {
 }
 
 type myJob struct {
-	stateMachineFragment
-	startState state
-	endStates []iNextable
+	StateMachineFragment
+	startState State
+	endStates []INextable
 }
 
-func newMyJob(parent construct, id *string, props myJobProps) *myJob {
+func newMyJob(parent Construct, id *string, props myJobProps) *myJob {
 	this := &myJob{}
 	sfn.NewStateMachineFragment_Override(this, parent, id)
 
@@ -1308,10 +1308,10 @@ func newMyJob(parent construct, id *string, props myJobProps) *myJob {
 }
 
 type myStack struct {
-	stack
+	Stack
 }
 
-func newMyStack(scope construct, id *string) *myStack {
+func newMyStack(scope Construct, id *string) *myStack {
 	this := &myStack{}
 	newStack_Override(this, scope, id)
 	// Do 3 different variants of MyJob in parallel
@@ -1379,7 +1379,7 @@ This will grant the IAM principal the specified actions onto the activity.
 to create an alarm on a particular task failing:
 
 ```go
-var task task
+var task Task
 
 cloudwatch.NewAlarm(this, jsii.String("TaskAlarm"), &AlarmProps{
 	Metric: task.metricFailed(),
@@ -1391,7 +1391,7 @@ cloudwatch.NewAlarm(this, jsii.String("TaskAlarm"), &AlarmProps{
 There are also metrics on the complete state machine:
 
 ```go
-var stateMachine stateMachine
+var stateMachine StateMachine
 
 cloudwatch.NewAlarm(this, jsii.String("StateMachineAlarm"), &AlarmProps{
 	Metric: stateMachine.metricFailed(),
@@ -1499,12 +1499,12 @@ logGroupKey.addToResourcePolicy(aws_iam.NewPolicyStatement(&PolicyStatementProps
 		jsii.String("kms:GenerateDataKey*"),
 		jsii.String("kms:Describe*"),
 	},
-	Principals: []iPrincipal{
-		aws_iam.NewServicePrincipal(fmt.Sprintf("logs.%v.amazonaws.com", cdk.*stack_Of(this).Region)),
+	Principals: []IPrincipal{
+		aws_iam.NewServicePrincipal(fmt.Sprintf("logs.%v.amazonaws.com", cdk.Stack_Of(this).Region)),
 	},
 	Conditions: map[string]interface{}{
 		"ArnEquals": map[string]*string{
-			"kms:EncryptionContext:aws:logs:arn": cdk.*stack_*Of(this).formatArn(&ArnComponents{
+			"kms:EncryptionContext:aws:logs:arn": cdk.Stack_*Of(this).formatArn(&ArnComponents{
 				"service": jsii.String("logs"),
 				"resource": jsii.String("log-group"),
 				"sep": jsii.String(":"),
@@ -1619,7 +1619,7 @@ Any object that implements the `IGrantable` interface (has an associated princip
 Grant permission to start an execution of a state machine by calling the `grantStartExecution()` API.
 
 ```go
-var definition iChainable
+var definition IChainable
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -1640,7 +1640,7 @@ The following permission is provided to a service principal by the `grantStartEx
 Grant `read` access to a state machine by calling the `grantRead()` API.
 
 ```go
-var definition iChainable
+var definition IChainable
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -1668,7 +1668,7 @@ The following read permissions are provided to a service principal by the `grant
 Grant permission to allow task responses to a state machine by calling the `grantTaskResponse()` API:
 
 ```go
-var definition iChainable
+var definition IChainable
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -1695,7 +1695,7 @@ Grant execution-level permissions to a state machine by calling the `grantExecut
 Grant the given identity permission to redrive the execution of the state machine:
 
 ```go
-var definition iChainable
+var definition IChainable
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -1710,7 +1710,7 @@ stateMachine.grantRedriveExecution(role)
 ```
 
 ```go
-var definition iChainable
+var definition IChainable
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -1727,7 +1727,7 @@ stateMachine.grantExecution(role, jsii.String("states:GetExecutionHistory"))
 You can add any set of permissions to a state machine by calling the `grant()` API.
 
 ```go
-var definition iChainable
+var definition IChainable
 user := iam.NewUser(this, jsii.String("MyUser"))
 stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),

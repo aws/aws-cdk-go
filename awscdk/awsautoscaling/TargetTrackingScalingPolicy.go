@@ -15,8 +15,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
-//   var metric metric
+//   var autoScalingGroup AutoScalingGroup
+//   var metric Metric
 //
 //   targetTrackingScalingPolicy := awscdk.Aws_autoscaling.NewTargetTrackingScalingPolicy(this, jsii.String("MyTargetTrackingScalingPolicy"), &TargetTrackingScalingPolicyProps{
 //   	AutoScalingGroup: autoScalingGroup,

@@ -13,8 +13,8 @@ import (
 // A source that reads from an SQS queue.
 //
 // Example:
-//   var sourceQueue queue
-//   var dest apiDestination
+//   var sourceQueue Queue
+//   var dest ApiDestination
 //
 //
 //   apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{

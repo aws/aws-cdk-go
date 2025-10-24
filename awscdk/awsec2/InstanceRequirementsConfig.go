@@ -15,9 +15,9 @@ import (
 // Note: You must specify VCpuCount and MemoryMiB. All other attributes are optional. Any unspecified optional attribute is set to its default.
 //
 // Example:
-//   var vpc vpc
-//   var infrastructureRole role
-//   var instanceProfile instanceProfile
+//   var vpc Vpc
+//   var infrastructureRole Role
+//   var instanceProfile InstanceProfile
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -29,7 +29,7 @@ import (
 //   	InfrastructureRole: InfrastructureRole,
 //   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
 //   			Vpc: *Vpc,
 //   		}),
@@ -37,15 +37,18 @@ import (
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-//   		CpuManufacturers: []cpuManufacturer{
-//   			ec2.*cpuManufacturer_INTEL,
+//   		CpuManufacturers: []CpuManufacturer{
+//   			ec2.CpuManufacturer_INTEL,
 //   		},
-//   		AcceleratorManufacturers: []acceleratorManufacturer{
-//   			ec2.*acceleratorManufacturer_NVIDIA,
+//   		AcceleratorManufacturers: []AcceleratorManufacturer{
+//   			ec2.AcceleratorManufacturer_NVIDIA,
 //   		},
 //   	},
 //   	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 //   })
+//
+//   // Optionally configure security group rules using IConnectable interface
+//   miCapacityProvider.Connections.AllowFrom(ec2.Peer_Ipv4(vpc.VpcCidrBlock), ec2.Port_Tcp(jsii.Number(80)))
 //
 //   // Add the capacity provider to the cluster
 //   cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
@@ -61,8 +64,8 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: miCapacityProvider.CapacityProviderName,
 //   			Weight: jsii.Number(1),
 //   		},

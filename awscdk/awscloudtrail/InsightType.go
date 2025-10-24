@@ -9,9 +9,9 @@ import (
 //
 // Example:
 //   cloudtrail.NewTrail(this, jsii.String("Insights"), &TrailProps{
-//   	InsightTypes: []insightType{
-//   		cloudtrail.*insightType_API_CALL_RATE(),
-//   		cloudtrail.*insightType_API_ERROR_RATE(),
+//   	InsightTypes: []InsightType{
+//   		cloudtrail.InsightType_API_CALL_RATE(),
+//   		cloudtrail.InsightType_API_ERROR_RATE(),
 //   	},
 //   })
 //

@@ -20,7 +20,7 @@ import (
 //   import redshift_alpha "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
+//   var key Key
 //
 //   databaseSecret := redshift_alpha.NewDatabaseSecret(this, jsii.String("MyDatabaseSecret"), &DatabaseSecretProps{
 //   	Username: jsii.String("username"),

@@ -8,7 +8,7 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var sourceAccessConfigurationType sourceAccessConfigurationType
+//   var sourceAccessConfigurationType SourceAccessConfigurationType
 //
 //   sourceAccessConfiguration := &SourceAccessConfiguration{
 //   	Type: sourceAccessConfigurationType,

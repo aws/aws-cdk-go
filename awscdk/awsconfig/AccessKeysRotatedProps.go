@@ -12,9 +12,9 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var evaluationMode evaluationMode
+//   var evaluationMode EvaluationMode
 //   var inputParameters interface{}
-//   var ruleScope ruleScope
+//   var ruleScope RuleScope
 //
 //   accessKeysRotatedProps := &AccessKeysRotatedProps{
 //   	ConfigRuleName: jsii.String("configRuleName"),

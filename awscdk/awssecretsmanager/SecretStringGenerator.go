@@ -4,7 +4,7 @@ package awssecretsmanager
 // Configuration to generate secrets such as passwords automatically.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{

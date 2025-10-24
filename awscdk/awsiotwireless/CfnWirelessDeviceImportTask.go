@@ -30,8 +30,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -567,6 +567,44 @@ func (j *jsiiProxy_CfnWirelessDeviceImportTask)SetTagsRaw(val *[]*awscdk.CfnTag)
 		"tagsRaw",
 		val,
 	)
+}
+
+// Creates a new IWirelessDeviceImportTaskRef from an ARN.
+func CfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArn(scope constructs.Construct, id *string, arn *string) IWirelessDeviceImportTaskRef {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns IWirelessDeviceImportTaskRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
+		"fromWirelessDeviceImportTaskArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IWirelessDeviceImportTaskRef from a wirelessDeviceImportTaskId.
+func CfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskId(scope constructs.Construct, id *string, wirelessDeviceImportTaskId *string) IWirelessDeviceImportTaskRef {
+	_init_.Initialize()
+
+	if err := validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskIdParameters(scope, id, wirelessDeviceImportTaskId); err != nil {
+		panic(err)
+	}
+	var returns IWirelessDeviceImportTaskRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
+		"fromWirelessDeviceImportTaskId",
+		[]interface{}{scope, id, wirelessDeviceImportTaskId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

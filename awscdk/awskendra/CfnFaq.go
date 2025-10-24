@@ -29,8 +29,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	FileFormat: jsii.String("fileFormat"),
 //   	LanguageCode: jsii.String("languageCode"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -581,25 +581,6 @@ func (j *jsiiProxy_CfnFaq)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-// Creates a new IFaqRef from an ARN.
-func CfnFaq_FromFaqArn(scope constructs.Construct, id *string, arn *string) IFaqRef {
-	_init_.Initialize()
-
-	if err := validateCfnFaq_FromFaqArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IFaqRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
-		"fromFaqArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

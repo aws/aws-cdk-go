@@ -21,8 +21,8 @@ import (
 //   cfnSoftwarePackage := awscdk.Aws_iot.NewCfnSoftwarePackage(this, jsii.String("MyCfnSoftwarePackage"), &CfnSoftwarePackageProps{
 //   	Description: jsii.String("description"),
 //   	PackageName: jsii.String("packageName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

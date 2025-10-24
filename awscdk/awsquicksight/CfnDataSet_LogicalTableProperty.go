@@ -67,8 +67,8 @@ package awsquicksight
 //   			},
 //   			TagColumnOperation: &TagColumnOperationProperty{
 //   				ColumnName: jsii.String("columnName"),
-//   				Tags: []columnTagProperty{
-//   					&columnTagProperty{
+//   				Tags: []ColumnTagProperty{
+//   					&ColumnTagProperty{
 //   						ColumnDescription: &ColumnDescriptionProperty{
 //   							Text: jsii.String("text"),
 //   						},

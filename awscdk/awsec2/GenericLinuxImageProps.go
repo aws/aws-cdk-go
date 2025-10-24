@@ -8,7 +8,7 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var userData userData
+//   var userData UserData
 //
 //   genericLinuxImageProps := &GenericLinuxImageProps{
 //   	UserData: userData,

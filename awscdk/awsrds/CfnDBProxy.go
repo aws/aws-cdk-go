@@ -49,8 +49,8 @@ import (
 //   	EndpointNetworkType: jsii.String("endpointNetworkType"),
 //   	IdleClientTimeout: jsii.Number(123),
 //   	RequireTls: jsii.Boolean(false),
-//   	Tags: []tagFormatProperty{
-//   		&tagFormatProperty{
+//   	Tags: []TagFormatProperty{
+//   		&TagFormatProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

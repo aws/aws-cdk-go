@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > Amazon Bedrock AgentCore is in preview release and is subject to change.
+// The AgentCore Code Interpreter tool enables agents to securely execute code in isolated sandbox environments.
 //
-// The AgentCore Code Interpreter tool enables agents to securely execute code in isolated sandbox environments. It offers advanced configuration support and seamless integration with popular frameworks.
+// It offers advanced configuration support and seamless integration with popular frameworks.
 //
 // For more information about using the custom code interpreter, see [Execute code and analyze data using Amazon Bedrock AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html) .
 //

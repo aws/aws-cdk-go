@@ -8,8 +8,8 @@ import (
 // Properties for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var dest apiDestination
+//   var sourceQueue Queue
+//   var dest ApiDestination
 //
 //
 //   apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{

@@ -10,7 +10,7 @@ package awsrds
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var oracleEngineVersion oracleEngineVersion
+//   var oracleEngineVersion OracleEngineVersion
 //
 //   oracleEeInstanceEngineProps := &OracleEeInstanceEngineProps{
 //   	Version: oracleEngineVersion,

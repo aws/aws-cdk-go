@@ -8,7 +8,7 @@ import (
 // A reference to a bucket outside this stack.
 //
 // Example:
-//   var myLambda function
+//   var myLambda Function
 //
 //   bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &BucketAttributes{
 //   	BucketArn: jsii.String("arn:aws:s3:::amzn-s3-demo-bucket"),

@@ -3,7 +3,7 @@ package awsquicksight
 
 // A word cloud.
 //
-// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

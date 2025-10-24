@@ -6,8 +6,8 @@ package awscodepipelineactions
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pipeline pipeline
-//   var repository iRepository
+//   var pipeline Pipeline
+//   var repository IRepository
 //
 //
 //   sourceOutput := codepipeline.NewArtifact()
@@ -35,13 +35,13 @@ package awscodepipelineactions
 //
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		sourceAction,
 //   	},
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Build"),
-//   	Actions: []*iAction{
+//   	Actions: []IAction{
 //   		buildAction,
 //   	},
 //   })

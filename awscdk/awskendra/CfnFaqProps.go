@@ -24,8 +24,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	FileFormat: jsii.String("fileFormat"),
 //   	LanguageCode: jsii.String("languageCode"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

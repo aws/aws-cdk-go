@@ -5,8 +5,8 @@ package awsbatch
 //
 // Example:
 //   batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	JobStateTimeLimitActions: []jobStateTimeLimitAction{
-//   		&jobStateTimeLimitAction{
+//   	JobStateTimeLimitActions: []JobStateTimeLimitAction{
+//   		&JobStateTimeLimitAction{
 //   			Action: batch.JobStateTimeLimitActionsAction_CANCEL,
 //   			MaxTime: cdk.Duration_Minutes(jsii.Number(10)),
 //   			Reason: batch.JobStateTimeLimitActionsReason_INSUFFICIENT_INSTANCE_CAPACITY,

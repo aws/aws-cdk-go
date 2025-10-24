@@ -12,15 +12,15 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var endpoint iEndpoint
-//   var listener listener
+//   var endpoint IEndpoint
+//   var listener Listener
 //
 //   endpointGroupProps := &EndpointGroupProps{
 //   	Listener: listener,
 //
 //   	// the properties below are optional
 //   	EndpointGroupName: jsii.String("endpointGroupName"),
-//   	Endpoints: []*iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		endpoint,
 //   	},
 //   	HealthCheckInterval: cdk.Duration_Minutes(jsii.Number(30)),
@@ -28,8 +28,8 @@ import (
 //   	HealthCheckPort: jsii.Number(123),
 //   	HealthCheckProtocol: awscdk.Aws_globalaccelerator.HealthCheckProtocol_TCP,
 //   	HealthCheckThreshold: jsii.Number(123),
-//   	PortOverrides: []portOverride{
-//   		&portOverride{
+//   	PortOverrides: []PortOverride{
+//   		&PortOverride{
 //   			EndpointPort: jsii.Number(123),
 //   			ListenerPort: jsii.Number(123),
 //   		},

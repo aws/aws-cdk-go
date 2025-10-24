@@ -4,7 +4,7 @@ package awsrds
 // Engine lifecycle support for Amazon RDS and Amazon Aurora.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{

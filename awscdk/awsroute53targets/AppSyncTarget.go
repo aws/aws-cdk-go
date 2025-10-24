@@ -17,8 +17,8 @@ import (
 // Example:
 //   import appsync "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var graphqlApi graphqlApi
+//   var zone HostedZone
+//   var graphqlApi GraphqlApi
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{

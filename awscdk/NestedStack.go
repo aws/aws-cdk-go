@@ -37,7 +37,7 @@ import (
 //   websiteBucketA := s3.NewBucket(nestedStackA, jsii.String("WebsiteBucketA"), &BucketProps{
 //   })
 //   s3deploy.NewBucketDeployment(nestedStackA, jsii.String("s3deployA"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
 //   			"a": jsii.String("b"),
 //   		}),
@@ -50,7 +50,7 @@ import (
 //   websiteBucketB := s3.NewBucket(nestedStackB, jsii.String("WebsiteBucketB"), &BucketProps{
 //   })
 //   s3deploy.NewBucketDeployment(nestedStackB, jsii.String("s3deployB"), &BucketDeploymentProps{
-//   	Sources: []*iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_*JsonData(jsii.String("file.json"), map[string]*string{
 //   			"a": jsii.String("b"),
 //   		}),

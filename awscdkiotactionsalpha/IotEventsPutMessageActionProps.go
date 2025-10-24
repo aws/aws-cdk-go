@@ -10,7 +10,7 @@ import (
 //   import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role iRole
+//   var role IRole
 //
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &InputProps{
@@ -21,7 +21,7 @@ import (
 //   })
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewIotEventsPutMessageAction(input, &IotEventsPutMessageActionProps{
 //   			BatchMode: jsii.Boolean(true),
 //   			 // optional property, default is 'false'

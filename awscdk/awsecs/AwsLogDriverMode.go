@@ -4,7 +4,7 @@ package awsecs
 // awslogs provides two modes for delivering messages from the container to the log driver.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // Create a Task Definition for the container to start
 //   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -27,11 +27,11 @@ package awsecs
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	TaskCount: jsii.Number(1),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
+//   	ContainerOverrides: []ContainerOverride{
+//   		&ContainerOverride{
 //   			ContainerName: jsii.String("TheContainer"),
-//   			Environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
+//   			Environment: []TaskEnvironmentVariable{
+//   				&TaskEnvironmentVariable{
 //   					Name: jsii.String("I_WAS_TRIGGERED"),
 //   					Value: jsii.String("From CloudWatch Events"),
 //   				},

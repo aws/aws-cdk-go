@@ -4,7 +4,7 @@ package awsrds
 // The storage type to be associated with the DB cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
@@ -16,7 +16,7 @@ package awsrds
 //   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 //   		PubliclyAccessible: jsii.Boolean(false),
 //   	}),
-//   	Readers: []iClusterInstance{
+//   	Readers: []IClusterInstance{
 //   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
 //   	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,

@@ -357,6 +357,30 @@ func (j *jsiiProxy_CfnCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetTieredStorageConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_TieredStorageConfigProperty:
+		val := val.(*CfnCluster_TieredStorageConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_TieredStorageConfigProperty:
+		val_ := val.(CfnCluster_TieredStorageConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_TieredStorageConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetVpcConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

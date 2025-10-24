@@ -15,7 +15,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var service service
+//   var service Service
 //
 //   cnameInstance := awscdk.Aws_servicediscovery.NewCnameInstance(this, jsii.String("MyCnameInstance"), &CnameInstanceProps{
 //   	InstanceCname: jsii.String("instanceCname"),

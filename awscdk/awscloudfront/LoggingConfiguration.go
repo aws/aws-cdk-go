@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   loggingConfiguration := &LoggingConfiguration{
 //   	Bucket: bucket,

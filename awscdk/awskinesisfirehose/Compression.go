@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   // Compress data delivered to S3 using Snappy
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 //   	Compression: firehose.Compression_SNAPPY(),

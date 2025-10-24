@@ -12,9 +12,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var assign assign
+//   var assign Assign
 //
-//   attributeValuesStep := awscdk.Aws_appsync.NewAttributeValuesStep(jsii.String("attr"), jsii.String("container"), []assign{
+//   attributeValuesStep := awscdk.Aws_appsync.NewAttributeValuesStep(jsii.String("attr"), jsii.String("container"), []Assign{
 //   	assign,
 //   })
 //

@@ -10,10 +10,10 @@ import (
 // Options for a new DatabaseProxy.
 //
 // Example:
-//   var vpc vpc
-//   var securityGroup securityGroup
-//   var secrets []secret
-//   var dbInstance databaseInstance
+//   var vpc Vpc
+//   var securityGroup SecurityGroup
+//   var secrets []Secret
+//   var dbInstance DatabaseInstance
 //
 //
 //   proxy := dbInstance.AddProxy(jsii.String("proxy"), &DatabaseProxyOptions{

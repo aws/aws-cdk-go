@@ -25,13 +25,13 @@ package awswafv2
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
+//   var statementProperty_ StatementProperty
 //   var uriPath interface{}
 //
 //   ruleProperty := &RuleProperty{
 //   	Name: jsii.String("name"),
 //   	Priority: jsii.Number(123),
-//   	Statement: &statementProperty{
+//   	Statement: &StatementProperty{
 //   		AndStatement: &AndStatementProperty{
 //   			Statements: []interface{}{
 //   				statementProperty_,

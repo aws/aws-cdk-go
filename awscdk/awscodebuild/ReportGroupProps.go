@@ -8,7 +8,7 @@ import (
 // Construction properties for `ReportGroup`.
 //
 // Example:
-//   var source source
+//   var source Source
 //
 //
 //   // create a new ReportGroup

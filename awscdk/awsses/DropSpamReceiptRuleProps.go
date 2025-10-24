@@ -6,15 +6,15 @@ package awsses
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var receiptRule receiptRule
-//   var receiptRuleAction iReceiptRuleAction
-//   var receiptRuleSet receiptRuleSet
+//   var receiptRule ReceiptRule
+//   var receiptRuleAction IReceiptRuleAction
+//   var receiptRuleSet ReceiptRuleSet
 //
 //   dropSpamReceiptRuleProps := &DropSpamReceiptRuleProps{
 //   	RuleSet: receiptRuleSet,
 //
 //   	// the properties below are optional
-//   	Actions: []*iReceiptRuleAction{
+//   	Actions: []IReceiptRuleAction{
 //   		receiptRuleAction,
 //   	},
 //   	After: receiptRule,

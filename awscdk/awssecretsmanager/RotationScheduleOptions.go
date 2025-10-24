@@ -10,7 +10,7 @@ import (
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
+//   var fn Function
 //
 //   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 //

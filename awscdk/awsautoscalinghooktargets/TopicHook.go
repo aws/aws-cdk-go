@@ -18,7 +18,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var topic topic
+//   var topic Topic
 //
 //   topicHook := awscdk.Aws_autoscaling_hooktargets.NewTopicHook(topic)
 //

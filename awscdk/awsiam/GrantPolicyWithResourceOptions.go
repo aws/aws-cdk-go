@@ -8,16 +8,16 @@ package awsiam
 // Use this when you need fine-grained control over the initial policy statement's contents.
 //
 // Example:
-//   var grantee iGrantable
+//   var grantee IGrantable
 //   var actions []*string
 //   var resourceArns []*string
-//   var bucket bucket
+//   var bucket Bucket
 //
 //
 //   statement := iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Effect: iam.Effect_ALLOW,
 //   	Actions: actions,
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   	},
 //   	Conditions: map[string]interface{}{

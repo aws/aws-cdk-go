@@ -5,7 +5,7 @@ package awssns
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var fn function
+//   var fn Function
 //
 //
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
@@ -16,8 +16,8 @@ package awssns
 //   // price: between 100 and 200 or greater than 300
 //   // store: attribute must be present
 //   myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
-//   	FilterPolicy: map[string]subscriptionFilter{
-//   		"color": sns.*subscriptionFilter_stringFilter(&StringConditions{
+//   	FilterPolicy: map[string]SubscriptionFilter{
+//   		"color": sns.SubscriptionFilter_stringFilter(&StringConditions{
 //   			"allowlist": []*string{
 //   				jsii.String("red"),
 //   				jsii.String("orange"),
@@ -29,20 +29,20 @@ package awssns
 //   				jsii.String("ue"),
 //   			},
 //   		}),
-//   		"size": sns.*subscriptionFilter_stringFilter(&StringConditions{
+//   		"size": sns.SubscriptionFilter_stringFilter(&StringConditions{
 //   			"denylist": []*string{
 //   				jsii.String("small"),
 //   				jsii.String("medium"),
 //   			},
 //   		}),
-//   		"price": sns.*subscriptionFilter_numericFilter(&NumericConditions{
+//   		"price": sns.SubscriptionFilter_numericFilter(&NumericConditions{
 //   			"between": &BetweenCondition{
 //   				"start": jsii.Number(100),
 //   				"stop": jsii.Number(200),
 //   			},
 //   			"greaterThan": jsii.Number(300),
 //   		}),
-//   		"store": sns.*subscriptionFilter_existsFilter(),
+//   		"store": sns.SubscriptionFilter_existsFilter(),
 //   	},
 //   }))
 //

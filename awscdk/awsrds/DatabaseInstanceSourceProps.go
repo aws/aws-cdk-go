@@ -22,20 +22,20 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var caCertificate caCertificate
-//   var instanceEngine iInstanceEngine
-//   var instanceType instanceType
-//   var keyRef iKeyRef
-//   var optionGroup optionGroup
-//   var parameterGroup parameterGroup
-//   var role role
-//   var roleRef iRoleRef
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var subnetGroup subnetGroup
-//   var vpc vpc
+//   var bucket Bucket
+//   var caCertificate CaCertificate
+//   var instanceEngine IInstanceEngine
+//   var instanceType InstanceType
+//   var keyRef IKeyRef
+//   var optionGroup OptionGroup
+//   var parameterGroup ParameterGroup
+//   var role Role
+//   var roleRef IRoleRef
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var subnetGroup SubnetGroup
+//   var vpc Vpc
 //
 //   databaseInstanceSourceProps := &DatabaseInstanceSourceProps{
 //   	Engine: instanceEngine,
@@ -89,15 +89,15 @@ import (
 //   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-//   	S3ExportBuckets: []iBucket{
+//   	S3ExportBuckets: []IBucket{
 //   		bucket,
 //   	},
 //   	S3ExportRole: role,
-//   	S3ImportBuckets: []*iBucket{
+//   	S3ImportBuckets: []IBucket{
 //   		bucket,
 //   	},
 //   	S3ImportRole: role,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	StorageThroughput: jsii.Number(123),
@@ -109,11 +109,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

@@ -27,7 +27,7 @@ repository := ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
 To create an `onImageScanCompleted` event rule and trigger the event target
 
 ```go
-var repository repository
+var repository Repository
 var target someTarget
 
 
@@ -79,7 +79,7 @@ The grantPush method grants the specified IAM entity (the grantee) permission to
 Here is an example of granting a user push permissions:
 
 ```go
-var repository repository
+var repository Repository
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -98,7 +98,7 @@ The grantPull method grants the specified IAM entity (the grantee) permission to
 * 'ecr:GetAuthorizationToken'
 
 ```go
-var repository repository
+var repository Repository
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -114,7 +114,7 @@ The grantPullPush method grants the specified IAM entity (the grantee) permissio
 Here is an example of granting a user both pull and push permissions:
 
 ```go
-var repository repository
+var repository Repository
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -127,13 +127,54 @@ By using these methods, you can grant specific operational permissions on the EC
 
 ### Image tag immutability
 
-You can set tag immutability on images in our repository using the `imageTagMutability` construct prop.
+You can set tag immutability on images in your repository using the `imageTagMutability` construct prop.
 
 ```go
 ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
 	ImageTagMutability: ecr.TagMutability_IMMUTABLE,
 })
 ```
+
+#### Image tag mutability with exclusion filters
+
+ECR supports more granular control over image tag mutability by allowing you to specify exclusion filters. This enables you to make your repository immutable while allowing specific tag patterns to remain mutable (or vice versa).
+
+There are two new mutability options that work with exclusion filters:
+
+* `MUTABLE_WITH_EXCLUSION`: Tags are mutable by default, except those matching the exclusion filters
+* `IMMUTABLE_WITH_EXCLUSION`: Tags are immutable by default, except those matching the exclusion filters
+
+Use `ImageTagMutabilityExclusionFilter.wildcard()` to create filters with wildcard patterns:
+
+```go
+// Make all tags immutable except for those starting with 'dev-' or 'test-'
+// Make all tags immutable except for those starting with 'dev-' or 'test-'
+ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	ImageTagMutability: ecr.TagMutability_IMMUTABLE_WITH_EXCLUSION,
+	ImageTagMutabilityExclusionFilters: []ImageTagMutabilityExclusionFilter{
+		ecr.ImageTagMutabilityExclusionFilter_Wildcard(jsii.String("dev-*")),
+		ecr.ImageTagMutabilityExclusionFilter_*Wildcard(jsii.String("test-*")),
+	},
+})
+```
+
+```go
+// Make all tags mutable except for production releases
+// Make all tags mutable except for production releases
+ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
+	ImageTagMutability: ecr.TagMutability_MUTABLE_WITH_EXCLUSION,
+	ImageTagMutabilityExclusionFilters: []ImageTagMutabilityExclusionFilter{
+		ecr.ImageTagMutabilityExclusionFilter_Wildcard(jsii.String("prod-*")),
+		ecr.ImageTagMutabilityExclusionFilter_*Wildcard(jsii.String("release-v*")),
+	},
+})
+```
+
+##### Exclusion filter pattern rules
+
+* Patterns can contain alphanumeric characters, dots (.), underscores (_), hyphens (-), and asterisks (*) as wildcards
+* Maximum pattern length is 128 characters
+* You can specify up to 5 exclusion filters per repository
 
 ### Encryption
 
@@ -171,7 +212,7 @@ against that image. For example, the following deletes images older than
 is important here):
 
 ```go
-var repository repository
+var repository Repository
 
 repository.AddLifecycleRule(&LifecycleRule{
 	TagPrefixList: []*string{
@@ -188,7 +229,7 @@ When using `tagPatternList`, an image is successfully matched if it matches
 the wildcard filter.
 
 ```go
-var repository repository
+var repository Repository
 
 repository.AddLifecycleRule(&LifecycleRule{
 	TagPatternList: []*string{
@@ -224,14 +265,14 @@ You can add statements to the resource policy of the repository using the
 a `resources` section in the `PolicyStatement`.
 
 ```go
-var repository repository
+var repository Repository
 
 repository.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("ecr:GetDownloadUrlForLayer"),
 	},
 	// resources: ['*'], // not currently allowed!
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAnyPrincipal(),
 	},
 }))

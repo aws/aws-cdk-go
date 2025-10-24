@@ -14,8 +14,8 @@ package awseventstargets
 //   		jsii.String("command"),
 //   	},
 //   	Cpu: jsii.Number(123),
-//   	Environment: []taskEnvironmentVariable{
-//   		&taskEnvironmentVariable{
+//   	Environment: []TaskEnvironmentVariable{
+//   		&TaskEnvironmentVariable{
 //   			Name: jsii.String("name"),
 //   			Value: jsii.String("value"),
 //   		},

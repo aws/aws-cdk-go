@@ -39,8 +39,8 @@ import (
 //   	NotificationConfiguration: &NotificationConfigurationProperty{
 //   		NotificationTopicArn: jsii.String("notificationTopicArn"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

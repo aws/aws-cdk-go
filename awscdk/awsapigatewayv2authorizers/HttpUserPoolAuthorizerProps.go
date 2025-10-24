@@ -12,14 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var userPoolClient userPoolClient
+//   var userPoolClient UserPoolClient
 //
 //   httpUserPoolAuthorizerProps := &HttpUserPoolAuthorizerProps{
 //   	AuthorizerName: jsii.String("authorizerName"),
 //   	IdentitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
-//   	UserPoolClients: []iUserPoolClient{
+//   	UserPoolClients: []IUserPoolClient{
 //   		userPoolClient,
 //   	},
 //   	UserPoolRegion: jsii.String("userPoolRegion"),

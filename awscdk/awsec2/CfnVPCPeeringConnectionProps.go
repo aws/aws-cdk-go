@@ -19,8 +19,8 @@ import (
 //   	PeerOwnerId: jsii.String("peerOwnerId"),
 //   	PeerRegion: jsii.String("peerRegion"),
 //   	PeerRoleArn: jsii.String("peerRoleArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

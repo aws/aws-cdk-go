@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var eventBus eventBus
-//   var role role
+//   var api IApi
+//   var eventBus EventBus
+//   var role Role
 //
 //   appSyncEventBridgeDataSourceProps := &AppSyncEventBridgeDataSourceProps{
 //   	Api: api,

@@ -10,7 +10,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket iBucket
+//   var bucket IBucket
 //
 //
 //   app := cdk.NewApp()

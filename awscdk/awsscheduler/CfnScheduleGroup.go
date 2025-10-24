@@ -22,8 +22,8 @@ import (
 //
 //   cfnScheduleGroup := awscdk.Aws_scheduler.NewCfnScheduleGroup(this, jsii.String("MyCfnScheduleGroup"), &CfnScheduleGroupProps{
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

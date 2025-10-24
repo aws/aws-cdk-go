@@ -18,9 +18,9 @@ import (
 //
 //   var assign interface{}
 //   var outputs interface{}
-//   var project project
-//   var taskRole taskRole
-//   var timeout timeout
+//   var project Project
+//   var taskRole TaskRole
+//   var timeout Timeout
 //   var value interface{}
 //
 //   codeBuildStartBuildBatchJsonataProps := &CodeBuildStartBuildBatchJsonataProps{
@@ -34,8 +34,8 @@ import (
 //   	Credentials: &Credentials{
 //   		Role: taskRole,
 //   	},
-//   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
-//   		"environmentVariablesOverrideKey": &buildEnvironmentVariable{
+//   	EnvironmentVariablesOverride: map[string]BuildEnvironmentVariable{
+//   		"environmentVariablesOverrideKey": &BuildEnvironmentVariable{
 //   			"value": value,
 //
 //   			// the properties below are optional

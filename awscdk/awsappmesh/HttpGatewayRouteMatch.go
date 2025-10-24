@@ -4,8 +4,8 @@ package awsappmesh
 // The criterion for determining a request match for this GatewayRoute.
 //
 // Example:
-//   var gateway virtualGateway
-//   var virtualService virtualService
+//   var gateway VirtualGateway
+//   var virtualService VirtualService
 //
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &GatewayRouteBaseProps{

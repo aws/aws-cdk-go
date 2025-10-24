@@ -2,8 +2,8 @@ package awscdkgluealpha
 
 
 // Example:
-//   var myConnection connection
-//   var myDatabase database
+//   var myConnection Connection
+//   var myDatabase Database
 //
 //   glue.NewExternalTable(this, jsii.String("MyTable"), &ExternalTableProps{
 //   	Connection: myConnection,
@@ -11,8 +11,8 @@ package awscdkgluealpha
 //   	 // A table in Redshift
 //   	// ...
 //   	Database: myDatabase,
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			Type: glue.Schema_STRING(),
 //   		},

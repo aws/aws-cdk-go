@@ -12,11 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var hostedZone hostedZone
+//   var hostedZone HostedZone
 //
 //   networkLoadBalancerProps := &NetworkLoadBalancerProps{
-//   	Listeners: []networkListenerProps{
-//   		&networkListenerProps{
+//   	Listeners: []NetworkListenerProps{
+//   		&NetworkListenerProps{
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional

@@ -4,9 +4,9 @@ package awselasticloadbalancingv2
 // Basic properties for an ApplicationListener.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var vpc vpc
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var vpc Vpc
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,

@@ -18,7 +18,7 @@ import (
 //
 //   tasks.NewHttpInvoke(this, jsii.String("Invoke HTTP API"), &HttpInvokeProps{
 //   	ApiRoot: jsii.String("https://api.example.com"),
-//   	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("path/to/resource")),
+//   	ApiEndpoint: sfn.TaskInput_FromText(sfn.JsonPath_Format(jsii.String("resource/{}/details"), sfn.JsonPath_StringAt(jsii.String("$.resourceId")))),
 //   	Body: sfn.TaskInput_FromObject(map[string]interface{}{
 //   		"foo": jsii.String("bar"),
 //   	}),

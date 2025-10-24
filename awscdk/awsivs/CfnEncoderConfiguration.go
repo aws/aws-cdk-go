@@ -20,8 +20,8 @@ import (
 //
 //   cfnEncoderConfiguration := awscdk.Aws_ivs.NewCfnEncoderConfiguration(this, jsii.String("MyCfnEncoderConfiguration"), &CfnEncoderConfigurationProps{
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

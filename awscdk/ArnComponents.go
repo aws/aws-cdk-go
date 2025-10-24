@@ -6,7 +6,7 @@ package awscdk
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your connect route
-//   var connectHandler function
+//   var connectHandler Function
 //
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"))
@@ -26,7 +26,7 @@ package awscdk
 //
 //   // Grant access to the IAM user
 //   user.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &PolicyProps{
-//   	Statements: []policyStatement{
+//   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
 //   				jsii.String("execute-api:Invoke"),

@@ -9,11 +9,11 @@ package awsappsync
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var appsyncFunction appsyncFunction
-//   var baseDataSource baseDataSource
-//   var code code
-//   var functionRuntime functionRuntime
-//   var mappingTemplate mappingTemplate
+//   var appsyncFunction AppsyncFunction
+//   var baseDataSource BaseDataSource
+//   var code Code
+//   var functionRuntime FunctionRuntime
+//   var mappingTemplate MappingTemplate
 //
 //   extendedResolverProps := &ExtendedResolverProps{
 //   	FieldName: jsii.String("fieldName"),
@@ -31,7 +31,7 @@ package awsappsync
 //   	Code: code,
 //   	DataSource: baseDataSource,
 //   	MaxBatchSize: jsii.Number(123),
-//   	PipelineConfig: []iAppsyncFunction{
+//   	PipelineConfig: []IAppsyncFunction{
 //   		appsyncFunction,
 //   	},
 //   	RequestMappingTemplate: mappingTemplate,

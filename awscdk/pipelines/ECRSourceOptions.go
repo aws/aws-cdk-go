@@ -4,7 +4,7 @@ package pipelines
 // Options for ECR sources.
 //
 // Example:
-//   var repository iRepository
+//   var repository IRepository
 //
 //   pipelines.CodePipelineSource_Ecr(repository, &ECRSourceOptions{
 //   	ImageTag: jsii.String("latest"),

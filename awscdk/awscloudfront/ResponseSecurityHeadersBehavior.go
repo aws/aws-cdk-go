@@ -8,7 +8,7 @@ package awscloudfront
 //
 // Example:
 //   // Using an existing managed response headers policy
-//   var bucketOrigin s3Origin
+//   var bucketOrigin S3Origin
 //
 //   cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
@@ -42,13 +42,13 @@ package awscloudfront
 //   		OriginOverride: jsii.Boolean(true),
 //   	},
 //   	CustomHeadersBehavior: &ResponseCustomHeadersBehavior{
-//   		CustomHeaders: []responseCustomHeader{
-//   			&responseCustomHeader{
+//   		CustomHeaders: []ResponseCustomHeader{
+//   			&ResponseCustomHeader{
 //   				Header: jsii.String("X-Amz-Date"),
 //   				Value: jsii.String("some-value"),
 //   				Override: jsii.Boolean(true),
 //   			},
-//   			&responseCustomHeader{
+//   			&ResponseCustomHeader{
 //   				Header: jsii.String("X-Amz-Security-Token"),
 //   				Value: jsii.String("some-value"),
 //   				Override: jsii.Boolean(false),

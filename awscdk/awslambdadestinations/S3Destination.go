@@ -18,7 +18,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3Destination := awscdk.Aws_lambda_destinations.NewS3Destination(bucket)
 //

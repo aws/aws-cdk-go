@@ -112,8 +112,8 @@ package awsdynamodb
 //   				KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
 //   			},
 //   			TableClass: jsii.String("tableClass"),
-//   			Tags: []cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},

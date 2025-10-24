@@ -17,8 +17,8 @@ import (
 //   import route53resolver_alpha "github.com/aws/aws-cdk-go/awscdkroute53resolveralpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var firewallRuleGroup firewallRuleGroup
-//   var vpc vpc
+//   var firewallRuleGroup FirewallRuleGroup
+//   var vpc Vpc
 //
 //   firewallRuleGroupAssociation := route53resolver_alpha.NewFirewallRuleGroupAssociation(this, jsii.String("MyFirewallRuleGroupAssociation"), &FirewallRuleGroupAssociationProps{
 //   	FirewallRuleGroup: firewallRuleGroup,

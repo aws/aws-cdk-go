@@ -40,8 +40,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	LaunchParameters: jsii.String("launchParameters"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

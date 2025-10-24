@@ -10,9 +10,9 @@ package awsarcregionswitch
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var executionBlockConfigurationProperty_ executionBlockConfigurationProperty
+//   var executionBlockConfigurationProperty_ ExecutionBlockConfigurationProperty
 //
-//   executionBlockConfigurationProperty := &executionBlockConfigurationProperty{
+//   executionBlockConfigurationProperty := &ExecutionBlockConfigurationProperty{
 //   	ArcRoutingControlConfig: &ArcRoutingControlConfigurationProperty{
 //   		RegionAndRoutingControls: map[string]interface{}{
 //   			"regionAndRoutingControlsKey": []interface{}{

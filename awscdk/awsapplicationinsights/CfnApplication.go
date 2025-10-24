@@ -307,8 +307,8 @@ import (
 //   	OpsCenterEnabled: jsii.Boolean(false),
 //   	OpsItemSnsTopicArn: jsii.String("opsItemSnsTopicArn"),
 //   	SnsNotificationArn: jsii.String("snsNotificationArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

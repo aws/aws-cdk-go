@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationLoadBalancer applicationLoadBalancer
+//   var applicationLoadBalancer ApplicationLoadBalancer
 //
 //   vpcOriginEndpoint := awscdk.Aws_cloudfront.VpcOriginEndpoint_ApplicationLoadBalancer(applicationLoadBalancer)
 //

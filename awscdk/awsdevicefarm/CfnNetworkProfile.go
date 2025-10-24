@@ -26,8 +26,8 @@ import (
 //   	DownlinkDelayMs: jsii.Number(123),
 //   	DownlinkJitterMs: jsii.Number(123),
 //   	DownlinkLossPercent: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -119,8 +119,8 @@ import (
 //   		},
 //   	},
 //   	Source: jsii.String("source"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

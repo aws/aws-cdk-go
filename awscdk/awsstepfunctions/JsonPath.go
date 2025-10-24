@@ -10,20 +10,14 @@ import (
 // Extract a field from the State Machine data or context that gets passed around between states.
 //
 // Example:
-//   /**
-//    * JSON state input:
-//    *  {
-//    *    "bucketName": "my-bucket",
-//    *    "prefix": "item"
-//    *  }
-//    */
-//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
-//   	ItemReader: sfn.NewS3ObjectsItemReader(&S3ObjectsItemReaderProps{
-//   		BucketNamePath: sfn.JsonPath_StringAt(jsii.String("$.bucketName")),
-//   		Prefix: sfn.JsonPath_*StringAt(jsii.String("$.prefix")),
+//   tasks.NewSageMakerCreateModel(this, jsii.String("Sagemaker"), &SageMakerCreateModelProps{
+//   	ModelName: jsii.String("MyModel"),
+//   	PrimaryContainer: tasks.NewContainerDefinition(&ContainerDefinitionOptions{
+//   		Image: tasks.DockerImage_FromJsonExpression(sfn.JsonPath_StringAt(jsii.String("$.Model.imageName"))),
+//   		Mode: tasks.Mode_SINGLE_MODEL,
+//   		ModelS3Location: tasks.S3Location_FromJsonExpression(jsii.String("$.TrainingJob.ModelArtifacts.S3ModelArtifacts")),
 //   	}),
 //   })
-//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")))
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html
 //

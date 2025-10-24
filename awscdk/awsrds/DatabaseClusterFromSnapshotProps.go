@@ -12,7 +12,7 @@ import (
 // Properties for ``DatabaseClusterFromSnapshot``.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClusterFromSnapshotProps{
 //   	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{

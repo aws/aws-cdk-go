@@ -233,7 +233,7 @@ For more information, see [Enabling Private endpoint for incoming traffic](https
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 
 interfaceVpcEndpoint := ec2.NewInterfaceVpcEndpoint(this, jsii.String("MyVpcEndpoint"), &InterfaceVpcEndpointProps{
@@ -291,7 +291,7 @@ service definition.
 import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 import ssm "github.com/aws/aws-cdk-go/awscdk"
 
-var stack stack
+var stack Stack
 
 
 secret := secretsmanager.NewSecret(stack, jsii.String("Secret"))
@@ -304,13 +304,13 @@ service := apprunner.NewService(stack, jsii.String("Service"), &ServiceProps{
 	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
 		ImageConfiguration: &ImageConfiguration{
 			Port: jsii.Number(8000),
-			EnvironmentSecrets: map[string]secret{
-				"SECRET": apprunner.*secret_fromSecretsManager(secret),
-				"PARAMETER": apprunner.*secret_fromSsmParameter(parameter),
-				"SECRET_ID": apprunner.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
+			EnvironmentSecrets: map[string]Secret{
+				"SECRET": apprunner.Secret_fromSecretsManager(secret),
+				"PARAMETER": apprunner.Secret_fromSsmParameter(parameter),
+				"SECRET_ID": apprunner.Secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 					"versionId": jsii.String("version-id"),
 				}),
-				"SECRET_STAGE": apprunner.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
+				"SECRET_STAGE": apprunner.Secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 					"versionStage": jsii.String("version-stage"),
 				}),
 			},
@@ -319,7 +319,7 @@ service := apprunner.NewService(stack, jsii.String("Service"), &ServiceProps{
 	}),
 })
 
-service.AddSecret(jsii.String("LATER_SECRET"), apprunner.secret_FromSecretsManager(secret, jsii.String("field")))
+service.AddSecret(jsii.String("LATER_SECRET"), apprunner.Secret_FromSecretsManager(secret, jsii.String("field")))
 ```
 
 ## Use a customer managed key
@@ -329,7 +329,7 @@ To use a customer managed key for your source encryption, use the `kmsKey` attri
 ```go
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
-var kmsKey iKey
+var kmsKey IKey
 
 
 apprunner.NewService(this, jsii.String("Service"), &ServiceProps{

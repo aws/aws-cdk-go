@@ -8,22 +8,22 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventRecordFormat eventRecordFormat
-//   var kafkaSchemaRegistryAccessConfigType kafkaSchemaRegistryAccessConfigType
-//   var kafkaSchemaValidationAttribute kafkaSchemaValidationAttribute
+//   var eventRecordFormat EventRecordFormat
+//   var kafkaSchemaRegistryAccessConfigType KafkaSchemaRegistryAccessConfigType
+//   var kafkaSchemaValidationAttribute KafkaSchemaValidationAttribute
 //
 //   kafkaSchemaRegistryConfig := &KafkaSchemaRegistryConfig{
 //   	EventRecordFormat: eventRecordFormat,
 //   	SchemaRegistryUri: jsii.String("schemaRegistryUri"),
-//   	SchemaValidationConfigs: []kafkaSchemaValidationConfig{
-//   		&kafkaSchemaValidationConfig{
+//   	SchemaValidationConfigs: []KafkaSchemaValidationConfig{
+//   		&KafkaSchemaValidationConfig{
 //   			Attribute: kafkaSchemaValidationAttribute,
 //   		},
 //   	},
 //
 //   	// the properties below are optional
-//   	AccessConfigs: []kafkaSchemaRegistryAccessConfig{
-//   		&kafkaSchemaRegistryAccessConfig{
+//   	AccessConfigs: []KafkaSchemaRegistryAccessConfig{
+//   		&KafkaSchemaRegistryAccessConfig{
 //   			Type: kafkaSchemaRegistryAccessConfigType,
 //   			Uri: jsii.String("uri"),
 //   		},

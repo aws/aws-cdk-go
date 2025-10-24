@@ -8,7 +8,7 @@ import (
 // A custom-hosted service for an interface VPC endpoint.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &InterfaceVpcEndpointProps{

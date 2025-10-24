@@ -225,7 +225,7 @@ life-time assets. S3 deploy time assets are stored with a `deploy-time/` prefix,
 Lambda assets are by default marked as deploy time assets:
 
 ```go
-var stack stack
+var stack Stack
 
 lambda.NewFunction(stack, jsii.String("lambda"), &FunctionProps{
 	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("assets"))),
@@ -240,7 +240,7 @@ Or, if you want to create your own deploy time asset:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var stack stack
+var stack Stack
 
 asset := awscdk.NewAsset(stack, jsii.String("deploy-time-asset"), &AssetProps{
 	DeployTime: jsii.Boolean(true),
@@ -333,11 +333,11 @@ you can subclass `DefaultStagingStack`.
 
 ```go
 type customStagingStackOptions struct {
-	defaultStagingStackOptions
+	DefaultStagingStackOptions
 }
 
 type customStagingStack struct {
-	defaultStagingStack
+	DefaultStagingStack
 }
 ```
 
@@ -345,29 +345,29 @@ Or you can roll your own staging resources from scratch, as long as it implement
 
 ```go
 type customStagingStackProps struct {
-	stackProps
+	StackProps
 }
 
 type customStagingStack struct {
-	stack
+	Stack
 }
 
-func newCustomStagingStack(scope construct, id *string, props customStagingStackProps) *customStagingStack {
+func newCustomStagingStack(scope Construct, id *string, props customStagingStackProps) *customStagingStack {
 	this := &customStagingStack{}
 	newStack_Override(this, scope, id, props)
 	return this
 }
 
-func (this *customStagingStack) addFile(asset fileAssetSource) fileStagingLocation {
-	return &fileStagingLocation{
+func (this *customStagingStack) addFile(asset FileAssetSource) FileStagingLocation {
+	return &FileStagingLocation{
 		BucketName: jsii.String("amzn-s3-demo-bucket"),
 		AssumeRoleArn: jsii.String("myArn"),
 		DependencyStack: this,
 	}
 }
 
-func (this *customStagingStack) addDockerImage(asset dockerImageAssetSource) imageStagingLocation {
-	return &imageStagingLocation{
+func (this *customStagingStack) addDockerImage(asset DockerImageAssetSource) ImageStagingLocation {
+	return &ImageStagingLocation{
 		RepoName: jsii.String("myRepo"),
 		AssumeRoleArn: jsii.String("myArn"),
 		DependencyStack: this,
@@ -383,7 +383,7 @@ custom Staging Stack that can be created in every environment the CDK App is dep
 type customFactory struct {
 }
 
-func (this *customFactory) obtainStagingResources(stack stack, context obtainStagingResourcesContext) customStagingStack {
+func (this *customFactory) obtainStagingResources(stack Stack, context ObtainStagingResourcesContext) customStagingStack {
 	myApp := awscdk.App_Of(*stack)
 
 	return NewCustomStagingStack(myApp, fmt.Sprintf("CustomStagingStack-%v", *context.EnvironmentString), &customStagingStackProps{

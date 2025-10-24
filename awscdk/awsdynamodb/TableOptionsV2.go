@@ -15,8 +15,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var policyDocument policyDocument
-//   var stream stream
+//   var policyDocument PolicyDocument
+//   var stream Stream
 //
 //   tableOptionsV2 := &TableOptionsV2{
 //   	ContributorInsights: jsii.Boolean(false),
@@ -37,8 +37,8 @@ import (
 //   	},
 //   	ResourcePolicy: policyDocument,
 //   	TableClass: awscdk.*Aws_dynamodb.TableClass_STANDARD,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

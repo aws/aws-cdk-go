@@ -80,8 +80,8 @@ book.AddMethod(jsii.String("DELETE"))
 To give an IAM User or Role permission to invoke a method, use `grantExecute`:
 
 ```go
-var api restApi
-var user user
+var api RestApi
+var user User
 
 
 method := api.Root.AddResource(jsii.String("books")).AddMethod(jsii.String("GET"))
@@ -114,10 +114,10 @@ import "github.com/aws/aws-cdk-go/awscdk"
  */
 
 type rootStack struct {
-	stack
+	Stack
 }
 
-func newRootStack(scope construct) *rootStack {
+func newRootStack(scope Construct) *rootStack {
 	this := &rootStack{}
 	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 
@@ -151,17 +151,17 @@ func newRootStack(scope construct) *rootStack {
 }
 
 type resourceNestedStackProps struct {
-	nestedStackProps
+	NestedStackProps
 	restApiId *string
 	rootResourceId *string
 }
 
 type petsStack struct {
-	nestedStack
-	methods []method
+	NestedStack
+	methods []Method
 }
 
-func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
+func newPetsStack(scope Construct, props resourceNestedStackProps) *petsStack {
 	this := &petsStack{}
 	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-PetsStack"), props)
 
@@ -171,8 +171,8 @@ func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
 	})
 
 	method := api.Root.AddResource(jsii.String("pets")).AddMethod(jsii.String("GET"), awscdk.NewMockIntegration(&IntegrationOptions{
-		IntegrationResponses: []integrationResponse{
-			&integrationResponse{
+		IntegrationResponses: []IntegrationResponse{
+			&IntegrationResponse{
 				StatusCode: jsii.String("200"),
 			},
 		},
@@ -181,8 +181,8 @@ func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
 			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 		},
 	}), &MethodOptions{
-		MethodResponses: []methodResponse{
-			&methodResponse{
+		MethodResponses: []MethodResponse{
+			&MethodResponse{
 				StatusCode: jsii.String("200"),
 			},
 		},
@@ -193,11 +193,11 @@ func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
 }
 
 type booksStack struct {
-	nestedStack
-	methods []*method
+	NestedStack
+	methods []Method
 }
 
-func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack {
+func newBooksStack(scope Construct, props resourceNestedStackProps) *booksStack {
 	this := &booksStack{}
 	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-BooksStack"), props)
 
@@ -207,8 +207,8 @@ func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack 
 	})
 
 	method := api.Root.AddResource(jsii.String("books")).AddMethod(jsii.String("GET"), awscdk.NewMockIntegration(&IntegrationOptions{
-		IntegrationResponses: []*integrationResponse{
-			&integrationResponse{
+		IntegrationResponses: []IntegrationResponse{
+			&IntegrationResponse{
 				StatusCode: jsii.String("200"),
 			},
 		},
@@ -217,8 +217,8 @@ func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack 
 			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 		},
 	}), &MethodOptions{
-		MethodResponses: []*methodResponse{
-			&methodResponse{
+		MethodResponses: []MethodResponse{
+			&MethodResponse{
 				StatusCode: jsii.String("200"),
 			},
 		},
@@ -229,16 +229,16 @@ func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack 
 }
 
 type deployStackProps struct {
-	nestedStackProps
+	NestedStackProps
 	restApiId *string
-	methods []*method
+	methods []Method
 }
 
 type deployStack struct {
-	nestedStack
+	NestedStack
 }
 
-func newDeployStack(scope construct, props deployStackProps) *deployStack {
+func newDeployStack(scope Construct, props deployStackProps) *deployStack {
 	this := &deployStack{}
 	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-DeployStack"), props)
 
@@ -273,7 +273,7 @@ The following code defines a REST API that routes all requests to the
 specified AWS Lambda function:
 
 ```go
-var backend function
+var backend Function
 
 apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
 	Handler: backend,
@@ -284,7 +284,7 @@ You can also supply `proxy: false`, in which case you will have to explicitly
 define the API model:
 
 ```go
-var backend function
+var backend Function
 
 api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
 	Handler: backend,
@@ -307,7 +307,7 @@ Additionally, `integrationOptions` can be supplied to explicitly define
 options of the Lambda integration:
 
 ```go
-var backend function
+var backend Function
 
 
 api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
@@ -334,7 +334,7 @@ If the execution fails, an HTTP `500` response is returned with the `error` and 
 To disable default response models generation use the `useDefaultMethodResponses` property:
 
 ```go
-var machine iStateMachine
+var machine IStateMachine
 
 
 apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{
@@ -463,8 +463,8 @@ The following example shows how to integrate the `GET /book/{book_id}` method to
 an AWS Lambda function:
 
 ```go
-var getBookHandler function
-var book resource
+var getBookHandler Function
+var book Resource
 
 
 getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler)
@@ -474,8 +474,8 @@ book.AddMethod(jsii.String("GET"), getBookIntegration)
 Integration options can be optionally be specified:
 
 ```go
-var getBookHandler function
-var getBookIntegration lambdaIntegration
+var getBookHandler Function
+var getBookIntegration LambdaIntegration
 
 
 getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &LambdaIntegrationOptions{
@@ -488,8 +488,8 @@ getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &LambdaInt
 Method options can optionally be specified when adding methods:
 
 ```go
-var book resource
-var getBookIntegration lambdaIntegration
+var book Resource
+var getBookIntegration LambdaIntegration
 
 
 book.AddMethod(jsii.String("GET"), getBookIntegration, &MethodOptions{
@@ -518,7 +518,7 @@ Usage plans also allow configuring throttling limits and quota limits that are e
 The following example shows how to create and associate a usage plan and an API key:
 
 ```go
-var integration lambdaIntegration
+var integration LambdaIntegration
 
 
 api := apigateway.NewRestApi(this, jsii.String("hello-api"))
@@ -544,15 +544,15 @@ plan.addApiKey(key)
 To associate a plan to a given RestAPI stage:
 
 ```go
-var plan usagePlan
-var api restApi
-var echoMethod method
+var plan UsagePlan
+var api RestApi
+var echoMethod Method
 
 
 plan.AddApiStage(&UsagePlanPerApiStage{
 	Stage: api.DeploymentStage,
-	Throttle: []throttlingPerMethod{
-		&throttlingPerMethod{
+	Throttle: []ThrottlingPerMethod{
+		&ThrottlingPerMethod{
 			Method: echoMethod,
 			Throttle: &ThrottleSettings{
 				RateLimit: jsii.Number(10),
@@ -573,7 +573,7 @@ The name and value of the API Key can be specified at creation; if not
 provided, a name and value will be automatically generated by API Gateway.
 
 ```go
-var api restApi
+var api RestApi
 
 key := api.AddApiKey(jsii.String("ApiKey"), &ApiKeyOptions{
 	ApiKeyName: jsii.String("myApiKey1"),
@@ -591,8 +591,8 @@ The "grant" methods can be used to give prepackaged sets of permissions to other
 following code provides read permission to an API key.
 
 ```go
-var importedKey apiKey
-var lambdaFn function
+var importedKey ApiKey
+var lambdaFn Function
 
 importedKey.grantRead(lambdaFn)
 ```
@@ -604,7 +604,7 @@ it does not have any information on the Stages that may be associated with it. S
 Key requires a stage, you should instead add the Api Key to the imported Stage.
 
 ```go
-var restApi iRestApi
+var restApi IRestApi
 
 importedStage := apigateway.Stage_FromStageAttributes(this, jsii.String("imported-stage"), &StageAttributes{
 	StageName: jsii.String("myStageName"),
@@ -627,8 +627,8 @@ being deleted remain unchanged.
 Make note of the logical ids of these API keys before removing any, and set it as part of the `addApiKey()` method:
 
 ```go
-var usageplan usagePlan
-var apiKey apiKey
+var usageplan UsagePlan
+var apiKey ApiKey
 
 
 usageplan.addApiKey(apiKey, &AddApiKeyOptions{
@@ -645,13 +645,13 @@ The API key created has the specified rate limits, such as quota and throttles, 
 The following example shows how to use a rate limited api key :
 
 ```go
-var api restApi
+var api RestApi
 
 
 key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 	CustomerId: jsii.String("hello-customer"),
-	ApiStages: []usagePlanPerApiStage{
-		&usagePlanPerApiStage{
+	ApiStages: []UsagePlanPerApiStage{
+		&UsagePlanPerApiStage{
 			Stage: api.DeploymentStage,
 		},
 	},
@@ -682,7 +682,7 @@ resource := api.Root.AddResource(jsii.String("v1"))
 You can define more parameters on the integration to tune the behavior of API Gateway
 
 ```go
-var hello function
+var hello Function
 
 
 integration := apigateway.NewLambdaIntegration(hello, &LambdaIntegrationOptions{
@@ -706,8 +706,8 @@ integration := apigateway.NewLambdaIntegration(hello, &LambdaIntegrationOptions{
 	},
 	// This parameter defines the behavior of the engine is no suitable response template is found
 	PassthroughBehavior: apigateway.PassthroughBehavior_NEVER,
-	IntegrationResponses: []integrationResponse{
-		&integrationResponse{
+	IntegrationResponses: []IntegrationResponse{
+		&IntegrationResponse{
 			// Successful response from the Lambda function, no filter defined
 			//  - the selectionPattern filter only tests the error message
 			// We will set the response status code to 200
@@ -729,7 +729,7 @@ integration := apigateway.NewLambdaIntegration(hello, &LambdaIntegrationOptions{
 				"method.response.header.Access-Control-Allow-Credentials": jsii.String("'true'"),
 			},
 		},
-		&integrationResponse{
+		&IntegrationResponse{
 			// For errors, we check if the error message is not empty, get the error data
 			SelectionPattern: jsii.String("(\n|.)+"),
 			// We will set the response status code to 200
@@ -753,7 +753,7 @@ integration := apigateway.NewLambdaIntegration(hello, &LambdaIntegrationOptions{
 You can define models for your responses (and requests)
 
 ```go
-var api restApi
+var api RestApi
 
 
 // We define the JSON Schema for the transformed valid response
@@ -764,11 +764,11 @@ responseModel := api.AddModel(jsii.String("ResponseModel"), &ModelOptions{
 		Schema: apigateway.JsonSchemaVersion_DRAFT4,
 		Title: jsii.String("pollResponse"),
 		Type: apigateway.JsonSchemaType_OBJECT,
-		Properties: map[string]jsonSchema{
-			"state": &jsonSchema{
+		Properties: map[string]JsonSchema{
+			"state": &JsonSchema{
 				"type": apigateway.JsonSchemaType_STRING,
 			},
-			"greeting": &jsonSchema{
+			"greeting": &JsonSchema{
 				"type": apigateway.JsonSchemaType_STRING,
 			},
 		},
@@ -779,15 +779,15 @@ responseModel := api.AddModel(jsii.String("ResponseModel"), &ModelOptions{
 errorResponseModel := api.AddModel(jsii.String("ErrorResponseModel"), &ModelOptions{
 	ContentType: jsii.String("application/json"),
 	ModelName: jsii.String("ErrorResponseModel"),
-	Schema: &jsonSchema{
+	Schema: &JsonSchema{
 		Schema: apigateway.JsonSchemaVersion_DRAFT4,
 		Title: jsii.String("errorResponse"),
 		Type: apigateway.JsonSchemaType_OBJECT,
-		Properties: map[string]*jsonSchema{
-			"state": &jsonSchema{
+		Properties: map[string]JsonSchema{
+			"state": &JsonSchema{
 				"type": apigateway.JsonSchemaType_STRING,
 			},
-			"message": &jsonSchema{
+			"message": &JsonSchema{
 				"type": apigateway.JsonSchemaType_STRING,
 			},
 		},
@@ -798,10 +798,10 @@ errorResponseModel := api.AddModel(jsii.String("ErrorResponseModel"), &ModelOpti
 And reference all on your method definition.
 
 ```go
-var integration lambdaIntegration
-var resource resource
-var responseModel model
-var errorResponseModel model
+var integration LambdaIntegration
+var resource Resource
+var responseModel Model
+var errorResponseModel Model
 
 
 resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
@@ -815,8 +815,8 @@ resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
 		ValidateRequestBody: jsii.Boolean(true),
 		ValidateRequestParameters: jsii.Boolean(false),
 	},
-	MethodResponses: []methodResponse{
-		&methodResponse{
+	MethodResponses: []MethodResponse{
+		&MethodResponse{
 			// Successful response from the integration
 			StatusCode: jsii.String("200"),
 			// Define what parameters are allowed or not
@@ -826,11 +826,11 @@ resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
 				"method.response.header.Access-Control-Allow-Credentials": jsii.Boolean(true),
 			},
 			// Validate the schema on the response
-			ResponseModels: map[string]iModel{
+			ResponseModels: map[string]IModel{
 				"application/json": responseModel,
 			},
 		},
-		&methodResponse{
+		&MethodResponse{
 			// Same thing for the error responses
 			StatusCode: jsii.String("400"),
 			ResponseParameters: map[string]*bool{
@@ -838,7 +838,7 @@ resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
 				"method.response.header.Access-Control-Allow-Origin": jsii.Boolean(true),
 				"method.response.header.Access-Control-Allow-Credentials": jsii.Boolean(true),
 			},
-			ResponseModels: map[string]*iModel{
+			ResponseModels: map[string]IModel{
 				"application/json": errorResponseModel,
 			},
 		},
@@ -858,10 +858,10 @@ feature flag. When this feature flag is set, each `RequestValidator` will have a
 > will change causing the resource to be replaced.
 
 ```go
-var integration lambdaIntegration
-var resource resource
-var responseModel model
-var errorResponseModel model
+var integration LambdaIntegration
+var resource Resource
+var responseModel Model
+var errorResponseModel Model
 
 
 resource.Node.SetContext(jsii.String("@aws-cdk/aws-apigateway:requestValidatorUniqueId"), jsii.Boolean(true))
@@ -900,7 +900,7 @@ integration. This means that all API methods that do not explicitly define an
 integration will be routed to this AWS Lambda function.
 
 ```go
-var booksBackend lambdaIntegration
+var booksBackend LambdaIntegration
 
 api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 	DefaultIntegration: booksBackend,
@@ -923,7 +923,7 @@ Read more about authorization scopes
 Authorization scopes for a Method can be configured using the `authorizationScopes` property as shown below -
 
 ```go
-var books resource
+var books Resource
 
 
 books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
@@ -941,8 +941,8 @@ The `addProxy` method can be used to install a greedy `{proxy+}` resource
 on a path. By default, this also installs an `"ANY"` method:
 
 ```go
-var resource resource
-var handler function
+var resource Resource
+var handler Function
 
 proxy := resource.AddProxy(&ProxyResourceOptions{
 	DefaultIntegration: apigateway.NewLambdaIntegration(handler),
@@ -962,8 +962,8 @@ that can be used for controlling access to your REST APIs.
 The following CDK code provides 'execute-api' permission to an IAM user, via IAM policies, for the 'GET' method on the `books` resource:
 
 ```go
-var books resource
-var iamUser user
+var books Resource
+var iamUser User
 
 
 getBooks := books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
@@ -971,7 +971,7 @@ getBooks := books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(js
 })
 
 iamUser.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &PolicyProps{
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("execute-api:Invoke"),
@@ -1004,8 +1004,8 @@ inputs and outputs of the Lambda handler.
 The following code attaches a token-based Lambda authorizer to the 'GET' Method of the Book resource:
 
 ```go
-var authFn function
-var books resource
+var authFn Function
+var books Resource
 
 
 auth := apigateway.NewTokenAuthorizer(this, jsii.String("booksAuthorizer"), &TokenAuthorizerProps{
@@ -1021,10 +1021,10 @@ A full working example is shown below.
 
 ```go
 type myStack struct {
-	stack
+	Stack
 }
 
-func newMyStack(scope construct, id *string) *myStack {
+func newMyStack(scope Construct, id *string) *myStack {
 	this := &myStack{}
 	newStack_Override(this, scope, id)
 
@@ -1049,8 +1049,8 @@ func newMyStack(scope construct, id *string) *myStack {
 	})
 
 	restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-		IntegrationResponses: []integrationResponse{
-			&integrationResponse{
+		IntegrationResponses: []IntegrationResponse{
+			&IntegrationResponse{
 				StatusCode: jsii.String("200"),
 			},
 		},
@@ -1059,8 +1059,8 @@ func newMyStack(scope construct, id *string) *myStack {
 			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 		},
 	}), &MethodOptions{
-		MethodResponses: []methodResponse{
-			&methodResponse{
+		MethodResponses: []MethodResponse{
+			&MethodResponse{
 				StatusCode: jsii.String("200"),
 			},
 		},
@@ -1093,8 +1093,8 @@ inputs and outputs of the Lambda handler.
 The following code attaches a request-based Lambda authorizer to the 'GET' Method of the Book resource:
 
 ```go
-var authFn function
-var books resource
+var authFn Function
+var books Resource
 
 
 auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &RequestAuthorizerProps{
@@ -1152,8 +1152,8 @@ secondAuthorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MySecondAuth
 })
 
 restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-	IntegrationResponses: []integrationResponse{
-		&integrationResponse{
+	IntegrationResponses: []IntegrationResponse{
+		&IntegrationResponse{
 			StatusCode: jsii.String("200"),
 		},
 	},
@@ -1162,8 +1162,8 @@ restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&Integratio
 		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 	},
 }), &MethodOptions{
-	MethodResponses: []methodResponse{
-		&methodResponse{
+	MethodResponses: []MethodResponse{
+		&MethodResponse{
 			StatusCode: jsii.String("200"),
 		},
 	},
@@ -1171,8 +1171,8 @@ restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&Integratio
 })
 
 restapi.Root.ResourceForPath(jsii.String("auth")).AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-	IntegrationResponses: []*integrationResponse{
-		&integrationResponse{
+	IntegrationResponses: []IntegrationResponse{
+		&IntegrationResponse{
 			StatusCode: jsii.String("200"),
 		},
 	},
@@ -1181,8 +1181,8 @@ restapi.Root.ResourceForPath(jsii.String("auth")).AddMethod(jsii.String("ANY"), 
 		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 	},
 }), &MethodOptions{
-	MethodResponses: []*methodResponse{
-		&methodResponse{
+	MethodResponses: []MethodResponse{
+		&MethodResponse{
 			StatusCode: jsii.String("200"),
 		},
 	},
@@ -1204,11 +1204,11 @@ API Gateway also allows [Amazon Cognito user pools as authorizer](https://docs.a
 The following snippet configures a Cognito user pool as an authorizer:
 
 ```go
-var books resource
+var books Resource
 userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 
 auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &CognitoUserPoolsAuthorizerProps{
-	CognitoUserPools: []iUserPool{
+	CognitoUserPools: []IUserPool{
 		userPool,
 	},
 })
@@ -1429,7 +1429,7 @@ CNAME records only for subdomains.)
 import "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var api restApi
+var api RestApi
 var hostedZoneForExampleCom interface{}
 
 
@@ -1459,9 +1459,9 @@ The following example will map the URL [https://example.com/go-to-api1](https://
 to the `api1` API and [https://example.com/boom](https://example.com/boom) to the `api2` API.
 
 ```go
-var domain domainName
-var api1 restApi
-var api2 restApi
+var domain DomainName
+var api1 RestApi
+var api2 RestApi
 
 
 domain.AddBasePathMapping(api1, &BasePathMappingOptions{
@@ -1476,8 +1476,8 @@ By default, the base path URL will map to the `deploymentStage` of the `RestApi`
 You can specify a different API `Stage` to which the base path URL will map to.
 
 ```go
-var domain domainName
-var restapi restApi
+var domain DomainName
+var restapi RestApi
 
 
 betaDeploy := apigateway.NewDeployment(this, jsii.String("beta-deployment"), &DeploymentProps{
@@ -1499,8 +1499,8 @@ included in the URL when invoking the API. For example,
 `myapi` base path mapping.
 
 ```go
-var domain domainName
-var api restApi
+var domain DomainName
+var api RestApi
 
 
 domain.AddBasePathMapping(api, &BasePathMappingOptions{
@@ -1513,8 +1513,8 @@ If you don't specify `basePath`, all URLs under this domain will be mapped
 to the API, and you won't be able to map another API to the same domain:
 
 ```go
-var domain domainName
-var api restApi
+var domain DomainName
+var api RestApi
 
 domain.AddBasePathMapping(api)
 ```
@@ -1525,7 +1525,7 @@ domain as demonstrated above.
 Base path mappings can also be created with the `BasePathMapping` resource.
 
 ```go
-var api restApi
+var api RestApi
 
 
 domainName := apigateway.DomainName_FromDomainNameAttributes(this, jsii.String("DomainName"), &DomainNameAttributes{
@@ -1544,7 +1544,7 @@ If you wish to setup this domain with an Amazon Route53 alias, use the `targets.
 
 ```go
 var hostedZoneForExampleCom interface{}
-var domainName domainName
+var domainName DomainName
 
 import "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
@@ -1567,7 +1567,7 @@ Additional requirements for creating multi-level path mappings for RestApis:
 
 ```go
 var acmCertificateForExampleCom interface{}
-var restApi restApi
+var restApi RestApi
 
 
 apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
@@ -1582,8 +1582,8 @@ To then add additional mappings to a domain you can use the `addApiMapping` meth
 
 ```go
 var acmCertificateForExampleCom interface{}
-var restApi restApi
-var secondRestApi restApi
+var restApi RestApi
+var secondRestApi RestApi
 
 
 domain := apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
@@ -1679,8 +1679,8 @@ deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &Depl
 })
 stage := apigateway.NewStage(this, jsii.String("my-stage"), &StageProps{
 	Deployment: Deployment,
-	MethodOptions: map[string]methodDeploymentOptions{
-		"/*/*": &methodDeploymentOptions{
+	MethodOptions: map[string]MethodDeploymentOptions{
+		"/*/*": &MethodDeploymentOptions{
 			 // This special path applies to all resource paths and all HTTP methods
 			"throttlingRateLimit": jsii.Number(100),
 			"throttlingBurstLimit": jsii.Number(200),
@@ -1695,8 +1695,8 @@ throttling behaviors on the default stage that is automatically created.
 ```go
 api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 	DeployOptions: &StageOptions{
-		MethodOptions: map[string]methodDeploymentOptions{
-			"/*/*": &methodDeploymentOptions{
+		MethodOptions: map[string]MethodDeploymentOptions{
+			"/*/*": &MethodDeploymentOptions{
 				 // This special path applies to all resource paths and all HTTP methods
 				"throttlingRateLimit": jsii.Number(100),
 				"throttlingBurstLimit": jsii.Number(1000),
@@ -1760,7 +1760,7 @@ The following example will add an OPTIONS method to the `myResource` API resourc
 only allows GET and PUT HTTP requests from the origin [https://amazon.com.](https://amazon.com.)
 
 ```go
-var myResource resource
+var myResource Resource
 
 
 myResource.AddCorsPreflight(&CorsOptions{
@@ -1781,7 +1781,7 @@ API reference for a detailed list of supported configuration options.
 You can specify defaults this at the resource level, in which case they will be applied to the entire resource sub-tree:
 
 ```go
-var resource resource
+var resource Resource
 
 
 subtree := resource.AddResource(jsii.String("subtree"), &ResourceOptions{
@@ -1808,8 +1808,8 @@ To define an endpoint type for the API gateway, use `endpointConfiguration` prop
 ```go
 api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 	EndpointConfiguration: &EndpointConfiguration{
-		Types: []endpointType{
-			apigateway.*endpointType_EDGE,
+		Types: []EndpointType{
+			apigateway.EndpointType_EDGE,
 		},
 	},
 })
@@ -1821,8 +1821,8 @@ The default value is `IpAddressType.DUAL_STACK` for private API, and `IpAddressT
 ```go
 api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 	EndpointConfiguration: &EndpointConfiguration{
-		Types: []endpointType{
-			apigateway.*endpointType_REGIONAL,
+		Types: []EndpointType{
+			apigateway.EndpointType_REGIONAL,
 		},
 		IpAddressType: apigateway.IpAddressType_DUAL_STACK,
 	},
@@ -1839,15 +1839,15 @@ Route53 Alias DNS record which you can use to invoke your private APIs. More inf
 Here is an example:
 
 ```go
-var someEndpoint iVpcEndpoint
+var someEndpoint IVpcEndpoint
 
 
 api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 	EndpointConfiguration: &EndpointConfiguration{
-		Types: []endpointType{
-			apigateway.*endpointType_PRIVATE,
+		Types: []EndpointType{
+			apigateway.EndpointType_PRIVATE,
 		},
-		VpcEndpoints: []*iVpcEndpoint{
+		VpcEndpoints: []IVpcEndpoint{
 			someEndpoint,
 		},
 	},
@@ -1863,20 +1863,20 @@ https://{rest-api-id}-{vpce-id}.execute-api.{region}.amazonaws.com/{stage}
 To restrict access to the API Gateway to only the VPC endpoint, you can use the `grantInvokeFromVpcEndpointsOnly` method to [add resource policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/private-api-tutorial.html#private-api-tutorial-attach-resource-policy) to the API Gateway:
 
 ```go
-var apiGwVpcEndpoint iVpcEndpoint
+var apiGwVpcEndpoint IVpcEndpoint
 
 
 api := apigateway.NewRestApi(this, jsii.String("PrivateApi"), &RestApiProps{
 	EndpointConfiguration: &EndpointConfiguration{
-		Types: []endpointType{
-			apigateway.*endpointType_PRIVATE,
+		Types: []EndpointType{
+			apigateway.EndpointType_PRIVATE,
 		},
-		VpcEndpoints: []*iVpcEndpoint{
+		VpcEndpoints: []IVpcEndpoint{
 			apiGwVpcEndpoint,
 		},
 	},
 })
-api.GrantInvokeFromVpcEndpointsOnly([]iVpcEndpoint{
+api.GrantInvokeFromVpcEndpointsOnly([]IVpcEndpoint{
 	apiGwVpcEndpoint,
 })
 ```
@@ -1900,7 +1900,7 @@ nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalanc
 	Vpc: Vpc,
 })
 link := apigateway.NewVpcLink(this, jsii.String("link"), &VpcLinkProps{
-	Targets: []iNetworkLoadBalancer{
+	Targets: []INetworkLoadBalancer{
 		nlb,
 	},
 })
@@ -1962,7 +1962,7 @@ OpenAPI](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gatewa
 The following code creates a REST API using an external OpenAPI definition JSON file -
 
 ```go
-var integration integration
+var integration Integration
 
 
 api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &SpecRestApiProps{
@@ -2017,13 +2017,13 @@ By default, `SpecRestApi` will create an edge optimized endpoint.
 This can be modified as shown below:
 
 ```go
-var apiDefinition apiDefinition
+var apiDefinition ApiDefinition
 
 
 api := apigateway.NewSpecRestApi(this, jsii.String("ExampleRestApi"), &SpecRestApiProps{
 	ApiDefinition: ApiDefinition,
-	EndpointTypes: []endpointType{
-		apigateway.*endpointType_PRIVATE,
+	EndpointTypes: []EndpointType{
+		apigateway.EndpointType_PRIVATE,
 	},
 })
 ```

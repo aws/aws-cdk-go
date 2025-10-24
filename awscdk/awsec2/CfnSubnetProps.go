@@ -32,8 +32,8 @@ import (
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PrivateDnsNameOptionsOnLaunch: privateDnsNameOptionsOnLaunch,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

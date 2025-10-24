@@ -14,8 +14,8 @@ package cloudassemblyschema
 //   	Version: jsii.String("version"),
 //
 //   	// the properties below are optional
-//   	Artifacts: map[string]artifactManifest{
-//   		"artifactsKey": &artifactManifest{
+//   	Artifacts: map[string]ArtifactManifest{
+//   		"artifactsKey": &ArtifactManifest{
 //   			"type": awscdk.cloud_assembly_schema.ArtifactType_NONE,
 //
 //   			// the properties below are optional
@@ -77,8 +77,8 @@ package cloudassemblyschema
 //   		},
 //   	},
 //   	MinimumCliVersion: jsii.String("minimumCliVersion"),
-//   	Missing: []missingContext{
-//   		&missingContext{
+//   	Missing: []MissingContext{
+//   		&MissingContext{
 //   			Key: jsii.String("key"),
 //   			Props: &AmiContextQuery{
 //   				Account: jsii.String("account"),

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnRetriever) validateValidatePropertiesParameters(_propertie
 	return nil
 }
 
-func validateCfnRetriever_FromRetrieverArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnRetriever_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

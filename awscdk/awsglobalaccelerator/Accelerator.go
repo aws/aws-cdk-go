@@ -17,11 +17,11 @@ import (
 //
 //   // Create a Listener
 //   listener := accelerator.AddListener(jsii.String("Listener"), &ListenerOptions{
-//   	PortRanges: []portRange{
-//   		&portRange{
+//   	PortRanges: []PortRange{
+//   		&PortRange{
 //   			FromPort: jsii.Number(80),
 //   		},
-//   		&portRange{
+//   		&PortRange{
 //   			FromPort: jsii.Number(443),
 //   		},
 //   	},
@@ -37,7 +37,7 @@ import (
 //
 //   // Add one EndpointGroup for each Region we are targeting
 //   listener.AddEndpointGroup(jsii.String("Group1"), &EndpointGroupOptions{
-//   	Endpoints: []iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb1),
 //   	},
 //   })
@@ -45,7 +45,7 @@ import (
 //   	// Imported load balancers automatically calculate their Region from the ARN.
 //   	// If you are load balancing to other resources, you must also pass a `region`
 //   	// parameter here.
-//   	Endpoints: []*iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb2),
 //   	},
 //   })

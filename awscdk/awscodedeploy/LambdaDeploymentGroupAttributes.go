@@ -4,7 +4,7 @@ package awscodedeploy
 // Properties of a reference to a CodeDeploy Lambda Deployment Group.
 //
 // Example:
-//   var application lambdaApplication
+//   var application LambdaApplication
 //
 //   deploymentGroup := codedeploy.LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &LambdaDeploymentGroupAttributes{
 //   	Application: Application,

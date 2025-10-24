@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var appProtocol appProtocol
-//   var containerImage containerImage
-//   var credentialSpec credentialSpec
-//   var environmentFile environmentFile
-//   var linuxParameters linuxParameters
-//   var logDriver logDriver
-//   var secret secret
+//   var appProtocol AppProtocol
+//   var containerImage ContainerImage
+//   var credentialSpec CredentialSpec
+//   var environmentFile EnvironmentFile
+//   var linuxParameters LinuxParameters
+//   var logDriver LogDriver
+//   var secret Secret
 //
 //   firelensLogRouterDefinitionOptions := &FirelensLogRouterDefinitionOptions{
 //   	FirelensConfig: &FirelensConfig{
@@ -39,7 +39,7 @@ import (
 //   	},
 //   	ContainerName: jsii.String("containerName"),
 //   	Cpu: jsii.Number(123),
-//   	CredentialSpecs: []*credentialSpec{
+//   	CredentialSpecs: []CredentialSpec{
 //   		credentialSpec,
 //   	},
 //   	DisableNetworking: jsii.Boolean(false),
@@ -62,7 +62,7 @@ import (
 //   	Environment: map[string]*string{
 //   		"environmentKey": jsii.String("environment"),
 //   	},
-//   	EnvironmentFiles: []*environmentFile{
+//   	EnvironmentFiles: []EnvironmentFile{
 //   		environmentFile,
 //   	},
 //   	Essential: jsii.Boolean(false),
@@ -90,8 +90,8 @@ import (
 //   	Logging: logDriver,
 //   	MemoryLimitMiB: jsii.Number(123),
 //   	MemoryReservationMiB: jsii.Number(123),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
+//   	PortMappings: []PortMapping{
+//   		&PortMapping{
 //   			ContainerPort: jsii.Number(123),
 //
 //   			// the properties below are optional
@@ -109,19 +109,19 @@ import (
 //   	RestartIgnoredExitCodes: []*f64{
 //   		jsii.Number(123),
 //   	},
-//   	Secrets: map[string]*secret{
+//   	Secrets: map[string]Secret{
 //   		"secretsKey": secret,
 //   	},
 //   	StartTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	StopTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	SystemControls: []systemControl{
-//   		&systemControl{
+//   	SystemControls: []SystemControl{
+//   		&SystemControl{
 //   			Namespace: jsii.String("namespace"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	Ulimits: []ulimit{
-//   		&ulimit{
+//   	Ulimits: []Ulimit{
+//   		&Ulimit{
 //   			HardLimit: jsii.Number(123),
 //   			Name: awscdk.*Aws_ecs.UlimitName_CORE,
 //   			SoftLimit: jsii.Number(123),

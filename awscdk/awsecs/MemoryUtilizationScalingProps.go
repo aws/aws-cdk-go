@@ -7,7 +7,7 @@ import (
 // The properties for enabling scaling based on memory utilization.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,

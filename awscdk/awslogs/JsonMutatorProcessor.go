@@ -20,8 +20,8 @@ import (
 //   addKeysProcessor := logs.NewJsonMutatorProcessor(&JsonMutatorProps{
 //   	Type: logs.JsonMutatorType_ADD_KEYS,
 //   	AddKeysOptions: &AddKeysProperty{
-//   		Entries: []addKeyEntryProperty{
-//   			&addKeyEntryProperty{
+//   		Entries: []AddKeyEntryProperty{
+//   			&AddKeyEntryProperty{
 //   				Key: jsii.String("metadata.transformed_in"),
 //   				Value: jsii.String("CloudWatchLogs"),
 //   			},
@@ -34,7 +34,7 @@ import (
 //   logs.NewTransformer(this, jsii.String("Transformer"), &TransformerProps{
 //   	TransformerName: jsii.String("MyTransformer"),
 //   	LogGroup: logGroup,
-//   	TransformerConfig: []iProcessor{
+//   	TransformerConfig: []IProcessor{
 //   		jsonParser,
 //   		addKeysProcessor,
 //   	},

@@ -31,8 +31,8 @@ import (
 //   task := tasks.NewCodeBuildStartBuildBatch(this, jsii.String("buildBatchTask"), &CodeBuildStartBuildBatchProps{
 //   	Project: Project,
 //   	IntegrationPattern: sfn.IntegrationPattern_REQUEST_RESPONSE,
-//   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
-//   		"test": &buildEnvironmentVariable{
+//   	EnvironmentVariablesOverride: map[string]BuildEnvironmentVariable{
+//   		"test": &BuildEnvironmentVariable{
 //   			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   			"value": jsii.String("testValue"),
 //   		},

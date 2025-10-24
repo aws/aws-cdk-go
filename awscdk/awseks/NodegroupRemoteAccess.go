@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   nodegroupRemoteAccess := &NodegroupRemoteAccess{
 //   	SshKeyName: jsii.String("sshKeyName"),
 //
 //   	// the properties below are optional
-//   	SourceSecurityGroups: []iSecurityGroup{
+//   	SourceSecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

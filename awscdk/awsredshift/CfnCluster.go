@@ -87,8 +87,8 @@ import (
 //   	SnapshotCopyManual: jsii.Boolean(false),
 //   	SnapshotCopyRetentionPeriod: jsii.Number(123),
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

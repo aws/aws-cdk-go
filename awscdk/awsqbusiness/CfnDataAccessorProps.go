@@ -11,7 +11,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeFilterProperty_ attributeFilterProperty
+//   var attributeFilterProperty_ AttributeFilterProperty
 //
 //   cfnDataAccessorProps := &CfnDataAccessorProps{
 //   	ActionConfigurations: []interface{}{
@@ -20,7 +20,7 @@ import (
 //
 //   			// the properties below are optional
 //   			FilterConfiguration: &ActionFilterConfigurationProperty{
-//   				DocumentAttributeFilter: &attributeFilterProperty{
+//   				DocumentAttributeFilter: &AttributeFilterProperty{
 //   					AndAllFilters: []interface{}{
 //   						attributeFilterProperty_,
 //   					},
@@ -127,8 +127,8 @@ import (
 //   			jsii.String("externalIds"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -295,8 +295,8 @@ import (
 //   		SecretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		SecretsManagerSecretId: jsii.String("secretsManagerSecretId"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

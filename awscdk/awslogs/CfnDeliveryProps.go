@@ -22,8 +22,8 @@ import (
 //   	},
 //   	S3EnableHiveCompatiblePath: jsii.Boolean(false),
 //   	S3SuffixPath: jsii.String("s3SuffixPath"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

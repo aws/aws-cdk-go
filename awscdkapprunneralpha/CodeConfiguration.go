@@ -8,8 +8,8 @@ package awscdkapprunneralpha
 //   // The values are placeholders you should change.
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
-//   var runtime runtime
-//   var secret secret
+//   var runtime Runtime
+//   var secret Secret
 //
 //   codeConfiguration := &CodeConfiguration{
 //   	ConfigurationSource: apprunner_alpha.ConfigurationSourceType_REPOSITORY,
@@ -23,7 +23,7 @@ package awscdkapprunneralpha
 //   		Environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
 //   		},
-//   		EnvironmentSecrets: map[string]*secret{
+//   		EnvironmentSecrets: map[string]Secret{
 //   			"environmentSecretsKey": secret,
 //   		},
 //   		EnvironmentVariables: map[string]*string{

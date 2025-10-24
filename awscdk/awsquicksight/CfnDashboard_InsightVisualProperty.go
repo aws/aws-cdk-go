@@ -3,7 +3,7 @@ package awsquicksight
 
 // An insight visual.
 //
-// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

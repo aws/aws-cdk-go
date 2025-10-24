@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Processing mode of the X-Forwarded-For header in the HTTP request before the Application Load Balancer sends the request to the target.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{

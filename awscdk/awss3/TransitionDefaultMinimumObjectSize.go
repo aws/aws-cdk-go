@@ -6,20 +6,20 @@ package awss3
 // Example:
 //   s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	TransitionDefaultMinimumObjectSize: s3.TransitionDefaultMinimumObjectSize_VARIES_BY_STORAGE_CLASS,
-//   	LifecycleRules: []lifecycleRule{
-//   		&lifecycleRule{
-//   			Transitions: []transition{
-//   				&transition{
+//   	LifecycleRules: []LifecycleRule{
+//   		&LifecycleRule{
+//   			Transitions: []Transition{
+//   				&Transition{
 //   					StorageClass: s3.StorageClass_DEEP_ARCHIVE(),
 //   					TransitionAfter: awscdk.Duration_Days(jsii.Number(30)),
 //   				},
 //   			},
 //   		},
-//   		&lifecycleRule{
+//   		&LifecycleRule{
 //   			ObjectSizeLessThan: jsii.Number(300000),
 //   			ObjectSizeGreaterThan: jsii.Number(200000),
-//   			Transitions: []*transition{
-//   				&transition{
+//   			Transitions: []Transition{
+//   				&Transition{
 //   					StorageClass: s3.StorageClass_ONE_ZONE_INFREQUENT_ACCESS(),
 //   					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 //   				},

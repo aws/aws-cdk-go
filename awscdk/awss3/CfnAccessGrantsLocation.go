@@ -30,8 +30,10 @@ import (
 //   cfnAccessGrantsLocation := awscdk.Aws_s3.NewCfnAccessGrantsLocation(this, jsii.String("MyCfnAccessGrantsLocation"), &CfnAccessGrantsLocationProps{
 //   	IamRoleArn: jsii.String("iamRoleArn"),
 //   	LocationScope: jsii.String("locationScope"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//
+//   	// the properties below are optional
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -441,6 +443,9 @@ func NewCfnAccessGrantsLocation_Override(c CfnAccessGrantsLocation, scope constr
 }
 
 func (j *jsiiProxy_CfnAccessGrantsLocation)SetIamRoleArn(val *string) {
+	if err := j.validateSetIamRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"iamRoleArn",
@@ -449,6 +454,9 @@ func (j *jsiiProxy_CfnAccessGrantsLocation)SetIamRoleArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnAccessGrantsLocation)SetLocationScope(val *string) {
+	if err := j.validateSetLocationScopeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"locationScope",

@@ -11,19 +11,19 @@ package awsstepfunctionstasks
 //   	Topic: Topic,
 //   	IntegrationPattern: sfn.IntegrationPattern_REQUEST_RESPONSE,
 //   	Message: sfn.TaskInput_FromDataAt(jsii.String("$.state.message")),
-//   	MessageAttributes: map[string]messageAttribute{
-//   		"place": &messageAttribute{
+//   	MessageAttributes: map[string]MessageAttribute{
+//   		"place": &MessageAttribute{
 //   			"value": sfn.JsonPath_stringAt(jsii.String("$.place")),
 //   		},
-//   		"pic": &messageAttribute{
+//   		"pic": &MessageAttribute{
 //   			// BINARY must be explicitly set
 //   			"dataType": tasks.MessageAttributeDataType_BINARY,
 //   			"value": sfn.JsonPath_stringAt(jsii.String("$.pic")),
 //   		},
-//   		"people": &messageAttribute{
+//   		"people": &MessageAttribute{
 //   			"value": jsii.Number(4),
 //   		},
-//   		"handles": &messageAttribute{
+//   		"handles": &MessageAttribute{
 //   			"value": []interface{}{
 //   				jsii.String("@kslater"),
 //   				jsii.String("@jjf"),

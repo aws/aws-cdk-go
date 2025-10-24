@@ -6,7 +6,7 @@ import (
 )
 
 // Example:
-//   var backend function
+//   var backend Function
 //
 //
 //   api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{

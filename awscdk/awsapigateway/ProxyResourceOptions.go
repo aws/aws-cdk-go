@@ -2,8 +2,8 @@ package awsapigateway
 
 
 // Example:
-//   var resource resource
-//   var handler function
+//   var resource Resource
+//   var handler Function
 //
 //   proxy := resource.AddProxy(&ProxyResourceOptions{
 //   	DefaultIntegration: apigateway.NewLambdaIntegration(handler),

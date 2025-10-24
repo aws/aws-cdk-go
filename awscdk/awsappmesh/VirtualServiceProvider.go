@@ -10,7 +10,7 @@ import (
 // Represents the properties needed to define the provider for a VirtualService.
 //
 // Example:
-//   var mesh mesh
+//   var mesh Mesh
 //
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{

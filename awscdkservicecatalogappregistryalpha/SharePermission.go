@@ -5,7 +5,7 @@ package awscdkservicecatalogappregistryalpha
 //
 // Example:
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
-//   var application application
+//   var application Application
 //
 //   application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
 //   	Name: jsii.String("MyShare"),

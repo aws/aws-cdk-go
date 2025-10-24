@@ -15,16 +15,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instanceType instanceType
-//   var role role
-//   var vpc vpc
+//   var instanceType InstanceType
+//   var role Role
+//   var vpc Vpc
 //
 //   fleetProps := &FleetProps{
 //   	FleetName: jsii.String("fleetName"),
 //   	InstanceType: instanceType,
 //   	RuntimeConfiguration: &RuntimeConfiguration{
-//   		ServerProcesses: []serverProcess{
-//   			&serverProcess{
+//   		ServerProcesses: []ServerProcess{
+//   			&ServerProcess{
 //   				LaunchPath: jsii.String("launchPath"),
 //
 //   				// the properties below are optional
@@ -41,8 +41,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	DesiredCapacity: jsii.Number(123),
-//   	Locations: []location{
-//   		&location{
+//   	Locations: []Location{
+//   		&Location{
 //   			Region: jsii.String("region"),
 //
 //   			// the properties below are optional

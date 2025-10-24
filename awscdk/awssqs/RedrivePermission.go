@@ -4,13 +4,13 @@ package awssqs
 // The permission type that defines which source queues can specify the current queue as the dead-letter queue.
 //
 // Example:
-//   var sourceQueue iQueue
+//   var sourceQueue IQueue
 //
 //
 //   // Only the sourceQueue can specify this queue as the dead-letter queue.
 //   queue1 := sqs.NewQueue(this, jsii.String("Queue2"), &QueueProps{
 //   	RedriveAllowPolicy: &RedriveAllowPolicy{
-//   		SourceQueues: []*iQueue{
+//   		SourceQueues: []IQueue{
 //   			sourceQueue,
 //   		},
 //   	},

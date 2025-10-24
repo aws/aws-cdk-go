@@ -7,7 +7,7 @@ package awsautoscaling
 // a field implies '*' or '?', whichever one is appropriate.
 //
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //
 //   autoScalingGroup.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &BasicScheduledActionProps{

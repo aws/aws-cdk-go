@@ -8,9 +8,9 @@ package awsqbusiness
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeFilterProperty_ attributeFilterProperty
+//   var attributeFilterProperty_ AttributeFilterProperty
 //
-//   attributeFilterProperty := &attributeFilterProperty{
+//   attributeFilterProperty := &AttributeFilterProperty{
 //   	AndAllFilters: []interface{}{
 //   		attributeFilterProperty_,
 //   	},

@@ -8,9 +8,9 @@ import (
 //
 // Example:
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
-//   var application application
-//   var myRole iRole
-//   var myUser iUser
+//   var application Application
+//   var myRole IRole
+//   var myUser IUser
 //
 //   application.shareApplication(jsii.String("MyShareId"), &ShareOptions{
 //   	Name: jsii.String("MyShare"),
@@ -20,10 +20,10 @@ import (
 //   	OrganizationArns: []*string{
 //   		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
 //   	},
-//   	Roles: []*iRole{
+//   	Roles: []IRole{
 //   		myRole,
 //   	},
-//   	Users: []*iUser{
+//   	Users: []IUser{
 //   		myUser,
 //   	},
 //   })

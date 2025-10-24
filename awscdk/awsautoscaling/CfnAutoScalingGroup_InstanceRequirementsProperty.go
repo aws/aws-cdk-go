@@ -21,16 +21,16 @@ package awsautoscaling
 // `InstanceRequirements` is a property of the `LaunchTemplateOverrides` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 //
 // Example:
-//   var vpc vpc
-//   var launchTemplate1 launchTemplate
+//   var vpc Vpc
+//   var launchTemplate1 LaunchTemplate
 //
 //
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
 //   	MixedInstancesPolicy: &MixedInstancesPolicy{
 //   		LaunchTemplate: launchTemplate1,
-//   		LaunchTemplateOverrides: []launchTemplateOverrides{
-//   			&launchTemplateOverrides{
+//   		LaunchTemplateOverrides: []LaunchTemplateOverrides{
+//   			&LaunchTemplateOverrides{
 //   				InstanceRequirements: &InstanceRequirementsProperty{
 //   					VCpuCount: &VCpuCountRequestProperty{
 //   						Min: jsii.Number(4),

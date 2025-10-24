@@ -10,10 +10,10 @@ import (
 // Used for HTTP cache-control header, which influences downstream caches.
 //
 // Example:
-//   var destinationBucket bucket
+//   var destinationBucket Bucket
 //
 //   s3deploy.NewBucketDeployment(this, jsii.String("BucketDeployment"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Asset(jsii.String("./website"), &AssetOptions{
 //   			Exclude: []*string{
 //   				jsii.String("index.html"),
@@ -21,15 +21,15 @@ import (
 //   		}),
 //   	},
 //   	DestinationBucket: DestinationBucket,
-//   	CacheControl: []cacheControl{
-//   		s3deploy.*cacheControl_MaxAge(awscdk.Duration_Days(jsii.Number(365))),
-//   		s3deploy.*cacheControl_Immutable(),
+//   	CacheControl: []CacheControl{
+//   		s3deploy.CacheControl_MaxAge(awscdk.Duration_Days(jsii.Number(365))),
+//   		s3deploy.CacheControl_Immutable(),
 //   	},
 //   	Prune: jsii.Boolean(false),
 //   })
 //
 //   s3deploy.NewBucketDeployment(this, jsii.String("HTMLBucketDeployment"), &BucketDeploymentProps{
-//   	Sources: []*iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_*Asset(jsii.String("./website"), &AssetOptions{
 //   			Exclude: []*string{
 //   				jsii.String("*"),
@@ -38,8 +38,8 @@ import (
 //   		}),
 //   	},
 //   	DestinationBucket: DestinationBucket,
-//   	CacheControl: []*cacheControl{
-//   		s3deploy.*cacheControl_*MaxAge(awscdk.Duration_Seconds(jsii.Number(0))),
+//   	CacheControl: []CacheControl{
+//   		s3deploy.CacheControl_*MaxAge(awscdk.Duration_Seconds(jsii.Number(0))),
 //   	},
 //   	Prune: jsii.Boolean(false),
 //   })

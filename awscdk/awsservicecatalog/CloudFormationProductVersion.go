@@ -8,7 +8,7 @@ package awsservicecatalog
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cloudFormationTemplate cloudFormationTemplate
+//   var cloudFormationTemplate CloudFormationTemplate
 //
 //   cloudFormationProductVersion := &CloudFormationProductVersion{
 //   	CloudFormationTemplate: cloudFormationTemplate,

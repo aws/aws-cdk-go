@@ -128,7 +128,7 @@ invocation record:
 
 ```go
 // Auto-extract response payload with a lambda destination
-var destinationFn function
+var destinationFn Function
 
 
 sourceFn := lambda.NewFunction(this, jsii.String("Source"), &FunctionProps{

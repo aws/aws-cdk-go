@@ -30,8 +30,8 @@ import (
 //   		// the properties below are optional
 //   		ObjectVersion: jsii.String("objectVersion"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

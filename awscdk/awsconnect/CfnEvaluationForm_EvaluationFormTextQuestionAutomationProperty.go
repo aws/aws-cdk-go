@@ -1,0 +1,22 @@
+package awsconnect
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   evaluationFormTextQuestionAutomationProperty := &EvaluationFormTextQuestionAutomationProperty{
+//   	AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   		SourceType: jsii.String("sourceType"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html
+//
+type CfnEvaluationForm_EvaluationFormTextQuestionAutomationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html#cfn-connect-evaluationform-evaluationformtextquestionautomation-answersource
+	//
+	AnswerSource interface{} `field:"optional" json:"answerSource" yaml:"answerSource"`
+}
+

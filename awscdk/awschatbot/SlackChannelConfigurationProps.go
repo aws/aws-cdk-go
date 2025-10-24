@@ -11,7 +11,7 @@ import (
 // Example:
 //   import chatbot "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var project project
+//   var project Project
 //
 //
 //   target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnAIGuardrail) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnAIGuardrail_FromAIGuardrailArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnAIGuardrail_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

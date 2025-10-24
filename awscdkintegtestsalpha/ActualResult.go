@@ -10,13 +10,13 @@ import (
 // Represents the "actual" results to compare.
 //
 // Example:
-//   var myCustomResource customResource
-//   var stack stack
-//   var app app
+//   var myCustomResource CustomResource
+//   var stack Stack
+//   var app App
 //
 //
 //   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-//   	TestCases: []*stack{
+//   	TestCases: []Stack{
 //   		stack,
 //   	},
 //   })

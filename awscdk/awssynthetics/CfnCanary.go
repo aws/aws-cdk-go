@@ -27,9 +27,9 @@ import (
 //   cfnCanary := awscdk.Aws_synthetics.NewCfnCanary(this, jsii.String("MyCfnCanary"), &CfnCanaryProps{
 //   	ArtifactS3Location: jsii.String("artifactS3Location"),
 //   	Code: &CodeProperty{
-//   		Handler: jsii.String("handler"),
-//
-//   		// the properties below are optional
+//   		BlueprintTypes: []*string{
+//   			jsii.String("blueprintTypes"),
+//   		},
 //   		Dependencies: []interface{}{
 //   			&DependencyProperty{
 //   				Reference: jsii.String("reference"),
@@ -38,6 +38,7 @@ import (
 //   				Type: jsii.String("type"),
 //   			},
 //   		},
+//   		Handler: jsii.String("handler"),
 //   		S3Bucket: jsii.String("s3Bucket"),
 //   		S3Key: jsii.String("s3Key"),
 //   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
@@ -87,8 +88,8 @@ import (
 //   	},
 //   	StartCanaryAfterCreation: jsii.Boolean(false),
 //   	SuccessRetentionPeriod: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

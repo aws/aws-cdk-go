@@ -11,8 +11,8 @@ import (
 // Represents source code for an AppSync Function or Resolver.
 //
 // Example:
-//   var api eventApi
-//   var lambdaDataSource appSyncLambdaDataSource
+//   var api EventApi
+//   var lambdaDataSource AppSyncLambdaDataSource
 //
 //
 //   // Lambda data source for publish handler

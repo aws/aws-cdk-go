@@ -13,7 +13,7 @@ import (
 // Example:
 //   // Option 2: create your custom mastersRole with scoped assumeBy arn as the Cluster prop. Switch to this role from the AWS console.
 //   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   mastersRole := iam.NewRole(this, jsii.String("MastersRole"), &RoleProps{

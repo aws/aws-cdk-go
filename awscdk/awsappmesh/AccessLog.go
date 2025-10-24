@@ -10,7 +10,7 @@ import (
 // Configuration for Envoy Access logs for mesh endpoints.
 //
 // Example:
-//   var mesh mesh
+//   var mesh Mesh
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
 //   	Vpc: Vpc,
@@ -19,8 +19,8 @@ import (
 //   service := namespace.CreateService(jsii.String("Svc"))
 //   node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-//   	Listeners: []virtualNodeListener{
-//   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 //   			Port: jsii.Number(8081),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),

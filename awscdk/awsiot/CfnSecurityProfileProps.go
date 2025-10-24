@@ -82,8 +82,8 @@ import (
 //   	},
 //   	SecurityProfileDescription: jsii.String("securityProfileDescription"),
 //   	SecurityProfileName: jsii.String("securityProfileName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -21,10 +21,11 @@ import (
 //   		DeliveryDestinationName: jsii.String("deliveryDestinationName"),
 //   		DeliveryDestinationPolicy: deliveryDestinationPolicy,
 //   	},
+//   	DeliveryDestinationType: jsii.String("deliveryDestinationType"),
 //   	DestinationResourceArn: jsii.String("destinationResourceArn"),
 //   	OutputFormat: jsii.String("outputFormat"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -44,6 +45,10 @@ type CfnDeliveryDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-deliverydestinationpolicy
 	//
 	DeliveryDestinationPolicy interface{} `field:"optional" json:"deliveryDestinationPolicy" yaml:"deliveryDestinationPolicy"`
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-deliverydestinationtype
+	//
+	DeliveryDestinationType *string `field:"optional" json:"deliveryDestinationType" yaml:"deliveryDestinationType"`
 	// The ARN of the AWS destination that this delivery destination represents.
 	//
 	// That AWS destination can be a log group in CloudWatch Logs , an Amazon S3 bucket, or a Firehose stream.

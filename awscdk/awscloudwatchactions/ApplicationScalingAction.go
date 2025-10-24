@@ -18,7 +18,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stepScalingAction stepScalingAction
+//   var stepScalingAction StepScalingAction
 //
 //   applicationScalingAction := awscdk.Aws_cloudwatch_actions.NewApplicationScalingAction(stepScalingAction)
 //

@@ -8,7 +8,7 @@ package awscdkivsalpha
 //   // The values are placeholders you should change.
 //   import ivs_alpha "github.com/aws/aws-cdk-go/awscdkivsalpha"
 //
-//   var channel channel
+//   var channel Channel
 //
 //   streamKeyProps := &StreamKeyProps{
 //   	Channel: channel,

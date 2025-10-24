@@ -9,7 +9,7 @@ import (
 // Construction properties of the `LambdaInvokeAction Lambda invoke CodePipeline Action`.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
@@ -18,7 +18,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Lambda"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		lambdaAction,
 //   	},
 //   })

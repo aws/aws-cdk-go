@@ -12,7 +12,7 @@ import (
 //   import iot_actions_alpha "github.com/aws/aws-cdk-go/awscdkiotactionsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   cloudWatchLogsActionProps := &CloudWatchLogsActionProps{
 //   	Role: role,

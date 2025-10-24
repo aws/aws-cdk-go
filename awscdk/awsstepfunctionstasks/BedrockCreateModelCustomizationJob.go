@@ -17,11 +17,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var outputBucket iBucket
-//   var trainingBucket iBucket
-//   var validationBucket iBucket
-//   var kmsKey iKey
-//   var vpc iVpc
+//   var outputBucket IBucket
+//   var trainingBucket IBucket
+//   var validationBucket IBucket
+//   var kmsKey IKey
+//   var vpc IVpc
 //
 //
 //   model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
@@ -33,8 +33,8 @@ import (
 //   	CustomModelKmsKey: kmsKey,
 //   	CustomModelName: jsii.String("MyCustomModel"),
 //   	 // required
-//   	CustomModelTags: []customModelTag{
-//   		&customModelTag{
+//   	CustomModelTags: []CustomModelTag{
+//   		&CustomModelTag{
 //   			Key: jsii.String("key1"),
 //   			Value: jsii.String("value1"),
 //   		},
@@ -44,8 +44,8 @@ import (
 //   	},
 //   	JobName: jsii.String("MyCustomizationJob"),
 //   	 // required
-//   	JobTags: []*customModelTag{
-//   		&customModelTag{
+//   	JobTags: []CustomModelTag{
+//   		&CustomModelTag{
 //   			Key: jsii.String("key2"),
 //   			Value: jsii.String("value2"),
 //   		},
@@ -61,14 +61,14 @@ import (
 //   	},
 //   	 // required
 //   	// If you don't provide validation data, you have to specify `Evaluation percentage` hyperparameter.
-//   	ValidationData: []validationBucketConfiguration{
-//   		&validationBucketConfiguration{
+//   	ValidationData: []ValidationBucketConfiguration{
+//   		&ValidationBucketConfiguration{
 //   			Bucket: validationBucket,
 //   			Path: jsii.String("validation-data/data.json"),
 //   		},
 //   	},
-//   	VpcConfig: map[string][]iSecurityGroup{
-//   		"securityGroups": []*iSecurityGroup{
+//   	VpcConfig: map[string][]ISecurityGroup{
+//   		"securityGroups": []ISecurityGroup{
 //   			ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
 //   				"vpc": vpc,
 //   			}),

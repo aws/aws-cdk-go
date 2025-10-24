@@ -9,9 +9,6 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnClusterCapacityProviderAssociationsProps := &CfnClusterCapacityProviderAssociationsProps{
-//   	CapacityProviders: []*string{
-//   		jsii.String("capacityProviders"),
-//   	},
 //   	Cluster: jsii.String("cluster"),
 //   	DefaultCapacityProviderStrategy: []interface{}{
 //   		&CapacityProviderStrategyProperty{
@@ -22,15 +19,16 @@ package awsecs
 //   			Weight: jsii.Number(123),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	CapacityProviders: []*string{
+//   		jsii.String("capacityProviders"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
 //
 type CfnClusterCapacityProviderAssociationsProps struct {
-	// The capacity providers to associate with the cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-	//
-	CapacityProviders *[]*string `field:"required" json:"capacityProviders" yaml:"capacityProviders"`
 	// The cluster the capacity provider association is the target of.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
 	//
@@ -39,5 +37,9 @@ type CfnClusterCapacityProviderAssociationsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
 	//
 	DefaultCapacityProviderStrategy interface{} `field:"required" json:"defaultCapacityProviderStrategy" yaml:"defaultCapacityProviderStrategy"`
+	// The capacity providers to associate with the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
+	//
+	CapacityProviders *[]*string `field:"optional" json:"capacityProviders" yaml:"capacityProviders"`
 }
 

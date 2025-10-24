@@ -29,8 +29,8 @@ import (
 //   	DetectorId: jsii.String("detectorId"),
 //
 //   	// the properties below are optional
-//   	Tags: []tagItemProperty{
-//   		&tagItemProperty{
+//   	Tags: []TagItemProperty{
+//   		&TagItemProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

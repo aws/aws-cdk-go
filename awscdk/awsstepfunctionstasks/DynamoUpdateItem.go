@@ -14,16 +14,16 @@ import (
 // A StepFunctions task to call DynamoUpdateItem.
 //
 // Example:
-//   var myTable table
+//   var myTable Table
 //
 //   tasks.NewDynamoUpdateItem(this, jsii.String("UpdateItem"), &DynamoUpdateItemProps{
-//   	Key: map[string]dynamoAttributeValue{
-//   		"MessageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
+//   	Key: map[string]DynamoAttributeValue{
+//   		"MessageId": tasks.DynamoAttributeValue_fromString(jsii.String("message-007")),
 //   	},
 //   	Table: myTable,
-//   	ExpressionAttributeValues: map[string]*dynamoAttributeValue{
-//   		":val": tasks.*dynamoAttributeValue_numberFromString(sfn.JsonPath_stringAt(jsii.String("$.Item.TotalCount.N"))),
-//   		":rand": tasks.*dynamoAttributeValue_fromNumber(jsii.Number(20)),
+//   	ExpressionAttributeValues: map[string]DynamoAttributeValue{
+//   		":val": tasks.DynamoAttributeValue_numberFromString(sfn.JsonPath_stringAt(jsii.String("$.Item.TotalCount.N"))),
+//   		":rand": tasks.DynamoAttributeValue_fromNumber(jsii.Number(20)),
 //   	},
 //   	UpdateExpression: jsii.String("SET TotalCount = :val + :rand"),
 //   })

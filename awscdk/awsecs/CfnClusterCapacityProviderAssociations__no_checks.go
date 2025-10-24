@@ -80,10 +80,6 @@ func validateCfnClusterCapacityProviderAssociations_IsConstructParameters(x inte
 	return nil
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) validateSetCapacityProvidersParameters(val *[]*string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) validateSetClusterParameters(val *string) error {
 	return nil
 }

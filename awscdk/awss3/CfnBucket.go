@@ -16,9 +16,9 @@ import (
 // > You can only delete empty buckets. Deletion fails for buckets that have contents.
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   var cfnTemplate CfnInclude
 //
-//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
+//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
 //
 //   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewAnyPrincipal(),

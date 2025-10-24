@@ -11,11 +11,11 @@ import (
 // Cognito user pools based custom authorizer.
 //
 // Example:
-//   var books resource
+//   var books Resource
 //   userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 //
 //   auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &CognitoUserPoolsAuthorizerProps{
-//   	CognitoUserPools: []iUserPool{
+//   	CognitoUserPools: []IUserPool{
 //   		userPool,
 //   	},
 //   })

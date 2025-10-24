@@ -13,7 +13,7 @@ import (
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var fn function
+//   var fn Function
 //
 //
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
@@ -22,16 +22,16 @@ import (
 //   // color: 'red' or 'orange'
 //   // store: property must not be present
 //   myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
-//   	FilterPolicyWithMessageBody: map[string]filterOrPolicy{
-//   		"background": sns.*filterOrPolicy_policy(map[string]*filterOrPolicy{
-//   			"color": sns.*filterOrPolicy_filter(sns.SubscriptionFilter_stringFilter(&StringConditions{
+//   	FilterPolicyWithMessageBody: map[string]FilterOrPolicy{
+//   		"background": sns.FilterOrPolicy_policy(map[string]FilterOrPolicy{
+//   			"color": sns.FilterOrPolicy_filter(sns.SubscriptionFilter_stringFilter(&StringConditions{
 //   				"allowlist": []*string{
 //   					jsii.String("red"),
 //   					jsii.String("orange"),
 //   				},
 //   			})),
 //   		}),
-//   		"store": sns.*filterOrPolicy_filter(sns.SubscriptionFilter_notExistsFilter()),
+//   		"store": sns.FilterOrPolicy_filter(sns.SubscriptionFilter_notExistsFilter()),
 //   	},
 //   }))
 //

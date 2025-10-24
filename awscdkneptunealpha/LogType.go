@@ -22,8 +22,8 @@ import (
 //   	// Audit logs are enabled via the clusterParameterGroup
 //   	ClusterParameterGroup: ClusterParameterGroup,
 //   	// Optionally configuring audit logs to be exported to CloudWatch Logs
-//   	CloudwatchLogsExports: []logType{
-//   		neptune.*logType_AUDIT(),
+//   	CloudwatchLogsExports: []LogType{
+//   		neptune.LogType_AUDIT(),
 //   	},
 //   	// Optionally set a retention period on exported CloudWatch Logs
 //   	CloudwatchLogsRetention: logs.RetentionDays_ONE_MONTH,

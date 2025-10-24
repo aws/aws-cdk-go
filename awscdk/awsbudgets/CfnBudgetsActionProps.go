@@ -55,8 +55,8 @@ package awsbudgets
 //
 //   	// the properties below are optional
 //   	ApprovalModel: jsii.String("approvalModel"),
-//   	ResourceTags: []resourceTagProperty{
-//   		&resourceTagProperty{
+//   	ResourceTags: []ResourceTagProperty{
+//   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

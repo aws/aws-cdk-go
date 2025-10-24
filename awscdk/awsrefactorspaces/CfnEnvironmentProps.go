@@ -15,8 +15,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	NetworkFabricType: jsii.String("networkFabricType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

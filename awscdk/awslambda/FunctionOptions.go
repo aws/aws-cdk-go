@@ -26,29 +26,29 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var adotLayerVersion adotLayerVersion
-//   var architecture architecture
-//   var codeSigningConfigRef iCodeSigningConfigRef
-//   var destination iDestination
-//   var eventSource iEventSource
-//   var fileSystem fileSystem
-//   var keyRef iKeyRef
-//   var lambdaInsightsVersion lambdaInsightsVersion
-//   var layerVersion layerVersion
-//   var logGroup logGroup
-//   var paramsAndSecretsLayerVersion paramsAndSecretsLayerVersion
-//   var policyStatement policyStatement
-//   var profilingGroup profilingGroup
-//   var queue queue
-//   var role role
-//   var runtimeManagementMode runtimeManagementMode
-//   var securityGroup securityGroup
-//   var size size
-//   var snapStartConf snapStartConf
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var topic topic
-//   var vpc vpc
+//   var adotLayerVersion AdotLayerVersion
+//   var architecture Architecture
+//   var codeSigningConfigRef ICodeSigningConfigRef
+//   var destination IDestination
+//   var eventSource IEventSource
+//   var fileSystem FileSystem
+//   var keyRef IKeyRef
+//   var lambdaInsightsVersion LambdaInsightsVersion
+//   var layerVersion LayerVersion
+//   var logGroup LogGroup
+//   var paramsAndSecretsLayerVersion ParamsAndSecretsLayerVersion
+//   var policyStatement PolicyStatement
+//   var profilingGroup ProfilingGroup
+//   var queue Queue
+//   var role Role
+//   var runtimeManagementMode RuntimeManagementMode
+//   var securityGroup SecurityGroup
+//   var size Size
+//   var snapStartConf SnapStartConf
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var topic Topic
+//   var vpc Vpc
 //
 //   functionOptions := &FunctionOptions{
 //   	AdotInstrumentation: &AdotInstrumentationConfig{
@@ -81,17 +81,17 @@ import (
 //   	},
 //   	EnvironmentEncryption: keyRef,
 //   	EphemeralStorageSize: size,
-//   	Events: []*iEventSource{
+//   	Events: []IEventSource{
 //   		eventSource,
 //   	},
 //   	Filesystem: fileSystem,
 //   	FunctionName: jsii.String("functionName"),
-//   	InitialPolicy: []*policyStatement{
+//   	InitialPolicy: []PolicyStatement{
 //   		policyStatement,
 //   	},
 //   	InsightsVersion: lambdaInsightsVersion,
 //   	Ipv6AllowedForDualStack: jsii.Boolean(false),
-//   	Layers: []iLayerVersion{
+//   	Layers: []ILayerVersion{
 //   		layerVersion,
 //   	},
 //   	LogFormat: jsii.String("logFormat"),
@@ -116,7 +116,7 @@ import (
 //   	RetryAttempts: jsii.Number(123),
 //   	Role: role,
 //   	RuntimeManagementMode: runtimeManagementMode,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	SnapStart: snapStartConf,
@@ -130,11 +130,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

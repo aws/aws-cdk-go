@@ -18,10 +18,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dockerImage dockerImage
-//   var grantable iGrantable
-//   var keyRef iKeyRef
-//   var localBundling iLocalBundling
+//   var dockerImage DockerImage
+//   var grantable IGrantable
+//   var keyRef IKeyRef
+//   var localBundling ILocalBundling
 //
 //   assetImportSource := awscdk.Aws_cloudfront.AssetImportSource_FromAsset(jsii.String("path"), &AssetOptions{
 //   	AssetHash: jsii.String("assetHash"),
@@ -46,8 +46,8 @@ import (
 //   		Platform: jsii.String("platform"),
 //   		SecurityOpt: jsii.String("securityOpt"),
 //   		User: jsii.String("user"),
-//   		Volumes: []dockerVolume{
-//   			&dockerVolume{
+//   		Volumes: []DockerVolume{
+//   			&DockerVolume{
 //   				ContainerPath: jsii.String("containerPath"),
 //   				HostPath: jsii.String("hostPath"),
 //
@@ -67,7 +67,7 @@ import (
 //   	},
 //   	FollowSymlinks: cdk.SymlinkFollowMode_NEVER,
 //   	IgnoreMode: cdk.IgnoreMode_GLOB,
-//   	Readers: []*iGrantable{
+//   	Readers: []IGrantable{
 //   		grantable,
 //   	},
 //   	SourceKMSKey: keyRef,

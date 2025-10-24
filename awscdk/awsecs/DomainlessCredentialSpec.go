@@ -12,8 +12,8 @@ import (
 //
 // Example:
 //   // Make sure the task definition's execution role has permissions to read from the S3 bucket or SSM parameter where the CredSpec file is stored.
-//   var bucket bucket
-//   var taskDefinition taskDefinition
+//   var bucket Bucket
+//   var taskDefinition TaskDefinition
 //
 //
 //   // Domainless gMSA container from a S3 bucket object.
@@ -21,7 +21,7 @@ import (
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	Cpu: jsii.Number(128),
 //   	MemoryLimitMiB: jsii.Number(256),
-//   	CredentialSpecs: []credentialSpec{
+//   	CredentialSpecs: []CredentialSpec{
 //   		ecs.DomainlessCredentialSpec_FromS3Bucket(bucket, jsii.String("credSpec")),
 //   	},
 //   })

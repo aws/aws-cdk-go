@@ -8,9 +8,9 @@ package awscdksagemakeralpha
 //   // The values are placeholders you should change.
 //   import sagemaker_alpha "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
-//   var acceleratorType acceleratorType
-//   var instanceType instanceType
-//   var model model
+//   var acceleratorType AcceleratorType
+//   var instanceType InstanceType
+//   var model Model
 //
 //   instanceProductionVariantProps := &InstanceProductionVariantProps{
 //   	Model: model,

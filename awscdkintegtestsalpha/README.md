@@ -47,11 +47,11 @@ In order to turn this into an integration test, all that is needed is to
 use the `IntegTest` construct.
 
 ```go
-var app app
-var stack stack
+var app App
+var stack Stack
 
 awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -70,15 +70,15 @@ certain handler:
 
 ```go
 type stackUnderTestProps struct {
-	stackProps
-	architecture architecture
+	StackProps
+	architecture Architecture
 }
 
 type stackUnderTest struct {
-	stack
+	Stack
 }
 
-func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
+func newStackUnderTest(scope Construct, id *string, props stackUnderTestProps) *stackUnderTest {
 	this := &stackUnderTest{}
 	newStack_Override(this, scope, id, props)
 
@@ -99,15 +99,15 @@ for the Lambda function. In particular, it should work for both `ARM_64` and
 
 ```go
 type stackUnderTestProps struct {
-	stackProps
-	architecture architecture
+	StackProps
+	architecture Architecture
 }
 
 type stackUnderTest struct {
-	stack
+	Stack
 }
 
-func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
+func newStackUnderTest(scope Construct, id *string, props stackUnderTestProps) *stackUnderTest {
 	this := &stackUnderTest{}
 	newStack_Override(this, scope, id, props)
 
@@ -124,12 +124,12 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 app := awscdk.NewApp()
 
 awscdkintegtestsalpha.NewIntegTest(app, jsii.String("DifferentArchitectures"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
-			architecture: lambda.*architecture_ARM_64(),
+			architecture: lambda.Architecture_ARM_64(),
 		}),
 		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
-			architecture: lambda.*architecture_X86_64(),
+			architecture: lambda.Architecture_X86_64(),
 		}),
 	},
 })
@@ -147,7 +147,7 @@ stackUnderTest := awscdk.NewStack(app, jsii.String("StackUnderTest"))
 stack := awscdk.NewStack(app, jsii.String("stack"))
 
 testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &IntegTestProps{
-	TestCases: []stack{
+	TestCases: []Stack{
 		stackUnderTest,
 	},
 	DiffAssets: jsii.Boolean(true),
@@ -179,15 +179,15 @@ defined different options for individual test cases.
 For example, you might want to have one test case where `diffAssets` is enabled.
 
 ```go
-var app app
-var stackUnderTest stack
+var app App
+var stackUnderTest Stack
 
 testCaseWithAssets := awscdkintegtestsalpha.NewIntegTestCaseStack(app, jsii.String("TestCaseAssets"), &IntegTestCaseStackProps{
 	DiffAssets: jsii.Boolean(true),
 })
 
 awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stackUnderTest,
 		testCaseWithAssets,
 	},
@@ -206,12 +206,12 @@ In this case you would create an integration test using the `IntegTest` construc
 You should **not** utilize the assertion constructs directly, but should instead use the `methods` on `IntegTest.assertions`.
 
 ```go
-var app app
-var stack stack
+var app App
+var stack Stack
 
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -221,13 +221,13 @@ integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("getObject"))
 By default an assertions stack is automatically generated for you. You may however provide your own stack to use.
 
 ```go
-var app app
-var stack stack
-var assertionStack stack
+var app App
+var stack Stack
+var assertionStack Stack
 
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 	AssertionStack: assertionStack,
@@ -241,7 +241,7 @@ In this case you may be using assertions as part of a normal CDK deployment in o
 before the deployment is considered successful. In this case you can utilize the assertions constructs directly.
 
 ```go
-var myAppStack stack
+var myAppStack Stack
 
 
 awscdkintegtestsalpha.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &AwsApiCallProps{
@@ -259,13 +259,13 @@ by the `integ-runner` tool. For example, this stack will not be diffed by the `i
 `DeployAssert` also provides utilities to register your own assertions.
 
 ```go
-var myCustomResource customResource
-var stack stack
-var app app
+var myCustomResource CustomResource
+var stack Stack
+var app App
 
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -293,7 +293,7 @@ make the HTTP call.
 This can be done by using the class directory (in the case of a normal deployment):
 
 ```go
-var stack stack
+var stack Stack
 
 
 awscdkintegtestsalpha.NewHttpApiCall(stack, jsii.String("MyAsssertion"), &HttpCallProps{
@@ -304,11 +304,11 @@ awscdkintegtestsalpha.NewHttpApiCall(stack, jsii.String("MyAsssertion"), &HttpCa
 Or by using the `httpApiCall` method on `DeployAssert` (when writing integration tests):
 
 ```go
-var app app
-var stack stack
+var app App
+var stack Stack
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -322,7 +322,7 @@ Using the `AwsApiCall` construct will use the AWS JavaScript SDK to make the API
 This can be done by using the class directory (in the case of a normal deployment):
 
 ```go
-var stack stack
+var stack Stack
 
 
 awscdkintegtestsalpha.NewAwsApiCall(stack, jsii.String("MyAssertion"), &AwsApiCallProps{
@@ -337,11 +337,11 @@ awscdkintegtestsalpha.NewAwsApiCall(stack, jsii.String("MyAssertion"), &AwsApiCa
 Or by using the `awsApiCall` method on `DeployAssert` (when writing integration tests):
 
 ```go
-var app app
-var stack stack
+var app App
+var stack Stack
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -374,9 +374,9 @@ example the S3 `listObjectsV2` api. In these cases it is possible to add the cor
 by accessing the `provider` object.
 
 ```go
-var app app
-var stack stack
-var integ integTest
+var app App
+var stack Stack
+var integ IntegTest
 
 
 apiCall := integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("listObjectsV2"), map[string]*string{
@@ -399,12 +399,12 @@ When executing `waitForAssertion()`, it is necessary to add an IAM policy using 
 Because `IApiCall` does not have a `waiterProvider` property, you need to cast it to `AwsApiCall`.
 
 ```go
-var integ integTest
+var integ IntegTest
 
 
 apiCall := integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("listObjectsV2"), map[string]*string{
 	"Bucket": jsii.String("mybucket"),
-}).WaitForAssertions().(awsApiCall)
+}).WaitForAssertions().(AwsApiCall)
 
 apiCall.WaiterProvider.AddToRolePolicy(map[string]interface{}{
 	"Effect": jsii.String("Allow"),
@@ -429,14 +429,14 @@ backed `CustomResource` which in tern uses the [Match](https://docs.aws.amazon.c
 [@aws-cdk/assertions](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions-readme.html) library.
 
 ```go
-var app app
-var stack stack
-var queue queue
-var fn iFunction
+var app App
+var stack Stack
+var queue Queue
+var fn IFunction
 
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -474,7 +474,7 @@ message.AssertAtPath(jsii.String("Messages.0.Body"), awscdkintegtestsalpha.Expec
 can be used to construct the `ExpectedResult`. While the utility is similar, only a subset of methods are currently available on the `Match` utility of this module: `arrayWith`, `objectLike`, `stringLikeRegexp` and `serializedJson`.
 
 ```go
-var message awsApiCall
+var message AwsApiCall
 
 
 message.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
@@ -506,14 +506,14 @@ In this example there is a Lambda Function that is invoked and
 we assert that the payload that is returned is equal to '200'.
 
 ```go
-var lambdaFunction iFunction
-var app app
+var lambdaFunction IFunction
+var app App
 
 
 stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-	TestCases: []stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -533,14 +533,14 @@ to specify the `logRetention` property.
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
-var lambdaFunction iFunction
-var app app
+var lambdaFunction IFunction
+var app App
 
 
 stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
 
 integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-	TestCases: []stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -557,13 +557,13 @@ In this example there is a StepFunctions state machine that is executed
 and then we assert that the result of the execution is successful.
 
 ```go
-var app app
-var stack stack
-var sm iStateMachine
+var app App
+var stack Stack
+var sm IStateMachine
 
 
 testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -590,7 +590,7 @@ Sometimes it may be necessary to chain API Calls. Since each API call is its own
 need to do is add a dependency between the calls. There is an helper method `next` that can be used.
 
 ```go
-var integ integTest
+var integ IntegTest
 
 
 integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("putObject"), map[string]*string{
@@ -613,13 +613,13 @@ Taking the example above of executing a StepFunctions state machine, depending o
 the state machine, it might take a while for it to complete.
 
 ```go
-var app app
-var stack stack
-var sm iStateMachine
+var app App
+var stack Stack
+var sm IStateMachine
 
 
 testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-	TestCases: []*stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -641,8 +641,8 @@ When you call `waitForAssertions()` the assertion provider will continuously mak
 `ExpectedResult` is met. You can also control the parameters for waiting, for example:
 
 ```go
-var testCase integTest
-var start iApiCall
+var testCase IntegTest
+var start IApiCall
 
 
 describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{

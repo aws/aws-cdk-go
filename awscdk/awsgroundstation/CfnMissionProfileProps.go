@@ -31,8 +31,8 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	},
 //   	StreamsKmsRole: jsii.String("streamsKmsRole"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

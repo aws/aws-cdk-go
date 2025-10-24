@@ -22,8 +22,8 @@ plan := backup.BackupPlan_DailyWeeklyMonthly5YearRetention(this, jsii.String("Pl
 Assigning resources to a plan can be done with `addSelection()`:
 
 ```go
-var plan backupPlan
-var vpc vpc
+var plan BackupPlan
+var vpc Vpc
 
 myTable := dynamodb.Table_FromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
 myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &DatabaseInstanceProps{
@@ -49,13 +49,13 @@ myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessClu
 myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 
 plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
-	Resources: []backupResource{
-		backup.*backupResource_FromDynamoDbTable(myTable),
-		backup.*backupResource_FromRdsDatabaseInstance(myDatabaseInstance),
-		backup.*backupResource_FromRdsDatabaseCluster(myDatabaseCluster),
-		backup.*backupResource_FromRdsServerlessCluster(myServerlessCluster),
-		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
-		backup.*backupResource_FromConstruct(myCoolConstruct),
+	Resources: []BackupResource{
+		backup.BackupResource_FromDynamoDbTable(myTable),
+		backup.BackupResource_FromRdsDatabaseInstance(myDatabaseInstance),
+		backup.BackupResource_FromRdsDatabaseCluster(myDatabaseCluster),
+		backup.BackupResource_FromRdsServerlessCluster(myServerlessCluster),
+		backup.BackupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
+		backup.BackupResource_FromConstruct(myCoolConstruct),
 	},
 })
 ```
@@ -68,7 +68,7 @@ To disable the plan from assigning the default `AWSBackupServiceRolePolicyForBac
 This is useful if you want to avoid granting unnecessary permissions to the role.
 
 ```go
-var plan backupPlan
+var plan BackupPlan
 
 
 role := iam.NewRole(this, jsii.String("BackupRole"), &RoleProps{
@@ -78,8 +78,8 @@ role := iam.NewRole(this, jsii.String("BackupRole"), &RoleProps{
 role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AWSBackupServiceRolePolicyForS3Backup")))
 
 plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
-	Resources: []backupResource{
-		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
+	Resources: []BackupResource{
+		backup.BackupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
 	},
 	Role: Role,
 	DisableDefaultBackupPolicy: jsii.Boolean(true),
@@ -90,7 +90,7 @@ To add rules to a plan, use `addRule()`:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var plan backupPlan
+var plan BackupPlan
 
 plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 	CompletionWindow: awscdk.Duration_Hours(jsii.Number(2)),
@@ -113,7 +113,7 @@ Property `moveToColdStorageAfter` must not be specified because PITR does not su
 This example defines an AWS Backup rule with PITR and a retention period set to 14 days:
 
 ```go
-var plan backupPlan
+var plan BackupPlan
 
 plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 	EnableContinuousBackup: jsii.Boolean(true),
@@ -125,12 +125,12 @@ Rules can also specify to copy recovery points to another Backup Vault using `co
 optionally have `moveToColdStorageAfter` and `deleteAfter` configured.
 
 ```go
-var plan backupPlan
-var secondaryVault backupVault
+var plan BackupPlan
+var secondaryVault BackupVault
 
 plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
-	CopyActions: []backupPlanCopyActionProps{
-		&backupPlanCopyActionProps{
+	CopyActions: []BackupPlanCopyActionProps{
+		&BackupPlanCopyActionProps{
 			DestinationBackupVault: secondaryVault,
 			MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
 			DeleteAfter: awscdk.Duration_*Days(jsii.Number(120)),
@@ -142,7 +142,7 @@ plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 You can assign your own metadata to the resources that are associated with the rule when restored from backup using `recoveryPointTags`. Each tag is a key-value pair.
 
 ```go
-var plan backupPlan
+var plan BackupPlan
 
 plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 	RecoveryPointTags: map[string]*string{
@@ -154,7 +154,7 @@ plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 Ready-made rules are also available:
 
 ```go
-var plan backupPlan
+var plan BackupPlan
 
 plan.AddRule(backup.BackupPlanRule_Daily())
 plan.AddRule(backup.BackupPlanRule_Weekly())
@@ -214,10 +214,10 @@ Use the `accessPolicy` property to create a backup vault policy:
 ```go
 vault := backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
 	AccessPolicy: iam.NewPolicyDocument(&PolicyDocumentProps{
-		Statements: []policyStatement{
+		Statements: []PolicyStatement{
 			iam.NewPolicyStatement(&PolicyStatementProps{
 				Effect: iam.Effect_DENY,
-				Principals: []iPrincipal{
+				Principals: []IPrincipal{
 					iam.NewAnyPrincipal(),
 				},
 				Actions: []*string{
@@ -246,7 +246,7 @@ Use the `blockRecoveryPointDeletion` property or the `blockRecoveryPointDeletion
 a statement to the vault access policy that prevents recovery point deletions in your vault:
 
 ```go
-var backupVault backupVault
+var backupVault BackupVault
 backup.NewBackupVault(this, jsii.String("Vault"), &BackupVaultProps{
 	BlockRecoveryPointDeletion: jsii.Boolean(true),
 })

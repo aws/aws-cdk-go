@@ -8,13 +8,13 @@ package awscdkredshiftalpha
 //
 //
 //   awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-//   	TableColumns: []column{
-//   		&column{
+//   	TableColumns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			DataType: jsii.String("varchar(4)"),
 //   			Encoding: awscdkredshiftalpha.ColumnEncoding_TEXT32K,
 //   		},
-//   		&column{
+//   		&Column{
 //   			Name: jsii.String("col2"),
 //   			DataType: jsii.String("float"),
 //   			Encoding: awscdkredshiftalpha.ColumnEncoding_DELTA32K,

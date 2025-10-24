@@ -8,8 +8,8 @@ package awsapigateway
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
-//   var vpcLink vpcLink
+//   var role Role
+//   var vpcLink VpcLink
 //
 //   httpIntegrationProps := &HttpIntegrationProps{
 //   	HttpMethod: jsii.String("httpMethod"),
@@ -22,8 +22,8 @@ package awsapigateway
 //   		ContentHandling: awscdk.*Aws_apigateway.ContentHandling_CONVERT_TO_BINARY,
 //   		CredentialsPassthrough: jsii.Boolean(false),
 //   		CredentialsRole: role,
-//   		IntegrationResponses: []integrationResponse{
-//   			&integrationResponse{
+//   		IntegrationResponses: []IntegrationResponse{
+//   			&IntegrationResponse{
 //   				StatusCode: jsii.String("statusCode"),
 //
 //   				// the properties below are optional

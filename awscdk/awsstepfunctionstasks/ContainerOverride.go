@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var containerDefinition containerDefinition
+//   var containerDefinition ContainerDefinition
 //
 //   containerOverride := &ContainerOverride{
 //   	ContainerDefinition: containerDefinition,
@@ -22,8 +22,8 @@ import (
 //   		jsii.String("command"),
 //   	},
 //   	Cpu: jsii.Number(123),
-//   	Environment: []taskEnvironmentVariable{
-//   		&taskEnvironmentVariable{
+//   	Environment: []TaskEnvironmentVariable{
+//   		&TaskEnvironmentVariable{
 //   			Name: jsii.String("name"),
 //   			Value: jsii.String("value"),
 //   		},

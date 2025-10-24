@@ -4,15 +4,15 @@ package awscloudwatch
 // Properties for TableWidget's summary columns.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 //   	// ...
 //
 //   	Summary: &TableSummaryProps{
-//   		Columns: []tableSummaryColumn{
-//   			cloudwatch.*tableSummaryColumn_AVERAGE,
+//   		Columns: []TableSummaryColumn{
+//   			cloudwatch.TableSummaryColumn_AVERAGE,
 //   		},
 //   		HideNonSummaryColumns: jsii.Boolean(true),
 //   		Sticky: jsii.Boolean(true),

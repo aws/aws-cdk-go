@@ -16,8 +16,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var stack stack
+//   var bucket Bucket
+//   var stack Stack
 //
 //   crossRegionSupport := &CrossRegionSupport{
 //   	ReplicationBucket: bucket,

@@ -13,7 +13,7 @@ import (
 // Use an AWS Lambda function as a target for AWS EventBridge Scheduler.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //
 //   target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{

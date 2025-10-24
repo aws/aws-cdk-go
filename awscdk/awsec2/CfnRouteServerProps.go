@@ -18,8 +18,8 @@ import (
 //   	PersistRoutes: jsii.String("persistRoutes"),
 //   	PersistRoutesDuration: jsii.Number(123),
 //   	SnsNotificationsEnabled: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

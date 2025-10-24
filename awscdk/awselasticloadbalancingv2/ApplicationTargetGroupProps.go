@@ -8,7 +8,7 @@ import (
 // Properties for defining an Application Target Group.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{

@@ -4,7 +4,7 @@ package awseks
 // Properties for creating an Amazon EKS Add-On.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   eks.NewAddon(this, jsii.String("Addon"), &AddonProps{

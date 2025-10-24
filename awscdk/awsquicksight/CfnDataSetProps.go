@@ -324,8 +324,8 @@ import (
 //   		Status: jsii.String("status"),
 //   		TagRuleConfigurations: tagRuleConfigurations,
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -340,7 +340,7 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
 	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
-	// Groupings of columns that work together in certain Amazon QuickSight features.
+	// Groupings of columns that work together in certain Amazon Quick Sight features.
 	//
 	// Currently, only geospatial hierarchy is supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups

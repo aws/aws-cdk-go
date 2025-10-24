@@ -12,9 +12,9 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var providerAttribute providerAttribute
-//   var secretValue secretValue
-//   var userPool userPool
+//   var providerAttribute ProviderAttribute
+//   var secretValue SecretValue
+//   var userPool UserPool
 //
 //   userPoolIdentityProviderAppleProps := &UserPoolIdentityProviderAppleProps{
 //   	ClientId: jsii.String("clientId"),
@@ -26,7 +26,7 @@ import (
 //   	AttributeMapping: &AttributeMapping{
 //   		Address: providerAttribute,
 //   		Birthdate: providerAttribute,
-//   		Custom: map[string]*providerAttribute{
+//   		Custom: map[string]ProviderAttribute{
 //   			"customKey": providerAttribute,
 //   		},
 //   		Email: providerAttribute,

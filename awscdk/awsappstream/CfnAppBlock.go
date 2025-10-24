@@ -57,8 +57,8 @@ import (
 //   		// the properties below are optional
 //   		ExecutableParameters: jsii.String("executableParameters"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

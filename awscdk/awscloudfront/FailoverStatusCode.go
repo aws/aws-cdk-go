@@ -7,8 +7,8 @@ package awscloudfront
 //   // Configuring origin fallback options for the CloudFrontWebDistribution
 //   // Configuring origin fallback options for the CloudFrontWebDistribution
 //   cloudfront.NewCloudFrontWebDistribution(this, jsii.String("ADistribution"), &CloudFrontWebDistributionProps{
-//   	OriginConfigs: []sourceConfiguration{
-//   		&sourceConfiguration{
+//   	OriginConfigs: []SourceConfiguration{
+//   		&SourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
 //   				S3BucketSource: s3.Bucket_FromBucketName(this, jsii.String("aBucket"), jsii.String("amzn-s3-demo-bucket")),
 //   				OriginPath: jsii.String("/"),
@@ -25,11 +25,11 @@ package awscloudfront
 //   				},
 //   				OriginShieldRegion: jsii.String("us-east-1"),
 //   			},
-//   			FailoverCriteriaStatusCodes: []failoverStatusCode{
-//   				cloudfront.*failoverStatusCode_INTERNAL_SERVER_ERROR,
+//   			FailoverCriteriaStatusCodes: []FailoverStatusCode{
+//   				cloudfront.FailoverStatusCode_INTERNAL_SERVER_ERROR,
 //   			},
-//   			Behaviors: []behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					IsDefaultBehavior: jsii.Boolean(true),
 //   				},
 //   			},

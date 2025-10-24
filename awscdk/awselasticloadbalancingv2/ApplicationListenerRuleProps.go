@@ -8,10 +8,10 @@ package awselasticloadbalancingv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationListener applicationListener
-//   var applicationTargetGroup applicationTargetGroup
-//   var listenerAction listenerAction
-//   var listenerCondition listenerCondition
+//   var applicationListener ApplicationListener
+//   var applicationTargetGroup ApplicationTargetGroup
+//   var listenerAction ListenerAction
+//   var listenerCondition ListenerCondition
 //
 //   applicationListenerRuleProps := &ApplicationListenerRuleProps{
 //   	Listener: applicationListener,
@@ -19,10 +19,10 @@ package awselasticloadbalancingv2
 //
 //   	// the properties below are optional
 //   	Action: listenerAction,
-//   	Conditions: []*listenerCondition{
+//   	Conditions: []ListenerCondition{
 //   		listenerCondition,
 //   	},
-//   	TargetGroups: []iApplicationTargetGroup{
+//   	TargetGroups: []IApplicationTargetGroup{
 //   		applicationTargetGroup,
 //   	},
 //   }

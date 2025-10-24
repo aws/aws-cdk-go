@@ -37,10 +37,11 @@ import (
 //   		DeliveryDestinationName: jsii.String("deliveryDestinationName"),
 //   		DeliveryDestinationPolicy: deliveryDestinationPolicy,
 //   	},
+//   	DeliveryDestinationType: jsii.String("deliveryDestinationType"),
 //   	DestinationResourceArn: jsii.String("destinationResourceArn"),
 //   	OutputFormat: jsii.String("outputFormat"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -56,8 +57,6 @@ type CfnDeliveryDestination interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 	AttrArn() *string
-	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.
-	AttrDeliveryDestinationType() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -74,6 +73,9 @@ type CfnDeliveryDestination interface {
 	SetDeliveryDestinationPolicy(val interface{})
 	// A reference to a DeliveryDestination resource.
 	DeliveryDestinationRef() *DeliveryDestinationReference
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.
+	DeliveryDestinationType() *string
+	SetDeliveryDestinationType(val *string)
 	// The ARN of the AWS destination that this delivery destination represents.
 	DestinationResourceArn() *string
 	SetDestinationResourceArn(val *string)
@@ -265,16 +267,6 @@ func (j *jsiiProxy_CfnDeliveryDestination) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryDestination) AttrDeliveryDestinationType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrDeliveryDestinationType",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDeliveryDestination) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -340,6 +332,16 @@ func (j *jsiiProxy_CfnDeliveryDestination) DeliveryDestinationRef() *DeliveryDes
 	_jsii_.Get(
 		j,
 		"deliveryDestinationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeliveryDestination) DeliveryDestinationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deliveryDestinationType",
 		&returns,
 	)
 	return returns
@@ -480,6 +482,14 @@ func (j *jsiiProxy_CfnDeliveryDestination)SetDeliveryDestinationPolicy(val inter
 	_jsii_.Set(
 		j,
 		"deliveryDestinationPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryDestination)SetDeliveryDestinationType(val *string) {
+	_jsii_.Set(
+		j,
+		"deliveryDestinationType",
 		val,
 	)
 }

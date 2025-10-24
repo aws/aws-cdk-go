@@ -16,11 +16,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   managedComputeEnvironmentProps := &ManagedComputeEnvironmentProps{
 //   	Vpc: vpc,
@@ -30,7 +30,7 @@ import (
 //   	Enabled: jsii.Boolean(false),
 //   	MaxvCpus: jsii.Number(123),
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	ServiceRole: role,
@@ -43,11 +43,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

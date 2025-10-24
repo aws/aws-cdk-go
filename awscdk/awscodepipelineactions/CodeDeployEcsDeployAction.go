@@ -17,10 +17,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var artifact artifact
-//   var artifactPath artifactPath
-//   var ecsDeploymentGroup ecsDeploymentGroup
-//   var role role
+//   var artifact Artifact
+//   var artifactPath ArtifactPath
+//   var ecsDeploymentGroup EcsDeploymentGroup
+//   var role Role
 //
 //   codeDeployEcsDeployAction := awscdk.Aws_codepipeline_actions.NewCodeDeployEcsDeployAction(&CodeDeployEcsDeployActionProps{
 //   	ActionName: jsii.String("actionName"),
@@ -29,8 +29,8 @@ import (
 //   	// the properties below are optional
 //   	AppSpecTemplateFile: artifactPath,
 //   	AppSpecTemplateInput: artifact,
-//   	ContainerImageInputs: []codeDeployEcsContainerImageInput{
-//   		&codeDeployEcsContainerImageInput{
+//   	ContainerImageInputs: []CodeDeployEcsContainerImageInput{
+//   		&CodeDeployEcsContainerImageInput{
 //   			Input: artifact,
 //
 //   			// the properties below are optional

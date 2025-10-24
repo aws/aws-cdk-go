@@ -10,7 +10,7 @@ import (
 // Example:
 //   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
-//   var distribution distribution
+//   var distribution Distribution
 //
 //
 //   // Create the build project that will invalidate the cache
@@ -25,8 +25,8 @@ import (
 //   			},
 //   		},
 //   	}),
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"CLOUDFRONT_ID": &buildEnvironmentVariable{
+//   	EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   		"CLOUDFRONT_ID": &BuildEnvironmentVariable{
 //   			"value": distribution.distributionId,
 //   		},
 //   	},
@@ -47,10 +47,10 @@ import (
 //   deployBucket := s3.NewBucket(this, jsii.String("DeployBucket"))
 //   deployInput := codepipeline.NewArtifact()
 //   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
-//   	Stages: []stageProps{
-//   		&stageProps{
+//   	Stages: []StageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Deploy"),
-//   			Actions: []iAction{
+//   			Actions: []IAction{
 //   				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 //   					ActionName: jsii.String("S3Deploy"),
 //   					Bucket: deployBucket,

@@ -9,7 +9,7 @@ import (
 // Example:
 //   import cognito "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myProvider openIdConnectProvider
+//   var myProvider OpenIdConnectProvider
 //
 //   cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
 //   	OpenIdConnectProviderArns: []*string{

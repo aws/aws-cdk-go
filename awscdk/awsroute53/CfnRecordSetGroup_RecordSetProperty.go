@@ -55,11 +55,7 @@ package awsroute53
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordsetgroup-recordset.html
 //
 type CfnRecordSetGroup_RecordSetProperty struct {
-	// For `ChangeResourceRecordSets` requests, the name of the record that you want to create, update, or delete.
-	//
-	// For `ListResourceRecordSets` responses, the name of a record in the specified hosted zone.
-	//
-	// *ChangeResourceRecordSets Only*
+	// The name of the record that you want to create, update, or delete.
 	//
 	// Enter a fully qualified domain name, for example, `www.example.com` . You can optionally include a trailing dot. If you omit the trailing dot, Amazon Route 53 assumes that the domain name that you specify is fully qualified. This means that Route 53 treats `www.example.com` (without a trailing dot) and `www.example.com.` (with a trailing dot) as identical.
 	//

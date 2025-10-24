@@ -10,7 +10,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var version version
+//   var version Version
 //
 //   lambdaFunctionAssociation := &LambdaFunctionAssociation{
 //   	EventType: awscdk.Aws_cloudfront.LambdaEdgeEventType_ORIGIN_REQUEST,

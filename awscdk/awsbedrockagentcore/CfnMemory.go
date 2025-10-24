@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::BedrockAgentCore::Memory.
+// Memory allows AI agents to maintain both immediate and long-term knowledge, enabling context-aware and personalized interactions.
+//
+// For more information about using Memory in Amazon Bedrock AgentCore, see [Host agent or tools with Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-getting-started.html) .
+//
+// See the *Properties* section below for descriptions of both the required and optional properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,6 +35,26 @@ import (
 //
 //   				// the properties below are optional
 //   				Configuration: &CustomConfigurationInputProperty{
+//   					SelfManagedConfiguration: &SelfManagedConfigurationProperty{
+//   						HistoricalContextWindowSize: jsii.Number(123),
+//   						InvocationConfiguration: &InvocationConfigurationInputProperty{
+//   							PayloadDeliveryBucketName: jsii.String("payloadDeliveryBucketName"),
+//   							TopicArn: jsii.String("topicArn"),
+//   						},
+//   						TriggerConditions: []interface{}{
+//   							&TriggerConditionInputProperty{
+//   								MessageBasedTrigger: &MessageBasedTriggerInputProperty{
+//   									MessageCount: jsii.Number(123),
+//   								},
+//   								TimeBasedTrigger: &TimeBasedTriggerInputProperty{
+//   									IdleSessionTimeout: jsii.Number(123),
+//   								},
+//   								TokenBasedTrigger: &TokenBasedTriggerInputProperty{
+//   									TokenCount: jsii.Number(123),
+//   								},
+//   							},
+//   						},
+//   					},
 //   					SemanticOverride: &SemanticOverrideProperty{
 //   						Consolidation: &SemanticOverrideConsolidationConfigurationInputProperty{
 //   							AppendToPrompt: jsii.String("appendToPrompt"),
@@ -124,13 +148,14 @@ type CfnMemory interface {
 	IMemoryRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The timestamp when the memory record was created.
 	AttrCreatedAt() *string
 	AttrFailureReason() *string
 	// ARN of the Memory resource.
 	AttrMemoryArn() *string
-	// Unique identifier for the Memory resource.
+	// The memory ID.
 	AttrMemoryId() *string
-	// Status of the Memory resource.
+	// The memory status.
 	AttrStatus() *string
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
@@ -147,10 +172,10 @@ type CfnMemory interface {
 	// Description of the Memory resource.
 	Description() *string
 	SetDescription(val *string)
-	// ARN format.
+	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
-	// Duration in days until memory events expire.
+	// The event expiry configuration.
 	EventExpiryDuration() *float64
 	SetEventExpiryDuration(val *float64)
 	// The logical ID for this CloudFormation stack element.
@@ -163,15 +188,15 @@ type CfnMemory interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// ARN format.
+	// The memory role ARN.
 	MemoryExecutionRoleArn() *string
 	SetMemoryExecutionRoleArn(val *string)
 	// A reference to a Memory resource.
 	MemoryRef() *MemoryReference
-	// List of memory strategies attached to this memory.
+	// The memory strategies.
 	MemoryStrategies() interface{}
 	SetMemoryStrategies(val interface{})
-	// Name of the Memory resource.
+	// The memory name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -185,7 +210,7 @@ type CfnMemory interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map of tag keys and values.
+	// The tags for the resources.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

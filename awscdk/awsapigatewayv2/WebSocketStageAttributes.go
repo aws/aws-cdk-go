@@ -4,7 +4,7 @@ package awsapigatewayv2
 // The attributes used to import existing WebSocketStage.
 //
 // Example:
-//   var webSocketApi iWebSocketApi
+//   var webSocketApi IWebSocketApi
 //
 //
 //   importedStage := apigwv2.WebSocketStage_FromWebSocketStageAttributes(this, jsii.String("imported-stage"), &WebSocketStageAttributes{
@@ -15,8 +15,8 @@ package awsapigatewayv2
 //   apiKey := apigwv2.NewApiKey(this, jsii.String("MyApiKey"))
 //
 //   usagePlan := apigwv2.NewUsagePlan(this, jsii.String("MyUsagePlan"), &UsagePlanProps{
-//   	ApiStages: []usagePlanPerApiStage{
-//   		&usagePlanPerApiStage{
+//   	ApiStages: []UsagePlanPerApiStage{
+//   		&UsagePlanPerApiStage{
 //   			Api: webSocketApi,
 //   			Stage: importedStage,
 //   		},

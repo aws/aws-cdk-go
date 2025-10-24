@@ -22,7 +22,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   computeEnvironment := batch.NewFargateComputeEnvironment(this, jsii.String("ComputeEnv"), &FargateComputeEnvironmentProps{
@@ -31,8 +31,8 @@ import (
 //
 //   jobQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
 //   	Priority: jsii.Number(1),
-//   	ComputeEnvironments: []orderedComputeEnvironment{
-//   		&orderedComputeEnvironment{
+//   	ComputeEnvironments: []OrderedComputeEnvironment{
+//   		&OrderedComputeEnvironment{
 //   			ComputeEnvironment: *ComputeEnvironment,
 //   			Order: jsii.Number(1),
 //   		},

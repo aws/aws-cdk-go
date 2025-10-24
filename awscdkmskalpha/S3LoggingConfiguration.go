@@ -7,12 +7,12 @@ import (
 // Details of the Amazon S3 destination for broker logs.
 //
 // Example:
-//   var vpc vpc
-//   var bucket iBucket
+//   var vpc Vpc
+//   var bucket IBucket
 //
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 //   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+//   	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 //   	Vpc: Vpc,
 //   	Logging: &BrokerLogging{
 //   		S3: &S3LoggingConfiguration{

@@ -6,8 +6,8 @@ package awsrds
 // Used in `DatabaseInstanceEngine.mysql`.
 //
 // Example:
-//   var vpc vpc
-//   var kmsKey key
+//   var vpc Vpc
+//   var kmsKey Key
 //
 //   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 //   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{

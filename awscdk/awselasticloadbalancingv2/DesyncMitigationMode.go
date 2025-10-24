@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // How the load balancer handles requests that might pose a security risk to your application.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{

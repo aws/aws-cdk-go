@@ -14,7 +14,7 @@ import (
 // Defines an API Gateway REST API with a Synchrounous Express State Machine as a proxy integration.
 //
 // Example:
-//   var machine iStateMachine
+//   var machine IStateMachine
 //
 //
 //   apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{

@@ -9,7 +9,7 @@ package awsstepfunctions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var outputs interface{}
-//   var provideItems provideItems
+//   var provideItems ProvideItems
 //
 //   mapBaseJsonataOptions := &MapBaseJsonataOptions{
 //   	Items: provideItems,

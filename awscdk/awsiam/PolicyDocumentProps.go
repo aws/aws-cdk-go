@@ -8,13 +8,13 @@ package awsiam
 //
 //
 //   myFileSystemPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
-//   	Statements: []policyStatement{
+//   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
 //   				jsii.String("elasticfilesystem:ClientWrite"),
 //   				jsii.String("elasticfilesystem:ClientMount"),
 //   			},
-//   			Principals: []iPrincipal{
+//   			Principals: []IPrincipal{
 //   				iam.NewAccountRootPrincipal(),
 //   			},
 //   			Resources: []*string{

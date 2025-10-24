@@ -8,13 +8,13 @@ import (
 // Properties for a new Fleet gameSessionQueue.
 //
 // Example:
-//   var fleet buildFleet
-//   var alias alias
+//   var fleet BuildFleet
+//   var alias Alias
 //
 //
 //   queue := gamelift.NewGameSessionQueue(this, jsii.String("GameSessionQueue"), &GameSessionQueueProps{
 //   	GameSessionQueueName: jsii.String("my-queue-name"),
-//   	Destinations: []iGameSessionQueueDestination{
+//   	Destinations: []IGameSessionQueueDestination{
 //   		fleet,
 //   	},
 //   })

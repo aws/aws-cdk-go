@@ -17,12 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var schedule schedule
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var cluster Cluster
+//   var schedule Schedule
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   scheduledTaskBaseProps := &ScheduledTaskBaseProps{
 //   	Schedule: schedule,
@@ -33,7 +33,7 @@ import (
 //   	Enabled: jsii.Boolean(false),
 //   	PropagateTags: awscdk.Aws_ecs.PropagatedTagSource_SERVICE,
 //   	RuleName: jsii.String("ruleName"),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	SubnetSelection: &SubnetSelection{
@@ -41,17 +41,17 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
 //   	},
-//   	Tags: []tag{
-//   		&tag{
+//   	Tags: []Tag{
+//   		&Tag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

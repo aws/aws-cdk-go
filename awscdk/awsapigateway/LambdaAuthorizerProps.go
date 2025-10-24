@@ -16,8 +16,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
-//   var role role
+//   var function_ Function
+//   var role Role
 //
 //   lambdaAuthorizerProps := &LambdaAuthorizerProps{
 //   	Handler: function_,

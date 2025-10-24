@@ -17,12 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPortfolioPrincipalAssociation := awscdk.Aws_servicecatalog.NewCfnPortfolioPrincipalAssociation(this, jsii.String("MyCfnPortfolioPrincipalAssociation"), &CfnPortfolioPrincipalAssociationProps{
-//   	PortfolioId: jsii.String("portfolioId"),
-//   	PrincipalArn: jsii.String("principalArn"),
 //   	PrincipalType: jsii.String("principalType"),
 //
 //   	// the properties below are optional
 //   	AcceptLanguage: jsii.String("acceptLanguage"),
+//   	PortfolioId: jsii.String("portfolioId"),
+//   	PrincipalArn: jsii.String("principalArn"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html
@@ -420,9 +420,6 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetAcceptLanguage(val *strin
 }
 
 func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetPortfolioId(val *string) {
-	if err := j.validateSetPortfolioIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"portfolioId",
@@ -431,9 +428,6 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetPortfolioId(val *string) 
 }
 
 func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetPrincipalArn(val *string) {
-	if err := j.validateSetPrincipalArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"principalArn",

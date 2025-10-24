@@ -8,7 +8,7 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var formInputValuePropertyProperty_ formInputValuePropertyProperty
+//   var formInputValuePropertyProperty_ FormInputValuePropertyProperty
 //
 //   cfnFormProps := &CfnFormProps{
 //   	AppId: jsii.String("appId"),
@@ -82,7 +82,7 @@ package awsamplifyuibuilder
 //   				"valueMappings": &ValueMappingsProperty{
 //   					"values": []interface{}{
 //   						&ValueMappingProperty{
-//   							"value": &formInputValuePropertyProperty{
+//   							"value": &FormInputValuePropertyProperty{
 //   								"bindingProperties": &FormInputValuePropertyBindingPropertiesProperty{
 //   									"property": jsii.String("property"),
 //
@@ -96,7 +96,7 @@ package awsamplifyuibuilder
 //   							},
 //
 //   							// the properties below are optional
-//   							"displayValue": &formInputValuePropertyProperty{
+//   							"displayValue": &FormInputValuePropertyProperty{
 //   								"bindingProperties": &FormInputValuePropertyBindingPropertiesProperty{
 //   									"property": jsii.String("property"),
 //

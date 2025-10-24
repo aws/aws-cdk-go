@@ -21,8 +21,8 @@ import (
 //   cfnPublicKey := awscdk.Aws_ivs.NewCfnPublicKey(this, jsii.String("MyCfnPublicKey"), &CfnPublicKeyProps{
 //   	Name: jsii.String("name"),
 //   	PublicKeyMaterial: jsii.String("publicKeyMaterial"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

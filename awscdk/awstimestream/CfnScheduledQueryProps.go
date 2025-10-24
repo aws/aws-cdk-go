@@ -36,8 +36,8 @@ import (
 //   	ClientToken: jsii.String("clientToken"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ScheduledQueryName: jsii.String("scheduledQueryName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

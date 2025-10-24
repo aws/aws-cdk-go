@@ -4,7 +4,7 @@ package awscdkeks-v2alpha
 // Properties for KubernetesManifest.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   appLabel := map[string]*string{
 //   	"app": jsii.String("hello-kubernetes"),

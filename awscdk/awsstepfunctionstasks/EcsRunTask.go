@@ -39,11 +39,11 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	AssignPublicIp: jsii.Boolean(true),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
+//   	ContainerOverrides: []ContainerOverride{
+//   		&ContainerOverride{
 //   			ContainerDefinition: *ContainerDefinition,
-//   			Environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
+//   			Environment: []TaskEnvironmentVariable{
+//   				&TaskEnvironmentVariable{
 //   					Name: jsii.String("SOME_KEY"),
 //   					Value: sfn.JsonPath_StringAt(jsii.String("$.SomeKey")),
 //   				},

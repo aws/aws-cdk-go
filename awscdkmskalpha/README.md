@@ -19,11 +19,11 @@
 The following example creates an MSK Cluster.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 })
 ```
@@ -33,11 +33,11 @@ cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 To control who can access the Cluster, use the `.connections` attribute. For a list of ports used by MSK, refer to the [MSK documentation](https://docs.aws.amazon.com/msk/latest/developerguide/client-access.html#port-info).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 })
 
@@ -50,7 +50,7 @@ cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_
 You can use the following attributes to get a list of the Kafka broker or ZooKeeper node endpoints
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 awscdk.NewCfnOutput(this, jsii.String("BootstrapBrokers"), &CfnOutputProps{
 	Value: cluster.bootstrapBrokers,
@@ -91,17 +91,17 @@ To enable client authentication with TLS set the `certificateAuthorityArns` prop
 ```go
 import acmpca "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 	EncryptionInTransit: &EncryptionInTransitConfig{
 		ClientBroker: msk.ClientBrokerEncryption_TLS,
 	},
 	ClientAuthentication: msk.ClientAuthentication_Tls(&TlsAuthProps{
-		CertificateAuthorities: []iCertificateAuthority{
+		CertificateAuthorities: []ICertificateAuthority{
 			acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
 		},
 	}),
@@ -113,11 +113,11 @@ cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 Enable client authentication with [SASL/SCRAM](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html):
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 	EncryptionInTransit: &EncryptionInTransitConfig{
 		ClientBroker: msk.ClientBrokerEncryption_TLS,
@@ -133,11 +133,11 @@ cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 Enable client authentication with [IAM](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html):
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 	EncryptionInTransit: &EncryptionInTransitConfig{
 		ClientBroker: msk.ClientBrokerEncryption_TLS,
@@ -156,18 +156,18 @@ as well as enable client authentication with TLS by setting the `certificateAuth
 ```go
 import acmpca "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 	EncryptionInTransit: &EncryptionInTransitConfig{
 		ClientBroker: msk.ClientBrokerEncryption_TLS,
 	},
 	ClientAuthentication: msk.ClientAuthentication_SaslTls(&SaslTlsAuthProps{
 		Iam: jsii.Boolean(true),
-		CertificateAuthorities: []iCertificateAuthority{
+		CertificateAuthorities: []ICertificateAuthority{
 			acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
 		},
 	}),
@@ -182,12 +182,12 @@ Amazon CloudWatch Logs, Amazon S3, Amazon Data Firehose.
 To configure logs to be sent to an S3 bucket, provide a bucket in the `logging` config.
 
 ```go
-var vpc vpc
-var bucket iBucket
+var vpc Vpc
+var bucket IBucket
 
 cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 	Logging: &BrokerLogging{
 		S3: &S3LoggingConfiguration{
@@ -222,13 +222,13 @@ making it cost-effective to build streaming data applications.
 > to see the list of compatible Kafka versions and for more details.
 
 ```go
-var vpc vpc
-var bucket iBucket
+var vpc Vpc
+var bucket IBucket
 
 
 cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 	Vpc: Vpc,
 	StorageMode: msk.StorageMode_TIERED,
 })
@@ -245,13 +245,13 @@ MSK Serverless requires IAM access control for all clusters.
 For more infomation, see [Use MSK Serverless clusters](https://docs.aws.amazon.com/msk/latest/developerguide/serverless-getting-started.html).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 serverlessCluster := msk.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
 	ClusterName: jsii.String("MyServerlessCluster"),
-	VpcConfigs: []vpcConfig{
-		&vpcConfig{
+	VpcConfigs: []VpcConfig{
+		&VpcConfig{
 			Vpc: *Vpc,
 		},
 	},

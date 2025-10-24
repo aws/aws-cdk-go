@@ -10,7 +10,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var namespace iNamespace
+//   var namespace INamespace
 //
 //   serviceProps := &ServiceProps{
 //   	Namespace: namespace,

@@ -20,7 +20,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dockerImageAsset dockerImageAsset
+//   var dockerImageAsset DockerImageAsset
 //
 //   repositoryImage := awscdk.Aws_ecs.RepositoryImage_FromDockerImageAsset(dockerImageAsset)
 //

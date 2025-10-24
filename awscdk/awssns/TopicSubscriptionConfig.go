@@ -15,11 +15,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var construct construct
-//   var dependable iDependable
-//   var filterOrPolicy filterOrPolicy
-//   var queue queue
-//   var subscriptionFilter subscriptionFilter
+//   var construct Construct
+//   var dependable IDependable
+//   var filterOrPolicy FilterOrPolicy
+//   var queue Queue
+//   var subscriptionFilter SubscriptionFilter
 //
 //   topicSubscriptionConfig := &TopicSubscriptionConfig{
 //   	Endpoint: jsii.String("endpoint"),
@@ -45,10 +45,10 @@ import (
 //   			MaxReceivesPerSecond: jsii.Number(123),
 //   		},
 //   	},
-//   	FilterPolicy: map[string]*subscriptionFilter{
+//   	FilterPolicy: map[string]SubscriptionFilter{
 //   		"filterPolicyKey": subscriptionFilter,
 //   	},
-//   	FilterPolicyWithMessageBody: map[string]*filterOrPolicy{
+//   	FilterPolicyWithMessageBody: map[string]FilterOrPolicy{
 //   		"filterPolicyWithMessageBodyKey": filterOrPolicy,
 //   	},
 //   	RawMessageDelivery: jsii.Boolean(false),

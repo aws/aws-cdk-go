@@ -19,12 +19,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var eventBridgeSchedulerTarget eventBridgeSchedulerTarget
-//   var key key
+//   var eventBridgeSchedulerTarget EventBridgeSchedulerTarget
+//   var key Key
 //   var outputs interface{}
-//   var schedule schedule
-//   var taskRole taskRole
-//   var timeout timeout
+//   var schedule Schedule
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   eventBridgeSchedulerCreateScheduleTaskJsonataProps := &EventBridgeSchedulerCreateScheduleTaskJsonataProps{
 //   	Schedule: schedule,

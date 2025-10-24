@@ -8,7 +8,7 @@ import (
 //
 // Example:
 //   // Creating a custom cache policy for a Distribution -- all parameters optional
-//   var bucketOrigin s3Origin
+//   var bucketOrigin S3Origin
 //
 //   myCachePolicy := cloudfront.NewCachePolicy(this, jsii.String("myCachePolicy"), &CachePolicyProps{
 //   	CachePolicyName: jsii.String("MyPolicy"),

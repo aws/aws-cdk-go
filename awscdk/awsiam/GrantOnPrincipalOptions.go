@@ -13,8 +13,8 @@ import (
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var conditions interface{}
-//   var construct construct
-//   var grantable iGrantable
+//   var construct Construct
+//   var grantable IGrantable
 //
 //   grantOnPrincipalOptions := &GrantOnPrincipalOptions{
 //   	Actions: []*string{

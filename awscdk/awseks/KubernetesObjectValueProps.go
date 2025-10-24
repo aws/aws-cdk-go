@@ -7,7 +7,7 @@ import (
 // Properties for KubernetesObjectValue.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // query the load balancer address
 //   myServiceAddress := eks.NewKubernetesObjectValue(this, jsii.String("LoadBalancerAttribute"), &KubernetesObjectValueProps{

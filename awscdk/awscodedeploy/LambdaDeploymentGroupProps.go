@@ -9,8 +9,8 @@ import (
 // Construction properties for `LambdaDeploymentGroup`.
 //
 // Example:
-//   var myApplication lambdaApplication
-//   var func function
+//   var myApplication LambdaApplication
+//   var func Function
 //
 //   version := func.currentVersion
 //   version1Alias := lambda.NewAlias(this, jsii.String("alias"), &AliasProps{

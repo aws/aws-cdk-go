@@ -21,8 +21,8 @@ import (
 //   cfnDatabase := awscdk.Aws_timestream.NewCfnDatabase(this, jsii.String("MyCfnDatabase"), &CfnDatabaseProps{
 //   	DatabaseName: jsii.String("databaseName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

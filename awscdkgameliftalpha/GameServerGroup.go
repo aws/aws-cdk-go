@@ -30,17 +30,17 @@ import (
 // Keep in mind that some Auto Scaling group properties are periodically updated by GameLift FleetIQ as part of its balancing activities to optimize for availability and cost.
 //
 // Example:
-//   var launchTemplate iLaunchTemplate
-//   var vpc iVpc
+//   var launchTemplate ILaunchTemplate
+//   var vpc IVpc
 //
 //
 //   gamelift.NewGameServerGroup(this, jsii.String("GameServerGroup"), &GameServerGroupProps{
 //   	GameServerGroupName: jsii.String("sample-gameservergroup-name"),
-//   	InstanceDefinitions: []instanceDefinition{
-//   		&instanceDefinition{
+//   	InstanceDefinitions: []InstanceDefinition{
+//   		&InstanceDefinition{
 //   			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 //   		},
-//   		&instanceDefinition{
+//   		&InstanceDefinition{
 //   			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 //   		},
 //   	},

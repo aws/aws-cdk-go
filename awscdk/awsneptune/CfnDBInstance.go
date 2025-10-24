@@ -49,8 +49,9 @@ import (
 //   	DbSnapshotIdentifier: jsii.String("dbSnapshotIdentifier"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	PubliclyAccessible: jsii.Boolean(false),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -127,6 +128,9 @@ type CfnDBInstance interface {
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
+	// Indicates whether the DB instance is publicly accessible.
+	PubliclyAccessible() interface{}
+	SetPubliclyAccessible(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -479,6 +483,16 @@ func (j *jsiiProxy_CfnDBInstance) PreferredMaintenanceWindow() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) PubliclyAccessible() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"publiclyAccessible",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -652,6 +666,17 @@ func (j *jsiiProxy_CfnDBInstance)SetPreferredMaintenanceWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredMaintenanceWindow",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetPubliclyAccessible(val interface{}) {
+	if err := j.validateSetPubliclyAccessibleParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"publiclyAccessible",
 		val,
 	)
 }

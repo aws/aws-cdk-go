@@ -31,8 +31,8 @@ import (
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -64,7 +64,7 @@ type CfnResourceGateway interface {
 	// The type of IP address used by the resource gateway.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
-	// The number of IPv4 addresses to allocate per ENI for the resource gateway.
+	// The number of IPv4 addresses in each ENI for the resource gateway.
 	Ipv4AddressesPerEni() *float64
 	SetIpv4AddressesPerEni(val *float64)
 	// The logical ID for this CloudFormation stack element.

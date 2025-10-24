@@ -14,7 +14,7 @@ import (
 // - `DatabaseInstanceEngine.oracleEeCdb`.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 //   	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{

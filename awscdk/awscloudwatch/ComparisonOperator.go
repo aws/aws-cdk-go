@@ -6,7 +6,7 @@ package awscloudwatch
 // Example:
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myHostedZone hostedZone
+//   var myHostedZone HostedZone
 //
 //   certificate := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
 //   	DomainName: jsii.String("hello.example.com"),

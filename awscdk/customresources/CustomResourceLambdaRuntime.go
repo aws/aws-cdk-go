@@ -20,7 +20,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var runtime runtime
+//   var runtime Runtime
 //
 //   customResourceLambdaRuntime := awscdk.Custom_resources.NewCustomResourceLambdaRuntime(runtime)
 //

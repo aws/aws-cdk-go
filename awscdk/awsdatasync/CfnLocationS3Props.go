@@ -20,8 +20,8 @@ import (
 //   	S3BucketArn: jsii.String("s3BucketArn"),
 //   	S3StorageClass: jsii.String("s3StorageClass"),
 //   	Subdirectory: jsii.String("subdirectory"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

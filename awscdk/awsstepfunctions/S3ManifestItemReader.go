@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3ManifestItemReader := awscdk.Aws_stepfunctions.NewS3ManifestItemReader(&S3FileItemReaderProps{
 //   	Key: jsii.String("key"),

@@ -4,7 +4,7 @@ package awsbatch
 // Determines how this compute environment chooses instances to spawn.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{

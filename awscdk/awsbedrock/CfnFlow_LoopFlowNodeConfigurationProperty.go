@@ -21,11 +21,11 @@ package awsbedrock
 //   var collector interface{}
 //   var input interface{}
 //   var iterator interface{}
-//   var loopFlowNodeConfigurationProperty_ loopFlowNodeConfigurationProperty
+//   var loopFlowNodeConfigurationProperty_ LoopFlowNodeConfigurationProperty
 //   var loopInput interface{}
 //   var output interface{}
 //
-//   loopFlowNodeConfigurationProperty := &loopFlowNodeConfigurationProperty{
+//   loopFlowNodeConfigurationProperty := &LoopFlowNodeConfigurationProperty{
 //   	Definition: &FlowDefinitionProperty{
 //   		Connections: []interface{}{
 //   			&FlowConnectionProperty{

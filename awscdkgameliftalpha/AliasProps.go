@@ -4,7 +4,7 @@ package awscdkgameliftalpha
 // Properties for a new Fleet alias.
 //
 // Example:
-//   var fleet buildFleet
+//   var fleet BuildFleet
 //
 //
 //   // Add an alias to an existing fleet using a dedicated fleet method

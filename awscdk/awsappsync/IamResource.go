@@ -8,7 +8,7 @@ import (
 // A class used to generate resource arns for AppSync.
 //
 // Example:
-//   var api iGraphqlApi
+//   var api IGraphqlApi
 //   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })

@@ -18,10 +18,10 @@ package awswafv2
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
+//   var statementProperty_ StatementProperty
 //   var uriPath interface{}
 //
-//   statementProperty := &statementProperty{
+//   statementProperty := &StatementProperty{
 //   	AndStatement: &AndStatementProperty{
 //   		Statements: []interface{}{
 //   			statementProperty_,

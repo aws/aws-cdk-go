@@ -4,8 +4,8 @@ package awscdkpipestargetsalpha
 // InvocationType for invoking the State Machine.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetStateMachine iStateMachine
+//   var sourceQueue Queue
+//   var targetStateMachine IStateMachine
 //
 //
 //   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{

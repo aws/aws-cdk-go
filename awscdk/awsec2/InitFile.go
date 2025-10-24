@@ -11,8 +11,8 @@ import (
 // Create files on the EC2 instance.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
+//   var vpc Vpc
+//   var instanceType InstanceType
 //
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{

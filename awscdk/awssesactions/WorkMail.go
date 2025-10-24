@@ -20,7 +20,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var topic topic
+//   var topic Topic
 //
 //   workMail := awscdk.Aws_ses_actions.NewWorkMail(&WorkMailProps{
 //   	OrganizationArn: jsii.String("organizationArn"),

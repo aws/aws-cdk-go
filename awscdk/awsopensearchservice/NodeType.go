@@ -10,8 +10,8 @@ package awsopensearchservice
 //   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 //   	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
 //   	Capacity: &CapacityConfig{
-//   		NodeOptions: []nodeOptions{
-//   			&nodeOptions{
+//   		NodeOptions: []NodeOptions{
+//   			&NodeOptions{
 //   				NodeType: opensearch.NodeType_COORDINATOR,
 //   				NodeConfig: &NodeConfig{
 //   					Enabled: jsii.Boolean(true),

@@ -9,11 +9,11 @@ package awsappmesh
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var virtualNode virtualNode
+//   var virtualNode VirtualNode
 //
 //   tcpRouteSpecOptions := &TcpRouteSpecOptions{
-//   	WeightedTargets: []weightedTarget{
-//   		&weightedTarget{
+//   	WeightedTargets: []WeightedTarget{
+//   		&WeightedTarget{
 //   			VirtualNode: virtualNode,
 //
 //   			// the properties below are optional

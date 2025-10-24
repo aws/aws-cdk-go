@@ -12,8 +12,8 @@ import (
 // A container definition is used in a task definition to describe the containers that are launched as part of a task.
 //
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var taskDefinition TaskDefinition
+//   var cluster Cluster
 //
 //
 //   // Add a container to the task definition

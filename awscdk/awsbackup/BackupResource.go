@@ -14,8 +14,8 @@ import (
 // A resource to backup.
 //
 // Example:
-//   var plan backupPlan
-//   var vpc vpc
+//   var plan BackupPlan
+//   var vpc Vpc
 //
 //   myTable := dynamodb.Table_FromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
 //   myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &DatabaseInstanceProps{
@@ -41,13 +41,13 @@ import (
 //   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 //
 //   plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
-//   	Resources: []backupResource{
-//   		backup.*backupResource_FromDynamoDbTable(myTable),
-//   		backup.*backupResource_FromRdsDatabaseInstance(myDatabaseInstance),
-//   		backup.*backupResource_FromRdsDatabaseCluster(myDatabaseCluster),
-//   		backup.*backupResource_FromRdsServerlessCluster(myServerlessCluster),
-//   		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
-//   		backup.*backupResource_FromConstruct(myCoolConstruct),
+//   	Resources: []BackupResource{
+//   		backup.BackupResource_FromDynamoDbTable(myTable),
+//   		backup.BackupResource_FromRdsDatabaseInstance(myDatabaseInstance),
+//   		backup.BackupResource_FromRdsDatabaseCluster(myDatabaseCluster),
+//   		backup.BackupResource_FromRdsServerlessCluster(myServerlessCluster),
+//   		backup.BackupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
+//   		backup.BackupResource_FromConstruct(myCoolConstruct),
 //   	},
 //   })
 //

@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import app_staging_synthesizer_alpha "github.com/aws/aws-cdk-go/appstagingsynthesizeralpha"
 //
-//   var deploymentIdentities deploymentIdentities
-//   var stagingResourcesFactory iStagingResourcesFactory
+//   var deploymentIdentities DeploymentIdentities
+//   var stagingResourcesFactory IStagingResourcesFactory
 //
 //   appStagingSynthesizer := app_staging_synthesizer_alpha.AppStagingSynthesizer_CustomFactory(&CustomFactoryOptions{
 //   	Factory: stagingResourcesFactory,

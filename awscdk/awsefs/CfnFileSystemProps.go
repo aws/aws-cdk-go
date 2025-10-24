@@ -21,8 +21,8 @@ package awsefs
 //   	FileSystemProtection: &FileSystemProtectionProperty{
 //   		ReplicationOverwriteProtection: jsii.String("replicationOverwriteProtection"),
 //   	},
-//   	FileSystemTags: []elasticFileSystemTagProperty{
-//   		&elasticFileSystemTagProperty{
+//   	FileSystemTags: []ElasticFileSystemTagProperty{
+//   		&ElasticFileSystemTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

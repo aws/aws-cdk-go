@@ -31,7 +31,7 @@ import (
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewCloudWatchSetAlarmStateAction(alarm, &CloudWatchSetAlarmStateActionProps{
 //   			Reason: jsii.String("AWS Iot Rule action is triggered"),
 //   			AlarmStateToSet: cloudwatch.AlarmState_ALARM,

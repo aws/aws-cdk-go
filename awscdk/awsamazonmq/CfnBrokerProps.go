@@ -64,8 +64,8 @@ package awsamazonmq
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

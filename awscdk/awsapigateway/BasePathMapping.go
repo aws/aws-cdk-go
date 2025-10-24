@@ -15,7 +15,7 @@ import (
 // you can use `DomainName.addBasePathMapping()` to define mappings.
 //
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //
 //   domainName := apigateway.DomainName_FromDomainNameAttributes(this, jsii.String("DomainName"), &DomainNameAttributes{

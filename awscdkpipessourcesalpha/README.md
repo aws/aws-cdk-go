@@ -29,8 +29,8 @@ Pipe sources are the starting point of a EventBridge Pipe. They are the source o
 A SQS message queue can be used as a source for a pipe. The queue will be polled for new messages and the messages will be sent to the pipe.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 pipeSource := sources.NewSqsSource(sourceQueue)
@@ -44,8 +44,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The polling configuration can be customized:
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{
@@ -64,8 +64,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 A Kinesis stream can be used as a source for a pipe. The stream will be polled for new messages and the messages will be sent to the pipe.
 
 ```go
-var sourceStream stream
-var targetQueue queue
+var sourceStream Stream
+var targetQueue Queue
 
 
 pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{
@@ -83,7 +83,7 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 A DynamoDB stream can be used as a source for a pipe. The stream will be polled for new messages and the messages will be sent to the pipe.
 
 ```go
-var targetQueue queue
+var targetQueue Queue
 table := ddb.NewTableV2(this, jsii.String("MyTable"), &TablePropsV2{
 	PartitionKey: &Attribute{
 		Name: jsii.String("id"),

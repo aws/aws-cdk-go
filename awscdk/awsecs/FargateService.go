@@ -22,8 +22,8 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //   serviceName := "MyFargateService"
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{

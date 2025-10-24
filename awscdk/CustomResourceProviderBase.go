@@ -28,7 +28,7 @@ type CustomResourceProviderBase interface {
 	// object like you will see in the rest of the CDK.
 	//
 	// Example:
-	//   var myProvider customResourceProvider
+	//   var myProvider CustomResourceProvider
 	//
 	//
 	//   myProvider.AddToRolePolicy(map[string]*string{

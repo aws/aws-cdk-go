@@ -7,7 +7,7 @@ import (
 // Location of a PEM certificate on S3.
 //
 // Example:
-//   var ecrRepository repository
+//   var ecrRepository Repository
 //
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{

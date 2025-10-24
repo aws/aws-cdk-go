@@ -22,8 +22,8 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	S3Access: jsii.String("s3Access"),
 //   	S3PolicyDocument: jsii.String("s3PolicyDocument"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

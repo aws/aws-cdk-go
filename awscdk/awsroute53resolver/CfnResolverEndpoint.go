@@ -45,8 +45,8 @@ import (
 //   		jsii.String("protocols"),
 //   	},
 //   	ResolverEndpointType: jsii.String("resolverEndpointType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

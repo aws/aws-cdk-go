@@ -4,13 +4,13 @@ package awscloudwatch
 // Properties for an Alarm Status Widget.
 //
 // Example:
-//   var dashboard dashboard
-//   var errorAlarm alarm
+//   var dashboard Dashboard
+//   var errorAlarm Alarm
 //
 //
 //   dashboard.AddWidgets(
 //   cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-//   	Alarms: []iAlarm{
+//   	Alarms: []IAlarm{
 //   		errorAlarm,
 //   	},
 //   }))

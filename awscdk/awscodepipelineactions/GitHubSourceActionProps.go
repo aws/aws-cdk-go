@@ -21,7 +21,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		sourceAction,
 //   	},
 //   })

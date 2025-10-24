@@ -11,8 +11,8 @@ import (
 // Example:
 //   tasks.NewSageMakerCreateEndpointConfig(this, jsii.String("SagemakerEndpointConfig"), &SageMakerCreateEndpointConfigProps{
 //   	EndpointConfigName: jsii.String("MyEndpointConfig"),
-//   	ProductionVariants: []productionVariant{
-//   		&productionVariant{
+//   	ProductionVariants: []ProductionVariant{
+//   		&ProductionVariant{
 //   			InitialInstanceCount: jsii.Number(2),
 //   			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
 //   			ModelName: jsii.String("MyModel"),

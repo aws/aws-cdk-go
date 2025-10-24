@@ -9,10 +9,10 @@ package awsappmesh
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var healthCheck healthCheck
-//   var mutualTlsValidationTrust mutualTlsValidationTrust
-//   var subjectAlternativeNames subjectAlternativeNames
-//   var tlsCertificate tlsCertificate
+//   var healthCheck HealthCheck
+//   var mutualTlsValidationTrust MutualTlsValidationTrust
+//   var subjectAlternativeNames SubjectAlternativeNames
+//   var tlsCertificate TlsCertificate
 //
 //   http2VirtualNodeListenerOptions := &Http2VirtualNodeListenerOptions{
 //   	ConnectionPool: &Http2ConnectionPool{

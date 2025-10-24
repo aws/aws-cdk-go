@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // How to interpret the load balancing target identifiers.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{

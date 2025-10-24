@@ -12,7 +12,7 @@ import (
 //
 //   iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewS3PutObjectAction(bucket, &S3PutObjectActionProps{
 //   			Key: jsii.String("${year}/${month}/${day}/${topic(2)}"),
 //   		}),

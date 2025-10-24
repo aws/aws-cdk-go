@@ -8,10 +8,10 @@ package awsbedrockalpha
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var agentCollaborator agentCollaborator
+//   var agentCollaborator AgentCollaborator
 //
 //   agentCollaborationConfig := &AgentCollaborationConfig{
-//   	Collaborators: []*agentCollaborator{
+//   	Collaborators: []AgentCollaborator{
 //   		agentCollaborator,
 //   	},
 //   	Type: bedrock_alpha.AgentCollaboratorType_SUPERVISOR,

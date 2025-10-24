@@ -29,8 +29,8 @@ import (
 //   	OriginPath: jsii.String("originPath"),
 //   	OriginShieldEnabled: jsii.Boolean(false),
 //   	OriginShieldRegion: jsii.String("originShieldRegion"),
-//   	OriginSslProtocols: []originSslPolicy{
-//   		awscdk.Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   	OriginSslProtocols: []OriginSslPolicy{
+//   		awscdk.Aws_cloudfront.OriginSslPolicy_SSL_V3,
 //   	},
 //   	ProtocolPolicy: awscdk.*Aws_cloudfront.OriginProtocolPolicy_HTTP_ONLY,
 //   	ReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),

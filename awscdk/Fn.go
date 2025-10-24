@@ -12,11 +12,11 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var destinationBucket bucket
+//   var destinationBucket Bucket
 //
 //
 //   myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
 //   	},
 //   	DestinationBucket: DestinationBucket,

@@ -25,8 +25,8 @@ import (
 //   	},
 //   	ApplicationArn: jsii.String("applicationArn"),
 //   	S3PrefixType: jsii.String("s3PrefixType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

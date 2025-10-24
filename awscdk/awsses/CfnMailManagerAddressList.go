@@ -18,8 +18,8 @@ import (
 //
 //   cfnMailManagerAddressList := awscdk.Aws_ses.NewCfnMailManagerAddressList(this, jsii.String("MyCfnMailManagerAddressList"), &CfnMailManagerAddressListProps{
 //   	AddressListName: jsii.String("addressListName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

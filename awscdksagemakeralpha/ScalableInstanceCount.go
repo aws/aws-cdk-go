@@ -14,13 +14,13 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
-//   var model model
+//   var model Model
 //
 //
 //   variantName := "my-variant"
 //   endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &EndpointConfigProps{
-//   	InstanceProductionVariants: []instanceProductionVariantProps{
-//   		&instanceProductionVariantProps{
+//   	InstanceProductionVariants: []InstanceProductionVariantProps{
+//   		&InstanceProductionVariantProps{
 //   			Model: model,
 //   			VariantName: variantName,
 //   		},

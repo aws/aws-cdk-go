@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var matchmakingRuleSet matchmakingRuleSet
-//   var topic topic
+//   var matchmakingRuleSet MatchmakingRuleSet
+//   var topic Topic
 //
 //   matchmakingConfigurationProps := &MatchmakingConfigurationProps{
 //   	MatchmakingConfigurationName: jsii.String("matchmakingConfigurationName"),

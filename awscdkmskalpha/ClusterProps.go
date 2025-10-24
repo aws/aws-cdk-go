@@ -8,11 +8,11 @@ import (
 // Properties for a MSK Cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 //   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+//   	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 //   	Vpc: Vpc,
 //   	EncryptionInTransit: &EncryptionInTransitConfig{
 //   		ClientBroker: msk.ClientBrokerEncryption_TLS,

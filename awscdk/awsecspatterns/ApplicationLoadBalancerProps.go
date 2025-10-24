@@ -16,12 +16,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificate certificate
-//   var hostedZone hostedZone
+//   var certificate Certificate
+//   var hostedZone HostedZone
 //
 //   applicationLoadBalancerProps := &ApplicationLoadBalancerProps{
-//   	Listeners: []applicationListenerProps{
-//   		&applicationListenerProps{
+//   	Listeners: []ApplicationListenerProps{
+//   		&ApplicationListenerProps{
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional

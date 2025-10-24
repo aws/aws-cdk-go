@@ -33,8 +33,8 @@ import (
 // - After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.
 //
 // Example:
-//   var api eventApi
-//   var webAcl cfnWebACL
+//   var api EventApi
+//   var webAcl CfnWebACL
 //
 //
 //   // Associate waf with Event API

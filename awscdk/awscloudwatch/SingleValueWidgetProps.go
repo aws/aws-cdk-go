@@ -7,11 +7,11 @@ import (
 // Properties for a SingleValueWidget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
-//   	Metrics: []iMetric{
+//   	Metrics: []IMetric{
 //   	},
 //
 //   	Period: awscdk.Duration_Minutes(jsii.Number(15)),

@@ -15,7 +15,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var aliasRecordTargetProps iAliasRecordTargetProps
+//   var aliasRecordTargetProps IAliasRecordTargetProps
 //
 //   globalAcceleratorDomainTarget := awscdk.Aws_route53_targets.NewGlobalAcceleratorDomainTarget(jsii.String("acceleratorDomainName"), aliasRecordTargetProps)
 //

@@ -9,16 +9,16 @@ import (
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var portfolio Portfolio
+//   var product CloudFormationProduct
 //
 //
 //   portfolio.constrainCloudFormationParameters(product, &CloudFormationRuleConstraintOptions{
 //   	Rule: &TemplateRule{
 //   		RuleName: jsii.String("testInstanceType"),
 //   		Condition: awscdk.Fn_ConditionEquals(awscdk.Fn_Ref(jsii.String("Environment")), jsii.String("test")),
-//   		Assertions: []templateRuleAssertion{
-//   			&templateRuleAssertion{
+//   		Assertions: []TemplateRuleAssertion{
+//   			&TemplateRuleAssertion{
 //   				Assert: awscdk.Fn_ConditionContains([]*string{
 //   					jsii.String("t2.micro"),
 //   					jsii.String("t2.small"),

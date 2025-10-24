@@ -17,8 +17,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnWALWorkspace := awscdk.Aws_emr.NewCfnWALWorkspace(this, jsii.String("MyCfnWALWorkspace"), &CfnWALWorkspaceProps{
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

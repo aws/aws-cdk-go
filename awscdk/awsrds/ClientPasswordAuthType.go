@@ -4,7 +4,7 @@ package awsrds
 // Client password authentication type used by a proxy to log in as a specific database user.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -16,7 +16,7 @@ package awsrds
 //
 //   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
 //   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-//   	Secrets: []iSecret{
+//   	Secrets: []ISecret{
 //   		cluster.Secret,
 //   	},
 //   	Vpc: Vpc,

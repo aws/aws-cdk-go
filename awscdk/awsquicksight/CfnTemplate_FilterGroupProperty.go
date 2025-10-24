@@ -3,7 +3,7 @@ package awsquicksight
 
 // A grouping of individual filters. Filter groups are applied to the same group of visuals.
 //
-// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

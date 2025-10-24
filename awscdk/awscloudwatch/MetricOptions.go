@@ -9,13 +9,13 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var deliveryStream deliveryStream
+//   var deliveryStream DeliveryStream
 //
 //
 //   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
 //   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
 //   	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
-//   	UsingMetrics: map[string]iMetric{
+//   	UsingMetrics: map[string]IMetric{
 //   		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
 //   			"statistic": cloudwatch.Statistic_SUM,
 //   		}),

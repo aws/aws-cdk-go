@@ -17,8 +17,8 @@ import (
 //   var assign interface{}
 //   var createJobRequest interface{}
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   mediaConvertCreateJobJsonPathProps := &MediaConvertCreateJobJsonPathProps{
 //   	CreateJobRequest: map[string]interface{}{

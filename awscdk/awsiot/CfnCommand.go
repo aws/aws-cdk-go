@@ -58,8 +58,8 @@ import (
 //   	},
 //   	PendingDeletion: jsii.Boolean(false),
 //   	RoleArn: jsii.String("roleArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

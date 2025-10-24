@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+// Secure Socket Layer (SSL) properties that apply when Quick Sight connects to your underlying data source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

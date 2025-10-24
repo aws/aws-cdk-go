@@ -8,13 +8,13 @@ import (
 // Represents the "expected" results to compare.
 //
 // Example:
-//   var app app
-//   var stack stack
-//   var sm iStateMachine
+//   var app App
+//   var stack Stack
+//   var sm IStateMachine
 //
 //
 //   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-//   	TestCases: []*stack{
+//   	TestCases: []Stack{
 //   		stack,
 //   	},
 //   })

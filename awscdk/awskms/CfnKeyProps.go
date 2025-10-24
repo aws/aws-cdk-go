@@ -25,8 +25,8 @@ import (
 //   	Origin: jsii.String("origin"),
 //   	PendingWindowInDays: jsii.Number(123),
 //   	RotationPeriodInDays: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

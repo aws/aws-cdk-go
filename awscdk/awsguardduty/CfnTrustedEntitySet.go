@@ -29,8 +29,8 @@ import (
 //   	DetectorId: jsii.String("detectorId"),
 //   	ExpectedBucketOwner: jsii.String("expectedBucketOwner"),
 //   	Name: jsii.String("name"),
-//   	Tags: []tagItemProperty{
-//   		&tagItemProperty{
+//   	Tags: []TagItemProperty{
+//   		&TagItemProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

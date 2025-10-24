@@ -33,8 +33,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -561,25 +561,6 @@ func (j *jsiiProxy_CfnPolicy)SetType(val *string) {
 		"type",
 		val,
 	)
-}
-
-// Creates a new IPolicyRef from an ARN.
-func CfnPolicy_FromPolicyArn(scope constructs.Construct, id *string, arn *string) IPolicyRef {
-	_init_.Initialize()
-
-	if err := validateCfnPolicy_FromPolicyArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IPolicyRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_organizations.CfnPolicy",
-		"fromPolicyArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

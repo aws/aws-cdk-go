@@ -14,8 +14,8 @@ import (
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster iCluster
-//   var taskDefinition fargateTaskDefinition
+//   var cluster ICluster
+//   var taskDefinition FargateTaskDefinition
 //
 //
 //   awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{

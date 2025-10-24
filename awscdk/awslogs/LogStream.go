@@ -17,7 +17,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var logGroup logGroup
+//   var logGroup LogGroup
 //
 //   logStream := awscdk.Aws_logs.NewLogStream(this, jsii.String("MyLogStream"), &LogStreamProps{
 //   	LogGroup: logGroup,

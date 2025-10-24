@@ -15,8 +15,8 @@ import (
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var repository repository
-//   var secret secret
+//   var repository Repository
+//   var secret Secret
 //
 //   ecrSource := apprunner_alpha.NewEcrSource(&EcrProps{
 //   	Repository: repository,
@@ -26,7 +26,7 @@ import (
 //   		Environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
 //   		},
-//   		EnvironmentSecrets: map[string]*secret{
+//   		EnvironmentSecrets: map[string]Secret{
 //   			"environmentSecretsKey": secret,
 //   		},
 //   		EnvironmentVariables: map[string]*string{

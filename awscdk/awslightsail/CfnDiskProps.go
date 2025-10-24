@@ -32,8 +32,8 @@ import (
 //   		AvailabilityZone: jsii.String("availabilityZone"),
 //   		RegionName: jsii.String("regionName"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

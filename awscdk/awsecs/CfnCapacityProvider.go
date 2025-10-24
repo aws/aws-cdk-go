@@ -135,8 +135,8 @@ import (
 //   		PropagateTags: jsii.String("propagateTags"),
 //   	},
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -160,6 +160,7 @@ type CfnCapacityProvider interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The cluster that this capacity provider is associated with.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

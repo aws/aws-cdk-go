@@ -18,12 +18,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var layerVersion layerVersion
-//   var role role
-//   var securityGroup securityGroup
-//   var size size
-//   var subnet subnet
+//   var cluster Cluster
+//   var layerVersion LayerVersion
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var size Size
+//   var subnet Subnet
 //
 //   kubectlProviderProps := &KubectlProviderProps{
 //   	Cluster: cluster,
@@ -35,7 +35,7 @@ import (
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	Memory: size,
-//   	PrivateSubnets: []iSubnet{
+//   	PrivateSubnets: []ISubnet{
 //   		subnet,
 //   	},
 //   	Role: role,

@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   // Creates a distribution from an ELBv2 load balancer
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   // Create an application load balancer in a VPC. 'internetFacing' must be 'true'
 //   // for CloudFront to access the load balancer and use it as an origin.

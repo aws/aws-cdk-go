@@ -17,15 +17,15 @@ import (
 // normal stacks should be added to IntegTest.
 //
 // Example:
-//   var app app
-//   var stackUnderTest stack
+//   var app App
+//   var stackUnderTest Stack
 //
 //   testCaseWithAssets := awscdkintegtestsalpha.NewIntegTestCaseStack(app, jsii.String("TestCaseAssets"), &IntegTestCaseStackProps{
 //   	DiffAssets: jsii.Boolean(true),
 //   })
 //
 //   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-//   	TestCases: []*stack{
+//   	TestCases: []Stack{
 //   		stackUnderTest,
 //   		testCaseWithAssets,
 //   	},

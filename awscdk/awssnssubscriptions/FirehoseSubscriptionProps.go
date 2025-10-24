@@ -10,7 +10,7 @@ import (
 //
 // Example:
 //   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var stream deliveryStream
+//   var stream DeliveryStream
 //
 //
 //   myTopic := sns.NewTopic(this, jsii.String("Topic"))

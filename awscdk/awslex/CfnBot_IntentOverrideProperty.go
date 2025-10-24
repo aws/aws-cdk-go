@@ -8,14 +8,14 @@ package awslex
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var slotValueOverrideProperty_ slotValueOverrideProperty
+//   var slotValueOverrideProperty_ SlotValueOverrideProperty
 //
 //   intentOverrideProperty := &IntentOverrideProperty{
 //   	Name: jsii.String("name"),
 //   	Slots: []interface{}{
 //   		&SlotValueOverrideMapProperty{
 //   			SlotName: jsii.String("slotName"),
-//   			SlotValueOverride: &slotValueOverrideProperty{
+//   			SlotValueOverride: &SlotValueOverrideProperty{
 //   				Shape: jsii.String("shape"),
 //   				Value: &SlotValueProperty{
 //   					InterpretedValue: jsii.String("interpretedValue"),

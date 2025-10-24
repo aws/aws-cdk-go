@@ -16,7 +16,7 @@ import (
 //   import gamelift_alpha "github.com/aws/aws-cdk-go/awscdkgameliftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instanceType instanceType
+//   var instanceType InstanceType
 //
 //   instanceDefinition := &InstanceDefinition{
 //   	InstanceType: instanceType,

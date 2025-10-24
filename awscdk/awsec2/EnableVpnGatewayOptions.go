@@ -8,25 +8,25 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var subnet subnet
-//   var subnetFilter subnetFilter
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
 //
 //   enableVpnGatewayOptions := &EnableVpnGatewayOptions{
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
 //   	AmazonSideAsn: jsii.Number(123),
-//   	VpnRoutePropagation: []subnetSelection{
-//   		&subnetSelection{
+//   	VpnRoutePropagation: []SubnetSelection{
+//   		&SubnetSelection{
 //   			AvailabilityZones: []*string{
 //   				jsii.String("availabilityZones"),
 //   			},
 //   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
+//   			SubnetFilters: []SubnetFilter{
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []iSubnet{
+//   			Subnets: []ISubnet{
 //   				subnet,
 //   			},
 //   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

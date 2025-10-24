@@ -9,9 +9,9 @@ import (
 // Example:
 //   import acm "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificate certificate
-//   var lb applicationLoadBalancer
-//   var bucket bucket
+//   var certificate Certificate
+//   var lb ApplicationLoadBalancer
+//   var bucket Bucket
 //
 //
 //   trustStore := elbv2.NewTrustStore(this, jsii.String("Store"), &TrustStoreProps{
@@ -22,7 +22,7 @@ import (
 //   lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(443),
 //   	Protocol: elbv2.ApplicationProtocol_HTTPS,
-//   	Certificates: []iListenerCertificate{
+//   	Certificates: []IListenerCertificate{
 //   		certificate,
 //   	},
 //   	// mTLS settings

@@ -5,8 +5,8 @@ import (
 )
 
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var taskDefinition TaskDefinition
+//   var cluster Cluster
 //
 //
 //   // Add a container to the task definition

@@ -6,8 +6,8 @@ package cloudformationinclude
 // Example:
 //   parentTemplate := cfn_inc.NewCfnInclude(this, jsii.String("ParentStack"), &CfnIncludeProps{
 //   	TemplateFile: jsii.String("path/to/my-parent-template.json"),
-//   	LoadNestedStacks: map[string]cfnIncludeProps{
-//   		"ChildStack": &cfnIncludeProps{
+//   	LoadNestedStacks: map[string]CfnIncludeProps{
+//   		"ChildStack": &CfnIncludeProps{
 //   			"templateFile": jsii.String("path/to/my-nested-template.json"),
 //   		},
 //   	},

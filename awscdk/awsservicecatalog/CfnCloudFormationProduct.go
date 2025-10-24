@@ -53,8 +53,8 @@ import (
 //   	SupportDescription: jsii.String("supportDescription"),
 //   	SupportEmail: jsii.String("supportEmail"),
 //   	SupportUrl: jsii.String("supportUrl"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

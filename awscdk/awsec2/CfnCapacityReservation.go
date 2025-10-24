@@ -33,11 +33,11 @@ import (
 //   	InstanceMatchCriteria: jsii.String("instanceMatchCriteria"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []tagSpecificationProperty{
-//   		&tagSpecificationProperty{
+//   	TagSpecifications: []TagSpecificationProperty{
+//   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
-//   			Tags: []cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -71,7 +71,7 @@ type CfnCapacityReservation interface {
 	// Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
 	AttrCapacityReservationFleetId() *string
 	AttrCommitmentInfo() awscdk.IResolvable
-	// The date and time at which the Capacity Reservation was created.
+	// The date and time the Capacity Reservation was created.
 	AttrCreateDate() *string
 	// The delivery method for a future-dated Capacity Reservation.
 	//
@@ -87,7 +87,7 @@ type CfnCapacityReservation interface {
 	AttrOwnerId() *string
 	// The type of Capacity Reservation.
 	AttrReservationType() *string
-	// The date and time at which the Capacity Reservation was started.
+	// The date and time the Capacity Reservation was started.
 	AttrStartDate() *string
 	// The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:.
 	//
@@ -114,7 +114,7 @@ type CfnCapacityReservation interface {
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
-	// The Availability Zone ID of the Capacity Reservation.
+	// The ID of the Availability Zone in which the capacity is reserved.
 	AvailabilityZoneId() *string
 	SetAvailabilityZoneId(val *string)
 	// A reference to a CapacityReservation resource.

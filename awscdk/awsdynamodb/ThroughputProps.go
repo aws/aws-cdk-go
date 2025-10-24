@@ -25,11 +25,11 @@ package awsdynamodb
 //   			MaxCapacity: jsii.Number(15),
 //   		}),
 //   	}),
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&replicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-2"),
 //   			ReadCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
 //   				MaxCapacity: jsii.Number(20),

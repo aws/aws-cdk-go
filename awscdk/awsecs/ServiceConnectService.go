@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var keyRef iKeyRef
-//   var role role
+//   var keyRef IKeyRef
+//   var role Role
 //
 //   serviceConnectService := &ServiceConnectService{
 //   	PortMappingName: jsii.String("portMappingName"),

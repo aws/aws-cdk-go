@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   user := iam.NewUser(this, jsii.String("user"))

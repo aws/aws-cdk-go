@@ -18,7 +18,7 @@ import (
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3Code := glue_alpha.NewS3Code(bucket, jsii.String("key"))
 //

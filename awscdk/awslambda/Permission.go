@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   // Grant permissions to a service
-//   var fn function
+//   var fn Function
 //
 //   principal := iam.NewServicePrincipal(jsii.String("my-service"))
 //

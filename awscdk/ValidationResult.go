@@ -15,7 +15,7 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var validationResults validationResults
+//   var validationResults ValidationResults
 //
 //   validationResult := cdk.NewValidationResult(jsii.String("errorMessage"), validationResults)
 //

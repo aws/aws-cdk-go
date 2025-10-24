@@ -6,13 +6,13 @@ package awsapigatewayv2
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api httpApi
-//   var logGroup logGroup
+//   var api HttpApi
+//   var logGroup LogGroup
 //
 //
 //   stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
 //   	HttpApi: api,
-//   	AccessLogSettings: map[string]iAccessLogDestination{
+//   	AccessLogSettings: map[string]IAccessLogDestination{
 //   		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
 //   	},
 //   })

@@ -8,14 +8,14 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var peer iPeer
-//   var port port
-//   var securityGroup securityGroup
+//   var peer IPeer
+//   var port Port
+//   var securityGroup SecurityGroup
 //
 //   connectionsProps := &ConnectionsProps{
 //   	DefaultPort: port,
 //   	Peer: peer,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

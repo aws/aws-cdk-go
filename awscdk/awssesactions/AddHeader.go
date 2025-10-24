@@ -19,12 +19,12 @@ import (
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
 //
 //   ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &ReceiptRuleSetProps{
-//   	Rules: []receiptRuleOptions{
-//   		&receiptRuleOptions{
+//   	Rules: []ReceiptRuleOptions{
+//   		&ReceiptRuleOptions{
 //   			Recipients: []*string{
 //   				jsii.String("hello@aws.com"),
 //   			},
-//   			Actions: []iReceiptRuleAction{
+//   			Actions: []IReceiptRuleAction{
 //   				actions.NewAddHeader(&AddHeaderProps{
 //   					Name: jsii.String("X-Special-Header"),
 //   					Value: jsii.String("aws"),
@@ -36,11 +36,11 @@ import (
 //   				}),
 //   			},
 //   		},
-//   		&receiptRuleOptions{
+//   		&ReceiptRuleOptions{
 //   			Recipients: []*string{
 //   				jsii.String("aws.com"),
 //   			},
-//   			Actions: []*iReceiptRuleAction{
+//   			Actions: []IReceiptRuleAction{
 //   				actions.NewSns(&SnsProps{
 //   					Topic: *Topic,
 //   				}),

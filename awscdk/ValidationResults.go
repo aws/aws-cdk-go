@@ -12,9 +12,9 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var validationResult validationResult
+//   var validationResult ValidationResult
 //
-//   validationResults := cdk.NewValidationResults([]validationResult{
+//   validationResults := cdk.NewValidationResults([]ValidationResult{
 //   	validationResult,
 //   })
 //

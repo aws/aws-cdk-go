@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   baseScalableAttributeProps := &BaseScalableAttributeProps{
 //   	Dimension: jsii.String("dimension"),

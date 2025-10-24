@@ -12,9 +12,9 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var managedPolicy managedPolicy
-//   var policyDocument policyDocument
-//   var principal iPrincipal
+//   var managedPolicy ManagedPolicy
+//   var policyDocument PolicyDocument
+//   var principal IPrincipal
 //
 //   lazyRoleProps := &LazyRoleProps{
 //   	AssumedBy: principal,
@@ -24,10 +24,10 @@ import (
 //   	ExternalIds: []*string{
 //   		jsii.String("externalIds"),
 //   	},
-//   	InlinePolicies: map[string]*policyDocument{
+//   	InlinePolicies: map[string]PolicyDocument{
 //   		"inlinePoliciesKey": policyDocument,
 //   	},
-//   	ManagedPolicies: []iManagedPolicy{
+//   	ManagedPolicies: []IManagedPolicy{
 //   		managedPolicy,
 //   	},
 //   	MaxSessionDuration: cdk.Duration_Minutes(jsii.Number(30)),

@@ -91,7 +91,7 @@ topic2 := sns.NewTopic(this, jsii.String("AllowedTopic2"))
 // non-compliant if CloudFormation stack does not send notifications to 'topic1' or 'topic2'
 // non-compliant if CloudFormation stack does not send notifications to 'topic1' or 'topic2'
 config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCheck"), &CloudFormationStackNotificationCheckProps{
-	Topics: []iTopic{
+	Topics: []ITopic{
 		topic1,
 		topic2,
 	},
@@ -148,8 +148,8 @@ rule checkcompliance when
 config.NewCustomPolicy(this, jsii.String("Custom"), &CustomPolicyProps{
 	PolicyText: samplePolicyText,
 	EnableDebugLog: jsii.Boolean(true),
-	RuleScope: config.RuleScope_FromResources([]resourceType{
-		config.*resourceType_DYNAMODB_TABLE(),
+	RuleScope: config.RuleScope_FromResources([]ResourceType{
+		config.ResourceType_DYNAMODB_TABLE(),
 	}),
 })
 ```
@@ -165,7 +165,7 @@ To create a custom rule, define a `CustomRule` and specify the Lambda Function
 to run and the trigger types.
 
 ```go
-var evalComplianceFn function
+var evalComplianceFn Function
 
 
 config.NewCustomRule(this, jsii.String("CustomRule"), &CustomRuleProps{
@@ -192,7 +192,7 @@ Use the `RuleScope` APIs (`fromResource()`, `fromResources()` or `fromTag()`) to
 the scope of both managed and custom rules:
 
 ```go
-var evalComplianceFn function
+var evalComplianceFn Function
 sshRule := config.NewManagedRule(this, jsii.String("SSH"), &ManagedRuleProps{
 	Identifier: config.ManagedRuleIdentifiers_EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED(),
 	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_SECURITY_GROUP(), jsii.String("sg-1234567890abcdefgh")),
@@ -200,9 +200,9 @@ sshRule := config.NewManagedRule(this, jsii.String("SSH"), &ManagedRuleProps{
 customRule := config.NewCustomRule(this, jsii.String("Lambda"), &CustomRuleProps{
 	LambdaFunction: evalComplianceFn,
 	ConfigurationChanges: jsii.Boolean(true),
-	RuleScope: config.RuleScope_FromResources([]resourceType{
-		config.*resourceType_CLOUDFORMATION_STACK(),
-		config.*resourceType_S3_BUCKET(),
+	RuleScope: config.RuleScope_FromResources([]ResourceType{
+		config.ResourceType_CLOUDFORMATION_STACK(),
+		config.ResourceType_S3_BUCKET(),
 	}),
 })
 
@@ -220,7 +220,7 @@ You can specify the [evaluation mode](https://docs.aws.amazon.com/config/latest/
 Use the `evaluationModes` property to specify the evaluation mode:
 
 ```go
-var fn function
+var fn Function
 var samplePolicyText string
 
 

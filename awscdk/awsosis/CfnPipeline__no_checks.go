@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnPipeline) validateSetResourcePolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPipeline) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

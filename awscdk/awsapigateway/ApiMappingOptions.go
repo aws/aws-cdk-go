@@ -5,8 +5,8 @@ package awsapigateway
 //
 // Example:
 //   var acmCertificateForExampleCom interface{}
-//   var restApi restApi
-//   var secondRestApi restApi
+//   var restApi RestApi
+//   var secondRestApi RestApi
 //
 //
 //   domain := apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{

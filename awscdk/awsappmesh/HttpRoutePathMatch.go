@@ -10,18 +10,18 @@ import (
 // Defines HTTP route matching based on the URL path of the request.
 //
 // Example:
-//   var router virtualRouter
-//   var node virtualNode
+//   var router VirtualRouter
+//   var node VirtualNode
 //
 //
 //   router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 //   	RouteSpec: appmesh.RouteSpec_Http(&HttpRouteSpecOptions{
-//   		WeightedTargets: []weightedTarget{
-//   			&weightedTarget{
+//   		WeightedTargets: []WeightedTarget{
+//   			&WeightedTarget{
 //   				VirtualNode: node,
 //   				Weight: jsii.Number(50),
 //   			},
-//   			&weightedTarget{
+//   			&WeightedTarget{
 //   				VirtualNode: node,
 //   				Weight: jsii.Number(50),
 //   			},

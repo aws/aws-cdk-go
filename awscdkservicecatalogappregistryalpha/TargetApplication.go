@@ -16,8 +16,8 @@ import (
 //   app := awscdk.NewApp()
 //
 //   associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApplication"), &ApplicationAssociatorProps{
-//   	Applications: []targetApplication{
-//   		appreg.*targetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
+//   	Applications: []TargetApplication{
+//   		appreg.TargetApplication_CreateApplicationStack(&CreateTargetApplicationOptions{
 //   			ApplicationName: jsii.String("MyAssociatedApplication"),
 //   			// 'Application containing stacks deployed via CDK.' is the default
 //   			ApplicationDescription: jsii.String("Associated Application description"),

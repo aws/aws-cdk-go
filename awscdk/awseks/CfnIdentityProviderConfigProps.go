@@ -33,8 +33,8 @@ import (
 //   		UsernameClaim: jsii.String("usernameClaim"),
 //   		UsernamePrefix: jsii.String("usernamePrefix"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

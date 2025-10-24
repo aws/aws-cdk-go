@@ -17,8 +17,8 @@ import (
 // This creates a service using the External launch type on an ECS cluster.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //
 //   ecs.NewEc2Service(this, jsii.String("Ec2Service"), &Ec2ServiceProps{

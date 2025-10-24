@@ -1,6 +1,8 @@
 package awsbedrockagentcore
 
 
+// The memory user preference override.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,9 +22,11 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferenceoverride.html
 //
 type CfnMemory_UserPreferenceOverrideProperty struct {
+	// The memory override consolidation information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferenceoverride.html#cfn-bedrockagentcore-memory-userpreferenceoverride-consolidation
 	//
 	Consolidation interface{} `field:"optional" json:"consolidation" yaml:"consolidation"`
+	// The memory user preferences for extraction.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferenceoverride.html#cfn-bedrockagentcore-memory-userpreferenceoverride-extraction
 	//
 	Extraction interface{} `field:"optional" json:"extraction" yaml:"extraction"`

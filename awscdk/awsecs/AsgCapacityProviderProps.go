@@ -8,7 +8,7 @@ import (
 // The options for creating an Auto Scaling Group Capacity Provider.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &LaunchTemplateProps{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t3.medium")),

@@ -14,7 +14,7 @@ import (
 // Class to create a queue processing Fargate service.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.EnableFargateCapacityProviders()
 //
@@ -23,12 +23,12 @@ import (
 //   	MemoryLimitMiB: jsii.Number(512),
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
 //   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("FARGATE_SPOT"),
 //   			Weight: jsii.Number(2),
 //   		},
-//   		&capacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("FARGATE"),
 //   			Weight: jsii.Number(1),
 //   		},

@@ -18,8 +18,8 @@ import (
 //
 //   cfnThingType := awscdk.Aws_iot.NewCfnThingType(this, jsii.String("MyCfnThingType"), &CfnThingTypeProps{
 //   	DeprecateThingType: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

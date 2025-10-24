@@ -21,8 +21,8 @@ import (
 //   cfnServiceNetworkResourceAssociation := awscdk.Aws_vpclattice.NewCfnServiceNetworkResourceAssociation(this, jsii.String("MyCfnServiceNetworkResourceAssociation"), &CfnServiceNetworkResourceAssociationProps{
 //   	ResourceConfigurationId: jsii.String("resourceConfigurationId"),
 //   	ServiceNetworkId: jsii.String("serviceNetworkId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -25,12 +25,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var code code
-//   var connection connection
-//   var logGroup logGroup
-//   var role role
-//   var securityConfiguration securityConfiguration
+//   var bucket Bucket
+//   var code Code
+//   var connection Connection
+//   var logGroup LogGroup
+//   var role Role
+//   var securityConfiguration SecurityConfiguration
 //
 //   scalaSparkFlexEtlJobProps := &ScalaSparkFlexEtlJobProps{
 //   	ClassName: jsii.String("className"),
@@ -38,7 +38,7 @@ import (
 //   	Script: code,
 //
 //   	// the properties below are optional
-//   	Connections: []iConnection{
+//   	Connections: []IConnection{
 //   		connection,
 //   	},
 //   	ContinuousLogging: &ContinuousLoggingProps{
@@ -57,10 +57,10 @@ import (
 //   	EnableMetrics: jsii.Boolean(false),
 //   	EnableObservabilityMetrics: jsii.Boolean(false),
 //   	EnableProfilingMetrics: jsii.Boolean(false),
-//   	ExtraFiles: []*code{
+//   	ExtraFiles: []Code{
 //   		code,
 //   	},
-//   	ExtraJars: []*code{
+//   	ExtraJars: []Code{
 //   		code,
 //   	},
 //   	ExtraJarsFirst: jsii.Boolean(false),

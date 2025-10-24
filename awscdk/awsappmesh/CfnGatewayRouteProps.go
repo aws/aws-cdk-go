@@ -200,8 +200,8 @@ import (
 //   	// the properties below are optional
 //   	GatewayRouteName: jsii.String("gatewayRouteName"),
 //   	MeshOwner: jsii.String("meshOwner"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

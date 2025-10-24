@@ -33,7 +33,7 @@ import (
 //   // create a custom policy document
 //   policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 //   	AssignSids: jsii.Boolean(true),
-//   	Statements: []policyStatement{
+//   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
 //   				jsii.String("kinesis:GetRecords"),
@@ -41,7 +41,7 @@ import (
 //   			Resources: []*string{
 //   				stream.StreamArn,
 //   			},
-//   			Principals: []iPrincipal{
+//   			Principals: []IPrincipal{
 //   				iam.NewAnyPrincipal(),
 //   			},
 //   		}),

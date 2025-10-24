@@ -4,7 +4,7 @@ package awsconfig
 // Construction properties for a ManagedRule.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //   var samplePolicyText string
 //
 //

@@ -20,7 +20,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var dependable iDependable
+//   var dependable IDependable
 //
 //   compositeDependable := awscdk.Aws_iam.NewCompositeDependable(dependable)
 //

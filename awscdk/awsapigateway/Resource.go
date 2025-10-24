@@ -9,7 +9,7 @@ import (
 )
 
 // Example:
-//   var booksBackend lambdaIntegration
+//   var booksBackend LambdaIntegration
 //
 //   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 //   	DefaultIntegration: booksBackend,

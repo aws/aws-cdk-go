@@ -23,7 +23,7 @@ package awscodepipelineactions
 //   })
 //   deployStage := pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Deploy"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		deployAction,
 //   	},
 //   })

@@ -10,9 +10,9 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var formInputValuePropertyProperty_ formInputValuePropertyProperty
+//   var formInputValuePropertyProperty_ FormInputValuePropertyProperty
 //
-//   formInputValuePropertyProperty := &formInputValuePropertyProperty{
+//   formInputValuePropertyProperty := &FormInputValuePropertyProperty{
 //   	BindingProperties: &FormInputValuePropertyBindingPropertiesProperty{
 //   		Property: jsii.String("property"),
 //

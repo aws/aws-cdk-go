@@ -12,8 +12,8 @@ package awslogs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   typeConverterProperty := &TypeConverterProperty{
-//   	Entries: []typeConverterEntryProperty{
-//   		&typeConverterEntryProperty{
+//   	Entries: []TypeConverterEntryProperty{
+//   		&TypeConverterEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Type: awscdk.Aws_logs.TypeConverterType_BOOLEAN,
 //   		},

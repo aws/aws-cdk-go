@@ -12,7 +12,7 @@ import (
 // The AWS::IAM::Policy resource associates an [inline](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#inline) IAM policy with IAM users, roles, or groups. For more information about IAM policies, see [Overview of IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html) in the IAM User Guide guide.
 //
 // Example:
-//   var postAuthFn function
+//   var postAuthFn Function
 //
 //
 //   userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
@@ -23,7 +23,7 @@ import (
 //
 //   // provide permissions to describe the user pool scoped to the ARN the user pool
 //   postAuthFn.Role.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("userpool-policy"), &PolicyProps{
-//   	Statements: []policyStatement{
+//   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
 //   				jsii.String("cognito-idp:DescribeUserPool"),

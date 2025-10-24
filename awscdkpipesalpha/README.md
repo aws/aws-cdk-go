@@ -39,8 +39,8 @@ before reaching the target.
 To define a pipe you need to create a new `Pipe` construct. The `Pipe` construct needs a source and a target.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
@@ -69,7 +69,7 @@ kindly let us know by opening a GitHub issue or raising a PR.
 ### Example source
 
 ```go
-var sourceQueue queue
+var sourceQueue Queue
 
 pipeSource := awscdkpipessourcesalpha.NewSqsSource(sourceQueue)
 ```
@@ -83,11 +83,11 @@ If one of the filter expressions matches, the event is forwarded to the enrichme
 ### Example - filter usage
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
-sourceFilter := pipes.NewFilter([]iFilterPattern{
+sourceFilter := pipes.NewFilter([]IFilterPattern{
 	pipes.FilterPattern_FromObject(map[string]interface{}{
 		"body": map[string][]*string{
 			// only forward events with customerType B2B or B2C
@@ -123,8 +123,8 @@ See [docs](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-inp
 The input transformation can be created from an object. The object can contain static values, dynamic values or pipe variables.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 targetInputTransformation := pipes.inputTransformation_FromObject(map[string]interface{}{
@@ -189,8 +189,8 @@ In cases where you want to forward only a part of the event to the target you ca
 > This only works for targets because the enrichment needs to have a valid json as input.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 targetInputTransformation := pipes.inputTransformation_FromEventPath(jsii.String("$.body.payload"))
@@ -236,8 +236,8 @@ it is converted into the following target payload:
 In cases where you want to forward a static text to the target or use your own formatted `inputTemplate` you can use the transformation from text.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 targetInputTransformation := pipes.inputTransformation_FromText(jsii.String("My static text"))
@@ -283,7 +283,7 @@ type lambdaEnrichment struct {
 	inputTransformation inputTransformation
 }
 
-func newLambdaEnrichment(lambda function, props map[string]interface{}) *lambdaEnrichment {
+func newLambdaEnrichment(lambda Function, props map[string]interface{}) *lambdaEnrichment {
 	if props == nil {
 		props = map[string]interface{}{
 		}
@@ -294,15 +294,15 @@ func newLambdaEnrichment(lambda function, props map[string]interface{}) *lambdaE
 	return this
 }
 
-func (this *lambdaEnrichment) bind(pipe iPipe) enrichmentParametersConfig {
-	return &enrichmentParametersConfig{
+func (this *lambdaEnrichment) bind(pipe IPipe) EnrichmentParametersConfig {
+	return &EnrichmentParametersConfig{
 		EnrichmentParameters: &PipeEnrichmentParametersProperty{
 			InputTemplate: this.inputTransformation.Bind(pipe).InputTemplate,
 		},
 	}
 }
 
-func (this *lambdaEnrichment) grantInvoke(pipeRole iRole) {
+func (this *lambdaEnrichment) grantInvoke(pipeRole IRole) {
 	this.*lambda.GrantInvoke(*pipeRole)
 }
 ```
@@ -312,9 +312,9 @@ An enrichment implementation needs to provide the `enrichmentArn`, `enrichmentPa
 ### Example - enrichment usage
 
 ```go
-var sourceQueue queue
-var targetQueue queue
-var enrichmentLambda function
+var sourceQueue Queue
+var targetQueue Queue
+var enrichmentLambda Function
 
 
 enrichmentInputTransformation := pipes.inputTransformation_FromObject(map[string]interface{}{
@@ -412,7 +412,7 @@ the same input transformation as in the enrichment step.
 ### Example target
 
 ```go
-var targetQueue queue
+var targetQueue Queue
 
 pipeTarget := awscdkpipestargetsalpha.NewSqsTarget(targetQueue)
 ```
@@ -433,9 +433,9 @@ The actual destination is defined independently, and there are three options:
 ### Example log destination usage
 
 ```go
-var sourceQueue queue
-var targetQueue queue
-var logGroup logGroup
+var sourceQueue Queue
+var targetQueue Queue
+var logGroup LogGroup
 
 
 cwlLogDestination := pipes.NewCloudwatchLogsLogDestination(logGroup)
@@ -447,7 +447,7 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	LogIncludeExecutionData: []aLL{
 		pipes.IncludeExecutionData_*aLL,
 	},
-	LogDestinations: []iLogDestination{
+	LogDestinations: []ILogDestination{
 		cwlLogDestination,
 	},
 })
@@ -466,9 +466,9 @@ Details can be found in the [documentation](https://docs.aws.amazon.com/eventbri
 To do this, you need to specify the key in the `kmsKey` property of the pipe.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
-var kmsKey key
+var sourceQueue Queue
+var targetQueue Queue
+var kmsKey Key
 
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{

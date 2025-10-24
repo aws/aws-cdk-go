@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var role role
+//   var bucket Bucket
+//   var role Role
 //
 //   actionBindOptions := &ActionBindOptions{
 //   	Bucket: bucket,

@@ -26,8 +26,8 @@ import (
 //   	// the properties below are optional
 //   	AccessString: jsii.String("accessString"),
 //   	AuthenticationMode: authenticationMode,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

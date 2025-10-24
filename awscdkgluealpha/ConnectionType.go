@@ -11,13 +11,13 @@ import (
 // can instantiate a `ConnectionType` object, e.g: `new ConnectionType('NEW_TYPE')`.
 //
 // Example:
-//   var securityGroup securityGroup
-//   var subnet subnet
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
 //
 //   glue.NewConnection(this, jsii.String("MyConnection"), &ConnectionProps{
 //   	Type: glue.ConnectionType_NETWORK(),
 //   	// The security groups granting AWS Glue inbound access to the data source within the VPC
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	// The VPC subnet which contains the data source

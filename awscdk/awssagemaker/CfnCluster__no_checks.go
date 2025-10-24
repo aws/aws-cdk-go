@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetTieredStorageConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

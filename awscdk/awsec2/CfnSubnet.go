@@ -17,11 +17,11 @@ import (
 //
 // Example:
 //   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
-//   func associateSubnetWithV6Cidr(vpc *vpc, count *f64, subnet iSubnet) {
-//   	cfnSubnet := *subnet.Node.defaultChild.(cfnSubnet)
+//   func associateSubnetWithV6Cidr(vpc Vpc, count *f64, subnet ISubnet) {
+//   	cfnSubnet := *subnet.Node.defaultChild.(CfnSubnet)
 //   	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
 //   	cfnSubnet.AssignIpv6AddressOnCreation = true
 //   }
@@ -46,8 +46,8 @@ import (
 //   	Version: eks.KubernetesVersion_V1_33(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
-//   	VpcSubnets: []subnetSelection{
-//   		&subnetSelection{
+//   	VpcSubnets: []SubnetSelection{
+//   		&SubnetSelection{
 //   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},

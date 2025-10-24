@@ -24,8 +24,8 @@ import (
 //   	LogGroupArn: jsii.String("logGroupArn"),
 //   	Name: jsii.String("name"),
 //   	Password: jsii.String("password"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

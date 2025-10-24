@@ -8,7 +8,7 @@ import (
 // The base class for log drivers.
 //
 // Example:
-//   var secret secret
+//   var secret Secret
 //
 //
 //   // Create a Task Definition for the container to start

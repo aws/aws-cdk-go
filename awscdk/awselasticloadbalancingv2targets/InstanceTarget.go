@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instance instance
+//   var instance Instance
 //
 //   instanceTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewInstanceTarget(instance, jsii.Number(123))
 //

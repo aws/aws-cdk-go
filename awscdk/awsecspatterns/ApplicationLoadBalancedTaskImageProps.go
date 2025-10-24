@@ -26,16 +26,16 @@ import (
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
 //   	EnableExecuteCommand: jsii.Boolean(true),
-//   	LoadBalancers: []applicationLoadBalancerProps{
-//   		&applicationLoadBalancerProps{
+//   	LoadBalancers: []ApplicationLoadBalancerProps{
+//   		&ApplicationLoadBalancerProps{
 //   			Name: jsii.String("lb"),
 //   			IdleTimeout: awscdk.Duration_Seconds(jsii.Number(400)),
 //   			DomainName: jsii.String("api.example.com"),
 //   			DomainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 //   				ZoneName: jsii.String("example.com"),
 //   			}),
-//   			Listeners: []applicationListenerProps{
-//   				&applicationListenerProps{
+//   			Listeners: []ApplicationListenerProps{
+//   				&ApplicationListenerProps{
 //   					Name: jsii.String("listener"),
 //   					Protocol: awscdk.ApplicationProtocol_HTTPS,
 //   					Certificate: awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
@@ -43,15 +43,15 @@ import (
 //   				},
 //   			},
 //   		},
-//   		&applicationLoadBalancerProps{
+//   		&ApplicationLoadBalancerProps{
 //   			Name: jsii.String("lb2"),
 //   			IdleTimeout: awscdk.Duration_*Seconds(jsii.Number(120)),
 //   			DomainName: jsii.String("frontend.com"),
 //   			DomainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 //   				ZoneName: jsii.String("frontend.com"),
 //   			}),
-//   			Listeners: []*applicationListenerProps{
-//   				&applicationListenerProps{
+//   			Listeners: []ApplicationListenerProps{
+//   				&ApplicationListenerProps{
 //   					Name: jsii.String("listener2"),
 //   					Protocol: awscdk.ApplicationProtocol_HTTPS,
 //   					Certificate: awscdk.Certificate_*FromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
@@ -60,22 +60,22 @@ import (
 //   			},
 //   		},
 //   	},
-//   	TargetGroups: []applicationTargetProps{
-//   		&applicationTargetProps{
+//   	TargetGroups: []ApplicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(80),
 //   			Listener: jsii.String("listener"),
 //   		},
-//   		&applicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(90),
 //   			PathPattern: jsii.String("a/b/c"),
 //   			Priority: jsii.Number(10),
 //   			Listener: jsii.String("listener"),
 //   		},
-//   		&applicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(443),
 //   			Listener: jsii.String("listener2"),
 //   		},
-//   		&applicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(80),
 //   			PathPattern: jsii.String("a/b/c"),
 //   			Priority: jsii.Number(10),

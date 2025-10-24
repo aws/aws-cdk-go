@@ -3,7 +3,7 @@ package awscodebuild
 
 // Example:
 //   // later:
-//   var project pipelineProject
+//   var project PipelineProject
 //   sourceOutput := codepipeline.NewArtifact()
 //   buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 //   	ActionName: jsii.String("Build1"),
@@ -29,8 +29,8 @@ package awscodebuild
 //   	ActionName: jsii.String("CodeBuild"),
 //   	Project: Project,
 //   	Input: sourceOutput,
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"MyVar": &buildEnvironmentVariable{
+//   	EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   		"MyVar": &BuildEnvironmentVariable{
 //   			"value": buildAction.variable(jsii.String("MY_VAR")),
 //   		},
 //   	},

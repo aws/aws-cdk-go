@@ -12,13 +12,13 @@ import (
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnResource cfnResource
-//   var ipamPool iIpamPool
+//   var cfnResource CfnResource
+//   var ipamPool IIpamPool
 //
 //   vpcCidrOptions := &VpcCidrOptions{
 //   	AmazonProvided: jsii.Boolean(false),
 //   	CidrBlockName: jsii.String("cidrBlockName"),
-//   	Dependencies: []*cfnResource{
+//   	Dependencies: []CfnResource{
 //   		cfnResource,
 //   	},
 //   	Ipv4CidrBlock: jsii.String("ipv4CidrBlock"),

@@ -2,7 +2,6 @@ package awsstepfunctions
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for defining a State Machine.
@@ -24,7 +23,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("StepFunctions"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		stepFunctionAction,
 //   	},
 //   })
@@ -63,7 +62,7 @@ type StateMachineProps struct {
 	// The execution role for the state machine service.
 	// Default: A role is automatically created.
 	//
-	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	Role interface{ awsiam.IRoleRef;awsiam.IGrantable } `field:"optional" json:"role" yaml:"role"`
 	// A name for the state machine.
 	// Default: A name is automatically generated.
 	//

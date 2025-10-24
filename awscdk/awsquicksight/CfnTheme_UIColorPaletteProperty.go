@@ -3,7 +3,7 @@ package awsquicksight
 
 // The theme colors that apply to UI and to charts, excluding data colors.
 //
-// The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
+// The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon Quick Suite](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon Quick Suite User Guide.*
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -16,7 +16,7 @@ import (
 //
 // Example:
 //   // Build a data source for AppSync to access the database.
-//   var api graphqlApi
+//   var api GraphqlApi
 //   // Create username and password secret for DB Cluster
 //   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
 //   	Username: jsii.String("clusteradmin"),

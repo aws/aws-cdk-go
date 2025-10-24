@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMappingProperty_ propertyMappingProperty
+//   var propertyMappingProperty_ PropertyMappingProperty
 //
 //   cfnIndex := awscdk.Aws_opensearchserverless.NewCfnIndex(this, jsii.String("MyCfnIndex"), &CfnIndexProps{
 //   	CollectionEndpoint: jsii.String("collectionEndpoint"),
@@ -25,7 +25,7 @@ import (
 //   	// the properties below are optional
 //   	Mappings: &MappingsProperty{
 //   		Properties: map[string]interface{}{
-//   			"propertiesKey": &propertyMappingProperty{
+//   			"propertiesKey": &PropertyMappingProperty{
 //   				"type": jsii.String("type"),
 //
 //   				// the properties below are optional

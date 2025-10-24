@@ -11,10 +11,10 @@ import (
 // A Composite Alarm based on Alarm Rule.
 //
 // Example:
-//   var alarm1 alarm
-//   var alarm2 alarm
-//   var alarm3 alarm
-//   var alarm4 alarm
+//   var alarm1 Alarm
+//   var alarm2 Alarm
+//   var alarm3 Alarm
+//   var alarm4 Alarm
 //
 //
 //   alarmRule := cloudwatch.AlarmRule_AnyOf(cloudwatch.AlarmRule_AllOf(cloudwatch.AlarmRule_AnyOf(alarm1, cloudwatch.AlarmRule_FromAlarm(alarm2, cloudwatch.AlarmState_OK), alarm3), cloudwatch.AlarmRule_Not(cloudwatch.AlarmRule_FromAlarm(alarm4, cloudwatch.AlarmState_INSUFFICIENT_DATA))), cloudwatch.AlarmRule_FromBoolean(jsii.Boolean(false)))

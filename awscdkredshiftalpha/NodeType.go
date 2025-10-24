@@ -7,7 +7,7 @@ package awscdkredshiftalpha
 //   // Example automatically generated from non-compiling source. May contain errors.
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{

@@ -5,7 +5,7 @@ package awsssm
 //
 // Example:
 //   // Grant read access to some Role
-//   var role iRole
+//   var role IRole
 //   // Create a new SSM Parameter holding a String
 //   param := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{
 //   	// description: 'Some user-friendly description',

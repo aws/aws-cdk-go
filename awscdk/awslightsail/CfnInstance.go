@@ -87,8 +87,8 @@ import (
 //   		Code: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

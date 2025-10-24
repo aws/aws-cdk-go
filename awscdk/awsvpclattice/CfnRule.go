@@ -67,8 +67,8 @@ import (
 //   	ListenerIdentifier: jsii.String("listenerIdentifier"),
 //   	Name: jsii.String("name"),
 //   	ServiceIdentifier: jsii.String("serviceIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

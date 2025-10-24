@@ -10,7 +10,7 @@ import (
 // Example:
 //   import s3Assets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   chartAsset := s3Assets.NewAsset(this, jsii.String("ChartAsset"), &AssetProps{
 //   	Path: jsii.String("/path/to/asset"),

@@ -19,10 +19,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   type myStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newMyStack(scope construct, id *string, props stackProps) *myStack {
+//   func newMyStack(scope Construct, id *string, props StackProps) *myStack {
 //   	if props == nil {
 //   		props = &StackProps{
 //   		}
@@ -47,12 +47,12 @@ import (
 //   		EnableLogging: jsii.Boolean(false),
 //   		Cpu: jsii.Number(128),
 //   		MemoryLimitMiB: jsii.Number(64),
-//   		PortMappings: []portMapping{
-//   			&portMapping{
+//   		PortMappings: []PortMapping{
+//   			&PortMapping{
 //   				ContainerPort: jsii.Number(4316),
 //   				HostPort: jsii.Number(4316),
 //   			},
-//   			&portMapping{
+//   			&PortMapping{
 //   				ContainerPort: jsii.Number(2000),
 //   				HostPort: jsii.Number(2000),
 //   			},

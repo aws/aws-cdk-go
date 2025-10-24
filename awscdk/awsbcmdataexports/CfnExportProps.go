@@ -44,8 +44,8 @@ package awsbcmdataexports
 //   	},
 //
 //   	// the properties below are optional
-//   	Tags: []resourceTagProperty{
-//   		&resourceTagProperty{
+//   	Tags: []ResourceTagProperty{
+//   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -43,10 +43,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "pipelineConfigurationBody", GoGetter: "PipelineConfigurationBody"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineName", GoGetter: "PipelineName"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineRoleArn", GoGetter: "PipelineRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -81,6 +83,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_osis.CfnPipeline.LogPublishingOptionsProperty",
 		reflect.TypeOf((*CfnPipeline_LogPublishingOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_osis.CfnPipeline.ResourcePolicyProperty",
+		reflect.TypeOf((*CfnPipeline_ResourcePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_osis.CfnPipeline.VpcAttachmentOptionsProperty",

@@ -25,8 +25,8 @@ import (
 //   	DataDelayOffsetInMinutes: jsii.Number(123),
 //   	InferenceSchedulerName: jsii.String("inferenceSchedulerName"),
 //   	ServerSideKmsKeyId: jsii.String("serverSideKmsKeyId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

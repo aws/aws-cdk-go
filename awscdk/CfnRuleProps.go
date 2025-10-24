@@ -27,11 +27,11 @@ package awscdk
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnConditionExpression iCfnConditionExpression
+//   var cfnConditionExpression ICfnConditionExpression
 //
 //   cfnRuleProps := &CfnRuleProps{
-//   	Assertions: []cfnRuleAssertion{
-//   		&cfnRuleAssertion{
+//   	Assertions: []CfnRuleAssertion{
+//   		&CfnRuleAssertion{
 //   			Assert: cfnConditionExpression,
 //   			AssertDescription: jsii.String("assertDescription"),
 //   		},

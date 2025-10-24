@@ -16,8 +16,8 @@ package awsappsync
 //   	// the properties below are optional
 //   	ApiArn: jsii.String("apiArn"),
 //   	ApiName: jsii.String("apiName"),
-//   	AuthProviderTypes: []appSyncAuthorizationType{
-//   		awscdk.Aws_appsync.*appSyncAuthorizationType_API_KEY,
+//   	AuthProviderTypes: []AppSyncAuthorizationType{
+//   		awscdk.Aws_appsync.AppSyncAuthorizationType_API_KEY,
 //   	},
 //   }
 //

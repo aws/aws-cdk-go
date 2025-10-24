@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// Groupings of columns that work together in certain Amazon QuickSight features.
+// Groupings of columns that work together in certain Quick Sight features.
 //
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //

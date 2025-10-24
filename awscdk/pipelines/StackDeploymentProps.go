@@ -16,8 +16,8 @@ package pipelines
 //
 //   	// the properties below are optional
 //   	Account: jsii.String("account"),
-//   	Assets: []stackAsset{
-//   		&stackAsset{
+//   	Assets: []StackAsset{
+//   		&StackAsset{
 //   			AssetId: jsii.String("assetId"),
 //   			AssetManifestPath: jsii.String("assetManifestPath"),
 //   			AssetSelector: jsii.String("assetSelector"),

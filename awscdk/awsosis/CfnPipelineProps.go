@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnPipelineProps := &CfnPipelineProps{
 //   	MaxUnits: jsii.Number(123),
 //   	MinUnits: jsii.Number(123),
@@ -30,8 +32,12 @@ import (
 //   		},
 //   		IsLoggingEnabled: jsii.Boolean(false),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	PipelineRoleArn: jsii.String("pipelineRoleArn"),
+//   	ResourcePolicy: &ResourcePolicyProperty{
+//   		Policy: policy,
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -86,6 +92,13 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-logpublishingoptions
 	//
 	LogPublishingOptions interface{} `field:"optional" json:"logPublishingOptions" yaml:"logPublishingOptions"`
+	// The Pipeline Role (ARN) for the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinerolearn
+	//
+	PipelineRoleArn *string `field:"optional" json:"pipelineRoleArn" yaml:"pipelineRoleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-resourcepolicy
+	//
+	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// List of tags to add to the pipeline upon creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-tags
 	//

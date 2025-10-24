@@ -4,7 +4,7 @@ package awsec2
 // The type of Subnet.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{

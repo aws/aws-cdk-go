@@ -4,7 +4,7 @@ package awseks
 // AwsAuth mapping.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   adminUser := iam.NewUser(this, jsii.String("Admin"))
 //   cluster.awsAuth.AddUserMapping(adminUser, &AwsAuthMapping{

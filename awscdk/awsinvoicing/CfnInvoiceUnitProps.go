@@ -19,8 +19,8 @@ package awsinvoicing
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	ResourceTags: []resourceTagProperty{
-//   		&resourceTagProperty{
+//   	ResourceTags: []ResourceTagProperty{
+//   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

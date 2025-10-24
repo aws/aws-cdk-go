@@ -25,15 +25,15 @@ package awsdynamodb
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(true),
 //   	},
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   			TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
 //   			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
 //   				PointInTimeRecoveryEnabled: jsii.Boolean(false),
 //   			},
 //   		},
-//   		&replicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-2"),
 //   			ContributorInsightsSpecification: &ContributorInsightsSpecification{
 //   				Enabled: jsii.Boolean(false),

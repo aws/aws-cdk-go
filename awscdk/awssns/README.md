@@ -51,7 +51,7 @@ myTopic.AddSubscription(subscriptions.NewUrlSubscription(jsii.String("https://fo
 Subscribe a queue to the topic:
 
 ```go
-var queue queue
+var queue Queue
 
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 
@@ -65,7 +65,7 @@ The `grantSubscribe` method adds a policy statement to the topic's resource poli
 It's useful when you want to allow entities, such as another AWS account or resources created later, to subscribe to the topic at their own pace, separating permission granting from the actual subscription process.
 
 ```go
-var accountPrincipal accountPrincipal
+var accountPrincipal AccountPrincipal
 
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 
@@ -80,7 +80,7 @@ Example with a Lambda subscription:
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
@@ -91,8 +91,8 @@ myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 // price: between 100 and 200 or greater than 300
 // store: attribute must be present
 myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
-	FilterPolicy: map[string]subscriptionFilter{
-		"color": sns.*subscriptionFilter_stringFilter(&StringConditions{
+	FilterPolicy: map[string]SubscriptionFilter{
+		"color": sns.SubscriptionFilter_stringFilter(&StringConditions{
 			"allowlist": []*string{
 				jsii.String("red"),
 				jsii.String("orange"),
@@ -104,20 +104,20 @@ myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscript
 				jsii.String("ue"),
 			},
 		}),
-		"size": sns.*subscriptionFilter_stringFilter(&StringConditions{
+		"size": sns.SubscriptionFilter_stringFilter(&StringConditions{
 			"denylist": []*string{
 				jsii.String("small"),
 				jsii.String("medium"),
 			},
 		}),
-		"price": sns.*subscriptionFilter_numericFilter(&NumericConditions{
+		"price": sns.SubscriptionFilter_numericFilter(&NumericConditions{
 			"between": &BetweenCondition{
 				"start": jsii.Number(100),
 				"stop": jsii.Number(200),
 			},
 			"greaterThan": jsii.Number(300),
 		}),
-		"store": sns.*subscriptionFilter_existsFilter(),
+		"store": sns.SubscriptionFilter_existsFilter(),
 	},
 }))
 ```
@@ -130,7 +130,7 @@ Example with a Lambda subscription:
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
@@ -139,16 +139,16 @@ myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 // color: 'red' or 'orange'
 // store: property must not be present
 myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscriptionProps{
-	FilterPolicyWithMessageBody: map[string]filterOrPolicy{
-		"background": sns.*filterOrPolicy_policy(map[string]*filterOrPolicy{
-			"color": sns.*filterOrPolicy_filter(sns.SubscriptionFilter_stringFilter(&StringConditions{
+	FilterPolicyWithMessageBody: map[string]FilterOrPolicy{
+		"background": sns.FilterOrPolicy_policy(map[string]FilterOrPolicy{
+			"color": sns.FilterOrPolicy_filter(sns.SubscriptionFilter_stringFilter(&StringConditions{
 				"allowlist": []*string{
 					jsii.String("red"),
 					jsii.String("orange"),
 				},
 			})),
 		}),
-		"store": sns.*filterOrPolicy_filter(sns.SubscriptionFilter_notExistsFilter()),
+		"store": sns.FilterOrPolicy_filter(sns.SubscriptionFilter_notExistsFilter()),
 	},
 }))
 ```
@@ -157,7 +157,7 @@ myTopic.AddSubscription(subscriptions.NewLambdaSubscription(fn, &LambdaSubscript
 
 ```go
 import firehose "github.com/aws/aws-cdk-go/awscdk"
-var stream deliveryStream
+var stream DeliveryStream
 
 
 topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -202,7 +202,7 @@ Use the `aws-cdk-lib/aws-events-targets.SnsTopic`:
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var repo repository
+var repo Repository
 
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 
@@ -223,7 +223,7 @@ add policies, but a `TopicPolicy` can also be created manually.
 ```go
 topic := sns.NewTopic(this, jsii.String("Topic"))
 topicPolicy := sns.NewTopicPolicy(this, jsii.String("TopicPolicy"), &TopicPolicyProps{
-	Topics: []iTopic{
+	Topics: []ITopic{
 		topic,
 	},
 })
@@ -232,7 +232,7 @@ topicPolicy.Document.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("sns:Subscribe"),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAnyPrincipal(),
 	},
 	Resources: []*string{
@@ -247,12 +247,12 @@ A policy document can also be passed on `TopicPolicy` construction
 topic := sns.NewTopic(this, jsii.String("Topic"))
 policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 	AssignSids: jsii.Boolean(true),
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("sns:Subscribe"),
 			},
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewAnyPrincipal(),
 			},
 			Resources: []*string{
@@ -263,7 +263,7 @@ policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 })
 
 topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps{
-	Topics: []iTopic{
+	Topics: []ITopic{
 		topic,
 	},
 	PolicyDocument: PolicyDocument,
@@ -278,12 +278,12 @@ You can enforce SSL when creating a topic policy by setting the `enforceSSL` fla
 topic := sns.NewTopic(this, jsii.String("Topic"))
 policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 	AssignSids: jsii.Boolean(true),
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("sns:Publish"),
 			},
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewServicePrincipal(jsii.String("s3.amazonaws.com")),
 			},
 			Resources: []*string{
@@ -294,7 +294,7 @@ policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 })
 
 topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps{
-	Topics: []iTopic{
+	Topics: []ITopic{
 		topic,
 	},
 	PolicyDocument: PolicyDocument,
@@ -310,7 +310,7 @@ topic := sns.NewTopic(this, jsii.String("TopicAddPolicy"), &TopicProps{
 })
 
 topic.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewServicePrincipal(jsii.String("s3.amazonaws.com")),
 	},
 	Actions: []*string{
@@ -335,11 +335,11 @@ Amazon SNS provides support to log the delivery status of notification messages 
 Example with a delivery status logging configuration for SQS:
 
 ```go
-var role role
+var role Role
 
 topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
-	LoggingConfigs: []loggingConfig{
-		&loggingConfig{
+	LoggingConfigs: []LoggingConfig{
+		&LoggingConfig{
 			Protocol: sns.LoggingProtocol_SQS,
 			FailureFeedbackRole: role,
 			SuccessFeedbackRole: role,
@@ -352,7 +352,7 @@ topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
 A delivery status logging configuration can also be added to your topic by `addLoggingConfig` method:
 
 ```go
-var role role
+var role Role
 
 topic := sns.NewTopic(this, jsii.String("MyTopic"))
 

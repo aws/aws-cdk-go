@@ -554,6 +554,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "transforms", GoGetter: "Transforms"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -615,6 +616,14 @@ func init() {
 		reflect.TypeOf((*CfnListenerRule_RedirectConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.RewriteConfigObjectProperty",
+		reflect.TypeOf((*CfnListenerRule_RewriteConfigObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.RewriteConfigProperty",
+		reflect.TypeOf((*CfnListenerRule_RewriteConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.RuleConditionProperty",
 		reflect.TypeOf((*CfnListenerRule_RuleConditionProperty)(nil)).Elem(),
 	)
@@ -629,6 +638,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.TargetGroupTupleProperty",
 		reflect.TypeOf((*CfnListenerRule_TargetGroupTupleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRule.TransformProperty",
+		reflect.TypeOf((*CfnListenerRule_TransformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListenerRuleProps",

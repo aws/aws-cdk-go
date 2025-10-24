@@ -33,8 +33,8 @@ import (
 //   	ScheduleOffset: jsii.Number(123),
 //   	ScheduleTimezone: jsii.String("scheduleTimezone"),
 //   	StartDate: jsii.String("startDate"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -44,8 +44,8 @@ import (
 //   	Shape: jsii.String("shape"),
 //   	StorageCount: jsii.Number(123),
 //   	StorageServerType: jsii.String("storageServerType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

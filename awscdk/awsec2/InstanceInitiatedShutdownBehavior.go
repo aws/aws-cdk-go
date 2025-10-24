@@ -4,7 +4,7 @@ package awsec2
 // Provides the options for specifying the instance initiated shutdown behavior.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{

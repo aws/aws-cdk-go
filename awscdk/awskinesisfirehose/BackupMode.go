@@ -5,9 +5,9 @@ package awskinesisfirehose
 //
 // Example:
 //   // Enable backup of all source records (to an S3 bucket created by CDK).
-//   var bucket bucket
+//   var bucket Bucket
 //   // Explicitly provide an S3 bucket to which all source records will be backed up.
-//   var backupBucket bucket
+//   var backupBucket Bucket
 //
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &DeliveryStreamProps{
 //   	Destination:

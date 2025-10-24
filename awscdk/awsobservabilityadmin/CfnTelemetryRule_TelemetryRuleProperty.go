@@ -1,7 +1,7 @@
 package awsobservabilityadmin
 
 
-// The telemetry rule.
+// Defines how telemetry should be configured for specific AWS resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,19 +29,19 @@ package awsobservabilityadmin
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetryrule.html
 //
 type CfnTelemetryRule_TelemetryRuleProperty struct {
-	// Resource Type associated with the Telemetry Rule.
+	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetryrule.html#cfn-observabilityadmin-telemetryrule-telemetryrule-resourcetype
 	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
-	// Telemetry Type associated with the Telemetry Rule.
+	// The type of telemetry to collect (Logs, Metrics, or Traces).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetryrule.html#cfn-observabilityadmin-telemetryrule-telemetryrule-telemetrytype
 	//
 	TelemetryType *string `field:"required" json:"telemetryType" yaml:"telemetryType"`
-	// The destination configuration for telemetry data.
+	// Configuration specifying where and how the telemetry data should be delivered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetryrule.html#cfn-observabilityadmin-telemetryrule-telemetryrule-destinationconfiguration
 	//
 	DestinationConfiguration interface{} `field:"optional" json:"destinationConfiguration" yaml:"destinationConfiguration"`
-	// Selection Criteria on resource level for rule application.
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetryrule.html#cfn-observabilityadmin-telemetryrule-telemetryrule-selectioncriteria
 	//
 	SelectionCriteria *string `field:"optional" json:"selectionCriteria" yaml:"selectionCriteria"`

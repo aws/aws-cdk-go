@@ -18,6 +18,7 @@ package awssagemaker
 //   		},
 //   	},
 //   	ExecutionRoleIdentityConfig: jsii.String("executionRoleIdentityConfig"),
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   		DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -56,6 +57,12 @@ type CfnDomain_DomainSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-executionroleidentityconfig
 	//
 	ExecutionRoleIdentityConfig *string `field:"optional" json:"executionRoleIdentityConfig" yaml:"executionRoleIdentityConfig"`
+	// The IP address type for the domain.
+	//
+	// Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings
 	//

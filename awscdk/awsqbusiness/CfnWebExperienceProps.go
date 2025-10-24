@@ -41,8 +41,8 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   	SamplePromptsControlMode: jsii.String("samplePromptsControlMode"),
 //   	Subtitle: jsii.String("subtitle"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -19,7 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cloudFormationStackArtifact cloudFormationStackArtifact
+//   var cloudFormationStackArtifact CloudFormationStackArtifact
 //
 //   stackDeployment := awscdk.Pipelines.StackDeployment_FromArtifact(cloudFormationStackArtifact)
 //

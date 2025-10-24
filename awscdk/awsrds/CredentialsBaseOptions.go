@@ -8,7 +8,7 @@ import (
 // Base options for creating Credentials.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
 //   	Version: rds.PostgresEngineVersion_VER_16_3(),
@@ -22,11 +22,11 @@ import (
 //   		SecretName: jsii.String("my-cool-name"),
 //   		EncryptionKey: myKey,
 //   		ExcludeCharacters: jsii.String("!&*^#@()"),
-//   		ReplicaRegions: []replicaRegion{
-//   			&replicaRegion{
+//   		ReplicaRegions: []ReplicaRegion{
+//   			&ReplicaRegion{
 //   				Region: jsii.String("eu-west-1"),
 //   			},
-//   			&replicaRegion{
+//   			&ReplicaRegion{
 //   				Region: jsii.String("eu-west-2"),
 //   			},
 //   		},

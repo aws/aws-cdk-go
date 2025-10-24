@@ -42,8 +42,8 @@ import (
 //   		FirstExecutionFrom: jsii.String("firstExecutionFrom"),
 //   		Object: jsii.String("object"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

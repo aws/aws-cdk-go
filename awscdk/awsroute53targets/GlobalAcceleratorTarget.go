@@ -13,8 +13,8 @@ import (
 // Example:
 //   import globalaccelerator "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var accelerator accelerator
+//   var zone HostedZone
+//   var accelerator Accelerator
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{

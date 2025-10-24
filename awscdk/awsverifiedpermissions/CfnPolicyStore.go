@@ -32,8 +32,8 @@ import (
 //   		CedarFormat: jsii.String("cedarFormat"),
 //   		CedarJson: jsii.String("cedarJson"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

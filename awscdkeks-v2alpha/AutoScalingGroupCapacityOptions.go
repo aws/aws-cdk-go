@@ -9,8 +9,8 @@ import (
 // Options for adding worker nodes.
 //
 // Example:
-//   var vpc vpc
-//   var cluster cluster
+//   var vpc Vpc
+//   var cluster Cluster
 //
 //   cluster.AddAutoScalingGroupCapacity(jsii.String("nodes"), &AutoScalingGroupCapacityOptions{
 //   	VpcSubnets: &SubnetSelection{

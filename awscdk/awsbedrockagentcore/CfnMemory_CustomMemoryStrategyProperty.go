@@ -1,6 +1,8 @@
 package awsbedrockagentcore
 
 
+// The memory strategy.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,6 +13,26 @@ package awsbedrockagentcore
 //
 //   	// the properties below are optional
 //   	Configuration: &CustomConfigurationInputProperty{
+//   		SelfManagedConfiguration: &SelfManagedConfigurationProperty{
+//   			HistoricalContextWindowSize: jsii.Number(123),
+//   			InvocationConfiguration: &InvocationConfigurationInputProperty{
+//   				PayloadDeliveryBucketName: jsii.String("payloadDeliveryBucketName"),
+//   				TopicArn: jsii.String("topicArn"),
+//   			},
+//   			TriggerConditions: []interface{}{
+//   				&TriggerConditionInputProperty{
+//   					MessageBasedTrigger: &MessageBasedTriggerInputProperty{
+//   						MessageCount: jsii.Number(123),
+//   					},
+//   					TimeBasedTrigger: &TimeBasedTriggerInputProperty{
+//   						IdleSessionTimeout: jsii.Number(123),
+//   					},
+//   					TokenBasedTrigger: &TokenBasedTriggerInputProperty{
+//   						TokenCount: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		SemanticOverride: &SemanticOverrideProperty{
 //   			Consolidation: &SemanticOverrideConsolidationConfigurationInputProperty{
 //   				AppendToPrompt: jsii.String("appendToPrompt"),
@@ -52,10 +74,11 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html
 //
 type CfnMemory_CustomMemoryStrategyProperty struct {
-	// Name of the Memory resource.
+	// The memory strategy name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The memory strategy configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
@@ -63,27 +86,27 @@ type CfnMemory_CustomMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-createdat
 	//
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
-	// Description of the Memory resource.
+	// The memory strategy description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// List of namespaces for memory strategy.
+	// The memory strategy namespaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-namespaces
 	//
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
-	// Status of the memory strategy.
+	// The memory strategy status.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// Unique identifier for the memory strategy.
+	// The memory strategy ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-strategyid
 	//
 	StrategyId *string `field:"optional" json:"strategyId" yaml:"strategyId"`
-	// Type of memory strategy.
+	// The memory strategy type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// Last update timestamp of the memory strategy.
+	// The memory strategy update date and time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-custommemorystrategy.html#cfn-bedrockagentcore-memory-custommemorystrategy-updatedat
 	//
 	UpdatedAt *string `field:"optional" json:"updatedAt" yaml:"updatedAt"`

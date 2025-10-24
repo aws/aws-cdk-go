@@ -12,13 +12,13 @@ package awsbedrock
 //
 //   var additionalModelRequestFields interface{}
 //   var collector interface{}
-//   var flowNodeConfigurationProperty_ flowNodeConfigurationProperty
+//   var flowNodeConfigurationProperty_ FlowNodeConfigurationProperty
 //   var input interface{}
 //   var iterator interface{}
 //   var loopInput interface{}
 //   var output interface{}
 //
-//   flowNodeConfigurationProperty := &flowNodeConfigurationProperty{
+//   flowNodeConfigurationProperty := &FlowNodeConfigurationProperty{
 //   	Agent: &AgentFlowNodeConfigurationProperty{
 //   		AgentAliasArn: jsii.String("agentAliasArn"),
 //   	},

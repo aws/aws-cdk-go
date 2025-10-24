@@ -8,8 +8,8 @@ package awsses
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationSet configurationSet
-//   var eventDestination eventDestination
+//   var configurationSet ConfigurationSet
+//   var eventDestination EventDestination
 //
 //   configurationSetEventDestinationProps := &ConfigurationSetEventDestinationProps{
 //   	ConfigurationSet: configurationSet,
@@ -18,8 +18,8 @@ package awsses
 //   	// the properties below are optional
 //   	ConfigurationSetEventDestinationName: jsii.String("configurationSetEventDestinationName"),
 //   	Enabled: jsii.Boolean(false),
-//   	Events: []emailSendingEvent{
-//   		awscdk.Aws_ses.*emailSendingEvent_SEND,
+//   	Events: []EmailSendingEvent{
+//   		awscdk.Aws_ses.EmailSendingEvent_SEND,
 //   	},
 //   }
 //

@@ -79,10 +79,10 @@ resources under `goodbye` will be provisioned:
 ```go
 import triggers "github.com/aws/aws-cdk-go/awscdk"
 
-var myTrigger trigger
-var hello construct
-var world construct
-var goodbye construct
+var myTrigger Trigger
+var hello Construct
+var world Construct
+var goodbye Construct
 
 
 myTrigger.ExecuteAfter(hello, world)

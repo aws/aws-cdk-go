@@ -6,7 +6,7 @@ package awscodepipelineactions
 // The default is Build.
 //
 // Example:
-//   var project pipelineProject
+//   var project PipelineProject
 //
 //   sourceOutput := codepipeline.NewArtifact()
 //   testAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{

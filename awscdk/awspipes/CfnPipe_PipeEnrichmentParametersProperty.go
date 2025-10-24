@@ -4,8 +4,8 @@ package awspipes
 // The parameters required to set up enrichment on your pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
 //
 //   targetInputTransformation := pipes.inputTransformation_FromEventPath(jsii.String("$.body.payload"))

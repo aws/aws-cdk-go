@@ -8,7 +8,7 @@ import (
 // Properties for a new standalone matchmaking configuration.
 //
 // Example:
-//   var ruleSet matchmakingRuleSet
+//   var ruleSet MatchmakingRuleSet
 //
 //
 //   gamelift.NewStandaloneMatchmakingConfiguration(this, jsii.String("StandaloneMatchmaking"), &StandaloneMatchmakingConfigurationProps{

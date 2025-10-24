@@ -21,8 +21,8 @@ import (
 //   cfnPlaybackKeyPair := awscdk.Aws_ivs.NewCfnPlaybackKeyPair(this, jsii.String("MyCfnPlaybackKeyPair"), &CfnPlaybackKeyPairProps{
 //   	Name: jsii.String("name"),
 //   	PublicKeyMaterial: jsii.String("publicKeyMaterial"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

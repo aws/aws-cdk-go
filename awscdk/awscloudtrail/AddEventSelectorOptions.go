@@ -6,13 +6,13 @@ package awscloudtrail
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var sourceBucket bucket
+//   var sourceBucket Bucket
 //
 //   sourceOutput := codepipeline.NewArtifact()
 //   key := "some/key.zip"
 //   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
-//   trail.AddS3EventSelector([]s3EventSelector{
-//   	&s3EventSelector{
+//   trail.AddS3EventSelector([]S3EventSelector{
+//   	&S3EventSelector{
 //   		Bucket: sourceBucket,
 //   		ObjectPrefix: key,
 //   	},

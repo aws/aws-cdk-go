@@ -14,10 +14,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var app app
-//   var branch branch
-//   var certificate certificate
-//   var role role
+//   var app App
+//   var branch Branch
+//   var certificate Certificate
+//   var role Role
 //
 //   domainProps := &DomainProps{
 //   	App: app,
@@ -30,8 +30,8 @@ import (
 //   	CustomCertificate: certificate,
 //   	DomainName: jsii.String("domainName"),
 //   	EnableAutoSubdomain: jsii.Boolean(false),
-//   	SubDomains: []subDomain{
-//   		&subDomain{
+//   	SubDomains: []SubDomain{
+//   		&SubDomain{
 //   			Branch: branch,
 //
 //   			// the properties below are optional

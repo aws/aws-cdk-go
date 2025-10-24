@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dockerImageAsset dockerImageAsset
+//   var dockerImageAsset DockerImageAsset
 //
 //   ecrImage := awscdk.Aws_ecs.EcrImage_FromDockerImageAsset(dockerImageAsset)
 //

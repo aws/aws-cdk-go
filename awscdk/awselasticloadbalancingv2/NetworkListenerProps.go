@@ -12,10 +12,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var listenerCertificate listenerCertificate
-//   var networkListenerAction networkListenerAction
-//   var networkLoadBalancer networkLoadBalancer
-//   var networkTargetGroup networkTargetGroup
+//   var listenerCertificate ListenerCertificate
+//   var networkListenerAction NetworkListenerAction
+//   var networkLoadBalancer NetworkLoadBalancer
+//   var networkTargetGroup NetworkTargetGroup
 //
 //   networkListenerProps := &NetworkListenerProps{
 //   	LoadBalancer: networkLoadBalancer,
@@ -23,11 +23,11 @@ import (
 //
 //   	// the properties below are optional
 //   	AlpnPolicy: awscdk.Aws_elasticloadbalancingv2.AlpnPolicy_HTTP1_ONLY,
-//   	Certificates: []iListenerCertificate{
+//   	Certificates: []IListenerCertificate{
 //   		listenerCertificate,
 //   	},
 //   	DefaultAction: networkListenerAction,
-//   	DefaultTargetGroups: []iNetworkTargetGroup{
+//   	DefaultTargetGroups: []INetworkTargetGroup{
 //   		networkTargetGroup,
 //   	},
 //   	Protocol: awscdk.*Aws_elasticloadbalancingv2.Protocol_HTTP,

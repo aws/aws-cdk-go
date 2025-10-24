@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var compression compression
-//   var key key
-//   var size size
+//   var compression Compression
+//   var key Key
+//   var size Size
 //
 //   commonDestinationS3Props := &CommonDestinationS3Props{
 //   	BufferingInterval: cdk.Duration_Minutes(jsii.Number(30)),
@@ -37,9 +37,9 @@ type CommonDestinationS3Props struct {
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Amazon Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
-	// Minimum: Size.mebibytes(1)
+	// Minimum: Size.mebibytes(1) when record data format conversion is disabled, Size.mebibytes(64) when it is enabled
 	// Maximum: Size.mebibytes(128)
-	// Default: Size.mebibytes(5)
+	// Default: Size.mebibytes(5) when record data format conversion is disabled, Size.mebibytes(128) when it is enabled
 	//
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Amazon Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.

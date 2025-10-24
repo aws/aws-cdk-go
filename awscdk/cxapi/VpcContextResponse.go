@@ -44,11 +44,11 @@ package cxapi
 //   		jsii.String("publicSubnetRouteTableIds"),
 //   	},
 //   	Region: jsii.String("region"),
-//   	SubnetGroups: []vpcSubnetGroup{
-//   		&vpcSubnetGroup{
+//   	SubnetGroups: []VpcSubnetGroup{
+//   		&VpcSubnetGroup{
 //   			Name: jsii.String("name"),
-//   			Subnets: []vpcSubnet{
-//   				&vpcSubnet{
+//   			Subnets: []VpcSubnet{
+//   				&VpcSubnet{
 //   					AvailabilityZone: jsii.String("availabilityZone"),
 //   					RouteTableId: jsii.String("routeTableId"),
 //   					SubnetId: jsii.String("subnetId"),

@@ -28,8 +28,8 @@ import (
 //   	Port: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
 //   	ProtocolVersion: jsii.String("protocolVersion"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

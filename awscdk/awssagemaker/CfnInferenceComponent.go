@@ -76,8 +76,8 @@ import (
 //   		CurrentCopyCount: jsii.Number(123),
 //   		DesiredCopyCount: jsii.Number(123),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

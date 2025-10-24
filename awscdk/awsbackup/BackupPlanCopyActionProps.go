@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var backupVault backupVault
+//   var backupVault BackupVault
 //
 //   backupPlanCopyActionProps := &BackupPlanCopyActionProps{
 //   	DestinationBackupVault: backupVault,

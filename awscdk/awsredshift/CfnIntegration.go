@@ -26,8 +26,8 @@ import (
 //   	},
 //   	IntegrationName: jsii.String("integrationName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

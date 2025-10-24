@@ -17,12 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var accessLogDestination iAccessLogDestination
-//   var accessLogFormat accessLogFormat
-//   var bucket bucket
-//   var certificate certificate
-//   var policyDocument policyDocument
-//   var vpcEndpoint vpcEndpoint
+//   var accessLogDestination IAccessLogDestination
+//   var accessLogFormat AccessLogFormat
+//   var bucket Bucket
+//   var certificate Certificate
+//   var policyDocument PolicyDocument
+//   var vpcEndpoint VpcEndpoint
 //
 //   restApiBaseProps := &RestApiBaseProps{
 //   	CloudWatchRole: jsii.Boolean(false),
@@ -41,8 +41,8 @@ import (
 //   		Description: jsii.String("description"),
 //   		DocumentationVersion: jsii.String("documentationVersion"),
 //   		LoggingLevel: awscdk.Aws_apigateway.MethodLoggingLevel_OFF,
-//   		MethodOptions: map[string]methodDeploymentOptions{
-//   			"methodOptionsKey": &methodDeploymentOptions{
+//   		MethodOptions: map[string]MethodDeploymentOptions{
+//   			"methodOptionsKey": &MethodDeploymentOptions{
 //   				"cacheDataEncrypted": jsii.Boolean(false),
 //   				"cacheTtl": cdk.Duration_*Minutes(jsii.Number(30)),
 //   				"cachingEnabled": jsii.Boolean(false),
@@ -81,19 +81,19 @@ import (
 //   		SecurityPolicy: awscdk.*Aws_apigateway.SecurityPolicy_TLS_1_0,
 //   	},
 //   	EndpointConfiguration: &EndpointConfiguration{
-//   		Types: []endpointType{
-//   			awscdk.*Aws_apigateway.*endpointType_EDGE,
+//   		Types: []EndpointType{
+//   			awscdk.*Aws_apigateway.EndpointType_EDGE,
 //   		},
 //
 //   		// the properties below are optional
 //   		IpAddressType: awscdk.*Aws_apigateway.IpAddressType_IPV4,
-//   		VpcEndpoints: []iVpcEndpoint{
+//   		VpcEndpoints: []IVpcEndpoint{
 //   			vpcEndpoint,
 //   		},
 //   	},
 //   	EndpointExportName: jsii.String("endpointExportName"),
-//   	EndpointTypes: []*endpointType{
-//   		awscdk.*Aws_apigateway.*endpointType_EDGE,
+//   	EndpointTypes: []EndpointType{
+//   		awscdk.*Aws_apigateway.EndpointType_EDGE,
 //   	},
 //   	FailOnWarnings: jsii.Boolean(false),
 //   	Parameters: map[string]*string{

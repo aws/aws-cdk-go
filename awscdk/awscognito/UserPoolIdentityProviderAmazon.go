@@ -21,8 +21,8 @@ import (
 //
 //   client := pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 //   	// ...
-//   	SupportedIdentityProviders: []userPoolClientIdentityProvider{
-//   		cognito.*userPoolClientIdentityProvider_AMAZON(),
+//   	SupportedIdentityProviders: []UserPoolClientIdentityProvider{
+//   		cognito.UserPoolClientIdentityProvider_AMAZON(),
 //   	},
 //   })
 //

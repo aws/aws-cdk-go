@@ -19,7 +19,7 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stackSynthesizer stackSynthesizer
+//   var stackSynthesizer StackSynthesizer
 //
 //   nestedStackSynthesizer := cdk.NewNestedStackSynthesizer(stackSynthesizer)
 //

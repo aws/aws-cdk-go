@@ -17,7 +17,7 @@ import (
 // Example:
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
 //   topicPolicy := sns.NewTopicPolicy(this, jsii.String("TopicPolicy"), &TopicPolicyProps{
-//   	Topics: []iTopic{
+//   	Topics: []ITopic{
 //   		topic,
 //   	},
 //   })
@@ -26,7 +26,7 @@ import (
 //   	Actions: []*string{
 //   		jsii.String("sns:Subscribe"),
 //   	},
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		iam.NewAnyPrincipal(),
 //   	},
 //   	Resources: []*string{

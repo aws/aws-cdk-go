@@ -16,9 +16,9 @@ import (
 //
 //   var assign interface{}
 //   var outputs interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   emrContainersDeleteVirtualClusterJsonataProps := &EmrContainersDeleteVirtualClusterJsonataProps{
 //   	VirtualClusterId: taskInput,

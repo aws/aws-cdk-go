@@ -4,13 +4,13 @@ package awss3deployment
 // Define options which can be passed using the method `Source.jsonData()`.
 //
 // Example:
-//   var bucket bucket
-//   var param stringParameter
+//   var bucket Bucket
+//   var param StringParameter
 //
 //
 //   // Example with a secret value that contains double quotes
 //   deployment := s3deploy.NewBucketDeployment(this, jsii.String("JsonDeployment"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_JsonData(jsii.String("config.json"), map[string]interface{}{
 //   			"api_endpoint": jsii.String("https://api.example.com"),
 //   			"secretValue": param.stringValue,

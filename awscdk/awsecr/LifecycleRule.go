@@ -7,7 +7,7 @@ import (
 // An ECR life cycle rule.
 //
 // Example:
-//   var repository repository
+//   var repository Repository
 //
 //   repository.AddLifecycleRule(&LifecycleRule{
 //   	TagPrefixList: []*string{

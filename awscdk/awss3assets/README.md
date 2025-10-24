@@ -139,7 +139,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 type myBundle struct {
 }
 
-func (this *myBundle) tryBundle(outputDir *string, options bundlingOptions) *bool {
+func (this *myBundle) tryBundle(outputDir *string, options BundlingOptions) *bool {
 	canRunLocally := true // replace with actual logic
 	if canRunLocally {
 		// perform local bundling here
@@ -150,7 +150,7 @@ func (this *myBundle) tryBundle(outputDir *string, options bundlingOptions) *boo
 
 awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
 	Path: jsii.String("/path/to/asset"),
-	Bundling: &bundlingOptions{
+	Bundling: &BundlingOptions{
 		Local: NewMyBundle(),
 		// Docker bundling fallback
 		Image: cdk.DockerImage_FromRegistry(jsii.String("alpine")),

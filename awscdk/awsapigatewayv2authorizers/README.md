@@ -91,24 +91,24 @@ api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &HttpApiProps{
 api.AddRoutes(&AddRoutesOptions{
 	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
 	Path: jsii.String("/books"),
-	Methods: []httpMethod{
-		apigwv2.*httpMethod_GET,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_GET,
 	},
 })
 
 api.AddRoutes(&AddRoutesOptions{
 	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.example.com")),
 	Path: jsii.String("/books/{id}"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_GET,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_GET,
 	},
 })
 
 api.AddRoutes(&AddRoutesOptions{
 	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
 	Path: jsii.String("/books"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	AuthorizationScopes: []*string{
 		jsii.String("write:books"),
@@ -118,8 +118,8 @@ api.AddRoutes(&AddRoutesOptions{
 api.AddRoutes(&AddRoutesOptions{
 	Integration: awscdk.NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.example.com")),
 	Path: jsii.String("/login"),
-	Methods: []*httpMethod{
-		apigwv2.*httpMethod_POST,
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
 	},
 	Authorizer: apigwv2.NewHttpNoneAuthorizer(),
 })
@@ -200,11 +200,11 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // This function handles your auth logic
-var authHandler function
+var authHandler Function
 
 
 authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
-	ResponseTypes: []httpLambdaResponseType{
+	ResponseTypes: []HttpLambdaResponseType{
 		awscdk.HttpLambdaResponseType_SIMPLE,
 	},
 })
@@ -226,7 +226,7 @@ API Gateway supports IAM via the included `HttpIamAuthorizer` and grant syntax:
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var principal anyPrincipal
+var principal AnyPrincipal
 
 
 authorizer := awscdk.NewHttpIamAuthorizer()
@@ -256,10 +256,10 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // This function handles your auth logic
-var authHandler function
+var authHandler Function
 
 // This function handles your WebSocket requests
-var handler function
+var handler Function
 
 
 authorizer := awscdk.NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
@@ -283,7 +283,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // This function handles your connect route
-var connectHandler function
+var connectHandler Function
 
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"))
@@ -303,7 +303,7 @@ webSocketArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
 
 // Grant access to the IAM user
 user.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &PolicyProps{
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("execute-api:Invoke"),
@@ -352,11 +352,11 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // This function handles your auth logic
-var authHandler function
+var authHandler Function
 
 
 authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
-	ResponseTypes: []httpLambdaResponseType{
+	ResponseTypes: []HttpLambdaResponseType{
 		awscdk.HttpLambdaResponseType_SIMPLE,
 	},
 })

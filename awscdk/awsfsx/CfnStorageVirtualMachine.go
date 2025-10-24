@@ -36,8 +36,8 @@ import (
 //   	},
 //   	RootVolumeSecurityStyle: jsii.String("rootVolumeSecurityStyle"),
 //   	SvmAdminPassword: jsii.String("svmAdminPassword"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -8,11 +8,11 @@ import (
 // Options for defining EKS Fargate Profiles.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddFargateProfile(jsii.String("MyProfile"), &FargateProfileOptions{
-//   	Selectors: []selector{
-//   		&selector{
+//   	Selectors: []Selector{
+//   		&Selector{
 //   			Namespace: jsii.String("default"),
 //   		},
 //   	},

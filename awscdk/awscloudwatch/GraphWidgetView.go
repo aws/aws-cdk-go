@@ -4,7 +4,7 @@ package awscloudwatch
 // Types of view.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{

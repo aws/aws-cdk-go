@@ -7,7 +7,7 @@ import (
 // Properties for a new Lambda version.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //   version := lambda.NewVersion(this, jsii.String("MyVersion"), &VersionProps{
 //   	Lambda: fn,

@@ -17,8 +17,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	StandbyReplicas: jsii.String("standbyReplicas"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

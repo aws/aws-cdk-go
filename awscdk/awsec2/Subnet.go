@@ -12,7 +12,7 @@ import (
 // Represents a new VPC subnet resource.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,
@@ -24,7 +24,7 @@ import (
 //   	},
 //   	MinHealthyPercent: jsii.Number(100),
 //   	TaskSubnets: &SubnetSelection{
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 //   		},
 //   	},

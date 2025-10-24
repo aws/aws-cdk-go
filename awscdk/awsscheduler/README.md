@@ -18,7 +18,7 @@ that allows you to create, run, and manage scheduled tasks at scale. With EventB
 ## Defining a schedule
 
 ```go
-var fn function
+var fn Function
 
 
 target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
@@ -44,7 +44,7 @@ For
 cron-based schedules you can specify a time zone in which EventBridge Scheduler evaluates the expression.
 
 ```go
-var target lambdaInvoke
+var target LambdaInvoke
 
 
 rateBasedSchedule := awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -70,7 +70,7 @@ A one-time schedule is a schedule that invokes a target only once. You configure
 and time zone in which EventBridge Scheduler evaluates the schedule.
 
 ```go
-var target lambdaInvoke
+var target LambdaInvoke
 
 
 oneTimeSchedule := awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -92,7 +92,7 @@ defaultScheduleGroup := awscdk.ScheduleGroup_FromDefaultScheduleGroup(this, jsii
 You can add a schedule to a custom scheduling group managed by you. If a custom group is not specified, the schedule is added to the default group.
 
 ```go
-var target lambdaInvoke
+var target LambdaInvoke
 
 
 scheduleGroup := awscdk.NewScheduleGroup(this, jsii.String("ScheduleGroup"), &ScheduleGroupProps{
@@ -111,7 +111,7 @@ awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 By default, a schedule will be enabled. You can disable a schedule by setting the `enabled` property to false:
 
 ```go
-var target lambdaInvoke
+var target LambdaInvoke
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -126,7 +126,7 @@ awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 If you choose a recurring schedule, you can set the start and end time of the Schedule by specifying the `start` and `end`.
 
 ```go
-var target lambdaInvoke
+var target LambdaInvoke
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -183,7 +183,7 @@ will grant minimal required permissions. For example, the `LambdaInvoke` target 
 IAM execution role `lambda:InvokeFunction` permission to invoke the Lambda function.
 
 ```go
-var fn function
+var fn Function
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -208,8 +208,8 @@ If you wish you can also provide a customer managed key to encrypt and decrypt t
 Target classes will automatically add AWS `kms:Decrypt` permission to your schedule's execution role permissions policy.
 
 ```go
-var key key
-var fn function
+var key Key
+var fn Function
 
 
 target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
@@ -233,7 +233,7 @@ You can configure flexible time windows by specifying the `timeWindow` property.
 Flexible time windows are disabled by default.
 
 ```go
-var target lambdaInvoke
+var target LambdaInvoke
 
 
 schedule := awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -259,7 +259,7 @@ If you've configured a retry policy for your schedule, EventBridge Scheduler del
 exhausting the maximum number of retries you set in the retry policy.
 
 ```go
-var fn function
+var fn Function
 
 
 dlq := sqs.NewQueue(this, jsii.String("DLQ"), &QueueProps{

@@ -12,8 +12,8 @@ import (
 // CodePipeline compute action that uses AWS Commands.
 //
 // Example:
-//   var sourceArtifact artifact
-//   var outputArtifact artifact
+//   var sourceArtifact Artifact
+//   var outputArtifact Artifact
 //
 //
 //   commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{

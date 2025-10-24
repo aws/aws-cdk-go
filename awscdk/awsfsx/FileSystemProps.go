@@ -16,9 +16,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var keyRef iKeyRef
-//   var securityGroup securityGroup
-//   var vpc vpc
+//   var keyRef IKeyRef
+//   var securityGroup SecurityGroup
+//   var vpc Vpc
 //
 //   fileSystemProps := &FileSystemProps{
 //   	StorageCapacityGiB: jsii.Number(123),

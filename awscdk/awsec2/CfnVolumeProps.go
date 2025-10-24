@@ -23,8 +23,8 @@ import (
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	Size: jsii.Number(123),
 //   	SnapshotId: jsii.String("snapshotId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -57,19 +57,17 @@ type CfnVolumeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-encrypted
 	//
 	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
-	// The number of I/O operations per second (IOPS).
+	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
-	// For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	// Required for `io1` and `io2` volumes. Optional for `gp3` volumes. Omit for all other volume types.
 	//
-	// The following are the supported values for each volume type:
+	// Valid ranges:
 	//
-	// - `gp3` : 3,000 - 80,000 IOPS
-	// - `io1` : 100 - 64,000 IOPS
-	// - `io2` : 100 - 256,000 IOPS
+	// - gp3: `3,000` ( *default* ) `- 80,000` IOPS
+	// - io1: `100 - 64,000` IOPS
+	// - io2: `100 - 256,000` IOPS
 	//
-	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) . On other instances, you can achieve performance up to 32,000 IOPS.
-	//
-	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
+	// > [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-iops
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
@@ -100,16 +98,16 @@ type CfnVolumeProps struct {
 	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
 	// The size of the volume, in GiBs.
 	//
-	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
 	//
-	// The following are the supported volumes sizes for each volume type:
+	// Valid sizes:
 	//
-	// - `gp2` : 1 - 16,384 GiB
-	// - `gp3` : 1 - 65,536 GiB
-	// - `io1` : 4 - 16,384 GiB
-	// - `io2` : 4 - 65,536 GiB
-	// - `st1` and `sc1` : 125 - 16,384 GiB
-	// - `standard` : 1 - 1024 GiB.
+	// - gp2: `1 - 16,384` GiB
+	// - gp3: `1 - 65,536` GiB
+	// - io1: `4 - 16,384` GiB
+	// - io2: `4 - 65,536` GiB
+	// - st1 and sc1: `125 - 16,384` GiB
+	// - standard: `1 - 1024` GiB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-size
 	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`

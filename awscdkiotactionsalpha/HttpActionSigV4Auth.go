@@ -9,12 +9,12 @@ package awscdkiotactionsalpha
 //   topicRule.AddAction(
 //   actions.NewHttpsAction(jsii.String("https://example.com/endpoint"), &HttpsActionProps{
 //   	ConfirmationUrl: jsii.String("https://example.com"),
-//   	Headers: []httpActionHeader{
-//   		&httpActionHeader{
+//   	Headers: []HttpActionHeader{
+//   		&HttpActionHeader{
 //   			Key: jsii.String("key0"),
 //   			Value: jsii.String("value0"),
 //   		},
-//   		&httpActionHeader{
+//   		&HttpActionHeader{
 //   			Key: jsii.String("key1"),
 //   			Value: jsii.String("value1"),
 //   		},

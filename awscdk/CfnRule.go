@@ -20,10 +20,10 @@ import (
 // You define a rule condition and assertions by using rule-specific intrinsic functions.
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   var cfnTemplate CfnInclude
 //
 //   // mutating the rule
-//   var myParameter cfnParameter
+//   var myParameter CfnParameter
 //
 //   rule := cfnTemplate.GetRule(jsii.String("MyRule"))
 //   rule.AddAssertion(core.Fn_ConditionContains([]*string{

@@ -52,14 +52,14 @@ To create a new CodeDeploy Deployment Group that deploys to EC2/on-premise insta
 import autoscaling "github.com/aws/aws-cdk-go/awscdk"
 import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
-var application serverApplication
-var asg autoScalingGroup
-var alarm alarm
+var application ServerApplication
+var asg AutoScalingGroup
+var alarm Alarm
 
 deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &ServerDeploymentGroupProps{
 	Application: Application,
 	DeploymentGroupName: jsii.String("MyDeploymentGroup"),
-	AutoScalingGroups: []iAutoScalingGroup{
+	AutoScalingGroups: []IAutoScalingGroup{
 		asg,
 	},
 	// adds User Data that installs the CodeDeploy agent on your auto-scaling groups hosts
@@ -92,7 +92,7 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDe
 		},
 	}),
 	// CloudWatch alarms
-	Alarms: []iAlarm{
+	Alarms: []IAlarm{
 		alarm,
 	},
 	// whether to ignore failure to fetch the status of alarms from CloudWatch
@@ -121,7 +121,7 @@ one will be automatically created.
 To import an already existing Deployment Group:
 
 ```go
-var application serverApplication
+var application ServerApplication
 
 deploymentGroup := codedeploy.ServerDeploymentGroup_FromServerDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &ServerDeploymentGroupAttributes{
 	Application: Application,
@@ -141,7 +141,7 @@ With Classic Elastic Load Balancer, you provide it directly:
 ```go
 import elb "github.com/aws/aws-cdk-go/awscdk"
 
-var lb loadBalancer
+var lb LoadBalancer
 
 lb.AddListener(&LoadBalancerListener{
 	ExternalPort: jsii.Number(80),
@@ -156,7 +156,7 @@ With Application Load Balancer or Network Load Balancer,
 you provide a Target Group as the load balancer:
 
 ```go
-var alb applicationLoadBalancer
+var alb ApplicationLoadBalancer
 
 listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 	Port: jsii.Number(80),
@@ -176,9 +176,9 @@ The `loadBalancer` property has been deprecated. To provide multiple Elastic Loa
 import elb "github.com/aws/aws-cdk-go/awscdk"
 import elb2 "github.com/aws/aws-cdk-go/awscdk"
 
-var clb loadBalancer
-var alb applicationLoadBalancer
-var nlb networkLoadBalancer
+var clb LoadBalancer
+var alb ApplicationLoadBalancer
+var nlb NetworkLoadBalancer
 
 
 albListener := alb.AddListener(jsii.String("ALBListener"), &BaseApplicationListenerProps{
@@ -196,10 +196,10 @@ nlbTargetGroup := nlbListener.AddTargets(jsii.String("NLBFleet"), &AddNetworkTar
 })
 
 deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-	LoadBalancers: []loadBalancer{
-		codedeploy.*loadBalancer_Classic(clb),
-		codedeploy.*loadBalancer_Application(albTargetGroup),
-		codedeploy.*loadBalancer_Network(nlbTargetGroup),
+	LoadBalancers: []LoadBalancer{
+		codedeploy.LoadBalancer_Classic(clb),
+		codedeploy.LoadBalancer_Application(albTargetGroup),
+		codedeploy.LoadBalancer_Network(nlbTargetGroup),
 	},
 })
 ```
@@ -277,8 +277,8 @@ When you publish a new version of the function to your stack, CodeDeploy will se
 To create a new CodeDeploy Deployment Group that deploys to a Lambda function:
 
 ```go
-var myApplication lambdaApplication
-var func function
+var myApplication LambdaApplication
+var func Function
 
 version := func.currentVersion
 version1Alias := lambda.NewAlias(this, jsii.String("alias"), &AliasProps{
@@ -307,10 +307,10 @@ CodeDeploy will roll back if the deployment fails. You can optionally trigger a 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var alias alias
+var alias Alias
 
 // or add alarms to an existing group
-var blueGreenAlias alias
+var blueGreenAlias Alias
 
 alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &AlarmProps{
 	ComparisonOperator: cloudwatch.ComparisonOperator_GREATER_THAN_THRESHOLD,
@@ -321,7 +321,7 @@ alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &AlarmProps{
 deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
 	Alias: Alias,
 	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
-	Alarms: []iAlarm{
+	Alarms: []IAlarm{
 		alarm,
 	},
 })
@@ -340,9 +340,9 @@ With either hook, you have the opportunity to run logic that determines whether 
 For example, with PreTraffic hook you could run integration tests against the newly created Lambda version (but not serving traffic). With PostTraffic hook, you could run end-to-end validation checks.
 
 ```go
-var warmUpUserCache function
-var endToEndValidation function
-var alias alias
+var warmUpUserCache Function
+var endToEndValidation Function
+var alias Alias
 
 
 // pass a hook whe creating the deployment group
@@ -361,7 +361,7 @@ deploymentGroup.AddPostHook(endToEndValidation)
 To import an already existing Deployment Group:
 
 ```go
-var application lambdaApplication
+var application LambdaApplication
 
 deploymentGroup := codedeploy.LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &LambdaDeploymentGroupAttributes{
 	Application: Application,
@@ -375,8 +375,8 @@ CodeDeploy for Lambda comes with predefined configurations for traffic shifting.
 The predefined configurations are available as LambdaDeploymentConfig constants.
 
 ```go
-var application lambdaApplication
-var alias alias
+var application LambdaApplication
+var alias Alias
 config := codedeploy.LambdaDeploymentConfig_CANARY_10PERCENT_30MINUTES()
 deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
 	Application: Application,
@@ -390,8 +390,8 @@ you can do so with the LambdaDeploymentConfig construct,
 letting you specify precisely how fast a new function version is deployed.
 
 ```go
-var application lambdaApplication
-var alias alias
+var application LambdaApplication
+var alias Alias
 config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &LambdaDeploymentConfigProps{
 	TrafficRouting: codedeploy.NewTimeBasedCanaryTrafficRouting(&TimeBasedCanaryTrafficRoutingProps{
 		Interval: awscdk.Duration_Minutes(jsii.Number(15)),
@@ -458,12 +458,12 @@ monitor, and validate before shifting 100% of traffic to the new version.
 To create a new CodeDeploy Deployment Group that deploys to an ECS service:
 
 ```go
-var myApplication ecsApplication
-var cluster cluster
-var taskDefinition fargateTaskDefinition
-var blueTargetGroup iTargetGroup
-var greenTargetGroup iTargetGroup
-var listener iApplicationListener
+var myApplication EcsApplication
+var cluster Cluster
+var taskDefinition FargateTaskDefinition
+var blueTargetGroup ITargetGroup
+var greenTargetGroup ITargetGroup
+var listener IApplicationListener
 
 
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -514,10 +514,10 @@ and green target groups.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var service fargateService
-var blueTargetGroup applicationTargetGroup
-var greenTargetGroup applicationTargetGroup
-var listener iApplicationListener
+var service FargateService
+var blueTargetGroup ApplicationTargetGroup
+var greenTargetGroup ApplicationTargetGroup
+var listener IApplicationListener
 
 
 // Alarm on the number of unhealthy ECS tasks in each target group
@@ -556,7 +556,7 @@ greenApiFailure := cloudwatch.NewAlarm(this, jsii.String("Green5xx"), &AlarmProp
 
 codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	// CodeDeploy will monitor these alarms during a deployment and automatically roll back
-	Alarms: []iAlarm{
+	Alarms: []IAlarm{
 		blueUnhealthyHosts,
 		greenUnhealthyHosts,
 		blueApiFailure,
@@ -586,12 +586,12 @@ During a blue-green deployment, CodeDeploy can then shift 100% of test traffic o
 task set/target group prior to shifting any production traffic during the deployment.
 
 ```go
-var myApplication ecsApplication
-var service fargateService
-var blueTargetGroup iTargetGroup
-var greenTargetGroup iTargetGroup
-var listener iApplicationListener
-var testListener iApplicationListener
+var myApplication EcsApplication
+var service FargateService
+var blueTargetGroup ITargetGroup
+var greenTargetGroup ITargetGroup
+var listener IApplicationListener
+var testListener IApplicationListener
 
 
 codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
@@ -626,11 +626,11 @@ If the ContinueDeployment API is not called within the approval wait time period
 deployment and can automatically roll back the deployment.
 
 ```go
-var service fargateService
-var blueTargetGroup iTargetGroup
-var greenTargetGroup iTargetGroup
-var listener iApplicationListener
-var testListener iApplicationListener
+var service FargateService
+var blueTargetGroup ITargetGroup
+var greenTargetGroup ITargetGroup
+var listener IApplicationListener
+var testListener IApplicationListener
 
 
 codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
@@ -660,14 +660,14 @@ CloudWatch alarms specified for the deployment group and will automatically roll
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var service fargateService
-var blueTargetGroup iTargetGroup
-var greenTargetGroup iTargetGroup
-var listener iApplicationListener
-var blueUnhealthyHosts alarm
-var greenUnhealthyHosts alarm
-var blueApiFailure alarm
-var greenApiFailure alarm
+var service FargateService
+var blueTargetGroup ITargetGroup
+var greenTargetGroup ITargetGroup
+var listener IApplicationListener
+var blueUnhealthyHosts Alarm
+var greenUnhealthyHosts Alarm
+var blueApiFailure Alarm
+var greenApiFailure Alarm
 
 
 codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
@@ -681,7 +681,7 @@ codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymen
 	},
 	// CodeDeploy will continue to monitor these alarms during the 30-minute bake time and will automatically
 	// roll back if they go into a failed state at any point during the deployment.
-	Alarms: []iAlarm{
+	Alarms: []IAlarm{
 		blueUnhealthyHosts,
 		greenUnhealthyHosts,
 		blueApiFailure,
@@ -696,7 +696,7 @@ codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymen
 To import an already existing Deployment Group:
 
 ```go
-var application ecsApplication
+var application EcsApplication
 
 deploymentGroup := codedeploy.EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &EcsDeploymentGroupAttributes{
 	Application: Application,
@@ -751,8 +751,8 @@ deploymentConfig := codedeploy.EcsDeploymentConfig_FromEcsDeploymentConfigName(t
 An experimental construct is available on the Construct Hub called [@cdklabs/cdk-ecs-codedeploy](https://constructs.dev/packages/@cdklabs/cdk-ecs-codedeploy) that manages ECS CodeDeploy deployments.
 
 ```go
-var deploymentGroup iEcsDeploymentGroup
-var taskDefinition iTaskDefinition
+var deploymentGroup IEcsDeploymentGroup
+var taskDefinition ITaskDefinition
 
 
 NewEcsDeployment(map[string]interface{}{
@@ -768,8 +768,8 @@ NewEcsDeployment(map[string]interface{}{
 The deployment will use the AutoRollbackConfig for the EcsDeploymentGroup unless it is overridden in the deployment:
 
 ```go
-var deploymentGroup iEcsDeploymentGroup
-var taskDefinition iTaskDefinition
+var deploymentGroup IEcsDeploymentGroup
+var taskDefinition ITaskDefinition
 
 
 NewEcsDeployment(map[string]interface{}{
@@ -790,8 +790,8 @@ NewEcsDeployment(map[string]interface{}{
 By default, the CodeDeploy Deployment will timeout after 30 minutes. The timeout value can be overridden:
 
 ```go
-var deploymentGroup iEcsDeploymentGroup
-var taskDefinition iTaskDefinition
+var deploymentGroup IEcsDeploymentGroup
+var taskDefinition ITaskDefinition
 
 
 NewEcsDeployment(map[string]interface{}{

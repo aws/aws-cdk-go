@@ -237,8 +237,8 @@ import (
 //   	PlacementGroup: jsii.String("placementGroup"),
 //   	ServiceLinkedRoleArn: jsii.String("serviceLinkedRoleArn"),
 //   	SkipZonalShiftValidation: jsii.Boolean(false),
-//   	Tags: []tagPropertyProperty{
-//   		&tagPropertyProperty{
+//   	Tags: []TagPropertyProperty{
+//   		&TagPropertyProperty{
 //   			Key: jsii.String("key"),
 //   			PropagateAtLaunch: jsii.Boolean(false),
 //   			Value: jsii.String("value"),

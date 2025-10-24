@@ -9,8 +9,8 @@ package awsstepfunctionstasks
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationProperty_ configurationProperty
-//   var size size
+//   var configurationProperty_ ConfigurationProperty
+//   var size Size
 //
 //   instanceGroupConfigProperty := &InstanceGroupConfigProperty{
 //   	InstanceCount: jsii.Number(123),
@@ -23,8 +23,8 @@ package awsstepfunctionstasks
 //   			MaxCapacity: jsii.Number(123),
 //   			MinCapacity: jsii.Number(123),
 //   		},
-//   		Rules: []scalingRuleProperty{
-//   			&scalingRuleProperty{
+//   		Rules: []ScalingRuleProperty{
+//   			&ScalingRuleProperty{
 //   				Action: &ScalingActionProperty{
 //   					SimpleScalingPolicyConfiguration: &SimpleScalingPolicyConfigurationProperty{
 //   						ScalingAdjustment: jsii.Number(123),
@@ -45,8 +45,8 @@ package awsstepfunctionstasks
 //   						Period: cdk.Duration_Minutes(jsii.Number(30)),
 //
 //   						// the properties below are optional
-//   						Dimensions: []metricDimensionProperty{
-//   							&metricDimensionProperty{
+//   						Dimensions: []MetricDimensionProperty{
+//   							&MetricDimensionProperty{
 //   								Key: jsii.String("key"),
 //   								Value: jsii.String("value"),
 //   							},
@@ -65,10 +65,10 @@ package awsstepfunctionstasks
 //   		},
 //   	},
 //   	BidPrice: jsii.String("bidPrice"),
-//   	Configurations: []*configurationProperty{
-//   		&configurationProperty{
+//   	Configurations: []ConfigurationProperty{
+//   		&ConfigurationProperty{
 //   			Classification: jsii.String("classification"),
-//   			Configurations: []*configurationProperty{
+//   			Configurations: []ConfigurationProperty{
 //   				configurationProperty_,
 //   			},
 //   			Properties: map[string]*string{
@@ -77,8 +77,8 @@ package awsstepfunctionstasks
 //   		},
 //   	},
 //   	EbsConfiguration: &EbsConfigurationProperty{
-//   		EbsBlockDeviceConfigs: []ebsBlockDeviceConfigProperty{
-//   			&ebsBlockDeviceConfigProperty{
+//   		EbsBlockDeviceConfigs: []EbsBlockDeviceConfigProperty{
+//   			&EbsBlockDeviceConfigProperty{
 //   				VolumeSpecification: &VolumeSpecificationProperty{
 //   					VolumeSize: size,
 //   					VolumeType: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP3,

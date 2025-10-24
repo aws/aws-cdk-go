@@ -33,6 +33,10 @@ import (
 //   	// the properties below are optional
 //   	ApplyOnTransformedLogs: jsii.Boolean(false),
 //   	Distribution: jsii.String("distribution"),
+//   	EmitSystemFields: []*string{
+//   		jsii.String("emitSystemFields"),
+//   	},
+//   	FieldSelectionCriteria: jsii.String("fieldSelectionCriteria"),
 //   	FilterName: jsii.String("filterName"),
 //   	RoleArn: jsii.String("roleArn"),
 //   })
@@ -61,6 +65,12 @@ type CfnSubscriptionFilter interface {
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution() *string
 	SetDistribution(val *string)
+	// The list of system fields that are included in the log events sent to the subscription destination.
+	EmitSystemFields() *[]*string
+	SetEmitSystemFields(val *[]*string)
+	// The filter expression that specifies which log events are processed by this subscription filter based on system fields.
+	FieldSelectionCriteria() *string
+	SetFieldSelectionCriteria(val *string)
 	// The name of the subscription filter.
 	FilterName() *string
 	SetFilterName(val *string)
@@ -313,6 +323,26 @@ func (j *jsiiProxy_CfnSubscriptionFilter) Distribution() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubscriptionFilter) EmitSystemFields() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"emitSystemFields",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscriptionFilter) FieldSelectionCriteria() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fieldSelectionCriteria",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscriptionFilter) FilterName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -477,6 +507,22 @@ func (j *jsiiProxy_CfnSubscriptionFilter)SetDistribution(val *string) {
 	_jsii_.Set(
 		j,
 		"distribution",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscriptionFilter)SetEmitSystemFields(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"emitSystemFields",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscriptionFilter)SetFieldSelectionCriteria(val *string) {
+	_jsii_.Set(
+		j,
+		"fieldSelectionCriteria",
 		val,
 	)
 }

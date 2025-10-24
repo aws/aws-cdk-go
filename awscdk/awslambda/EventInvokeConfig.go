@@ -22,8 +22,8 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var destination iDestination
-//   var function_ function
+//   var destination IDestination
+//   var function_ Function
 //
 //   eventInvokeConfig := awscdk.Aws_lambda.NewEventInvokeConfig(this, jsii.String("MyEventInvokeConfig"), &EventInvokeConfigProps{
 //   	Function: function_,

@@ -21,7 +21,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var userData userData
+//   var userData UserData
 //
 //   genericSSMParameterImage := awscdk.Aws_ec2.NewGenericSSMParameterImage(jsii.String("parameterName"), awscdk.Aws_ec2.OperatingSystemType_LINUX, userData)
 //

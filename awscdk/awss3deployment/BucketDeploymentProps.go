@@ -12,11 +12,11 @@ import (
 // Properties for `BucketDeployment`.
 //
 // Example:
-//   var destinationBucket bucket
+//   var destinationBucket Bucket
 //
 //
 //   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
 //   	},
 //   	DestinationBucket: DestinationBucket,

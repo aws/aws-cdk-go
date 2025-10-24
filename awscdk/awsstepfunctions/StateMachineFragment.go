@@ -20,12 +20,12 @@ import (
 //   }
 //
 //   type myJob struct {
-//   	stateMachineFragment
-//   	startState state
-//   	endStates []iNextable
+//   	StateMachineFragment
+//   	startState State
+//   	endStates []INextable
 //   }
 //
-//   func newMyJob(parent construct, id *string, props myJobProps) *myJob {
+//   func newMyJob(parent Construct, id *string, props myJobProps) *myJob {
 //   	this := &myJob{}
 //   	sfn.NewStateMachineFragment_Override(this, parent, id)
 //
@@ -39,10 +39,10 @@ import (
 //   }
 //
 //   type myStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newMyStack(scope construct, id *string) *myStack {
+//   func newMyStack(scope Construct, id *string) *myStack {
 //   	this := &myStack{}
 //   	newStack_Override(this, scope, id)
 //   	// Do 3 different variants of MyJob in parallel

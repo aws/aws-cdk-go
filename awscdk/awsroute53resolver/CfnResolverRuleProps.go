@@ -19,8 +19,8 @@ import (
 //   	DomainName: jsii.String("domainName"),
 //   	Name: jsii.String("name"),
 //   	ResolverEndpointId: jsii.String("resolverEndpointId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -62,6 +62,8 @@ type CfnResolverRuleProps struct {
 	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The name for the Resolver rule, which you specified when you created the Resolver rule.
+	//
+	// The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

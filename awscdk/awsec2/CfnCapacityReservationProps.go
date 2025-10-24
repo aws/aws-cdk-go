@@ -23,11 +23,11 @@ package awsec2
 //   	InstanceMatchCriteria: jsii.String("instanceMatchCriteria"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []tagSpecificationProperty{
-//   		&tagSpecificationProperty{
+//   	TagSpecifications: []TagSpecificationProperty{
+//   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
-//   			Tags: []cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -65,7 +65,7 @@ type CfnCapacityReservationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// The Availability Zone ID of the Capacity Reservation.
+	// The ID of the Availability Zone in which the capacity is reserved.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzoneid
 	//
 	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`

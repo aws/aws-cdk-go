@@ -4,8 +4,8 @@ package awsappsync
 // Invoke types for direct Lambda data sources.
 //
 // Example:
-//   var api eventApi
-//   var lambdaDataSource appSyncLambdaDataSource
+//   var api EventApi
+//   var lambdaDataSource AppSyncLambdaDataSource
 //
 //
 //   // Lambda data source for publish handler

@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var optionGroup optionGroup
-//   var roleRef iRoleRef
+//   var optionGroup OptionGroup
+//   var roleRef IRoleRef
 //
 //   instanceEngineBindOptions := &InstanceEngineBindOptions{
 //   	Domain: jsii.String("domain"),

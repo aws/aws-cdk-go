@@ -13,7 +13,7 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api graphqlApi
+//   var api GraphqlApi
 //
 //
 //   user := iam.NewUser(this, jsii.String("User"))

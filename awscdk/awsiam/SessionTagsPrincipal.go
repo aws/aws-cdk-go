@@ -15,7 +15,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var principal iPrincipal
+//   var principal IPrincipal
 //
 //   sessionTagsPrincipal := awscdk.Aws_iam.NewSessionTagsPrincipal(principal)
 //

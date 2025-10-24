@@ -19,8 +19,8 @@ import (
 //   cfnContactList := awscdk.Aws_ses.NewCfnContactList(this, jsii.String("MyCfnContactList"), &CfnContactListProps{
 //   	ContactListName: jsii.String("contactListName"),
 //   	Description: jsii.String("description"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

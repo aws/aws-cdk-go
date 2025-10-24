@@ -4,11 +4,11 @@ package awsecs
 // Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 //
 // Example:
-//   var container containerDefinition
+//   var container ContainerDefinition
 //
 //
 //   container.AddPortMappings(&PortMapping{
-//   	ContainerPort: ecs.*containerDefinition_CONTAINER_PORT_USE_RANGE(),
+//   	ContainerPort: ecs.ContainerDefinition_CONTAINER_PORT_USE_RANGE(),
 //   	ContainerPortRange: jsii.String("8080-8081"),
 //   })
 //

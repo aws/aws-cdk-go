@@ -5,15 +5,15 @@ package awsappmesh
 //
 // Example:
 //   // A Virtual Node with listener TLS from an ACM provided certificate
-//   var cert certificate
-//   var mesh mesh
+//   var cert Certificate
+//   var mesh Mesh
 //
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 //   	Mesh: Mesh,
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node")),
-//   	Listeners: []virtualNodeListener{
-//   		appmesh.*virtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
 //   			Port: jsii.Number(80),
 //   			Tls: &ListenerTlsOptions{
 //   				Mode: appmesh.TlsMode_STRICT,
@@ -26,8 +26,8 @@ package awsappmesh
 //   // A Virtual Gateway with listener TLS from a customer provided file certificate
 //   gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatewayProps{
 //   	Mesh: Mesh,
-//   	Listeners: []virtualGatewayListener{
-//   		appmesh.*virtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
+//   	Listeners: []VirtualGatewayListener{
+//   		appmesh.VirtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
 //   			Port: jsii.Number(8080),
 //   			Tls: &ListenerTlsOptions{
 //   				Mode: appmesh.TlsMode_STRICT,
@@ -41,8 +41,8 @@ package awsappmesh
 //   // A Virtual Gateway with listener TLS from a SDS provided certificate
 //   gateway2 := appmesh.NewVirtualGateway(this, jsii.String("gateway2"), &VirtualGatewayProps{
 //   	Mesh: Mesh,
-//   	Listeners: []*virtualGatewayListener{
-//   		appmesh.*virtualGatewayListener_Http2(&Http2GatewayListenerOptions{
+//   	Listeners: []VirtualGatewayListener{
+//   		appmesh.VirtualGatewayListener_Http2(&Http2GatewayListenerOptions{
 //   			Port: jsii.Number(8080),
 //   			Tls: &ListenerTlsOptions{
 //   				Mode: appmesh.TlsMode_STRICT,

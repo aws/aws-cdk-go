@@ -4,7 +4,7 @@ package awscodebuild
 // The type of reports in the report group.
 //
 // Example:
-//   var source source
+//   var source Source
 //
 //
 //   // create a new ReportGroup

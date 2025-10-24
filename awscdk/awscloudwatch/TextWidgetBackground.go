@@ -4,7 +4,7 @@ package awscloudwatch
 // Background types available.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{

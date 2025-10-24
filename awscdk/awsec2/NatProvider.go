@@ -11,7 +11,7 @@ import (
 // instance.
 //
 // Example:
-//   var instanceType instanceType
+//   var instanceType InstanceType
 //
 //
 //   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{

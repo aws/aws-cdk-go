@@ -571,8 +571,8 @@ import (
 //   	LanguageCode: jsii.String("languageCode"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Schedule: jsii.String("schedule"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -1170,25 +1170,6 @@ func (j *jsiiProxy_CfnDataSource)SetType(val *string) {
 		"type",
 		val,
 	)
-}
-
-// Creates a new IDataSourceRef from an ARN.
-func CfnDataSource_FromDataSourceArn(scope constructs.Construct, id *string, arn *string) IDataSourceRef {
-	_init_.Initialize()
-
-	if err := validateCfnDataSource_FromDataSourceArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDataSourceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
-		"fromDataSourceArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

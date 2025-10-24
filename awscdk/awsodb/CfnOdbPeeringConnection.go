@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a peering connection between an ODB network and either another ODB network or a customer-owned VPC.
+// Creates a peering connection between an ODB network and a VPC.
 //
 // A peering connection enables private connectivity between the networks for application-tier communication.
 //
@@ -22,8 +22,8 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

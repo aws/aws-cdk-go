@@ -8,7 +8,7 @@ import (
 // A backup plan rule.
 //
 // Example:
-//   var plan backupPlan
+//   var plan BackupPlan
 //
 //   plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 //   	EnableContinuousBackup: jsii.Boolean(true),

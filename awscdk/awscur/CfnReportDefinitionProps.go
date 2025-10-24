@@ -30,8 +30,8 @@ import (
 //   		jsii.String("additionalSchemaElements"),
 //   	},
 //   	BillingViewArn: jsii.String("billingViewArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

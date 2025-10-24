@@ -79,7 +79,7 @@ type CfnApplication interface {
 	// A human-readable label for the application.
 	Description() *string
 	SetDescription(val *string)
-	// The path and file name of the executable file that launches the content for streaming.
+	// The relative path and file name of the executable file that Amazon GameLift Streams will stream.
 	ExecutablePath() *string
 	SetExecutablePath(val *string)
 	// The logical ID for this CloudFormation stack element.

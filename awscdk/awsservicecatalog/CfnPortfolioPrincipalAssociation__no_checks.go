@@ -80,14 +80,6 @@ func validateCfnPortfolioPrincipalAssociation_IsConstructParameters(x interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPortfolioIdParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPrincipalArnParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPrincipalTypeParameters(val *string) error {
 	return nil
 }

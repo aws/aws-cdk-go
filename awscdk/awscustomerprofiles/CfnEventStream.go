@@ -22,8 +22,8 @@ import (
 //   	Uri: jsii.String("uri"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -531,25 +531,6 @@ func (j *jsiiProxy_CfnEventStream)SetUri(val *string) {
 		"uri",
 		val,
 	)
-}
-
-// Creates a new IEventStreamRef from an ARN.
-func CfnEventStream_FromEventStreamArn(scope constructs.Construct, id *string, arn *string) IEventStreamRef {
-	_init_.Initialize()
-
-	if err := validateCfnEventStream_FromEventStreamArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IEventStreamRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnEventStream",
-		"fromEventStreamArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -7,15 +7,15 @@ package awss3
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &BucketProps{
-//   	Inventories: []inventory{
-//   		&inventory{
+//   	Inventories: []Inventory{
+//   		&Inventory{
 //   			Frequency: s3.InventoryFrequency_DAILY,
 //   			IncludeObjectVersions: s3.InventoryObjectVersion_CURRENT,
 //   			Destination: &InventoryDestination{
 //   				Bucket: inventoryBucket,
 //   			},
 //   		},
-//   		&inventory{
+//   		&Inventory{
 //   			Frequency: s3.InventoryFrequency_WEEKLY,
 //   			IncludeObjectVersions: s3.InventoryObjectVersion_ALL,
 //   			Destination: &InventoryDestination{

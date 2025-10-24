@@ -14,12 +14,12 @@ import (
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var lambdaHook function
-//   var blueTargetGroup applicationTargetGroup
-//   var greenTargetGroup applicationTargetGroup
-//   var prodListenerRule applicationListenerRule
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var lambdaHook Function
+//   var blueTargetGroup ApplicationTargetGroup
+//   var greenTargetGroup ApplicationTargetGroup
+//   var prodListenerRule ApplicationListenerRule
 //
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
@@ -29,8 +29,8 @@ import (
 //   })
 //
 //   service.AddLifecycleHook(ecs.NewDeploymentLifecycleLambdaTarget(lambdaHook, jsii.String("PreScaleHook"), &DeploymentLifecycleLambdaTargetProps{
-//   	LifecycleStages: []deploymentLifecycleStage{
-//   		ecs.*deploymentLifecycleStage_PRE_SCALE_UP,
+//   	LifecycleStages: []DeploymentLifecycleStage{
+//   		ecs.DeploymentLifecycleStage_PRE_SCALE_UP,
 //   	},
 //   }))
 //

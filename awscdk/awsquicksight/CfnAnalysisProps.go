@@ -24,7 +24,7 @@ type CfnAnalysisProps struct {
 	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// A descriptive name for the analysis that you're creating.
 	//
-	// This name displays for the analysis in the Amazon QuickSight console.
+	// This name displays for the analysis in the Amazon Quick Sight console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -74,7 +74,7 @@ type CfnAnalysisProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN for the theme to apply to the analysis that you're creating.
 	//
-	// To see the theme in the Amazon QuickSight console, make sure that you have access to it.
+	// To see the theme in the Amazon Quick Sight console, make sure that you have access to it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
 	//
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`

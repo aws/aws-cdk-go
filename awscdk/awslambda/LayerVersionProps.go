@@ -8,9 +8,9 @@ import (
 //   lambda.NewLayerVersion(this, jsii.String("MyLayer"), &LayerVersionProps{
 //   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-//   	CompatibleArchitectures: []architecture{
-//   		lambda.*architecture_X86_64(),
-//   		lambda.*architecture_ARM_64(),
+//   	CompatibleArchitectures: []Architecture{
+//   		lambda.Architecture_X86_64(),
+//   		lambda.Architecture_ARM_64(),
 //   	},
 //   })
 //

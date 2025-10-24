@@ -17,11 +17,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var databaseProxy databaseProxy
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var databaseProxy DatabaseProxy
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   databaseProxyEndpoint := awscdk.Aws_rds.NewDatabaseProxyEndpoint(this, jsii.String("MyDatabaseProxyEndpoint"), &DatabaseProxyEndpointProps{
 //   	DbProxy: databaseProxy,
@@ -29,7 +29,7 @@ import (
 //
 //   	// the properties below are optional
 //   	DbProxyEndpointName: jsii.String("dbProxyEndpointName"),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	TargetRole: awscdk.*Aws_rds.ProxyEndpointTargetRole_READ_WRITE,
@@ -38,11 +38,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

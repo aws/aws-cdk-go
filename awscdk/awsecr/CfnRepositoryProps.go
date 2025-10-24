@@ -37,8 +37,8 @@ import (
 //   	},
 //   	RepositoryName: jsii.String("repositoryName"),
 //   	RepositoryPolicyText: repositoryPolicyText,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -60,9 +60,11 @@ type CfnRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
-	// The image scanning configuration for the repository.
+	// > The `imageScanningConfiguration` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level.
 	//
-	// This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+	// For more information, see `PutRegistryScanningConfiguration` .
+	//
+	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
 	//
 	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
@@ -72,9 +74,7 @@ type CfnRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
 	//
 	ImageTagMutability *string `field:"optional" json:"imageTagMutability" yaml:"imageTagMutability"`
-	// The image tag mutability exclusion filters associated with the repository.
-	//
-	// These filters specify which image tags can override the repository's default image tag mutability setting.
+	// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutabilityexclusionfilters
 	//
 	ImageTagMutabilityExclusionFilters interface{} `field:"optional" json:"imageTagMutabilityExclusionFilters" yaml:"imageTagMutabilityExclusionFilters"`

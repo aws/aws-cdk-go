@@ -19,4 +19,5 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__constructsIConstruct = constructs.IConstruct
 type Type__awscdkIResource = awscdk.IResource
+type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awsapplicationautoscalingBaseScalableAttribute = awsapplicationautoscaling.BaseScalableAttribute

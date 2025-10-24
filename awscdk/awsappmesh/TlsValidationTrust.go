@@ -11,15 +11,15 @@ import (
 // Defines the TLS Validation Context Trust.
 //
 // Example:
-//   var mesh mesh
-//   var service service
+//   var mesh Mesh
+//   var service Service
 //
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 //   	Mesh: Mesh,
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-//   	Listeners: []virtualNodeListener{
-//   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 //   			Port: jsii.Number(8080),
 //   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 //   				HealthyThreshold: jsii.Number(3),

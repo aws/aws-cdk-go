@@ -19,7 +19,7 @@ package awsquicksight
 type CfnTemplate_DonutCenterOptionsProperty struct {
 	// Determines the visibility of the label in a donut chart.
 	//
-	// In the Amazon QuickSight console, this option is called `'Show total'` .
+	// In the Quick Sight console, this option is called `'Show total'` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-donutcenteroptions.html#cfn-quicksight-template-donutcenteroptions-labelvisibility
 	//
 	LabelVisibility *string `field:"optional" json:"labelVisibility" yaml:"labelVisibility"`

@@ -18,7 +18,7 @@ import (
 //   import gamelift_alpha "github.com/aws/aws-cdk-go/awscdkgameliftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3Content := gamelift_alpha.NewS3Content(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //

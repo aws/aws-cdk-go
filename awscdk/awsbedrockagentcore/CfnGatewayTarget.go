@@ -9,8 +9,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > Amazon Bedrock AgentCore is in preview release and is subject to change.
-//
 // After creating a gateway, you can add targets, which define the tools that your gateway will host.
 //
 // For more information about adding gateway targets, see [Add targets to an existing gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-adding-targets.html) .
@@ -22,7 +20,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var schemaDefinitionProperty_ schemaDefinitionProperty
+//   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   cfnGatewayTarget := awscdk.Aws_bedrockagentcore.NewCfnGatewayTarget(this, jsii.String("MyCfnGatewayTarget"), &CfnGatewayTargetProps{
 //   	CredentialProviderConfigurations: []interface{}{
@@ -62,7 +60,7 @@ import (
 //   					InlinePayload: []interface{}{
 //   						&ToolDefinitionProperty{
 //   							Description: jsii.String("description"),
-//   							InputSchema: &schemaDefinitionProperty{
+//   							InputSchema: &SchemaDefinitionProperty{
 //   								Type: jsii.String("type"),
 //
 //   								// the properties below are optional
@@ -78,7 +76,7 @@ import (
 //   							Name: jsii.String("name"),
 //
 //   							// the properties below are optional
-//   							OutputSchema: &schemaDefinitionProperty{
+//   							OutputSchema: &SchemaDefinitionProperty{
 //   								Type: jsii.String("type"),
 //
 //   								// the properties below are optional

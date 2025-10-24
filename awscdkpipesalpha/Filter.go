@@ -8,11 +8,11 @@ import (
 // The collection of event patterns used to filter events.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
 //
-//   sourceFilter := pipes.NewFilter([]iFilterPattern{
+//   sourceFilter := pipes.NewFilter([]IFilterPattern{
 //   	pipes.FilterPattern_FromObject(map[string]interface{}{
 //   		"body": map[string][]*string{
 //   			// only forward events with customerType B2B or B2C

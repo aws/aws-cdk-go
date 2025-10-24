@@ -67,8 +67,8 @@ import (
 //   			KmsArn: jsii.String("kmsArn"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

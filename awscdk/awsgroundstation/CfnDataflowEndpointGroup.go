@@ -68,8 +68,8 @@ import (
 //   	// the properties below are optional
 //   	ContactPostPassDurationSeconds: jsii.Number(123),
 //   	ContactPrePassDurationSeconds: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

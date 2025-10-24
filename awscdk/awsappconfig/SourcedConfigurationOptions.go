@@ -14,12 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationSource configurationSource
-//   var deploymentStrategy deploymentStrategy
-//   var environment environment
-//   var key key
-//   var roleRef iRoleRef
-//   var validator iValidator
+//   var configurationSource ConfigurationSource
+//   var deploymentStrategy DeploymentStrategy
+//   var environment Environment
+//   var key Key
+//   var roleRef IRoleRef
+//   var validator IValidator
 //
 //   sourcedConfigurationOptions := &SourcedConfigurationOptions{
 //   	Location: configurationSource,
@@ -28,14 +28,14 @@ import (
 //   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	DeploymentKey: key,
 //   	DeploymentStrategy: deploymentStrategy,
-//   	DeployTo: []iEnvironment{
+//   	DeployTo: []IEnvironment{
 //   		environment,
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	RetrievalRole: roleRef,
 //   	Type: awscdk.*Aws_appconfig.ConfigurationType_FREEFORM,
-//   	Validators: []*iValidator{
+//   	Validators: []IValidator{
 //   		validator,
 //   	},
 //   	VersionNumber: jsii.String("versionNumber"),

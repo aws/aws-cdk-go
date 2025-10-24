@@ -17,8 +17,8 @@ import (
 //   	// the properties below are optional
 //   	DisplayName: jsii.String("displayName"),
 //   	MetricName: jsii.String("metricName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

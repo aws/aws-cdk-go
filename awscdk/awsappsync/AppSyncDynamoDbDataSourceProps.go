@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var role role
-//   var table table
+//   var api IApi
+//   var role Role
+//   var table Table
 //
 //   appSyncDynamoDbDataSourceProps := &AppSyncDynamoDbDataSourceProps{
 //   	Api: api,

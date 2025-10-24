@@ -562,8 +562,8 @@ import (
 //   	LanguageCode: jsii.String("languageCode"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Schedule: jsii.String("schedule"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

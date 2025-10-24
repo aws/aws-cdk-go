@@ -8,7 +8,7 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var schemaDefinitionProperty_ schemaDefinitionProperty
+//   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   mcpLambdaTargetConfigurationProperty := &McpLambdaTargetConfigurationProperty{
 //   	LambdaArn: jsii.String("lambdaArn"),
@@ -16,7 +16,7 @@ package awsbedrockagentcore
 //   		InlinePayload: []interface{}{
 //   			&ToolDefinitionProperty{
 //   				Description: jsii.String("description"),
-//   				InputSchema: &schemaDefinitionProperty{
+//   				InputSchema: &SchemaDefinitionProperty{
 //   					Type: jsii.String("type"),
 //
 //   					// the properties below are optional
@@ -32,7 +32,7 @@ package awsbedrockagentcore
 //   				Name: jsii.String("name"),
 //
 //   				// the properties below are optional
-//   				OutputSchema: &schemaDefinitionProperty{
+//   				OutputSchema: &SchemaDefinitionProperty{
 //   					Type: jsii.String("type"),
 //
 //   					// the properties below are optional

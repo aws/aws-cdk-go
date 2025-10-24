@@ -17,6 +17,9 @@ package awsconnect
 //
 //   		// the properties below are optional
 //   		Automation: &EvaluationFormNumericQuestionAutomationProperty{
+//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   				SourceType: jsii.String("sourceType"),
+//   			},
 //   			PropertyValue: &NumericQuestionPropertyValueAutomationProperty{
 //   				Label: jsii.String("label"),
 //   			},
@@ -28,6 +31,9 @@ package awsconnect
 //
 //   				// the properties below are optional
 //   				AutomaticFail: jsii.Boolean(false),
+//   				AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   					TargetSection: jsii.String("targetSection"),
+//   				},
 //   				Score: jsii.Number(123),
 //   			},
 //   		},
@@ -40,6 +46,9 @@ package awsconnect
 //
 //   				// the properties below are optional
 //   				AutomaticFail: jsii.Boolean(false),
+//   				AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   					TargetSection: jsii.String("targetSection"),
+//   				},
 //   				Score: jsii.Number(123),
 //   			},
 //   		},
@@ -57,9 +66,19 @@ package awsconnect
 //   			},
 //
 //   			// the properties below are optional
+//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   				SourceType: jsii.String("sourceType"),
+//   			},
 //   			DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   		},
 //   		DisplayAs: jsii.String("displayAs"),
+//   	},
+//   	Text: &EvaluationFormTextQuestionPropertiesProperty{
+//   		Automation: &EvaluationFormTextQuestionAutomationProperty{
+//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   				SourceType: jsii.String("sourceType"),
+//   			},
+//   		},
 //   	},
 //   }
 //
@@ -74,5 +93,8 @@ type CfnEvaluationForm_EvaluationFormQuestionTypePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-singleselect
 	//
 	SingleSelect interface{} `field:"optional" json:"singleSelect" yaml:"singleSelect"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-text
+	//
+	Text interface{} `field:"optional" json:"text" yaml:"text"`
 }
 

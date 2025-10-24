@@ -20,8 +20,8 @@ import (
 //   import codecommit "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // add a source action to the stage
-//   var repo repository
-//   var sourceArtifact artifact
+//   var repo Repository
+//   var sourceArtifact Artifact
 //
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("Pipeline"))

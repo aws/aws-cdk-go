@@ -13,15 +13,15 @@ import (
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var lambdaFunction function
-//   var lb applicationLoadBalancer
+//   var lambdaFunction Function
+//   var lb ApplicationLoadBalancer
 //
 //
 //   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
 //   })
 //   listener.AddTargets(jsii.String("Targets"), &AddApplicationTargetsProps{
-//   	Targets: []iApplicationLoadBalancerTarget{
+//   	Targets: []IApplicationLoadBalancerTarget{
 //   		targets.NewLambdaTarget(lambdaFunction),
 //   	},
 //

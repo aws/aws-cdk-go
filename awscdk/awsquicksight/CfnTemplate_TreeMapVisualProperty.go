@@ -3,7 +3,7 @@ package awsquicksight
 
 // A tree map.
 //
-// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

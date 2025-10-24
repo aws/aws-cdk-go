@@ -7,11 +7,11 @@ import (
 // The properties for the destination bucket for granting replication permission.
 //
 // Example:
-//   var destinationBucket1 iBucket
-//   var destinationBucket2 iBucket
-//   var replicationRole iRole
-//   var encryptionKey iKey
-//   var destinationEncryptionKey iKey
+//   var destinationBucket1 IBucket
+//   var destinationBucket2 IBucket
+//   var replicationRole IRole
+//   var encryptionKey IKey
+//   var destinationEncryptionKey IKey
 //
 //
 //   sourceBucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
@@ -21,8 +21,8 @@ import (
 //   	EncryptionKey: EncryptionKey,
 //   	// Optional. If not specified, a new role will be created.
 //   	ReplicationRole: ReplicationRole,
-//   	ReplicationRules: []replicationRule{
-//   		&replicationRule{
+//   	ReplicationRules: []ReplicationRule{
+//   		&ReplicationRule{
 //   			// The destination bucket for the replication rule.
 //   			Destination: destinationBucket1,
 //   			// The priority of the rule.
@@ -32,7 +32,7 @@ import (
 //   			// It is essential to specify priority explicitly when the replication configuration has multiple rules.
 //   			Priority: jsii.Number(1),
 //   		},
-//   		&replicationRule{
+//   		&ReplicationRule{
 //   			Destination: destinationBucket2,
 //   			Priority: jsii.Number(2),
 //   			// Whether to specify S3 Replication Time Control (S3 RTC).
@@ -60,8 +60,8 @@ import (
 //   				// The prefix filter for the rule.
 //   				Prefix: jsii.String("prefix"),
 //   				// The tag filter for the rule.
-//   				Tags: []tag{
-//   					&tag{
+//   				Tags: []Tag{
+//   					&Tag{
 //   						Key: jsii.String("tagKey"),
 //   						Value: jsii.String("tagValue"),
 //   					},
@@ -76,11 +76,11 @@ import (
 //   sourceBucket.GrantReplicationPermission(replicationRole, &GrantReplicationPermissionProps{
 //   	// Optional. Specify the KMS key to use for decrypting objects in the source bucket.
 //   	SourceDecryptionKey: encryptionKey,
-//   	Destinations: []grantReplicationPermissionDestinationProps{
-//   		&grantReplicationPermissionDestinationProps{
+//   	Destinations: []GrantReplicationPermissionDestinationProps{
+//   		&GrantReplicationPermissionDestinationProps{
 //   			Bucket: destinationBucket1,
 //   		},
-//   		&grantReplicationPermissionDestinationProps{
+//   		&GrantReplicationPermissionDestinationProps{
 //   			Bucket: destinationBucket2,
 //   			EncryptionKey: destinationEncryptionKey,
 //   		},

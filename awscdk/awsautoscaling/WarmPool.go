@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //   warmPool := awscdk.Aws_autoscaling.NewWarmPool(this, jsii.String("MyWarmPool"), &WarmPoolProps{
 //   	AutoScalingGroup: autoScalingGroup,

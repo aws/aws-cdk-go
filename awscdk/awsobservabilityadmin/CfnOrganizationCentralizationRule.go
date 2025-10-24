@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS:ObservabilityAdmin:OrganizationCentralizationRule.
+// Defines how telemetry data should be centralized across an AWS Organization, including source and destination configurations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,8 +55,8 @@ import (
 //   	RuleName: jsii.String("ruleName"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -70,6 +70,7 @@ type CfnOrganizationCentralizationRule interface {
 	IOrganizationCentralizationRuleRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the organization centralization rule.
 	AttrRuleArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -103,13 +104,14 @@ type CfnOrganizationCentralizationRule interface {
 	Ref() *string
 	Rule() interface{}
 	SetRule(val interface{})
+	// The name of the organization centralization rule.
 	RuleName() *string
 	SetRuleName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// A key-value pair to filter resources based on tags associated with the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -12,8 +12,8 @@ import (
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
-//   var subnet subnet
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
 //
 //   connectionOptions := &ConnectionOptions{
 //   	ConnectionName: jsii.String("connectionName"),
@@ -24,7 +24,7 @@ import (
 //   	Properties: map[string]*string{
 //   		"propertiesKey": jsii.String("properties"),
 //   	},
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	Subnet: subnet,

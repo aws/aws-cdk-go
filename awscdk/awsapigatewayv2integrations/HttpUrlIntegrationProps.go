@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameterMapping parameterMapping
+//   var parameterMapping ParameterMapping
 //
 //   httpUrlIntegrationProps := &HttpUrlIntegrationProps{
 //   	Method: awscdk.Aws_apigatewayv2.HttpMethod_ANY,

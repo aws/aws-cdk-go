@@ -4,7 +4,7 @@ package awsec2
 // What generation of Amazon Linux to use.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{

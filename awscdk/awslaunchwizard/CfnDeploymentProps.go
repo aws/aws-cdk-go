@@ -20,8 +20,8 @@ import (
 //   	Specifications: map[string]*string{
 //   		"specificationsKey": jsii.String("specifications"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

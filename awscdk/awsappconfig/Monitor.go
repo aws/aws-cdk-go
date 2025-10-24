@@ -11,16 +11,16 @@ import (
 // Defines monitors that will be associated with an AWS AppConfig environment.
 //
 // Example:
-//   var application application
-//   var alarm alarm
-//   var compositeAlarm compositeAlarm
+//   var application Application
+//   var alarm Alarm
+//   var compositeAlarm CompositeAlarm
 //
 //
 //   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 //   	Application: Application,
-//   	Monitors: []monitor{
-//   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
-//   		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
+//   	Monitors: []Monitor{
+//   		appconfig.Monitor_FromCloudWatchAlarm(alarm),
+//   		appconfig.Monitor_*FromCloudWatchAlarm(compositeAlarm),
 //   	},
 //   })
 //

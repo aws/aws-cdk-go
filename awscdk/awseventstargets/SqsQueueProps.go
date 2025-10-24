@@ -16,8 +16,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
-//   var ruleTargetInput ruleTargetInput
+//   var queue Queue
+//   var ruleTargetInput RuleTargetInput
 //
 //   sqsQueueProps := &SqsQueueProps{
 //   	DeadLetterQueue: queue,

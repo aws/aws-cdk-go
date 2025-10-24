@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // The IP address type of targets registered with a target group.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ipv4ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("IPv4ApplicationTargetGroup"), &ApplicationTargetGroupProps{

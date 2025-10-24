@@ -56,7 +56,7 @@ A layer can also be used as a part of a `PythonFunction`:
 python.NewPythonFunction(this, jsii.String("MyFunction"), &PythonFunctionProps{
 	Entry: jsii.String("/path/to/my/function"),
 	Runtime: awscdk.Runtime_PYTHON_3_8(),
-	Layers: []iLayerVersion{
+	Layers: []ILayerVersion{
 		python.NewPythonLayerVersion(this, jsii.String("MyLayer"), &PythonLayerVersionProps{
 			Entry: jsii.String("/path/to/my/layer"),
 		}),
@@ -224,8 +224,8 @@ python.NewPythonFunction(this, jsii.String("function"), &PythonFunctionProps{
 		VolumesFrom: []*string{
 			jsii.String("777f7dc92da7"),
 		},
-		Volumes: []dockerVolume{
-			&dockerVolume{
+		Volumes: []DockerVolume{
+			&DockerVolume{
 				HostPath: jsii.String("/host-path"),
 				ContainerPath: jsii.String("/container-path"),
 			},

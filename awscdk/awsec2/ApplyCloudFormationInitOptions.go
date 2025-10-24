@@ -7,9 +7,9 @@ import (
 // Options for applying CloudFormation init to an instance or instance group.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
@@ -27,7 +27,7 @@ import (
 //   				jsii.String("config"),
 //   			},
 //   		},
-//   		Configs: map[string]initConfig{
+//   		Configs: map[string]InitConfig{
 //   			"yumPreinstall": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitPackage_yum(jsii.String("git")),
 //   			}),

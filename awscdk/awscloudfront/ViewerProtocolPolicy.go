@@ -5,7 +5,7 @@ package awscloudfront
 //
 // Example:
 //   // Create a Distribution with configured HTTP methods and viewer protocol policy of the cache.
-//   var myBucket bucket
+//   var myBucket Bucket
 //
 //   myWebDistribution := cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{

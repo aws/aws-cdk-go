@@ -8,7 +8,7 @@ import (
 // The mode of evaluation for the rule.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //   var samplePolicyText string
 //
 //

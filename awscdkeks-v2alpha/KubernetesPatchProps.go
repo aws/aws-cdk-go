@@ -4,7 +4,7 @@ package awscdkeks-v2alpha
 // Properties for KubernetesPatch.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   eks.NewKubernetesPatch(this, jsii.String("hello-kub-deployment-label"), &KubernetesPatchProps{
 //   	Cluster: Cluster,

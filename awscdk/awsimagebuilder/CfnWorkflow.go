@@ -41,6 +41,16 @@ type CfnWorkflow interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the workflow resource.
 	AttrArn() *string
+	// The latest version references of the workflow.
+	AttrLatestVersion() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the workflow resource.
+	AttrLatestVersionArn() *string
+	// The latest version ARN of the created workflow, with the same major version.
+	AttrLatestVersionMajor() *string
+	// The latest version ARN of the created workflow, with the same minor version.
+	AttrLatestVersionMinor() *string
+	// The latest version ARN of the created workflow, with the same patch version.
+	AttrLatestVersionPatch() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -257,6 +267,56 @@ func (j *jsiiProxy_CfnWorkflow) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) AttrLatestVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLatestVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) AttrLatestVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) AttrLatestVersionMajor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMajor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) AttrLatestVersionMinor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMinor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) AttrLatestVersionPatch() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionPatch",
 		&returns,
 	)
 	return returns

@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::ObservabilityAdmin::TelemetryRule resource defines a CloudWatch Observability Admin Telemetry Rule.
+// Creates a telemetry rule that defines how telemetry should be configured for AWS resources in your account.
+//
+// The rule specifies which resources should have telemetry enabled and how that telemetry data should be collected based on resource type, telemetry type, and selection criteria.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,8 +39,8 @@ import (
 //   	RuleName: jsii.String("ruleName"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -52,7 +54,7 @@ type CfnTelemetryRule interface {
 	ITelemetryRuleRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The arn of the telemetry rule.
+	// The Amazon Resource Name (ARN) of the telemetry rule.
 	AttrRuleArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -82,7 +84,7 @@ type CfnTelemetryRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The telemetry rule.
+	// Retrieves the details of a specific telemetry rule in your account.
 	Rule() interface{}
 	SetRule(val interface{})
 	// The name of the telemetry rule.
@@ -92,7 +94,7 @@ type CfnTelemetryRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Lists all tags attached to the specified telemetry rule resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a TelemetryRule resource.

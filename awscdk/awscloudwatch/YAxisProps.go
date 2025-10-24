@@ -4,13 +4,13 @@ package awscloudwatch
 // Properties for a Y-Axis.
 //
 // Example:
-//   var dashboard dashboard
-//   var errorAlarm alarm
-//   var gaugeMetric metric
+//   var dashboard Dashboard
+//   var errorAlarm Alarm
+//   var gaugeMetric Metric
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewGaugeWidget(&GaugeWidgetProps{
-//   	Metrics: []iMetric{
+//   	Metrics: []IMetric{
 //   		gaugeMetric,
 //   	},
 //   	LeftYAxis: &YAxisProps{

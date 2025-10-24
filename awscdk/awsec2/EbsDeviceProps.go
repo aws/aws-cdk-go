@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
+//   var key Key
 //
 //   ebsDeviceProps := &EbsDeviceProps{
 //   	DeleteOnTermination: jsii.Boolean(false),

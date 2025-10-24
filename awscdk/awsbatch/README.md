@@ -73,8 +73,8 @@ vpc := ec2.NewVpc(this, jsii.String("VPC"))
 
 batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 	Vpc: Vpc,
-	DefaultInstanceClasses: []defaultInstanceClass{
-		batch.*defaultInstanceClass_ARM64,
+	DefaultInstanceClasses: []DefaultInstanceClass{
+		batch.DefaultInstanceClass_ARM64,
 	},
 })
 ```
@@ -86,8 +86,8 @@ vpc := ec2.NewVpc(this, jsii.String("VPC"))
 
 batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 	Vpc: Vpc,
-	InstanceTypes: []instanceType{
-		ec2.*instanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE),
+	InstanceTypes: []InstanceType{
+		ec2.InstanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE),
 	},
 })
 ```
@@ -95,15 +95,15 @@ batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &
 Batch allows you to specify only the instance class and to let it choose the size, which you can do like this:
 
 ```go
-var computeEnv iManagedEc2EcsComputeEnvironment
+var computeEnv IManagedEc2EcsComputeEnvironment
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
 computeEnv.AddInstanceClass(ec2.InstanceClass_M5AD)
 // Or, specify it on the constructor:
 // Or, specify it on the constructor:
 batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 	Vpc: Vpc,
-	InstanceClasses: []instanceClass{
-		ec2.*instanceClass_R4,
+	InstanceClasses: []InstanceClass{
+		ec2.InstanceClass_R4,
 	},
 })
 ```
@@ -119,19 +119,19 @@ because `A1` uses ARM and `'optimal'` uses x86_64.
 You can specify both `'optimal'` alongside several different instance types in the same compute environment:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
-	InstanceTypes: []instanceType{
-		ec2.*instanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE),
+	InstanceTypes: []InstanceType{
+		ec2.InstanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE),
 	},
 	UseOptimalInstanceClasses: jsii.Boolean(true),
 	 // default
 	Vpc: Vpc,
 })
 // Note: this is equivalent to specifying
-computeEnv.AddInstanceType(ec2.instanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE))
+computeEnv.AddInstanceType(ec2.InstanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE))
 computeEnv.AddInstanceClass(ec2.InstanceClass_C4)
 computeEnv.AddInstanceClass(ec2.InstanceClass_M4)
 computeEnv.AddInstanceClass(ec2.InstanceClass_R4)
@@ -142,13 +142,13 @@ computeEnv.AddInstanceClass(ec2.InstanceClass_R4)
 You can configure Amazon Machine Images (AMIs). This example configures your `ComputeEnvironment` to use Amazon Linux 2023.
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 	Vpc: Vpc,
-	Images: []ecsMachineImage{
-		&ecsMachineImage{
+	Images: []EcsMachineImage{
+		&EcsMachineImage{
 			ImageType: batch.EcsMachineImageType_ECS_AL2023,
 		},
 	},
@@ -196,13 +196,13 @@ This example shows a `ComputeEnvironment` that uses `BEST_FIT_PROGRESSIVE`
 with `'optimal'` and `InstanceClass.M5` instance types:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 	Vpc: Vpc,
-	InstanceClasses: []instanceClass{
-		ec2.*instanceClass_M5,
+	InstanceClasses: []InstanceClass{
+		ec2.InstanceClass_M5,
 	},
 })
 ```
@@ -210,7 +210,7 @@ computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2C
 This example shows a `ComputeEnvironment` that uses `BEST_FIT` with `'optimal'` instances:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
@@ -232,13 +232,13 @@ batch may exceed `maxvCpus`; it will never exceed `maxvCpus` by more than a sing
 `minvCpus` of 10 and a `maxvCpus` of 100:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 	Vpc: Vpc,
-	InstanceClasses: []instanceClass{
-		ec2.*instanceClass_R4,
+	InstanceClasses: []InstanceClass{
+		ec2.InstanceClass_R4,
 	},
 	MinvCpus: jsii.Number(10),
 	MaxvCpus: jsii.Number(100),
@@ -250,7 +250,7 @@ batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &
 You can tag any instances launched by your managed EC2 ComputeEnvironments by using the CDK `Tags` API:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 tagCE := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("CEThatMakesTaggedInstnaces"), &ManagedEc2EcsComputeEnvironmentProps{
@@ -271,7 +271,7 @@ Batch will pick the Job from the Queue with the highest priority.
 This example creates two `JobQueue`s that share a `ComputeEnvironment`:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 sharedComputeEnv := batch.NewFargateComputeEnvironment(this, jsii.String("spotEnv"), &FargateComputeEnvironmentProps{
 	Vpc: Vpc,
@@ -295,8 +295,8 @@ specified state for longer than the specified time.
 
 ```go
 batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-	JobStateTimeLimitActions: []jobStateTimeLimitAction{
-		&jobStateTimeLimitAction{
+	JobStateTimeLimitActions: []JobStateTimeLimitAction{
+		&JobStateTimeLimitAction{
 			Action: batch.JobStateTimeLimitActionsAction_CANCEL,
 			MaxTime: cdk.Duration_Minutes(jsii.Number(10)),
 			Reason: batch.JobStateTimeLimitActionsReason_INSUFFICIENT_INSTANCE_CAPACITY,
@@ -452,16 +452,16 @@ This example specifies a `computeReservation` of 75% that will behave as explain
 ```go
 batch.NewFairshareSchedulingPolicy(this, jsii.String("myFairsharePolicy"), &FairshareSchedulingPolicyProps{
 	ComputeReservation: jsii.Number(75),
-	Shares: []share{
-		&share{
+	Shares: []Share{
+		&Share{
 			WeightFactor: jsii.Number(1),
 			ShareIdentifier: jsii.String("A"),
 		},
-		&share{
+		&Share{
 			WeightFactor: jsii.Number(0.5),
 			ShareIdentifier: jsii.String("B"),
 		},
-		&share{
+		&Share{
 			WeightFactor: jsii.Number(2),
 			ShareIdentifier: jsii.String("C"),
 		},
@@ -493,13 +493,13 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 		Cpu: jsii.Number(256),
 	}),
 	RetryAttempts: jsii.Number(5),
-	RetryStrategies: []retryStrategy{
-		batch.*retryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()),
+	RetryStrategies: []RetryStrategy{
+		batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()),
 	},
 })
-jobDefn.addRetryStrategy(batch.retryStrategy_Of(batch.Action_EXIT, batch.Reason_SPOT_INSTANCE_RECLAIMED()))
-jobDefn.addRetryStrategy(batch.retryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()))
-jobDefn.addRetryStrategy(batch.retryStrategy_Of(batch.Action_EXIT, batch.Reason_Custom(&CustomReason{
+jobDefn.addRetryStrategy(batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_SPOT_INSTANCE_RECLAIMED()))
+jobDefn.addRetryStrategy(batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()))
+jobDefn.addRetryStrategy(batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_Custom(&CustomReason{
 	OnExitCode: jsii.String("40*"),
 	OnReason: jsii.String("some reason"),
 })))
@@ -520,8 +520,8 @@ Batch can run jobs on ECS or EKS. ECS jobs can be defined as single container or
 This example creates a `JobDefinition` that runs a single container with ECS:
 
 ```go
-var myFileSystem iFileSystem
-var myJobRole role
+var myFileSystem IFileSystem
+var myJobRole Role
 
 myFileSystem.GrantRead(myJobRole)
 
@@ -530,8 +530,8 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 		Cpu: jsii.Number(256),
-		Volumes: []ecsVolume{
-			batch.*ecsVolume_Efs(&EfsVolumeOptions{
+		Volumes: []EcsVolume{
+			batch.EcsVolume_Efs(&EfsVolumeOptions{
 				Name: jsii.String("myVolume"),
 				FileSystem: myFileSystem,
 				ContainerPath: jsii.String("/Volumes/myVolume"),
@@ -547,8 +547,8 @@ For workflows that need persistent storage, batch supports mounting `Volume`s to
 You can both provision the volume and mount it to the container in a single operation:
 
 ```go
-var myFileSystem iFileSystem
-var jobDefn ecsJobDefinition
+var myFileSystem IFileSystem
+var jobDefn EcsJobDefinition
 
 
 jobDefn.Container.AddVolume(batch.EcsVolume_Efs(&EfsVolumeOptions{
@@ -614,7 +614,7 @@ The following example defines the `MY_SECRET_ENV_VAR` environment variable that 
 ARN of the Secret defined by `mySecret`:
 
 ```go
-var mySecret iSecret
+var mySecret ISecret
 
 
 jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
@@ -622,8 +622,8 @@ jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefini
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 		Cpu: jsii.Number(256),
-		Secrets: map[string]secret{
-			"MY_SECRET_ENV_VAR": batch.*secret_fromSecretsManager(mySecret),
+		Secrets: map[string]Secret{
+			"MY_SECRET_ENV_VAR": batch.Secret_fromSecretsManager(mySecret),
 		},
 	}),
 })
@@ -637,8 +637,8 @@ Batch also supports running workflows on EKS. The following example creates a `J
 jobDefn := batch.NewEksJobDefinition(this, jsii.String("eksf2"), &EksJobDefinitionProps{
 	Container: batch.NewEksContainerDefinition(this, jsii.String("container"), &EksContainerDefinitionProps{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-		Volumes: []eksVolume{
-			batch.*eksVolume_EmptyDir(&EmptyDirVolumeOptions{
+		Volumes: []EksVolume{
+			batch.EksVolume_EmptyDir(&EmptyDirVolumeOptions{
 				Name: jsii.String("myEmptyDirVolume"),
 				MountPath: jsii.String("/mount/path"),
 				Medium: batch.EmptyDirMediumType_MEMORY,
@@ -653,7 +653,7 @@ jobDefn := batch.NewEksJobDefinition(this, jsii.String("eksf2"), &EksJobDefiniti
 You can mount `Volume`s to these containers in a single operation:
 
 ```go
-var jobDefn eksJobDefinition
+var jobDefn EksJobDefinition
 
 jobDefn.Container.AddVolume(batch.EksVolume_EmptyDir(&EmptyDirVolumeOptions{
 	Name: jsii.String("emptyDir"),
@@ -690,8 +690,8 @@ In particular, the environment variable that tells the containers which one is t
 multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
 	 // optional, omit to let Batch choose the type for you
-	Containers: []multiNodeContainer{
-		&multiNodeContainer{
+	Containers: []MultiNodeContainer{
+		&MultiNodeContainer{
 			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
 				Image: ecs.ContainerImage_FromRegistry(jsii.String("yourregsitry.com/yourMPIImage:latest")),
 				Cpu: jsii.Number(256),
@@ -703,7 +703,7 @@ multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition
 	},
 })
 // convenience method
-multiNodeJob.AddContainer(&multiNodeContainer{
+multiNodeJob.AddContainer(&MultiNodeContainer{
 	StartNode: jsii.Number(6),
 	EndNode: jsii.Number(10),
 	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("multiContainer"), &EcsEc2ContainerDefinitionProps{
@@ -775,7 +775,7 @@ The alternative would be to use the `BEST_FIT_PROGRESSIVE` strategy in order for
 You can grant any Principal the `batch:submitJob` permission on both a job definition and a job queue like this:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
@@ -787,8 +787,8 @@ ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinit
 })
 
 queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-	ComputeEnvironments: []orderedComputeEnvironment{
-		&orderedComputeEnvironment{
+	ComputeEnvironments: []OrderedComputeEnvironment{
+		&OrderedComputeEnvironment{
 			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
 				Vpc: *Vpc,
 			}),

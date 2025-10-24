@@ -9,9 +9,9 @@ package awsiam
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
-//   var grantable iGrantable
-//   var principal iPrincipal
-//   var resourceWithPolicy iResourceWithPolicy
+//   var grantable IGrantable
+//   var principal IPrincipal
+//   var resourceWithPolicy IResourceWithPolicy
 //
 //   grantOnPrincipalAndResourceOptions := &GrantOnPrincipalAndResourceOptions{
 //   	Actions: []*string{

@@ -9,7 +9,7 @@ import (
 // Properties for invoking a Lambda function with LambdaInvoke.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //   tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &LambdaInvokeProps{
 //   	LambdaFunction: fn,

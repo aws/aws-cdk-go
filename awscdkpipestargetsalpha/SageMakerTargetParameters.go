@@ -7,8 +7,8 @@ import (
 // SageMaker target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetPipeline iPipeline
+//   var sourceQueue Queue
+//   var targetPipeline IPipeline
 //
 //
 //   pipelineTarget := targets.NewSageMakerTarget(targetPipeline, &SageMakerTargetParameters{

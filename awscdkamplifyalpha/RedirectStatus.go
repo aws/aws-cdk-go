@@ -6,7 +6,7 @@ package awscdkamplifyalpha
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
 //
-//   var amplifyApp app
+//   var amplifyApp App
 //
 //   amplifyApp.AddCustomRule(awscdkamplifyalpha.NewCustomRule(&CustomRuleOptions{
 //   	Source: jsii.String("/docs/specific-filename.html"),

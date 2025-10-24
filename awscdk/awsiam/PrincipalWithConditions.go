@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
-//   var principal iPrincipal
+//   var principal IPrincipal
 //
 //   principalWithConditions := awscdk.Aws_iam.NewPrincipalWithConditions(principal, map[string]interface{}{
 //   	"conditionsKey": conditions,

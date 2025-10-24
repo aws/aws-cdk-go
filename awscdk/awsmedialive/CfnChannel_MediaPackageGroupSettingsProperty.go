@@ -22,6 +22,15 @@ package awsmedialive
 //   				LanguageDescription: jsii.String("languageDescription"),
 //   			},
 //   		},
+//   		Id3Behavior: jsii.String("id3Behavior"),
+//   		KlvBehavior: jsii.String("klvBehavior"),
+//   		NielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   		Scte35Type: jsii.String("scte35Type"),
+//   		SegmentLength: jsii.Number(123),
+//   		SegmentLengthUnits: jsii.String("segmentLengthUnits"),
+//   		TimedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
+//   		TimedMetadataId3Period: jsii.Number(123),
+//   		TimedMetadataPassthrough: jsii.String("timedMetadataPassthrough"),
 //   	},
 //   }
 //

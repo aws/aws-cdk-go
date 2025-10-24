@@ -23,6 +23,26 @@ package awsbedrockagentcore
 //
 //   				// the properties below are optional
 //   				Configuration: &CustomConfigurationInputProperty{
+//   					SelfManagedConfiguration: &SelfManagedConfigurationProperty{
+//   						HistoricalContextWindowSize: jsii.Number(123),
+//   						InvocationConfiguration: &InvocationConfigurationInputProperty{
+//   							PayloadDeliveryBucketName: jsii.String("payloadDeliveryBucketName"),
+//   							TopicArn: jsii.String("topicArn"),
+//   						},
+//   						TriggerConditions: []interface{}{
+//   							&TriggerConditionInputProperty{
+//   								MessageBasedTrigger: &MessageBasedTriggerInputProperty{
+//   									MessageCount: jsii.Number(123),
+//   								},
+//   								TimeBasedTrigger: &TimeBasedTriggerInputProperty{
+//   									IdleSessionTimeout: jsii.Number(123),
+//   								},
+//   								TokenBasedTrigger: &TokenBasedTriggerInputProperty{
+//   									TokenCount: jsii.Number(123),
+//   								},
+//   							},
+//   						},
+//   					},
 //   					SemanticOverride: &SemanticOverrideProperty{
 //   						Consolidation: &SemanticOverrideConsolidationConfigurationInputProperty{
 //   							AppendToPrompt: jsii.String("appendToPrompt"),
@@ -112,11 +132,11 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html
 //
 type CfnMemoryProps struct {
-	// Duration in days until memory events expire.
+	// The event expiry configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-eventexpiryduration
 	//
 	EventExpiryDuration *float64 `field:"required" json:"eventExpiryDuration" yaml:"eventExpiryDuration"`
-	// Name of the Memory resource.
+	// The memory name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -124,19 +144,19 @@ type CfnMemoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// ARN format.
+	// The memory encryption key Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-encryptionkeyarn
 	//
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
-	// ARN format.
+	// The memory role ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-memoryexecutionrolearn
 	//
 	MemoryExecutionRoleArn *string `field:"optional" json:"memoryExecutionRoleArn" yaml:"memoryExecutionRoleArn"`
-	// List of memory strategies attached to this memory.
+	// The memory strategies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-memorystrategies
 	//
 	MemoryStrategies interface{} `field:"optional" json:"memoryStrategies" yaml:"memoryStrategies"`
-	// A map of tag keys and values.
+	// The tags for the resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

@@ -9,24 +9,24 @@ package awsstepfunctionstasks
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationProperty_ configurationProperty
-//   var size size
+//   var configurationProperty_ ConfigurationProperty
+//   var size Size
 //
 //   instanceFleetConfigProperty := &InstanceFleetConfigProperty{
 //   	InstanceFleetType: awscdk.Aws_stepfunctions_tasks.EmrCreateCluster.InstanceRoleType_MASTER,
 //
 //   	// the properties below are optional
-//   	InstanceTypeConfigs: []instanceTypeConfigProperty{
-//   		&instanceTypeConfigProperty{
+//   	InstanceTypeConfigs: []InstanceTypeConfigProperty{
+//   		&InstanceTypeConfigProperty{
 //   			InstanceType: jsii.String("instanceType"),
 //
 //   			// the properties below are optional
 //   			BidPrice: jsii.String("bidPrice"),
 //   			BidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
-//   			Configurations: []*configurationProperty{
-//   				&configurationProperty{
+//   			Configurations: []ConfigurationProperty{
+//   				&ConfigurationProperty{
 //   					Classification: jsii.String("classification"),
-//   					Configurations: []*configurationProperty{
+//   					Configurations: []ConfigurationProperty{
 //   						configurationProperty_,
 //   					},
 //   					Properties: map[string]*string{
@@ -35,8 +35,8 @@ package awsstepfunctionstasks
 //   				},
 //   			},
 //   			EbsConfiguration: &EbsConfigurationProperty{
-//   				EbsBlockDeviceConfigs: []ebsBlockDeviceConfigProperty{
-//   					&ebsBlockDeviceConfigProperty{
+//   				EbsBlockDeviceConfigs: []EbsBlockDeviceConfigProperty{
+//   					&EbsBlockDeviceConfigProperty{
 //   						VolumeSpecification: &VolumeSpecificationProperty{
 //   							VolumeSize: size,
 //   							VolumeType: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP3,

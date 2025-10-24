@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientVpnEndpoint clientVpnEndpoint
-//   var clientVpnRouteTarget clientVpnRouteTarget
+//   var clientVpnEndpoint ClientVpnEndpoint
+//   var clientVpnRouteTarget ClientVpnRouteTarget
 //
 //   clientVpnRoute := awscdk.Aws_ec2.NewClientVpnRoute(this, jsii.String("MyClientVpnRoute"), &ClientVpnRouteProps{
 //   	Cidr: jsii.String("cidr"),

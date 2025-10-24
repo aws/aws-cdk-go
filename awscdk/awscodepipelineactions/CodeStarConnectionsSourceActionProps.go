@@ -8,7 +8,7 @@ import (
 // Construction properties for `CodeStarConnectionsSourceAction`.
 //
 // Example:
-//   var project project
+//   var project Project
 //
 //
 //   sourceOutput := codepipeline.NewArtifact()
@@ -28,8 +28,8 @@ import (
 //   	ActionName: jsii.String("CodeBuild"),
 //   	Project: Project,
 //   	Input: sourceOutput,
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"COMMIT_ID": &buildEnvironmentVariable{
+//   	EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   		"COMMIT_ID": &BuildEnvironmentVariable{
 //   			"value": sourceAction.variables.commitId,
 //   		},
 //   	},

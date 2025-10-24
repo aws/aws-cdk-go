@@ -8,23 +8,23 @@ package awsapigateway
 //
 //   var default_ interface{}
 //   var enum_ interface{}
-//   var jsonSchema_ jsonSchema
-//   var restApi restApi
+//   var jsonSchema_ JsonSchema
+//   var restApi RestApi
 //
 //   modelProps := &ModelProps{
 //   	RestApi: restApi,
-//   	Schema: &jsonSchema{
+//   	Schema: &JsonSchema{
 //   		AdditionalItems: jsii.Boolean(false),
 //   		AdditionalProperties: jsii.Boolean(false),
-//   		AllOf: []*jsonSchema{
+//   		AllOf: []JsonSchema{
 //   			jsonSchema_,
 //   		},
-//   		AnyOf: []*jsonSchema{
+//   		AnyOf: []JsonSchema{
 //   			jsonSchema_,
 //   		},
 //   		Contains: jsonSchema_,
 //   		Default: default_,
-//   		Definitions: map[string]*jsonSchema{
+//   		Definitions: map[string]JsonSchema{
 //   			"definitionsKey": jsonSchema_,
 //   		},
 //   		Dependencies: map[string]interface{}{
@@ -51,14 +51,14 @@ package awsapigateway
 //   		MinProperties: jsii.Number(123),
 //   		MultipleOf: jsii.Number(123),
 //   		Not: jsonSchema_,
-//   		OneOf: []*jsonSchema{
+//   		OneOf: []JsonSchema{
 //   			jsonSchema_,
 //   		},
 //   		Pattern: jsii.String("pattern"),
-//   		PatternProperties: map[string]*jsonSchema{
+//   		PatternProperties: map[string]JsonSchema{
 //   			"patternPropertiesKey": jsonSchema_,
 //   		},
-//   		Properties: map[string]*jsonSchema{
+//   		Properties: map[string]JsonSchema{
 //   			"propertiesKey": jsonSchema_,
 //   		},
 //   		PropertyNames: jsonSchema_,

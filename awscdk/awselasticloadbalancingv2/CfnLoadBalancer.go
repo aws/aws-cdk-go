@@ -50,8 +50,8 @@ import (
 //   	Subnets: []*string{
 //   		jsii.String("subnets"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -95,6 +95,7 @@ type CfnLoadBalancer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Indicates whether to enable stabilization when creating or updating an LCU reservation.
 	EnableCapacityReservationProvisionStabilize() interface{}
 	SetEnableCapacityReservationProvisionStabilize(val interface{})
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT.

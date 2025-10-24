@@ -15,8 +15,8 @@ package awscodepipeline
 //   	BranchesIncludes: []*string{
 //   		jsii.String("branchesIncludes"),
 //   	},
-//   	Events: []gitPullRequestEvent{
-//   		awscdk.Aws_codepipeline.*gitPullRequestEvent_OPEN,
+//   	Events: []GitPullRequestEvent{
+//   		awscdk.Aws_codepipeline.GitPullRequestEvent_OPEN,
 //   	},
 //   	FilePathsExcludes: []*string{
 //   		jsii.String("filePathsExcludes"),

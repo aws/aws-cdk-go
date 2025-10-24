@@ -12,8 +12,8 @@ import (
 // An Amplify Console branch.
 //
 // Example:
-//   var computeRole role
-//   var amplifyApp app
+//   var computeRole Role
+//   var amplifyApp App
 //
 //
 //   branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{

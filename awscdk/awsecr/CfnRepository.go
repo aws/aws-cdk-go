@@ -44,8 +44,8 @@ import (
 //   	},
 //   	RepositoryName: jsii.String("repositoryName"),
 //   	RepositoryPolicyText: repositoryPolicyText,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -82,13 +82,13 @@ type CfnRepository interface {
 	// The encryption configuration for the repository.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	// The image scanning configuration for the repository.
+	// > The `imageScanningConfiguration` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
 	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
-	// The image tag mutability exclusion filters associated with the repository.
+	// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 	ImageTagMutabilityExclusionFilters() interface{}
 	SetImageTagMutabilityExclusionFilters(val interface{})
 	// Creates or updates a lifecycle policy.

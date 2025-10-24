@@ -17,7 +17,7 @@ import (
 // A database cluster restored from a snapshot.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClusterFromSnapshotProps{
 //   	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{

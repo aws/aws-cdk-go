@@ -8,8 +8,8 @@ package awsec2alpha
 //   // The values are placeholders you should change.
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //
-//   var transitGatewayAttachment iTransitGatewayAttachment
-//   var transitGatewayRouteTable transitGatewayRouteTable
+//   var transitGatewayAttachment ITransitGatewayAttachment
+//   var transitGatewayRouteTable TransitGatewayRouteTable
 //
 //   transitGatewayRouteTablePropagationProps := &TransitGatewayRouteTablePropagationProps{
 //   	TransitGatewayRouteTable: transitGatewayRouteTable,

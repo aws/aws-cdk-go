@@ -22,20 +22,20 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
-//   var role role
-//   var scheduleTargetInput scheduleTargetInput
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskDefinition taskDefinition
+//   var queue Queue
+//   var role Role
+//   var scheduleTargetInput ScheduleTargetInput
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var taskDefinition TaskDefinition
 //
 //   ecsRunTaskBaseProps := &EcsRunTaskBaseProps{
 //   	TaskDefinition: taskDefinition,
 //
 //   	// the properties below are optional
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
 //
 //   			// the properties below are optional
@@ -53,11 +53,11 @@ import (
 //   	ReferenceId: jsii.String("referenceId"),
 //   	RetryAttempts: jsii.Number(123),
 //   	Role: role,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
-//   	Tags: []tag{
-//   		&tag{
+//   	Tags: []Tag{
+//   		&Tag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -68,11 +68,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

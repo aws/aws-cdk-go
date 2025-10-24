@@ -8,7 +8,7 @@ import (
 // Properties for an Origin backed by a v2 load balancer.
 //
 // Example:
-//   var loadBalancer applicationLoadBalancer
+//   var loadBalancer ApplicationLoadBalancer
 //
 //   origin := origins.NewLoadBalancerV2Origin(loadBalancer, &LoadBalancerV2OriginProps{
 //   	ConnectionAttempts: jsii.Number(3),

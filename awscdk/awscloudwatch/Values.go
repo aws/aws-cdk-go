@@ -13,7 +13,7 @@ import (
 //
 //   dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 //   	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
-//   	Variables: []iVariable{
+//   	Variables: []IVariable{
 //   		cw.NewDashboardVariable(&DashboardVariableOptions{
 //   			Id: jsii.String("region"),
 //   			Type: cw.VariableType_PROPERTY,

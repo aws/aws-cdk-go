@@ -22,13 +22,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var metric metric
-//   var scalableTarget scalableTarget
+//   var metric Metric
+//   var scalableTarget ScalableTarget
 //
 //   stepScalingPolicy := awscdk.Aws_applicationautoscaling.NewStepScalingPolicy(this, jsii.String("MyStepScalingPolicy"), &StepScalingPolicyProps{
 //   	Metric: metric,
-//   	ScalingSteps: []scalingInterval{
-//   		&scalingInterval{
+//   	ScalingSteps: []ScalingInterval{
+//   		&ScalingInterval{
 //   			Change: jsii.Number(123),
 //
 //   			// the properties below are optional

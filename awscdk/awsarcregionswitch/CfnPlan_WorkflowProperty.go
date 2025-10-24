@@ -10,14 +10,14 @@ package awsarcregionswitch
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stepProperty_ stepProperty
+//   var stepProperty_ StepProperty
 //
 //   workflowProperty := &WorkflowProperty{
 //   	WorkflowTargetAction: jsii.String("workflowTargetAction"),
 //
 //   	// the properties below are optional
 //   	Steps: []interface{}{
-//   		&stepProperty{
+//   		&StepProperty{
 //   			ExecutionBlockConfiguration: &ExecutionBlockConfigurationProperty{
 //   				ArcRoutingControlConfig: &ArcRoutingControlConfigurationProperty{
 //   					RegionAndRoutingControls: map[string]interface{}{

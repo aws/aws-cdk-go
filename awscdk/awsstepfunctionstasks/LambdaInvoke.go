@@ -14,7 +14,7 @@ import (
 // Invoke a Lambda function as a Task.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //   tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &LambdaInvokeProps{
 //   	LambdaFunction: fn,

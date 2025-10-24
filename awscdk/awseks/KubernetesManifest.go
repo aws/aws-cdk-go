@@ -16,7 +16,7 @@ import (
 // Applies/deletes the manifest using `kubectl`.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   namespace := cluster.addManifest(jsii.String("my-namespace"), map[string]interface{}{
 //   	"apiVersion": jsii.String("v1"),

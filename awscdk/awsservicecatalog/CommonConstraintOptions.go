@@ -6,8 +6,8 @@ package awsservicecatalog
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var portfolio Portfolio
+//   var product CloudFormationProduct
 //
 //
 //   topic1 := sns.NewTopic(this, jsii.String("Topic1"))

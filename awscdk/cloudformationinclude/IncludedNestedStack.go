@@ -7,7 +7,7 @@ import (
 // The type returned from `CfnInclude.getNestedStack`. Contains both the NestedStack object and CfnInclude representations of the child stack.
 //
 // Example:
-//   var parentTemplate cfnInclude
+//   var parentTemplate CfnInclude
 //
 //
 //   includedChildStack := parentTemplate.GetNestedStack(jsii.String("ChildStack"))

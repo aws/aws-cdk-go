@@ -4,7 +4,7 @@ package awscodedeploy
 // Properties of a reference to a CodeDeploy EC2/on-premise Deployment Group.
 //
 // Example:
-//   var application serverApplication
+//   var application ServerApplication
 //
 //   deploymentGroup := codedeploy.ServerDeploymentGroup_FromServerDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &ServerDeploymentGroupAttributes{
 //   	Application: Application,

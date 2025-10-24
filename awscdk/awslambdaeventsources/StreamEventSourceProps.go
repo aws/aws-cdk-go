@@ -16,9 +16,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventSourceDlq iEventSourceDlq
+//   var eventSourceDlq IEventSourceDlq
 //   var filters interface{}
-//   var key key
+//   var key Key
 //
 //   streamEventSourceProps := &StreamEventSourceProps{
 //   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,

@@ -4,7 +4,7 @@ package awscodedeploy
 // Properties of a reference to a CodeDeploy ECS Deployment Group.
 //
 // Example:
-//   var application ecsApplication
+//   var application EcsApplication
 //
 //   deploymentGroup := codedeploy.EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &EcsDeploymentGroupAttributes{
 //   	Application: Application,

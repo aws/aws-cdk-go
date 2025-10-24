@@ -16,9 +16,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var connections connections
-//   var dependable iDependable
-//   var policyStatement policyStatement
+//   var connections Connections
+//   var dependable IDependable
+//   var policyStatement PolicyStatement
 //
 //   fileSystemConfig := &FileSystemConfig{
 //   	Arn: jsii.String("arn"),
@@ -26,10 +26,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Connections: connections,
-//   	Dependency: []*iDependable{
+//   	Dependency: []IDependable{
 //   		dependable,
 //   	},
-//   	Policies: []*policyStatement{
+//   	Policies: []PolicyStatement{
 //   		policyStatement,
 //   	},
 //   }

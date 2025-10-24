@@ -5,19 +5,19 @@ package awsec2
 //
 // Example:
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   	SubnetConfiguration: []subnetConfiguration{
-//   		&subnetConfiguration{
+//   	SubnetConfiguration: []SubnetConfiguration{
+//   		&SubnetConfiguration{
 //   			SubnetType: ec2.SubnetType_PUBLIC,
 //   			Name: jsii.String("Public"),
 //   		},
-//   		&subnetConfiguration{
+//   		&SubnetConfiguration{
 //   			SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
 //   			Name: jsii.String("Isolated"),
 //   		},
 //   	},
 //   })
 //
-//   (vpc.IsolatedSubnets[0].(subnet)).AddRoute(jsii.String("StaticRoute"), &AddRouteOptions{
+//   (vpc.IsolatedSubnets[0].(Subnet)).AddRoute(jsii.String("StaticRoute"), &AddRouteOptions{
 //   	RouterId: vpc.InternetGatewayId,
 //   	RouterType: ec2.RouterType_GATEWAY,
 //   	DestinationCidrBlock: jsii.String("8.8.8.8/32"),

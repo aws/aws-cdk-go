@@ -15,8 +15,8 @@ import (
 // Example:
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myZone hostedZone
-//   var distribution cloudFrontWebDistribution
+//   var myZone HostedZone
+//   var distribution CloudFrontWebDistribution
 //
 //   route53.NewAaaaRecord(this, jsii.String("Alias"), &AaaaRecordProps{
 //   	Zone: myZone,

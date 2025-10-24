@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var restApi restApi
+//   var restApi RestApi
 //
 //   callApiGatewayRestApiEndpointOptions := &CallApiGatewayRestApiEndpointOptions{
 //   	Api: restApi,

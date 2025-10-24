@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to an Amazon Data Firehose delivery stream.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetDeliveryStream deliveryStream
+//   var sourceQueue Queue
+//   var targetDeliveryStream DeliveryStream
 //
 //
 //   deliveryStreamTarget := targets.NewFirehoseTarget(targetDeliveryStream)

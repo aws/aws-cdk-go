@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   // Grant permissions to an entire AWS organization
-//   var fn function
+//   var fn Function
 //
 //   org := iam.NewOrganizationPrincipal(jsii.String("o-xxxxxxxxxx"))
 //

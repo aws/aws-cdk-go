@@ -8,14 +8,14 @@ package awsappconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var action action
+//   var action Action
 //
 //   extensionAttributes := &ExtensionAttributes{
 //   	ExtensionId: jsii.String("extensionId"),
 //   	ExtensionVersionNumber: jsii.Number(123),
 //
 //   	// the properties below are optional
-//   	Actions: []*action{
+//   	Actions: []Action{
 //   		action,
 //   	},
 //   	Description: jsii.String("description"),

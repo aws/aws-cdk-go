@@ -17,8 +17,8 @@ import (
 //   var assign interface{}
 //   var createJobRequest interface{}
 //   var outputs interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   mediaConvertCreateJobJsonataProps := &MediaConvertCreateJobJsonataProps{
 //   	CreateJobRequest: map[string]interface{}{

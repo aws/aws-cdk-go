@@ -154,14 +154,14 @@ configures logging of S3 data events for `fooBucket` and with object prefix `bar
 
 ```go
 import s3 "github.com/aws/aws-cdk-go/awscdk"
-var bucket bucket
+var bucket Bucket
 
 
 trail := cloudtrail.NewTrail(this, jsii.String("MyAmazingCloudTrail"))
 
 // Adds an event selector to the bucket foo
-trail.AddS3EventSelector([]s3EventSelector{
-	&s3EventSelector{
+trail.AddS3EventSelector([]S3EventSelector{
+	&S3EventSelector{
 		Bucket: Bucket,
 		ObjectPrefix: jsii.String("bar/"),
 	},
@@ -181,7 +181,7 @@ amazingFunction := lambda.NewFunction(this, jsii.String("AnAmazingFunction"), &F
 })
 
 // Add an event selector to log data events for the provided Lambda functions.
-trail.AddLambdaEventSelector([]iFunction{
+trail.AddLambdaEventSelector([]IFunction{
 	amazingFunction,
 })
 ```
@@ -204,9 +204,9 @@ Insights selector values can be `ApiCallRateInsight`, `ApiErrorRateInsight`, or 
 
 ```go
 cloudtrail.NewTrail(this, jsii.String("Insights"), &TrailProps{
-	InsightTypes: []insightType{
-		cloudtrail.*insightType_API_CALL_RATE(),
-		cloudtrail.*insightType_API_ERROR_RATE(),
+	InsightTypes: []InsightType{
+		cloudtrail.InsightType_API_CALL_RATE(),
+		cloudtrail.InsightType_API_ERROR_RATE(),
 	},
 })
 ```

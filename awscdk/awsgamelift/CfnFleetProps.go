@@ -103,8 +103,8 @@ import (
 //   	ScriptId: jsii.String("scriptId"),
 //   	ServerLaunchParameters: jsii.String("serverLaunchParameters"),
 //   	ServerLaunchPath: jsii.String("serverLaunchPath"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

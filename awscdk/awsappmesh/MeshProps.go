@@ -4,8 +4,8 @@ package awsappmesh
 // The set of properties used when creating a Mesh.
 //
 // Example:
-//   var infraStack stack
-//   var appStack stack
+//   var infraStack Stack
+//   var appStack Stack
 //
 //
 //   mesh := appmesh.NewMesh(infraStack, jsii.String("AppMesh"), &MeshProps{
@@ -18,8 +18,8 @@ package awsappmesh
 //   router := appmesh.NewVirtualRouter(appStack, jsii.String("router"), &VirtualRouterProps{
 //   	Mesh: Mesh,
 //   	 // notice that mesh is a required property when creating a router with the 'new' statement
-//   	Listeners: []virtualRouterListener{
-//   		appmesh.*virtualRouterListener_Http(jsii.Number(8081)),
+//   	Listeners: []VirtualRouterListener{
+//   		appmesh.VirtualRouterListener_Http(jsii.Number(8081)),
 //   	},
 //   })
 //

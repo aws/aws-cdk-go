@@ -9,7 +9,7 @@ package awscdkamplifyalpha
 //   // The values are placeholders you should change.
 //   import amplify_alpha "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
 //
-//   var branch branch
+//   var branch Branch
 //
 //   subDomain := &SubDomain{
 //   	Branch: branch,

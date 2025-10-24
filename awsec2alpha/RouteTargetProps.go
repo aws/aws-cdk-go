@@ -12,8 +12,8 @@ import (
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var routeTarget iRouteTarget
-//   var vpcEndpoint vpcEndpoint
+//   var routeTarget IRouteTarget
+//   var vpcEndpoint VpcEndpoint
 //
 //   routeTargetProps := &RouteTargetProps{
 //   	Endpoint: vpcEndpoint,

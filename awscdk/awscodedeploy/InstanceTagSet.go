@@ -15,14 +15,14 @@ import (
 //   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var application serverApplication
-//   var asg autoScalingGroup
-//   var alarm alarm
+//   var application ServerApplication
+//   var asg AutoScalingGroup
+//   var alarm Alarm
 //
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &ServerDeploymentGroupProps{
 //   	Application: Application,
 //   	DeploymentGroupName: jsii.String("MyDeploymentGroup"),
-//   	AutoScalingGroups: []iAutoScalingGroup{
+//   	AutoScalingGroups: []IAutoScalingGroup{
 //   		asg,
 //   	},
 //   	// adds User Data that installs the CodeDeploy agent on your auto-scaling groups hosts
@@ -55,7 +55,7 @@ import (
 //   		},
 //   	}),
 //   	// CloudWatch alarms
-//   	Alarms: []iAlarm{
+//   	Alarms: []IAlarm{
 //   		alarm,
 //   	},
 //   	// whether to ignore failure to fetch the status of alarms from CloudWatch

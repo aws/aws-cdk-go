@@ -15,7 +15,7 @@ import (
 // where your instances are provisioned.
 //
 // Example:
-//   var instanceType instanceType
+//   var instanceType InstanceType
 //
 //
 //   pg := ec2.NewPlacementGroup(this, jsii.String("test-pg"), &PlacementGroupProps{

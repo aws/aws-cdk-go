@@ -16,7 +16,7 @@ import (
 //
 // Example:
 //   var hostedZoneForExampleCom interface{}
-//   var domainName domainName
+//   var domainName DomainName
 //
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import targets "github.com/aws/aws-cdk-go/awscdk"

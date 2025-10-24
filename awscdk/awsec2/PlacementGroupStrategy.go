@@ -4,7 +4,7 @@ package awsec2
 // Which strategy to use when launching instances.
 //
 // Example:
-//   var instanceType instanceType
+//   var instanceType InstanceType
 //
 //
 //   pg := ec2.NewPlacementGroup(this, jsii.String("test-pg"), &PlacementGroupProps{

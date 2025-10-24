@@ -13,7 +13,7 @@ import (
 // Use this object if you need to represent connection partners using plain IP addresses.
 //
 // Example:
-//   var build build
+//   var build Build
 //
 //
 //   fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
@@ -21,14 +21,14 @@ import (
 //   	Content: build,
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 //   	RuntimeConfiguration: &RuntimeConfiguration{
-//   		ServerProcesses: []serverProcess{
-//   			&serverProcess{
+//   		ServerProcesses: []ServerProcess{
+//   			&ServerProcess{
 //   				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 //   			},
 //   		},
 //   	},
-//   	IngressRules: []ingressRule{
-//   		&ingressRule{
+//   	IngressRules: []IngressRule{
+//   		&IngressRule{
 //   			Source: gamelift.Peer_AnyIpv4(),
 //   			Port: gamelift.Port_TcpRange(jsii.Number(100), jsii.Number(200)),
 //   		},

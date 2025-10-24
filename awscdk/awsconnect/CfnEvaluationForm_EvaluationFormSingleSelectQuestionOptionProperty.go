@@ -14,6 +14,9 @@ package awsconnect
 //
 //   	// the properties below are optional
 //   	AutomaticFail: jsii.Boolean(false),
+//   	AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   		TargetSection: jsii.String("targetSection"),
+//   	},
 //   	Score: jsii.Number(123),
 //   }
 //
@@ -38,6 +41,9 @@ type CfnEvaluationForm_EvaluationFormSingleSelectQuestionOptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfail
 	//
 	AutomaticFail interface{} `field:"optional" json:"automaticFail" yaml:"automaticFail"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfailconfiguration
+	//
+	AutomaticFailConfiguration interface{} `field:"optional" json:"automaticFailConfiguration" yaml:"automaticFailConfiguration"`
 	// The score assigned to the answer option.
 	//
 	// *Minimum* : 0

@@ -7,8 +7,8 @@ package awsec2
 //   stack := awscdk.Newstack()
 //   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
 //   vpnGateway := myVpc.EnableVpnGatewayV2(&VPNGatewayV2Options{
-//   	VpnRoutePropagation: []subnetSelection{
-//   		&subnetSelection{
+//   	VpnRoutePropagation: []SubnetSelection{
+//   		&SubnetSelection{
 //   			SubnetType: awscdk.SubnetType_PUBLIC,
 //   		},
 //   	},

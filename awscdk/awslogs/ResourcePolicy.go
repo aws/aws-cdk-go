@@ -29,10 +29,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var policyStatement policyStatement
+//   var policyStatement PolicyStatement
 //
 //   resourcePolicy := awscdk.Aws_logs.NewResourcePolicy(this, jsii.String("MyResourcePolicy"), &ResourcePolicyProps{
-//   	PolicyStatements: []*policyStatement{
+//   	PolicyStatements: []PolicyStatement{
 //   		policyStatement,
 //   	},
 //   	ResourcePolicyName: jsii.String("resourcePolicyName"),

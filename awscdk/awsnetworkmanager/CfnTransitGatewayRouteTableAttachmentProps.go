@@ -20,8 +20,8 @@ import (
 //   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []cfnTag{
-//   			&cfnTag{
+//   		Tags: []CfnTag{
+//   			&CfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
 //   			},
@@ -30,15 +30,15 @@ import (
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []*cfnTag{
-//   			&cfnTag{
+//   		Tags: []CfnTag{
+//   			&CfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
 //   	},
-//   	Tags: []*cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

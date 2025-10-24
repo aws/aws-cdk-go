@@ -17,7 +17,7 @@ import (
 // A representation of a CodeBuild Project.
 //
 // Example:
-//   var ecrRepository repository
+//   var ecrRepository Repository
 //
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{

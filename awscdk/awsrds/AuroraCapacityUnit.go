@@ -6,7 +6,7 @@ package awsrds
 // Each ACU is a combination of processing and memory capacity.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{

@@ -49,8 +49,8 @@ import (
 //   	},
 //   	MessageFeedbackEnabled: jsii.Boolean(false),
 //   	ProtectConfigurationId: jsii.String("protectConfigurationId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

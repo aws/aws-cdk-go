@@ -14,7 +14,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var restApi restApi
+//   var restApi RestApi
 //
 //   requestValidator := awscdk.Aws_apigateway.NewRequestValidator(this, jsii.String("MyRequestValidator"), &RequestValidatorProps{
 //   	RestApi: restApi,

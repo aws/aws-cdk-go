@@ -8,12 +8,12 @@ import (
 // Properties for a BackupPlanRule.
 //
 // Example:
-//   var plan backupPlan
-//   var secondaryVault backupVault
+//   var plan BackupPlan
+//   var secondaryVault BackupVault
 //
 //   plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
-//   	CopyActions: []backupPlanCopyActionProps{
-//   		&backupPlanCopyActionProps{
+//   	CopyActions: []BackupPlanCopyActionProps{
+//   		&BackupPlanCopyActionProps{
 //   			DestinationBackupVault: secondaryVault,
 //   			MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
 //   			DeleteAfter: awscdk.Duration_*Days(jsii.Number(120)),

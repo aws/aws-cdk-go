@@ -8,10 +8,10 @@ package awslogs
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var processor iProcessor
+//   var processor IProcessor
 //
 //   transformerOptions := &TransformerOptions{
-//   	TransformerConfig: []*iProcessor{
+//   	TransformerConfig: []IProcessor{
 //   		processor,
 //   	},
 //   	TransformerName: jsii.String("transformerName"),

@@ -15,7 +15,7 @@ To define an Amazon ECS service that is behind an application load balancer, ins
 * `ApplicationLoadBalancedEc2Service`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedEcsService := ecsPatterns.NewApplicationLoadBalancedEc2Service(this, jsii.String("Service"), &ApplicationLoadBalancedEc2ServiceProps{
 	Cluster: Cluster,
@@ -42,7 +42,7 @@ loadBalancedEcsService := ecsPatterns.NewApplicationLoadBalancedEc2Service(this,
 * `ApplicationLoadBalancedFargateService`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -99,7 +99,7 @@ Additionally, if more than one application target group are needed, instantiate 
 
 ```go
 // One application load balancer with one listener and two target groups.
-var cluster cluster
+var cluster Cluster
 
 loadBalancedEc2Service := ecsPatterns.NewApplicationMultipleTargetGroupsEc2Service(this, jsii.String("Service"), &ApplicationMultipleTargetGroupsEc2ServiceProps{
 	Cluster: Cluster,
@@ -107,11 +107,11 @@ loadBalancedEc2Service := ecsPatterns.NewApplicationMultipleTargetGroupsEc2Servi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageProps{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
-	TargetGroups: []applicationTargetProps{
-		&applicationTargetProps{
+	TargetGroups: []ApplicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(80),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(90),
 			PathPattern: jsii.String("a/b/c"),
 			Priority: jsii.Number(10),
@@ -124,7 +124,7 @@ loadBalancedEc2Service := ecsPatterns.NewApplicationMultipleTargetGroupsEc2Servi
 
 ```go
 // One application load balancer with one listener and two target groups.
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("Service"), &ApplicationMultipleTargetGroupsFargateServiceProps{
 	Cluster: Cluster,
@@ -133,11 +133,11 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageProps{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
-	TargetGroups: []applicationTargetProps{
-		&applicationTargetProps{
+	TargetGroups: []ApplicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(80),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(90),
 			PathPattern: jsii.String("a/b/c"),
 			Priority: jsii.Number(10),
@@ -153,7 +153,7 @@ To define an Amazon ECS service that is behind a network load balancer, instanti
 * `NetworkLoadBalancedEc2Service`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("Service"), &NetworkLoadBalancedEc2ServiceProps{
 	Cluster: Cluster,
@@ -173,7 +173,7 @@ loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsi
 * `NetworkLoadBalancedFargateService`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -198,7 +198,7 @@ Additionally, if more than one network target group is needed, instantiate one o
 
 ```go
 // Two network load balancers, each with their own listener and target group.
-var cluster cluster
+var cluster Cluster
 
 loadBalancedEc2Service := ecsPatterns.NewNetworkMultipleTargetGroupsEc2Service(this, jsii.String("Service"), &NetworkMultipleTargetGroupsEc2ServiceProps{
 	Cluster: Cluster,
@@ -206,30 +206,30 @@ loadBalancedEc2Service := ecsPatterns.NewNetworkMultipleTargetGroupsEc2Service(t
 	TaskImageOptions: &NetworkLoadBalancedTaskImageProps{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
-	LoadBalancers: []networkLoadBalancerProps{
-		&networkLoadBalancerProps{
+	LoadBalancers: []NetworkLoadBalancerProps{
+		&NetworkLoadBalancerProps{
 			Name: jsii.String("lb1"),
-			Listeners: []networkListenerProps{
-				&networkListenerProps{
+			Listeners: []NetworkListenerProps{
+				&NetworkListenerProps{
 					Name: jsii.String("listener1"),
 				},
 			},
 		},
-		&networkLoadBalancerProps{
+		&NetworkLoadBalancerProps{
 			Name: jsii.String("lb2"),
-			Listeners: []*networkListenerProps{
-				&networkListenerProps{
+			Listeners: []NetworkListenerProps{
+				&NetworkListenerProps{
 					Name: jsii.String("listener2"),
 				},
 			},
 		},
 	},
-	TargetGroups: []networkTargetProps{
-		&networkTargetProps{
+	TargetGroups: []NetworkTargetProps{
+		&NetworkTargetProps{
 			ContainerPort: jsii.Number(80),
 			Listener: jsii.String("listener1"),
 		},
-		&networkTargetProps{
+		&NetworkTargetProps{
 			ContainerPort: jsii.Number(90),
 			Listener: jsii.String("listener2"),
 		},
@@ -241,7 +241,7 @@ loadBalancedEc2Service := ecsPatterns.NewNetworkMultipleTargetGroupsEc2Service(t
 
 ```go
 // Two network load balancers, each with their own listener and target group.
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewNetworkMultipleTargetGroupsFargateService(this, jsii.String("Service"), &NetworkMultipleTargetGroupsFargateServiceProps{
 	Cluster: Cluster,
@@ -249,30 +249,30 @@ loadBalancedFargateService := ecsPatterns.NewNetworkMultipleTargetGroupsFargateS
 	TaskImageOptions: &NetworkLoadBalancedTaskImageProps{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
-	LoadBalancers: []networkLoadBalancerProps{
-		&networkLoadBalancerProps{
+	LoadBalancers: []NetworkLoadBalancerProps{
+		&NetworkLoadBalancerProps{
 			Name: jsii.String("lb1"),
-			Listeners: []networkListenerProps{
-				&networkListenerProps{
+			Listeners: []NetworkListenerProps{
+				&NetworkListenerProps{
 					Name: jsii.String("listener1"),
 				},
 			},
 		},
-		&networkLoadBalancerProps{
+		&NetworkLoadBalancerProps{
 			Name: jsii.String("lb2"),
-			Listeners: []*networkListenerProps{
-				&networkListenerProps{
+			Listeners: []NetworkListenerProps{
+				&NetworkListenerProps{
 					Name: jsii.String("listener2"),
 				},
 			},
 		},
 	},
-	TargetGroups: []networkTargetProps{
-		&networkTargetProps{
+	TargetGroups: []NetworkTargetProps{
+		&NetworkTargetProps{
 			ContainerPort: jsii.Number(80),
 			Listener: jsii.String("listener1"),
 		},
-		&networkTargetProps{
+		&NetworkTargetProps{
 			ContainerPort: jsii.Number(90),
 			Listener: jsii.String("listener2"),
 		},
@@ -289,7 +289,7 @@ To define a service that creates a queue and reads from that queue, instantiate 
 * `QueueProcessingEc2Service`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii.String("Service"), &QueueProcessingEc2ServiceProps{
 	Cluster: Cluster,
@@ -315,7 +315,7 @@ queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii
 * `QueueProcessingFargateService`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Cluster: Cluster,
@@ -343,7 +343,7 @@ when queue not provided by user, CDK will create a primary queue and a dead lett
 NOTE: `QueueProcessingFargateService` adds a CPU Based scaling strategy by default. You can turn this off by setting `disableCpuBasedScaling: true`.
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Cluster: Cluster,
@@ -370,7 +370,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 To specify a custom target CPU utilization percentage for the scaling strategy use the  `cpuTargetUtilizationPercent` property:
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Cluster: Cluster,
@@ -400,7 +400,7 @@ To define a task that runs periodically, there are 2 options:
 
 ```go
 // Instantiate an Amazon EC2 Task to run at a scheduled interval
-var cluster cluster
+var cluster Cluster
 
 ecsScheduledTask := ecsPatterns.NewScheduledEc2Task(this, jsii.String("ScheduledTask"), &ScheduledEc2TaskProps{
 	Cluster: Cluster,
@@ -421,7 +421,7 @@ ecsScheduledTask := ecsPatterns.NewScheduledEc2Task(this, jsii.String("Scheduled
 * `ScheduledFargateTask`
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 	Cluster: Cluster,
@@ -445,8 +445,8 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
-var cluster cluster
+var vpc Vpc
+var cluster Cluster
 
 
 domainZone := awscdk.HostedZone_FromLookup(this, jsii.String("Zone"), &HostedZoneProviderProps{
@@ -471,7 +471,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 ### Set capacityProviderStrategies for ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 cluster.EnableFargateCapacityProviders()
 
@@ -481,13 +481,13 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
 	MinHealthyPercent: jsii.Number(100),
-	CapacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE_SPOT"),
 			Weight: jsii.Number(2),
 			Base: jsii.Number(0),
 		},
-		&capacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE"),
 			Weight: jsii.Number(1),
 			Base: jsii.Number(1),
@@ -499,7 +499,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 ### Add Schedule-Based Auto-Scaling to an ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -537,7 +537,7 @@ scalableTarget.ScaleOnSchedule(jsii.String("EveningRushScaleUp"), &ScalingSchedu
 ### Add Metric-Based Auto-Scaling to an ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -567,7 +567,7 @@ scalableTarget.ScaleOnMemoryUtilization(jsii.String("MemoryScaling"), &MemoryUti
 ### Change the default Deployment Controller
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -592,7 +592,7 @@ deployment circuit breaker and optionally enable `rollback` for automatic rollba
 for more details.
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -612,7 +612,7 @@ service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.Strin
 ### Set deployment configuration on QueueProcessingService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Cluster: Cluster,
@@ -636,15 +636,15 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 ### Set taskSubnets and securityGroups for QueueProcessingFargateService
 
 ```go
-var vpc vpc
-var securityGroup securityGroup
+var vpc Vpc
+var securityGroup SecurityGroup
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Vpc: Vpc,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
 	MinHealthyPercent: jsii.Number(100),
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		securityGroup,
 	},
 	TaskSubnets: &SubnetSelection{
@@ -656,7 +656,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 ### Define tasks with public IPs for QueueProcessingFargateService
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Vpc: Vpc,
@@ -670,7 +670,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 ### Define tasks with custom queue parameters for QueueProcessingFargateService
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Vpc: Vpc,
@@ -689,7 +689,7 @@ The cooldown period is the amount of time to wait for a previous scaling activit
 To specify something other than the default cooldown period of 300 seconds, use the `cooldown` parameter:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Vpc: Vpc,
@@ -704,7 +704,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 ### Set capacityProviderStrategies for QueueProcessingFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 cluster.EnableFargateCapacityProviders()
 
@@ -713,12 +713,12 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
 	MinHealthyPercent: jsii.Number(100),
-	CapacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE_SPOT"),
 			Weight: jsii.Number(2),
 		},
-		&capacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE"),
 			Weight: jsii.Number(1),
 		},
@@ -729,8 +729,8 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 ### Set a custom container-level Healthcheck for QueueProcessingFargateService
 
 ```go
-var vpc vpc
-var securityGroup securityGroup
+var vpc Vpc
+var securityGroup SecurityGroup
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Vpc: Vpc,
@@ -778,8 +778,8 @@ queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
 	MinHealthyPercent: jsii.Number(100),
-	CapacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
 			CapacityProvider: capacityProvider.CapacityProviderName,
 		},
 	},
@@ -789,7 +789,7 @@ queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii
 ### Select specific vpc subnets for ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -801,7 +801,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	},
 	MinHealthyPercent: jsii.Number(100),
 	TaskSubnets: &SubnetSelection{
-		Subnets: []iSubnet{
+		Subnets: []ISubnet{
 			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 		},
 	},
@@ -811,7 +811,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 ### Select idleTimeout for ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -847,16 +847,16 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
 	EnableExecuteCommand: jsii.Boolean(true),
-	LoadBalancers: []applicationLoadBalancerProps{
-		&applicationLoadBalancerProps{
+	LoadBalancers: []ApplicationLoadBalancerProps{
+		&ApplicationLoadBalancerProps{
 			Name: jsii.String("lb"),
 			IdleTimeout: awscdk.Duration_Seconds(jsii.Number(400)),
 			DomainName: jsii.String("api.example.com"),
 			DomainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 				ZoneName: jsii.String("example.com"),
 			}),
-			Listeners: []applicationListenerProps{
-				&applicationListenerProps{
+			Listeners: []ApplicationListenerProps{
+				&ApplicationListenerProps{
 					Name: jsii.String("listener"),
 					Protocol: awscdk.ApplicationProtocol_HTTPS,
 					Certificate: awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
@@ -864,15 +864,15 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 				},
 			},
 		},
-		&applicationLoadBalancerProps{
+		&ApplicationLoadBalancerProps{
 			Name: jsii.String("lb2"),
 			IdleTimeout: awscdk.Duration_*Seconds(jsii.Number(120)),
 			DomainName: jsii.String("frontend.com"),
 			DomainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 				ZoneName: jsii.String("frontend.com"),
 			}),
-			Listeners: []*applicationListenerProps{
-				&applicationListenerProps{
+			Listeners: []ApplicationListenerProps{
+				&ApplicationListenerProps{
 					Name: jsii.String("listener2"),
 					Protocol: awscdk.ApplicationProtocol_HTTPS,
 					Certificate: awscdk.Certificate_*FromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
@@ -881,22 +881,22 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 			},
 		},
 	},
-	TargetGroups: []applicationTargetProps{
-		&applicationTargetProps{
+	TargetGroups: []ApplicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(80),
 			Listener: jsii.String("listener"),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(90),
 			PathPattern: jsii.String("a/b/c"),
 			Priority: jsii.Number(10),
 			Listener: jsii.String("listener"),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(443),
 			Listener: jsii.String("listener2"),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(80),
 			PathPattern: jsii.String("a/b/c"),
 			Priority: jsii.Number(10),
@@ -928,16 +928,16 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
 	EnableExecuteCommand: jsii.Boolean(true),
-	LoadBalancers: []applicationLoadBalancerProps{
-		&applicationLoadBalancerProps{
+	LoadBalancers: []ApplicationLoadBalancerProps{
+		&ApplicationLoadBalancerProps{
 			Name: jsii.String("lb"),
 			IdleTimeout: awscdk.Duration_Seconds(jsii.Number(400)),
 			DomainName: jsii.String("api.example.com"),
 			DomainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 				ZoneName: jsii.String("example.com"),
 			}),
-			Listeners: []applicationListenerProps{
-				&applicationListenerProps{
+			Listeners: []ApplicationListenerProps{
+				&ApplicationListenerProps{
 					Name: jsii.String("listener"),
 					Protocol: awscdk.ApplicationProtocol_HTTPS,
 					Certificate: awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
@@ -945,15 +945,15 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 				},
 			},
 		},
-		&applicationLoadBalancerProps{
+		&ApplicationLoadBalancerProps{
 			Name: jsii.String("lb2"),
 			IdleTimeout: awscdk.Duration_*Seconds(jsii.Number(120)),
 			DomainName: jsii.String("frontend.com"),
 			DomainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZoneProps{
 				ZoneName: jsii.String("frontend.com"),
 			}),
-			Listeners: []*applicationListenerProps{
-				&applicationListenerProps{
+			Listeners: []ApplicationListenerProps{
+				&ApplicationListenerProps{
 					Name: jsii.String("listener2"),
 					Protocol: awscdk.ApplicationProtocol_HTTPS,
 					Certificate: awscdk.Certificate_*FromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
@@ -962,22 +962,22 @@ loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFarg
 			},
 		},
 	},
-	TargetGroups: []applicationTargetProps{
-		&applicationTargetProps{
+	TargetGroups: []ApplicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(80),
 			Listener: jsii.String("listener"),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(90),
 			PathPattern: jsii.String("a/b/c"),
 			Priority: jsii.Number(10),
 			Listener: jsii.String("listener"),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(443),
 			Listener: jsii.String("listener2"),
 		},
-		&applicationTargetProps{
+		&ApplicationTargetProps{
 			ContainerPort: jsii.Number(80),
 			PathPattern: jsii.String("a/b/c"),
 			Priority: jsii.Number(10),
@@ -1010,7 +1010,7 @@ loadBalancedFargateService.TargetGroups[1].ConfigureHealthCheck(&HealthCheck{
 ### Set runtimePlatform for ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -1029,7 +1029,7 @@ applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedF
 ### Customize Container Name for ScheduledFargateTask
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 	Cluster: Cluster,
@@ -1046,7 +1046,7 @@ scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("S
 ### Customize Container Name for ScheduledEc2Task
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 ecsScheduledTask := ecsPatterns.NewScheduledEc2Task(this, jsii.String("ScheduledTask"), &ScheduledEc2TaskProps{
 	Cluster: Cluster,
@@ -1068,7 +1068,7 @@ ecsScheduledTask := ecsPatterns.NewScheduledEc2Task(this, jsii.String("Scheduled
 ### Set PlatformVersion for ScheduledFargateTask
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 	Cluster: Cluster,
@@ -1101,7 +1101,7 @@ scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("S
 		MemoryLimitMiB: jsii.Number(512),
 	},
 	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		securityGroup,
 	},
 })
@@ -1112,8 +1112,8 @@ scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("S
 The following is an example of deploying an application along with a metrics sidecar container that utilizes `dockerLabels` for discovery:
 
 ```go
-var cluster cluster
-var vpc vpc
+var cluster Cluster
+var vpc Vpc
 
 service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -1137,7 +1137,7 @@ service.TaskDefinition.AddContainer(jsii.String("Sidecar"), &ContainerDefinition
 ### Select specific load balancer name ApplicationLoadBalancedFargateService
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -1149,7 +1149,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	},
 	MinHealthyPercent: jsii.Number(100),
 	TaskSubnets: &SubnetSelection{
-		Subnets: []iSubnet{
+		Subnets: []ISubnet{
 			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 		},
 	},
@@ -1169,7 +1169,7 @@ Read more about ECS Exec in the [ECS Developer Guide](https://docs.aws.amazon.co
 Example:
 
 ```go
-var cluster cluster
+var cluster Cluster
 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Cluster: Cluster,
@@ -1239,8 +1239,8 @@ scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("S
 		MemoryLimitMiB: jsii.Number(512),
 	},
 	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-	Tags: []tag{
-		&tag{
+	Tags: []Tag{
+		&Tag{
 			Key: jsii.String("my-tag"),
 			Value: jsii.String("my-tag-value"),
 		},
@@ -1287,7 +1287,7 @@ networkLoadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateSe
 ### Set healthCheckGracePeriod for QueueProcessingFargateService
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
 	Vpc: Vpc,
@@ -1301,8 +1301,8 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 ### Set securityGroups for NetworkLoadBalancedFargateService
 
 ```go
-var vpc vpc
-var securityGroup securityGroup
+var vpc Vpc
+var securityGroup SecurityGroup
 
 queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
 	Vpc: Vpc,
@@ -1311,7 +1311,7 @@ queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateServic
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
 	MinHealthyPercent: jsii.Number(100),
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		securityGroup,
 	},
 })
@@ -1343,7 +1343,7 @@ loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(t
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster cluster
+var cluster Cluster
 
 certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
 loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("Service"), &NetworkLoadBalancedEc2ServiceProps{

@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dataTypeProperty_ dataTypeProperty
-//   var dataValueProperty_ dataValueProperty
+//   var dataTypeProperty_ DataTypeProperty
+//   var dataValueProperty_ DataValueProperty
 //   var relationshipValue interface{}
 //
 //   cfnComponentType := awscdk.Aws_iottwinmaker.NewCfnComponentType(this, jsii.String("MyCfnComponentType"), &CfnComponentTypeProps{
@@ -54,12 +54,12 @@ import (
 //   			"configurations": map[string]*string{
 //   				"configurationsKey": jsii.String("configurations"),
 //   			},
-//   			"dataType": &dataTypeProperty{
+//   			"dataType": &DataTypeProperty{
 //   				"type": jsii.String("type"),
 //
 //   				// the properties below are optional
 //   				"allowedValues": []interface{}{
-//   					&dataValueProperty{
+//   					&DataValueProperty{
 //   						"booleanValue": jsii.Boolean(false),
 //   						"doubleValue": jsii.Number(123),
 //   						"expression": jsii.String("expression"),
@@ -82,7 +82,7 @@ import (
 //   				},
 //   				"unitOfMeasure": jsii.String("unitOfMeasure"),
 //   			},
-//   			"defaultValue": &dataValueProperty{
+//   			"defaultValue": &DataValueProperty{
 //   				"booleanValue": jsii.Boolean(false),
 //   				"doubleValue": jsii.Number(123),
 //   				"expression": jsii.String("expression"),
@@ -797,25 +797,6 @@ func (j *jsiiProxy_CfnComponentType)SetWorkspaceId(val *string) {
 		"workspaceId",
 		val,
 	)
-}
-
-// Creates a new IComponentTypeRef from an ARN.
-func CfnComponentType_FromComponentTypeArn(scope constructs.Construct, id *string, arn *string) IComponentTypeRef {
-	_init_.Initialize()
-
-	if err := validateCfnComponentType_FromComponentTypeArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IComponentTypeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
-		"fromComponentTypeArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

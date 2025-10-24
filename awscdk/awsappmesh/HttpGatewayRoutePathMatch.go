@@ -10,8 +10,8 @@ import (
 // Defines HTTP gateway route matching based on the URL path of the request.
 //
 // Example:
-//   var gateway virtualGateway
-//   var virtualService virtualService
+//   var gateway VirtualGateway
+//   var virtualService VirtualService
 //
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &GatewayRouteBaseProps{

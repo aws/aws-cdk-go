@@ -13,7 +13,7 @@ import (
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var lambdaDs function
+//   var lambdaDs Function
 //
 //
 //   api := appsync.NewEventApi(this, jsii.String("EventApiLambda"), &EventApiProps{

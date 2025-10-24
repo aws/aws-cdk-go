@@ -22,8 +22,8 @@ package awscdk
 //   	DockerBuildSsh: jsii.String("dockerBuildSsh"),
 //   	DockerBuildTarget: jsii.String("dockerBuildTarget"),
 //   	DockerCacheDisabled: jsii.Boolean(false),
-//   	DockerCacheFrom: []dockerCacheOption{
-//   		&dockerCacheOption{
+//   	DockerCacheFrom: []DockerCacheOption{
+//   		&DockerCacheOption{
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
@@ -32,7 +32,7 @@ package awscdk
 //   			},
 //   		},
 //   	},
-//   	DockerCacheTo: &dockerCacheOption{
+//   	DockerCacheTo: &DockerCacheOption{
 //   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional

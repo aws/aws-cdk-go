@@ -8,18 +8,18 @@ import (
 //
 // Example:
 //   import codecommit "github.com/aws/aws-cdk-go/awscdk"
-//   var repo repository
-//   var bucket bucket
+//   var repo Repository
+//   var bucket Bucket
 //
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
-//   	SecondarySources: []iSource{
+//   	SecondarySources: []ISource{
 //   		codebuild.Source_CodeCommit(&CodeCommitSourceProps{
 //   			Identifier: jsii.String("source2"),
 //   			Repository: repo,
 //   		}),
 //   	},
-//   	SecondaryArtifacts: []iArtifacts{
+//   	SecondaryArtifacts: []IArtifacts{
 //   		codebuild.Artifacts_S3(&S3ArtifactsProps{
 //   			Identifier: jsii.String("artifact2"),
 //   			Bucket: bucket,

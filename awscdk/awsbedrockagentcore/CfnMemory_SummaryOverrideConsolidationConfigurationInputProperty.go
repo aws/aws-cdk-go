@@ -1,6 +1,8 @@
 package awsbedrockagentcore
 
 
+// The consolidation configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,10 +16,11 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-summaryoverrideconsolidationconfigurationinput.html
 //
 type CfnMemory_SummaryOverrideConsolidationConfigurationInputProperty struct {
-	// Text prompt for model instructions.
+	// The memory override configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-summaryoverrideconsolidationconfigurationinput.html#cfn-bedrockagentcore-memory-summaryoverrideconsolidationconfigurationinput-appendtoprompt
 	//
 	AppendToPrompt *string `field:"required" json:"appendToPrompt" yaml:"appendToPrompt"`
+	// The memory override configuration model ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-summaryoverrideconsolidationconfigurationinput.html#cfn-bedrockagentcore-memory-summaryoverrideconsolidationconfigurationinput-modelid
 	//
 	ModelId *string `field:"required" json:"modelId" yaml:"modelId"`

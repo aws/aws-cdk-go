@@ -47,8 +47,8 @@ import (
 //   	OptOutListName: jsii.String("optOutListName"),
 //   	SelfManagedOptOutsEnabled: jsii.Boolean(false),
 //   	SharedRoutesEnabled: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

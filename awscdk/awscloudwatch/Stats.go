@@ -8,19 +8,19 @@ import (
 // Factory functions for standard statistics strings.
 //
 // Example:
-//   var dashboard dashboard
-//   var executionCountMetric metric
-//   var errorCountMetric metric
+//   var dashboard Dashboard
+//   var executionCountMetric Metric
+//   var errorCountMetric Metric
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 //   	Title: jsii.String("Executions vs error rate"),
 //
-//   	Left: []iMetric{
+//   	Left: []IMetric{
 //   		executionCountMetric,
 //   	},
 //
-//   	Right: []*iMetric{
+//   	Right: []IMetric{
 //   		errorCountMetric.With(&MetricOptions{
 //   			Statistic: cloudwatch.Stats_AVERAGE(),
 //   			Label: jsii.String("Error rate"),

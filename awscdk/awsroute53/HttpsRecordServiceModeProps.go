@@ -6,8 +6,8 @@ package awsroute53
 // Example:
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myZone hostedZone
-//   var distribution cloudFrontWebDistribution
+//   var myZone HostedZone
+//   var distribution CloudFrontWebDistribution
 //
 //   // Alias to CloudFront target
 //   // Alias to CloudFront target
@@ -19,11 +19,11 @@ package awsroute53
 //   // ServiceMode (priority >= 1)
 //   route53.NewHttpsRecord(this, jsii.String("HttpsRecord-ServiceMode"), &HttpsRecordProps{
 //   	Zone: myZone,
-//   	Values: []httpsRecordValue{
-//   		route53.*httpsRecordValue_Service(&HttpsRecordServiceModeProps{
-//   			Alpn: []alpn{
-//   				route53.*alpn_H3(),
-//   				route53.*alpn_H2(),
+//   	Values: []HttpsRecordValue{
+//   		route53.HttpsRecordValue_Service(&HttpsRecordServiceModeProps{
+//   			Alpn: []Alpn{
+//   				route53.Alpn_H3(),
+//   				route53.Alpn_H2(),
 //   			},
 //   		}),
 //   	},
@@ -32,8 +32,8 @@ package awsroute53
 //   // AliasMode (priority = 0)
 //   route53.NewHttpsRecord(this, jsii.String("HttpsRecord-AliasMode"), &HttpsRecordProps{
 //   	Zone: myZone,
-//   	Values: []*httpsRecordValue{
-//   		route53.*httpsRecordValue_Alias(jsii.String("service.example.com")),
+//   	Values: []HttpsRecordValue{
+//   		route53.HttpsRecordValue_Alias(jsii.String("service.example.com")),
 //   	},
 //   })
 //

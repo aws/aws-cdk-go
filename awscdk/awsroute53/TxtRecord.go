@@ -11,7 +11,7 @@ import (
 // A DNS TXT record.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   route53.NewTxtRecord(this, jsii.String("TXTRecord"), &TxtRecordProps{

@@ -20,7 +20,7 @@ property to clone your repository.
 To add an Amazon SNS trigger to your repository:
 
 ```go
-var repo repository
+var repo Repository
 
 
 // trigger is established for all repository actions on all branches by default.
@@ -52,7 +52,7 @@ For more information, see
 ```go
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
-var kmsKey iKey
+var kmsKey IKey
 
 
 repo := codecommit.NewRepository(this, jsii.String("Repository"), &RepositoryProps{
@@ -71,9 +71,9 @@ and invoke targets as a result:
 import sns "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var repo repository
-var project pipelineProject
-var myTopic topic
+var repo Repository
+var project PipelineProject
+var myTopic Topic
 
 
 // starts a CodeBuild project when a commit is pushed to the "main" branch of the repo
@@ -98,7 +98,7 @@ They are very similar to `onXxx()` methods for CloudWatch events:
 ```go
 import chatbot "github.com/aws/aws-cdk-go/awscdk"
 
-var repository repository
+var repository Repository
 
 target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
 	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),

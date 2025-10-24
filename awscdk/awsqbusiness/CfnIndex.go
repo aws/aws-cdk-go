@@ -36,8 +36,8 @@ import (
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -615,25 +615,6 @@ func (j *jsiiProxy_CfnIndex)SetType(val *string) {
 		"type",
 		val,
 	)
-}
-
-// Creates a new IIndexRef from an ARN.
-func CfnIndex_FromIndexArn(scope constructs.Construct, id *string, arn *string) IIndexRef {
-	_init_.Initialize()
-
-	if err := validateCfnIndex_FromIndexArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IIndexRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_qbusiness.CfnIndex",
-		"fromIndexArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

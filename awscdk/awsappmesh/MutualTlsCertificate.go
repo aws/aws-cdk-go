@@ -11,14 +11,14 @@ import (
 // Represents a TLS certificate that is supported for mutual TLS authentication.
 //
 // Example:
-//   var mesh mesh
+//   var mesh Mesh
 //
 //
 //   node1 := appmesh.NewVirtualNode(this, jsii.String("node1"), &VirtualNodeProps{
 //   	Mesh: Mesh,
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node")),
-//   	Listeners: []virtualNodeListener{
-//   		appmesh.*virtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
 //   			Port: jsii.Number(80),
 //   			Tls: &ListenerTlsOptions{
 //   				Mode: appmesh.TlsMode_STRICT,
@@ -44,7 +44,7 @@ import (
 //   			},
 //   			Validation: &TlsValidation{
 //   				SubjectAlternativeNames: appmesh.SubjectAlternativeNames_MatchingExactly(jsii.String("mesh-endpoint.apps.local")),
-//   				Trust: appmesh.TlsValidationTrust_Acm([]iCertificateAuthority{
+//   				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthority{
 //   					acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("certificate"), certificateAuthorityArn),
 //   				}),
 //   			},

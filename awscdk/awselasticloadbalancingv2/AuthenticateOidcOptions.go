@@ -7,8 +7,8 @@ import (
 // Options for `ListenerAction.authenciateOidc()`.
 //
 // Example:
-//   var listener applicationListener
-//   var myTargetGroup applicationTargetGroup
+//   var listener ApplicationListener
+//   var myTargetGroup ApplicationTargetGroup
 //
 //
 //   listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
@@ -22,7 +22,7 @@ import (
 //   		UserInfoEndpoint: jsii.String("..."),
 //
 //   		// Next
-//   		Next: elbv2.ListenerAction_Forward([]iApplicationTargetGroup{
+//   		Next: elbv2.ListenerAction_Forward([]IApplicationTargetGroup{
 //   			myTargetGroup,
 //   		}),
 //   	}),

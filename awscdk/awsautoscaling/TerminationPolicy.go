@@ -4,9 +4,9 @@ package awsautoscaling
 // Specifies the termination criteria to apply before Amazon EC2 Auto Scaling chooses an instance for termination.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //   var arn string
 //
 //
@@ -17,10 +17,10 @@ package awsautoscaling
 //
 //   	// ...
 //
-//   	TerminationPolicies: []terminationPolicy{
-//   		autoscaling.*terminationPolicy_CUSTOM_LAMBDA_FUNCTION,
-//   		autoscaling.*terminationPolicy_OLDEST_INSTANCE,
-//   		autoscaling.*terminationPolicy_DEFAULT,
+//   	TerminationPolicies: []TerminationPolicy{
+//   		autoscaling.TerminationPolicy_CUSTOM_LAMBDA_FUNCTION,
+//   		autoscaling.TerminationPolicy_OLDEST_INSTANCE,
+//   		autoscaling.TerminationPolicy_DEFAULT,
 //   	},
 //
 //   	//terminationPolicyCustomLambdaFunctionArn property must be specified if the TerminationPolicy.CUSTOM_LAMBDA_FUNCTION is used

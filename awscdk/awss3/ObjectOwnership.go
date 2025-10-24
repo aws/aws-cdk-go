@@ -17,7 +17,7 @@ package awss3
 //   		accessLogsBucket.BucketArn,
 //   		accessLogsBucket.ArnForObjects(jsii.String("*")),
 //   	},
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		iam.NewAnyPrincipal(),
 //   	},
 //   }))

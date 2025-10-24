@@ -22,8 +22,8 @@ import (
 //   		Action: jsii.String("GetCallerIdentity"),
 //   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 //   	},
-//   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{
-//   		iam.*policyStatement_FromJson(map[string]*string{
+//   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]PolicyStatement{
+//   		iam.PolicyStatement_FromJson(map[string]*string{
 //   			"Effect": jsii.String("Allow"),
 //   			"Action": jsii.String("sts:AssumeRole"),
 //   			"Resource": crossAccountRoleArn,

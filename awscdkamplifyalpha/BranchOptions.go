@@ -9,8 +9,8 @@ import (
 // Options to add a branch to an application.
 //
 // Example:
-//   var computeRole role
-//   var amplifyApp app
+//   var computeRole Role
+//   var amplifyApp App
 //
 //
 //   branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{

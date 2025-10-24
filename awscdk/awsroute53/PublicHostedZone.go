@@ -13,7 +13,7 @@ import (
 // Create a Route53 public hosted zone.
 //
 // Example:
-//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-1"),
 //   	},
@@ -24,7 +24,7 @@ import (
 //   	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 //   })
 //
-//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-2"),
 //   	},

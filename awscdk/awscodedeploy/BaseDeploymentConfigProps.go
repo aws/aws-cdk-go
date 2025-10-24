@@ -9,9 +9,9 @@ package awscodedeploy
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var minimumHealthyHosts minimumHealthyHosts
-//   var minimumHealthyHostsPerZone minimumHealthyHostsPerZone
-//   var trafficRouting trafficRouting
+//   var minimumHealthyHosts MinimumHealthyHosts
+//   var minimumHealthyHostsPerZone MinimumHealthyHostsPerZone
+//   var trafficRouting TrafficRouting
 //
 //   baseDeploymentConfigProps := &BaseDeploymentConfigProps{
 //   	ComputePlatform: awscdk.Aws_codedeploy.ComputePlatform_SERVER,

@@ -12,9 +12,9 @@ import (
 //
 // Example:
 //   // Enable backup of all source records (to an S3 bucket created by CDK).
-//   var bucket bucket
+//   var bucket Bucket
 //   // Explicitly provide an S3 bucket to which all source records will be backed up.
-//   var backupBucket bucket
+//   var backupBucket Bucket
 //
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &DeliveryStreamProps{
 //   	Destination:
@@ -54,9 +54,9 @@ type DestinationS3BackupProps struct {
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Amazon Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
-	// Minimum: Size.mebibytes(1)
+	// Minimum: Size.mebibytes(1) when record data format conversion is disabled, Size.mebibytes(64) when it is enabled
 	// Maximum: Size.mebibytes(128)
-	// Default: Size.mebibytes(5)
+	// Default: Size.mebibytes(5) when record data format conversion is disabled, Size.mebibytes(128) when it is enabled
 	//
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Amazon Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.

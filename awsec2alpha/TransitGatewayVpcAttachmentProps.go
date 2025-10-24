@@ -12,13 +12,13 @@ import (
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var subnet subnet
-//   var transitGateway transitGateway
-//   var transitGatewayVpcAttachmentOptions iTransitGatewayVpcAttachmentOptions
-//   var vpc vpc
+//   var subnet Subnet
+//   var transitGateway TransitGateway
+//   var transitGatewayVpcAttachmentOptions ITransitGatewayVpcAttachmentOptions
+//   var vpc Vpc
 //
 //   transitGatewayVpcAttachmentProps := &TransitGatewayVpcAttachmentProps{
-//   	Subnets: []iSubnet{
+//   	Subnets: []ISubnet{
 //   		subnet,
 //   	},
 //   	TransitGateway: transitGateway,

@@ -8,11 +8,11 @@ import (
 // A Firewall Rule.
 //
 // Example:
-//   var myBlockList firewallDomainList
+//   var myBlockList FirewallDomainList
 //
 //   route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &FirewallRuleGroupProps{
-//   	Rules: []firewallRule{
-//   		&firewallRule{
+//   	Rules: []FirewallRule{
+//   		&FirewallRule{
 //   			Priority: jsii.Number(10),
 //   			FirewallDomainList: myBlockList,
 //   			// block and reply with NODATA

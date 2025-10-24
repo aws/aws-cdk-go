@@ -13,11 +13,11 @@ import (
 // `BucketDeployment` populates an S3 bucket with the contents of .zip files from other S3 buckets or from local disk.
 //
 // Example:
-//   var destinationBucket bucket
+//   var destinationBucket Bucket
 //
 //
 //   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
 //   	},
 //   	DestinationBucket: DestinationBucket,
@@ -65,10 +65,10 @@ type BucketDeployment interface {
 	// Add an additional source to the bucket deployment.
 	//
 	// Example:
-	//   var websiteBucket iBucket
+	//   var websiteBucket IBucket
 	//
 	//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("Deployment"), &BucketDeploymentProps{
-	//   	Sources: []iSource{
+	//   	Sources: []ISource{
 	//   		s3deploy.Source_Asset(jsii.String("./website-dist")),
 	//   	},
 	//   	DestinationBucket: websiteBucket,

@@ -9,7 +9,7 @@ import (
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   awesomeLink := apigwv2.VpcLink_FromVpcLinkAttributes(this, jsii.String("awesome-vpc-link"), &VpcLinkAttributes{
 //   	VpcLinkId: jsii.String("us-east-1_oiuR12Abd"),

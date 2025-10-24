@@ -3,7 +3,7 @@ package awsquicksight
 
 // A box plot.
 //
-// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

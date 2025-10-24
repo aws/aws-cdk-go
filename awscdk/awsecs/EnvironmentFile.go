@@ -12,11 +12,11 @@ import (
 // Constructs for types of environment files.
 //
 // Example:
-//   var secret secret
-//   var dbSecret secret
-//   var parameter stringParameter
-//   var taskDefinition taskDefinition
-//   var s3Bucket bucket
+//   var secret Secret
+//   var dbSecret Secret
+//   var parameter StringParameter
+//   var taskDefinition TaskDefinition
+//   var s3Bucket Bucket
 //
 //
 //   newContainer := taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
@@ -26,25 +26,25 @@ import (
 //   		 // clear text, not for sensitive data
 //   		"STAGE": jsii.String("prod"),
 //   	},
-//   	EnvironmentFiles: []environmentFile{
-//   		ecs.*environmentFile_FromAsset(jsii.String("./demo-env-file.env")),
-//   		ecs.*environmentFile_FromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
+//   	EnvironmentFiles: []EnvironmentFile{
+//   		ecs.EnvironmentFile_FromAsset(jsii.String("./demo-env-file.env")),
+//   		ecs.EnvironmentFile_FromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
 //   	},
-//   	Secrets: map[string]secret{
+//   	Secrets: map[string]Secret{
 //   		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
-//   		"SECRET": ecs.*secret_fromSecretsManager(secret),
-//   		"DB_PASSWORD": ecs.*secret_fromSecretsManager(dbSecret, jsii.String("password")),
+//   		"SECRET": ecs.Secret_fromSecretsManager(secret),
+//   		"DB_PASSWORD": ecs.Secret_fromSecretsManager(dbSecret, jsii.String("password")),
 //   		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
-//   		"API_KEY": ecs.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
+//   		"API_KEY": ecs.Secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 //   			"versionId": jsii.String("12345"),
 //   		}, jsii.String("apiKey")),
 //   		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
-//   		"PARAMETER": ecs.*secret_fromSsmParameter(parameter),
+//   		"PARAMETER": ecs.Secret_fromSsmParameter(parameter),
 //   	},
 //   })
 //   newContainer.AddEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
-//   newContainer.AddSecret(jsii.String("API_KEY"), ecs.secret_FromSecretsManager(secret))
-//   newContainer.AddSecret(jsii.String("DB_PASSWORD"), ecs.secret_FromSecretsManager(secret, jsii.String("password")))
+//   newContainer.AddSecret(jsii.String("API_KEY"), ecs.Secret_FromSecretsManager(secret))
+//   newContainer.AddSecret(jsii.String("DB_PASSWORD"), ecs.Secret_FromSecretsManager(secret, jsii.String("password")))
 //
 type EnvironmentFile interface {
 	// Called when the container is initialized to allow this object to bind to the stack.

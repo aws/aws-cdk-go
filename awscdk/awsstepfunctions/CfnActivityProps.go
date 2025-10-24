@@ -19,8 +19,8 @@ package awsstepfunctions
 //   		KmsDataKeyReusePeriodSeconds: jsii.Number(123),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

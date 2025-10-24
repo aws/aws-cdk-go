@@ -3,7 +3,7 @@ package awsquicksight
 
 // An empty visual.
 //
-// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an `EmptyVisual` until a visual type is selected.
+// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Quick Sight console is considered an `EmptyVisual` until a visual type is selected.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

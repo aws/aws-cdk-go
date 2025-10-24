@@ -8,10 +8,10 @@ package awsroute53
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var alpn alpn
+//   var alpn Alpn
 //
 //   svcbRecordServiceModeProps := &SvcbRecordServiceModeProps{
-//   	Alpn: []*alpn{
+//   	Alpn: []Alpn{
 //   		alpn,
 //   	},
 //   	Ipv4hint: []*string{

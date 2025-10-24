@@ -12,9 +12,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var filterOrPolicy filterOrPolicy
+//   var filterOrPolicy FilterOrPolicy
 //
-//   policy := awscdk.Aws_sns.NewPolicy(map[string]filterOrPolicy{
+//   policy := awscdk.Aws_sns.NewPolicy(map[string]FilterOrPolicy{
 //   	"policyDocKey": filterOrPolicy,
 //   })
 //

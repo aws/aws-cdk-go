@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateValidatePropertiesParame
 	return nil
 }
 
+func validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskIdParameters(scope constructs.Construct, id *string, wirelessDeviceImportTaskId *string) error {
+	return nil
+}
+
 func validateCfnWirelessDeviceImportTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

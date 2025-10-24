@@ -13,7 +13,7 @@ import (
 // A new managed rule.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //   var samplePolicyText string
 //
 //

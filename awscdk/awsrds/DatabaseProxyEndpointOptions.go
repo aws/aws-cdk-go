@@ -7,9 +7,9 @@ import (
 // Options for a new DatabaseProxyEndpoint.
 //
 // Example:
-//   var vpc vpc
-//   var secrets []secret
-//   var dbInstance databaseInstance
+//   var vpc Vpc
+//   var secrets []Secret
+//   var dbInstance DatabaseInstance
 //
 //
 //   proxy := dbInstance.AddProxy(jsii.String("Proxy"), &DatabaseProxyOptions{

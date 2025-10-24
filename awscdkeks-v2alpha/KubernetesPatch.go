@@ -11,7 +11,7 @@ import (
 // A CloudFormation resource which applies/restores a JSON patch into a Kubernetes resource.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   eks.NewKubernetesPatch(this, jsii.String("hello-kub-deployment-label"), &KubernetesPatchProps{
 //   	Cluster: Cluster,

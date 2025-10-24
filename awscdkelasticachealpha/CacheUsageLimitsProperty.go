@@ -7,7 +7,7 @@ import (
 // Usage limits configuration for ServerlessCache.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{

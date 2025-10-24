@@ -21,8 +21,8 @@ import (
 //   randomApi := apigw.NewRestApi(this, jsii.String("RandomApi"))
 //   randomRoute := randomApi.Root.AddResource(jsii.String("random"))
 //   randomRoute.AddMethod(jsii.String("GET"), apigw.NewMockIntegration(&IntegrationOptions{
-//   	IntegrationResponses: []integrationResponse{
-//   		&integrationResponse{
+//   	IntegrationResponses: []IntegrationResponse{
+//   		&IntegrationResponse{
 //   			StatusCode: jsii.String("200"),
 //   			ResponseTemplates: map[string]*string{
 //   				"application/json": jsii.String("my-random-value"),
@@ -34,8 +34,8 @@ import (
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
 //   }), &MethodOptions{
-//   	MethodResponses: []methodResponse{
-//   		&methodResponse{
+//   	MethodResponses: []MethodResponse{
+//   		&MethodResponse{
 //   			StatusCode: jsii.String("200"),
 //   		},
 //   	},

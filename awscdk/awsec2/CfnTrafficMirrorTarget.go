@@ -27,8 +27,8 @@ import (
 //   	GatewayLoadBalancerEndpointId: jsii.String("gatewayLoadBalancerEndpointId"),
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   	NetworkLoadBalancerArn: jsii.String("networkLoadBalancerArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

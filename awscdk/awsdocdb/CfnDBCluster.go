@@ -53,8 +53,8 @@ import (
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	StorageType: jsii.String("storageType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -157,6 +157,7 @@ type CfnDBCluster interface {
 	// The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.
 	MasterUserSecretKmsKeyId() *string
 	SetMasterUserSecretKmsKeyId(val *string)
+	// The network type of the cluster.
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.

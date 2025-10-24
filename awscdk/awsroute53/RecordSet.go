@@ -17,11 +17,11 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cidrRoutingConfig cidrRoutingConfig
-//   var geoLocation geoLocation
-//   var healthCheck healthCheck
-//   var hostedZone hostedZone
-//   var recordTarget recordTarget
+//   var cidrRoutingConfig CidrRoutingConfig
+//   var geoLocation GeoLocation
+//   var healthCheck HealthCheck
+//   var hostedZone HostedZone
+//   var recordTarget RecordTarget
 //
 //   recordSet := awscdk.Aws_route53.NewRecordSet(this, jsii.String("MyRecordSet"), &RecordSetProps{
 //   	RecordType: awscdk.*Aws_route53.RecordType_A,

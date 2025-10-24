@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameterMapping parameterMapping
-//   var payloadFormatVersion payloadFormatVersion
+//   var parameterMapping ParameterMapping
+//   var payloadFormatVersion PayloadFormatVersion
 //
 //   httpLambdaIntegrationProps := &HttpLambdaIntegrationProps{
 //   	ParameterMapping: parameterMapping,

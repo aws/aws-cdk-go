@@ -12,8 +12,8 @@ package awslogs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   moveKeysProperty := &MoveKeysProperty{
-//   	Entries: []moveKeyEntryProperty{
-//   		&moveKeyEntryProperty{
+//   	Entries: []MoveKeyEntryProperty{
+//   		&MoveKeyEntryProperty{
 //   			Source: jsii.String("source"),
 //   			Target: jsii.String("target"),
 //

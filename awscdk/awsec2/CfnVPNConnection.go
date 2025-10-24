@@ -35,8 +35,8 @@ import (
 //   	RemoteIpv4NetworkCidr: jsii.String("remoteIpv4NetworkCidr"),
 //   	RemoteIpv6NetworkCidr: jsii.String("remoteIpv6NetworkCidr"),
 //   	StaticRoutesOnly: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

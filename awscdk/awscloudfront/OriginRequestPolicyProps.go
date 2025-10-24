@@ -5,7 +5,7 @@ package awscloudfront
 //
 // Example:
 //   // Creating a custom origin request policy for a Distribution -- all parameters optional
-//   var bucketOrigin s3Origin
+//   var bucketOrigin S3Origin
 //
 //   myOriginRequestPolicy := cloudfront.NewOriginRequestPolicy(this, jsii.String("OriginRequestPolicy"), &OriginRequestPolicyProps{
 //   	OriginRequestPolicyName: jsii.String("MyPolicy"),

@@ -8,7 +8,7 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var predicateProperty_ predicateProperty
+//   var predicateProperty_ PredicateProperty
 //
 //   componentDataConfigurationProperty := &ComponentDataConfigurationProperty{
 //   	Model: jsii.String("model"),
@@ -17,7 +17,7 @@ package awsamplifyuibuilder
 //   	Identifiers: []*string{
 //   		jsii.String("identifiers"),
 //   	},
-//   	Predicate: &predicateProperty{
+//   	Predicate: &PredicateProperty{
 //   		And: []interface{}{
 //   			predicateProperty_,
 //   		},

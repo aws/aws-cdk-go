@@ -16,8 +16,8 @@ package cloudassemblyschema
 //   var userValue interface{}
 //
 //   featureFlagReportProperties := &FeatureFlagReportProperties{
-//   	Flags: map[string]featureFlag{
-//   		"flagsKey": &featureFlag{
+//   	Flags: map[string]FeatureFlag{
+//   		"flagsKey": &FeatureFlag{
 //   			"explanation": jsii.String("explanation"),
 //   			"recommendedValue": recommendedValue,
 //   			"unconfiguredBehavesLike": map[string]interface{}{

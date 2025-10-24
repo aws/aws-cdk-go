@@ -17,7 +17,7 @@ package awsevents
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 //   	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
-//   	Targets: []iRuleTarget{
+//   	Targets: []IRuleTarget{
 //   		targets.NewApiDestination(destination),
 //   	},
 //   })

@@ -9,16 +9,16 @@ import (
 //
 // Example:
 //   // Adding restrictions to a Cloudfront Web Distribution.
-//   var sourceBucket bucket
+//   var sourceBucket Bucket
 //
 //   cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyDistribution"), &CloudFrontWebDistributionProps{
-//   	OriginConfigs: []sourceConfiguration{
-//   		&sourceConfiguration{
+//   	OriginConfigs: []SourceConfiguration{
+//   		&SourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
 //   				S3BucketSource: sourceBucket,
 //   			},
-//   			Behaviors: []behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					IsDefaultBehavior: jsii.Boolean(true),
 //   				},
 //   			},

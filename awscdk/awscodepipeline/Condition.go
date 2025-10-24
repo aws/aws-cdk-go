@@ -10,11 +10,11 @@ package awscodepipeline
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var rule rule
+//   var rule Rule
 //
 //   condition := &Condition{
 //   	Result: awscdk.Aws_codepipeline.Result_ROLLBACK,
-//   	Rules: []*rule{
+//   	Rules: []Rule{
 //   		rule,
 //   	},
 //   }

@@ -14,9 +14,9 @@ import (
 //   import elb "github.com/aws/aws-cdk-go/awscdk"
 //   import elb2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clb loadBalancer
-//   var alb applicationLoadBalancer
-//   var nlb networkLoadBalancer
+//   var clb LoadBalancer
+//   var alb ApplicationLoadBalancer
+//   var nlb NetworkLoadBalancer
 //
 //
 //   albListener := alb.AddListener(jsii.String("ALBListener"), &BaseApplicationListenerProps{
@@ -34,10 +34,10 @@ import (
 //   })
 //
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-//   	LoadBalancers: []loadBalancer{
-//   		codedeploy.*loadBalancer_Classic(clb),
-//   		codedeploy.*loadBalancer_Application(albTargetGroup),
-//   		codedeploy.*loadBalancer_Network(nlbTargetGroup),
+//   	LoadBalancers: []LoadBalancer{
+//   		codedeploy.LoadBalancer_Classic(clb),
+//   		codedeploy.LoadBalancer_Application(albTargetGroup),
+//   		codedeploy.LoadBalancer_Network(nlbTargetGroup),
 //   	},
 //   })
 //

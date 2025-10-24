@@ -9,13 +9,13 @@ package awscloudfront
 //   s3BucketSource := s3.NewBucket(this, jsii.String("Bucket"))
 //
 //   distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &CloudFrontWebDistributionProps{
-//   	OriginConfigs: []sourceConfiguration{
-//   		&sourceConfiguration{
+//   	OriginConfigs: []SourceConfiguration{
+//   		&SourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
 //   				S3BucketSource: *S3BucketSource,
 //   			},
-//   			Behaviors: []behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					IsDefaultBehavior: jsii.Boolean(true),
 //   				},
 //   			},
@@ -41,6 +41,7 @@ const (
 	SecurityPolicyProtocol_TLS_V1_2_2018 SecurityPolicyProtocol = "TLS_V1_2_2018"
 	SecurityPolicyProtocol_TLS_V1_2_2019 SecurityPolicyProtocol = "TLS_V1_2_2019"
 	SecurityPolicyProtocol_TLS_V1_2_2021 SecurityPolicyProtocol = "TLS_V1_2_2021"
+	SecurityPolicyProtocol_TLS_V1_2_2025 SecurityPolicyProtocol = "TLS_V1_2_2025"
 	SecurityPolicyProtocol_TLS_V1_3_2025 SecurityPolicyProtocol = "TLS_V1_3_2025"
 )
 

@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var function_ function
-//   var role role
+//   var api IApi
+//   var function_ Function
+//   var role Role
 //
 //   appSyncLambdaDataSourceProps := &AppSyncLambdaDataSourceProps{
 //   	Api: api,

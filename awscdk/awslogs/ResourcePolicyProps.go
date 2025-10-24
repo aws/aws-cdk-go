@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var policyStatement policyStatement
+//   var policyStatement PolicyStatement
 //
 //   resourcePolicyProps := &ResourcePolicyProps{
-//   	PolicyStatements: []*policyStatement{
+//   	PolicyStatements: []PolicyStatement{
 //   		policyStatement,
 //   	},
 //   	ResourcePolicyName: jsii.String("resourcePolicyName"),

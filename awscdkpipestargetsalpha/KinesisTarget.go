@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to a Kinesis stream.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetStream stream
+//   var sourceQueue Queue
+//   var targetStream Stream
 //
 //
 //   streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{

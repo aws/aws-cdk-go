@@ -27,7 +27,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // in stack for account 123456789012...
-//   var otherAccountStack stack
+//   var otherAccountStack Stack
 //
 //   actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &RoleProps{
 //   	AssumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),

@@ -11,9 +11,9 @@ import (
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import firehose "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myConfigurationSet configurationSet
-//   var firehoseDeliveryStream iDeliveryStream
-//   var iamRole iRole
+//   var myConfigurationSet ConfigurationSet
+//   var firehoseDeliveryStream IDeliveryStream
+//   var iamRole IRole
 //
 //
 //   // Create IAM Role automatically

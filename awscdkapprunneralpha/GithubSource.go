@@ -14,9 +14,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
-//   var gitHubConnection gitHubConnection
-//   var runtime runtime
-//   var secret secret
+//   var gitHubConnection GitHubConnection
+//   var runtime Runtime
+//   var secret Secret
 //
 //   githubSource := apprunner_alpha.NewGithubSource(&GithubRepositoryProps{
 //   	ConfigurationSource: apprunner_alpha.ConfigurationSourceType_REPOSITORY,
@@ -33,7 +33,7 @@ import (
 //   		Environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
 //   		},
-//   		EnvironmentSecrets: map[string]*secret{
+//   		EnvironmentSecrets: map[string]Secret{
 //   			"environmentSecretsKey": secret,
 //   		},
 //   		EnvironmentVariables: map[string]*string{

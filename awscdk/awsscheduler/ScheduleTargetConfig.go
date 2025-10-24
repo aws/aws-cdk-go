@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
-//   var scheduleTargetInput scheduleTargetInput
+//   var role Role
+//   var scheduleTargetInput ScheduleTargetInput
 //   var tags interface{}
 //
 //   scheduleTargetConfig := &ScheduleTargetConfig{

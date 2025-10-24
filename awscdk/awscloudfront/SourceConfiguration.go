@@ -20,15 +20,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var functionRef iFunctionRef
-//   var keyGroup keyGroup
-//   var originAccessIdentity originAccessIdentity
-//   var version version
+//   var bucket Bucket
+//   var functionRef IFunctionRef
+//   var keyGroup KeyGroup
+//   var originAccessIdentity OriginAccessIdentity
+//   var version Version
 //
 //   sourceConfiguration := &SourceConfiguration{
-//   	Behaviors: []behavior{
-//   		&behavior{
+//   	Behaviors: []Behavior{
+//   		&Behavior{
 //   			AllowedMethods: awscdk.Aws_cloudfront.CloudFrontAllowedMethods_GET_HEAD,
 //   			CachedMethods: awscdk.*Aws_cloudfront.CloudFrontAllowedCachedMethods_GET_HEAD,
 //   			Compress: jsii.Boolean(false),
@@ -52,15 +52,15 @@ import (
 //   					jsii.String("queryStringCacheKeys"),
 //   				},
 //   			},
-//   			FunctionAssociations: []functionAssociation{
-//   				&functionAssociation{
+//   			FunctionAssociations: []FunctionAssociation{
+//   				&FunctionAssociation{
 //   					EventType: awscdk.*Aws_cloudfront.FunctionEventType_VIEWER_REQUEST,
 //   					Function: functionRef,
 //   				},
 //   			},
 //   			IsDefaultBehavior: jsii.Boolean(false),
-//   			LambdaFunctionAssociations: []lambdaFunctionAssociation{
-//   				&lambdaFunctionAssociation{
+//   			LambdaFunctionAssociations: []LambdaFunctionAssociation{
+//   				&LambdaFunctionAssociation{
 //   					EventType: awscdk.*Aws_cloudfront.LambdaEdgeEventType_ORIGIN_REQUEST,
 //   					LambdaFunction: version,
 //
@@ -71,7 +71,7 @@ import (
 //   			MaxTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   			MinTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   			PathPattern: jsii.String("pathPattern"),
-//   			TrustedKeyGroups: []iKeyGroup{
+//   			TrustedKeyGroups: []IKeyGroup{
 //   				keyGroup,
 //   			},
 //   			TrustedSigners: []*string{
@@ -88,8 +88,8 @@ import (
 //   		DomainName: jsii.String("domainName"),
 //
 //   		// the properties below are optional
-//   		AllowedOriginSSLVersions: []originSslPolicy{
-//   			awscdk.*Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   		AllowedOriginSSLVersions: []OriginSslPolicy{
+//   			awscdk.*Aws_cloudfront.OriginSslPolicy_SSL_V3,
 //   		},
 //   		HttpPort: jsii.Number(123),
 //   		HttpsPort: jsii.Number(123),
@@ -102,15 +102,15 @@ import (
 //   		OriginReadTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   		OriginShieldRegion: jsii.String("originShieldRegion"),
 //   	},
-//   	FailoverCriteriaStatusCodes: []failoverStatusCode{
-//   		awscdk.*Aws_cloudfront.*failoverStatusCode_FORBIDDEN,
+//   	FailoverCriteriaStatusCodes: []FailoverStatusCode{
+//   		awscdk.*Aws_cloudfront.FailoverStatusCode_FORBIDDEN,
 //   	},
 //   	FailoverCustomOriginSource: &CustomOriginConfig{
 //   		DomainName: jsii.String("domainName"),
 //
 //   		// the properties below are optional
-//   		AllowedOriginSSLVersions: []*originSslPolicy{
-//   			awscdk.*Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   		AllowedOriginSSLVersions: []OriginSslPolicy{
+//   			awscdk.*Aws_cloudfront.OriginSslPolicy_SSL_V3,
 //   		},
 //   		HttpPort: jsii.Number(123),
 //   		HttpsPort: jsii.Number(123),

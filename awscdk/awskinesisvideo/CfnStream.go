@@ -30,8 +30,8 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MediaType: jsii.String("mediaType"),
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -514,25 +514,6 @@ func (j *jsiiProxy_CfnStream)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-// Creates a new IStreamRef from an ARN.
-func CfnStream_FromStreamArn(scope constructs.Construct, id *string, arn *string) IStreamRef {
-	_init_.Initialize()
-
-	if err := validateCfnStream_FromStreamArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IStreamRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisvideo.CfnStream",
-		"fromStreamArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

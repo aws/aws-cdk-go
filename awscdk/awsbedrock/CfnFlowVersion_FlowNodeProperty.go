@@ -10,13 +10,13 @@ package awsbedrock
 //
 //   var additionalModelRequestFields interface{}
 //   var collector interface{}
-//   var flowNodeProperty_ flowNodeProperty
+//   var flowNodeProperty_ FlowNodeProperty
 //   var input interface{}
 //   var iterator interface{}
 //   var loopInput interface{}
 //   var output interface{}
 //
-//   flowNodeProperty := &flowNodeProperty{
+//   flowNodeProperty := &FlowNodeProperty{
 //   	Name: jsii.String("name"),
 //   	Type: jsii.String("type"),
 //

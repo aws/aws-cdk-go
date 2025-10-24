@@ -28,10 +28,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
+//   var queue Queue
 //
 //   queuePolicy := awscdk.Aws_sqs.NewQueuePolicy(this, jsii.String("MyQueuePolicy"), &QueuePolicyProps{
-//   	Queues: []iQueue{
+//   	Queues: []IQueue{
 //   		queue,
 //   	},
 //   })

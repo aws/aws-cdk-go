@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to an EventBridge event bus.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetEventBus eventBus
+//   var sourceQueue Queue
+//   var targetEventBus EventBus
 //
 //
 //   eventBusTarget := targets.NewEventBridgeTarget(targetEventBus)

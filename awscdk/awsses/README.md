@@ -16,12 +16,12 @@ bucket := s3.NewBucket(this, jsii.String("Bucket"))
 topic := sns.NewTopic(this, jsii.String("Topic"))
 
 ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &ReceiptRuleSetProps{
-	Rules: []receiptRuleOptions{
-		&receiptRuleOptions{
+	Rules: []ReceiptRuleOptions{
+		&ReceiptRuleOptions{
 			Recipients: []*string{
 				jsii.String("hello@aws.com"),
 			},
-			Actions: []iReceiptRuleAction{
+			Actions: []IReceiptRuleAction{
 				actions.NewAddHeader(&AddHeaderProps{
 					Name: jsii.String("X-Special-Header"),
 					Value: jsii.String("aws"),
@@ -33,11 +33,11 @@ ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &ReceiptRuleSetProps{
 				}),
 			},
 		},
-		&receiptRuleOptions{
+		&ReceiptRuleOptions{
 			Recipients: []*string{
 				jsii.String("aws.com"),
 			},
-			Actions: []*iReceiptRuleAction{
+			Actions: []IReceiptRuleAction{
 				actions.NewSns(&SnsProps{
 					Topic: *Topic,
 				}),
@@ -64,8 +64,8 @@ And actions to rules:
 ```go
 import actions "github.com/aws/aws-cdk-go/awscdk"
 
-var awsRule receiptRule
-var topic topic
+var awsRule ReceiptRule
+var topic Topic
 
 awsRule.AddAction(actions.NewSns(&SnsProps{
 	Topic: Topic,
@@ -148,7 +148,7 @@ Use the `ConfigurationSet` construct to create a configuration set:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var myPool iDedicatedIpPool
+var myPool IDedicatedIpPool
 
 
 ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
@@ -164,8 +164,8 @@ ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSet
 Use `addEventDestination()` to publish email sending events to Amazon SNS, Amazon CloudWatch, Amazon Data Firehose or Amazon EventBridge:
 
 ```go
-var myConfigurationSet configurationSet
-var myTopic topic
+var myConfigurationSet ConfigurationSet
+var myTopic Topic
 
 
 myConfigurationSet.AddEventDestination(jsii.String("ToSns"), &ConfigurationSetEventDestinationOptions{
@@ -178,7 +178,7 @@ myConfigurationSet.AddEventDestination(jsii.String("ToSns"), &ConfigurationSetEv
 ```go
 import events "github.com/aws/aws-cdk-go/awscdk"
 
-var myConfigurationSet configurationSet
+var myConfigurationSet ConfigurationSet
 
 
 bus := events.EventBus_FromEventBusName(this, jsii.String("EventBus"), jsii.String("default"))
@@ -194,9 +194,9 @@ For Firehose, if you don't specify IAM Role ARN for Amazon SES to send events. A
 import iam "github.com/aws/aws-cdk-go/awscdk"
 import firehose "github.com/aws/aws-cdk-go/awscdk"
 
-var myConfigurationSet configurationSet
-var firehoseDeliveryStream iDeliveryStream
-var iamRole iRole
+var myConfigurationSet ConfigurationSet
+var firehoseDeliveryStream IDeliveryStream
+var iamRole IRole
 
 
 // Create IAM Role automatically
@@ -278,7 +278,7 @@ helps prevent unauthorized use.
 To verify an identity for a hosted zone, you create an `EmailIdentity`:
 
 ```go
-var myHostedZone iPublicHostedZone
+var myHostedZone IPublicHostedZone
 
 
 identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
@@ -294,7 +294,7 @@ You can instead configure DKIM authentication by using your own public-private k
 as [Bring Your Own DKIM (BYODKIM)](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-bring-your-own.html):
 
 ```go
-var myHostedZone iPublicHostedZone
+var myHostedZone IPublicHostedZone
 
 
 ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
@@ -330,7 +330,7 @@ For sending emails, `grantSendEmail` can be used instead:
 
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var user user
+var user User
 
 
 identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
@@ -344,7 +344,7 @@ You can also reference an existing email identity using its ARN and grant permis
 
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var user user
+var user User
 
 
 // Imports an existing email identity using its ARN.

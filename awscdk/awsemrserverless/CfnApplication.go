@@ -18,7 +18,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationObjectProperty_ configurationObjectProperty
+//   var configurationObjectProperty_ ConfigurationObjectProperty
 //
 //   cfnApplication := awscdk.Aws_emrserverless.NewCfnApplication(this, jsii.String("MyCfnApplication"), &CfnApplicationProps{
 //   	ReleaseLabel: jsii.String("releaseLabel"),
@@ -103,7 +103,7 @@ import (
 //   		},
 //   	},
 //   	RuntimeConfiguration: []interface{}{
-//   		&configurationObjectProperty{
+//   		&ConfigurationObjectProperty{
 //   			Classification: jsii.String("classification"),
 //
 //   			// the properties below are optional
@@ -119,8 +119,8 @@ import (
 //   		MaxConcurrentRuns: jsii.Number(123),
 //   		QueueTimeoutMinutes: jsii.Number(123),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -148,7 +148,7 @@ type CfnApplication interface {
 	SetArchitecture(val *string)
 	// The ID of the application, such as `ab4rp1abcs8xz47n3x0example` .
 	AttrApplicationId() *string
-	// The Amazon Resource Name (ARN) of the project.
+	// The Amazon Resource Name (ARN) of the EMR Serverless Application.
 	AttrArn() *string
 	// The configuration for an application to automatically start on job submission.
 	AutoStartConfiguration() interface{}
@@ -165,7 +165,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A configuration specification to be used when provisioning an application.
+	// The IAM Identity Center configuration applied to enable trusted identity propagation.
 	IdentityCenterConfiguration() interface{}
 	SetIdentityCenterConfiguration(val interface{})
 	// The image configuration applied to all worker types.

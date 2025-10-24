@@ -8,9 +8,9 @@ package awsconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var evaluationMode evaluationMode
+//   var evaluationMode EvaluationMode
 //   var inputParameters interface{}
-//   var ruleScope ruleScope
+//   var ruleScope RuleScope
 //
 //   ruleProps := &RuleProps{
 //   	ConfigRuleName: jsii.String("configRuleName"),

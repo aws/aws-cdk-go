@@ -3,7 +3,7 @@ package awsquicksight
 
 // A histogram.
 //
-// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

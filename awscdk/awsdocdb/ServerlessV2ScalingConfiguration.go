@@ -4,7 +4,7 @@ package awsdocdb
 // ServerlessV2 scaling configuration for DocumentDB clusters.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{

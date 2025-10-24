@@ -12,8 +12,8 @@ package cxapi
 //
 //   vpcSubnetGroup := &VpcSubnetGroup{
 //   	Name: jsii.String("name"),
-//   	Subnets: []vpcSubnet{
-//   		&vpcSubnet{
+//   	Subnets: []VpcSubnet{
+//   		&VpcSubnet{
 //   			AvailabilityZone: jsii.String("availabilityZone"),
 //   			RouteTableId: jsii.String("routeTableId"),
 //   			SubnetId: jsii.String("subnetId"),

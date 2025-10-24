@@ -12,7 +12,7 @@ import (
 // CodePipeline invoke action that uses AWS InspectorScan for source code.
 //
 // Example:
-//   var pipeline pipeline
+//   var pipeline Pipeline
 //
 //
 //   sourceOutput := codepipeline.NewArtifact()
@@ -33,13 +33,13 @@ import (
 //
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		sourceAction,
 //   	},
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Scan"),
-//   	Actions: []*iAction{
+//   	Actions: []IAction{
 //   		scanAction,
 //   	},
 //   })

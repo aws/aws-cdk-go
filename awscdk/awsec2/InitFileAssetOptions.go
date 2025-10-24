@@ -16,11 +16,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dockerImage dockerImage
-//   var grantable iGrantable
-//   var initServiceRestartHandle initServiceRestartHandle
-//   var keyRef iKeyRef
-//   var localBundling iLocalBundling
+//   var dockerImage DockerImage
+//   var grantable IGrantable
+//   var initServiceRestartHandle InitServiceRestartHandle
+//   var keyRef IKeyRef
+//   var localBundling ILocalBundling
 //
 //   initFileAssetOptions := &InitFileAssetOptions{
 //   	AssetHash: jsii.String("assetHash"),
@@ -46,8 +46,8 @@ import (
 //   		Platform: jsii.String("platform"),
 //   		SecurityOpt: jsii.String("securityOpt"),
 //   		User: jsii.String("user"),
-//   		Volumes: []dockerVolume{
-//   			&dockerVolume{
+//   		Volumes: []DockerVolume{
+//   			&DockerVolume{
 //   				ContainerPath: jsii.String("containerPath"),
 //   				HostPath: jsii.String("hostPath"),
 //
@@ -70,10 +70,10 @@ import (
 //   	IgnoreMode: cdk.IgnoreMode_GLOB,
 //   	Mode: jsii.String("mode"),
 //   	Owner: jsii.String("owner"),
-//   	Readers: []*iGrantable{
+//   	Readers: []IGrantable{
 //   		grantable,
 //   	},
-//   	ServiceRestartHandles: []*initServiceRestartHandle{
+//   	ServiceRestartHandles: []InitServiceRestartHandle{
 //   		initServiceRestartHandle,
 //   	},
 //   	SourceKMSKey: keyRef,

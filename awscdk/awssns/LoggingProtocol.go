@@ -4,11 +4,11 @@ package awssns
 // The type of supported protocol for delivery status logging.
 //
 // Example:
-//   var role role
+//   var role Role
 //
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
-//   	LoggingConfigs: []loggingConfig{
-//   		&loggingConfig{
+//   	LoggingConfigs: []LoggingConfig{
+//   		&LoggingConfig{
 //   			Protocol: sns.LoggingProtocol_SQS,
 //   			FailureFeedbackRole: role,
 //   			SuccessFeedbackRole: role,

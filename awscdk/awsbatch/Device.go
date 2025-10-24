@@ -13,8 +13,8 @@ package awsbatch
 //
 //   	// the properties below are optional
 //   	ContainerPath: jsii.String("containerPath"),
-//   	Permissions: []devicePermission{
-//   		awscdk.Aws_batch.*devicePermission_READ,
+//   	Permissions: []DevicePermission{
+//   		awscdk.Aws_batch.DevicePermission_READ,
 //   	},
 //   }
 //

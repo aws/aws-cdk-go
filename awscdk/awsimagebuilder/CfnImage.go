@@ -80,6 +80,22 @@ type CfnImage interface {
 	//
 	// Values are returned only for container images, and not for AMIs.
 	AttrImageUri() *string
+	// The latest version references of the image.
+	AttrLatestVersion() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the image.
+	//
+	// > Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:
+	// >
+	// > - Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.
+	// > - Version ARNs have only the first three nodes: <major>.<minor>.<patch>
+	// > - Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.
+	AttrLatestVersionArn() *string
+	// The latest version ARN of the created image, with the same major version.
+	AttrLatestVersionMajor() *string
+	// The latest version ARN of the created image, with the same minor version.
+	AttrLatestVersionMinor() *string
+	// The latest version ARN of the created image, with the same patch version.
+	AttrLatestVersionPatch() *string
 	// Returns the name of the image.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -322,6 +338,56 @@ func (j *jsiiProxy_CfnImage) AttrImageUri() *string {
 	_jsii_.Get(
 		j,
 		"attrImageUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) AttrLatestVersion() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLatestVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) AttrLatestVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) AttrLatestVersionMajor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMajor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) AttrLatestVersionMinor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionMinor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) AttrLatestVersionPatch() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionPatch",
 		&returns,
 	)
 	return returns

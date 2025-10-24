@@ -16,7 +16,7 @@ import (
 // This topic describes the key aspects of a matchmaker and how to configure one customized for your game.
 //
 // Example:
-//   var ruleSet matchmakingRuleSet
+//   var ruleSet MatchmakingRuleSet
 //
 //
 //   gamelift.NewStandaloneMatchmakingConfiguration(this, jsii.String("StandaloneMatchmaking"), &StandaloneMatchmakingConfigurationProps{

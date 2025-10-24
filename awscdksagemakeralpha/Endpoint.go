@@ -15,7 +15,7 @@ import (
 // Example:
 //   import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
-//   var endpointConfig endpointConfig
+//   var endpointConfig EndpointConfig
 //
 //
 //   endpoint := sagemaker.NewEndpoint(this, jsii.String("Endpoint"), &EndpointProps{

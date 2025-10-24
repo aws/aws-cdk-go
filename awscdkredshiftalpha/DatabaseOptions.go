@@ -12,8 +12,8 @@ import (
 //   import redshift_alpha "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var secret secret
+//   var cluster Cluster
+//   var secret Secret
 //
 //   databaseOptions := &DatabaseOptions{
 //   	Cluster: cluster,

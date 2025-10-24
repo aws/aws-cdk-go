@@ -8,14 +8,14 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var themeValuesProperty_ themeValuesProperty
+//   var themeValuesProperty_ ThemeValuesProperty
 //
 //   cfnThemeProps := &CfnThemeProps{
 //   	AppId: jsii.String("appId"),
 //   	EnvironmentName: jsii.String("environmentName"),
 //   	Name: jsii.String("name"),
 //   	Overrides: []interface{}{
-//   		&themeValuesProperty{
+//   		&ThemeValuesProperty{
 //   			Key: jsii.String("key"),
 //   			Value: &ThemeValueProperty{
 //   				Children: []interface{}{
@@ -29,7 +29,7 @@ package awsamplifyuibuilder
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Values: []interface{}{
-//   		&themeValuesProperty{
+//   		&ThemeValuesProperty{
 //   			Key: jsii.String("key"),
 //   			Value: &ThemeValueProperty{
 //   				Children: []interface{}{

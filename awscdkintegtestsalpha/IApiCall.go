@@ -22,7 +22,7 @@ type IApiCall interface {
 	// If you wanted to assert the value of `Body` you could do.
 	//
 	// Example:
-	//   var integ integTest
+	//   var integ IntegTest
 	//   actual := map[string][]map[string]interface{}{
 	//   	"Messages": []map[string]interface{}{
 	//   		map[string]interface{}{
@@ -48,7 +48,7 @@ type IApiCall interface {
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
 	//
 	// Example:
-	//   var integ integTest
+	//   var integ IntegTest
 	//
 	//   invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
 	//   	FunctionName: jsii.String("my-func"),
@@ -81,8 +81,8 @@ type IApiCall interface {
 	// Returns the IApiCall provided as `next`.
 	//
 	// Example:
-	//   var first iApiCall
-	//   var second iApiCall
+	//   var first IApiCall
+	//   var second IApiCall
 	//
 	//
 	//   first.Next(second)
@@ -95,7 +95,7 @@ type IApiCall interface {
 	// the IApiCall to return a success.
 	//
 	// Example:
-	//   var integ integTest
+	//   var integ IntegTest
 	//   var executionArn string
 	//
 	//   integ.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
@@ -110,7 +110,7 @@ type IApiCall interface {
 	// the the provider role policy.
 	//
 	// Example:
-	//   var apiCall awsApiCall
+	//   var apiCall AwsApiCall
 	//
 	//   apiCall.Provider.AddToRolePolicy(map[string]interface{}{
 	//   	"Effect": jsii.String("Allow"),

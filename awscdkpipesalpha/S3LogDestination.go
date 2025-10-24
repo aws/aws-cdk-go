@@ -15,7 +15,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkpipesalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3LogDestination := pipes_alpha.NewS3LogDestination(&S3LogDestinationProps{
 //   	Bucket: bucket,

@@ -14,7 +14,7 @@ import (
 // Define a Cognito Identity Pool.
 //
 // Example:
-//   var openIdConnectProvider openIdConnectProvider
+//   var openIdConnectProvider OpenIdConnectProvider
 //
 //   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 //   	IdentityPoolName: jsii.String("myidentitypool"),
@@ -22,7 +22,7 @@ import (
 //   		Google: &IdentityPoolGoogleLoginProvider{
 //   			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 //   		},
-//   		OpenIdConnectProviders: []iOIDCProviderRef{
+//   		OpenIdConnectProviders: []IOIDCProviderRef{
 //   			openIdConnectProvider,
 //   		},
 //   		CustomProvider: jsii.String("my-custom-provider.example.com"),

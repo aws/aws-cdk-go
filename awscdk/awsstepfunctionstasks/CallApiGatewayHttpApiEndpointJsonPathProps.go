@@ -16,10 +16,10 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var stack stack
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var stack Stack
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   callApiGatewayHttpApiEndpointJsonPathProps := &CallApiGatewayHttpApiEndpointJsonPathProps{
 //   	ApiId: jsii.String("apiId"),

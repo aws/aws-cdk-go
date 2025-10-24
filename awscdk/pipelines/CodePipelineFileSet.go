@@ -13,7 +13,7 @@ import (
 // add the end of an existing CodePipeline, which should be very rare.
 //
 // Example:
-//   var codePipeline pipeline
+//   var codePipeline Pipeline
 //
 //
 //   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))

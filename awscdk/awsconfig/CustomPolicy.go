@@ -33,8 +33,8 @@ import (
 //   config.NewCustomPolicy(this, jsii.String("Custom"), &CustomPolicyProps{
 //   	PolicyText: samplePolicyText,
 //   	EnableDebugLog: jsii.Boolean(true),
-//   	RuleScope: config.RuleScope_FromResources([]resourceType{
-//   		config.*resourceType_DYNAMODB_TABLE(),
+//   	RuleScope: config.RuleScope_FromResources([]ResourceType{
+//   		config.ResourceType_DYNAMODB_TABLE(),
 //   	}),
 //   })
 //

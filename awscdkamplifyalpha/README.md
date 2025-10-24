@@ -90,7 +90,7 @@ to pull the CodeCommit repository.
 Add branches:
 
 ```go
-var amplifyApp app
+var amplifyApp App
 
 
 main := amplifyApp.AddBranch(jsii.String("main")) // `id` will be used as repo branch name
@@ -107,7 +107,7 @@ Add custom rules for redirection:
 ```go
 import "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
 
-var amplifyApp app
+var amplifyApp App
 
 amplifyApp.AddCustomRule(awscdkamplifyalpha.NewCustomRule(&CustomRuleOptions{
 	Source: jsii.String("/docs/specific-filename.html"),
@@ -123,7 +123,7 @@ file extensions: css, gif, ico, jpg, js, png, txt, svg, woff,
 ttf, map, json, webmanifest.
 
 ```go
-var mySinglePageApp app
+var mySinglePageApp App
 
 
 mySinglePageApp.AddCustomRule(amplify.CustomRule_SINGLE_PAGE_APPLICATION_REDIRECT())
@@ -132,9 +132,9 @@ mySinglePageApp.AddCustomRule(amplify.CustomRule_SINGLE_PAGE_APPLICATION_REDIREC
 Add a domain and map sub domains to branches:
 
 ```go
-var amplifyApp app
-var main branch
-var dev branch
+var amplifyApp App
+var main Branch
+var dev Branch
 
 
 domain := amplifyApp.AddDomain(jsii.String("example.com"), &DomainOptions{
@@ -153,8 +153,8 @@ domain.MapSubDomain(dev)
 To specify a custom certificate for your custom domain use the `customCertificate` property:
 
 ```go
-var customCertificate certificate
-var amplifyApp app
+var customCertificate Certificate
+var amplifyApp App
 
 
 domain := amplifyApp.AddDomain(jsii.String("example.com"), &DomainOptions{
@@ -195,7 +195,7 @@ amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
 Basic auth can be added to specific branches:
 
 ```go
-var amplifyApp app
+var amplifyApp App
 
 amplifyApp.AddBranch(jsii.String("feature/next"), &BranchOptions{
 	BasicAuth: amplify.BasicAuth_FromGeneratedPassword(jsii.String("username")),
@@ -236,15 +236,15 @@ amplifyApp := amplify.NewApp(this, jsii.String("App"), &AppProps{
 		Repository: jsii.String("<repo>"),
 		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
 	}),
-	CustomResponseHeaders: []customResponseHeader{
-		&customResponseHeader{
+	CustomResponseHeaders: []CustomResponseHeader{
+		&CustomResponseHeader{
 			Pattern: jsii.String("*.json"),
 			Headers: map[string]*string{
 				"custom-header-name-1": jsii.String("custom-header-value-1"),
 				"custom-header-name-2": jsii.String("custom-header-value-2"),
 			},
 		},
-		&customResponseHeader{
+		&CustomResponseHeader{
 			Pattern: jsii.String("/path/*"),
 			Headers: map[string]*string{
 				"custom-header-name-1": jsii.String("custom-header-value-2"),
@@ -305,8 +305,8 @@ amplifyApp := amplify.NewApp(this, jsii.String("App"), &AppProps{
 			},
 		},
 	}),
-	CustomResponseHeaders: []customResponseHeader{
-		&customResponseHeader{
+	CustomResponseHeaders: []CustomResponseHeader{
+		&CustomResponseHeader{
 			AppRoot: jsii.String("frontend"),
 			Pattern: jsii.String("*.json"),
 			Headers: map[string]*string{
@@ -314,7 +314,7 @@ amplifyApp := amplify.NewApp(this, jsii.String("App"), &AppProps{
 				"custom-header-name-2": jsii.String("custom-header-value-2"),
 			},
 		},
-		&customResponseHeader{
+		&CustomResponseHeader{
 			AppRoot: jsii.String("backend"),
 			Pattern: jsii.String("/path/*"),
 			Headers: map[string]*string{
@@ -347,7 +347,7 @@ By default, a new role is created when `platform` is `Platform.WEB_COMPUTE` or `
 If you want to assign an IAM role to the APP, set `compute` to the role:
 
 ```go
-var computeRole role
+var computeRole Role
 
 
 amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
@@ -359,8 +359,8 @@ amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
 It is also possible to override the compute role for a specific branch by setting `computeRole` in `Branch`:
 
 ```go
-var computeRole role
-var amplifyApp app
+var computeRole Role
+var amplifyApp App
 
 
 branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
@@ -401,8 +401,8 @@ amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
 ```go
 import assets "github.com/aws/aws-cdk-go/awscdk"
 
-var asset asset
-var amplifyApp app
+var asset Asset
+var amplifyApp App
 
 branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
 	Asset: asset,
@@ -419,7 +419,7 @@ For more information, see [Skew protection for Amplify deployments](https://docs
 To enable skew protection, set the `skewProtection` property to `true`:
 
 ```go
-var amplifyApp app
+var amplifyApp App
 
 branch := amplifyApp.AddBranch(jsii.String("dev"), &BranchOptions{
 	SkewProtection: jsii.Boolean(true),

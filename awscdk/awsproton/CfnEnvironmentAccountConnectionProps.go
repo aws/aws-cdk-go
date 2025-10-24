@@ -18,8 +18,8 @@ import (
 //   	EnvironmentName: jsii.String("environmentName"),
 //   	ManagementAccountId: jsii.String("managementAccountId"),
 //   	RoleArn: jsii.String("roleArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

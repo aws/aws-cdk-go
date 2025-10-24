@@ -12,7 +12,7 @@ import (
 //   import redshift_alpha "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
+//   var key Key
 //
 //   databaseSecretProps := &DatabaseSecretProps{
 //   	Username: jsii.String("username"),

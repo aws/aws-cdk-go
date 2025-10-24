@@ -15,7 +15,7 @@ import (
 // A CodeDeploy Deployment Group that deploys to EC2/on-premise instances.
 //
 // Example:
-//   var alb applicationLoadBalancer
+//   var alb ApplicationLoadBalancer
 //
 //   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),

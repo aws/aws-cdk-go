@@ -4,19 +4,19 @@ package awsappsync
 // Authorization configuration for the Channel Namespace.
 //
 // Example:
-//   var api eventApi
+//   var api EventApi
 //
 //
 //   appsync.NewChannelNamespace(this, jsii.String("Namespace"), &ChannelNamespaceProps{
 //   	Api: Api,
 //   	AuthorizationConfig: &NamespaceAuthConfig{
 //   		// Override publishing authorization to API Key
-//   		PublishAuthModeTypes: []appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		PublishAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
 //   		// Override subscribing authorization to Lambda
-//   		SubscribeAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_LAMBDA,
+//   		SubscribeAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_LAMBDA,
 //   		},
 //   	},
 //   })

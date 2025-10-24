@@ -15,7 +15,7 @@ import (
 //   // Create a key group to use with CloudFront signed URLs and signed cookies.
 //   // Create a key group to use with CloudFront signed URLs and signed cookies.
 //   cloudfront.NewKeyGroup(this, jsii.String("MyKeyGroup"), &KeyGroupProps{
-//   	Items: []iPublicKeyRef{
+//   	Items: []IPublicKeyRef{
 //   		cloudfront.NewPublicKey(this, jsii.String("MyPublicKey"), &PublicKeyProps{
 //   			EncodedKey: jsii.String("..."),
 //   		}),

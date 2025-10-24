@@ -14,8 +14,8 @@ import (
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var interfaceVpcEndpoint interfaceVpcEndpoint
+//   var zone HostedZone
+//   var interfaceVpcEndpoint InterfaceVpcEndpoint
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{

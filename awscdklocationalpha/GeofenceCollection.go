@@ -13,7 +13,7 @@ import (
 // A Geofence Collection.
 //
 // Example:
-//   var key key
+//   var key Key
 //
 //
 //   location.NewGeofenceCollection(this, jsii.String("GeofenceCollection"), &GeofenceCollectionProps{

@@ -13,8 +13,8 @@ import (
 //   import apigw "github.com/aws/aws-cdk-go/awscdk"
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api httpApi
-//   var logGroup logGroup
+//   var api HttpApi
+//   var logGroup LogGroup
 //
 //
 //   stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{

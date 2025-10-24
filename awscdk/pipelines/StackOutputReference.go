@@ -11,18 +11,18 @@ import (
 //
 // Example:
 //   type myLambdaStep struct {
-//   	step
-//   	stackOutputReference stackOutputReference
+//   	Step
+//   	stackOutputReference StackOutputReference
 //   }
 //
-//   func newMyLambdaStep(fn function, stackOutput cfnOutput) *myLambdaStep {
+//   func newMyLambdaStep(fn Function, stackOutput CfnOutput) *myLambdaStep {
 //   	this := &myLambdaStep{}
 //   	pipelines.NewStep_Override(this, jsii.String("MyLambdaStep"))
-//   	this.stackOutputReference = pipelines.stackOutputReference_FromCfnOutput(stackOutput)
+//   	this.stackOutputReference = pipelines.StackOutputReference_FromCfnOutput(stackOutput)
 //   	return this
 //   }
 //
-//   func (this *myLambdaStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
+//   func (this *myLambdaStep) produceAction(stage IStage, options ProduceActionOptions) CodePipelineActionFactoryResult {
 //   	*stage.AddAction(
 //   	cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
 //   		ActionName: options.ActionName,
@@ -34,7 +34,7 @@ import (
 //   		Lambda: this.fn,
 //   	}))
 //
-//   	return &codePipelineActionFactoryResult{
+//   	return &CodePipelineActionFactoryResult{
 //   		RunOrdersConsumed: jsii.Number(1),
 //   	}
 //   }public get consumedStackOutputs(): pipelines.StackOutputReference[] {

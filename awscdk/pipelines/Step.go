@@ -15,10 +15,10 @@ import (
 //
 // Example:
 //   type myJenkinsStep struct {
-//   	step
+//   	Step
 //   }
 //
-//   func newMyJenkinsStep(provider jenkinsProvider, input fileSet) *myJenkinsStep {
+//   func newMyJenkinsStep(provider JenkinsProvider, input FileSet) *myJenkinsStep {
 //   	this := &myJenkinsStep{}
 //   	pipelines.NewStep_Override(this, jsii.String("MyJenkinsStep"))
 //
@@ -32,7 +32,7 @@ import (
 //   	return this
 //   }
 //
-//   func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
+//   func (this *myJenkinsStep) produceAction(stage IStage, options ProduceActionOptions) CodePipelineActionFactoryResult {
 //   	// This is where you control what type of Action gets added to the
 //   	// CodePipeline
 //   	*stage.AddAction(
@@ -47,12 +47,12 @@ import (
 //   		ProjectName: jsii.String("MyJenkinsProject"),
 //
 //   		// Translate the FileSet into a codepipeline.Artifact
-//   		Inputs: []artifact{
+//   		Inputs: []Artifact{
 //   			options.Artifacts.ToCodePipeline(this.input),
 //   		},
 //   	}))
 //
-//   	return &codePipelineActionFactoryResult{
+//   	return &CodePipelineActionFactoryResult{
 //   		RunOrdersConsumed: jsii.Number(1),
 //   	}
 //   }

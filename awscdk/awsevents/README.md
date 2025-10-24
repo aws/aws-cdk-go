@@ -47,8 +47,8 @@ For example, to define an rule that triggers a CodeBuild project build when a
 commit is pushed to the "master" branch of a CodeCommit repository:
 
 ```go
-var repo repository
-var project project
+var repo Repository
+var project Project
 
 
 onCommitRule := repo.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
@@ -67,8 +67,8 @@ topic target which formats a human-readable message for the commit.
 For example, this adds an SNS topic as a target:
 
 ```go
-var onCommitRule rule
-var topic topic
+var onCommitRule Rule
+var topic Topic
 
 
 onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
@@ -80,8 +80,8 @@ onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
 Or using an Object:
 
 ```go
-var onCommitRule rule
-var topic topic
+var onCommitRule Rule
+var topic Topic
 
 
 onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
@@ -96,7 +96,7 @@ onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
 You can specify an IAM Role:
 
 ```go
-var role iRole
+var role IRole
 
 
 events.NewRule(this, jsii.String("MyRule"), &RuleProps{
@@ -199,9 +199,9 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster cluster
-var taskDefinition taskDefinition
-var role role
+var cluster Cluster
+var taskDefinition TaskDefinition
+var role Role
 
 
 ecsTaskTarget := awscdk.NewEcsTask(&EcsTaskProps{
@@ -215,7 +215,7 @@ awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
 		Minute: jsii.String("0"),
 		Hour: jsii.String("4"),
 	}),
-	Targets: []iRuleTarget{
+	Targets: []IRuleTarget{
 		ecsTaskTarget,
 	},
 })
@@ -224,9 +224,9 @@ awscdk.NewRule(this, jsii.String("ScheduleRule"), &RuleProps{
 If you want to specify Fargate platform version, set `platformVersion` in EcsTask's props like the following example:
 
 ```go
-var cluster cluster
-var taskDefinition taskDefinition
-var role role
+var cluster Cluster
+var taskDefinition TaskDefinition
+var role Role
 
 
 platformVersion := ecs.FargatePlatformVersion_VERSION1_4
@@ -342,7 +342,7 @@ or `EventBus.fromEventBusName` factory method.
 Then, you can use the `grantPutEventsTo` method to grant `event:PutEvents` to the eventBus.
 
 ```go
-var lambdaFunction function
+var lambdaFunction Function
 
 
 eventBus := events.EventBus_FromEventBusArn(this, jsii.String("ImportedEventBus"), jsii.String("arn:aws:events:us-east-1:111111111:event-bus/my-event-bus"))
@@ -358,7 +358,7 @@ To use a customer managed key for events on the event bus, use the `kmsKey` attr
 ```go
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
-var kmsKey iKey
+var kmsKey IKey
 
 
 events.NewEventBus(this, jsii.String("Bus"), &EventBusProps{
@@ -374,7 +374,7 @@ Note: When you attach a customer managed key to either an EventBus or an Archive
 import kms "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var kmsKey iKey
+var kmsKey IKey
 
 
 stack := awscdk.Newstack()

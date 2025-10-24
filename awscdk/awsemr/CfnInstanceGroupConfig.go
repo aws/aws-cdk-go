@@ -20,7 +20,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationProperty_ configurationProperty
+//   var configurationProperty_ ConfigurationProperty
 //
 //   cfnInstanceGroupConfig := awscdk.Aws_emr.NewCfnInstanceGroupConfig(this, jsii.String("MyCfnInstanceGroupConfig"), &CfnInstanceGroupConfigProps{
 //   	InstanceCount: jsii.Number(123),
@@ -77,7 +77,7 @@ import (
 //   	},
 //   	BidPrice: jsii.String("bidPrice"),
 //   	Configurations: []interface{}{
-//   		&configurationProperty{
+//   		&ConfigurationProperty{
 //   			Classification: jsii.String("classification"),
 //   			ConfigurationProperties: map[string]*string{
 //   				"configurationPropertiesKey": jsii.String("configurationProperties"),

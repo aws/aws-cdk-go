@@ -4,7 +4,7 @@ package awscdk
 // An enum representing the various ARN formats that different services use.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //
 //   // Builds "arn:<PARTITION>:lambda:<REGION>:<ACCOUNT>:function:MyFunction"

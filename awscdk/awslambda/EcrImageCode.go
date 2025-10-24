@@ -19,7 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var repository repository
+//   var repository Repository
 //
 //   ecrImageCode := awscdk.Aws_lambda.NewEcrImageCode(repository, &EcrImageCodeProps{
 //   	Cmd: []*string{

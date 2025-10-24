@@ -14,7 +14,7 @@ import (
 // The ReportGroup resource class.
 //
 // Example:
-//   var source source
+//   var source Source
 //
 //
 //   // create a new ReportGroup

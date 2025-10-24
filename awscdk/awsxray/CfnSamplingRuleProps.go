@@ -71,8 +71,8 @@ import (
 //   		ServiceType: jsii.String("serviceType"),
 //   		UrlPath: jsii.String("urlPath"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

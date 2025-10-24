@@ -34,7 +34,7 @@ package awsbedrockalpha
 //   	PromptName: jsii.String("agent-prompt"),
 //   	Description: jsii.String("Prompt for agent interactions"),
 //   	DefaultVariant: agentVariant,
-//   	Variants: []iPromptVariant{
+//   	Variants: []IPromptVariant{
 //   		agentVariant,
 //   	},
 //   	KmsKey: cmk,

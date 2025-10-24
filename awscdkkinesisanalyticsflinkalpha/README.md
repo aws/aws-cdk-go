@@ -33,15 +33,15 @@ import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
 app := core.NewApp()
 stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 
-flinkRuntimes := []runtime{
-	flink.runtime_FLINK_1_6(),
-	flink.runtime_FLINK_1_8(),
-	flink.runtime_FLINK_1_11(),
-	flink.runtime_FLINK_1_13(),
-	flink.runtime_FLINK_1_15(),
-	flink.runtime_FLINK_1_18(),
-	flink.runtime_FLINK_1_19(),
-	flink.runtime_FLINK_1_20(),
+flinkRuntimes := []Runtime{
+	flink.Runtime_FLINK_1_6(),
+	flink.Runtime_FLINK_1_8(),
+	flink.Runtime_FLINK_1_11(),
+	flink.Runtime_FLINK_1_13(),
+	flink.Runtime_FLINK_1_15(),
+	flink.Runtime_FLINK_1_18(),
+	flink.Runtime_FLINK_1_19(),
+	flink.Runtime_FLINK_1_20(),
 }
 
 flinkRuntimes.forEach((runtime) => {
@@ -58,7 +58,7 @@ flinkRuntimes.forEach((runtime) => {
 })
 
 integ.NewIntegTest(app, jsii.String("ApplicationTest"), &IntegTestProps{
-	TestCases: []stack{
+	TestCases: []Stack{
 		stack,
 	},
 })
@@ -80,7 +80,7 @@ aws-kinesisanalytics-runtime library to [retrieve these
 properties](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-properties.html#how-properties-access).
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	PropertyGroups: map[string]map[string]*string{
@@ -100,7 +100,7 @@ when the Flink job starts. These include parameters for checkpointing,
 snapshotting, monitoring, and parallelism.
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
@@ -130,8 +130,8 @@ flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationP
 Flink applications can optionally be deployed in a VPC:
 
 ```go
-var bucket bucket
-var vpc vpc
+var bucket Bucket
+var vpc Vpc
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),

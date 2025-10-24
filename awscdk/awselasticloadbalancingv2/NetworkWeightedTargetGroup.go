@@ -8,7 +8,7 @@ package awselasticloadbalancingv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkTargetGroup networkTargetGroup
+//   var networkTargetGroup NetworkTargetGroup
 //
 //   networkWeightedTargetGroup := &NetworkWeightedTargetGroup{
 //   	TargetGroup: networkTargetGroup,

@@ -74,7 +74,7 @@ import (
 //   		},
 //   	},
 //   }
-//   cfnKey := (kmsKey.Node.defaultChild.(cfnKey))
+//   cfnKey := (kmsKey.Node.defaultChild.(CfnKey))
 //   cfnKey.KeyPolicy = scopedDownKeyPolicy
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html

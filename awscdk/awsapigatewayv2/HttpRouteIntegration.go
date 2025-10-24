@@ -10,7 +10,7 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bookStoreDefaultFn function
+//   var bookStoreDefaultFn Function
 //
 //
 //   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
@@ -20,15 +20,15 @@ import (
 //
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/books"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_GET,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_GET,
 //   	},
 //   	Integration: getBooksIntegration,
 //   })
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/books"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_ANY,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_ANY,
 //   	},
 //   	Integration: bookStoreDefaultIntegration,
 //   })

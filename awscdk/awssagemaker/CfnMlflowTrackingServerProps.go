@@ -19,8 +19,8 @@ import (
 //   	// the properties below are optional
 //   	AutomaticModelRegistration: jsii.Boolean(false),
 //   	MlflowVersion: jsii.String("mlflowVersion"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

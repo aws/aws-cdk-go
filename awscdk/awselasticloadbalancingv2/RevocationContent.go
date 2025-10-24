@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucketRef iBucketRef
+//   var bucketRef IBucketRef
 //
 //   revocationContent := &RevocationContent{
 //   	Bucket: bucketRef,

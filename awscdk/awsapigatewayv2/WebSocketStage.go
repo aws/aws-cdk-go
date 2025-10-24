@@ -14,7 +14,7 @@ import (
 // Represents a stage where an instance of the API is deployed.
 //
 // Example:
-//   var webSocketApi iWebSocketApi
+//   var webSocketApi IWebSocketApi
 //
 //
 //   importedStage := apigwv2.WebSocketStage_FromWebSocketStageAttributes(this, jsii.String("imported-stage"), &WebSocketStageAttributes{
@@ -25,8 +25,8 @@ import (
 //   apiKey := apigwv2.NewApiKey(this, jsii.String("MyApiKey"))
 //
 //   usagePlan := apigwv2.NewUsagePlan(this, jsii.String("MyUsagePlan"), &UsagePlanProps{
-//   	ApiStages: []usagePlanPerApiStage{
-//   		&usagePlanPerApiStage{
+//   	ApiStages: []UsagePlanPerApiStage{
+//   		&UsagePlanPerApiStage{
 //   			Api: webSocketApi,
 //   			Stage: importedStage,
 //   		},

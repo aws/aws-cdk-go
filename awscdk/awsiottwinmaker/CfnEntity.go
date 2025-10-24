@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dataValueProperty_ dataValueProperty
+//   var dataValueProperty_ DataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
@@ -35,7 +35,7 @@ import (
 //   			"properties": map[string]interface{}{
 //   				"propertiesKey": &PropertyProperty{
 //   					"definition": definition,
-//   					"value": &dataValueProperty{
+//   					"value": &DataValueProperty{
 //   						"booleanValue": jsii.Boolean(false),
 //   						"doubleValue": jsii.Number(123),
 //   						"expression": jsii.String("expression"),
@@ -75,7 +75,7 @@ import (
 //   			"properties": map[string]interface{}{
 //   				"propertiesKey": &PropertyProperty{
 //   					"definition": definition,
-//   					"value": &dataValueProperty{
+//   					"value": &DataValueProperty{
 //   						"booleanValue": jsii.Boolean(false),
 //   						"doubleValue": jsii.Number(123),
 //   						"expression": jsii.String("expression"),
@@ -732,25 +732,6 @@ func (j *jsiiProxy_CfnEntity)SetWorkspaceId(val *string) {
 		"workspaceId",
 		val,
 	)
-}
-
-// Creates a new IEntityRef from an ARN.
-func CfnEntity_FromEntityArn(scope constructs.Construct, id *string, arn *string) IEntityRef {
-	_init_.Initialize()
-
-	if err := validateCfnEntity_FromEntityArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IEntityRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
-		"fromEntityArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

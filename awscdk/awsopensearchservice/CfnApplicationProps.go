@@ -35,8 +35,8 @@ import (
 //   		IamIdentityCenterInstanceArn: jsii.String("iamIdentityCenterInstanceArn"),
 //   		IamRoleForIdentityCenterApplicationArn: jsii.String("iamRoleForIdentityCenterApplicationArn"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

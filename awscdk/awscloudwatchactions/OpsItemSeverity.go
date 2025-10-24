@@ -4,7 +4,7 @@ package awscloudwatchactions
 // Types of OpsItem severity available.
 //
 // Example:
-//   var alarm alarm
+//   var alarm Alarm
 //
 //   // Create an OpsItem with specific severity and category when alarm triggers
 //   alarm.AddAlarmAction(

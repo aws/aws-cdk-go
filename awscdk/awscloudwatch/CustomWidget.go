@@ -8,7 +8,7 @@ import (
 // A CustomWidget shows the result of a AWS lambda function.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   // Import or create a lambda function

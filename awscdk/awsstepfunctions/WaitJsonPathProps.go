@@ -9,7 +9,7 @@ package awsstepfunctions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var waitTime waitTime
+//   var waitTime WaitTime
 //
 //   waitJsonPathProps := &WaitJsonPathProps{
 //   	Time: waitTime,

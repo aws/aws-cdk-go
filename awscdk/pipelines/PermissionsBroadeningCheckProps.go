@@ -8,11 +8,11 @@ import (
 // Properties for a `PermissionsBroadeningCheck`.
 //
 // Example:
-//   var pipeline codePipeline
+//   var pipeline CodePipeline
 //
 //   stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
 //   pipeline.AddStage(stage, &AddStageOpts{
-//   	Pre: []step{
+//   	Pre: []Step{
 //   		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{
 //   			Stage: *Stage,
 //   		}),

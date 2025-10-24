@@ -10,8 +10,8 @@ import (
 // Customize the SNS Topic Event Target.
 //
 // Example:
-//   var onCommitRule rule
-//   var topic topic
+//   var onCommitRule Rule
+//   var topic Topic
 //
 //
 //   onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{

@@ -11,9 +11,9 @@ import (
 // CloudWatch Logs log group for delivery of pipe logs.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
-//   var logGroup logGroup
+//   var sourceQueue Queue
+//   var targetQueue Queue
+//   var logGroup LogGroup
 //
 //
 //   cwlLogDestination := pipes.NewCloudwatchLogsLogDestination(logGroup)
@@ -25,7 +25,7 @@ import (
 //   	LogIncludeExecutionData: []aLL{
 //   		pipes.IncludeExecutionData_*aLL,
 //   	},
-//   	LogDestinations: []iLogDestination{
+//   	LogDestinations: []ILogDestination{
 //   		cwlLogDestination,
 //   	},
 //   })

@@ -4,7 +4,7 @@ package awsroute53
 // Properties for configuring CIDR routing in Route 53 resource record set objects.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   cidrCollection := route53.NewCfnCidrCollection(this, jsii.String("CidrCollection"), &CfnCidrCollectionProps{

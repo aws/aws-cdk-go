@@ -8,7 +8,7 @@ package awss3
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   inventory := &Inventory{
 //   	Destination: &InventoryDestination{

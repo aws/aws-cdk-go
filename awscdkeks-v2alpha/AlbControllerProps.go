@@ -8,8 +8,8 @@ package awscdkeks-v2alpha
 //   // The values are placeholders you should change.
 //   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeks-v2alpha"
 //
-//   var albControllerVersion albControllerVersion
-//   var cluster cluster
+//   var albControllerVersion AlbControllerVersion
+//   var cluster Cluster
 //   var policy interface{}
 //
 //   albControllerProps := &AlbControllerProps{

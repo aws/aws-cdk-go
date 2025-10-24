@@ -16,6 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnPipeline := awscdk.Aws_osis.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &CfnPipelineProps{
 //   	MaxUnits: jsii.Number(123),
 //   	MinUnits: jsii.Number(123),
@@ -35,8 +37,12 @@ import (
 //   		},
 //   		IsLoggingEnabled: jsii.Boolean(false),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	PipelineRoleArn: jsii.String("pipelineRoleArn"),
+//   	ResourcePolicy: &ResourcePolicyProperty{
+//   		Policy: policy,
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -119,11 +125,16 @@ type CfnPipeline interface {
 	SetPipelineName(val *string)
 	// A reference to a Pipeline resource.
 	PipelineRef() *PipelineReference
+	// The Pipeline Role (ARN) for the pipeline.
+	PipelineRoleArn() *string
+	SetPipelineRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ResourcePolicy() interface{}
+	SetResourcePolicy(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -464,11 +475,31 @@ func (j *jsiiProxy_CfnPipeline) PipelineRef() *PipelineReference {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) PipelineRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pipelineRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) ResourcePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
 		&returns,
 	)
 	return returns
@@ -635,6 +666,25 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineName(val *string) {
 	_jsii_.Set(
 		j,
 		"pipelineName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetPipelineRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"pipelineRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetResourcePolicy(val interface{}) {
+	if err := j.validateSetResourcePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
 		val,
 	)
 }

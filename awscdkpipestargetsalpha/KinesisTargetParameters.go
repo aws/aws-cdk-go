@@ -7,8 +7,8 @@ import (
 // Kinesis target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetStream stream
+//   var sourceQueue Queue
+//   var targetStream Stream
 //
 //
 //   streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{

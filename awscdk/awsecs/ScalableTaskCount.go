@@ -12,7 +12,7 @@ import (
 // The scalable attribute representing task count.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,

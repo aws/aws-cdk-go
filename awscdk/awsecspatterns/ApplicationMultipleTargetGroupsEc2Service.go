@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   // One application load balancer with one listener and two target groups.
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedEc2Service := ecsPatterns.NewApplicationMultipleTargetGroupsEc2Service(this, jsii.String("Service"), &ApplicationMultipleTargetGroupsEc2ServiceProps{
 //   	Cluster: Cluster,
@@ -22,11 +22,11 @@ import (
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	TargetGroups: []applicationTargetProps{
-//   		&applicationTargetProps{
+//   	TargetGroups: []ApplicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(80),
 //   		},
-//   		&applicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(90),
 //   			PathPattern: jsii.String("a/b/c"),
 //   			Priority: jsii.Number(10),

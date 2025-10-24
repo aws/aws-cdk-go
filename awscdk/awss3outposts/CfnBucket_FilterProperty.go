@@ -10,8 +10,8 @@ package awss3outposts
 //
 //   filterProperty := &FilterProperty{
 //   	AndOperator: &FilterAndOperatorProperty{
-//   		Tags: []filterTagProperty{
-//   			&filterTagProperty{
+//   		Tags: []FilterTagProperty{
+//   			&FilterTagProperty{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
 //   			},
@@ -21,7 +21,7 @@ package awss3outposts
 //   		Prefix: jsii.String("prefix"),
 //   	},
 //   	Prefix: jsii.String("prefix"),
-//   	Tag: &filterTagProperty{
+//   	Tag: &FilterTagProperty{
 //   		Key: jsii.String("key"),
 //   		Value: jsii.String("value"),
 //   	},

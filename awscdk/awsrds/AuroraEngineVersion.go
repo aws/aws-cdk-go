@@ -8,7 +8,7 @@ import (
 // The versions for the Aurora cluster engine (those returned by `DatabaseClusterEngine.aurora`).
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClusterFromSnapshotProps{
 //   	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{

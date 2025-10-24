@@ -7,8 +7,8 @@ This library contains Route53 Alias Record targets for:
 ```go
 import apigw "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var restApi lambdaRestApi
+var zone HostedZone
+var restApi LambdaRestApi
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -22,8 +22,8 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 ```go
 import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var domainName domainName
+var zone HostedZone
+var domainName DomainName
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -37,8 +37,8 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 ```go
 import appsync "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var graphqlApi graphqlApi
+var zone HostedZone
+var graphqlApi GraphqlApi
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -52,8 +52,8 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 ```go
 import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var distribution cloudFrontWebDistribution
+var zone HostedZone
+var distribution CloudFrontWebDistribution
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -69,8 +69,8 @@ By providing optional properties, you can specify whether to evaluate target hea
 ```go
 import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var lb applicationLoadBalancer
+var zone HostedZone
+var lb ApplicationLoadBalancer
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -89,8 +89,8 @@ By providing optional properties, you can specify whether to evaluate target hea
 ```go
 import elb "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var lb loadBalancer
+var zone HostedZone
+var lb LoadBalancer
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -113,8 +113,8 @@ By providing optional properties, you can specify whether to evaluate target hea
 ```go
 import globalaccelerator "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var accelerator accelerator
+var zone HostedZone
+var accelerator Accelerator
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -136,8 +136,8 @@ See [the documentation on DNS addressing](https://docs.aws.amazon.com/global-acc
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var interfaceVpcEndpoint interfaceVpcEndpoint
+var zone HostedZone
+var interfaceVpcEndpoint InterfaceVpcEndpoint
 
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
@@ -191,8 +191,8 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 ```go
 import cognito "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
-var domain userPoolDomain
+var zone HostedZone
+var domain UserPoolDomain
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 	Zone: Zone,
@@ -203,8 +203,8 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 * Route 53 record
 
 ```go
-var zone hostedZone
-var record aRecord
+var zone HostedZone
+var record ARecord
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 	Zone: Zone,
@@ -219,7 +219,7 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 By providing optional properties, you can specify whether to evaluate target health.
 
 ```go
-var zone hostedZone
+var zone HostedZone
 var ebsEnvironmentUrl string
 
 
@@ -237,7 +237,7 @@ If Elastic Beanstalk environment URL is not avaiable at synth time, you can spec
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var zone hostedZone
+var zone HostedZone
 var ebsEnvironmentUrl string
 
 
@@ -255,8 +255,8 @@ Or you can specify Stack region for CDK to generate the correct Hosted Zone ID.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var app app
-var zone hostedZone
+var app App
+var zone HostedZone
 var ebsEnvironmentUrl string
 
 

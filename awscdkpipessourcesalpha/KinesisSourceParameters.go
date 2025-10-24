@@ -9,8 +9,8 @@ import (
 // Parameters for the Kinesis source.
 //
 // Example:
-//   var sourceStream stream
-//   var targetQueue queue
+//   var sourceStream Stream
+//   var targetQueue Queue
 //
 //
 //   pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{

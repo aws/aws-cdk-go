@@ -44,8 +44,8 @@ import (
 //   		FirstName: jsii.String("firstName"),
 //   		LastName: jsii.String("lastName"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

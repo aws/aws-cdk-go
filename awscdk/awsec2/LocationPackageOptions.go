@@ -8,11 +8,11 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var initServiceRestartHandle initServiceRestartHandle
+//   var initServiceRestartHandle InitServiceRestartHandle
 //
 //   locationPackageOptions := &LocationPackageOptions{
 //   	Key: jsii.String("key"),
-//   	ServiceRestartHandles: []*initServiceRestartHandle{
+//   	ServiceRestartHandles: []InitServiceRestartHandle{
 //   		initServiceRestartHandle,
 //   	},
 //   }

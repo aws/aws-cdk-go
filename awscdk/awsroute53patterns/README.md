@@ -52,7 +52,7 @@ feature flag. If you are creating the stack in a region other than `us-east-1`
 you must also enable `crossRegionReferences` on the stack.
 
 ```go
-var app app
+var app App
 
 stack := awscdk.Newstack(app, jsii.String("Stack"), &StackProps{
 	CrossRegionReferences: jsii.Boolean(true),

@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   databaseClusterAttributes := &DatabaseClusterAttributes{
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),

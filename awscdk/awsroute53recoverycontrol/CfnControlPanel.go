@@ -23,8 +23,8 @@ import (
 //
 //   	// the properties below are optional
 //   	ClusterArn: jsii.String("clusterArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

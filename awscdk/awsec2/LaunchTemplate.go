@@ -13,7 +13,7 @@ import (
 // This represents an EC2 LaunchTemplate.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{

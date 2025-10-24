@@ -28,7 +28,7 @@ type CfnDashboard_SheetDefinitionProperty struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The list of filter controls that are on a sheet.
 	//
-	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetdefinition.html#cfn-quicksight-dashboard-sheetdefinition-filtercontrols
 	//
 	FilterControls interface{} `field:"optional" json:"filterControls" yaml:"filterControls"`
@@ -38,7 +38,7 @@ type CfnDashboard_SheetDefinitionProperty struct {
 	Images interface{} `field:"optional" json:"images" yaml:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
-	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetdefinition.html#cfn-quicksight-dashboard-sheetdefinition-layouts
 	//
 	Layouts interface{} `field:"optional" json:"layouts" yaml:"layouts"`
@@ -50,7 +50,7 @@ type CfnDashboard_SheetDefinitionProperty struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
-	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetdefinition.html#cfn-quicksight-dashboard-sheetdefinition-parametercontrols
 	//
 	ParameterControls interface{} `field:"optional" json:"parameterControls" yaml:"parameterControls"`

@@ -29,24 +29,24 @@ import (
 //   api.AddRoutes(&AddRoutesOptions{
 //   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
 //   	Path: jsii.String("/books"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_GET,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_GET,
 //   	},
 //   })
 //
 //   api.AddRoutes(&AddRoutesOptions{
 //   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.example.com")),
 //   	Path: jsii.String("/books/{id}"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_GET,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_GET,
 //   	},
 //   })
 //
 //   api.AddRoutes(&AddRoutesOptions{
 //   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
 //   	Path: jsii.String("/books"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	AuthorizationScopes: []*string{
 //   		jsii.String("write:books"),
@@ -56,8 +56,8 @@ import (
 //   api.AddRoutes(&AddRoutesOptions{
 //   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.example.com")),
 //   	Path: jsii.String("/login"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Authorizer: apigwv2.NewHttpNoneAuthorizer(),
 //   })

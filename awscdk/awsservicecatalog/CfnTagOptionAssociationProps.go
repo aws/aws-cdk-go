@@ -19,10 +19,10 @@ type CfnTagOptionAssociationProps struct {
 	// The resource identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html#cfn-servicecatalog-tagoptionassociation-resourceid
 	//
-	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// The TagOption identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html#cfn-servicecatalog-tagoptionassociation-tagoptionid
 	//
-	TagOptionId *string `field:"required" json:"tagOptionId" yaml:"tagOptionId"`
+	TagOptionId *string `field:"optional" json:"tagOptionId" yaml:"tagOptionId"`
 }
 

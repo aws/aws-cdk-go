@@ -8,17 +8,17 @@ package awsiottwinmaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dataTypeProperty_ dataTypeProperty
-//   var dataValueProperty_ dataValueProperty
+//   var dataTypeProperty_ DataTypeProperty
+//   var dataValueProperty_ DataValueProperty
 //   var relationshipValue interface{}
 //
 //   definitionProperty := &DefinitionProperty{
 //   	Configuration: map[string]*string{
 //   		"configurationKey": jsii.String("configuration"),
 //   	},
-//   	DataType: &dataTypeProperty{
+//   	DataType: &DataTypeProperty{
 //   		AllowedValues: []interface{}{
-//   			&dataValueProperty{
+//   			&DataValueProperty{
 //   				BooleanValue: jsii.Boolean(false),
 //   				DoubleValue: jsii.Number(123),
 //   				Expression: jsii.String("expression"),
@@ -42,7 +42,7 @@ package awsiottwinmaker
 //   		Type: jsii.String("type"),
 //   		UnitOfMeasure: jsii.String("unitOfMeasure"),
 //   	},
-//   	DefaultValue: &dataValueProperty{
+//   	DefaultValue: &DataValueProperty{
 //   		BooleanValue: jsii.Boolean(false),
 //   		DoubleValue: jsii.Number(123),
 //   		Expression: jsii.String("expression"),

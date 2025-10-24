@@ -17,7 +17,7 @@ import (
 //
 //   logs.NewLogGroup(this, jsii.String("LogGroup"), &LogGroupProps{
 //   	LogGroupName: jsii.String("cdkIntegLogGroup"),
-//   	FieldIndexPolicies: []fieldIndexPolicy{
+//   	FieldIndexPolicies: []FieldIndexPolicy{
 //   		fieldIndexPolicy,
 //   	},
 //   })

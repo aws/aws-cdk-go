@@ -13,8 +13,8 @@ package awsbedrockalpha
 //   bedrockFoundationModelProps := &BedrockFoundationModelProps{
 //   	Legacy: jsii.Boolean(false),
 //   	OptimizedForAgents: jsii.Boolean(false),
-//   	SupportedVectorType: []vectorType{
-//   		bedrock_alpha.*vectorType_FLOATING_POINT,
+//   	SupportedVectorType: []VectorType{
+//   		bedrock_alpha.VectorType_FLOATING_POINT,
 //   	},
 //   	SupportsAgents: jsii.Boolean(false),
 //   	SupportsCrossRegion: jsii.Boolean(false),

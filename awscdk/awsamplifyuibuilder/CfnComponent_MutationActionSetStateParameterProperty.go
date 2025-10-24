@@ -8,12 +8,12 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var componentPropertyProperty_ componentPropertyProperty
+//   var componentPropertyProperty_ ComponentPropertyProperty
 //
 //   mutationActionSetStateParameterProperty := &MutationActionSetStateParameterProperty{
 //   	ComponentName: jsii.String("componentName"),
 //   	Property: jsii.String("property"),
-//   	Set: &componentPropertyProperty{
+//   	Set: &ComponentPropertyProperty{
 //   		BindingProperties: &ComponentPropertyBindingPropertiesProperty{
 //   			Property: jsii.String("property"),
 //

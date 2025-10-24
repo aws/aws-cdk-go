@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secret secret
-//   var securityGroup securityGroup
+//   var secret Secret
+//   var securityGroup SecurityGroup
 //
 //   serverlessClusterAttributes := &ServerlessClusterAttributes{
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
@@ -25,7 +25,7 @@ import (
 //   	Port: jsii.Number(123),
 //   	ReaderEndpointAddress: jsii.String("readerEndpointAddress"),
 //   	Secret: secret,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

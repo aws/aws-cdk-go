@@ -24,17 +24,17 @@ import (
 //   	ApiName: jsii.String("Api"),
 //   	OwnerContact: jsii.String("OwnerContact"),
 //   	AuthorizationConfig: &EventApiAuthConfig{
-//   		AuthProviders: []appSyncAuthProvider{
+//   		AuthProviders: []AppSyncAuthProvider{
 //   			apiKeyProvider,
 //   		},
-//   		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
-//   		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
-//   		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
+//   			appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
 //   	},
 //   	// Custom Domain Settings

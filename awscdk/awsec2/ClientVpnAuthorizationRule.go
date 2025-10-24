@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientVpnEndpointRef iClientVpnEndpointRef
+//   var clientVpnEndpointRef IClientVpnEndpointRef
 //
 //   clientVpnAuthorizationRule := awscdk.Aws_ec2.NewClientVpnAuthorizationRule(this, jsii.String("MyClientVpnAuthorizationRule"), &ClientVpnAuthorizationRuleProps{
 //   	Cidr: jsii.String("cidr"),

@@ -26,8 +26,8 @@ package awslogs
 //   		TargetTimezone: jsii.String("targetTimezone"),
 //   	},
 //   	TypeConverterOptions: &TypeConverterProperty{
-//   		Entries: []typeConverterEntryProperty{
-//   			&typeConverterEntryProperty{
+//   		Entries: []TypeConverterEntryProperty{
+//   			&TypeConverterEntryProperty{
 //   				Key: jsii.String("key"),
 //   				Type: awscdk.*Aws_logs.TypeConverterType_BOOLEAN,
 //   			},

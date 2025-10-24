@@ -4,7 +4,7 @@ package awseks
 // Enum representing the different identity types that can be used for a Kubernetes service account.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   eks.NewServiceAccount(this, jsii.String("ServiceAccount"), &ServiceAccountProps{

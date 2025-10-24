@@ -10,14 +10,14 @@ package awscdkgluealpha
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnCrawler cfnCrawler
-//   var job job
-//   var securityConfiguration securityConfiguration
-//   var triggerSchedule triggerSchedule
+//   var cfnCrawler CfnCrawler
+//   var job Job
+//   var securityConfiguration SecurityConfiguration
+//   var triggerSchedule TriggerSchedule
 //
 //   customScheduledTriggerOptions := &CustomScheduledTriggerOptions{
-//   	Actions: []action{
-//   		&action{
+//   	Actions: []Action{
+//   		&Action{
 //   			Arguments: map[string]*string{
 //   				"argumentsKey": jsii.String("arguments"),
 //   			},

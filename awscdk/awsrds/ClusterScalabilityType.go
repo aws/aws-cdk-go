@@ -4,7 +4,7 @@ package awsrds
 // The scalability mode of the Aurora DB cluster.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   rds.NewDatabaseCluster(this, jsii.String("LimitlessDatabaseCluster"), &DatabaseClusterProps{

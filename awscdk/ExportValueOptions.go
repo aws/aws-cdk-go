@@ -4,7 +4,7 @@ package awscdk
 // Options for the `stack.exportValue()` method.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //
 //   stack.ExportValue(myBucket.BucketName, &ExportValueOptions{

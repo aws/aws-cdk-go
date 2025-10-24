@@ -8,7 +8,7 @@ package awsautoscaling
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //   warmPoolProps := &WarmPoolProps{
 //   	AutoScalingGroup: autoScalingGroup,

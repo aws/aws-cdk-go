@@ -16,10 +16,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var databaseCluster databaseCluster
-//   var role role
-//   var secret secret
+//   var api IApi
+//   var databaseCluster DatabaseCluster
+//   var role Role
+//   var secret Secret
 //
 //   appSyncRdsDataSourcePropsV2 := &AppSyncRdsDataSourcePropsV2{
 //   	Api: api,

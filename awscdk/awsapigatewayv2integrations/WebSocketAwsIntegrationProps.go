@@ -13,8 +13,8 @@ import (
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var apiRole role
-//   var table table
+//   var apiRole Role
+//   var table Table
 //
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))

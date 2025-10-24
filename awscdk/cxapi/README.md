@@ -765,6 +765,21 @@ When this feature flag is disabled, EgressOnlyGateway resource is created for al
 }
 ```
 
+* `@aws-cdk/aws-stepfunctions-tasks:httpInvokeDynamicJsonPathEndpoint`
+
+When this feature flag is enabled, the JSONPath apiEndpoint value will be resolved dynamically at runtime, while slightly increasing the size of the state machine definition.
+When disabled, the JSONPath apiEndpoint property will only support a static string value.
+
+_cdk.json
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-stepfunctions-tasks:httpInvokeDynamicJsonPathEndpoint": true
+  }
+}
+```
+
 * `@aws-cdk/aws-signer:signingProfileNamePassedToCfn`
 
 When this feature flag is enabled, the `signingProfileName` property is passed to the L1 `CfnSigningProfile` construct,
@@ -783,6 +798,22 @@ in the CloudFormation template.
 {
   "context": {
     "@aws-cdk/aws-signer:signingProfileNamePassedToCfn": true
+  }
+}
+```
+
+* `@aws-cdk/aws-ecs-patterns:uniqueTargetGroupId`
+
+When enabled, ECS patterns will generate unique target group IDs that include the load balancer name and type (public/private). This prevents CloudFormation conflicts when switching between public and private load balancers.
+
+Without this flag, switching an ApplicationLoadBalancedFargateService from public to private (or vice versa) fails with "target group cannot be associated with more than one load balancer" error.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-ecs-patterns:uniqueTargetGroupId": true
   }
 }
 ```

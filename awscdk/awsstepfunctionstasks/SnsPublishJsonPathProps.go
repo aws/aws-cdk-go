@@ -18,10 +18,10 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
-//   var topic topic
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
+//   var topic Topic
 //   var value interface{}
 //
 //   snsPublishJsonPathProps := &SnsPublishJsonPathProps{
@@ -40,8 +40,8 @@ import (
 //   	HeartbeatTimeout: timeout,
 //   	InputPath: jsii.String("inputPath"),
 //   	IntegrationPattern: awscdk.Aws_stepfunctions.IntegrationPattern_REQUEST_RESPONSE,
-//   	MessageAttributes: map[string]messageAttribute{
-//   		"messageAttributesKey": &messageAttribute{
+//   	MessageAttributes: map[string]MessageAttribute{
+//   		"messageAttributesKey": &MessageAttribute{
 //   			"value": value,
 //
 //   			// the properties below are optional

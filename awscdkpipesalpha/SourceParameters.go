@@ -7,8 +7,8 @@ import (
 // Source properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetFunction iFunction
+//   var sourceQueue Queue
+//   var targetFunction IFunction
 //
 //
 //   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{

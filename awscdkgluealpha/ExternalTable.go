@@ -13,8 +13,8 @@ import (
 // A Glue table that targets an external data location (e.g. A table in a Redshift Cluster).
 //
 // Example:
-//   var myConnection connection
-//   var myDatabase database
+//   var myConnection Connection
+//   var myDatabase Database
 //
 //   glue.NewExternalTable(this, jsii.String("MyTable"), &ExternalTableProps{
 //   	Connection: myConnection,
@@ -22,8 +22,8 @@ import (
 //   	 // A table in Redshift
 //   	// ...
 //   	Database: myDatabase,
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			Type: glue.Schema_STRING(),
 //   		},

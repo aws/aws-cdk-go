@@ -7,7 +7,7 @@ package appstagingsynthesizeralpha
 //   type customFactory struct {
 //   }
 //
-//   func (this *customFactory) obtainStagingResources(stack stack, context obtainStagingResourcesContext) customStagingStack {
+//   func (this *customFactory) obtainStagingResources(stack Stack, context ObtainStagingResourcesContext) customStagingStack {
 //   	myApp := awscdk.App_Of(*stack)
 //
 //   	return NewCustomStagingStack(myApp, fmt.Sprintf("CustomStagingStack-%v", *context.EnvironmentString), &customStagingStackProps{

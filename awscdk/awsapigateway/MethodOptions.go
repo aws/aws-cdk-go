@@ -2,18 +2,18 @@ package awsapigateway
 
 
 // Example:
-//   var api restApi
-//   var userLambda function
+//   var api RestApi
+//   var userLambda Function
 //
 //
 //   userModel := api.AddModel(jsii.String("UserModel"), &ModelOptions{
 //   	Schema: &JsonSchema{
 //   		Type: apigateway.JsonSchemaType_OBJECT,
-//   		Properties: map[string]jsonSchema{
-//   			"userId": &jsonSchema{
+//   		Properties: map[string]JsonSchema{
+//   			"userId": &JsonSchema{
 //   				"type": apigateway.JsonSchemaType_STRING,
 //   			},
-//   			"name": &jsonSchema{
+//   			"name": &JsonSchema{
 //   				"type": apigateway.JsonSchemaType_STRING,
 //   			},
 //   		},
@@ -24,7 +24,7 @@ package awsapigateway
 //   })
 //   api.Root.AddResource(jsii.String("user")).AddMethod(jsii.String("POST"),
 //   apigateway.NewLambdaIntegration(userLambda), &MethodOptions{
-//   	RequestModels: map[string]iModel{
+//   	RequestModels: map[string]IModel{
 //   		"application/json": userModel,
 //   	},
 //   })
@@ -80,18 +80,18 @@ type MethodOptions struct {
 	// (e.g. `'application/json'`) as the key and an API Gateway Model as the value.
 	//
 	// Example:
-	//   var api restApi
-	//   var userLambda function
+	//   var api RestApi
+	//   var userLambda Function
 	//
 	//
 	//   userModel := api.AddModel(jsii.String("UserModel"), &ModelOptions{
 	//   	Schema: &JsonSchema{
 	//   		Type: apigateway.JsonSchemaType_OBJECT,
-	//   		Properties: map[string]jsonSchema{
-	//   			"userId": &jsonSchema{
+	//   		Properties: map[string]JsonSchema{
+	//   			"userId": &JsonSchema{
 	//   				"type": apigateway.JsonSchemaType_STRING,
 	//   			},
-	//   			"name": &jsonSchema{
+	//   			"name": &JsonSchema{
 	//   				"type": apigateway.JsonSchemaType_STRING,
 	//   			},
 	//   		},
@@ -102,7 +102,7 @@ type MethodOptions struct {
 	//   })
 	//   api.Root.AddResource(jsii.String("user")).AddMethod(jsii.String("POST"),
 	//   apigateway.NewLambdaIntegration(userLambda), &MethodOptions{
-	//   	RequestModels: map[string]iModel{
+	//   	RequestModels: map[string]IModel{
 	//   		"application/json": userModel,
 	//   	},
 	//   })

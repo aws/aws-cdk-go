@@ -36,8 +36,8 @@ import (
 //   	ReplicationInstanceIdentifier: jsii.String("replicationInstanceIdentifier"),
 //   	ReplicationSubnetGroupIdentifier: jsii.String("replicationSubnetGroupIdentifier"),
 //   	ResourceIdentifier: jsii.String("resourceIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

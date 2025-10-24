@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var responseType responseType
-//   var restApi restApi
+//   var responseType ResponseType
+//   var restApi RestApi
 //
 //   gatewayResponse := awscdk.Aws_apigateway.NewGatewayResponse(this, jsii.String("MyGatewayResponse"), &GatewayResponseProps{
 //   	RestApi: restApi,

@@ -21,7 +21,7 @@ import (
 // For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   userData := `MIME-Version: 1.0

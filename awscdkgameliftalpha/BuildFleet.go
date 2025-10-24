@@ -20,7 +20,7 @@ import (
 // Using multiple Spot Instance fleets of different instance types reduces the chance of needing On-Demand Instance placement.
 //
 // Example:
-//   var build build
+//   var build Build
 //
 //   // Server processes can be delcared in a declarative way through the constructor
 //   fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
@@ -28,8 +28,8 @@ import (
 //   	Content: build,
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 //   	RuntimeConfiguration: &RuntimeConfiguration{
-//   		ServerProcesses: []serverProcess{
-//   			&serverProcess{
+//   		ServerProcesses: []ServerProcess{
+//   			&ServerProcess{
 //   				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 //   				Parameters: jsii.String("-logFile /local/game/logs/myserver1935.log -port 1935"),
 //   				ConcurrentExecutions: jsii.Number(100),

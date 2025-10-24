@@ -33,8 +33,8 @@ import (
 //   	Model: jsii.String("model"),
 //   	SerialNumber: jsii.String("serialNumber"),
 //   	SiteId: jsii.String("siteId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

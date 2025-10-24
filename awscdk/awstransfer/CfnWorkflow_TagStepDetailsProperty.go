@@ -13,8 +13,8 @@ package awstransfer
 //   tagStepDetailsProperty := &TagStepDetailsProperty{
 //   	Name: jsii.String("name"),
 //   	SourceFileLocation: jsii.String("sourceFileLocation"),
-//   	Tags: []s3TagProperty{
-//   		&s3TagProperty{
+//   	Tags: []S3TagProperty{
+//   		&S3TagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

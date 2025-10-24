@@ -12,7 +12,7 @@ import (
 // Construct a Linux or Windows machine image from the latest ECS Optimized AMI published in SSM.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{

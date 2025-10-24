@@ -36,15 +36,15 @@ The code snippet below creates an Action that creates the timer with duration in
 import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 
-var input iInput
+var input IInput
 
 state := iotevents.NewState(&StateProps{
 	StateName: jsii.String("MyState"),
-	OnEnter: []event{
-		&event{
+	OnEnter: []Event{
+		&Event{
 			EventName: jsii.String("test-event"),
 			Condition: iotevents.Expression_CurrentInput(input),
-			Actions: []iAction{
+			Actions: []IAction{
 				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
 					"duration": cdk.Duration_seconds(jsii.Number(60)),
 				}),
@@ -121,15 +121,15 @@ when it is triggered.
 import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 
-var input iInput
+var input IInput
 
 state := iotevents.NewState(&StateProps{
 	StateName: jsii.String("MyState"),
-	OnEnter: []event{
-		&event{
+	OnEnter: []Event{
+		&Event{
 			EventName: jsii.String("test-event"),
 			Condition: iotevents.Expression_CurrentInput(input),
-			Actions: []iAction{
+			Actions: []IAction{
 				actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.Expression_InputAttribute(input, jsii.String("payload.temperature"))),
 			},
 		},
@@ -147,16 +147,16 @@ import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var input iInput
-var func iFunction
+var input IInput
+var func IFunction
 
 state := iotevents.NewState(&StateProps{
 	StateName: jsii.String("MyState"),
-	OnEnter: []event{
-		&event{
+	OnEnter: []Event{
+		&Event{
 			EventName: jsii.String("test-event"),
 			Condition: iotevents.Expression_CurrentInput(input),
-			Actions: []iAction{
+			Actions: []IAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},

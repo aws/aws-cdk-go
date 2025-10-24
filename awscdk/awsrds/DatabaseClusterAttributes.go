@@ -8,9 +8,9 @@ import (
 // Properties that describe an existing cluster instance.
 //
 // Example:
-//   var vpc vpc
-//   var fn function
-//   var secret secret
+//   var vpc Vpc
+//   var fn Function
+//   var secret Secret
 //
 //
 //   // Create a serverless V1 cluster

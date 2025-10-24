@@ -14,8 +14,8 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
-//   var secretValue secretValue
+//   var key Key
+//   var secretValue SecretValue
 //
 //   basicAuthProps := &BasicAuthProps{
 //   	Username: jsii.String("username"),

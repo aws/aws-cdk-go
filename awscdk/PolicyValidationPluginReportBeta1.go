@@ -10,12 +10,12 @@ package awscdk
 //
 //   policyValidationPluginReportBeta1 := &PolicyValidationPluginReportBeta1{
 //   	Success: jsii.Boolean(false),
-//   	Violations: []policyViolationBeta1{
-//   		&policyViolationBeta1{
+//   	Violations: []PolicyViolationBeta1{
+//   		&PolicyViolationBeta1{
 //   			Description: jsii.String("description"),
 //   			RuleName: jsii.String("ruleName"),
-//   			ViolatingResources: []policyViolatingResourceBeta1{
-//   				&policyViolatingResourceBeta1{
+//   			ViolatingResources: []PolicyViolatingResourceBeta1{
+//   				&PolicyViolatingResourceBeta1{
 //   					Locations: []*string{
 //   						jsii.String("locations"),
 //   					},

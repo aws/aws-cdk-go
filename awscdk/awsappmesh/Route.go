@@ -16,9 +16,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var mesh mesh
-//   var routeSpec routeSpec
-//   var virtualRouter virtualRouter
+//   var mesh Mesh
+//   var routeSpec RouteSpec
+//   var virtualRouter VirtualRouter
 //
 //   route := awscdk.Aws_appmesh.NewRoute(this, jsii.String("MyRoute"), &RouteProps{
 //   	Mesh: mesh,

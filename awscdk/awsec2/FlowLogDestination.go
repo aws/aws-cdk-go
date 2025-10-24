@@ -13,7 +13,7 @@ import (
 // The destination type for the flow log.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))

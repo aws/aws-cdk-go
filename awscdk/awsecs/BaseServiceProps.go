@@ -15,15 +15,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var deploymentLifecycleHookTarget iDeploymentLifecycleHookTarget
-//   var keyRef iKeyRef
-//   var logDriver logDriver
-//   var namespace iNamespace
-//   var role role
-//   var serviceManagedVolume serviceManagedVolume
-//   var taskDefinitionRevision taskDefinitionRevision
+//   var cluster Cluster
+//   var containerDefinition ContainerDefinition
+//   var deploymentLifecycleHookTarget IDeploymentLifecycleHookTarget
+//   var keyRef IKeyRef
+//   var logDriver LogDriver
+//   var namespace INamespace
+//   var role Role
+//   var serviceManagedVolume ServiceManagedVolume
+//   var taskDefinitionRevision TaskDefinitionRevision
 //
 //   baseServiceProps := &BaseServiceProps{
 //   	Cluster: cluster,
@@ -31,8 +31,8 @@ import (
 //
 //   	// the properties below are optional
 //   	BakeTime: cdk.Duration_Minutes(jsii.Number(30)),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
 //
 //   			// the properties below are optional
@@ -69,7 +69,7 @@ import (
 //   	EnableECSManagedTags: jsii.Boolean(false),
 //   	EnableExecuteCommand: jsii.Boolean(false),
 //   	HealthCheckGracePeriod: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	LifecycleHooks: []*iDeploymentLifecycleHookTarget{
+//   	LifecycleHooks: []IDeploymentLifecycleHookTarget{
 //   		deploymentLifecycleHookTarget,
 //   	},
 //   	MaxHealthyPercent: jsii.Number(123),
@@ -78,8 +78,8 @@ import (
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
 //   		LogDriver: logDriver,
 //   		Namespace: jsii.String("namespace"),
-//   		Services: []serviceConnectService{
-//   			&serviceConnectService{
+//   		Services: []ServiceConnectService{
+//   			&ServiceConnectService{
 //   				PortMappingName: jsii.String("portMappingName"),
 //
 //   				// the properties below are optional
@@ -99,7 +99,7 @@ import (
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
 //   	TaskDefinitionRevision: taskDefinitionRevision,
-//   	VolumeConfigurations: []*serviceManagedVolume{
+//   	VolumeConfigurations: []ServiceManagedVolume{
 //   		serviceManagedVolume,
 //   	},
 //   }

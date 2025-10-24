@@ -32,7 +32,7 @@ import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var func iFunction
+var func IFunction
 
 
 input := iotevents.NewInput(this, jsii.String("MyInput"), &InputProps{
@@ -46,29 +46,29 @@ input := iotevents.NewInput(this, jsii.String("MyInput"), &InputProps{
 
 warmState := iotevents.NewState(&StateProps{
 	StateName: jsii.String("warm"),
-	OnEnter: []event{
-		&event{
+	OnEnter: []Event{
+		&Event{
 			EventName: jsii.String("test-enter-event"),
 			Condition: iotevents.Expression_CurrentInput(input),
-			Actions: []iAction{
+			Actions: []IAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},
 	},
-	OnInput: []*event{
-		&event{
+	OnInput: []Event{
+		&Event{
 			 // optional
 			EventName: jsii.String("test-input-event"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},
 	},
-	OnExit: []*event{
-		&event{
+	OnExit: []Event{
+		&Event{
 			 // optional
 			EventName: jsii.String("test-exit-event"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				actions.NewLambdaInvokeAction(func),
 			},
 		},
@@ -83,7 +83,7 @@ warmState.TransitionTo(coldState, &TransitionOptions{
 	EventName: jsii.String("to_coldState"),
 	 // optional property, default by combining the names of the States
 	When: iotevents.Expression_Lt(iotevents.Expression_InputAttribute(input, jsii.String("payload.temperature")), iotevents.Expression_FromString(jsii.String("15"))),
-	Executing: []*iAction{
+	Executing: []IAction{
 		actions.NewLambdaInvokeAction(func),
 	},
 })
@@ -112,7 +112,7 @@ you can use the `grantWrite()` method:
 import iam "github.com/aws/aws-cdk-go/awscdk"
 import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 
-var grantable iGrantable
+var grantable IGrantable
 
 input := iotevents.Input_FromInputName(this, jsii.String("MyInput"), jsii.String("my_input"))
 

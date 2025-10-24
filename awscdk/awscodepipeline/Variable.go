@@ -8,9 +8,9 @@ import (
 // Pipeline-Level variable.
 //
 // Example:
-//   var sourceAction s3SourceAction
-//   var sourceOutput artifact
-//   var deployBucket bucket
+//   var sourceAction S3SourceAction
+//   var sourceOutput Artifact
+//   var deployBucket Bucket
 //
 //
 //   // Pipeline-level variable
@@ -22,19 +22,19 @@ import (
 //
 //   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 //   	PipelineType: codepipeline.PipelineType_V2,
-//   	Variables: []variable{
+//   	Variables: []Variable{
 //   		variable,
 //   	},
-//   	Stages: []stageProps{
-//   		&stageProps{
+//   	Stages: []StageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Source"),
-//   			Actions: []iAction{
+//   			Actions: []IAction{
 //   				sourceAction,
 //   			},
 //   		},
-//   		&stageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Deploy"),
-//   			Actions: []*iAction{
+//   			Actions: []IAction{
 //   				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 //   					ActionName: jsii.String("DeployAction"),
 //   					// can reference the variables

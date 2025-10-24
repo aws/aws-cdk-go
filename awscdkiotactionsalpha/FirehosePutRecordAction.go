@@ -22,7 +22,7 @@ import (
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewFirehosePutRecordAction(stream, &FirehosePutRecordActionProps{
 //   			BatchMode: jsii.Boolean(true),
 //   			RecordSeparator: actions.FirehoseRecordSeparator_NEWLINE,

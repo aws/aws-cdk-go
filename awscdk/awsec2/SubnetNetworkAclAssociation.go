@@ -14,8 +14,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkAclRef iNetworkAclRef
-//   var subnet subnet
+//   var networkAclRef INetworkAclRef
+//   var subnet Subnet
 //
 //   subnetNetworkAclAssociation := awscdk.Aws_ec2.NewSubnetNetworkAclAssociation(this, jsii.String("MySubnetNetworkAclAssociation"), &SubnetNetworkAclAssociationProps{
 //   	NetworkAcl: networkAclRef,

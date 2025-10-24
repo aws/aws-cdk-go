@@ -8,7 +8,7 @@ package awskms
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var key key
+//   var key Key
 //
 //   aliasAttributes := &AliasAttributes{
 //   	AliasName: jsii.String("aliasName"),

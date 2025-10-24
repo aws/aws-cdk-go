@@ -4,8 +4,8 @@ package awsec2
 // Options for creating a SystemD configuration file.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
+//   var vpc Vpc
+//   var instanceType InstanceType
 //
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{

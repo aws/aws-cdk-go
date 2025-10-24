@@ -4,9 +4,9 @@ package awsrds
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 //
 // Example:
-//   var vpc vpc
-//   var secrets []secret
-//   var dbInstance databaseInstance
+//   var vpc Vpc
+//   var secrets []Secret
+//   var dbInstance DatabaseInstance
 //
 //
 //   proxy := dbInstance.AddProxy(jsii.String("Proxy"), &DatabaseProxyOptions{

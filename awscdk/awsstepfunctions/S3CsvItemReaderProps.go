@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var csvHeaders csvHeaders
+//   var bucket Bucket
+//   var csvHeaders CsvHeaders
 //
 //   s3CsvItemReaderProps := &S3CsvItemReaderProps{
 //   	Key: jsii.String("key"),

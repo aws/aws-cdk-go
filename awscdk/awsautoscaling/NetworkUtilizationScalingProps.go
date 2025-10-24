@@ -7,7 +7,7 @@ import (
 // Properties for enabling scaling based on network utilization.
 //
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //
 //   autoScalingGroup.scaleOnIncomingBytes(jsii.String("LimitIngressPerInstance"), &NetworkUtilizationScalingProps{

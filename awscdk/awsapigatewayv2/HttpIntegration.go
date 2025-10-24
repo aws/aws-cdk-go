@@ -17,10 +17,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApi httpApi
-//   var integrationCredentials integrationCredentials
-//   var parameterMapping parameterMapping
-//   var payloadFormatVersion payloadFormatVersion
+//   var httpApi HttpApi
+//   var integrationCredentials IntegrationCredentials
+//   var parameterMapping ParameterMapping
+//   var payloadFormatVersion PayloadFormatVersion
 //
 //   httpIntegration := awscdk.Aws_apigatewayv2.NewHttpIntegration(this, jsii.String("MyHttpIntegration"), &HttpIntegrationProps{
 //   	HttpApi: httpApi,

@@ -8,7 +8,7 @@ import (
 // Properties for a new Network Target Group.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ipv4ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("IPv4ApplicationTargetGroup"), &ApplicationTargetGroupProps{

@@ -11,9 +11,9 @@ import (
 //   pool := cognito.NewUserPool(this, jsii.String("Pool"))
 //   pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 //   	// ...
-//   	SupportedIdentityProviders: []userPoolClientIdentityProvider{
-//   		cognito.*userPoolClientIdentityProvider_AMAZON(),
-//   		cognito.*userPoolClientIdentityProvider_COGNITO(),
+//   	SupportedIdentityProviders: []UserPoolClientIdentityProvider{
+//   		cognito.UserPoolClientIdentityProvider_AMAZON(),
+//   		cognito.UserPoolClientIdentityProvider_COGNITO(),
 //   	},
 //   })
 //

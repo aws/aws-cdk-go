@@ -12,11 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   deploymentLifecycleHookTargetConfig := &DeploymentLifecycleHookTargetConfig{
-//   	LifecycleStages: []deploymentLifecycleStage{
-//   		awscdk.Aws_ecs.*deploymentLifecycleStage_RECONCILE_SERVICE,
+//   	LifecycleStages: []DeploymentLifecycleStage{
+//   		awscdk.Aws_ecs.DeploymentLifecycleStage_RECONCILE_SERVICE,
 //   	},
 //   	TargetArn: jsii.String("targetArn"),
 //

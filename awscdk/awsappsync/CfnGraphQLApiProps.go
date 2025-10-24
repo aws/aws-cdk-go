@@ -69,8 +69,8 @@ import (
 //   	OwnerContact: jsii.String("ownerContact"),
 //   	QueryDepthLimit: jsii.Number(123),
 //   	ResolverCountLimit: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

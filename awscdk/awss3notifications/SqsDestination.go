@@ -13,7 +13,7 @@ import (
 // Use an SQS queue as a bucket notification destination.
 //
 // Example:
-//   var myQueue queue
+//   var myQueue Queue
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	NotificationsSkipDestinationValidation: jsii.Boolean(true),

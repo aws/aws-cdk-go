@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to an EventBridge API destination.
 //
 // Example:
-//   var sourceQueue queue
-//   var dest apiDestination
+//   var sourceQueue Queue
+//   var dest ApiDestination
 //
 //
 //   apiTarget := targets.NewApiDestinationTarget(dest)

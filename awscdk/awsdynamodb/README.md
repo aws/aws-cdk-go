@@ -58,11 +58,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -87,14 +87,14 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
 	},
 })
 
-globalTable.AddReplica(&replicaTableProps{
+globalTable.AddReplica(&ReplicaTableProps{
 	Region: jsii.String("us-east-2"),
 	DeletionProtection: jsii.Boolean(true),
 })
@@ -133,15 +133,15 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
 		PointInTimeRecoveryEnabled: jsii.Boolean(true),
 	},
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 			TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
 			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
 				PointInTimeRecoveryEnabled: jsii.Boolean(false),
 			},
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 			ContributorInsightsSpecification: &ContributorInsightsSpecification{
 				Enabled: jsii.Boolean(false),
@@ -156,15 +156,15 @@ To obtain an `ITableV2` reference to a specific replica table, call the `replica
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var user user
+var user User
 
 
 type fooStack struct {
-	stack
-	globalTable tableV2
+	Stack
+	globalTable TableV2
 }
 
-func newFooStack(scope construct, id *string, props stackProps) *fooStack {
+func newFooStack(scope Construct, id *string, props StackProps) *fooStack {
 	this := &fooStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
@@ -173,11 +173,11 @@ func newFooStack(scope construct, id *string, props stackProps) *fooStack {
 			Name: jsii.String("pk"),
 			Type: dynamodb.AttributeType_STRING,
 		},
-		Replicas: []replicaTableProps{
-			&replicaTableProps{
+		Replicas: []ReplicaTableProps{
+			&ReplicaTableProps{
 				Region: jsii.String("us-east-1"),
 			},
-			&replicaTableProps{
+			&ReplicaTableProps{
 				Region: jsii.String("us-east-2"),
 			},
 		},
@@ -186,15 +186,15 @@ func newFooStack(scope construct, id *string, props stackProps) *fooStack {
 }
 
 type barStackProps struct {
-	stackProps
-	replicaTable iTableV2
+	StackProps
+	replicaTable ITableV2
 }
 
 type barStack struct {
-	stack
+	Stack
 }
 
-func newBarStack(scope construct, id *string, props barStackProps) *barStack {
+func newBarStack(scope Construct, id *string, props barStackProps) *barStack {
 	this := &barStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
@@ -205,7 +205,7 @@ func newBarStack(scope construct, id *string, props barStackProps) *barStack {
 
 app := cdk.NewApp()
 
-fooStack := NewFooStack(app, jsii.String("FooStack"), &stackProps{
+fooStack := NewFooStack(app, jsii.String("FooStack"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-west-2"),
 	},
@@ -256,11 +256,11 @@ mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
 		Type: dynamodb.AttributeType_STRING,
 	},
 	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -286,8 +286,8 @@ mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
 		Type: dynamodb.AttributeType_STRING,
 	},
 	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
 	},
@@ -386,11 +386,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 			MaxCapacity: jsii.Number(15),
 		}),
 	}),
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 			ReadCapacity: dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
 				MaxCapacity: jsii.Number(20),
@@ -504,11 +504,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Type: dynamodb.AttributeType_STRING,
 	},
 	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -540,8 +540,8 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-		&globalSecondaryIndexPropsV2{
+	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
 			IndexName: jsii.String("gsi"),
 			PartitionKey: &Attribute{
 				Name: jsii.String("pk"),
@@ -560,8 +560,8 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-		&globalSecondaryIndexPropsV2{
+	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
 			IndexName: jsii.String("gsi1"),
 			PartitionKey: &Attribute{
 				Name: jsii.String("pk"),
@@ -571,7 +571,7 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	},
 })
 
-table.AddGlobalSecondaryIndex(&globalSecondaryIndexPropsV2{
+table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
 	IndexName: jsii.String("gsi2"),
 	PartitionKey: &Attribute{
 		Name: jsii.String("pk"),
@@ -594,8 +594,8 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 			MaxCapacity: jsii.Number(10),
 		}),
 	}),
-	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-		&globalSecondaryIndexPropsV2{
+	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
 			IndexName: jsii.String("gsi1"),
 			PartitionKey: &Attribute{
 				Name: jsii.String("pk"),
@@ -603,7 +603,7 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 			},
 			ReadCapacity: dynamodb.Capacity_*Fixed(jsii.Number(15)),
 		},
-		&globalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
 			IndexName: jsii.String("gsi2"),
 			PartitionKey: &Attribute{
 				Name: jsii.String("pk"),
@@ -646,8 +646,8 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		}),
 	}),
 	// each global secondary index will inherit contributor insights as true
-	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-		&globalSecondaryIndexPropsV2{
+	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
 			IndexName: jsii.String("gsi1"),
 			PartitionKey: &Attribute{
 				Name: jsii.String("pk"),
@@ -655,7 +655,7 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 			},
 			ReadCapacity: dynamodb.Capacity_*Fixed(jsii.Number(15)),
 		},
-		&globalSecondaryIndexPropsV2{
+		&GlobalSecondaryIndexPropsV2{
 			IndexName: jsii.String("gsi2"),
 			PartitionKey: &Attribute{
 				Name: jsii.String("pk"),
@@ -667,11 +667,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 			}),
 		},
 	},
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
-			GlobalSecondaryIndexOptions: map[string]replicaGlobalSecondaryIndexOptions{
-				"gsi1": &replicaGlobalSecondaryIndexOptions{
+			GlobalSecondaryIndexOptions: map[string]ReplicaGlobalSecondaryIndexOptions{
+				"gsi1": &ReplicaGlobalSecondaryIndexOptions{
 					"readCapacity": dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
 						"minCapacity": jsii.Number(1),
 						"maxCapacity": jsii.Number(10),
@@ -679,10 +679,10 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 				},
 			},
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
-			GlobalSecondaryIndexOptions: map[string]*replicaGlobalSecondaryIndexOptions{
-				"gsi2": &replicaGlobalSecondaryIndexOptions{
+			GlobalSecondaryIndexOptions: map[string]ReplicaGlobalSecondaryIndexOptions{
+				"gsi2": &ReplicaGlobalSecondaryIndexOptions{
 					"contributorInsightsSpecification": &ContributorInsightsSpecification{
 						"enabled": jsii.Boolean(false),
 					},
@@ -709,8 +709,8 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("sk"),
 		Type: dynamodb.AttributeType_NUMBER,
 	},
-	LocalSecondaryIndexes: []localSecondaryIndexProps{
-		&localSecondaryIndexProps{
+	LocalSecondaryIndexes: []LocalSecondaryIndexProps{
+		&LocalSecondaryIndexProps{
 			IndexName: jsii.String("lsi"),
 			SortKey: &Attribute{
 				Name: jsii.String("sk"),
@@ -733,8 +733,8 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("sk"),
 		Type: dynamodb.AttributeType_NUMBER,
 	},
-	LocalSecondaryIndexes: []localSecondaryIndexProps{
-		&localSecondaryIndexProps{
+	LocalSecondaryIndexes: []LocalSecondaryIndexProps{
+		&LocalSecondaryIndexProps{
 			IndexName: jsii.String("lsi1"),
 			SortKey: &Attribute{
 				Name: jsii.String("sk"),
@@ -744,7 +744,7 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	},
 })
 
-table.AddLocalSecondaryIndex(&localSecondaryIndexProps{
+table.AddLocalSecondaryIndex(&LocalSecondaryIndexProps{
 	IndexName: jsii.String("lsi2"),
 	SortKey: &Attribute{
 		Name: jsii.String("sk"),
@@ -783,11 +783,11 @@ globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TableProps
 	},
 	DynamoStream: dynamodb.StreamViewType_OLD_IMAGE,
 	// tables in us-west-2, us-east-1, and us-east-2 all have dynamo stream type of OLD_IMAGES
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -823,11 +823,11 @@ globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TableProps
 	},
 	KinesisStream: stream1,
 	 // for table in us-west-2
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 			KinesisStream: stream2,
 		},
@@ -943,11 +943,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 	},
 	// applies to all replicas, i.e., us-west-2, us-east-1, us-east-2
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -975,12 +975,12 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 	DeletionProtection: jsii.Boolean(true),
 	// only the replica in us-east-1 will be deleted during stack deletion
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 			DeletionProtection: jsii.Boolean(false),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 			DeletionProtection: jsii.Boolean(true),
 		},
@@ -1038,8 +1038,8 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Tags: []cfnTag{
-		&cfnTag{
+	Tags: []CfnTag{
+		&CfnTag{
 			Key: jsii.String("primaryTableTagKey"),
 			Value: jsii.String("primaryTableTagValue"),
 		},
@@ -1055,11 +1055,11 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-west-1"),
-			Tags: []cfnTag{
-				&cfnTag{
+			Tags: []CfnTag{
+				&CfnTag{
 					Key: jsii.String("replicaTableTagKey"),
 					Value: jsii.String("replicaTableTagValue"),
 				},
@@ -1075,7 +1075,7 @@ To reference an existing DynamoDB table in your CDK application, use the `TableV
 factory methods:
 
 ```go
-var user user
+var user User
 
 
 table := dynamodb.TableV2_FromTableArn(this, jsii.String("ImportedTable"), jsii.String("arn:aws:dynamodb:us-east-1:123456789012:table/my-table"))
@@ -1127,7 +1127,7 @@ Using any of the `grant*` methods on an instance of the `TableV2` construct will
 import "github.com/aws/aws-cdk-go/awscdk"
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
-var user user
+var user User
 
 
 app := cdk.NewApp()
@@ -1149,11 +1149,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Type: dynamodb.AttributeType_STRING,
 	},
 	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -1169,7 +1169,7 @@ The `replica` method can be used to grant to a specific replica table:
 import "github.com/aws/aws-cdk-go/awscdk"
 import kms "github.com/aws/aws-cdk-go/awscdk"
 
-var user user
+var user User
 
 
 app := cdk.NewApp()
@@ -1191,11 +1191,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Type: dynamodb.AttributeType_STRING,
 	},
 	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -1226,11 +1226,11 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	Replicas: []replicaTableProps{
-		&replicaTableProps{
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-1"),
 		},
-		&replicaTableProps{
+		&ReplicaTableProps{
 			Region: jsii.String("us-east-2"),
 		},
 	},
@@ -1254,11 +1254,11 @@ import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
 
 type fooStack struct {
-	stack
-	globalTable tableV2
+	Stack
+	globalTable TableV2
 }
 
-func newFooStack(scope construct, id *string, props stackProps) *fooStack {
+func newFooStack(scope Construct, id *string, props StackProps) *fooStack {
 	this := &fooStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
@@ -1267,11 +1267,11 @@ func newFooStack(scope construct, id *string, props stackProps) *fooStack {
 			Name: jsii.String("pk"),
 			Type: dynamodb.AttributeType_STRING,
 		},
-		Replicas: []replicaTableProps{
-			&replicaTableProps{
+		Replicas: []ReplicaTableProps{
+			&ReplicaTableProps{
 				Region: jsii.String("us-east-1"),
 			},
-			&replicaTableProps{
+			&ReplicaTableProps{
 				Region: jsii.String("us-east-2"),
 			},
 		},
@@ -1280,15 +1280,15 @@ func newFooStack(scope construct, id *string, props stackProps) *fooStack {
 }
 
 type barStackProps struct {
-	stackProps
-	replicaTable iTableV2
+	StackProps
+	replicaTable ITableV2
 }
 
 type barStack struct {
-	stack
+	Stack
 }
 
-func newBarStack(scope construct, id *string, props barStackProps) *barStack {
+func newBarStack(scope Construct, id *string, props barStackProps) *barStack {
 	this := &barStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
@@ -1304,7 +1304,7 @@ func newBarStack(scope construct, id *string, props barStackProps) *barStack {
 }
 
 app := cdk.NewApp()
-fooStack := NewFooStack(app, jsii.String("FooStack"), &stackProps{
+fooStack := NewFooStack(app, jsii.String("FooStack"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-west-2"),
 	},
@@ -1337,7 +1337,7 @@ And if `headerList` is specified, the first line of CSV is treated as data inste
 import "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 
-var bucket iBucket
+var bucket IBucket
 
 
 app := cdk.NewApp()
@@ -1372,7 +1372,7 @@ There are currently no options available.
 import "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 
-var bucket iBucket
+var bucket IBucket
 
 
 app := cdk.NewApp()
@@ -1401,7 +1401,7 @@ There are currently no options available.
 import "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 
-var bucket iBucket
+var bucket IBucket
 
 
 app := cdk.NewApp()

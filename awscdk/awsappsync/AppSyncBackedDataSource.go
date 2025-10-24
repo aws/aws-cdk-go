@@ -14,9 +14,9 @@ import (
 // Do not use directly but use subclasses for resource backed datasources.
 //
 // Example:
-//   var api eventApi
-//   var ddbDataSource appSyncDynamoDbDataSource
-//   var ebDataSource appSyncEventBridgeDataSource
+//   var api EventApi
+//   var ddbDataSource AppSyncDynamoDbDataSource
+//   var ebDataSource AppSyncEventBridgeDataSource
 //
 //
 //   // DynamoDB data source for publish handler

@@ -41,8 +41,8 @@ import (
 //   	},
 //   	RequireInstanceProperties: jsii.Boolean(false),
 //   	SessionPolicy: jsii.String("sessionPolicy"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

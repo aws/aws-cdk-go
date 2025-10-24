@@ -14,8 +14,8 @@ package cloudassemblyschema
 //   	Version: jsii.String("version"),
 //
 //   	// the properties below are optional
-//   	DockerImages: map[string]dockerImageAsset{
-//   		"dockerImagesKey": &dockerImageAsset{
+//   	DockerImages: map[string]DockerImageAsset{
+//   		"dockerImagesKey": &DockerImageAsset{
 //   			"destinations": map[string]DockerImageDestination{
 //   				"destinationsKey": &DockerImageDestination{
 //   					"imageTag": jsii.String("imageTag"),
@@ -74,8 +74,8 @@ package cloudassemblyschema
 //   			"displayName": jsii.String("displayName"),
 //   		},
 //   	},
-//   	Files: map[string]fileAsset{
-//   		"filesKey": &fileAsset{
+//   	Files: map[string]FileAsset{
+//   		"filesKey": &FileAsset{
 //   			"destinations": map[string]FileDestination{
 //   				"destinationsKey": &FileDestination{
 //   					"bucketName": jsii.String("bucketName"),

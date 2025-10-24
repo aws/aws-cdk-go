@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
+//   var queue Queue
 //
 //   targetBaseProps := &TargetBaseProps{
 //   	DeadLetterQueue: queue,

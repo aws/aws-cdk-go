@@ -21,9 +21,9 @@ import (
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
-//   var stack stack
-//   var role iRole
-//   var script code
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
 //   glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
 //   	Role: Role,

@@ -7,9 +7,9 @@ import (
 // Describe the health check to a load balancer.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
-//   var myAutoScalingGroup autoScalingGroup
+//   var myAutoScalingGroup AutoScalingGroup
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,

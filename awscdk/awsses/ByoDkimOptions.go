@@ -7,7 +7,7 @@ import (
 // Options for BYO DKIM.
 //
 // Example:
-//   var myHostedZone iPublicHostedZone
+//   var myHostedZone IPublicHostedZone
 //
 //
 //   ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{

@@ -8,7 +8,7 @@ package awscdkservicecatalogappregistryalpha
 //   // The values are placeholders you should change.
 //   import servicecatalogappregistry_alpha "github.com/aws/aws-cdk-go/awscdkservicecatalogappregistryalpha"
 //
-//   var application application
+//   var application Application
 //
 //   bindTargetApplicationResult := &BindTargetApplicationResult{
 //   	Application: application,

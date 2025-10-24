@@ -15,7 +15,7 @@ import (
 // The class helps you on preparing and uploading custom game server build files or Realtime Servers server script files.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 //   	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),

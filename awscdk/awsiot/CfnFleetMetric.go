@@ -32,8 +32,8 @@ import (
 //   	Period: jsii.Number(123),
 //   	QueryString: jsii.String("queryString"),
 //   	QueryVersion: jsii.String("queryVersion"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

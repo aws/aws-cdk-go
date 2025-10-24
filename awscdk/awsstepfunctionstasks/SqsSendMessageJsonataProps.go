@@ -18,10 +18,10 @@ import (
 //
 //   var assign interface{}
 //   var outputs interface{}
-//   var queue queue
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var queue Queue
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   sqsSendMessageJsonataProps := &SqsSendMessageJsonataProps{
 //   	MessageBody: taskInput,

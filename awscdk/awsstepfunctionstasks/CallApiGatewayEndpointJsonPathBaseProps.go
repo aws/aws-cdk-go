@@ -16,9 +16,9 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   callApiGatewayEndpointJsonPathBaseProps := &CallApiGatewayEndpointJsonPathBaseProps{
 //   	Method: awscdk.Aws_stepfunctions_tasks.HttpMethod_GET,

@@ -11,7 +11,7 @@ import (
 // used for secret rotation.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -23,7 +23,7 @@ import (
 //
 //   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
 //   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-//   	Secrets: []iSecret{
+//   	Secrets: []ISecret{
 //   		cluster.Secret,
 //   	},
 //   	Vpc: Vpc,

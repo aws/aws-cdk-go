@@ -9,7 +9,7 @@ package awsec2
 // By default, the instances are placed in the private subnets.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{

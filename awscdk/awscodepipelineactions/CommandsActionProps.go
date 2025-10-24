@@ -8,8 +8,8 @@ import (
 // Construction properties of the `CommandsAction`.
 //
 // Example:
-//   var sourceArtifact artifact
-//   var outputArtifact artifact
+//   var sourceArtifact Artifact
+//   var outputArtifact Artifact
 //
 //
 //   commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{

@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var originAccessIdentity originAccessIdentity
+//   var originAccessIdentity OriginAccessIdentity
 //
 //   s3OriginProps := &S3OriginProps{
 //   	ConnectionAttempts: jsii.Number(123),

@@ -9,7 +9,7 @@ import (
 // Options for adding worker nodes.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddAutoScalingGroupCapacity(jsii.String("BottlerocketNodes"), &AutoScalingGroupCapacityOptions{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),

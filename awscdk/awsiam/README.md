@@ -58,8 +58,8 @@ group.AddManagedPolicy(awscdk.ManagedPolicy_FromAwsManagedPolicyName(jsii.String
 Many of the AWS CDK resources have `grant*` methods that allow you to grant other resources access to that resource. As an example, the following code gives a Lambda function write permissions (Put, Update, Delete) to a DynamoDB table.
 
 ```go
-var fn function
-var table table
+var fn Function
+var table Table
 
 
 table.GrantWriteData(fn)
@@ -68,8 +68,8 @@ table.GrantWriteData(fn)
 The more generic `grant` method allows you to give specific permissions to a resource:
 
 ```go
-var fn function
-var table table
+var fn Function
+var table Table
 
 
 table.Grant(fn, jsii.String("dynamodb:PutItem"))
@@ -170,7 +170,7 @@ of the CDK application.
 An example of how to opt in to this behavior is below:
 
 ```go
-var stack stack
+var stack Stack
 
 iam.Role_CustomizeRoles(stack)
 ```
@@ -185,7 +185,7 @@ Once the missing roles have been created, their names can be added to the `usePr
 property, like shown below:
 
 ```go
-var app app
+var app App
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
 iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
@@ -204,7 +204,7 @@ yet) you will have to modify the generated report to be more generic. For exampl
 following CDK code:
 
 ```go
-var app app
+var app App
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
 iam.Role_CustomizeRoles(stack)
@@ -264,7 +264,7 @@ You would then need to create the role with the inline & managed policies in the
 come back and update the `customizeRoles` with the role name.
 
 ```go
-var app app
+var app App
 
 stack := awscdk.Newstack(app, jsii.String("MyStack"))
 iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
@@ -348,7 +348,7 @@ The following pseudo parameters will be converted:
 It is also possible to generate the report *without* preventing the role/policy creation.
 
 ```go
-var stack stack
+var stack Stack
 
 iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
 	PreventSynthesis: jsii.Boolean(false),
@@ -516,7 +516,7 @@ role.AssumeRolePolicy.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps
 	Actions: []*string{
 		jsii.String("sts:AssumeRole"),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789")),
 		iam.NewServicePrincipal(jsii.String("beep-boop.amazonaws.com")),
 	},
@@ -536,7 +536,7 @@ This principle can use as normal in defining any role, for example:
 ```go
 emrServiceRole := iam.NewRole(this, jsii.String("EMRServiceRole"), &RoleProps{
 	AssumedBy: iam.ServicePrincipal_FromStaticServicePrincipleName(jsii.String("elasticmapreduce.amazonaws.com.cn")),
-	ManagedPolicies: []iManagedPolicy{
+	ManagedPolicies: []IManagedPolicy{
 		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonElasticMapReduceRole")),
 	},
 })
@@ -662,7 +662,7 @@ boundaries for different environments. For example your CDK application may have
   boundary
 
 ```go
-var app app
+var app App
 
 
 awscdk.NewStage(app, jsii.String("DevStage"))
@@ -690,7 +690,7 @@ that the Stack has the environment specified, it does not work with environment.
 * '${Qualifier}'
 
 ```go
-var app app
+var app App
 
 
 prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
@@ -714,19 +714,19 @@ tree all at once:
 
 ```go
 // Directly apply the boundary to a Role you create
-var role role
+var role Role
 
 // Apply the boundary to an Role that was implicitly created for you
-var fn function
+var fn Function
 
 // Remove a Permissions Boundary that is inherited, for example from the Stack level
-var customResource customResource
+var customResource CustomResource
 // This imports an existing policy.
 boundary := iam.ManagedPolicy_FromManagedPolicyArn(this, jsii.String("Boundary"), jsii.String("arn:aws:iam::123456789012:policy/boundary"))
 
 // This creates a new boundary
 boundary2 := iam.NewManagedPolicy(this, jsii.String("Boundary2"), &ManagedPolicyProps{
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Effect: iam.Effect_DENY,
 			Actions: []*string{
@@ -829,7 +829,7 @@ you can reference the provider's ARN as follows:
 ```go
 import cognito "github.com/aws/aws-cdk-go/awscdk"
 
-var myProvider openIdConnectProvider
+var myProvider OpenIdConnectProvider
 
 cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
 	OpenIdConnectProviderArns: []*string{

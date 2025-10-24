@@ -8,7 +8,7 @@ An `AutoScalingGroup` represents a number of instances on which you run your cod
 pick the size of the fleet, the instance type and the OS image:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -46,7 +46,7 @@ your instances to be able to start arbitrary connections. Alternatively, you can
 group to attach to the instances that are launched, rather than have the group create a new one.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
@@ -63,8 +63,8 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 Alternatively, to enable more advanced features, you can create an `AutoScalingGroup` from a supplied `LaunchTemplate`:
 
 ```go
-var vpc vpc
-var launchTemplate launchTemplate
+var vpc Vpc
+var launchTemplate LaunchTemplate
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -76,9 +76,9 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 To launch a mixture of Spot and on-demand instances, and/or with multiple instance types, you can create an `AutoScalingGroup` from a `MixedInstancesPolicy`:
 
 ```go
-var vpc vpc
-var launchTemplate1 launchTemplate
-var launchTemplate2 launchTemplate
+var vpc Vpc
+var launchTemplate1 LaunchTemplate
+var launchTemplate2 LaunchTemplate
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -88,14 +88,14 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 			OnDemandPercentageAboveBaseCapacity: jsii.Number(50),
 		},
 		LaunchTemplate: launchTemplate1,
-		LaunchTemplateOverrides: []launchTemplateOverrides{
-			&launchTemplateOverrides{
+		LaunchTemplateOverrides: []LaunchTemplateOverrides{
+			&LaunchTemplateOverrides{
 				InstanceType: ec2.NewInstanceType(jsii.String("t3.micro")),
 			},
-			&launchTemplateOverrides{
+			&LaunchTemplateOverrides{
 				InstanceType: ec2.NewInstanceType(jsii.String("t3a.micro")),
 			},
-			&launchTemplateOverrides{
+			&LaunchTemplateOverrides{
 				InstanceType: ec2.NewInstanceType(jsii.String("t4g.micro")),
 				LaunchTemplate: launchTemplate2,
 			},
@@ -107,16 +107,16 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 You can specify instances requirements with the `instanceRequirements ` property:
 
 ```go
-var vpc vpc
-var launchTemplate1 launchTemplate
+var vpc Vpc
+var launchTemplate1 LaunchTemplate
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	Vpc: Vpc,
 	MixedInstancesPolicy: &MixedInstancesPolicy{
 		LaunchTemplate: launchTemplate1,
-		LaunchTemplateOverrides: []launchTemplateOverrides{
-			&launchTemplateOverrides{
+		LaunchTemplateOverrides: []LaunchTemplateOverrides{
+			&LaunchTemplateOverrides{
 				InstanceRequirements: &InstanceRequirementsProperty{
 					VCpuCount: &VCpuCountRequestProperty{
 						Min: jsii.Number(4),
@@ -199,9 +199,9 @@ There are three ways to scale your capacity:
 The general pattern of autoscaling will look like this:
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -237,7 +237,7 @@ metric representing your worker utilization from your instances. After that,
 you would configure the scaling something like this:
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 workerUtilizationMetric := cloudwatch.NewMetric(&MetricProps{
@@ -247,16 +247,16 @@ workerUtilizationMetric := cloudwatch.NewMetric(&MetricProps{
 
 autoScalingGroup.scaleOnMetric(jsii.String("ScaleToCPU"), &BasicStepScalingPolicyProps{
 	Metric: workerUtilizationMetric,
-	ScalingSteps: []scalingInterval{
-		&scalingInterval{
+	ScalingSteps: []ScalingInterval{
+		&ScalingInterval{
 			Upper: jsii.Number(10),
 			Change: -jsii.Number(1),
 		},
-		&scalingInterval{
+		&ScalingInterval{
 			Lower: jsii.Number(50),
 			Change: +jsii.Number(1),
 		},
-		&scalingInterval{
+		&ScalingInterval{
 			Lower: jsii.Number(70),
 			Change: +jsii.Number(3),
 		},
@@ -289,7 +289,7 @@ The following example scales to keep the CPU usage of your instances around
 50% utilization:
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 autoScalingGroup.scaleOnCpuUtilization(jsii.String("KeepSpareCPU"), &CpuUtilizationScalingProps{
@@ -300,7 +300,7 @@ autoScalingGroup.scaleOnCpuUtilization(jsii.String("KeepSpareCPU"), &CpuUtilizat
 To scale on average network traffic in and out of your instances:
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 autoScalingGroup.scaleOnIncomingBytes(jsii.String("LimitIngressPerInstance"), &NetworkUtilizationScalingProps{
@@ -316,7 +316,7 @@ AutoScalingGroups that have been attached to Application Load
 Balancers):
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 autoScalingGroup.scaleOnRequestCount(jsii.String("LimitRPS"), &RequestCountScalingProps{
@@ -342,7 +342,7 @@ The following example scales the fleet out in the morning, going back to natural
 scaling (all the way down to 1 instance if necessary) at night:
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 autoScalingGroup.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &BasicScheduledActionProps{
@@ -371,7 +371,7 @@ Possible health check types are EC2, EBS, ELB, and VPC_LATTICE. EC2 is the defau
 If you want to configure the EC2 health check, use the `HealthChecks.ec2` method:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -388,7 +388,7 @@ If you also want to configure the additional health checks other than EC2, use t
 EC2 is implicitly included, so you can specify types other than EC2.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -397,10 +397,10 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
 	HealthChecks: autoscaling.HealthChecks_WithAdditionalChecks(&AdditionalHealthChecksOptions{
 		GracePeriod: awscdk.Duration_Seconds(jsii.Number(100)),
-		AdditionalTypes: []additionalHealthCheckType{
-			autoscaling.*additionalHealthCheckType_EBS,
-			autoscaling.*additionalHealthCheckType_ELB,
-			autoscaling.*additionalHealthCheckType_VPC_LATTICE,
+		AdditionalTypes: []AdditionalHealthCheckType{
+			autoscaling.AdditionalHealthCheckType_EBS,
+			autoscaling.AdditionalHealthCheckType_ELB,
+			autoscaling.AdditionalHealthCheckType_VPC_LATTICE,
 		},
 	}),
 })
@@ -427,7 +427,7 @@ increase and decrease capacity within that minimum-maximum range when replacing 
 A larger range increases the number of instances that can be replaced at the same time.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -450,17 +450,17 @@ This type specifies how block devices are exposed to the instance. You can speci
 You can only specify the `throughput` on GP3 volumes.
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	Vpc: Vpc,
 	InstanceType: InstanceType,
 	MachineImage: MachineImage,
-	BlockDevices: []blockDevice{
-		&blockDevice{
+	BlockDevices: []BlockDevice{
+		&BlockDevice{
 			DeviceName: jsii.String("gp3-volume"),
 			Volume: autoscaling.BlockDeviceVolume_Ebs(jsii.Number(15), &EbsDeviceOptions{
 				VolumeType: autoscaling.EbsDeviceVolumeType_GP3,
@@ -492,9 +492,9 @@ Here's an example of using CloudFormation Init to write a file to the
 instance hosts on startup:
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -600,9 +600,9 @@ See [EC2 docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance
 To enable group metrics monitoring using the `groupMetrics` property:
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 // Enable monitoring of all group metrics
@@ -614,8 +614,8 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 
 	// ...
 
-	GroupMetrics: []groupMetrics{
-		autoscaling.*groupMetrics_All(),
+	GroupMetrics: []GroupMetrics{
+		autoscaling.GroupMetrics_All(),
 	},
 })
 
@@ -628,7 +628,7 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 
 	// ...
 
-	GroupMetrics: []*groupMetrics{
+	GroupMetrics: []GroupMetrics{
 		autoscaling.NewGroupMetrics(autoscaling.GroupMetric_MIN_SIZE(), autoscaling.GroupMetric_MAX_SIZE()),
 	},
 })
@@ -653,9 +653,9 @@ custom termination policy with lambda `TerminationPolicy.CUSTOM_LAMBDA_FUNCTION`
 must be specified first.
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 var arn string
 
 
@@ -666,10 +666,10 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 
 	// ...
 
-	TerminationPolicies: []terminationPolicy{
-		autoscaling.*terminationPolicy_CUSTOM_LAMBDA_FUNCTION,
-		autoscaling.*terminationPolicy_OLDEST_INSTANCE,
-		autoscaling.*terminationPolicy_DEFAULT,
+	TerminationPolicies: []TerminationPolicy{
+		autoscaling.TerminationPolicy_CUSTOM_LAMBDA_FUNCTION,
+		autoscaling.TerminationPolicy_OLDEST_INSTANCE,
+		autoscaling.TerminationPolicy_DEFAULT,
 	},
 
 	//terminationPolicyCustomLambdaFunctionArn property must be specified if the TerminationPolicy.CUSTOM_LAMBDA_FUNCTION is used
@@ -689,9 +689,9 @@ terminated. EC2 Capacity Providers for Amazon ECS requires this attribute be
 set to `true`.
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -710,9 +710,9 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the Amazon EC2 Auto Scaling User Guide.
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -744,7 +744,7 @@ To do so, you need to:
 If these conditions are met, you can connect to the instance from the EC2 Console. Example:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -770,9 +770,9 @@ To do this for a single `AutoScalingGroup`, you can use set the `requireImdsv2` 
 The example below demonstrates IMDSv2 being required on a single `AutoScalingGroup`:
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -800,7 +800,7 @@ awscdk.Aspects_Of(this).Add(aspect)
 Auto Scaling offers [a warm pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) which gives an ability to decrease latency for applications that have exceptionally long boot times. You can create a warm pool with default parameters as below:
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 autoScalingGroup.addWarmPool()
@@ -809,7 +809,7 @@ autoScalingGroup.addWarmPool()
 You can also customize a warm pool by configuring parameters:
 
 ```go
-var autoScalingGroup autoScalingGroup
+var autoScalingGroup AutoScalingGroup
 
 
 autoScalingGroup.addWarmPool(&WarmPoolOptions{
@@ -831,9 +831,9 @@ policies, we strongly recommend that you enable the default instance warmup, eve
 To set up Default Instance Warming for an autoscaling group, simply pass it in as a prop
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -854,9 +854,9 @@ You can use a keyPair to build your asg when you decide not to use a ready-made 
 To configure KeyPair for an autoscaling group, pass the `keyPair` as a prop:
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 myKeyPair := ec2.NewKeyPair(this, jsii.String("MyKeyPair"))
@@ -880,9 +880,9 @@ If launches fail in an Availability Zone, the following strategies are available
 * `BALANCED_ONLY` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
 
 ```go
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{

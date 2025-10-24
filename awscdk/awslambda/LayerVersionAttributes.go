@@ -8,13 +8,13 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var runtime runtime
+//   var runtime Runtime
 //
 //   layerVersionAttributes := &LayerVersionAttributes{
 //   	LayerVersionArn: jsii.String("layerVersionArn"),
 //
 //   	// the properties below are optional
-//   	CompatibleRuntimes: []*runtime{
+//   	CompatibleRuntimes: []Runtime{
 //   		runtime,
 //   	},
 //   }

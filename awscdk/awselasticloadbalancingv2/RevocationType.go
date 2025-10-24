@@ -4,14 +4,14 @@ package awselasticloadbalancingv2
 // The type of revocation file.
 //
 // Example:
-//   var trustStore trustStore
-//   var bucket bucket
+//   var trustStore TrustStore
+//   var bucket Bucket
 //
 //
 //   elbv2.NewTrustStoreRevocation(this, jsii.String("Revocation"), &TrustStoreRevocationProps{
 //   	TrustStore: TrustStore,
-//   	RevocationContents: []revocationContent{
-//   		&revocationContent{
+//   	RevocationContents: []RevocationContent{
+//   		&RevocationContent{
 //   			RevocationType: elbv2.RevocationType_CRL,
 //   			Bucket: *Bucket,
 //   			Key: jsii.String("crl.pem"),

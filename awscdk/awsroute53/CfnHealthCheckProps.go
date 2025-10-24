@@ -39,8 +39,8 @@ package awsroute53
 //   	},
 //
 //   	// the properties below are optional
-//   	HealthCheckTags: []healthCheckTagProperty{
-//   		&healthCheckTagProperty{
+//   	HealthCheckTags: []HealthCheckTagProperty{
+//   		&HealthCheckTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

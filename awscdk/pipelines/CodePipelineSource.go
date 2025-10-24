@@ -182,7 +182,7 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 // `codeBuildCloneOutput`.
 //
 // Example:
-//   var repository iRepository
+//   var repository IRepository
 //
 //   pipelines.CodePipelineSource_CodeCommit(repository, jsii.String("main"))
 //
@@ -248,7 +248,7 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 // Returns an ECR source.
 //
 // Example:
-//   var repository iRepository
+//   var repository IRepository
 //
 //   pipelines.CodePipelineSource_Ecr(repository, &ECRSourceOptions{
 //   	ImageTag: jsii.String("latest"),
@@ -318,7 +318,7 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 // Returns an S3 source.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   pipelines.CodePipelineSource_S3(bucket, jsii.String("path/to/file.zip"))
 //

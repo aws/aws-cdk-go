@@ -16,10 +16,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var databaseCluster databaseCluster
-//   var graphqlApi graphqlApi
-//   var role role
-//   var secret secret
+//   var databaseCluster DatabaseCluster
+//   var graphqlApi GraphqlApi
+//   var role Role
+//   var secret Secret
 //
 //   rdsDataSourcePropsV2 := &RdsDataSourcePropsV2{
 //   	Api: graphqlApi,

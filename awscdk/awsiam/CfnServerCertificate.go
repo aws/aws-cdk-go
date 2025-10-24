@@ -32,8 +32,8 @@ import (
 //   	Path: jsii.String("path"),
 //   	PrivateKey: jsii.String("privateKey"),
 //   	ServerCertificateName: jsii.String("serverCertificateName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

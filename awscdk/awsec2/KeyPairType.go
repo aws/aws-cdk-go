@@ -4,8 +4,8 @@ package awsec2
 // The type of the key pair.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
+//   var vpc Vpc
+//   var instanceType InstanceType
 //
 //
 //   keyPair := ec2.NewKeyPair(this, jsii.String("KeyPair"), &KeyPairProps{

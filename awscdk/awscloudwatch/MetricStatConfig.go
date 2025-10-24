@@ -26,8 +26,8 @@ import (
 //   	// the properties below are optional
 //   	Account: jsii.String("account"),
 //   	AccountOverride: jsii.String("accountOverride"),
-//   	Dimensions: []dimension{
-//   		&dimension{
+//   	Dimensions: []Dimension{
+//   		&Dimension{
 //   			Name: jsii.String("name"),
 //   			Value: value,
 //   		},

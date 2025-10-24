@@ -4,7 +4,7 @@ package awsec2
 // Construction properties for an InterfaceVpcEndpoint.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &InterfaceVpcEndpointProps{

@@ -19,12 +19,12 @@ package awsbedrockalpha
 //   	InputEnabled: jsii.Boolean(true),
 //   	OutputAction: bedrock.GuardrailAction_NONE,
 //   	OutputEnabled: jsii.Boolean(true),
-//   	InputModalities: []modalityType{
-//   		bedrock.*modalityType_TEXT,
-//   		bedrock.*modalityType_IMAGE,
+//   	InputModalities: []ModalityType{
+//   		bedrock.ModalityType_TEXT,
+//   		bedrock.ModalityType_IMAGE,
 //   	},
-//   	OutputModalities: []*modalityType{
-//   		bedrock.*modalityType_TEXT,
+//   	OutputModalities: []ModalityType{
+//   		bedrock.ModalityType_TEXT,
 //   	},
 //   })
 //

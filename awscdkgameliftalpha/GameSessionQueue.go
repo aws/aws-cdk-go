@@ -17,13 +17,13 @@ import (
 // A queue can have destinations with varied fleet type (Spot and On-Demand), instance type, and AWS Region.
 //
 // Example:
-//   var fleet buildFleet
-//   var alias alias
+//   var fleet BuildFleet
+//   var alias Alias
 //
 //
 //   queue := gamelift.NewGameSessionQueue(this, jsii.String("GameSessionQueue"), &GameSessionQueueProps{
 //   	GameSessionQueueName: jsii.String("my-queue-name"),
-//   	Destinations: []iGameSessionQueueDestination{
+//   	Destinations: []IGameSessionQueueDestination{
 //   		fleet,
 //   	},
 //   })

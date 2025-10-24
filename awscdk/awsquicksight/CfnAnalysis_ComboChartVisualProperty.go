@@ -5,7 +5,7 @@ package awsquicksight
 //
 // The `ComboChartVisual` includes stacked bar combo charts and clustered bar combo charts
 //
-// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var sourceNatIpv6Prefix sourceNatIpv6Prefix
-//   var subnet subnet
+//   var sourceNatIpv6Prefix SourceNatIpv6Prefix
+//   var subnet Subnet
 //
 //   subnetMapping := &SubnetMapping{
 //   	Subnet: subnet,

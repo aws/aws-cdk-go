@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::ObservabilityAdmin::OrganizationTelemetryRule resource defines a CloudWatch Observability Admin Organization Telemetry Rule.
+// Retrieves the details of a specific organization centralization rule.
+//
+// This operation can only be called by the organization's management account or a delegated administrator account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,8 +40,8 @@ import (
 //   	RuleName: jsii.String("ruleName"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -85,17 +87,17 @@ type CfnOrganizationTelemetryRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The telemetry rule.
+	// The name of the organization telemetry rule.
 	Rule() interface{}
 	SetRule(val interface{})
-	// The name of the organization telemetry rule.
+	// The name of the organization centralization rule.
 	RuleName() *string
 	SetRuleName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Lists all tags attached to the specified telemetry rule resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -8,8 +8,8 @@ package awscdk
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dockerImage dockerImage
-//   var localBundling iLocalBundling
+//   var dockerImage DockerImage
+//   var localBundling ILocalBundling
 //
 //   assetOptions := &AssetOptions{
 //   	AssetHash: jsii.String("assetHash"),
@@ -34,8 +34,8 @@ package awscdk
 //   		Platform: jsii.String("platform"),
 //   		SecurityOpt: jsii.String("securityOpt"),
 //   		User: jsii.String("user"),
-//   		Volumes: []dockerVolume{
-//   			&dockerVolume{
+//   		Volumes: []DockerVolume{
+//   			&DockerVolume{
 //   				ContainerPath: jsii.String("containerPath"),
 //   				HostPath: jsii.String("hostPath"),
 //

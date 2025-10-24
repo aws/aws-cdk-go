@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventBus eventBus
-//   var policyStatement policyStatement
+//   var eventBus EventBus
+//   var policyStatement PolicyStatement
 //
 //   eventBusPolicyProps := &EventBusPolicyProps{
 //   	EventBus: eventBus,

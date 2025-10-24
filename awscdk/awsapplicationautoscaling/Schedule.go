@@ -21,7 +21,7 @@ import (
 //   	maxCapacity: jsii.Number(50),
 //   })
 //
-//   capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
+//   capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &ScalingSchedule{
 //   	Schedule: appscaling.Schedule_Cron(&CronOptions{
 //   		Hour: jsii.String("8"),
 //   		Minute: jsii.String("0"),
@@ -30,7 +30,7 @@ import (
 //   	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
 //   })
 //
-//   capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
+//   capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &ScalingSchedule{
 //   	Schedule: appscaling.Schedule_*Cron(&CronOptions{
 //   		Hour: jsii.String("20"),
 //   		Minute: jsii.String("0"),

@@ -8,7 +8,7 @@ import (
 // Utility class for specifying specific appsync runtime versions.
 //
 // Example:
-//   var api graphqlApi
+//   var api GraphqlApi
 //
 //
 //   myJsFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
@@ -36,7 +36,7 @@ import (
 //   	    }
 //   	  `)),
 //   	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
-//   	PipelineConfig: []iAppsyncFunction{
+//   	PipelineConfig: []IAppsyncFunction{
 //   		myJsFunction,
 //   	},
 //   })

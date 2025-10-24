@@ -7,7 +7,7 @@ import (
 // S3 origin configuration for CloudFront.
 //
 // Example:
-//   var sourceBucket bucket
+//   var sourceBucket Bucket
 //
 //   viewerCertificate := cloudfront.ViewerCertificate_FromIamCertificate(jsii.String("MYIAMROLEIDENTIFIER"), &ViewerCertificateOptions{
 //   	Aliases: []*string{
@@ -16,13 +16,13 @@ import (
 //   })
 //
 //   cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &CloudFrontWebDistributionProps{
-//   	OriginConfigs: []sourceConfiguration{
-//   		&sourceConfiguration{
+//   	OriginConfigs: []SourceConfiguration{
+//   		&SourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
 //   				S3BucketSource: sourceBucket,
 //   			},
-//   			Behaviors: []behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					IsDefaultBehavior: jsii.Boolean(true),
 //   				},
 //   			},

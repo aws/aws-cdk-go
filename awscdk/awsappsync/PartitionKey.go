@@ -15,7 +15,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var assign assign
+//   var assign Assign
 //
 //   partitionKey := awscdk.Aws_appsync.NewPartitionKey(assign)
 //

@@ -19,8 +19,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnInternetGateway := awscdk.Aws_ec2.NewCfnInternetGateway(this, jsii.String("MyCfnInternetGateway"), &CfnInternetGatewayProps{
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

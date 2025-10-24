@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var construct construct
-//   var webSocketRoute webSocketRoute
+//   var construct Construct
+//   var webSocketRoute WebSocketRoute
 //
 //   webSocketRouteAuthorizerBindOptions := &WebSocketRouteAuthorizerBindOptions{
 //   	Route: webSocketRoute,

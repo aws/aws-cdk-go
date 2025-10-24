@@ -8,7 +8,7 @@ import (
 // Options for creating a provisioned instance.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -17,7 +17,7 @@ import (
 //   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
 //   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 //   	}),
-//   	Readers: []iClusterInstance{
+//   	Readers: []IClusterInstance{
 //   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
 //   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,

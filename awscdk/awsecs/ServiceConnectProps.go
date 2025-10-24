@@ -4,9 +4,9 @@ package awsecs
 // Interface for Service Connect configuration.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var containerOptions containerDefinitionOptions
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var containerOptions ContainerDefinitionOptions
 //
 //
 //   container := taskDefinition.AddContainer(jsii.String("MyContainer"), containerOptions)
@@ -25,8 +25,8 @@ package awsecs
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
-//   		Services: []serviceConnectService{
-//   			&serviceConnectService{
+//   		Services: []ServiceConnectService{
+//   			&ServiceConnectService{
 //   				PortMappingName: jsii.String("api"),
 //   				DnsName: jsii.String("http-api"),
 //   				Port: jsii.Number(80),

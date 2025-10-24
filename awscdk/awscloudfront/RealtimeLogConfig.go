@@ -15,12 +15,12 @@ import (
 //   // Adding realtime logs config to a Cloudfront Distribution on default behavior.
 //   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stream stream
+//   var stream Stream
 //
 //
 //   realTimeConfig := cloudfront.NewRealtimeLogConfig(this, jsii.String("realtimeLog"), &RealtimeLogConfigProps{
-//   	EndPoints: []endpoint{
-//   		cloudfront.*endpoint_FromKinesisStream(stream),
+//   	EndPoints: []Endpoint{
+//   		cloudfront.Endpoint_FromKinesisStream(stream),
 //   	},
 //   	Fields: []*string{
 //   		jsii.String("timestamp"),

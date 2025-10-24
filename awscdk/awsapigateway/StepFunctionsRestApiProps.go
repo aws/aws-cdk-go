@@ -9,7 +9,7 @@ import (
 // Properties for StepFunctionsRestApi.
 //
 // Example:
-//   var machine iStateMachine
+//   var machine IStateMachine
 //
 //
 //   apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{

@@ -14,7 +14,7 @@ import (
 //   // non-compliant if CloudFormation stack does not send notifications to 'topic1' or 'topic2'
 //   // non-compliant if CloudFormation stack does not send notifications to 'topic1' or 'topic2'
 //   config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCheck"), &CloudFormationStackNotificationCheckProps{
-//   	Topics: []iTopic{
+//   	Topics: []ITopic{
 //   		topic1,
 //   		topic2,
 //   	},

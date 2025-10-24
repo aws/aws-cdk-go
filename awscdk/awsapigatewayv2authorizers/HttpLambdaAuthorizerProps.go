@@ -11,11 +11,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
-//   var authHandler function
+//   var authHandler Function
 //
 //
 //   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
-//   	ResponseTypes: []httpLambdaResponseType{
+//   	ResponseTypes: []HttpLambdaResponseType{
 //   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
 //   })

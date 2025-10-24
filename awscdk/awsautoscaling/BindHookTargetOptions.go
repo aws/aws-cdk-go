@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var lifecycleHook lifecycleHook
-//   var role role
+//   var lifecycleHook LifecycleHook
+//   var role Role
 //
 //   bindHookTargetOptions := &BindHookTargetOptions{
 //   	LifecycleHook: lifecycleHook,

@@ -8,7 +8,7 @@ package awscdk
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnConditionExpression iCfnConditionExpression
+//   var cfnConditionExpression ICfnConditionExpression
 //
 //   cfnRuleAssertion := &CfnRuleAssertion{
 //   	Assert: cfnConditionExpression,

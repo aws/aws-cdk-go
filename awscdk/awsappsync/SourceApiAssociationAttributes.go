@@ -8,7 +8,7 @@ package awsappsync
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var graphqlApi graphqlApi
+//   var graphqlApi GraphqlApi
 //
 //   sourceApiAssociationAttributes := &SourceApiAssociationAttributes{
 //   	AssociationArn: jsii.String("associationArn"),

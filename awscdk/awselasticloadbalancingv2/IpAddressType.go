@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // What kind of addresses to allocate to the load balancer.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{

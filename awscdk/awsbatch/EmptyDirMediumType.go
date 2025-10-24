@@ -7,8 +7,8 @@ package awsbatch
 //   jobDefn := batch.NewEksJobDefinition(this, jsii.String("eksf2"), &EksJobDefinitionProps{
 //   	Container: batch.NewEksContainerDefinition(this, jsii.String("container"), &EksContainerDefinitionProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		Volumes: []eksVolume{
-//   			batch.*eksVolume_EmptyDir(&EmptyDirVolumeOptions{
+//   		Volumes: []EksVolume{
+//   			batch.EksVolume_EmptyDir(&EmptyDirVolumeOptions{
 //   				Name: jsii.String("myEmptyDirVolume"),
 //   				MountPath: jsii.String("/mount/path"),
 //   				Medium: batch.EmptyDirMediumType_MEMORY,

@@ -14,8 +14,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var amazonLinux2Kernel amazonLinux2Kernel
-//   var userData userData
+//   var amazonLinux2Kernel AmazonLinux2Kernel
+//   var userData UserData
 //
 //   amazonLinux2ImageSsmParameter := awscdk.Aws_ec2.NewAmazonLinux2ImageSsmParameter(&AmazonLinux2ImageSsmParameterProps{
 //   	AdditionalCacheKey: jsii.String("additionalCacheKey"),

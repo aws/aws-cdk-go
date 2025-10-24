@@ -8,7 +8,7 @@ import (
 // Amazon Linux 2023 kernel versions.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{

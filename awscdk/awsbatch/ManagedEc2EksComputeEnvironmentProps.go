@@ -18,16 +18,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var instanceType instanceType
-//   var launchTemplate launchTemplate
-//   var machineImage iMachineImage
-//   var placementGroupRef iPlacementGroupRef
-//   var role role
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var cluster Cluster
+//   var instanceType InstanceType
+//   var launchTemplate LaunchTemplate
+//   var machineImage IMachineImage
+//   var placementGroupRef IPlacementGroupRef
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   managedEc2EksComputeEnvironmentProps := &ManagedEc2EksComputeEnvironmentProps{
 //   	EksCluster: cluster,
@@ -37,21 +37,21 @@ import (
 //   	// the properties below are optional
 //   	AllocationStrategy: awscdk.Aws_batch.AllocationStrategy_BEST_FIT,
 //   	ComputeEnvironmentName: jsii.String("computeEnvironmentName"),
-//   	DefaultInstanceClasses: []defaultInstanceClass{
-//   		awscdk.*Aws_batch.*defaultInstanceClass_X86_64,
+//   	DefaultInstanceClasses: []DefaultInstanceClass{
+//   		awscdk.*Aws_batch.DefaultInstanceClass_X86_64,
 //   	},
 //   	Enabled: jsii.Boolean(false),
-//   	Images: []eksMachineImage{
-//   		&eksMachineImage{
+//   	Images: []EksMachineImage{
+//   		&EksMachineImage{
 //   			Image: machineImage,
 //   			ImageType: awscdk.*Aws_batch.EksMachineImageType_EKS_AL2,
 //   		},
 //   	},
-//   	InstanceClasses: []instanceClass{
-//   		awscdk.Aws_ec2.*instanceClass_STANDARD3,
+//   	InstanceClasses: []InstanceClass{
+//   		awscdk.Aws_ec2.InstanceClass_STANDARD3,
 //   	},
 //   	InstanceRole: role,
-//   	InstanceTypes: []*instanceType{
+//   	InstanceTypes: []InstanceType{
 //   		instanceType,
 //   	},
 //   	LaunchTemplate: launchTemplate,
@@ -59,7 +59,7 @@ import (
 //   	MinvCpus: jsii.Number(123),
 //   	PlacementGroup: placementGroupRef,
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	ServiceRole: role,
@@ -74,11 +74,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.*Aws_ec2.SubnetType_PRIVATE_ISOLATED,

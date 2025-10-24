@@ -8,8 +8,8 @@ import (
 // Transform or replace the input event payload.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetTopic topic
+//   var sourceQueue Queue
+//   var targetTopic Topic
 //
 //
 //   pipeTarget := targets.NewSnsTarget(targetTopic, &SnsTargetParameters{

@@ -161,8 +161,8 @@ import (
 //   	},
 //   	TableClass: jsii.String("tableClass"),
 //   	TableName: jsii.String("tableName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

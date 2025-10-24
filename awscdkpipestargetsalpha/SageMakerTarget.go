@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to a SageMaker pipeline.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetPipeline iPipeline
+//   var sourceQueue Queue
+//   var targetPipeline IPipeline
 //
 //
 //   pipelineTarget := targets.NewSageMakerTarget(targetPipeline)

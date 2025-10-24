@@ -2,9 +2,9 @@ package awsapigateway
 
 
 // Example:
-//   var domain domainName
-//   var api1 restApi
-//   var api2 restApi
+//   var domain DomainName
+//   var api1 RestApi
+//   var api2 RestApi
 //
 //
 //   domain.AddBasePathMapping(api1, &BasePathMappingOptions{

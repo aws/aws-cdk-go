@@ -17,8 +17,8 @@ import (
 //   	EncryptionKey: jsii.String("encryptionKey"),
 //   	Name: jsii.String("name"),
 //   	Provisioning: jsii.String("provisioning"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

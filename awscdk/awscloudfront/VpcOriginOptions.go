@@ -11,8 +11,8 @@ package awscloudfront
 //   vpcOriginOptions := &VpcOriginOptions{
 //   	HttpPort: jsii.Number(123),
 //   	HttpsPort: jsii.Number(123),
-//   	OriginSslProtocols: []originSslPolicy{
-//   		awscdk.Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   	OriginSslProtocols: []OriginSslPolicy{
+//   		awscdk.Aws_cloudfront.OriginSslPolicy_SSL_V3,
 //   	},
 //   	ProtocolPolicy: awscdk.*Aws_cloudfront.OriginProtocolPolicy_HTTP_ONLY,
 //   	VpcOriginName: jsii.String("vpcOriginName"),

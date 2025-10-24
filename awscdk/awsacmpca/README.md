@@ -49,7 +49,7 @@ If you need to pass the higher-level `ICertificateAuthority` somewhere,
 you can get it from the lower-level `CfnCertificateAuthority` using the same `fromCertificateAuthorityArn` method:
 
 ```go
-var cfnCertificateAuthority cfnCertificateAuthority
+var cfnCertificateAuthority CfnCertificateAuthority
 
 
 certificateAuthority := acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), cfnCertificateAuthority.AttrArn)

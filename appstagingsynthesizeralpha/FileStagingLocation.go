@@ -12,7 +12,7 @@ import (
 //   import app_staging_synthesizer_alpha "github.com/aws/aws-cdk-go/appstagingsynthesizeralpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stack stack
+//   var stack Stack
 //
 //   fileStagingLocation := &FileStagingLocation{
 //   	BucketName: jsii.String("bucketName"),

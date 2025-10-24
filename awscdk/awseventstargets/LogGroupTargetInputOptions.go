@@ -5,8 +5,8 @@ package awseventstargets
 //
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
-//   var logGroup logGroup
-//   var rule rule
+//   var logGroup LogGroup
+//   var rule Rule
 //
 //
 //   rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{

@@ -4,7 +4,7 @@ package awsapplicationautoscaling
 // Properties for enabling Application Auto Scaling.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,

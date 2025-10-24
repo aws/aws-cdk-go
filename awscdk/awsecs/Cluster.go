@@ -17,7 +17,7 @@ import (
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -49,8 +49,8 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: capacityProvider.CapacityProviderName,
 //   			Weight: jsii.Number(1),
 //   		},

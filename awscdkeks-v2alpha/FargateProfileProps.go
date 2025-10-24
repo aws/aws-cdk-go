@@ -8,12 +8,12 @@ import (
 // Configuration props for EKS Fargate Profiles.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   eks.NewFargateProfile(this, jsii.String("MyProfile"), &FargateProfileProps{
 //   	Cluster: Cluster,
-//   	Selectors: []selector{
-//   		&selector{
+//   	Selectors: []Selector{
+//   		&Selector{
 //   			Namespace: jsii.String("default"),
 //   		},
 //   	},

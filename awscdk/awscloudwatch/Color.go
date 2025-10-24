@@ -8,26 +8,26 @@ import (
 // A set of standard colours that can be used in annotations in a GraphWidget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 //   	// ...
 //
-//   	LeftAnnotations: []horizontalAnnotation{
-//   		&horizontalAnnotation{
+//   	LeftAnnotations: []HorizontalAnnotation{
+//   		&HorizontalAnnotation{
 //   			Value: jsii.Number(1800),
 //   			Label: awscdk.Duration_Minutes(jsii.Number(30)).ToHumanString(),
 //   			Color: cloudwatch.Color_RED(),
 //   		},
-//   		&horizontalAnnotation{
+//   		&HorizontalAnnotation{
 //   			Value: jsii.Number(3600),
 //   			Label: jsii.String("1 hour"),
 //   			Color: jsii.String("#2ca02c"),
 //   		},
 //   	},
-//   	VerticalAnnotations: []verticalAnnotation{
-//   		&verticalAnnotation{
+//   	VerticalAnnotations: []VerticalAnnotation{
+//   		&VerticalAnnotation{
 //   			Date: jsii.String("2022-10-19T00:00:00Z"),
 //   			Label: jsii.String("Deployment"),
 //   			Color: cloudwatch.Color_RED(),

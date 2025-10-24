@@ -23,7 +23,7 @@ import (
 //
 //   bedrock.NewPrompt(this, jsii.String("Prompt"), &PromptProps{
 //   	PromptName: jsii.String("prompt-router-test"),
-//   	Variants: []iPromptVariant{
+//   	Variants: []IPromptVariant{
 //   		variant,
 //   	},
 //   })

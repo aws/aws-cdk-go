@@ -4,8 +4,8 @@ package awsapigatewayv2
 // The options to create a new Stage for an HTTP API.
 //
 // Example:
-//   var api httpApi
-//   var dn domainName
+//   var api HttpApi
+//   var dn DomainName
 //
 //
 //   api.AddStage(jsii.String("beta"), &HttpStageOptions{

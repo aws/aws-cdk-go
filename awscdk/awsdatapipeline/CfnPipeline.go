@@ -69,8 +69,8 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
-//   	PipelineTags: []pipelineTagProperty{
-//   		&pipelineTagProperty{
+//   	PipelineTags: []PipelineTagProperty{
+//   		&PipelineTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

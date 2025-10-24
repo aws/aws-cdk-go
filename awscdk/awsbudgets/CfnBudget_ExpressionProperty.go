@@ -8,9 +8,9 @@ package awsbudgets
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var expressionProperty_ expressionProperty
+//   var expressionProperty_ ExpressionProperty
 //
-//   expressionProperty := &expressionProperty{
+//   expressionProperty := &ExpressionProperty{
 //   	And: []interface{}{
 //   		expressionProperty_,
 //   	},

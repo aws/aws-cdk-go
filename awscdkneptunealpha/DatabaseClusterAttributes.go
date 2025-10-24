@@ -12,7 +12,7 @@ import (
 //   import neptune_alpha "github.com/aws/aws-cdk-go/awscdkneptunealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   databaseClusterAttributes := &DatabaseClusterAttributes{
 //   	ClusterEndpointAddress: jsii.String("clusterEndpointAddress"),

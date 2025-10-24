@@ -15,7 +15,7 @@ import (
 // Base implementation that are common to various implementations of IRestApi.
 //
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{

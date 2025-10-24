@@ -89,7 +89,7 @@ To enable this feature, set the `availabilityZoneRelocation` property to `true`.
 // Example automatically generated from non-compiling source. May contain errors.
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc iVpc
+var vpc IVpc
 
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
@@ -213,12 +213,12 @@ with the supplied schema.
 
 ```go
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 		},
@@ -236,12 +236,12 @@ Therefore, changing of table names for <= v2.114.1 have been disabled.
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
 	TableName: jsii.String("oldTableName"),
 	 // This value can be change for versions greater than v2.114.1
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 		},
@@ -255,13 +255,13 @@ The table can be configured to have distStyle attribute and a distKey column:
 
 ```go
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 			DistKey: jsii.Boolean(true),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 		},
@@ -276,13 +276,13 @@ The table can also be configured to have sortStyle attribute and sortKey columns
 
 ```go
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 			SortKey: jsii.Boolean(true),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 			SortKey: jsii.Boolean(true),
@@ -298,13 +298,13 @@ Tables and their respective columns can be configured to contain comments:
 
 ```go
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 			Comment: jsii.String("This is a column comment"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 			Comment: jsii.String("This is a another column comment"),
@@ -323,13 +323,13 @@ import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 
 
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 			Encoding: awscdkredshiftalpha.ColumnEncoding_TEXT32K,
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 			Encoding: awscdkredshiftalpha.ColumnEncoding_DELTA32K,
@@ -346,13 +346,13 @@ Table columns can also contain an `id` attribute, which can allow table columns 
 
 ```go
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Id: jsii.String("col1"),
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Id: jsii.String("col2"),
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
@@ -372,13 +372,13 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Id: jsii.String("col1"),
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Id: jsii.String("col2"),
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
@@ -401,12 +401,12 @@ user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
 	DatabaseName: jsii.String("databaseName"),
 })
 table := awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 		},
@@ -435,12 +435,12 @@ user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
 	DatabaseName: databaseName,
 })
 table := awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 		},
@@ -467,12 +467,12 @@ user := awscdkredshiftalpha.User_FromUserAttributes(this, jsii.String("User"), &
 })
 table := awscdkredshiftalpha.Table_FromTableAttributes(this, jsii.String("Table"), &TableAttributes{
 	TableName: tableName,
-	TableColumns: []column{
-		&column{
+	TableColumns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			DataType: jsii.String("varchar(4)"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			DataType: jsii.String("float"),
 		},
@@ -539,7 +539,7 @@ Additionally, you can add a parameter to the cluster's associated parameter grou
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -560,7 +560,7 @@ In most cases, existing clusters [must be manually rebooted](https://docs.aws.am
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -585,7 +585,7 @@ including [pausing and resuming the cluster](https://docs.aws.amazon.com/redshif
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 
-var vpc iVpc
+var vpc IVpc
 
 
 // Pause the cluster
@@ -629,7 +629,7 @@ If you configure your cluster to be publicly accessible, you can optionally sele
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
@@ -671,7 +671,7 @@ When you use Amazon Redshift enhanced VPC routing, Amazon Redshift forces all CO
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
@@ -695,7 +695,7 @@ When you create an IAM role and set it as the default for the cluster using cons
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 defaultRole := iam.NewRole(this, jsii.String("DefaultRole"), &RoleProps{
@@ -707,7 +707,7 @@ awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
 		MasterUsername: jsii.String("admin"),
 	},
 	Vpc: Vpc,
-	Roles: []iRole{
+	Roles: []IRole{
 		defaultRole,
 	},
 	DefaultRole: defaultRole,
@@ -719,7 +719,7 @@ A default role can also be added to a cluster using the `addDefaultIamRole` meth
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 defaultRole := iam.NewRole(this, jsii.String("DefaultRole"), &RoleProps{
@@ -731,7 +731,7 @@ redshiftCluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"),
 		MasterUsername: jsii.String("admin"),
 	},
 	Vpc: Vpc,
-	Roles: []iRole{
+	Roles: []IRole{
 		defaultRole,
 	},
 })
@@ -746,7 +746,7 @@ Attaching IAM roles to a Redshift Cluster grants permissions to the Redshift ser
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -757,7 +757,7 @@ cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &Cluste
 		MasterUsername: jsii.String("admin"),
 	},
 	Vpc: Vpc,
-	Roles: []iRole{
+	Roles: []IRole{
 		role,
 	},
 })
@@ -768,7 +768,7 @@ Additional IAM roles can be attached to a cluster using the `addIamRole` method.
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{

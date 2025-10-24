@@ -69,7 +69,7 @@ import (
 //
 //   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &PipelineProps{
 //   	CrossAccountKeys: jsii.Boolean(true),
-//   	Stages: []stageProps{
+//   	Stages: []StageProps{
 //   		sourceStage,
 //   		prodStage,
 //   	},

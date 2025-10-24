@@ -11,9 +11,9 @@ package awssynthetics
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   codeProperty := &CodeProperty{
-//   	Handler: jsii.String("handler"),
-//
-//   	// the properties below are optional
+//   	BlueprintTypes: []*string{
+//   		jsii.String("blueprintTypes"),
+//   	},
 //   	Dependencies: []interface{}{
 //   		&DependencyProperty{
 //   			Reference: jsii.String("reference"),
@@ -22,6 +22,7 @@ package awssynthetics
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	Handler: jsii.String("handler"),
 //   	S3Bucket: jsii.String("s3Bucket"),
 //   	S3Key: jsii.String("s3Key"),
 //   	S3ObjectVersion: jsii.String("s3ObjectVersion"),
@@ -32,16 +33,26 @@ package awssynthetics
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
 //
 type CfnCanary_CodeProperty struct {
-	// The entry point to use for the source code when running the canary.
+	// `BlueprintTypes` are a list of templates that enable simplified canary creation.
 	//
-	// For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
+	// You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
 	//
-	Handler *string `field:"required" json:"handler" yaml:"handler"`
+	// When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-blueprinttypes
+	//
+	BlueprintTypes *[]*string `field:"optional" json:"blueprintTypes" yaml:"blueprintTypes"`
 	// List of Lambda layers to attach to the canary.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-dependencies
 	//
 	Dependencies interface{} `field:"optional" json:"dependencies" yaml:"dependencies"`
+	// The entry point to use for the source code when running the canary.
+	//
+	// For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+	//
+	// This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
+	//
+	Handler *string `field:"optional" json:"handler" yaml:"handler"`
 	// If your canary script is located in S3, specify the bucket name here.
 	//
 	// The bucket must already exist.

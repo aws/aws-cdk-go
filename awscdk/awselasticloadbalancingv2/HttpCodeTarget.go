@@ -6,10 +6,10 @@ package awselasticloadbalancingv2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var service fargateService
-//   var blueTargetGroup applicationTargetGroup
-//   var greenTargetGroup applicationTargetGroup
-//   var listener iApplicationListener
+//   var service FargateService
+//   var blueTargetGroup ApplicationTargetGroup
+//   var greenTargetGroup ApplicationTargetGroup
+//   var listener IApplicationListener
 //
 //
 //   // Alarm on the number of unhealthy ECS tasks in each target group
@@ -48,7 +48,7 @@ package awselasticloadbalancingv2
 //
 //   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 //   	// CodeDeploy will monitor these alarms during a deployment and automatically roll back
-//   	Alarms: []iAlarm{
+//   	Alarms: []IAlarm{
 //   		blueUnhealthyHosts,
 //   		greenUnhealthyHosts,
 //   		blueApiFailure,

@@ -32,8 +32,8 @@ import (
 //   		ManifestPrefixLocation: jsii.String("manifestPrefixLocation"),
 //   		RepoPrefixLocation: jsii.String("repoPrefixLocation"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

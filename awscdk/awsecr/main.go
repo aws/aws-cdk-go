@@ -571,6 +571,14 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecr.ImageTagMutabilityExclusionFilter",
+		reflect.TypeOf((*ImageTagMutabilityExclusionFilter)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ImageTagMutabilityExclusionFilter{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.LifecycleRule",
 		reflect.TypeOf((*LifecycleRule)(nil)).Elem(),

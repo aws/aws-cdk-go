@@ -22,21 +22,21 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var containerImage containerImage
-//   var hostedZone hostedZone
-//   var listenerCertificate listenerCertificate
-//   var logDriver logDriver
-//   var namespace iNamespace
-//   var networkLoadBalancer networkLoadBalancer
-//   var role role
-//   var secret secret
-//   var vpc vpc
+//   var cluster Cluster
+//   var containerDefinition ContainerDefinition
+//   var containerImage ContainerImage
+//   var hostedZone HostedZone
+//   var listenerCertificate ListenerCertificate
+//   var logDriver LogDriver
+//   var namespace INamespace
+//   var networkLoadBalancer NetworkLoadBalancer
+//   var role Role
+//   var secret Secret
+//   var vpc Vpc
 //
 //   networkLoadBalancedServiceBaseProps := &NetworkLoadBalancedServiceBaseProps{
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
 //
 //   			// the properties below are optional
@@ -93,7 +93,7 @@ import (
 //   		ExecutionRole: role,
 //   		Family: jsii.String("family"),
 //   		LogDriver: logDriver,
-//   		Secrets: map[string]*secret{
+//   		Secrets: map[string]Secret{
 //   			"secretsKey": secret,
 //   		},
 //   		TaskRole: role,

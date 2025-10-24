@@ -12,9 +12,9 @@ import (
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpcV2 vpcV2
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpcV2 VpcV2
 //
 //   vPNGatewayV2Props := &VPNGatewayV2Props{
 //   	Type: awscdk.Aws_ec2.VpnConnectionType_IPSEC_1,
@@ -23,17 +23,17 @@ import (
 //   	// the properties below are optional
 //   	AmazonSideAsn: jsii.Number(123),
 //   	VpnGatewayName: jsii.String("vpnGatewayName"),
-//   	VpnRoutePropagation: []subnetSelection{
-//   		&subnetSelection{
+//   	VpnRoutePropagation: []SubnetSelection{
+//   		&SubnetSelection{
 //   			AvailabilityZones: []*string{
 //   				jsii.String("availabilityZones"),
 //   			},
 //   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
+//   			SubnetFilters: []SubnetFilter{
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []iSubnet{
+//   			Subnets: []ISubnet{
 //   				subnet,
 //   			},
 //   			SubnetType: awscdk.*Aws_ec2.SubnetType_PRIVATE_ISOLATED,

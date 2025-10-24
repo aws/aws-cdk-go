@@ -9,7 +9,7 @@ package awsiam
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
-//   var grantable iGrantable
+//   var grantable IGrantable
 //
 //   commonGrantOptions := &CommonGrantOptions{
 //   	Actions: []*string{

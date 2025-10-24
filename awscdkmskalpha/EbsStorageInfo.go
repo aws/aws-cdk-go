@@ -12,7 +12,7 @@ import (
 //   import msk_alpha "github.com/aws/aws-cdk-go/awscdkmskalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var keyRef iKeyRef
+//   var keyRef IKeyRef
 //
 //   ebsStorageInfo := &EbsStorageInfo{
 //   	EncryptionKey: keyRef,

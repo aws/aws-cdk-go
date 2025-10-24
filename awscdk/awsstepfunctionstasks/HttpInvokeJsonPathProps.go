@@ -17,11 +17,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var connection connection
+//   var connection Connection
 //   var resultSelector interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   httpInvokeJsonPathProps := &HttpInvokeJsonPathProps{
 //   	ApiEndpoint: taskInput,

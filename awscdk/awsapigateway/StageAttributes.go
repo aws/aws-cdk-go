@@ -4,7 +4,7 @@ package awsapigateway
 // The attributes of an imported Stage.
 //
 // Example:
-//   var restApi iRestApi
+//   var restApi IRestApi
 //
 //   importedStage := apigateway.Stage_FromStageAttributes(this, jsii.String("imported-stage"), &StageAttributes{
 //   	StageName: jsii.String("myStageName"),

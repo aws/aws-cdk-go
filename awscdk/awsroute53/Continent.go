@@ -4,7 +4,7 @@ package awsroute53
 // Continents for geolocation routing.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   // continent

@@ -17,8 +17,8 @@ package awsrds
 //
 //   	// the properties below are optional
 //   	EndpointNetworkType: jsii.String("endpointNetworkType"),
-//   	Tags: []tagFormatProperty{
-//   		&tagFormatProperty{
+//   	Tags: []TagFormatProperty{
+//   		&TagFormatProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

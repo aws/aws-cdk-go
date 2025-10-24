@@ -4,12 +4,12 @@ package awsglobalacceleratorendpoints
 // Properties for a NetworkLoadBalancerEndpoint.
 //
 // Example:
-//   var listener listener
-//   var eip cfnEIP
+//   var listener Listener
+//   var eip CfnEIP
 //
 //
 //   listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-//   	Endpoints: []iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewCfnEipEndpoint(eip, &CfnEipEndpointProps{
 //   			Weight: jsii.Number(128),
 //   		}),

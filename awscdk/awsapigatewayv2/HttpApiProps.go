@@ -6,7 +6,7 @@ package awsapigatewayv2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var lb applicationLoadBalancer
+//   var lb ApplicationLoadBalancer
 //
 //   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),

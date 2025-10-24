@@ -19,7 +19,7 @@ import (
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   job := glue_alpha.Job_FromJobAttributes(this, jsii.String("MyJob"), &JobAttributes{
 //   	JobName: jsii.String("jobName"),

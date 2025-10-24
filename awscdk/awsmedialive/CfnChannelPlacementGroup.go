@@ -22,8 +22,8 @@ import (
 //   	Nodes: []*string{
 //   		jsii.String("nodes"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -500,25 +500,6 @@ func (j *jsiiProxy_CfnChannelPlacementGroup)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IChannelPlacementGroupRef from an ARN.
-func CfnChannelPlacementGroup_FromChannelPlacementGroupArn(scope constructs.Construct, id *string, arn *string) IChannelPlacementGroupRef {
-	_init_.Initialize()
-
-	if err := validateCfnChannelPlacementGroup_FromChannelPlacementGroupArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IChannelPlacementGroupRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannelPlacementGroup",
-		"fromChannelPlacementGroupArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

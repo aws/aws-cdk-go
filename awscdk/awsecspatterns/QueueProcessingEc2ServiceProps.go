@@ -11,7 +11,7 @@ import (
 // The properties for the QueueProcessingEc2Service service.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii.String("Service"), &QueueProcessingEc2ServiceProps{
 //   	Cluster: Cluster,

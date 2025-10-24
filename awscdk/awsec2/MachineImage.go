@@ -8,7 +8,7 @@ import (
 // Factory functions for standard Amazon Machine Image objects.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{

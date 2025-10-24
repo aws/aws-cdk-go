@@ -5,8 +5,8 @@ package awskinesis
 //
 // Example:
 //   stream := kinesis.NewStream(this, jsii.String("MyStream"), &StreamProps{
-//   	ShardLevelMetrics: []shardLevelMetrics{
-//   		kinesis.*shardLevelMetrics_ALL,
+//   	ShardLevelMetrics: []ShardLevelMetrics{
+//   		kinesis.ShardLevelMetrics_ALL,
 //   	},
 //   })
 //

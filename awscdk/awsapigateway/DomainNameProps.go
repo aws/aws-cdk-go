@@ -6,7 +6,7 @@ import (
 
 // Example:
 //   var acmCertificateForExampleCom interface{}
-//   var restApi restApi
+//   var restApi RestApi
 //
 //
 //   apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{

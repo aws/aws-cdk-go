@@ -21,7 +21,7 @@ import (
 // - WindowsBuildImage.fromAsset(parent, id, props, [, imageType])
 //
 // Example:
-//   var ecrRepository repository
+//   var ecrRepository Repository
 //
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{

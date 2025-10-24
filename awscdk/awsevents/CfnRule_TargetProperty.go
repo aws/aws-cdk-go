@@ -242,9 +242,9 @@ type CfnRule_TargetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sagemakerpipelineparameters
 	//
 	SageMakerPipelineParameters interface{} `field:"optional" json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
-	// Contains the message group ID to use when the target is a FIFO queue.
+	// Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
 	//
-	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+	// If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
 	//
 	SqsParameters interface{} `field:"optional" json:"sqsParameters" yaml:"sqsParameters"`

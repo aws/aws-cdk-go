@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var listenerRuleConfiguration listenerRuleConfiguration
-//   var role role
+//   var listenerRuleConfiguration ListenerRuleConfiguration
+//   var role Role
 //
 //   alternateTargetOptions := &AlternateTargetOptions{
 //   	Role: role,

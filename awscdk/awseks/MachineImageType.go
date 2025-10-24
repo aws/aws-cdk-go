@@ -4,7 +4,7 @@ package awseks
 // The machine image type.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddAutoScalingGroupCapacity(jsii.String("BottlerocketNodes"), &AutoScalingGroupCapacityOptions{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),

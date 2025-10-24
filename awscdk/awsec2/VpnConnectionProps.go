@@ -7,8 +7,8 @@ package awsec2
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secretValue secretValue
-//   var vpc vpc
+//   var secretValue SecretValue
+//   var vpc Vpc
 //
 //   vpnConnectionProps := &VpnConnectionProps{
 //   	Ip: jsii.String("ip"),
@@ -19,8 +19,8 @@ package awsec2
 //   	StaticRoutes: []*string{
 //   		jsii.String("staticRoutes"),
 //   	},
-//   	TunnelOptions: []vpnTunnelOption{
-//   		&vpnTunnelOption{
+//   	TunnelOptions: []VpnTunnelOption{
+//   		&VpnTunnelOption{
 //   			PreSharedKey: jsii.String("preSharedKey"),
 //   			PreSharedKeySecret: secretValue,
 //   			TunnelInsideCidr: jsii.String("tunnelInsideCidr"),

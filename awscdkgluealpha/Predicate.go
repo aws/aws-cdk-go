@@ -8,11 +8,11 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var job job
+//   var job Job
 //
 //   predicate := &Predicate{
-//   	Conditions: []condition{
-//   		&condition{
+//   	Conditions: []Condition{
+//   		&Condition{
 //   			CrawlerName: jsii.String("crawlerName"),
 //   			CrawlState: glue_alpha.CrawlerState_RUNNING,
 //   			Job: job,

@@ -10,9 +10,9 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var predicateProperty_ predicateProperty
+//   var predicateProperty_ PredicateProperty
 //
-//   predicateProperty := &predicateProperty{
+//   predicateProperty := &PredicateProperty{
 //   	And: []interface{}{
 //   		predicateProperty_,
 //   	},

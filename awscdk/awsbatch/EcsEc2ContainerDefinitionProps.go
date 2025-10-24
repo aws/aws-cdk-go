@@ -9,7 +9,7 @@ import (
 // Props to configure an EcsEc2ContainerDefinition.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
@@ -21,8 +21,8 @@ import (
 //   })
 //
 //   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	ComputeEnvironments: []orderedComputeEnvironment{
-//   		&orderedComputeEnvironment{
+//   	ComputeEnvironments: []OrderedComputeEnvironment{
+//   		&OrderedComputeEnvironment{
 //   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
 //   				Vpc: *Vpc,
 //   			}),

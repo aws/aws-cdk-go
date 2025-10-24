@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var formInputValuePropertyProperty_ formInputValuePropertyProperty
+//   var formInputValuePropertyProperty_ FormInputValuePropertyProperty
 //
 //   cfnForm := awscdk.Aws_amplifyuibuilder.NewCfnForm(this, jsii.String("MyCfnForm"), &CfnFormProps{
 //   	AppId: jsii.String("appId"),
@@ -90,7 +90,7 @@ import (
 //   				"valueMappings": &ValueMappingsProperty{
 //   					"values": []interface{}{
 //   						&ValueMappingProperty{
-//   							"value": &formInputValuePropertyProperty{
+//   							"value": &FormInputValuePropertyProperty{
 //   								"bindingProperties": &FormInputValuePropertyBindingPropertiesProperty{
 //   									"property": jsii.String("property"),
 //
@@ -104,7 +104,7 @@ import (
 //   							},
 //
 //   							// the properties below are optional
-//   							"displayValue": &formInputValuePropertyProperty{
+//   							"displayValue": &FormInputValuePropertyProperty{
 //   								"bindingProperties": &FormInputValuePropertyBindingPropertiesProperty{
 //   									"property": jsii.String("property"),
 //

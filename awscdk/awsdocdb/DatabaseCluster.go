@@ -14,7 +14,7 @@ import (
 // Create a clustered database with a given number of instances.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{

@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkMode networkMode
-//   var platform platform
+//   var networkMode NetworkMode
+//   var platform Platform
 //
 //   dockerImageAssetOptions := &DockerImageAssetOptions{
 //   	AssetName: jsii.String("assetName"),
@@ -25,8 +25,8 @@ import (
 //   	},
 //   	BuildSsh: jsii.String("buildSsh"),
 //   	CacheDisabled: jsii.Boolean(false),
-//   	CacheFrom: []dockerCacheOption{
-//   		&dockerCacheOption{
+//   	CacheFrom: []DockerCacheOption{
+//   		&DockerCacheOption{
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
@@ -35,7 +35,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	CacheTo: &dockerCacheOption{
+//   	CacheTo: &DockerCacheOption{
 //   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional

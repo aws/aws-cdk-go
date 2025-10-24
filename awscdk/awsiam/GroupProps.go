@@ -8,11 +8,11 @@ package awsiam
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var managedPolicy managedPolicy
+//   var managedPolicy ManagedPolicy
 //
 //   groupProps := &GroupProps{
 //   	GroupName: jsii.String("groupName"),
-//   	ManagedPolicies: []iManagedPolicy{
+//   	ManagedPolicies: []IManagedPolicy{
 //   		managedPolicy,
 //   	},
 //   	Path: jsii.String("path"),

@@ -11,8 +11,8 @@ package cloudassemblyschema
 //   var assumeRoleAdditionalOptions interface{}
 //
 //   dockerImageAsset := &DockerImageAsset{
-//   	Destinations: map[string]dockerImageDestination{
-//   		"destinationsKey": &dockerImageDestination{
+//   	Destinations: map[string]DockerImageDestination{
+//   		"destinationsKey": &DockerImageDestination{
 //   			"imageTag": jsii.String("imageTag"),
 //   			"repositoryName": jsii.String("repositoryName"),
 //
@@ -27,8 +27,8 @@ package cloudassemblyschema
 //   	},
 //   	Source: &DockerImageSource{
 //   		CacheDisabled: jsii.Boolean(false),
-//   		CacheFrom: []dockerCacheOption{
-//   			&dockerCacheOption{
+//   		CacheFrom: []DockerCacheOption{
+//   			&DockerCacheOption{
 //   				Type: jsii.String("type"),
 //
 //   				// the properties below are optional
@@ -37,7 +37,7 @@ package cloudassemblyschema
 //   				},
 //   			},
 //   		},
-//   		CacheTo: &dockerCacheOption{
+//   		CacheTo: &DockerCacheOption{
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional

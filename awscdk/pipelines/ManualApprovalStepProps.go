@@ -7,14 +7,14 @@ import (
 // Construction properties for a `ManualApprovalStep`.
 //
 // Example:
-//   var pipeline codePipeline
+//   var pipeline CodePipeline
 //
 //   preprod := NewMyApplicationStage(this, jsii.String("PreProd"))
 //   prod := NewMyApplicationStage(this, jsii.String("Prod"))
 //   topic := sns.NewTopic(this, jsii.String("ChangeApprovalTopic"))
 //
 //   pipeline.AddStage(preprod, &AddStageOpts{
-//   	Post: []step{
+//   	Post: []Step{
 //   		pipelines.NewShellStep(jsii.String("Validate Endpoint"), &ShellStepProps{
 //   			Commands: []*string{
 //   				jsii.String("curl -Ssf https://my.webservice.com/"),
@@ -23,7 +23,7 @@ import (
 //   	},
 //   })
 //   pipeline.AddStage(prod, &AddStageOpts{
-//   	Pre: []*step{
+//   	Pre: []Step{
 //   		pipelines.NewManualApprovalStep(jsii.String("PromoteToProd"), &ManualApprovalStepProps{
 //   			//All options below are optional
 //   			Comment: jsii.String("Please validate changes"),

@@ -7,7 +7,7 @@ import (
 // Construction properties for a CustomRule.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //   var samplePolicyText string
 //
 //

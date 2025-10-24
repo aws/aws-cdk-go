@@ -22,19 +22,19 @@ import (
 //    * but also require providing the ContainerImage that the service will use.
 //    * That Image will be provided from the Stack containing the CodePipeline.
 //    */
-//   type ecsAppStackProps struct {
-//   	stackProps
-//   	image containerImage
+//   type EcsAppStackProps struct {
+//   	StackProps
+//   	image ContainerImage
 //   }
 //
 //   /**
 //    * This is the Stack containing a simple ECS Service that uses the provided ContainerImage.
 //    */
 //   type EcsAppStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func NewEcsAppStack(scope construct, id *string, props ecsAppStackProps) *EcsAppStack {
+//   func NewEcsAppStack(scope Construct, id *string, props EcsAppStackProps) *EcsAppStack {
 //   	this := &EcsAppStack{}
 //   	cdk.NewStack_Override(this, scope, id, props)
 //
@@ -61,11 +61,11 @@ import (
 //    * This is the Stack containing the CodePipeline definition that deploys an ECS Service.
 //    */
 //   type PipelineStack struct {
-//   	stack
-//   	tagParameterContainerImage tagParameterContainerImage
-//   }tagParameterContainerImage tagParameterContainerImage
+//   	Stack
+//   	tagParameterContainerImage TagParameterContainerImage
+//   }tagParameterContainerImage TagParameterContainerImage
 //
-//   func NewPipelineStack(scope construct, id *string, props stackProps) *PipelineStack {
+//   func NewPipelineStack(scope Construct, id *string, props StackProps) *PipelineStack {
 //   	this := &PipelineStack{}
 //   	cdk.NewStack_Override(this, scope, id, props)
 //
@@ -102,8 +102,8 @@ import (
 //   				},
 //   			},
 //   		}),
-//   		EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   			"REPOSITORY_URI": &buildEnvironmentVariable{
+//   		EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   			"REPOSITORY_URI": &BuildEnvironmentVariable{
 //   				"value": appEcrRepo.repositoryUri,
 //   			},
 //   		},
@@ -150,10 +150,10 @@ import (
 //   		ArtifactBucket: s3.NewBucket(this, jsii.String("ArtifactBucket"), &BucketProps{
 //   			RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   		}),
-//   		Stages: []stageProps{
-//   			&stageProps{
+//   		Stages: []StageProps{
+//   			&StageProps{
 //   				StageName: jsii.String("Source"),
-//   				Actions: []iAction{
+//   				Actions: []IAction{
 //   					// this is the Action that takes the source of your application code
 //   					codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
 //   						ActionName: jsii.String("AppCodeSource"),
@@ -173,23 +173,23 @@ import (
 //   					}),
 //   				},
 //   			},
-//   			&stageProps{
+//   			&StageProps{
 //   				StageName: jsii.String("Build"),
-//   				Actions: []*iAction{
+//   				Actions: []IAction{
 //   					appCodeBuildAction,
 //   					codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 //   						ActionName: jsii.String("CdkCodeBuildAndSynth"),
 //   						Project: cdkCodeBuild,
 //   						Input: cdkCodeSourceOutput,
-//   						Outputs: []artifact{
+//   						Outputs: []Artifact{
 //   							cdkCodeBuildOutput,
 //   						},
 //   					}),
 //   				},
 //   			},
-//   			&stageProps{
+//   			&StageProps{
 //   				StageName: jsii.String("Deploy"),
-//   				Actions: []*iAction{
+//   				Actions: []IAction{
 //   					codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
 //   						ActionName: jsii.String("CFN_Deploy"),
 //   						StackName: jsii.String("SampleEcsStackDeployedFromCodePipeline"),
@@ -215,7 +215,7 @@ import (
 //   pipelineStack := NewPipelineStack(app, jsii.String("aws-cdk-pipeline-ecs-separate-sources"))
 //   // we supply the image to the ECS application Stack from the CodePipeline Stack
 //   // we supply the image to the ECS application Stack from the CodePipeline Stack
-//   NewEcsAppStack(app, jsii.String("EcsStackDeployedInPipeline"), &ecsAppStackProps{
+//   NewEcsAppStack(app, jsii.String("EcsStackDeployedInPipeline"), &EcsAppStackProps{
 //   	image: pipelineStack.tagParameterContainerImage,
 //   })
 //

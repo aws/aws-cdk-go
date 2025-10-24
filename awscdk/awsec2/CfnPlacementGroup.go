@@ -26,8 +26,8 @@ import (
 //   	PartitionCount: jsii.Number(123),
 //   	SpreadLevel: jsii.String("spreadLevel"),
 //   	Strategy: jsii.String("strategy"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

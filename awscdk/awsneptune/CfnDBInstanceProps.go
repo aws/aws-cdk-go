@@ -24,8 +24,9 @@ import (
 //   	DbSnapshotIdentifier: jsii.String("dbSnapshotIdentifier"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	PubliclyAccessible: jsii.Boolean(false),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -94,6 +95,14 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-preferredmaintenancewindow
 	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	// Indicates whether the DB instance is publicly accessible.
+	//
+	// When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it.
+	//
+	// When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-publiclyaccessible
+	//
+	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-tags
 	//

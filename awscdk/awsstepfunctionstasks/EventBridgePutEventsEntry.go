@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventBus eventBus
-//   var taskInput taskInput
+//   var eventBus EventBus
+//   var taskInput TaskInput
 //
 //   eventBridgePutEventsEntry := &EventBridgePutEventsEntry{
 //   	Detail: taskInput,

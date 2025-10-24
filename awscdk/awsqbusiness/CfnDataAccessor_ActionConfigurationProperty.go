@@ -8,14 +8,14 @@ package awsqbusiness
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeFilterProperty_ attributeFilterProperty
+//   var attributeFilterProperty_ AttributeFilterProperty
 //
 //   actionConfigurationProperty := &ActionConfigurationProperty{
 //   	Action: jsii.String("action"),
 //
 //   	// the properties below are optional
 //   	FilterConfiguration: &ActionFilterConfigurationProperty{
-//   		DocumentAttributeFilter: &attributeFilterProperty{
+//   		DocumentAttributeFilter: &AttributeFilterProperty{
 //   			AndAllFilters: []interface{}{
 //   				attributeFilterProperty_,
 //   			},

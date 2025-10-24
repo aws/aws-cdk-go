@@ -8,14 +8,14 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var componentChildProperty_ componentChildProperty
-//   var componentPropertyProperty_ componentPropertyProperty
+//   var componentChildProperty_ ComponentChildProperty
+//   var componentPropertyProperty_ ComponentPropertyProperty
 //
-//   componentChildProperty := &componentChildProperty{
+//   componentChildProperty := &ComponentChildProperty{
 //   	ComponentType: jsii.String("componentType"),
 //   	Name: jsii.String("name"),
 //   	Properties: map[string]interface{}{
-//   		"propertiesKey": &componentPropertyProperty{
+//   		"propertiesKey": &ComponentPropertyProperty{
 //   			"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   				"property": jsii.String("property"),
 //
@@ -68,7 +68,7 @@ package awsamplifyuibuilder
 //   			"action": jsii.String("action"),
 //   			"bindingEvent": jsii.String("bindingEvent"),
 //   			"parameters": &ActionParametersProperty{
-//   				"anchor": &componentPropertyProperty{
+//   				"anchor": &ComponentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -111,7 +111,7 @@ package awsamplifyuibuilder
 //   					"value": jsii.String("value"),
 //   				},
 //   				"fields": map[string]interface{}{
-//   					"fieldsKey": &componentPropertyProperty{
+//   					"fieldsKey": &ComponentPropertyProperty{
 //   						"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   							"property": jsii.String("property"),
 //
@@ -154,7 +154,7 @@ package awsamplifyuibuilder
 //   						"value": jsii.String("value"),
 //   					},
 //   				},
-//   				"global": &componentPropertyProperty{
+//   				"global": &ComponentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -196,7 +196,7 @@ package awsamplifyuibuilder
 //   					"userAttribute": jsii.String("userAttribute"),
 //   					"value": jsii.String("value"),
 //   				},
-//   				"id": &componentPropertyProperty{
+//   				"id": &ComponentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -242,7 +242,7 @@ package awsamplifyuibuilder
 //   				"state": &MutationActionSetStateParameterProperty{
 //   					"componentName": jsii.String("componentName"),
 //   					"property": jsii.String("property"),
-//   					"set": &componentPropertyProperty{
+//   					"set": &ComponentPropertyProperty{
 //   						"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   							"property": jsii.String("property"),
 //
@@ -285,7 +285,7 @@ package awsamplifyuibuilder
 //   						"value": jsii.String("value"),
 //   					},
 //   				},
-//   				"target": &componentPropertyProperty{
+//   				"target": &ComponentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -327,7 +327,7 @@ package awsamplifyuibuilder
 //   					"userAttribute": jsii.String("userAttribute"),
 //   					"value": jsii.String("value"),
 //   				},
-//   				"type": &componentPropertyProperty{
+//   				"type": &ComponentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -369,7 +369,7 @@ package awsamplifyuibuilder
 //   					"userAttribute": jsii.String("userAttribute"),
 //   					"value": jsii.String("value"),
 //   				},
-//   				"url": &componentPropertyProperty{
+//   				"url": &ComponentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //

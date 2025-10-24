@@ -81,9 +81,9 @@ type CfnTheme_ThemeVersionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// The Amazon QuickSight-defined ID of the theme that a custom theme inherits from.
+	// The Quick Sight-defined ID of the theme that a custom theme inherits from.
 	//
-	// All themes initially inherit from a default Amazon QuickSight theme.
+	// All themes initially inherit from a default Quick Sight theme.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html#cfn-quicksight-theme-themeversion-basethemeid
 	//
 	BaseThemeId *string `field:"optional" json:"baseThemeId" yaml:"baseThemeId"`

@@ -13,7 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myFunction function
+//   var myFunction Function
 //
 //
 //   // Your MSK cluster arn

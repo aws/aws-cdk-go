@@ -32,8 +32,8 @@ import (
 //   	// the properties below are optional
 //   	FrameworkDescription: jsii.String("frameworkDescription"),
 //   	FrameworkName: jsii.String("frameworkName"),
-//   	FrameworkTags: []cfnTag{
-//   		&cfnTag{
+//   	FrameworkTags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -8,7 +8,7 @@ import (
 // An IAM principal that represents an AWS service (i.e. `sqs.amazonaws.com`).
 //
 // Example:
-//   var definition iChainable
+//   var definition IChainable
 //   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })

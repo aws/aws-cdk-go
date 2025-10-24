@@ -21,8 +21,8 @@ import (
 //   	// the properties below are optional
 //   	PeerBgpAsn: jsii.Number(123),
 //   	PeerBgpAsnExtended: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

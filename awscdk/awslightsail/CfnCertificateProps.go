@@ -19,8 +19,8 @@ import (
 //   	SubjectAlternativeNames: []*string{
 //   		jsii.String("subjectAlternativeNames"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

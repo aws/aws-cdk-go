@@ -15,18 +15,18 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var configurationProperty_ configurationProperty
+//   var configurationProperty_ ConfigurationProperty
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   emrModifyInstanceGroupByNameJsonPathProps := &EmrModifyInstanceGroupByNameJsonPathProps{
 //   	ClusterId: jsii.String("clusterId"),
 //   	InstanceGroup: &InstanceGroupModifyConfigProperty{
-//   		Configurations: []*configurationProperty{
-//   			&configurationProperty{
+//   		Configurations: []ConfigurationProperty{
+//   			&ConfigurationProperty{
 //   				Classification: jsii.String("classification"),
-//   				Configurations: []*configurationProperty{
+//   				Configurations: []ConfigurationProperty{
 //   					configurationProperty_,
 //   				},
 //   				Properties: map[string]*string{

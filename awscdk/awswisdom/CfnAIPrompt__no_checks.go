@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnAIPrompt) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
-func validateCfnAIPrompt_FromAIPromptArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnAIPrompt_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

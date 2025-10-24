@@ -17,7 +17,7 @@ The following code sets up a lambda function with an SQS queue event source -
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 queue := sqs.NewQueue(this, jsii.String("MyQueue"))
 eventSource := awscdk.NewSqsEventSource(queue)
@@ -56,7 +56,7 @@ behavior:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
@@ -85,18 +85,18 @@ Amazon S3 to publish and which Lambda function to invoke.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 bucket := s3.NewBucket(this, jsii.String("mybucket"))
 
 fn.AddEventSource(awscdk.NewS3EventSource(bucket, &S3EventSourceProps{
-	Events: []eventType{
-		s3.*eventType_OBJECT_CREATED,
-		s3.*eventType_OBJECT_REMOVED,
+	Events: []EventType{
+		s3.EventType_OBJECT_CREATED,
+		s3.EventType_OBJECT_REMOVED,
 	},
-	Filters: []notificationKeyFilter{
-		&notificationKeyFilter{
+	Filters: []NotificationKeyFilter{
+		&NotificationKeyFilter{
 			Prefix: jsii.String("subdir/"),
 		},
 	},
@@ -111,18 +111,18 @@ and is not compliant with `S3EventSource`. If this is the case, please consider 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket"))
 
 fn.AddEventSource(awscdk.NewS3EventSourceV2(bucket, &S3EventSourceProps{
-	Events: []eventType{
-		s3.*eventType_OBJECT_CREATED,
-		s3.*eventType_OBJECT_REMOVED,
+	Events: []EventType{
+		s3.EventType_OBJECT_CREATED,
+		s3.EventType_OBJECT_REMOVED,
 	},
-	Filters: []notificationKeyFilter{
-		&notificationKeyFilter{
+	Filters: []NotificationKeyFilter{
+		&NotificationKeyFilter{
 			Prefix: jsii.String("subdir/"),
 		},
 	},
@@ -151,9 +151,9 @@ Accounts](https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html).
 import sns "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var topic topic
+var topic Topic
 
-var fn function
+var fn Function
 
 deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
 fn.AddEventSource(awscdk.NewSnsEventSource(topic, &SnsEventSourceProps{
@@ -196,9 +196,9 @@ and add it to your Lambda function. The following parameters will impact Amazon 
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var table table
+var table Table
 
-var fn function
+var fn Function
 
 
 deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
@@ -218,9 +218,9 @@ the Lambda function when the `id` column is a boolean that equals `true`.
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var table table
+var table Table
 
-var fn function
+var fn Function
 
 fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
 	StartingPosition: lambda.StartingPosition_LATEST,
@@ -267,7 +267,7 @@ behavior:
 import kinesis "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var myFunction function
+var myFunction Function
 
 
 stream := kinesis.NewStream(this, jsii.String("MyStream"))
@@ -284,7 +284,7 @@ To use a dedicated-throughput consumer with enhanced fan-out
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var myFunction function
+var myFunction Function
 
 
 stream := kinesis.NewStream(this, jsii.String("MyStream"))
@@ -317,7 +317,7 @@ MSK cluster, as described in [Username/Password authentication](https://docs.aws
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var myFunction function
+var myFunction Function
 
 
 // Your MSK cluster arn
@@ -349,9 +349,9 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // The secret that allows access to your self hosted Kafka cluster
-var secret secret
+var secret Secret
 
-var myFunction function
+var myFunction Function
 
 
 // The list of Kafka brokers
@@ -383,7 +383,7 @@ for managed and self managed Kafka clusters using the `filters` property:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var myFunction function
+var myFunction Function
 
 
 // Your MSK cluster arn
@@ -409,7 +409,7 @@ By default, Lambda will encrypt Filter Criteria using AWS managed keys. But if y
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var myFunction function
+var myFunction Function
 
 
 // Your MSK cluster arn
@@ -439,8 +439,8 @@ You can also specify an S3 bucket as an "on failure" destination:
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var bucket iBucket
-var myFunction function
+var bucket IBucket
+var myFunction Function
 
 
 // Your MSK cluster arn
@@ -467,7 +467,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 // Your MSK cluster arn
 var clusterArn string
 
-var myFunction function
+var myFunction Function
 
 
 // The Kafka topic you want to subscribe to
@@ -492,7 +492,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 // Your MSK cluster arn
 var clusterArn string
 
-var myFunction function
+var myFunction Function
 
 
 // The Kafka topic you want to subscribe to
@@ -514,8 +514,8 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 		EventRecordFormat: lambda.EventRecordFormat_JSON(),
 		AuthenticationType: lambda.KafkaSchemaRegistryAccessConfigType_BASIC_AUTH(),
 		Secret: secret,
-		SchemaValidationConfigs: []kafkaSchemaValidationConfig{
-			&kafkaSchemaValidationConfig{
+		SchemaValidationConfigs: []KafkaSchemaValidationConfig{
+			&KafkaSchemaValidationConfig{
 				Attribute: lambda.KafkaSchemaValidationAttribute_KEY(),
 			},
 		},
@@ -532,7 +532,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 // Your MSK cluster arn
 var clusterArn string
 
-var myFunction function
+var myFunction Function
 
 
 // The Kafka topic you want to subscribe to
@@ -554,8 +554,8 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 	SchemaRegistryConfig: awscdk.NewGlueSchemaRegistry(&GlueSchemaRegistryProps{
 		SchemaRegistry: glueRegistry,
 		EventRecordFormat: lambda.EventRecordFormat_JSON(),
-		SchemaValidationConfigs: []kafkaSchemaValidationConfig{
-			&kafkaSchemaValidationConfig{
+		SchemaValidationConfigs: []KafkaSchemaValidationConfig{
+			&KafkaSchemaValidationConfig{
 				Attribute: lambda.KafkaSchemaValidationAttribute_KEY(),
 			},
 		},

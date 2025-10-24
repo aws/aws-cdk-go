@@ -12,14 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
-//   var metric metric
+//   var autoScalingGroup AutoScalingGroup
+//   var metric Metric
 //
 //   stepScalingPolicyProps := &StepScalingPolicyProps{
 //   	AutoScalingGroup: autoScalingGroup,
 //   	Metric: metric,
-//   	ScalingSteps: []scalingInterval{
-//   		&scalingInterval{
+//   	ScalingSteps: []ScalingInterval{
+//   		&ScalingInterval{
 //   			Change: jsii.Number(123),
 //
 //   			// the properties below are optional

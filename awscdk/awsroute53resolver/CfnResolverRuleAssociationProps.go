@@ -28,6 +28,8 @@ type CfnResolverRuleAssociationProps struct {
 	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The name of an association between a Resolver rule and a VPC.
+	//
+	// The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

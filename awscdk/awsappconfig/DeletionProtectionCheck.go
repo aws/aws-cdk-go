@@ -4,10 +4,10 @@ package awsappconfig
 // The deletion protection check options.
 //
 // Example:
-//   var application application
-//   var alarm alarm
-//   var compositeAlarm compositeAlarm
-//   var bucket bucket
+//   var application Application
+//   var alarm Alarm
+//   var compositeAlarm CompositeAlarm
+//   var bucket Bucket
 //
 //
 //   // Environment deletion protection check

@@ -14,8 +14,8 @@ import (
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pipeline pipeline
-//   var repository iRepository
+//   var pipeline Pipeline
+//   var repository IRepository
 //
 //
 //   scanOutput := codepipeline.NewArtifact()
@@ -27,7 +27,7 @@ import (
 //
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Scan"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		scanAction,
 //   	},
 //   })

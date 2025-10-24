@@ -4,7 +4,7 @@ package awsecs
 // The machine image type.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &LaunchTemplateProps{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t3.medium")),

@@ -6,7 +6,7 @@ package awsec2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pool cfnIPAMPool
+//   var pool CfnIPAMPool
 //
 //
 //   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{

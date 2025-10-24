@@ -88,8 +88,8 @@ import (
 //   		// the properties below are optional
 //   		PolicyRevisionId: jsii.String("policyRevisionId"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

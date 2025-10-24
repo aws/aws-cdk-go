@@ -8,8 +8,8 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var networkAclRef iNetworkAclRef
-//   var subnet subnet
+//   var networkAclRef INetworkAclRef
+//   var subnet Subnet
 //
 //   subnetNetworkAclAssociationProps := &SubnetNetworkAclAssociationProps{
 //   	NetworkAcl: networkAclRef,

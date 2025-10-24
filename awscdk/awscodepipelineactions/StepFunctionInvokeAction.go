@@ -28,7 +28,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("StepFunctions"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		stepFunctionAction,
 //   	},
 //   })

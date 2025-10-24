@@ -10,8 +10,8 @@ import (
 // Example:
 //   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var domainName domainName
+//   var zone HostedZone
+//   var domainName DomainName
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{

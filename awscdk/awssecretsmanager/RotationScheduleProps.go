@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
-//   var hostedRotation hostedRotation
-//   var secret secret
+//   var function_ Function
+//   var hostedRotation HostedRotation
+//   var secret Secret
 //
 //   rotationScheduleProps := &RotationScheduleProps{
 //   	Secret: secret,

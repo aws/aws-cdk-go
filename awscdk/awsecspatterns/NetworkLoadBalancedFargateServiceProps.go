@@ -11,8 +11,8 @@ import (
 // The properties for the NetworkLoadBalancedFargateService service.
 //
 // Example:
-//   var vpc vpc
-//   var securityGroup securityGroup
+//   var vpc Vpc
+//   var securityGroup SecurityGroup
 //
 //   queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
 //   	Vpc: Vpc,
@@ -21,7 +21,7 @@ import (
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
 //   	MinHealthyPercent: jsii.Number(100),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   })

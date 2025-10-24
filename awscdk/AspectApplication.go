@@ -18,8 +18,8 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var aspect iAspect
-//   var construct construct
+//   var aspect IAspect
+//   var construct Construct
 //
 //   aspectApplication := cdk.NewAspectApplication(construct, aspect, jsii.Number(123))
 //

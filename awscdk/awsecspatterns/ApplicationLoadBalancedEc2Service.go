@@ -14,7 +14,7 @@ import (
 // An EC2 service running on an ECS cluster fronted by an application load balancer.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedEcsService := ecsPatterns.NewApplicationLoadBalancedEc2Service(this, jsii.String("Service"), &ApplicationLoadBalancedEc2ServiceProps{
 //   	Cluster: Cluster,

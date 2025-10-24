@@ -8,8 +8,8 @@ import (
 // The properties for defining a service using the External launch type.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //
 //   ecs.NewEc2Service(this, jsii.String("Ec2Service"), &Ec2ServiceProps{

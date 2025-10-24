@@ -31,8 +31,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Ec2VpcId: jsii.String("ec2VpcId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

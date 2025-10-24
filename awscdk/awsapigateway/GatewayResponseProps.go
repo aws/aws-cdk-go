@@ -8,8 +8,8 @@ package awsapigateway
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var responseType responseType
-//   var restApi restApi
+//   var responseType ResponseType
+//   var restApi RestApi
 //
 //   gatewayResponseProps := &GatewayResponseProps{
 //   	RestApi: restApi,

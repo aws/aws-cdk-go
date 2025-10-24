@@ -8,14 +8,14 @@ import (
 // The properties required to create a new secret in AWS Secrets Manager.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //   user := iam.NewUser(this, jsii.String("User"))
 //   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
 //   	User: User,
 //   })
 //
 //   secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretObjectValue: map[string]secretValue{
+//   	SecretObjectValue: map[string]SecretValue{
 //   		"username": awscdk.SecretValue_unsafePlainText(user.userName),
 //   		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),
 //   		"password": accessKey.secretAccessKey,
@@ -67,12 +67,12 @@ type SecretProps struct {
 	// Only one of `secretStringBeta1`, `secretStringValue`, 'secretObjectValue', and `generateSecretString` can be provided.
 	//
 	// Example:
-	//   var user user
-	//   var accessKey accessKey
-	//   var stack stack
+	//   var user User
+	//   var accessKey AccessKey
+	//   var stack Stack
 	//
 	//   secretsmanager.NewSecret(stack, jsii.String("JSONSecret"), &SecretProps{
-	//   	SecretObjectValue: map[string]secretValue{
+	//   	SecretObjectValue: map[string]SecretValue{
 	//   		"username": awscdk.SecretValue_unsafePlainText(user.userName),
 	//   		 // intrinsic reference, not exposed as plaintext
 	//   		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),

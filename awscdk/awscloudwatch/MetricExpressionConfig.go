@@ -8,12 +8,12 @@ package awscloudwatch
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var metric metric
+//   var metric Metric
 //
 //   metricExpressionConfig := &MetricExpressionConfig{
 //   	Expression: jsii.String("expression"),
 //   	Period: jsii.Number(123),
-//   	UsingMetrics: map[string]iMetric{
+//   	UsingMetrics: map[string]IMetric{
 //   		"usingMetricsKey": metric,
 //   	},
 //

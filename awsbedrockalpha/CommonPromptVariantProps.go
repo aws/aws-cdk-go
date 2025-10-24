@@ -8,7 +8,7 @@ package awsbedrockalpha
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var bedrockInvokable iBedrockInvokable
+//   var bedrockInvokable IBedrockInvokable
 //
 //   commonPromptVariantProps := &CommonPromptVariantProps{
 //   	Model: bedrockInvokable,

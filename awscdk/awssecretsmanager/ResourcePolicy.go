@@ -28,7 +28,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secret secret
+//   var secret Secret
 //
 //   resourcePolicy := awscdk.Aws_secretsmanager.NewResourcePolicy(this, jsii.String("MyResourcePolicy"), &ResourcePolicyProps{
 //   	Secret: secret,

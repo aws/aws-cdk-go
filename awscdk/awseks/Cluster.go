@@ -22,7 +22,7 @@ import (
 //   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
 //
 //   // or
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{

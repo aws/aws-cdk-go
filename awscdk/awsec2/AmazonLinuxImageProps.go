@@ -4,7 +4,7 @@ package awsec2
 // Amazon Linux image properties.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,

@@ -2,15 +2,15 @@ package awsapigateway
 
 
 // Example:
-//   var someEndpoint iVpcEndpoint
+//   var someEndpoint IVpcEndpoint
 //
 //
 //   api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 //   	EndpointConfiguration: &EndpointConfiguration{
-//   		Types: []endpointType{
-//   			apigateway.*endpointType_PRIVATE,
+//   		Types: []EndpointType{
+//   			apigateway.EndpointType_PRIVATE,
 //   		},
-//   		VpcEndpoints: []*iVpcEndpoint{
+//   		VpcEndpoints: []IVpcEndpoint{
 //   			someEndpoint,
 //   		},
 //   	},

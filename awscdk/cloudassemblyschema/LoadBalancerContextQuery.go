@@ -20,8 +20,8 @@ package cloudassemblyschema
 //   		"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
 //   	},
 //   	LoadBalancerArn: jsii.String("loadBalancerArn"),
-//   	LoadBalancerTags: []tag{
-//   		&tag{
+//   	LoadBalancerTags: []Tag{
+//   		&Tag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

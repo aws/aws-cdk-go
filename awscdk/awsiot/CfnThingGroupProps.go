@@ -14,8 +14,8 @@ import (
 //   cfnThingGroupProps := &CfnThingGroupProps{
 //   	ParentGroupName: jsii.String("parentGroupName"),
 //   	QueryString: jsii.String("queryString"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

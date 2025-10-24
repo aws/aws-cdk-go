@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   baseTargetGroupProps := &BaseTargetGroupProps{
 //   	CrossZoneEnabled: jsii.Boolean(false),

@@ -8,12 +8,12 @@ import (
 // Attributes that can be specified when importing a ServerlessCache.
 //
 // Example:
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //
 //   importedServerlessCache := elasticache.ServerlessCache_FromServerlessCacheAttributes(this, jsii.String("ImportedServerlessCache"), &ServerlessCacheAttributes{
 //   	ServerlessCacheName: jsii.String("my-serverless-cache"),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   })

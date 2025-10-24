@@ -4,7 +4,7 @@ package awss3
 // Notification event types.
 //
 // Example:
-//   var myQueue queue
+//   var myQueue Queue
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{

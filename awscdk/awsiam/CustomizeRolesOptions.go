@@ -4,7 +4,7 @@ package awsiam
 // Options for customizing IAM role creation.
 //
 // Example:
-//   var app app
+//   var app App
 //
 //   stack := awscdk.Newstack(app, jsii.String("MyStack"))
 //   iam.Role_CustomizeRoles(this, &CustomizeRolesOptions{
@@ -27,7 +27,7 @@ type CustomizeRolesOptions struct {
 	// from the scope that `customizeRoles` is used on to the role being created.
 	//
 	// Example:
-	//   var app app
+	//   var app App
 	//
 	//
 	//   stack := awscdk.Newstack(app, jsii.String("MyStack"))

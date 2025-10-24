@@ -3,7 +3,7 @@ package awsquicksight
 
 // A heat map.
 //
-// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

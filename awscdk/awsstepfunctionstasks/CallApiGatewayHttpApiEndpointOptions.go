@@ -12,7 +12,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stack stack
+//   var stack Stack
 //
 //   callApiGatewayHttpApiEndpointOptions := &CallApiGatewayHttpApiEndpointOptions{
 //   	ApiId: jsii.String("apiId"),

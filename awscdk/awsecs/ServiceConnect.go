@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var appProtocol appProtocol
+//   var appProtocol AppProtocol
 //
 //   serviceConnect := awscdk.Aws_ecs.NewServiceConnect(awscdk.Aws_ecs.NetworkMode_NONE, &PortMapping{
 //   	ContainerPort: jsii.Number(123),

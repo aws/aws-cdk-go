@@ -17,12 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var configurationProperty_ configurationProperty
+//   var configurationProperty_ ConfigurationProperty
 //   var outputs interface{}
-//   var role role
-//   var size size
-//   var taskRole taskRole
-//   var timeout timeout
+//   var role Role
+//   var size Size
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   emrCreateClusterJsonataProps := &EmrCreateClusterJsonataProps{
 //   	Instances: &InstancesConfigProperty{
@@ -41,22 +41,22 @@ import (
 //   		EmrManagedSlaveSecurityGroup: jsii.String("emrManagedSlaveSecurityGroup"),
 //   		HadoopVersion: jsii.String("hadoopVersion"),
 //   		InstanceCount: jsii.Number(123),
-//   		InstanceFleets: []instanceFleetConfigProperty{
-//   			&instanceFleetConfigProperty{
+//   		InstanceFleets: []InstanceFleetConfigProperty{
+//   			&InstanceFleetConfigProperty{
 //   				InstanceFleetType: awscdk.Aws_stepfunctions_tasks.EmrCreateCluster.InstanceRoleType_MASTER,
 //
 //   				// the properties below are optional
-//   				InstanceTypeConfigs: []instanceTypeConfigProperty{
-//   					&instanceTypeConfigProperty{
+//   				InstanceTypeConfigs: []InstanceTypeConfigProperty{
+//   					&InstanceTypeConfigProperty{
 //   						InstanceType: jsii.String("instanceType"),
 //
 //   						// the properties below are optional
 //   						BidPrice: jsii.String("bidPrice"),
 //   						BidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
-//   						Configurations: []*configurationProperty{
-//   							&configurationProperty{
+//   						Configurations: []ConfigurationProperty{
+//   							&ConfigurationProperty{
 //   								Classification: jsii.String("classification"),
-//   								Configurations: []*configurationProperty{
+//   								Configurations: []ConfigurationProperty{
 //   									configurationProperty_,
 //   								},
 //   								Properties: map[string]*string{
@@ -65,8 +65,8 @@ import (
 //   							},
 //   						},
 //   						EbsConfiguration: &EbsConfigurationProperty{
-//   							EbsBlockDeviceConfigs: []ebsBlockDeviceConfigProperty{
-//   								&ebsBlockDeviceConfigProperty{
+//   							EbsBlockDeviceConfigs: []EbsBlockDeviceConfigProperty{
+//   								&EbsBlockDeviceConfigProperty{
 //   									VolumeSpecification: &VolumeSpecificationProperty{
 //   										VolumeSize: size,
 //   										VolumeType: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP3,
@@ -103,8 +103,8 @@ import (
 //   				TargetSpotCapacity: jsii.Number(123),
 //   			},
 //   		},
-//   		InstanceGroups: []instanceGroupConfigProperty{
-//   			&instanceGroupConfigProperty{
+//   		InstanceGroups: []InstanceGroupConfigProperty{
+//   			&InstanceGroupConfigProperty{
 //   				InstanceCount: jsii.Number(123),
 //   				InstanceRole: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.InstanceRoleType_MASTER,
 //   				InstanceType: jsii.String("instanceType"),
@@ -115,8 +115,8 @@ import (
 //   						MaxCapacity: jsii.Number(123),
 //   						MinCapacity: jsii.Number(123),
 //   					},
-//   					Rules: []scalingRuleProperty{
-//   						&scalingRuleProperty{
+//   					Rules: []ScalingRuleProperty{
+//   						&ScalingRuleProperty{
 //   							Action: &ScalingActionProperty{
 //   								SimpleScalingPolicyConfiguration: &SimpleScalingPolicyConfigurationProperty{
 //   									ScalingAdjustment: jsii.Number(123),
@@ -137,8 +137,8 @@ import (
 //   									Period: cdk.Duration_*Minutes(jsii.Number(30)),
 //
 //   									// the properties below are optional
-//   									Dimensions: []metricDimensionProperty{
-//   										&metricDimensionProperty{
+//   									Dimensions: []MetricDimensionProperty{
+//   										&MetricDimensionProperty{
 //   											Key: jsii.String("key"),
 //   											Value: jsii.String("value"),
 //   										},
@@ -157,10 +157,10 @@ import (
 //   					},
 //   				},
 //   				BidPrice: jsii.String("bidPrice"),
-//   				Configurations: []*configurationProperty{
-//   					&configurationProperty{
+//   				Configurations: []ConfigurationProperty{
+//   					&ConfigurationProperty{
 //   						Classification: jsii.String("classification"),
-//   						Configurations: []*configurationProperty{
+//   						Configurations: []ConfigurationProperty{
 //   							configurationProperty_,
 //   						},
 //   						Properties: map[string]*string{
@@ -169,8 +169,8 @@ import (
 //   					},
 //   				},
 //   				EbsConfiguration: &EbsConfigurationProperty{
-//   					EbsBlockDeviceConfigs: []*ebsBlockDeviceConfigProperty{
-//   						&ebsBlockDeviceConfigProperty{
+//   					EbsBlockDeviceConfigs: []EbsBlockDeviceConfigProperty{
+//   						&EbsBlockDeviceConfigProperty{
 //   							VolumeSpecification: &VolumeSpecificationProperty{
 //   								VolumeSize: size,
 //   								VolumeType: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP3,
@@ -204,8 +204,8 @@ import (
 //
 //   	// the properties below are optional
 //   	AdditionalInfo: jsii.String("additionalInfo"),
-//   	Applications: []applicationConfigProperty{
-//   		&applicationConfigProperty{
+//   	Applications: []ApplicationConfigProperty{
+//   		&ApplicationConfigProperty{
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
@@ -223,8 +223,8 @@ import (
 //   	},
 //   	AutoScalingRole: role,
 //   	AutoTerminationPolicyIdleTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	BootstrapActions: []bootstrapActionConfigProperty{
-//   		&bootstrapActionConfigProperty{
+//   	BootstrapActions: []BootstrapActionConfigProperty{
+//   		&BootstrapActionConfigProperty{
 //   			Name: jsii.String("name"),
 //   			ScriptBootstrapAction: &ScriptBootstrapActionConfigProperty{
 //   				Path: jsii.String("path"),
@@ -238,10 +238,10 @@ import (
 //   	},
 //   	ClusterRole: role,
 //   	Comment: jsii.String("comment"),
-//   	Configurations: []*configurationProperty{
-//   		&configurationProperty{
+//   	Configurations: []ConfigurationProperty{
+//   		&ConfigurationProperty{
 //   			Classification: jsii.String("classification"),
-//   			Configurations: []*configurationProperty{
+//   			Configurations: []ConfigurationProperty{
 //   				configurationProperty_,
 //   			},
 //   			Properties: map[string]*string{

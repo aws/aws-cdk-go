@@ -12,12 +12,12 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var destination iDestination
-//   var version version
+//   var destination IDestination
+//   var version Version
 //
 //   aliasOptions := &AliasOptions{
-//   	AdditionalVersions: []versionWeight{
-//   		&versionWeight{
+//   	AdditionalVersions: []VersionWeight{
+//   		&VersionWeight{
 //   			Version: version,
 //   			Weight: jsii.Number(123),
 //   		},

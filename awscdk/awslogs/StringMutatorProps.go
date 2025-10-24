@@ -16,16 +16,16 @@ package awslogs
 //   		jsii.String("lowerCaseKeys"),
 //   	},
 //   	SplitOptions: &SplitStringProperty{
-//   		Entries: []splitStringEntryProperty{
-//   			&splitStringEntryProperty{
+//   		Entries: []SplitStringEntryProperty{
+//   			&SplitStringEntryProperty{
 //   				Delimiter: awscdk.*Aws_logs.DelimiterCharacter_COMMA,
 //   				Source: jsii.String("source"),
 //   			},
 //   		},
 //   	},
 //   	SubstituteOptions: &SubstituteStringProperty{
-//   		Entries: []substituteStringEntryProperty{
-//   			&substituteStringEntryProperty{
+//   		Entries: []SubstituteStringEntryProperty{
+//   			&SubstituteStringEntryProperty{
 //   				From: jsii.String("from"),
 //   				Source: jsii.String("source"),
 //   				To: jsii.String("to"),

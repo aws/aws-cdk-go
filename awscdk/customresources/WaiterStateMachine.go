@@ -26,8 +26,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
-//   var logGroup logGroup
+//   var function_ Function
+//   var logGroup LogGroup
 //
 //   waiterStateMachine := awscdk.Custom_resources.NewWaiterStateMachine(this, jsii.String("MyWaiterStateMachine"), &WaiterStateMachineProps{
 //   	BackoffRate: jsii.Number(123),

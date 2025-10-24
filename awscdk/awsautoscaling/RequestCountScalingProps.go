@@ -7,7 +7,7 @@ import (
 // Properties for enabling scaling based on request/second.
 //
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //
 //   autoScalingGroup.scaleOnRequestCount(jsii.String("LimitRPS"), &RequestCountScalingProps{

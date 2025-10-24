@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var caCertificate caCertificate
-//   var clusterInstanceType clusterInstanceType
-//   var key key
-//   var parameterGroup parameterGroup
+//   var caCertificate CaCertificate
+//   var clusterInstanceType ClusterInstanceType
+//   var key Key
+//   var parameterGroup ParameterGroup
 //
 //   clusterInstanceProps := &ClusterInstanceProps{
 //   	InstanceType: clusterInstanceType,

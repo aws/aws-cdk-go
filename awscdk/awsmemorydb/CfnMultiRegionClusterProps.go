@@ -21,8 +21,8 @@ import (
 //   	MultiRegionClusterNameSuffix: jsii.String("multiRegionClusterNameSuffix"),
 //   	MultiRegionParameterGroupName: jsii.String("multiRegionParameterGroupName"),
 //   	NumShards: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -16,13 +16,13 @@ import (
 //   agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 //   	FoundationModel: bedrock.BedrockFoundationModel_AMAZON_NOVA_LITE_V1(),
 //   	Instruction: jsii.String("You are a helpful assistant."),
-//   	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]promptStepConfigBase{
+//   	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]PromptStepConfigBase{
 //   		&PromptRoutingClassifierConfigCustomParser{
 //   			StepType: bedrock.AgentStepType_ROUTING_CLASSIFIER,
 //   			StepEnabled: jsii.Boolean(true),
 //   			CustomPromptTemplate: jsii.String("Your routing template here"),
 //   			FoundationModel: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_V2(),
-//   		}.(promptRoutingClassifierConfigCustomParser),
+//   		}.(PromptRoutingClassifierConfigCustomParser),
 //   	}),
 //   })
 //

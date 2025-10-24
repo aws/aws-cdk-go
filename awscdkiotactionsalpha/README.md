@@ -42,7 +42,7 @@ another MQTT topic when it is triggered.
 ```go
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp, temperature FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewIotRepublishMqttAction(jsii.String("${topic()}/republish"), &IotRepublishMqttActionProps{
 			QualityOfService: actions.MqttQualityOfService_AT_LEAST_ONCE,
 		}),
@@ -67,7 +67,7 @@ func := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp, temperature FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewLambdaFunctionAction(func),
 	},
 })
@@ -83,7 +83,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewS3PutObjectAction(bucket),
 	},
 })
@@ -103,7 +103,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewS3PutObjectAction(bucket, &S3PutObjectActionProps{
 			Key: jsii.String("${year}/${month}/${day}/${topic(2)}"),
 		}),
@@ -118,7 +118,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewS3PutObjectAction(bucket, &S3PutObjectActionProps{
 			AccessControl: s3.BucketAccessControl_PUBLIC_READ,
 		}),
@@ -139,7 +139,7 @@ logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewCloudWatchLogsAction(logGroup),
 	},
 })
@@ -153,7 +153,7 @@ when it is triggered.
 ```go
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, namespace, unit, value, timestamp FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewCloudWatchPutMetricAction(&CloudWatchPutMetricActionProps{
 			MetricName: jsii.String("${topic(2)}"),
 			MetricNamespace: jsii.String("${namespace}"),
@@ -179,7 +179,7 @@ stateMachine := stepfunctions.NewStateMachine(this, jsii.String("SM"), &StateMac
 
 iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewStepFunctionsStateMachineAction(stateMachine),
 	},
 })
@@ -209,7 +209,7 @@ alarm := cloudwatch.NewAlarm(this, jsii.String("MyAlarm"), &AlarmProps{
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewCloudWatchSetAlarmStateAction(alarm, &CloudWatchSetAlarmStateActionProps{
 			Reason: jsii.String("AWS Iot Rule action is triggered"),
 			AlarmStateToSet: cloudwatch.AlarmState_ALARM,
@@ -231,7 +231,7 @@ stream := kinesis.NewStream(this, jsii.String("MyStream"))
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewKinesisPutRecordAction(stream, &KinesisPutRecordActionProps{
 			PartitionKey: jsii.String("${newuuid()}"),
 		}),
@@ -255,7 +255,7 @@ stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &DeliveryStr
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewFirehosePutRecordAction(stream, &FirehosePutRecordActionProps{
 			BatchMode: jsii.Boolean(true),
 			RecordSeparator: actions.FirehoseRecordSeparator_NEWLINE,
@@ -277,7 +277,7 @@ queue := sqs.NewQueue(this, jsii.String("MyQueue"))
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewSqsQueueAction(queue, &SqsQueueActionProps{
 			UseBase64: jsii.Boolean(true),
 		}),
@@ -297,7 +297,7 @@ topic := sns.NewTopic(this, jsii.String("MyTopic"))
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
 			MessageFormat: actions.SnsActionMessageFormat_JSON,
 		}),
@@ -313,12 +313,12 @@ MQTT message to DynamoDB using the DynamoDBv2 action.
 ```go
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 
-var table table
+var table Table
 
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewDynamoDBv2PutItemAction(table),
 	},
 })
@@ -333,7 +333,7 @@ to an IoT Events input when it is triggered:
 import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
-var role iRole
+var role IRole
 
 
 input := iotevents.NewInput(this, jsii.String("MyInput"), &InputProps{
@@ -344,7 +344,7 @@ input := iotevents.NewInput(this, jsii.String("MyInput"), &InputProps{
 })
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewIotEventsPutMessageAction(input, &IotEventsPutMessageActionProps{
 			BatchMode: jsii.Boolean(true),
 			 // optional property, default is 'false'
@@ -369,12 +369,12 @@ topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 topicRule.AddAction(
 actions.NewHttpsAction(jsii.String("https://example.com/endpoint"), &HttpsActionProps{
 	ConfirmationUrl: jsii.String("https://example.com"),
-	Headers: []httpActionHeader{
-		&httpActionHeader{
+	Headers: []HttpActionHeader{
+		&HttpActionHeader{
 			Key: jsii.String("key0"),
 			Value: jsii.String("value0"),
 		},
-		&httpActionHeader{
+		&HttpActionHeader{
 			Key: jsii.String("key1"),
 			Value: jsii.String("value1"),
 		},
@@ -393,7 +393,7 @@ to an Open Search Service when it is triggered:
 
 ```go
 import opensearch "github.com/aws/aws-cdk-go/awscdk"
-var domain domain
+var domain Domain
 
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{

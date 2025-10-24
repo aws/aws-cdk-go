@@ -82,11 +82,11 @@ You can grant read, read versioned, list, write or delete access to the OAC usin
 ```go
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
 s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
-	OriginAccessLevels: []accessLevel{
-		cloudfront.*accessLevel_READ,
-		cloudfront.*accessLevel_READ_VERSIONED,
-		cloudfront.*accessLevel_WRITE,
-		cloudfront.*accessLevel_DELETE,
+	OriginAccessLevels: []AccessLevel{
+		cloudfront.AccessLevel_READ,
+		cloudfront.AccessLevel_READ_VERSIONED,
+		cloudfront.AccessLevel_WRITE,
+		cloudfront.AccessLevel_DELETE,
 	},
 })
 ```
@@ -254,7 +254,7 @@ scopedDownKeyPolicy := map[string]interface{}{
 		},
 	},
 }
-cfnKey := (kmsKey.Node.defaultChild.(cfnKey))
+cfnKey := (kmsKey.Node.defaultChild.(CfnKey))
 cfnKey.KeyPolicy = scopedDownKeyPolicy
 ```
 
@@ -364,9 +364,9 @@ This is useful to distinguish between responses blocked by WAF (403) and respons
 ```go
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
 s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
-	OriginAccessLevels: []accessLevel{
-		cloudfront.*accessLevel_READ,
-		cloudfront.*accessLevel_LIST,
+	OriginAccessLevels: []AccessLevel{
+		cloudfront.AccessLevel_READ,
+		cloudfront.AccessLevel_LIST,
 	},
 })
 cloudfront.NewDistribution(this, jsii.String("distribution"), &DistributionProps{
@@ -504,7 +504,7 @@ cloudfrontSP := iam.NewServicePrincipal(jsii.String("cloudfront.amazonaws.com"))
 
 oacBucketPolicyStatement := iam.NewPolicyStatement(&PolicyStatementProps{
 	Effect: iam.Effect_ALLOW,
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		cloudfrontSP,
 	},
 	Actions: []*string{
@@ -583,7 +583,7 @@ An Elastic Load Balancing (ELB) v2 load balancer may be used as an origin. In or
 accessible (`internetFacing` is true). Both Application and Network load balancers are supported.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 // Create an application load balancer in a VPC. 'internetFacing' must be 'true'
 // for CloudFront to access the load balancer and use it as an origin.
@@ -601,7 +601,7 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 The origin can also be customized to respond on different ports, have different connection properties, etc.
 
 ```go
-var loadBalancer applicationLoadBalancer
+var loadBalancer ApplicationLoadBalancer
 
 origin := origins.NewLoadBalancerV2Origin(loadBalancer, &LoadBalancerV2OriginProps{
 	ConnectionAttempts: jsii.Number(3),
@@ -677,7 +677,7 @@ It is not needed to be publicly accessible.
 
 ```go
 // Creates a distribution from an Application Load Balancer
-var vpc vpc
+var vpc Vpc
 
 // Create an application load balancer in a VPC. 'internetFacing' can be 'false'.
 alb := elbv2.NewApplicationLoadBalancer(this, jsii.String("ALB"), &ApplicationLoadBalancerProps{
@@ -704,7 +704,7 @@ It is not needed to be publicly accessible.
 
 ```go
 // Creates a distribution from a Network Load Balancer
-var vpc vpc
+var vpc Vpc
 
 // Create a network load balancer in a VPC. 'internetFacing' can be 'false'.
 nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
@@ -713,7 +713,7 @@ nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalanc
 	VpcSubnets: &SubnetSelection{
 		SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
 	},
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		ec2.NewSecurityGroup(this, jsii.String("NLB-SG"), &SecurityGroupProps{
 			Vpc: *Vpc,
 		}),
@@ -733,7 +733,7 @@ It can be in a private subnet.
 
 ```go
 // Creates a distribution from an EC2 instance
-var vpc vpc
+var vpc Vpc
 
 // Create an EC2 instance in a VPC. 'subnetType' can be private.
 instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
@@ -760,7 +760,7 @@ You may need to update the security group for your VPC private origin (Applicati
 You can allow the traffic from the CloudFront managed prefix list named **com.amazonaws.global.cloudfront.origin-facing**. For more information, see [Use an AWS-managed prefix list](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-aws-managed-prefix-lists.html#use-aws-managed-prefix-list).
 
 ```go
-var alb applicationLoadBalancer
+var alb ApplicationLoadBalancer
 
 
 cfOriginFacing := ec2.PrefixList_FromLookup(this, jsii.String("CloudFrontOriginFacing"), &PrefixListLookupOptions{
@@ -780,9 +780,9 @@ You can retrieve it dynamically using a custom resource.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
-var distribution distribution
-var alb applicationLoadBalancer
+var vpc Vpc
+var distribution Distribution
+var alb ApplicationLoadBalancer
 
 
 // Call ec2:DescribeSecurityGroups API to retrieve the VPC origins security group.
@@ -871,7 +871,7 @@ Origins can be created from an API Gateway REST API. It is recommended to use a
 [regional API](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html) in this case. The origin path will automatically be set as the stage name.
 
 ```go
-var api restApi
+var api RestApi
 
 cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
@@ -883,7 +883,7 @@ cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps
 If you want to use a different origin path, you can specify it in the `originPath` property.
 
 ```go
-var api restApi
+var api RestApi
 
 cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
@@ -901,7 +901,7 @@ Lambda Function URLs enable direct invocation of Lambda functions via HTTP(S), w
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 	AuthType: lambda.FunctionUrlAuthType_NONE,
@@ -919,7 +919,7 @@ You can also configure timeout settings for Lambda Function URL origins:
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 	AuthType: lambda.FunctionUrlAuthType_NONE,
@@ -944,7 +944,7 @@ You can specify which IP protocol CloudFront uses when connecting to your Lambda
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 	AuthType: lambda.FunctionUrlAuthType_NONE,
@@ -981,7 +981,7 @@ You can configure the Lambda Function URL with Origin Access Control (OAC) for e
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
@@ -999,7 +999,7 @@ If you want to explicitly add OAC for more customized access control, you can us
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var fn function
+var fn Function
 
 
 fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{

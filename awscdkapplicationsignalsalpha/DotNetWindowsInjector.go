@@ -14,10 +14,10 @@ import (
 //   // The values are placeholders you should change.
 //   import applicationsignals_alpha "github.com/aws/aws-cdk-go/awscdkapplicationsignalsalpha"
 //
-//   var instrumentationVersion instrumentationVersion
+//   var instrumentationVersion InstrumentationVersion
 //
-//   dotNetWindowsInjector := applicationsignals_alpha.NewDotNetWindowsInjector(jsii.String("sharedVolumeName"), instrumentationVersion, []environmentExtension{
-//   	&environmentExtension{
+//   dotNetWindowsInjector := applicationsignals_alpha.NewDotNetWindowsInjector(jsii.String("sharedVolumeName"), instrumentationVersion, []EnvironmentExtension{
+//   	&EnvironmentExtension{
 //   		Name: jsii.String("name"),
 //   		Value: jsii.String("value"),
 //   	},

@@ -9,7 +9,7 @@ package awslambda
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
+//   var function_ Function
 //
 //   functionUrlProps := &FunctionUrlProps{
 //   	Function: function_,
@@ -21,8 +21,8 @@ package awslambda
 //   		AllowedHeaders: []*string{
 //   			jsii.String("allowedHeaders"),
 //   		},
-//   		AllowedMethods: []httpMethod{
-//   			awscdk.*Aws_lambda.*httpMethod_GET,
+//   		AllowedMethods: []HttpMethod{
+//   			awscdk.*Aws_lambda.HttpMethod_GET,
 //   		},
 //   		AllowedOrigins: []*string{
 //   			jsii.String("allowedOrigins"),

@@ -7,8 +7,8 @@ import (
 // Parameters for the SQS source.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
 //
 //   pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{

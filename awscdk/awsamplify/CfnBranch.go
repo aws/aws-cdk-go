@@ -47,8 +47,8 @@ import (
 //   	Framework: jsii.String("framework"),
 //   	PullRequestEnvironmentName: jsii.String("pullRequestEnvironmentName"),
 //   	Stage: jsii.String("stage"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

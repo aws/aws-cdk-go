@@ -9,7 +9,7 @@ import (
 // Props for a FargateComputeEnvironment.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //   sharedComputeEnv := batch.NewFargateComputeEnvironment(this, jsii.String("spotEnv"), &FargateComputeEnvironmentProps{
 //   	Vpc: Vpc,

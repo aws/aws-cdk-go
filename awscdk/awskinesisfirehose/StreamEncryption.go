@@ -10,9 +10,9 @@ import (
 // Represents server-side encryption for an Amazon Firehose Delivery Stream.
 //
 // Example:
-//   var destination iDestination
+//   var destination IDestination
 //   // SSE with an customer-managed key that is explicitly specified
-//   var key key
+//   var key Key
 //
 //
 //   // SSE with an AWS-owned key

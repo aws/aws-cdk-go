@@ -13,7 +13,7 @@ import (
 // Example:
 //   import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   databaseName := "mydb"
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{

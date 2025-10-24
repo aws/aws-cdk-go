@@ -4,8 +4,8 @@ package awsecs
 // The deployment circuit breaker to use for the service.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,

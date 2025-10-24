@@ -10,7 +10,7 @@ Usage:
 // AwsCliLayer bundles the AWS CLI in a lambda layer
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
+var fn Function
 
 fn.AddLayers(awscdk.NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
 ```

@@ -10,7 +10,7 @@ import (
 // Source provider definition for a CodeBuild Project.
 //
 // Example:
-//   var myCachingBucket bucket
+//   var myCachingBucket Bucket
 //
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{

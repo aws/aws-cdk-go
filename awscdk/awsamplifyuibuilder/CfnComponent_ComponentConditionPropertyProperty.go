@@ -10,11 +10,11 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var componentConditionPropertyProperty_ componentConditionPropertyProperty
-//   var componentPropertyProperty_ componentPropertyProperty
+//   var componentConditionPropertyProperty_ ComponentConditionPropertyProperty
+//   var componentPropertyProperty_ ComponentPropertyProperty
 //
-//   componentConditionPropertyProperty := &componentConditionPropertyProperty{
-//   	Else: &componentPropertyProperty{
+//   componentConditionPropertyProperty := &ComponentConditionPropertyProperty{
+//   	Else: &ComponentPropertyProperty{
 //   		BindingProperties: &ComponentPropertyBindingPropertiesProperty{
 //   			Property: jsii.String("property"),
 //
@@ -53,7 +53,7 @@ package awsamplifyuibuilder
 //   	OperandType: jsii.String("operandType"),
 //   	Operator: jsii.String("operator"),
 //   	Property: jsii.String("property"),
-//   	Then: &componentPropertyProperty{
+//   	Then: &ComponentPropertyProperty{
 //   		BindingProperties: &ComponentPropertyBindingPropertiesProperty{
 //   			Property: jsii.String("property"),
 //

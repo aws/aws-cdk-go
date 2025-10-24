@@ -13,7 +13,7 @@ import (
 //
 // Example:
 //   // Using an existing origin request policy for a Distribution
-//   var bucketOrigin s3Origin
+//   var bucketOrigin S3Origin
 //
 //   cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{

@@ -54,8 +54,8 @@ import (
 //   		},
 //   	},
 //   	FindingPublishingFrequency: jsii.String("findingPublishingFrequency"),
-//   	Tags: []tagItemProperty{
-//   		&tagItemProperty{
+//   	Tags: []TagItemProperty{
+//   		&TagItemProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

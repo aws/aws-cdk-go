@@ -29,8 +29,8 @@ package awsdynamodb
 //   		}),
 //   	}),
 //   	// each global secondary index will inherit contributor insights as true
-//   	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-//   		&globalSecondaryIndexPropsV2{
+//   	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+//   		&GlobalSecondaryIndexPropsV2{
 //   			IndexName: jsii.String("gsi1"),
 //   			PartitionKey: &Attribute{
 //   				Name: jsii.String("pk"),
@@ -38,7 +38,7 @@ package awsdynamodb
 //   			},
 //   			ReadCapacity: dynamodb.Capacity_*Fixed(jsii.Number(15)),
 //   		},
-//   		&globalSecondaryIndexPropsV2{
+//   		&GlobalSecondaryIndexPropsV2{
 //   			IndexName: jsii.String("gsi2"),
 //   			PartitionKey: &Attribute{
 //   				Name: jsii.String("pk"),
@@ -50,11 +50,11 @@ package awsdynamodb
 //   			}),
 //   		},
 //   	},
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
-//   			GlobalSecondaryIndexOptions: map[string]replicaGlobalSecondaryIndexOptions{
-//   				"gsi1": &replicaGlobalSecondaryIndexOptions{
+//   			GlobalSecondaryIndexOptions: map[string]ReplicaGlobalSecondaryIndexOptions{
+//   				"gsi1": &ReplicaGlobalSecondaryIndexOptions{
 //   					"readCapacity": dynamodb.Capacity_*Autoscaled(&AutoscaledCapacityOptions{
 //   						"minCapacity": jsii.Number(1),
 //   						"maxCapacity": jsii.Number(10),
@@ -62,10 +62,10 @@ package awsdynamodb
 //   				},
 //   			},
 //   		},
-//   		&replicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-2"),
-//   			GlobalSecondaryIndexOptions: map[string]*replicaGlobalSecondaryIndexOptions{
-//   				"gsi2": &replicaGlobalSecondaryIndexOptions{
+//   			GlobalSecondaryIndexOptions: map[string]ReplicaGlobalSecondaryIndexOptions{
+//   				"gsi2": &ReplicaGlobalSecondaryIndexOptions{
 //   					"contributorInsightsSpecification": &ContributorInsightsSpecification{
 //   						"enabled": jsii.Boolean(false),
 //   					},

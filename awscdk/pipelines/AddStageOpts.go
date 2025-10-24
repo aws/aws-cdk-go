@@ -4,14 +4,14 @@ package pipelines
 // Options to pass to `addStage`.
 //
 // Example:
-//   var pipeline codePipeline
+//   var pipeline CodePipeline
 //
 //   topic := sns.NewTopic(this, jsii.String("SecurityChangesTopic"))
 //   topic.AddSubscription(subscriptions.NewEmailSubscription(jsii.String("test@email.com")))
 //
 //   stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
 //   pipeline.AddStage(stage, &AddStageOpts{
-//   	Pre: []step{
+//   	Pre: []Step{
 //   		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{
 //   			Stage: *Stage,
 //   			NotificationTopic: topic,

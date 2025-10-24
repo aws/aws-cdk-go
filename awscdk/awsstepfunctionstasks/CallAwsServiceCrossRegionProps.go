@@ -9,7 +9,7 @@ import (
 // Properties for calling an AWS service's API action from your state machine across regions.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //
 //   getObject := tasks.NewCallAwsServiceCrossRegion(this, jsii.String("GetObject"), &CallAwsServiceCrossRegionProps{
 //   	Region: jsii.String("ap-northeast-1"),

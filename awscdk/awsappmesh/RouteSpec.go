@@ -10,14 +10,14 @@ import (
 // Used to generate specs with different protocols for a RouteSpec.
 //
 // Example:
-//   var router virtualRouter
-//   var node virtualNode
+//   var router VirtualRouter
+//   var node VirtualNode
 //
 //
 //   router.addRoute(jsii.String("route-http2-retry"), &RouteBaseProps{
 //   	RouteSpec: appmesh.RouteSpec_Http2(&HttpRouteSpecOptions{
-//   		WeightedTargets: []weightedTarget{
-//   			&weightedTarget{
+//   		WeightedTargets: []WeightedTarget{
+//   			&WeightedTarget{
 //   				VirtualNode: node,
 //   			},
 //   		},
@@ -27,8 +27,8 @@ import (
 //   				appmesh.TcpRetryEvent_*cONNECTION_ERROR,
 //   			},
 //   			// Retry if HTTP responds with a gateway error (502, 503, 504)
-//   			HttpRetryEvents: []httpRetryEvent{
-//   				appmesh.*httpRetryEvent_GATEWAY_ERROR,
+//   			HttpRetryEvents: []HttpRetryEvent{
+//   				appmesh.HttpRetryEvent_GATEWAY_ERROR,
 //   			},
 //   			// Retry five times
 //   			RetryAttempts: jsii.Number(5),

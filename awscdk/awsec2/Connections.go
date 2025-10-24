@@ -20,14 +20,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var peer iPeer
-//   var port port
-//   var securityGroup securityGroup
+//   var peer IPeer
+//   var port Port
+//   var securityGroup SecurityGroup
 //
 //   connections := awscdk.Aws_ec2.NewConnections(&ConnectionsProps{
 //   	DefaultPort: port,
 //   	Peer: peer,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   })

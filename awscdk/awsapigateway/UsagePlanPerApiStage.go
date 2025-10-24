@@ -4,15 +4,15 @@ package awsapigateway
 // Represents the API stages that a usage plan applies to.
 //
 // Example:
-//   var plan usagePlan
-//   var api restApi
-//   var echoMethod method
+//   var plan UsagePlan
+//   var api RestApi
+//   var echoMethod Method
 //
 //
 //   plan.AddApiStage(&UsagePlanPerApiStage{
 //   	Stage: api.DeploymentStage,
-//   	Throttle: []throttlingPerMethod{
-//   		&throttlingPerMethod{
+//   	Throttle: []ThrottlingPerMethod{
+//   		&ThrottlingPerMethod{
 //   			Method: echoMethod,
 //   			Throttle: &ThrottleSettings{
 //   				RateLimit: jsii.Number(10),

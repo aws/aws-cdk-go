@@ -11,7 +11,7 @@ import (
 // Construct that creates a custom resource that will perform a query using the AWS SDK.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //
 //   awscdkintegtestsalpha.NewAwsApiCall(stack, jsii.String("MyAssertion"), &AwsApiCallProps{
@@ -58,7 +58,7 @@ type AwsApiCall interface {
 	// the the provider role policy.
 	//
 	// Example:
-	//   var apiCall awsApiCall
+	//   var apiCall AwsApiCall
 	//
 	//   apiCall.WaiterProvider.AddToRolePolicy(map[string]interface{}{
 	//   	"Effect": jsii.String("Allow"),

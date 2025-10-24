@@ -9,6 +9,9 @@ package awselasticloadbalancingv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   pathPatternConfigProperty := &PathPatternConfigProperty{
+//   	RegexValues: []*string{
+//   		jsii.String("regexValues"),
+//   	},
 //   	Values: []*string{
 //   		jsii.String("values"),
 //   	},
@@ -17,6 +20,9 @@ package awselasticloadbalancingv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html
 //
 type CfnListenerRule_PathPatternConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-regexvalues
+	//
+	RegexValues *[]*string `field:"optional" json:"regexValues" yaml:"regexValues"`
 	// The path patterns to compare against the request URL.
 	//
 	// The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).

@@ -3,7 +3,7 @@ package awsquicksight
 
 // A geospatial map or a points on map visual.
 //
-// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

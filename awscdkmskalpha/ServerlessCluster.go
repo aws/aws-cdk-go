@@ -12,13 +12,13 @@ import (
 // Create a MSK Serverless Cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   serverlessCluster := msk.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
 //   	ClusterName: jsii.String("MyServerlessCluster"),
-//   	VpcConfigs: []vpcConfig{
-//   		&vpcConfig{
+//   	VpcConfigs: []VpcConfig{
+//   		&VpcConfig{
 //   			Vpc: *Vpc,
 //   		},
 //   	},

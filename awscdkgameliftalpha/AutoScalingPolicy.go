@@ -9,17 +9,17 @@ import (
 // After the Auto Scaling group is created, all updates to Auto Scaling policies, including changing this policy and adding or removing other policies, is done directly on the Auto Scaling group.
 //
 // Example:
-//   var launchTemplate iLaunchTemplate
-//   var vpc iVpc
+//   var launchTemplate ILaunchTemplate
+//   var vpc IVpc
 //
 //
 //   gamelift.NewGameServerGroup(this, jsii.String("Game server group"), &GameServerGroupProps{
 //   	GameServerGroupName: jsii.String("sample-gameservergroup-name"),
-//   	InstanceDefinitions: []instanceDefinition{
-//   		&instanceDefinition{
+//   	InstanceDefinitions: []InstanceDefinition{
+//   		&InstanceDefinition{
 //   			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 //   		},
-//   		&instanceDefinition{
+//   		&InstanceDefinition{
 //   			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 //   		},
 //   	},

@@ -28,7 +28,7 @@ package awscdk
 // ```.
 //
 // Example:
-//   var myRole role
+//   var myRole Role
 //
 //   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
 //   	Role: myRole,

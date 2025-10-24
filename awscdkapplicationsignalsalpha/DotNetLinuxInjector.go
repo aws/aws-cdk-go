@@ -15,11 +15,11 @@ import (
 //   import applicationsignals_alpha "github.com/aws/aws-cdk-go/awscdkapplicationsignalsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cpuArchitecture cpuArchitecture
-//   var instrumentationVersion instrumentationVersion
+//   var cpuArchitecture CpuArchitecture
+//   var instrumentationVersion InstrumentationVersion
 //
-//   dotNetLinuxInjector := applicationsignals_alpha.NewDotNetLinuxInjector(jsii.String("sharedVolumeName"), instrumentationVersion, cpuArchitecture, []environmentExtension{
-//   	&environmentExtension{
+//   dotNetLinuxInjector := applicationsignals_alpha.NewDotNetLinuxInjector(jsii.String("sharedVolumeName"), instrumentationVersion, cpuArchitecture, []EnvironmentExtension{
+//   	&EnvironmentExtension{
 //   		Name: jsii.String("name"),
 //   		Value: jsii.String("value"),
 //   	},

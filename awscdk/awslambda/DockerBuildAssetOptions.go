@@ -16,8 +16,8 @@ import (
 //   		"buildArgsKey": jsii.String("buildArgs"),
 //   	},
 //   	CacheDisabled: jsii.Boolean(false),
-//   	CacheFrom: []dockerCacheOption{
-//   		&dockerCacheOption{
+//   	CacheFrom: []DockerCacheOption{
+//   		&DockerCacheOption{
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
@@ -26,7 +26,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	CacheTo: &dockerCacheOption{
+//   	CacheTo: &DockerCacheOption{
 //   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional

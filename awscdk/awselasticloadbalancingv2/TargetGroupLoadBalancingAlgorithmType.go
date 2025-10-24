@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Load balancing algorithmm type for target groups.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{

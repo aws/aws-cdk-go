@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to a CloudWatch Logs log group.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetLogGroup logGroup
+//   var sourceQueue Queue
+//   var targetLogGroup LogGroup
 //
 //
 //   logGroupTarget := targets.NewCloudWatchLogsTarget(targetLogGroup)

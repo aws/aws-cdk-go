@@ -48,8 +48,8 @@ import (
 //   		SubscribeDashboardEmailReports: jsii.String("subscribeDashboardEmailReports"),
 //   		ViewAccountSpiceCapacity: jsii.String("viewAccountSpiceCapacity"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

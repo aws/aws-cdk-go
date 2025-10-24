@@ -89,7 +89,7 @@ Use `clonedRepositories` to clone one or multiple AWS Codecommit repositories in
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // create a new Cloud9 environment and clone the two repositories
-var vpc vpc
+var vpc Vpc
 
 
 // create a codecommit repository to clone into the cloud9 environment
@@ -101,9 +101,9 @@ repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &RepositoryPro
 repoExisting := codecommit.Repository_FromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
 cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 	Vpc: Vpc,
-	ClonedRepositories: []cloneRepository{
-		cloud9.*cloneRepository_FromCodeCommit(repoNew, jsii.String("/src/new-repo")),
-		cloud9.*cloneRepository_*FromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
+	ClonedRepositories: []CloneRepository{
+		cloud9.CloneRepository_FromCodeCommit(repoNew, jsii.String("/src/new-repo")),
+		cloud9.CloneRepository_*FromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 	},
 	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 })
@@ -129,7 +129,7 @@ Note: Using the account root user is not recommended, see [environment sharing b
 To specify the AWS Account Root User as the environment owner, use `Owner.accountRoot()`
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 	Vpc: Vpc,
@@ -144,7 +144,7 @@ The user should have the `AWSCloud9User` (preferred) or `AWSCloud9Administrator`
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var vpc vpc
+var vpc Vpc
 
 
 user := iam.NewUser(this, jsii.String("user"))
@@ -164,7 +164,7 @@ The user should have the `AWSCloud9User` (preferred) or `AWSCloud9Administrator`
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 	Vpc: Vpc,
@@ -180,7 +180,7 @@ The role should have the `AWSCloud9User` (preferred) or `AWSCloud9Administrator`
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 	Vpc: Vpc,

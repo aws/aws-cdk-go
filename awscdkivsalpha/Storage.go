@@ -4,16 +4,16 @@ package awscdkivsalpha
 // The format in which thumbnails are recorded for a stream.
 //
 // Example:
-//   var recordingBucket bucket
+//   var recordingBucket Bucket
 //
 //
 //   recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
 //   	Bucket: recordingBucket,
 //
 //   	// set thumbnail settings
-//   	ThumbnailConfiguration: ivs.ThumbnailConfiguration_Interval(ivs.Resolution_HD, []storage{
-//   		ivs.*storage_LATEST,
-//   		ivs.*storage_SEQUENTIAL,
+//   	ThumbnailConfiguration: ivs.ThumbnailConfiguration_Interval(ivs.Resolution_HD, []Storage{
+//   		ivs.Storage_LATEST,
+//   		ivs.Storage_SEQUENTIAL,
 //   	}, awscdk.Duration_Seconds(jsii.Number(30))),
 //   })
 //

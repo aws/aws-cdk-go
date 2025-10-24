@@ -10,8 +10,8 @@ import (
 // Example:
 //   import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myImportedSecret secret
-//   var cluster databaseCluster
+//   var myImportedSecret Secret
+//   var cluster DatabaseCluster
 //
 //
 //   cluster.AddRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{

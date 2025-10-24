@@ -4,12 +4,12 @@ package awsglobalacceleratorendpoints
 // Properties for a NetworkLoadBalancerEndpoint.
 //
 // Example:
-//   var nlb networkLoadBalancer
-//   var listener listener
+//   var nlb NetworkLoadBalancer
+//   var listener Listener
 //
 //
 //   listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-//   	Endpoints: []iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb, &NetworkLoadBalancerEndpointProps{
 //   			Weight: jsii.Number(128),
 //   			PreserveClientIp: jsii.Boolean(true),

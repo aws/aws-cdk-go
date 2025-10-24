@@ -8,13 +8,13 @@ package pipelines
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var step step
+//   var step Step
 //
 //   waveProps := &WaveProps{
-//   	Post: []*step{
+//   	Post: []Step{
 //   		step,
 //   	},
-//   	Pre: []*step{
+//   	Pre: []Step{
 //   		step,
 //   	},
 //   }

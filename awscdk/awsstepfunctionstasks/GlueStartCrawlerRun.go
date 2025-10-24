@@ -16,7 +16,7 @@ import (
 // Example:
 //   import glue "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myCrawler cfnCrawler
+//   var myCrawler CfnCrawler
 //
 //
 //   // You can get the crawler name from `crawler.ref`

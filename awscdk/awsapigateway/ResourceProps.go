@@ -7,11 +7,11 @@ package awsapigateway
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var authorizer authorizer
-//   var integration integration
-//   var model model
-//   var requestValidator requestValidator
-//   var resource resource
+//   var authorizer Authorizer
+//   var integration Integration
+//   var model Model
+//   var requestValidator RequestValidator
+//   var resource Resource
 //
 //   resourceProps := &ResourceProps{
 //   	Parent: resource,
@@ -46,12 +46,12 @@ package awsapigateway
 //   		},
 //   		AuthorizationType: awscdk.Aws_apigateway.AuthorizationType_NONE,
 //   		Authorizer: authorizer,
-//   		MethodResponses: []methodResponse{
-//   			&methodResponse{
+//   		MethodResponses: []MethodResponse{
+//   			&MethodResponse{
 //   				StatusCode: jsii.String("statusCode"),
 //
 //   				// the properties below are optional
-//   				ResponseModels: map[string]iModel{
+//   				ResponseModels: map[string]IModel{
 //   					"responseModelsKey": model,
 //   				},
 //   				ResponseParameters: map[string]*bool{
@@ -60,7 +60,7 @@ package awsapigateway
 //   			},
 //   		},
 //   		OperationName: jsii.String("operationName"),
-//   		RequestModels: map[string]*iModel{
+//   		RequestModels: map[string]IModel{
 //   			"requestModelsKey": model,
 //   		},
 //   		RequestParameters: map[string]*bool{

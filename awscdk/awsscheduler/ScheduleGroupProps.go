@@ -7,7 +7,7 @@ import (
 // Properties for a Schedule Group.
 //
 // Example:
-//   var target lambdaInvoke
+//   var target LambdaInvoke
 //
 //
 //   scheduleGroup := awscdk.NewScheduleGroup(this, jsii.String("ScheduleGroup"), &ScheduleGroupProps{

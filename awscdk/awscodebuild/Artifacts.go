@@ -10,7 +10,7 @@ import (
 // Artifacts definition for a CodeBuild Project.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{

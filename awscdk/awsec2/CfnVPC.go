@@ -16,21 +16,21 @@ import (
 // For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   var cfnTemplate CfnInclude
 //
 //   // using from*Attributes()
-//   var privateCfnSubnet1 cfnSubnet
-//   var privateCfnSubnet2 cfnSubnet
+//   var privateCfnSubnet1 CfnSubnet
+//   var privateCfnSubnet2 CfnSubnet
 //
 //
 //   // using from*Name()
-//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
+//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
 //   bucket := s3.Bucket_FromBucketName(this, jsii.String("L2Bucket"), cfnBucket.ref)
 //
 //   // using from*Arn()
-//   cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(cfnKey)
+//   cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(CfnKey)
 //   key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.AttrArn)
-//   cfnVpc := cfnTemplate.GetResource(jsii.String("Vpc")).(cfnVPC)
+//   cfnVpc := cfnTemplate.GetResource(jsii.String("Vpc")).(CfnVPC)
 //   vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("L2Vpc"), &VpcAttributes{
 //   	VpcId: cfnVpc.ref,
 //   	AvailabilityZones: core.Fn_GetAzs(),

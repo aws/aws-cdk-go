@@ -25,8 +25,8 @@ import (
 //   	// the properties below are optional
 //   	MonitorDimension: jsii.String("monitorDimension"),
 //   	MonitorSpecification: jsii.String("monitorSpecification"),
-//   	ResourceTags: []resourceTagProperty{
-//   		&resourceTagProperty{
+//   	ResourceTags: []ResourceTagProperty{
+//   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

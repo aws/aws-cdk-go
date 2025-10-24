@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnDBInstance) validateSetDbInstanceClassParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetPubliclyAccessibleParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

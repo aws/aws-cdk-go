@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var acceleratorType acceleratorType
-//   var instanceType instanceType
+//   var acceleratorType AcceleratorType
+//   var instanceType InstanceType
 //
 //   productionVariant := &ProductionVariant{
 //   	InstanceType: instanceType,

@@ -11,8 +11,8 @@ package awseventschemas
 //   cfnRegistryProps := &CfnRegistryProps{
 //   	Description: jsii.String("description"),
 //   	RegistryName: jsii.String("registryName"),
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

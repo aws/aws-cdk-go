@@ -2,8 +2,8 @@ package awscodebuild
 
 
 // Example:
-//   var sourceBucket bucket
-//   var myCachingBucket bucket
+//   var sourceBucket Bucket
+//   var myCachingBucket Bucket
 //
 //
 //   codebuild.NewProject(this, jsii.String("ProjectA"), &ProjectProps{

@@ -27,7 +27,7 @@ import (
 // to email those secrets to themselves).
 //
 // Example:
-//   var project project
+//   var project Project
 //
 //   iam.PermissionsBoundary_Of(project).Apply(codebuild.NewUntrustedCodeBoundaryPolicy(this, jsii.String("Boundary")))
 //

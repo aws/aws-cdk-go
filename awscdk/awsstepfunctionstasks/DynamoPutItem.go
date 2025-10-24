@@ -14,13 +14,13 @@ import (
 // A StepFunctions task to call DynamoPutItem.
 //
 // Example:
-//   var myTable table
+//   var myTable Table
 //
 //   tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &DynamoPutItemProps{
-//   	Item: map[string]dynamoAttributeValue{
-//   		"MessageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
-//   		"Text": tasks.*dynamoAttributeValue_fromString(sfn.JsonPath_stringAt(jsii.String("$.bar"))),
-//   		"TotalCount": tasks.*dynamoAttributeValue_fromNumber(jsii.Number(10)),
+//   	Item: map[string]DynamoAttributeValue{
+//   		"MessageId": tasks.DynamoAttributeValue_fromString(jsii.String("message-007")),
+//   		"Text": tasks.DynamoAttributeValue_fromString(sfn.JsonPath_stringAt(jsii.String("$.bar"))),
+//   		"TotalCount": tasks.DynamoAttributeValue_fromNumber(jsii.Number(10)),
 //   	},
 //   	Table: myTable,
 //   })

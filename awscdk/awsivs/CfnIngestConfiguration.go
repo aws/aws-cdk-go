@@ -23,8 +23,8 @@ import (
 //   	InsecureIngest: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	StageArn: jsii.String("stageArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

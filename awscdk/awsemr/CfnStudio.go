@@ -37,8 +37,8 @@ import (
 //   	IdcUserAssignment: jsii.String("idcUserAssignment"),
 //   	IdpAuthUrl: jsii.String("idpAuthUrl"),
 //   	IdpRelayStateParameterName: jsii.String("idpRelayStateParameterName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

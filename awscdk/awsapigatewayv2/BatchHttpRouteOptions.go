@@ -10,7 +10,7 @@ package awsapigatewayv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpRouteIntegration httpRouteIntegration
+//   var httpRouteIntegration HttpRouteIntegration
 //
 //   batchHttpRouteOptions := &BatchHttpRouteOptions{
 //   	Integration: httpRouteIntegration,

@@ -14,14 +14,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import sfn "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stateMachine stateMachine
-//   var httpApi httpApi
+//   var stateMachine StateMachine
+//   var httpApi HttpApi
 //
 //
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/start"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
 //   		StateMachine: *StateMachine,
@@ -31,8 +31,8 @@ import (
 //
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/start-sync"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartSyncExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
 //   		StateMachine: *StateMachine,
@@ -42,8 +42,8 @@ import (
 //
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/stop"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StopExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
 //   		StateMachine: *StateMachine,

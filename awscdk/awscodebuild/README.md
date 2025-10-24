@@ -83,9 +83,9 @@ gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	 // optional, default: true if `webhookFilters` were provided, false otherwise
 	WebhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
-	WebhookFilters: []filterGroup{
-		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
-		codebuild.*filterGroup_*InEventOf(codebuild.EventAction_RELEASED).*AndBranchIs(jsii.String("main")),
+	WebhookFilters: []FilterGroup{
+		codebuild.FilterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
+		codebuild.FilterGroup_*InEventOf(codebuild.EventAction_RELEASED).*AndBranchIs(jsii.String("main")),
 	},
 })
 ```
@@ -98,8 +98,8 @@ gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	Owner: jsii.String("aws"),
 	WebhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
-	WebhookFilters: []filterGroup{
-		codebuild.*filterGroup_InEventOf(codebuild.EventAction_WORKFLOW_JOB_QUEUED).AndRepositoryNameIs(jsii.String("aws-.*")).AndRepositoryNameIsNot(jsii.String("aws-cdk-lib")),
+	WebhookFilters: []FilterGroup{
+		codebuild.FilterGroup_InEventOf(codebuild.EventAction_WORKFLOW_JOB_QUEUED).AndRepositoryNameIs(jsii.String("aws-.*")).AndRepositoryNameIsNot(jsii.String("aws-cdk-lib")),
 	},
 })
 ```
@@ -192,7 +192,7 @@ project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 CodeBuild Projects can produce Artifacts and upload them to S3. For example:
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 
 project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
@@ -242,7 +242,7 @@ on. When using S3 caching, you must also add in a `cache` section to your
 buildspec which indicates the files to be cached:
 
 ```go
-var myCachingBucket bucket
+var myCachingBucket Bucket
 
 
 codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
@@ -281,8 +281,8 @@ If you want to [share the same cache between multiple projects](https://docs.aws
 * Use the same Amazon S3 buckets and `pathPrefix` if set.
 
 ```go
-var sourceBucket bucket
-var myCachingBucket bucket
+var sourceBucket Bucket
+var myCachingBucket Bucket
 
 
 codebuild.NewProject(this, jsii.String("ProjectA"), &ProjectProps{
@@ -451,7 +451,7 @@ Note that the `WindowsBuildImage` version of the static methods accepts an optio
 which can be either `WindowsImageType.STANDARD`, the default, or `WindowsImageType.SERVER_2019`:
 
 ```go
-var ecrRepository repository
+var ecrRepository Repository
 
 
 codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
@@ -658,7 +658,7 @@ VPCs.  When using a Fleet in a CodeBuild Project, it is an error to configure a
 VPC on the Project. Configure a VPC on the fleet instead.
 
 ```go
-var loadBalancer applicationLoadBalancer
+var loadBalancer ApplicationLoadBalancer
 
 
 vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
@@ -814,7 +814,7 @@ if you'd rather not have those permissions added,
 you can opt out of it when creating the project:
 
 ```go
-var source source
+var source Source
 
 
 project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
@@ -827,7 +827,7 @@ Alternatively, you can specify an ARN of an existing resource group,
 instead of a simple name, in your buildspec:
 
 ```go
-var source source
+var source Source
 
 
 // create a new ReportGroup
@@ -850,7 +850,7 @@ project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 For a code coverage report, you can specify a report group with the code coverage report group type.
 
 ```go
-var source source
+var source Source
 
 
 // create a new ReportGroup
@@ -876,8 +876,8 @@ project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 If you specify a report group, you need to grant the project's role permissions to write reports to that report group:
 
 ```go
-var project project
-var reportGroup reportGroup
+var project Project
+var reportGroup ReportGroup
 
 
 reportGroup.grantWrite(project)
@@ -925,8 +925,8 @@ project as a AWS CloudWatch event rule target:
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var codeCommitRepository repository
-var project project
+var codeCommitRepository Repository
+var project Project
 
 
 codeCommitRepository.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
@@ -941,8 +941,8 @@ methods:
 
 ```go
 import targets "github.com/aws/aws-cdk-go/awscdk"
-var fn function
-var project project
+var fn Function
+var project Project
 
 
 rule := project.onStateChange(jsii.String("BuildStateChange"), &OnEventOptions{
@@ -958,7 +958,7 @@ They are very similar to `onXxx()` methods for CloudWatch events:
 ```go
 import chatbot "github.com/aws/aws-cdk-go/awscdk"
 
-var project project
+var project Project
 
 
 target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
@@ -977,18 +977,18 @@ multiple outputs. For example:
 
 ```go
 import codecommit "github.com/aws/aws-cdk-go/awscdk"
-var repo repository
-var bucket bucket
+var repo Repository
+var bucket Bucket
 
 
 project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
-	SecondarySources: []iSource{
+	SecondarySources: []ISource{
 		codebuild.Source_CodeCommit(&CodeCommitSourceProps{
 			Identifier: jsii.String("source2"),
 			Repository: repo,
 		}),
 	},
-	SecondaryArtifacts: []iArtifacts{
+	SecondaryArtifacts: []IArtifacts{
 		codebuild.Artifacts_S3(&S3ArtifactsProps{
 			Identifier: jsii.String("artifact2"),
 			Bucket: bucket,
@@ -1071,7 +1071,7 @@ to access the resources that it needs by using the
 For example:
 
 ```go
-var loadBalancer applicationLoadBalancer
+var loadBalancer ApplicationLoadBalancer
 
 
 vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
@@ -1099,7 +1099,7 @@ codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
 		"version": jsii.String("0.2"),
 	}),
-	FileSystemLocations: []iFileSystemLocation{
+	FileSystemLocations: []IFileSystemLocation{
 		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
 			Identifier: jsii.String("myidentifier2"),
 			Location: jsii.String("myclodation.mydnsroot.com:/loc"),
@@ -1122,7 +1122,7 @@ It returns an object containing the batch service role that was created,
 or `undefined` if batch builds could not be enabled, for example if the project was imported.
 
 ```go
-var source source
+var source Source
 
 
 project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{

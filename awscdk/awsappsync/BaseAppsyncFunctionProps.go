@@ -8,9 +8,9 @@ package awsappsync
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var code code
-//   var functionRuntime functionRuntime
-//   var mappingTemplate mappingTemplate
+//   var code Code
+//   var functionRuntime FunctionRuntime
+//   var mappingTemplate MappingTemplate
 //
 //   baseAppsyncFunctionProps := &BaseAppsyncFunctionProps{
 //   	Name: jsii.String("name"),

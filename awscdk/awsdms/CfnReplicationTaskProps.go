@@ -25,8 +25,8 @@ import (
 //   	ReplicationTaskIdentifier: jsii.String("replicationTaskIdentifier"),
 //   	ReplicationTaskSettings: jsii.String("replicationTaskSettings"),
 //   	ResourceIdentifier: jsii.String("resourceIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

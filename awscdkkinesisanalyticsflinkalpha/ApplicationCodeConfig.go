@@ -13,7 +13,7 @@ import (
 //   import kinesisanalytics_flink_alpha "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   applicationCodeConfig := &ApplicationCodeConfig{
 //   	ApplicationCodeConfigurationProperty: &ApplicationConfigurationProperty{

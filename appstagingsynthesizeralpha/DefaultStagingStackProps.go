@@ -14,10 +14,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bootstrapRole bootstrapRole
-//   var permissionsBoundary permissionsBoundary
-//   var propertyInjector iPropertyInjector
-//   var stackSynthesizer stackSynthesizer
+//   var bootstrapRole BootstrapRole
+//   var permissionsBoundary PermissionsBoundary
+//   var propertyInjector IPropertyInjector
+//   var stackSynthesizer StackSynthesizer
 //
 //   defaultStagingStackProps := &DefaultStagingStackProps{
 //   	AppId: jsii.String("appId"),
@@ -42,7 +42,7 @@ import (
 //   		jsii.String("notificationArns"),
 //   	},
 //   	PermissionsBoundary: permissionsBoundary,
-//   	PropertyInjectors: []*iPropertyInjector{
+//   	PropertyInjectors: []IPropertyInjector{
 //   		propertyInjector,
 //   	},
 //   	StackName: jsii.String("stackName"),

@@ -17,8 +17,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var function_ function
-//   var topic topic
+//   var function_ Function
+//   var topic Topic
 //
 //   lambda := awscdk.Aws_ses_actions.NewLambda(&LambdaProps{
 //   	Function: function_,

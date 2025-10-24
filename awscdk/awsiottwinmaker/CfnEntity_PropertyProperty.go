@@ -8,13 +8,13 @@ package awsiottwinmaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dataValueProperty_ dataValueProperty
+//   var dataValueProperty_ DataValueProperty
 //   var definition interface{}
 //   var relationshipValue interface{}
 //
 //   propertyProperty := &PropertyProperty{
 //   	Definition: definition,
-//   	Value: &dataValueProperty{
+//   	Value: &DataValueProperty{
 //   		BooleanValue: jsii.Boolean(false),
 //   		DoubleValue: jsii.Number(123),
 //   		Expression: jsii.String("expression"),

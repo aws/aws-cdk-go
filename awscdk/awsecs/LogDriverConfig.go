@@ -15,8 +15,8 @@ package awsecs
 //   	Options: map[string]*string{
 //   		"optionsKey": jsii.String("options"),
 //   	},
-//   	SecretOptions: []secretProperty{
-//   		&secretProperty{
+//   	SecretOptions: []SecretProperty{
+//   		&SecretProperty{
 //   			Name: jsii.String("name"),
 //   			ValueFrom: jsii.String("valueFrom"),
 //   		},

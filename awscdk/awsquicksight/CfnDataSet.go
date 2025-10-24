@@ -331,8 +331,8 @@ import (
 //   		Status: jsii.String("status"),
 //   		TagRuleConfigurations: tagRuleConfigurations,
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -371,7 +371,7 @@ type CfnDataSet interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Groupings of columns that work together in certain Amazon QuickSight features.
+	// Groupings of columns that work together in certain Amazon Quick Sight features.
 	ColumnGroups() interface{}
 	SetColumnGroups(val interface{})
 	// A set of one or more definitions of a `ColumnLevelPermissionRule` .

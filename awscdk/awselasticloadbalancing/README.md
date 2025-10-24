@@ -11,9 +11,9 @@ to load balance to in the `targets` property. If you want the load balancer to b
 accessible from the internet, set `internetFacing: true`.
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
-var myAutoScalingGroup autoScalingGroup
+var myAutoScalingGroup AutoScalingGroup
 
 lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 	Vpc: Vpc,
@@ -32,12 +32,12 @@ The load balancer allows all connections by default. If you want to change that,
 pass the `allowConnectionsFrom` property while setting up the listener:
 
 ```go
-var mySecurityGroup securityGroup
-var lb loadBalancer
+var mySecurityGroup SecurityGroup
+var lb LoadBalancer
 
 lb.AddListener(&LoadBalancerListener{
 	ExternalPort: jsii.Number(80),
-	AllowConnectionsFrom: []iConnectable{
+	AllowConnectionsFrom: []IConnectable{
 		mySecurityGroup,
 	},
 })
@@ -48,7 +48,7 @@ lb.AddListener(&LoadBalancerListener{
 You can add an EC2 instance to the load balancer by calling using `new InstanceTarget` as the argument to `addTarget()`:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 	Vpc: Vpc,

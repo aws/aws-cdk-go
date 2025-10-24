@@ -40,8 +40,8 @@ An EventBridge API destination can be used as a target for a pipe.
 The API destination will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var dest apiDestination
+var sourceQueue Queue
+var dest ApiDestination
 
 
 apiTarget := targets.NewApiDestinationTarget(dest)
@@ -55,8 +55,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target API destination can be transformed:
 
 ```go
-var sourceQueue queue
-var dest apiDestination
+var sourceQueue Queue
+var dest ApiDestination
 
 
 apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{
@@ -77,7 +77,7 @@ A REST API can be used as a target for a pipe.
 The REST API will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
+var sourceQueue Queue
 
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
@@ -100,7 +100,7 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target REST API can be transformed:
 
 ```go
-var sourceQueue queue
+var sourceQueue Queue
 
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
@@ -130,8 +130,8 @@ A CloudWatch Logs log group can be used as a target for a pipe.
 The log group will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetLogGroup logGroup
+var sourceQueue Queue
+var targetLogGroup LogGroup
 
 
 logGroupTarget := targets.NewCloudWatchLogsTarget(targetLogGroup)
@@ -145,8 +145,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target log group can be transformed:
 
 ```go
-var sourceQueue queue
-var targetLogGroup logGroup
+var sourceQueue Queue
+var targetLogGroup LogGroup
 
 
 logGroupTarget := targets.NewCloudWatchLogsTarget(targetLogGroup, &CloudWatchLogsTargetParameters{
@@ -167,8 +167,8 @@ An EventBridge event bus can be used as a target for a pipe.
 The event bus will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetEventBus eventBus
+var sourceQueue Queue
+var targetEventBus EventBus
 
 
 eventBusTarget := targets.NewEventBridgeTarget(targetEventBus)
@@ -182,8 +182,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target event bus can be transformed:
 
 ```go
-var sourceQueue queue
-var targetEventBus eventBus
+var sourceQueue Queue
+var targetEventBus EventBus
 
 
 eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTargetParameters{
@@ -204,8 +204,8 @@ An Amazon Data Firehose delivery stream can be used as a target for a pipe.
 The delivery stream will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetDeliveryStream deliveryStream
+var sourceQueue Queue
+var targetDeliveryStream DeliveryStream
 
 
 deliveryStreamTarget := targets.NewFirehoseTarget(targetDeliveryStream)
@@ -219,8 +219,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target delivery stream can be transformed:
 
 ```go
-var sourceQueue queue
-var targetDeliveryStream deliveryStream
+var sourceQueue Queue
+var targetDeliveryStream DeliveryStream
 
 
 deliveryStreamTarget := targets.NewFirehoseTarget(targetDeliveryStream, &FirehoseTargetParameters{
@@ -241,8 +241,8 @@ A Kinesis data stream can be used as a target for a pipe.
 The data stream will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetStream stream
+var sourceQueue Queue
+var targetStream Stream
 
 
 streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
@@ -258,8 +258,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target data stream can be transformed:
 
 ```go
-var sourceQueue queue
-var targetStream stream
+var sourceQueue Queue
+var targetStream Stream
 
 
 streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
@@ -281,8 +281,8 @@ A Lambda function can be used as a target for a pipe.
 The Lambda function will be invoked with the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetFunction iFunction
+var sourceQueue Queue
+var targetFunction IFunction
 
 
 pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
@@ -297,8 +297,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The target Lambda function is invoked synchronously by default. You can also choose to invoke the Lambda Function asynchronously by setting `invocationType` property to `FIRE_AND_FORGET`.
 
 ```go
-var sourceQueue queue
-var targetFunction iFunction
+var sourceQueue Queue
+var targetFunction IFunction
 
 
 pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
@@ -314,8 +314,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target Lambda Function can be transformed:
 
 ```go
-var sourceQueue queue
-var targetFunction iFunction
+var sourceQueue Queue
+var targetFunction IFunction
 
 
 pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
@@ -336,8 +336,8 @@ A SageMaker pipeline can be used as a target for a pipe.
 The pipeline will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetPipeline iPipeline
+var sourceQueue Queue
+var targetPipeline IPipeline
 
 
 pipelineTarget := targets.NewSageMakerTarget(targetPipeline)
@@ -351,8 +351,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target pipeline can be transformed:
 
 ```go
-var sourceQueue queue
-var targetPipeline iPipeline
+var sourceQueue Queue
+var targetPipeline IPipeline
 
 
 pipelineTarget := targets.NewSageMakerTarget(targetPipeline, &SageMakerTargetParameters{
@@ -373,8 +373,8 @@ A Step Functions state machine can be used as a target for a pipe.
 The state machine will be invoked with the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetStateMachine iStateMachine
+var sourceQueue Queue
+var targetStateMachine IStateMachine
 
 
 pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
@@ -389,8 +389,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 You can specify the invocation type when the target state machine is invoked:
 
 ```go
-var sourceQueue queue
-var targetStateMachine iStateMachine
+var sourceQueue Queue
+var targetStateMachine IStateMachine
 
 
 pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
@@ -406,8 +406,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The input to the target state machine can be transformed:
 
 ```go
-var sourceQueue queue
-var targetStateMachine iStateMachine
+var sourceQueue Queue
+var targetStateMachine IStateMachine
 
 
 pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
@@ -429,8 +429,8 @@ An SNS topic can be used as a target for a pipe.
 The topic will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetTopic topic
+var sourceQueue Queue
+var targetTopic Topic
 
 
 pipeTarget := targets.NewSnsTarget(targetTopic)
@@ -444,8 +444,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The target input can be transformed:
 
 ```go
-var sourceQueue queue
-var targetTopic topic
+var sourceQueue Queue
+var targetTopic Topic
 
 
 pipeTarget := targets.NewSnsTarget(targetTopic, &SnsTargetParameters{
@@ -466,8 +466,8 @@ An SQS queue can be used as a target for a pipe.
 The queue will receive the (enriched/filtered) source payload.
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 pipeTarget := targets.NewSqsTarget(targetQueue)
@@ -481,8 +481,8 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 The target input can be transformed:
 
 ```go
-var sourceQueue queue
-var targetQueue queue
+var sourceQueue Queue
+var targetQueue Queue
 
 
 pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{

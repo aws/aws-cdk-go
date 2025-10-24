@@ -7,7 +7,7 @@ import (
 // A logging configuration for delivery status of messages sent from SNS topic to subscribed endpoints.
 //
 // Example:
-//   var role role
+//   var role Role
 //
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //

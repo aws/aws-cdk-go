@@ -16,8 +16,8 @@ import (
 //   proposedSegmentChangeProperty := &ProposedSegmentChangeProperty{
 //   	AttachmentPolicyRuleNumber: jsii.Number(123),
 //   	SegmentName: jsii.String("segmentName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

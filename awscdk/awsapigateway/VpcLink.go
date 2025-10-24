@@ -21,7 +21,7 @@ import (
 //   	Vpc: Vpc,
 //   })
 //   link := apigateway.NewVpcLink(this, jsii.String("link"), &VpcLinkProps{
-//   	Targets: []iNetworkLoadBalancer{
+//   	Targets: []INetworkLoadBalancer{
 //   		nlb,
 //   	},
 //   })

@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -14,9 +15,9 @@ import (
 // Managed Instances for task placement with managed infrastructure.
 //
 // Example:
-//   var vpc vpc
-//   var infrastructureRole role
-//   var instanceProfile instanceProfile
+//   var vpc Vpc
+//   var infrastructureRole Role
+//   var instanceProfile InstanceProfile
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -28,7 +29,7 @@ import (
 //   	InfrastructureRole: InfrastructureRole,
 //   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
 //   			Vpc: *Vpc,
 //   		}),
@@ -36,15 +37,18 @@ import (
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-//   		CpuManufacturers: []cpuManufacturer{
-//   			ec2.*cpuManufacturer_INTEL,
+//   		CpuManufacturers: []CpuManufacturer{
+//   			ec2.CpuManufacturer_INTEL,
 //   		},
-//   		AcceleratorManufacturers: []acceleratorManufacturer{
-//   			ec2.*acceleratorManufacturer_NVIDIA,
+//   		AcceleratorManufacturers: []AcceleratorManufacturer{
+//   			ec2.AcceleratorManufacturer_NVIDIA,
 //   		},
 //   	},
 //   	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 //   })
+//
+//   // Optionally configure security group rules using IConnectable interface
+//   miCapacityProvider.Connections.AllowFrom(ec2.Peer_Ipv4(vpc.VpcCidrBlock), ec2.Port_Tcp(jsii.Number(80)))
 //
 //   // Add the capacity provider to the cluster
 //   cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
@@ -60,8 +64,8 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: miCapacityProvider.CapacityProviderName,
 //   			Weight: jsii.Number(1),
 //   		},
@@ -70,8 +74,11 @@ import (
 //
 type ManagedInstancesCapacityProvider interface {
 	constructs.Construct
+	awsec2.IConnectable
 	// Capacity provider name.
 	CapacityProviderName() *string
+	// The network connections associated with this resource.
+	Connections() awsec2.Connections
 	// The tree node.
 	Node() constructs.Node
 	// Associates the capacity provider with the specified cluster.
@@ -85,6 +92,7 @@ type ManagedInstancesCapacityProvider interface {
 // The jsii proxy struct for ManagedInstancesCapacityProvider
 type jsiiProxy_ManagedInstancesCapacityProvider struct {
 	internal.Type__constructsConstruct
+	internal.Type__awsec2IConnectable
 }
 
 func (j *jsiiProxy_ManagedInstancesCapacityProvider) CapacityProviderName() *string {
@@ -92,6 +100,16 @@ func (j *jsiiProxy_ManagedInstancesCapacityProvider) CapacityProviderName() *str
 	_jsii_.Get(
 		j,
 		"capacityProviderName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ManagedInstancesCapacityProvider) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
 		&returns,
 	)
 	return returns

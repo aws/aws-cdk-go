@@ -4,7 +4,7 @@ package awscloudwatch
 // The position of the legend on a GraphWidget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{

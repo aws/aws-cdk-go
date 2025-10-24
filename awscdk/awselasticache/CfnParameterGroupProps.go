@@ -19,8 +19,8 @@ import (
 //   	Properties: map[string]*string{
 //   		"propertiesKey": jsii.String("properties"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

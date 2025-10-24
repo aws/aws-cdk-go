@@ -12,7 +12,7 @@ import (
 // A secret environment variable.
 //
 // Example:
-//   var mySecret iSecret
+//   var mySecret ISecret
 //
 //
 //   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
@@ -20,8 +20,8 @@ import (
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 //   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
-//   		Secrets: map[string]secret{
-//   			"MY_SECRET_ENV_VAR": batch.*secret_fromSecretsManager(mySecret),
+//   		Secrets: map[string]Secret{
+//   			"MY_SECRET_ENV_VAR": batch.Secret_fromSecretsManager(mySecret),
 //   		},
 //   	}),
 //   })

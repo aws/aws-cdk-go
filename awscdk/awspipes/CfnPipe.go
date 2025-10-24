@@ -302,8 +302,8 @@ import (
 //   			PlatformVersion: jsii.String("platformVersion"),
 //   			PropagateTags: jsii.String("propagateTags"),
 //   			ReferenceId: jsii.String("referenceId"),
-//   			Tags: []cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},

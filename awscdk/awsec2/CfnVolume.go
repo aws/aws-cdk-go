@@ -45,8 +45,8 @@ import (
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	Size: jsii.Number(123),
 //   	SnapshotId: jsii.String("snapshotId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -85,7 +85,7 @@ type CfnVolume interface {
 	// Indicates whether the volume should be encrypted.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
-	// The number of I/O operations per second (IOPS).
+	// The number of I/O operations per second (IOPS) to provision for the volume.
 	Iops() *float64
 	SetIops(val *float64)
 	// The identifier of the AWS KMS key to use for Amazon EBS encryption.

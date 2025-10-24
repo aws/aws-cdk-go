@@ -22,8 +22,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Enabled: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -8,7 +8,7 @@ package awsappmesh
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var virtualGateway virtualGateway
+//   var virtualGateway VirtualGateway
 //
 //   gatewayRouteAttributes := &GatewayRouteAttributes{
 //   	GatewayRouteName: jsii.String("gatewayRouteName"),

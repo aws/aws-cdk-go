@@ -15,7 +15,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   unmanagedComputeEnvironmentProps := &UnmanagedComputeEnvironmentProps{
 //   	ComputeEnvironmentName: jsii.String("computeEnvironmentName"),

@@ -15,7 +15,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var roleRef iRoleRef
+//   var roleRef IRoleRef
 //
 //   integrationCredentials := awscdk.Aws_apigatewayv2.IntegrationCredentials_FromRole(roleRef)
 //

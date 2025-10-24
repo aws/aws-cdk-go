@@ -8,10 +8,10 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var classificationString classificationString
-//   var inputFormat inputFormat
-//   var outputFormat outputFormat
-//   var serializationLibrary serializationLibrary
+//   var classificationString ClassificationString
+//   var inputFormat InputFormat
+//   var outputFormat OutputFormat
+//   var serializationLibrary SerializationLibrary
 //
 //   dataFormatProps := &DataFormatProps{
 //   	InputFormat: inputFormat,

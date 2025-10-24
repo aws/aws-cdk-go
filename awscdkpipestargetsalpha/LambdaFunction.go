@@ -13,8 +13,8 @@ import (
 // An EventBridge Pipes target that sends messages to an AWS Lambda Function.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetFunction iFunction
+//   var sourceQueue Queue
+//   var targetFunction IFunction
 //
 //
 //   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{

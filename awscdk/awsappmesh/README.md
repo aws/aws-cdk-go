@@ -57,11 +57,11 @@ Virtual routers handle traffic for one or more virtual services within your mesh
 After you create a virtual router, you can create and associate routes to your virtual router that direct incoming requests to different virtual nodes.
 
 ```go
-var mesh mesh
+var mesh Mesh
 
 router := mesh.addVirtualRouter(jsii.String("router"), &VirtualRouterBaseProps{
-	Listeners: []virtualRouterListener{
-		appmesh.*virtualRouterListener_Http(jsii.Number(8080)),
+	Listeners: []VirtualRouterListener{
+		appmesh.VirtualRouterListener_Http(jsii.Number(8080)),
 	},
 })
 ```
@@ -72,8 +72,8 @@ The router can also be created using the `VirtualRouter` constructor (passing in
 This is particularly useful when splitting your resources between many stacks: for example, defining the mesh itself as part of an infrastructure stack, but defining the other resources, such as routers, in the application stack:
 
 ```go
-var infraStack stack
-var appStack stack
+var infraStack Stack
+var appStack Stack
 
 
 mesh := appmesh.NewMesh(infraStack, jsii.String("AppMesh"), &MeshProps{
@@ -86,8 +86,8 @@ mesh := appmesh.NewMesh(infraStack, jsii.String("AppMesh"), &MeshProps{
 router := appmesh.NewVirtualRouter(appStack, jsii.String("router"), &VirtualRouterProps{
 	Mesh: Mesh,
 	 // notice that mesh is a required property when creating a router with the 'new' statement
-	Listeners: []virtualRouterListener{
-		appmesh.*virtualRouterListener_Http(jsii.Number(8081)),
+	Listeners: []VirtualRouterListener{
+		appmesh.VirtualRouterListener_Http(jsii.Number(8081)),
 	},
 })
 ```
@@ -113,7 +113,7 @@ When creating a virtual service:
 Adding a virtual router as the provider:
 
 ```go
-var router virtualRouter
+var router VirtualRouter
 
 
 appmesh.NewVirtualService(this, jsii.String("virtual-service"), &VirtualServiceProps{
@@ -126,7 +126,7 @@ appmesh.NewVirtualService(this, jsii.String("virtual-service"), &VirtualServiceP
 Adding a virtual node as the provider:
 
 ```go
-var node virtualNode
+var node VirtualNode
 
 
 appmesh.NewVirtualService(this, jsii.String("virtual-service"), &VirtualServiceProps{
@@ -148,7 +148,7 @@ The response metadata for your new virtual node contains the Amazon Resource Nam
 > If you require your Envoy stats or tracing to use a different name, you can override the `node.cluster` value that is set by `APPMESH_VIRTUAL_NODE_NAME` with the `APPMESH_VIRTUAL_NODE_CLUSTER` environment variable.
 
 ```go
-var mesh mesh
+var mesh Mesh
 vpc := ec2.NewVpc(this, jsii.String("vpc"))
 namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
 	Vpc: Vpc,
@@ -157,8 +157,8 @@ namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace")
 service := namespace.CreateService(jsii.String("Svc"))
 node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			Port: jsii.Number(8081),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
@@ -178,15 +178,15 @@ node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 Create a `VirtualNode` with the constructor and add tags.
 
 ```go
-var mesh mesh
-var service service
+var mesh Mesh
+var service Service
 
 
 node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 	Mesh: Mesh,
 	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			Port: jsii.Number(8080),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
@@ -216,14 +216,14 @@ cdk.Tags_Of(node).Add(jsii.String("Environment"), jsii.String("Dev"))
 Create a `VirtualNode` with the customized access logging format.
 
 ```go
-var mesh mesh
-var service service
+var mesh Mesh
+var service Service
 
 node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 	Mesh: Mesh,
 	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			Port: jsii.Number(8080),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
@@ -261,16 +261,16 @@ For what values and operators you can use for these two formats, please visit th
 Create a `VirtualNode` with the constructor and add backend virtual service.
 
 ```go
-var mesh mesh
-var router virtualRouter
-var service service
+var mesh Mesh
+var router VirtualRouter
+var service Service
 
 
 node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 	Mesh: Mesh,
 	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			Port: jsii.Number(8080),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				HealthyThreshold: jsii.Number(3),
@@ -304,7 +304,7 @@ The `backendDefaults` property is added to the node while creating the virtual n
 The `VirtualNode.addBackend()` method is especially useful if you want to create a circular traffic flow by having a Virtual Service as a backend whose provider is that same Virtual Node:
 
 ```go
-var mesh mesh
+var mesh Mesh
 
 
 node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
@@ -331,15 +331,15 @@ Provide the TLS certificate to the proxy in one of the following ways:
 
 ```go
 // A Virtual Node with listener TLS from an ACM provided certificate
-var cert certificate
-var mesh mesh
+var cert Certificate
+var mesh Mesh
 
 
 node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 	Mesh: Mesh,
 	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node")),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
 			Port: jsii.Number(80),
 			Tls: &ListenerTlsOptions{
 				Mode: appmesh.TlsMode_STRICT,
@@ -352,8 +352,8 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 // A Virtual Gateway with listener TLS from a customer provided file certificate
 gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatewayProps{
 	Mesh: Mesh,
-	Listeners: []virtualGatewayListener{
-		appmesh.*virtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
+	Listeners: []VirtualGatewayListener{
+		appmesh.VirtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
 			Port: jsii.Number(8080),
 			Tls: &ListenerTlsOptions{
 				Mode: appmesh.TlsMode_STRICT,
@@ -367,8 +367,8 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatew
 // A Virtual Gateway with listener TLS from a SDS provided certificate
 gateway2 := appmesh.NewVirtualGateway(this, jsii.String("gateway2"), &VirtualGatewayProps{
 	Mesh: Mesh,
-	Listeners: []*virtualGatewayListener{
-		appmesh.*virtualGatewayListener_Http2(&Http2GatewayListenerOptions{
+	Listeners: []VirtualGatewayListener{
+		appmesh.VirtualGatewayListener_Http2(&Http2GatewayListenerOptions{
 			Port: jsii.Number(8080),
 			Tls: &ListenerTlsOptions{
 				Mode: appmesh.TlsMode_STRICT,
@@ -394,14 +394,14 @@ To enable mutual TLS authentication, add the `mutualTlsCertificate` property to 
 > Currently, a certificate from AWS Certificate Manager (ACM) cannot be used for mutual TLS authentication.
 
 ```go
-var mesh mesh
+var mesh Mesh
 
 
 node1 := appmesh.NewVirtualNode(this, jsii.String("node1"), &VirtualNodeProps{
 	Mesh: Mesh,
 	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node")),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Grpc(&GrpcVirtualNodeListenerOptions{
 			Port: jsii.Number(80),
 			Tls: &ListenerTlsOptions{
 				Mode: appmesh.TlsMode_STRICT,
@@ -427,7 +427,7 @@ node2 := appmesh.NewVirtualNode(this, jsii.String("node2"), &VirtualNodeProps{
 			},
 			Validation: &TlsValidation{
 				SubjectAlternativeNames: appmesh.SubjectAlternativeNames_MatchingExactly(jsii.String("mesh-endpoint.apps.local")),
-				Trust: appmesh.TlsValidationTrust_Acm([]iCertificateAuthority{
+				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthority{
 					acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("certificate"), certificateAuthorityArn),
 				}),
 			},
@@ -444,7 +444,7 @@ The `outlierDetection` property adds outlier detection to a Virtual Node listene
 `baseEjectionDuration`, `interval`, `maxEjectionPercent`, and `maxServerErrors` are required.
 
 ```go
-var mesh mesh
+var mesh Mesh
 // Cloud Map service discovery is currently required for host ejection by outlier detection
 vpc := ec2.NewVpc(this, jsii.String("vpc"))
 namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
@@ -454,8 +454,8 @@ namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace")
 service := namespace.CreateService(jsii.String("Svc"))
 node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
 	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			OutlierDetection: &OutlierDetection{
 				BaseEjectionDuration: awscdk.Duration_Seconds(jsii.Number(10)),
 				Interval: awscdk.Duration_*Seconds(jsii.Number(30)),
@@ -473,7 +473,7 @@ The `connectionPool` property can be added to a Virtual Node listener or Virtual
 
 ```go
 // A Virtual Node with a gRPC listener with a connection pool set
-var mesh mesh
+var mesh Mesh
 
 node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 	Mesh: Mesh,
@@ -482,8 +482,8 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 	// whereas ENDPOINTS means that the DNS resolver is returning all the endpoints.
 	// By default, the response type is assumed to be LOAD_BALANCER
 	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node"), appmesh.DnsResponseType_ENDPOINTS),
-	Listeners: []virtualNodeListener{
-		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+	Listeners: []VirtualNodeListener{
+		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 			Port: jsii.Number(80),
 			ConnectionPool: &HttpConnectionPool{
 				MaxConnections: jsii.Number(100),
@@ -496,8 +496,8 @@ node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 // A Virtual Gateway with a gRPC listener with a connection pool set
 gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatewayProps{
 	Mesh: Mesh,
-	Listeners: []virtualGatewayListener{
-		appmesh.*virtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
+	Listeners: []VirtualGatewayListener{
+		appmesh.VirtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
 			Port: jsii.Number(8080),
 			ConnectionPool: &GrpcConnectionPool{
 				MaxRequests: jsii.Number(10),
@@ -565,14 +565,14 @@ When specifying the method name, the service name must also be specified.
 For example, here's how to add an HTTP route that matches based on a prefix of the URL path:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Http(&HttpRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -587,14 +587,14 @@ router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 Add an HTTP2 route that matches based on exact path, method, scheme, headers, and query parameters:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-http2"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Http2(&HttpRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -602,12 +602,12 @@ router.addRoute(jsii.String("route-http2"), &RouteBaseProps{
 			Path: appmesh.HttpRoutePathMatch_Exactly(jsii.String("/exact")),
 			Method: appmesh.HttpRouteMethod_POST,
 			Protocol: appmesh.HttpRouteProtocol_HTTPS,
-			Headers: []headerMatch{
-				appmesh.*headerMatch_ValueIs(jsii.String("Content-Type"), jsii.String("application/json")),
-				appmesh.*headerMatch_ValueIsNot(jsii.String("Content-Type"), jsii.String("application/json")),
+			Headers: []HeaderMatch{
+				appmesh.HeaderMatch_ValueIs(jsii.String("Content-Type"), jsii.String("application/json")),
+				appmesh.HeaderMatch_ValueIsNot(jsii.String("Content-Type"), jsii.String("application/json")),
 			},
-			QueryParameters: []queryParameterMatch{
-				appmesh.*queryParameterMatch_ValueIs(jsii.String("query-field"), jsii.String("value")),
+			QueryParameters: []QueryParameterMatch{
+				appmesh.QueryParameterMatch_ValueIs(jsii.String("query-field"), jsii.String("value")),
 			},
 		},
 	}),
@@ -617,18 +617,18 @@ router.addRoute(jsii.String("route-http2"), &RouteBaseProps{
 Add a single route with two targets and split traffic 50/50:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Http(&HttpRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 				Weight: jsii.Number(50),
 			},
-			&weightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 				Weight: jsii.Number(50),
 			},
@@ -643,14 +643,14 @@ router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 Add an http2 route with retries:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-http2-retry"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Http2(&HttpRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -660,8 +660,8 @@ router.addRoute(jsii.String("route-http2-retry"), &RouteBaseProps{
 				appmesh.TcpRetryEvent_*cONNECTION_ERROR,
 			},
 			// Retry if HTTP responds with a gateway error (502, 503, 504)
-			HttpRetryEvents: []httpRetryEvent{
-				appmesh.*httpRetryEvent_GATEWAY_ERROR,
+			HttpRetryEvents: []HttpRetryEvent{
+				appmesh.HttpRetryEvent_GATEWAY_ERROR,
 			},
 			// Retry five times
 			RetryAttempts: jsii.Number(5),
@@ -675,14 +675,14 @@ router.addRoute(jsii.String("route-http2-retry"), &RouteBaseProps{
 Add a gRPC route with retries:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -693,15 +693,15 @@ router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 			TcpRetryEvents: []cONNECTION_ERROR{
 				appmesh.TcpRetryEvent_*cONNECTION_ERROR,
 			},
-			HttpRetryEvents: []httpRetryEvent{
-				appmesh.*httpRetryEvent_GATEWAY_ERROR,
+			HttpRetryEvents: []HttpRetryEvent{
+				appmesh.HttpRetryEvent_GATEWAY_ERROR,
 			},
 			// Retry if gRPC responds that the request was cancelled, a resource
 			// was exhausted, or if the service is unavailable
-			GrpcRetryEvents: []grpcRetryEvent{
-				appmesh.*grpcRetryEvent_CANCELLED,
-				appmesh.*grpcRetryEvent_RESOURCE_EXHAUSTED,
-				appmesh.*grpcRetryEvent_UNAVAILABLE,
+			GrpcRetryEvents: []GrpcRetryEvent{
+				appmesh.GrpcRetryEvent_CANCELLED,
+				appmesh.GrpcRetryEvent_RESOURCE_EXHAUSTED,
+				appmesh.GrpcRetryEvent_UNAVAILABLE,
 			},
 			RetryAttempts: jsii.Number(5),
 			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),
@@ -713,14 +713,14 @@ router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 Add an gRPC route that matches based on method name and metadata:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -728,9 +728,9 @@ router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 			// When method name is specified, service name must be also specified.
 			MethodName: jsii.String("methodname"),
 			ServiceName: jsii.String("servicename"),
-			Metadata: []headerMatch{
-				appmesh.*headerMatch_ValueStartsWith(jsii.String("Content-Type"), jsii.String("application/")),
-				appmesh.*headerMatch_ValueDoesNotStartWith(jsii.String("Content-Type"), jsii.String("text/")),
+			Metadata: []HeaderMatch{
+				appmesh.HeaderMatch_ValueStartsWith(jsii.String("Content-Type"), jsii.String("application/")),
+				appmesh.HeaderMatch_ValueDoesNotStartWith(jsii.String("Content-Type"), jsii.String("text/")),
 			},
 		},
 	}),
@@ -740,14 +740,14 @@ router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 Add a gRPC route that matches based on port:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-grpc-port"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -761,14 +761,14 @@ router.addRoute(jsii.String("route-grpc-port"), &RouteBaseProps{
 Add a gRPC route with timeout:
 
 ```go
-var router virtualRouter
-var node virtualNode
+var router VirtualRouter
+var node VirtualNode
 
 
 router.addRoute(jsii.String("route-http"), &RouteBaseProps{
 	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
-		WeightedTargets: []weightedTarget{
-			&weightedTarget{
+		WeightedTargets: []WeightedTarget{
+			&WeightedTarget{
 				VirtualNode: node,
 			},
 		},
@@ -796,14 +796,14 @@ using rules defined in gateway routes which can be added to your virtual gateway
 Create a virtual gateway with the constructor:
 
 ```go
-var mesh mesh
+var mesh Mesh
 
 certificateAuthorityArn := "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
 
 gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatewayProps{
 	Mesh: mesh,
-	Listeners: []virtualGatewayListener{
-		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
+	Listeners: []VirtualGatewayListener{
+		appmesh.VirtualGatewayListener_Http(&HttpGatewayListenerOptions{
 			Port: jsii.Number(443),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
@@ -817,7 +817,7 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatew
 				jsii.Number(8081),
 			},
 			Validation: &TlsValidation{
-				Trust: appmesh.TlsValidationTrust_Acm([]iCertificateAuthority{
+				Trust: appmesh.TlsValidationTrust_Acm([]ICertificateAuthority{
 					acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("certificate"), certificateAuthorityArn),
 				}),
 			},
@@ -831,14 +831,14 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatew
 Add a virtual gateway directly to the mesh:
 
 ```go
-var mesh mesh
+var mesh Mesh
 
 
 gateway := mesh.addVirtualGateway(jsii.String("gateway"), &VirtualGatewayBaseProps{
 	AccessLog: appmesh.AccessLog_FromFilePath(jsii.String("/dev/stdout")),
 	VirtualGatewayName: jsii.String("virtualGateway"),
-	Listeners: []virtualGatewayListener{
-		appmesh.*virtualGatewayListener_Http(&HttpGatewayListenerOptions{
+	Listeners: []VirtualGatewayListener{
+		appmesh.VirtualGatewayListener_Http(&HttpGatewayListenerOptions{
 			Port: jsii.Number(443),
 			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
 				Interval: awscdk.Duration_Seconds(jsii.Number(10)),
@@ -862,8 +862,8 @@ path (prefix, exact, or regex), HTTP method, host name, HTTP headers, and query 
 By default, HTTP-based gateway routes match all requests.
 
 ```go
-var gateway virtualGateway
-var virtualService virtualService
+var gateway VirtualGateway
+var virtualService VirtualService
 
 
 gateway.addGatewayRoute(jsii.String("gateway-route-http"), &GatewayRouteBaseProps{
@@ -879,8 +879,8 @@ gateway.addGatewayRoute(jsii.String("gateway-route-http"), &GatewayRouteBaseProp
 For gRPC-based gateway routes, the `match` field can be used to match on service name, host name, port and metadata.
 
 ```go
-var gateway virtualGateway
-var virtualService virtualService
+var gateway VirtualGateway
+var virtualService VirtualService
 
 
 gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &GatewayRouteBaseProps{
@@ -897,8 +897,8 @@ For HTTP based gateway routes, App Mesh automatically rewrites the matched prefi
 This automatic rewrite configuration can be overwritten in following ways:
 
 ```go
-var gateway virtualGateway
-var virtualService virtualService
+var gateway VirtualGateway
+var virtualService VirtualService
 
 
 gateway.addGatewayRoute(jsii.String("gateway-route-http"), &GatewayRouteBaseProps{
@@ -927,8 +927,8 @@ If matching other path (exact or regex), only specific rewrite path can be speci
 Unlike `startsWith()` method above, no default rewrite is performed.
 
 ```go
-var gateway virtualGateway
-var virtualService virtualService
+var gateway VirtualGateway
+var virtualService VirtualService
 
 
 gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &GatewayRouteBaseProps{
@@ -947,8 +947,8 @@ the original request received at the Virtual Gateway to the destination Virtual 
 This default host name rewrite can be configured by specifying the rewrite rule as one of the `match` property:
 
 ```go
-var gateway virtualGateway
-var virtualService virtualService
+var gateway VirtualGateway
+var virtualService VirtualService
 
 
 gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &GatewayRouteBaseProps{
@@ -998,7 +998,7 @@ appmesh.Mesh_FromMeshName(this, jsii.String("imported-mesh"), jsii.String("abc")
 Envoy access to stream generated config from App Mesh.
 
 ```go
-var mesh mesh
+var mesh Mesh
 
 gateway := appmesh.NewVirtualGateway(this, jsii.String("testGateway"), &VirtualGatewayProps{
 	Mesh: Mesh,

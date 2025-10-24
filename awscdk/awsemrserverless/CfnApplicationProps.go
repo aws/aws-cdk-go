@@ -11,7 +11,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationObjectProperty_ configurationObjectProperty
+//   var configurationObjectProperty_ ConfigurationObjectProperty
 //
 //   cfnApplicationProps := &CfnApplicationProps{
 //   	ReleaseLabel: jsii.String("releaseLabel"),
@@ -96,7 +96,7 @@ import (
 //   		},
 //   	},
 //   	RuntimeConfiguration: []interface{}{
-//   		&configurationObjectProperty{
+//   		&ConfigurationObjectProperty{
 //   			Classification: jsii.String("classification"),
 //
 //   			// the properties below are optional
@@ -112,8 +112,8 @@ import (
 //   		MaxConcurrentRuns: jsii.Number(123),
 //   		QueueTimeoutMinutes: jsii.Number(123),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -150,9 +150,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostopconfiguration
 	//
 	AutoStopConfiguration interface{} `field:"optional" json:"autoStopConfiguration" yaml:"autoStopConfiguration"`
-	// A configuration specification to be used when provisioning an application.
-	//
-	// A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	// The IAM Identity Center configuration applied to enable trusted identity propagation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-identitycenterconfiguration
 	//
 	IdentityCenterConfiguration interface{} `field:"optional" json:"identityCenterConfiguration" yaml:"identityCenterConfiguration"`

@@ -7,7 +7,7 @@ import (
 // Construction properties for a DSRecord.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   route53.NewDsRecord(this, jsii.String("DSRecord"), &DsRecordProps{

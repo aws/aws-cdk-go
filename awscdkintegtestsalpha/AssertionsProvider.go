@@ -49,7 +49,7 @@ type AssertionsProvider interface {
 	// object like you will see in the rest of the CDK.
 	//
 	// Example:
-	//   var provider assertionsProvider
+	//   var provider AssertionsProvider
 	//
 	//   provider.AddToRolePolicy(map[string]interface{}{
 	//   	"Effect": jsii.String("Allow"),

@@ -22,8 +22,8 @@ package awscdk
 //   	Platform: jsii.String("platform"),
 //   	SecurityOpt: jsii.String("securityOpt"),
 //   	User: jsii.String("user"),
-//   	Volumes: []dockerVolume{
-//   		&dockerVolume{
+//   	Volumes: []DockerVolume{
+//   		&DockerVolume{
 //   			ContainerPath: jsii.String("containerPath"),
 //   			HostPath: jsii.String("hostPath"),
 //

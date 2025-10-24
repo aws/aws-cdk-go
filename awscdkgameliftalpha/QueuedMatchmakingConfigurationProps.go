@@ -8,13 +8,13 @@ import (
 // Properties for a new queued matchmaking configuration.
 //
 // Example:
-//   var queue gameSessionQueue
-//   var ruleSet matchmakingRuleSet
+//   var queue GameSessionQueue
+//   var ruleSet MatchmakingRuleSet
 //
 //
 //   gamelift.NewQueuedMatchmakingConfiguration(this, jsii.String("QueuedMatchmakingConfiguration"), &QueuedMatchmakingConfigurationProps{
 //   	MatchmakingConfigurationName: jsii.String("test-queued-config-name"),
-//   	GameSessionQueues: []iGameSessionQueue{
+//   	GameSessionQueues: []IGameSessionQueue{
 //   		queue,
 //   	},
 //   	RuleSet: ruleSet,

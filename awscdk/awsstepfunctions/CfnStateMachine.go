@@ -56,8 +56,8 @@ import (
 //   	},
 //   	StateMachineName: jsii.String("stateMachineName"),
 //   	StateMachineType: jsii.String("stateMachineType"),
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -27,8 +27,8 @@ import (
 //   	ModifierPercentage: jsii.Number(123),
 //   	Operation: jsii.String("operation"),
 //   	Service: jsii.String("service"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

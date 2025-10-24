@@ -4,8 +4,8 @@ package awswafv2
 // Properties for defining a `CfnWebACLAssociation`.
 //
 // Example:
-//   var api eventApi
-//   var webAcl cfnWebACL
+//   var api EventApi
+//   var webAcl CfnWebACL
 //
 //
 //   // Associate waf with Event API

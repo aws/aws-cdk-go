@@ -84,8 +84,8 @@ import (
 //   	},
 //   	PersonalizationThresholdSeconds: jsii.Number(123),
 //   	SlateAdUrl: jsii.String("slateAdUrl"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

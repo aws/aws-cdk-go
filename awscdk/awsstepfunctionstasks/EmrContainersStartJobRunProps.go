@@ -18,8 +18,8 @@ import (
 //   			EntryPoint: sfn.TaskInput_FromText(jsii.String("local:///usr/lib/spark/examples/src/main/python/pi.py")),
 //   		},
 //   	},
-//   	ApplicationConfig: []applicationConfiguration{
-//   		&applicationConfiguration{
+//   	ApplicationConfig: []ApplicationConfiguration{
+//   		&ApplicationConfiguration{
 //   			Classification: tasks.Classification_SPARK_DEFAULTS(),
 //   			Properties: map[string]*string{
 //   				"spark.executor.instances": jsii.String("1"),

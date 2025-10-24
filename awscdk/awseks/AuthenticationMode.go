@@ -5,7 +5,7 @@ package awseks
 //
 // Example:
 //   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv33"
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{

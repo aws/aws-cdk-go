@@ -16,7 +16,7 @@ import (
 //   })
 //
 //   codeSigningConfig := lambda.NewCodeSigningConfig(this, jsii.String("CodeSigningConfig"), &CodeSigningConfigProps{
-//   	SigningProfiles: []iSigningProfile{
+//   	SigningProfiles: []ISigningProfile{
 //   		signingProfile,
 //   	},
 //   })

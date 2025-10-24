@@ -16,8 +16,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Mode: jsii.String("mode"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

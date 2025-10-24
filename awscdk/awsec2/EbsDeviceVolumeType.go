@@ -4,9 +4,9 @@ package awsec2
 // Supported EBS volume types for blockDevices.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
@@ -16,8 +16,8 @@ package awsec2
 //
 //   	// ...
 //
-//   	BlockDevices: []blockDevice{
-//   		&blockDevice{
+//   	BlockDevices: []BlockDevice{
+//   		&BlockDevice{
 //   			DeviceName: jsii.String("/dev/sda1"),
 //   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
 //   				VolumeType: ec2.EbsDeviceVolumeType_GP3,

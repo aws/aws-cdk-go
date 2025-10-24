@@ -4,7 +4,7 @@ package awsdocdb
 // The storage type of the DocDB cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{

@@ -83,12 +83,18 @@ package awselasticloadbalancingv2
 //   		&RuleConditionProperty{
 //   			Field: jsii.String("field"),
 //   			HostHeaderConfig: &HostHeaderConfigProperty{
+//   				RegexValues: []*string{
+//   					jsii.String("regexValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
 //   			},
 //   			HttpHeaderConfig: &HttpHeaderConfigProperty{
 //   				HttpHeaderName: jsii.String("httpHeaderName"),
+//   				RegexValues: []*string{
+//   					jsii.String("regexValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
@@ -99,6 +105,9 @@ package awselasticloadbalancingv2
 //   				},
 //   			},
 //   			PathPatternConfig: &PathPatternConfigProperty{
+//   				RegexValues: []*string{
+//   					jsii.String("regexValues"),
+//   				},
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},
@@ -110,6 +119,9 @@ package awselasticloadbalancingv2
 //   						Value: jsii.String("value"),
 //   					},
 //   				},
+//   			},
+//   			RegexValues: []*string{
+//   				jsii.String("regexValues"),
 //   			},
 //   			SourceIpConfig: &SourceIpConfigProperty{
 //   				Values: []*string{
@@ -125,6 +137,29 @@ package awselasticloadbalancingv2
 //
 //   	// the properties below are optional
 //   	ListenerArn: jsii.String("listenerArn"),
+//   	Transforms: []interface{}{
+//   		&TransformProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			HostHeaderRewriteConfig: &RewriteConfigObjectProperty{
+//   				Rewrites: []interface{}{
+//   					&RewriteConfigProperty{
+//   						Regex: jsii.String("regex"),
+//   						Replace: jsii.String("replace"),
+//   					},
+//   				},
+//   			},
+//   			UrlRewriteConfig: &RewriteConfigObjectProperty{
+//   				Rewrites: []interface{}{
+//   					&RewriteConfigProperty{
+//   						Regex: jsii.String("regex"),
+//   						Replace: jsii.String("replace"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
@@ -152,5 +187,8 @@ type CfnListenerRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
 	//
 	ListenerArn *string `field:"optional" json:"listenerArn" yaml:"listenerArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-transforms
+	//
+	Transforms interface{} `field:"optional" json:"transforms" yaml:"transforms"`
 }
 

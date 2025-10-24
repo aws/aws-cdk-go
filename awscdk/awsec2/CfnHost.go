@@ -29,8 +29,8 @@ import (
 //   	InstanceFamily: jsii.String("instanceFamily"),
 //   	InstanceType: jsii.String("instanceType"),
 //   	OutpostArn: jsii.String("outpostArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

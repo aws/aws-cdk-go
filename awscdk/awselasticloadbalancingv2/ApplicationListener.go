@@ -13,8 +13,8 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var asg autoScalingGroup
-//   var vpc vpc
+//   var asg AutoScalingGroup
+//   var vpc Vpc
 //
 //
 //   // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -39,7 +39,7 @@ import (
 //   // target to the listener.
 //   listener.AddTargets(jsii.String("ApplicationFleet"), &AddApplicationTargetsProps{
 //   	Port: jsii.Number(8080),
-//   	Targets: []iApplicationLoadBalancerTarget{
+//   	Targets: []IApplicationLoadBalancerTarget{
 //   		asg,
 //   	},
 //   })

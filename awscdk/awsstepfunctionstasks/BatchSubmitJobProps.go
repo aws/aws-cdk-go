@@ -9,8 +9,8 @@ import (
 //
 // Example:
 //   import batch "github.com/aws/aws-cdk-go/awscdk"
-//   var batchJobDefinition ecsJobDefinition
-//   var batchQueue jobQueue
+//   var batchJobDefinition EcsJobDefinition
+//   var batchQueue JobQueue
 //
 //
 //   task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{

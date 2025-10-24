@@ -18,11 +18,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventSourceDlq iEventSourceDlq
+//   var eventSourceDlq IEventSourceDlq
 //   var filters interface{}
-//   var key key
-//   var schemaRegistry iSchemaRegistry
-//   var secret secret
+//   var key Key
+//   var schemaRegistry ISchemaRegistry
+//   var secret Secret
 //
 //   kafkaEventSourceProps := &KafkaEventSourceProps{
 //   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,

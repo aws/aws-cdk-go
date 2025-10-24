@@ -8,7 +8,7 @@ package awscdkredshiftalpha
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 //
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   // Pause the cluster

@@ -4,7 +4,7 @@ package awscdkintegtestsalpha
 // Options for creating an HttpApiCall provider.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //
 //   awscdkintegtestsalpha.NewHttpApiCall(stack, jsii.String("MyAsssertion"), &HttpCallProps{

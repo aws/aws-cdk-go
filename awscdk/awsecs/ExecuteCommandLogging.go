@@ -7,7 +7,7 @@ package awsecs
 // [Logging] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 //

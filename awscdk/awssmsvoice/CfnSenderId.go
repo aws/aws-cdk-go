@@ -22,8 +22,8 @@ import (
 //
 //   	// the properties below are optional
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -473,25 +473,6 @@ func (j *jsiiProxy_CfnSenderId)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new ISenderIdRef from an ARN.
-func CfnSenderId_FromSenderIdArn(scope constructs.Construct, id *string, arn *string) ISenderIdRef {
-	_init_.Initialize()
-
-	if err := validateCfnSenderId_FromSenderIdArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ISenderIdRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_smsvoice.CfnSenderId",
-		"fromSenderIdArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

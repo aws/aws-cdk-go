@@ -4,8 +4,8 @@ package awscognito
 // The user pool trigger version of the request that Amazon Cognito sends to your Lambda function.
 //
 // Example:
-//   var userpool userPool
-//   var preTokenGenerationFn function
+//   var userpool UserPool
+//   var preTokenGenerationFn Function
 //
 //
 //   userpool.AddTrigger(cognito.UserPoolOperation_PRE_TOKEN_GENERATION_CONFIG(), preTokenGenerationFn, cognito.LambdaVersion_V2_0)

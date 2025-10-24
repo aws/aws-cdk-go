@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificate certificate
+//   var certificate Certificate
 //
 //   endpointOptions := &EndpointOptions{
 //   	Certificate: certificate,

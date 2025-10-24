@@ -6,15 +6,15 @@ package awsec2
 // Example:
 //   // Add gateway endpoints when creating the VPC
 //   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	GatewayEndpoints: map[string]gatewayVpcEndpointOptions{
-//   		"S3": &gatewayVpcEndpointOptions{
+//   	GatewayEndpoints: map[string]GatewayVpcEndpointOptions{
+//   		"S3": &GatewayVpcEndpointOptions{
 //   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
 //   		},
 //   	},
 //   })
 //
 //   // Alternatively gateway endpoints can be added on the VPC
-//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &gatewayVpcEndpointOptions{
+//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &GatewayVpcEndpointOptions{
 //   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
 //   })
 //
@@ -22,7 +22,7 @@ package awsec2
 //   dynamoDbEndpoint.AddToPolicy(
 //   iam.NewPolicyStatement(&PolicyStatementProps{
 //   	 // Restrict to listing and describing tables
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		iam.NewAnyPrincipal(),
 //   	},
 //   	Actions: []*string{
@@ -48,14 +48,14 @@ type GatewayVpcEndpointOptions struct {
 	// Specify a list of subnet selection objects here to be more specific.
 	//
 	// Example:
-	//   var vpc vpc
+	//   var vpc Vpc
 	//
 	//
 	//   vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &GatewayVpcEndpointOptions{
 	//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
 	//   	// Add only to ISOLATED subnets
-	//   	Subnets: []subnetSelection{
-	//   		&subnetSelection{
+	//   	Subnets: []SubnetSelection{
+	//   		&SubnetSelection{
 	//   			SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
 	//   		},
 	//   	},

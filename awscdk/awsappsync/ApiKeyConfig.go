@@ -12,7 +12,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var expiration expiration
+//   var expiration Expiration
 //
 //   apiKeyConfig := &ApiKeyConfig{
 //   	Description: jsii.String("description"),

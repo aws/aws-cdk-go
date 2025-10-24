@@ -264,22 +264,22 @@ actionGroupFunction := lambda.NewFunction(this, jsii.String("ActionGroupFunction
 
 // Define a function schema with parameters
 functionSchema := bedrock.NewFunctionSchema(&FunctionSchemaProps{
-	Functions: []functionProps{
-		&functionProps{
+	Functions: []FunctionProps{
+		&FunctionProps{
 			Name: jsii.String("searchBooks"),
 			Description: jsii.String("Search for books in the library catalog"),
-			Parameters: map[string]functionParameterProps{
-				"query": &functionParameterProps{
+			Parameters: map[string]FunctionParameterProps{
+				"query": &FunctionParameterProps{
 					"type": bedrock.ParameterType_STRING,
 					"required": jsii.Boolean(true),
 					"description": jsii.String("The search query string"),
 				},
-				"maxResults": &functionParameterProps{
+				"maxResults": &FunctionParameterProps{
 					"type": bedrock.ParameterType_INTEGER,
 					"required": jsii.Boolean(false),
 					"description": jsii.String("Maximum number of results to return"),
 				},
-				"includeOutOfPrint": &functionParameterProps{
+				"includeOutOfPrint": &FunctionParameterProps{
 					"type": bedrock.ParameterType_BOOLEAN,
 					"required": jsii.Boolean(false),
 					"description": jsii.String("Whether to include out-of-print books"),
@@ -287,11 +287,11 @@ functionSchema := bedrock.NewFunctionSchema(&FunctionSchemaProps{
 			},
 			RequireConfirmation: bedrock.RequireConfirmation_DISABLED,
 		},
-		&functionProps{
+		&FunctionProps{
 			Name: jsii.String("getBookDetails"),
 			Description: jsii.String("Get detailed information about a specific book"),
-			Parameters: map[string]*functionParameterProps{
-				"bookId": &functionParameterProps{
+			Parameters: map[string]FunctionParameterProps{
+				"bookId": &FunctionParameterProps{
 					"type": bedrock.ParameterType_STRING,
 					"required": jsii.Boolean(true),
 					"description": jsii.String("The unique identifier of the book"),
@@ -314,7 +314,7 @@ actionGroup := bedrock.NewAgentActionGroup(&AgentActionGroupProps{
 agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 	FoundationModel: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_V1_0(),
 	Instruction: jsii.String("You are a helpful and friendly agent that answers questions about literature."),
-	ActionGroups: []agentActionGroup{
+	ActionGroups: []AgentActionGroup{
 		actionGroup,
 	},
 })
@@ -367,7 +367,7 @@ schemaBucket := s3.NewBucket(this, jsii.String("SchemaBucket"), &BucketProps{
 
 // deploy the local schema file to S3
 deployement := awscdk.Aws_s3_deployment.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
-	Sources: []iSource{
+	Sources: []ISource{
 		awscdk.*Aws_s3_deployment.Source_Asset(path.join(__dirname, jsii.String("../inputschema"))),
 	},
 	DestinationBucket: schemaBucket,
@@ -468,8 +468,8 @@ Example with pre-processing configuration:
 agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 	FoundationModel: bedrock.BedrockFoundationModel_AMAZON_NOVA_LITE_V1(),
 	Instruction: jsii.String("You are a helpful assistant."),
-	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]promptStepConfigBase{
-		&promptStepConfigBase{
+	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]PromptStepConfigBase{
+		&PromptStepConfigBase{
 			StepType: bedrock.AgentStepType_PRE_PROCESSING,
 			StepEnabled: jsii.Boolean(true),
 			CustomPromptTemplate: jsii.String("Your custom prompt template here"),
@@ -493,13 +493,13 @@ Example with routing classifier and foundation model:
 agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 	FoundationModel: bedrock.BedrockFoundationModel_AMAZON_NOVA_LITE_V1(),
 	Instruction: jsii.String("You are a helpful assistant."),
-	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]promptStepConfigBase{
+	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]PromptStepConfigBase{
 		&PromptRoutingClassifierConfigCustomParser{
 			StepType: bedrock.AgentStepType_ROUTING_CLASSIFIER,
 			StepEnabled: jsii.Boolean(true),
 			CustomPromptTemplate: jsii.String("Your routing template here"),
 			FoundationModel: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_V2(),
-		}.(promptRoutingClassifierConfigCustomParser),
+		}.(PromptRoutingClassifierConfigCustomParser),
 	}),
 })
 ```
@@ -737,12 +737,12 @@ guardrail.AddContentFilter(&ContentFilter{
 	InputEnabled: jsii.Boolean(true),
 	OutputAction: bedrock.GuardrailAction_NONE,
 	OutputEnabled: jsii.Boolean(true),
-	InputModalities: []modalityType{
-		bedrock.*modalityType_TEXT,
-		bedrock.*modalityType_IMAGE,
+	InputModalities: []ModalityType{
+		bedrock.ModalityType_TEXT,
+		bedrock.ModalityType_IMAGE,
 	},
-	OutputModalities: []*modalityType{
-		bedrock.*modalityType_TEXT,
+	OutputModalities: []ModalityType{
+		bedrock.ModalityType_TEXT,
 	},
 })
 ```
@@ -1136,7 +1136,7 @@ You can import existing guardrails using the `fromGuardrailAttributes` or `fromC
 #### Import Configuration
 
 ```go
-var stack stack
+var stack Stack
 
 cmk := kms.NewKey(this, jsii.String("cmk"), &KeyProps{
 })
@@ -1226,7 +1226,7 @@ prompt1 := bedrock.NewPrompt(this, jsii.String("prompt1"), &PromptProps{
 	PromptName: jsii.String("prompt1"),
 	Description: jsii.String("my first prompt"),
 	DefaultVariant: variant1,
-	Variants: []iPromptVariant{
+	Variants: []IPromptVariant{
 		variant1,
 	},
 	KmsKey: cmk,
@@ -1244,10 +1244,10 @@ cmk := kms.NewKey(this, jsii.String("cmk"), &KeyProps{
 variantChat := bedrock.PromptVariant_Chat(&ChatPromptVariantProps{
 	VariantName: jsii.String("variant1"),
 	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-	Messages: []chatMessage{
-		bedrock.*chatMessage_User(jsii.String("From now on, you speak Japanese!")),
-		bedrock.*chatMessage_Assistant(jsii.String("Konnichiwa!")),
-		bedrock.*chatMessage_*User(jsii.String("From now on, you speak {{language}}!")),
+	Messages: []ChatMessage{
+		bedrock.ChatMessage_User(jsii.String("From now on, you speak Japanese!")),
+		bedrock.ChatMessage_Assistant(jsii.String("Konnichiwa!")),
+		bedrock.ChatMessage_*User(jsii.String("From now on, you speak {{language}}!")),
 	},
 	System: jsii.String("You are a helpful assistant that only speaks the language you`re told."),
 	PromptVariables: []*string{
@@ -1255,8 +1255,8 @@ variantChat := bedrock.PromptVariant_Chat(&ChatPromptVariantProps{
 	},
 	ToolConfiguration: &ToolConfiguration{
 		ToolChoice: bedrock.ToolChoice_AUTO(),
-		Tools: []tool{
-			bedrock.*tool_Function(&FunctionToolProps{
+		Tools: []Tool{
+			bedrock.Tool_Function(&FunctionToolProps{
 				Name: jsii.String("top_song"),
 				Description: jsii.String("Get the most popular song played on a radio station."),
 				InputSchema: map[string]interface{}{
@@ -1280,7 +1280,7 @@ bedrock.NewPrompt(this, jsii.String("prompt1"), &PromptProps{
 	PromptName: jsii.String("prompt-chat"),
 	Description: jsii.String("my first chat prompt"),
 	DefaultVariant: variantChat,
-	Variants: []iPromptVariant{
+	Variants: []IPromptVariant{
 		variantChat,
 	},
 	KmsKey: cmk,
@@ -1322,7 +1322,7 @@ bedrock.NewPrompt(this, jsii.String("agentPrompt"), &PromptProps{
 	PromptName: jsii.String("agent-prompt"),
 	Description: jsii.String("Prompt for agent interactions"),
 	DefaultVariant: agentVariant,
-	Variants: []iPromptVariant{
+	Variants: []IPromptVariant{
 		agentVariant,
 	},
 	KmsKey: cmk,
@@ -1369,7 +1369,7 @@ prompt1 := bedrock.NewPrompt(this, jsii.String("prompt1"), &PromptProps{
 	PromptName: jsii.String("prompt1"),
 	Description: jsii.String("my first prompt"),
 	DefaultVariant: variant1,
-	Variants: []iPromptVariant{
+	Variants: []IPromptVariant{
 		variant1,
 	},
 	KmsKey: cmk,
@@ -1437,7 +1437,7 @@ variant := bedrock.PromptVariant_Text(&TextPromptVariantProps{
 
 bedrock.NewPrompt(this, jsii.String("Prompt"), &PromptProps{
 	PromptName: jsii.String("prompt-router-test"),
-	Variants: []iPromptVariant{
+	Variants: []IPromptVariant{
 		variant,
 	},
 })
@@ -1513,7 +1513,7 @@ variant := bedrock.PromptVariant_Text(&TextPromptVariantProps{
 
 bedrock.NewPrompt(this, jsii.String("Prompt"), &PromptProps{
 	PromptName: jsii.String("prompt-router-test"),
-	Variants: []iPromptVariant{
+	Variants: []IPromptVariant{
 		variant,
 	},
 })

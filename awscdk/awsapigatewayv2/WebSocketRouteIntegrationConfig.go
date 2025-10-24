@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   webSocketRouteIntegrationConfig := &WebSocketRouteIntegrationConfig{
 //   	Type: awscdk.Aws_apigatewayv2.WebSocketIntegrationType_AWS_PROXY,

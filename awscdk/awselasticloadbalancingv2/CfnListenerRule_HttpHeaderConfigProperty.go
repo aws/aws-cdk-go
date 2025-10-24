@@ -12,6 +12,9 @@ package awselasticloadbalancingv2
 //
 //   httpHeaderConfigProperty := &HttpHeaderConfigProperty{
 //   	HttpHeaderName: jsii.String("httpHeaderName"),
+//   	RegexValues: []*string{
+//   		jsii.String("regexValues"),
+//   	},
 //   	Values: []*string{
 //   		jsii.String("values"),
 //   	},
@@ -26,9 +29,12 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-httpheadername
 	//
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-regexvalues
+	//
+	RegexValues *[]*string `field:"optional" json:"regexValues" yaml:"regexValues"`
 	// The strings to compare against the value of the HTTP header.
 	//
-	// The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	// The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//
 	// If the same header appears multiple times in the request, we search them in order until a match is found.
 	//

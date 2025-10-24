@@ -30,8 +30,8 @@ import (
 //   	Version: jsii.String("1"),
 //   	EntityUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
 //   	ExecutionUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
-//   	ActionProperties: []customActionProperty{
-//   		&customActionProperty{
+//   	ActionProperties: []CustomActionProperty{
+//   		&CustomActionProperty{
 //   			Name: jsii.String("Branch"),
 //   			Required: jsii.Boolean(true),
 //   			Key: jsii.Boolean(false),
@@ -40,7 +40,7 @@ import (
 //   			Description: jsii.String("Git branch to pull"),
 //   			Type: jsii.String("String"),
 //   		},
-//   		&customActionProperty{
+//   		&CustomActionProperty{
 //   			Name: jsii.String("GitUrl"),
 //   			Required: jsii.Boolean(true),
 //   			Key: jsii.Boolean(false),

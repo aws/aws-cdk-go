@@ -9,8 +9,8 @@ import (
 // Options to add the multi user rotation.
 //
 // Example:
-//   var instance databaseInstance
-//   var myImportedSecret databaseSecret
+//   var instance DatabaseInstance
+//   var myImportedSecret DatabaseSecret
 //
 //   instance.addRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
 //   	Secret: myImportedSecret,

@@ -17,7 +17,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var service service
+//   var service Service
 //
 //   nonIpInstance := awscdk.Aws_servicediscovery.NewNonIpInstance(this, jsii.String("MyNonIpInstance"), &NonIpInstanceProps{
 //   	Service: service,

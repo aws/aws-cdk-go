@@ -29,8 +29,8 @@ import (
 //   	DbShardGroupIdentifier: jsii.String("dbShardGroupIdentifier"),
 //   	MinAcu: jsii.Number(123),
 //   	PubliclyAccessible: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -82,7 +82,7 @@ type CfnRepositoryCreationTemplate interface {
 	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
-	// Defines the image tag mutability exclusion filters to apply when creating repositories from this template.
+	// A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
 	ImageTagMutabilityExclusionFilters() interface{}
 	SetImageTagMutabilityExclusionFilters(val interface{})
 	// The lifecycle policy to use for repositories created using the template.

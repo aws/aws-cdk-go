@@ -180,8 +180,8 @@ import (
 //   			RegistryArn: jsii.String("registryArn"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -208,8 +208,8 @@ import (
 //
 //   						// the properties below are optional
 //   						PropagateTags: jsii.String("propagateTags"),
-//   						Tags: []*cfnTag{
-//   							&cfnTag{
+//   						Tags: []CfnTag{
+//   							&CfnTag{
 //   								Key: jsii.String("key"),
 //   								Value: jsii.String("value"),
 //   							},
@@ -310,6 +310,8 @@ type CfnServiceProps struct {
 	// The launch type on which to run your service.
 	//
 	// For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// > If you want to use Managed Instances, you must use the `capacityProviderStrategy` request parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
 	//
 	LaunchType *string `field:"optional" json:"launchType" yaml:"launchType"`

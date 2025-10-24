@@ -14,12 +14,12 @@ import (
 // Example:
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var table table
+//   var table Table
 //
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewDynamoDBv2PutItemAction(table),
 //   	},
 //   })

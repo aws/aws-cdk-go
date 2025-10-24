@@ -198,8 +198,8 @@ You can enable enhanced shard-level metrics for your Kinesis stream to get detai
 
 ```go
 stream := kinesis.NewStream(this, jsii.String("MyStream"), &StreamProps{
-	ShardLevelMetrics: []shardLevelMetrics{
-		kinesis.*shardLevelMetrics_ALL,
+	ShardLevelMetrics: []ShardLevelMetrics{
+		kinesis.ShardLevelMetrics_ALL,
 	},
 })
 ```
@@ -208,14 +208,14 @@ You can also specify individual metrics that you want to monitor:
 
 ```go
 stream := kinesis.NewStream(this, jsii.String("MyStream"), &StreamProps{
-	ShardLevelMetrics: []shardLevelMetrics{
-		kinesis.*shardLevelMetrics_INCOMING_BYTES,
-		kinesis.*shardLevelMetrics_INCOMING_RECORDS,
-		kinesis.*shardLevelMetrics_ITERATOR_AGE_MILLISECONDS,
-		kinesis.*shardLevelMetrics_OUTGOING_BYTES,
-		kinesis.*shardLevelMetrics_OUTGOING_RECORDS,
-		kinesis.*shardLevelMetrics_READ_PROVISIONED_THROUGHPUT_EXCEEDED,
-		kinesis.*shardLevelMetrics_WRITE_PROVISIONED_THROUGHPUT_EXCEEDED,
+	ShardLevelMetrics: []ShardLevelMetrics{
+		kinesis.ShardLevelMetrics_INCOMING_BYTES,
+		kinesis.ShardLevelMetrics_INCOMING_RECORDS,
+		kinesis.ShardLevelMetrics_ITERATOR_AGE_MILLISECONDS,
+		kinesis.ShardLevelMetrics_OUTGOING_BYTES,
+		kinesis.ShardLevelMetrics_OUTGOING_RECORDS,
+		kinesis.ShardLevelMetrics_READ_PROVISIONED_THROUGHPUT_EXCEEDED,
+		kinesis.ShardLevelMetrics_WRITE_PROVISIONED_THROUGHPUT_EXCEEDED,
 	},
 })
 ```
@@ -304,7 +304,7 @@ stream.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("kinesis:GetRecords"),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAnyPrincipal(),
 	},
 }))
@@ -317,7 +317,7 @@ streamConsumer.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("kinesis:DescribeStreamConsumer"),
 	},
-	Principals: []*iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAnyPrincipal(),
 	},
 }))
@@ -337,7 +337,7 @@ streamConsumer := kinesis.NewStreamConsumer(this, jsii.String("MyStreamConsumer"
 // create a custom policy document
 policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 	AssignSids: jsii.Boolean(true),
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("kinesis:GetRecords"),
@@ -345,7 +345,7 @@ policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 			Resources: []*string{
 				stream.StreamArn,
 			},
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewAnyPrincipal(),
 			},
 		}),

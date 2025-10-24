@@ -11,7 +11,7 @@ import (
 // Linux-specific options that are applied to the container.
 //
 // Example:
-//   var taskDefinition taskDefinition
+//   var taskDefinition TaskDefinition
 //
 //
 //   taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{

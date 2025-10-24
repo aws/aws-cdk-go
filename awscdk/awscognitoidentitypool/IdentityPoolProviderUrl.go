@@ -15,8 +15,8 @@ import (
 //
 //   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 //   	IdentityPoolName: jsii.String("myidentitypool"),
-//   	RoleMappings: []identityPoolRoleMapping{
-//   		&identityPoolRoleMapping{
+//   	RoleMappings: []IdentityPoolRoleMapping{
+//   		&IdentityPoolRoleMapping{
 //   			ProviderUrl: awscdk.IdentityPoolProviderUrl_Custom(jsii.String("my-custom-provider.com")),
 //   			UseToken: jsii.Boolean(true),
 //   		},

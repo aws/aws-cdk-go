@@ -11,8 +11,8 @@ import (
 // Use another Route 53 record as an alias record target.
 //
 // Example:
-//   var zone hostedZone
-//   var record aRecord
+//   var zone HostedZone
+//   var record ARecord
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,

@@ -11,9 +11,9 @@ import (
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var topic topic
+//   var topic Topic
 //
-//   var fn function
+//   var fn Function
 //
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
 //   fn.AddEventSource(awscdk.NewSnsEventSource(topic, &SnsEventSourceProps{

@@ -8,9 +8,9 @@ package awsec2
 // physical hardware without a hypervisor).
 //
 // Example:
-//   var infrastructureRole role
-//   var instanceProfile instanceProfile
-//   var vpc vpc
+//   var infrastructureRole Role
+//   var instanceProfile InstanceProfile
+//   var vpc Vpc
 //
 //
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
@@ -25,12 +25,12 @@ package awsec2
 //   		MemoryMax: awscdk.Size_*Gibibytes(jsii.Number(32)),
 //
 //   		// CPU preferences
-//   		CpuManufacturers: []cpuManufacturer{
-//   			ec2.*cpuManufacturer_INTEL,
-//   			ec2.*cpuManufacturer_AMD,
+//   		CpuManufacturers: []CpuManufacturer{
+//   			ec2.CpuManufacturer_INTEL,
+//   			ec2.CpuManufacturer_AMD,
 //   		},
-//   		InstanceGenerations: []instanceGeneration{
-//   			ec2.*instanceGeneration_CURRENT,
+//   		InstanceGenerations: []InstanceGeneration{
+//   			ec2.InstanceGeneration_CURRENT,
 //   		},
 //
 //   		// Instance type filtering
@@ -44,22 +44,22 @@ package awsec2
 //   		BareMetal: ec2.BareMetal_EXCLUDED,
 //
 //   		// Accelerator requirements (for ML/AI workloads)
-//   		AcceleratorTypes: []acceleratorType{
-//   			ec2.*acceleratorType_GPU,
+//   		AcceleratorTypes: []AcceleratorType{
+//   			ec2.AcceleratorType_GPU,
 //   		},
-//   		AcceleratorManufacturers: []acceleratorManufacturer{
-//   			ec2.*acceleratorManufacturer_NVIDIA,
+//   		AcceleratorManufacturers: []AcceleratorManufacturer{
+//   			ec2.AcceleratorManufacturer_NVIDIA,
 //   		},
-//   		AcceleratorNames: []acceleratorName{
-//   			ec2.*acceleratorName_T4,
-//   			ec2.*acceleratorName_V100,
+//   		AcceleratorNames: []AcceleratorName{
+//   			ec2.AcceleratorName_T4,
+//   			ec2.AcceleratorName_V100,
 //   		},
 //   		AcceleratorCountMin: jsii.Number(1),
 //
 //   		// Storage requirements
 //   		LocalStorage: ec2.LocalStorage_REQUIRED,
-//   		LocalStorageTypes: []localStorageType{
-//   			ec2.*localStorageType_SSD,
+//   		LocalStorageTypes: []LocalStorageType{
+//   			ec2.LocalStorageType_SSD,
 //   		},
 //   		TotalLocalStorageGBMin: jsii.Number(100),
 //

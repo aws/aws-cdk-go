@@ -15,7 +15,7 @@ import (
 // A VPC flow log.
 //
 // Example:
-//   var tgw cfnTransitGateway
+//   var tgw CfnTransitGateway
 //
 //
 //   ec2.NewFlowLog(this, jsii.String("TransitGatewayFlowLog"), &FlowLogProps{

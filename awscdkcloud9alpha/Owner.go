@@ -12,7 +12,7 @@ import (
 // Example:
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 //   	Vpc: Vpc,

@@ -68,8 +68,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	OrganizationEnabled: jsii.Boolean(false),
 //   	RetentionPeriod: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -11,11 +11,11 @@ import (
 // A custom Deployment Configuration for an ECS Deployment Group.
 //
 // Example:
-//   var service fargateService
-//   var blueTargetGroup iTargetGroup
-//   var greenTargetGroup iTargetGroup
-//   var listener iApplicationListener
-//   var testListener iApplicationListener
+//   var service FargateService
+//   var blueTargetGroup ITargetGroup
+//   var greenTargetGroup ITargetGroup
+//   var listener IApplicationListener
+//   var testListener IApplicationListener
 //
 //
 //   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{

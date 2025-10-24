@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var backupPlan backupPlan
-//   var backupResource backupResource
-//   var role role
+//   var backupPlan BackupPlan
+//   var backupResource BackupResource
+//   var role Role
 //
 //   backupSelectionProps := &BackupSelectionProps{
 //   	BackupPlan: backupPlan,
-//   	Resources: []*backupResource{
+//   	Resources: []BackupResource{
 //   		backupResource,
 //   	},
 //

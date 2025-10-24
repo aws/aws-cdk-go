@@ -14,8 +14,8 @@ import (
 // Example:
 //   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApi httpApi
-//   var rule rule
+//   var httpApi HttpApi
+//   var rule Rule
 //
 //
 //   rule.AddTarget(targets.NewApiGatewayV2(httpApi))

@@ -16,8 +16,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var metric metric
-//   var scalableTarget scalableTarget
+//   var metric Metric
+//   var scalableTarget ScalableTarget
 //
 //   targetTrackingScalingPolicyProps := &TargetTrackingScalingPolicyProps{
 //   	ScalingTarget: scalableTarget,

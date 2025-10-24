@@ -18,9 +18,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
-//   var role role
-//   var ruleTargetInput ruleTargetInput
+//   var queue Queue
+//   var role Role
+//   var ruleTargetInput RuleTargetInput
 //
 //   apiDestinationProps := &ApiDestinationProps{
 //   	DeadLetterQueue: queue,

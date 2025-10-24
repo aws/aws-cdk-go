@@ -18,18 +18,18 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var albControllerVersion albControllerVersion
-//   var endpointAccess endpointAccess
-//   var keyRef iKeyRef
-//   var kubernetesVersion kubernetesVersion
-//   var layerVersion layerVersion
+//   var albControllerVersion AlbControllerVersion
+//   var endpointAccess EndpointAccess
+//   var keyRef IKeyRef
+//   var kubernetesVersion KubernetesVersion
+//   var layerVersion LayerVersion
 //   var policy interface{}
-//   var role role
-//   var securityGroup securityGroup
-//   var size size
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var size Size
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   clusterCommonOptions := &ClusterCommonOptions{
 //   	Version: kubernetesVersion,
@@ -42,8 +42,8 @@ import (
 //   		Policy: policy,
 //   		Repository: jsii.String("repository"),
 //   	},
-//   	ClusterLogging: []clusterLoggingTypes{
-//   		eks_v2_alpha.*clusterLoggingTypes_API,
+//   	ClusterLogging: []ClusterLoggingTypes{
+//   		eks_v2_alpha.ClusterLoggingTypes_API,
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
 //   	CoreDnsComputeType: eks_v2_alpha.CoreDnsComputeType_EC2,
@@ -58,7 +58,7 @@ import (
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		Memory: size,
-//   		PrivateSubnets: []iSubnet{
+//   		PrivateSubnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		Role: role,
@@ -74,17 +74,17 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Vpc: vpc,
-//   	VpcSubnets: []subnetSelection{
-//   		&subnetSelection{
+//   	VpcSubnets: []SubnetSelection{
+//   		&SubnetSelection{
 //   			AvailabilityZones: []*string{
 //   				jsii.String("availabilityZones"),
 //   			},
 //   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
+//   			SubnetFilters: []SubnetFilter{
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []*iSubnet{
+//   			Subnets: []ISubnet{
 //   				subnet,
 //   			},
 //   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

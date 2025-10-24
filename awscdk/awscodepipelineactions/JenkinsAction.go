@@ -12,7 +12,7 @@ import (
 // Jenkins build CodePipeline Action.
 //
 // Example:
-//   var jenkinsProvider jenkinsProvider
+//   var jenkinsProvider JenkinsProvider
 //
 //   buildAction := codepipeline_actions.NewJenkinsAction(&JenkinsActionProps{
 //   	ActionName: jsii.String("JenkinsBuild"),

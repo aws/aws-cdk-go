@@ -15,7 +15,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket iBucket
+//   var bucket IBucket
 //
 //
 //   app := cdk.NewApp()
@@ -181,7 +181,7 @@ type Stack interface {
 	// Duplicate values are removed when stack is synthesized.
 	//
 	// Example:
-	//   var stack stack
+	//   var stack Stack
 	//
 	//
 	//   stack.AddTransform(jsii.String("AWS::Serverless-2016-10-31"))

@@ -9,7 +9,7 @@ import (
 // Example:
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var table table
+//   var table Table
 //
 //
 //   readCapacity := table.AutoScaleReadCapacity(&EnableScalingProps{

@@ -7,7 +7,7 @@ import (
 // Properties for a scheduled scaling action.
 //
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //
 //   autoScalingGroup.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &BasicScheduledActionProps{

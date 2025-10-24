@@ -16,13 +16,13 @@ import (
 // This topic describes the key aspects of a matchmaker and how to configure one customized for your game.
 //
 // Example:
-//   var queue gameSessionQueue
-//   var ruleSet matchmakingRuleSet
+//   var queue GameSessionQueue
+//   var ruleSet MatchmakingRuleSet
 //
 //
 //   gamelift.NewQueuedMatchmakingConfiguration(this, jsii.String("QueuedMatchmakingConfiguration"), &QueuedMatchmakingConfigurationProps{
 //   	MatchmakingConfigurationName: jsii.String("test-queued-config-name"),
-//   	GameSessionQueues: []iGameSessionQueue{
+//   	GameSessionQueues: []IGameSessionQueue{
 //   		queue,
 //   	},
 //   	RuleSet: ruleSet,

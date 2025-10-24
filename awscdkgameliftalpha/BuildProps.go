@@ -7,7 +7,7 @@ import (
 // Properties for a new build.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 //   	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),

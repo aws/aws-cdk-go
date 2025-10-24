@@ -7,8 +7,8 @@ package awsbatch
 //   multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
 //   	 // optional, omit to let Batch choose the type for you
-//   	Containers: []multiNodeContainer{
-//   		&multiNodeContainer{
+//   	Containers: []MultiNodeContainer{
+//   		&MultiNodeContainer{
 //   			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
 //   				Image: ecs.ContainerImage_FromRegistry(jsii.String("yourregsitry.com/yourMPIImage:latest")),
 //   				Cpu: jsii.Number(256),
@@ -20,7 +20,7 @@ package awsbatch
 //   	},
 //   })
 //   // convenience method
-//   multiNodeJob.AddContainer(&multiNodeContainer{
+//   multiNodeJob.AddContainer(&MultiNodeContainer{
 //   	StartNode: jsii.Number(6),
 //   	EndNode: jsii.Number(10),
 //   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("multiContainer"), &EcsEc2ContainerDefinitionProps{

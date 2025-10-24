@@ -12,7 +12,7 @@ import (
 //   import iotevents_alpha "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   actionBindOptions := &ActionBindOptions{
 //   	Role: role,

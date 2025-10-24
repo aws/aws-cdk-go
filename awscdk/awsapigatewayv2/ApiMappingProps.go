@@ -8,9 +8,9 @@ package awsapigatewayv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var domainName domainName
-//   var stage iStage
+//   var api IApi
+//   var domainName DomainName
+//   var stage IStage
 //
 //   apiMappingProps := &ApiMappingProps{
 //   	Api: api,

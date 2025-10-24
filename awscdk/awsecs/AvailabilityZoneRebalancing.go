@@ -4,8 +4,8 @@ package awsecs
 // Indicates whether to use Availability Zone rebalancing for an ECS service.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{

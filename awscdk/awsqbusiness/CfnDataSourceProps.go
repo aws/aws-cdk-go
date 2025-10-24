@@ -107,8 +107,8 @@ import (
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	SyncSchedule: jsii.String("syncSchedule"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

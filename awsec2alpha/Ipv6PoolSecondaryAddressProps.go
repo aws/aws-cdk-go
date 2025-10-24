@@ -6,7 +6,7 @@ package awsec2alpha
 // Example:
 //   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 //   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
-//   	SecondaryAddressBlocks: []iIpAddresses{
+//   	SecondaryAddressBlocks: []IIpAddresses{
 //   		awsec2alpha.IpAddresses_Ipv6ByoipPool(&Ipv6PoolSecondaryAddressProps{
 //   			CidrBlockName: jsii.String("MyByoipCidrBlock"),
 //   			Ipv6PoolId: jsii.String("ipv6pool-ec2-someHashValue"),

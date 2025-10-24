@@ -18,7 +18,7 @@ import (
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var ecrRepository repository
+//   var ecrRepository Repository
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   sourceOutput := codepipeline.NewArtifact()
@@ -31,7 +31,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		sourceAction,
 //   	},
 //   })

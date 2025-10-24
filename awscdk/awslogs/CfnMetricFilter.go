@@ -43,6 +43,10 @@ import (
 //
 //   	// the properties below are optional
 //   	ApplyOnTransformedLogs: jsii.Boolean(false),
+//   	EmitSystemFieldDimensions: []*string{
+//   		jsii.String("emitSystemFieldDimensions"),
+//   	},
+//   	FieldSelectionCriteria: jsii.String("fieldSelectionCriteria"),
 //   	FilterName: jsii.String("filterName"),
 //   })
 //
@@ -64,6 +68,12 @@ type CfnMetricFilter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The list of system fields that are emitted as additional dimensions in the generated metrics.
+	EmitSystemFieldDimensions() *[]*string
+	SetEmitSystemFieldDimensions(val *[]*string)
+	// The filter expression that specifies which log events are processed by this metric filter based on system fields.
+	FieldSelectionCriteria() *string
+	SetFieldSelectionCriteria(val *string)
 	// The name of the metric filter.
 	FilterName() *string
 	SetFilterName(val *string)
@@ -296,6 +306,26 @@ func (j *jsiiProxy_CfnMetricFilter) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMetricFilter) EmitSystemFieldDimensions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"emitSystemFieldDimensions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMetricFilter) FieldSelectionCriteria() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fieldSelectionCriteria",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMetricFilter) FilterName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -441,6 +471,22 @@ func (j *jsiiProxy_CfnMetricFilter)SetApplyOnTransformedLogs(val interface{}) {
 	_jsii_.Set(
 		j,
 		"applyOnTransformedLogs",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricFilter)SetEmitSystemFieldDimensions(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"emitSystemFieldDimensions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricFilter)SetFieldSelectionCriteria(val *string) {
+	_jsii_.Set(
+		j,
+		"fieldSelectionCriteria",
 		val,
 	)
 }

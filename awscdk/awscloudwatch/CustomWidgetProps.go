@@ -4,7 +4,7 @@ package awscloudwatch
 // The properties for a CustomWidget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   // Import or create a lambda function

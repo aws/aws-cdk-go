@@ -9,8 +9,8 @@ package awscdk
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCodeDeployBlueGreenHookProps := &CfnCodeDeployBlueGreenHookProps{
-//   	Applications: []cfnCodeDeployBlueGreenApplication{
-//   		&cfnCodeDeployBlueGreenApplication{
+//   	Applications: []CfnCodeDeployBlueGreenApplication{
+//   		&CfnCodeDeployBlueGreenApplication{
 //   			EcsAttributes: &CfnCodeDeployBlueGreenEcsAttributes{
 //   				TaskDefinitions: []*string{
 //   					jsii.String("taskDefinitions"),

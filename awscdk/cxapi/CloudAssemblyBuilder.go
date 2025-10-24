@@ -14,7 +14,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cloudAssemblyBuilder_ cloudAssemblyBuilder
+//   var cloudAssemblyBuilder_ CloudAssemblyBuilder
 //
 //   cloudAssemblyBuilder := awscdk.Cx_api.NewCloudAssemblyBuilder(jsii.String("outdir"), &CloudAssemblyBuilderProps{
 //   	AssetOutdir: jsii.String("assetOutdir"),

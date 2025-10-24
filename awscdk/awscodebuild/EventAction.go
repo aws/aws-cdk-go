@@ -12,9 +12,9 @@ package awscodebuild
 //   	 // optional, default: true if `webhookFilters` were provided, false otherwise
 //   	WebhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
-//   	WebhookFilters: []filterGroup{
-//   		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
-//   		codebuild.*filterGroup_*InEventOf(codebuild.EventAction_RELEASED).*AndBranchIs(jsii.String("main")),
+//   	WebhookFilters: []FilterGroup{
+//   		codebuild.FilterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.FilterGroup_*InEventOf(codebuild.EventAction_RELEASED).*AndBranchIs(jsii.String("main")),
 //   	},
 //   })
 //

@@ -22,10 +22,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificateValidation certificateValidation
-//   var hostedZone hostedZone
-//   var keyAlgorithm keyAlgorithm
-//   var role role
+//   var certificateValidation CertificateValidation
+//   var hostedZone HostedZone
+//   var keyAlgorithm KeyAlgorithm
+//   var role Role
 //
 //   dnsValidatedCertificate := awscdk.Aws_certificatemanager.NewDnsValidatedCertificate(this, jsii.String("MyDnsValidatedCertificate"), &DnsValidatedCertificateProps{
 //   	DomainName: jsii.String("domainName"),

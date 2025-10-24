@@ -12,7 +12,7 @@ import (
 // Define a new IAM user.
 //
 // Example:
-//   var definition iChainable
+//   var definition IChainable
 //   user := iam.NewUser(this, jsii.String("MyUser"))
 //   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 //   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),

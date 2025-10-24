@@ -4,16 +4,16 @@ package awscdkivsalpha
 // Resolution for rendition.
 //
 // Example:
-//   var recordingBucket bucket
+//   var recordingBucket Bucket
 //
 //
 //   recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
 //   	Bucket: recordingBucket,
 //
 //   	// set rendition configuration
-//   	RenditionConfiguration: ivs.RenditionConfiguration_Custom([]resolution{
-//   		ivs.*resolution_HD,
-//   		ivs.*resolution_SD,
+//   	RenditionConfiguration: ivs.RenditionConfiguration_Custom([]Resolution{
+//   		ivs.Resolution_HD,
+//   		ivs.Resolution_SD,
 //   	}),
 //   })
 //

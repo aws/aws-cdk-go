@@ -11,7 +11,7 @@ import (
 // A log driver that sends log information to CloudWatch Logs.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // Create a Task Definition for the container to start
 //   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -34,11 +34,11 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	TaskCount: jsii.Number(1),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
+//   	ContainerOverrides: []ContainerOverride{
+//   		&ContainerOverride{
 //   			ContainerName: jsii.String("TheContainer"),
-//   			Environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
+//   			Environment: []TaskEnvironmentVariable{
+//   				&TaskEnvironmentVariable{
 //   					Name: jsii.String("I_WAS_TRIGGERED"),
 //   					Value: jsii.String("From CloudWatch Events"),
 //   				},

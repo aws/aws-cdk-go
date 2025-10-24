@@ -38,13 +38,13 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	LaunchTarget: tasks.NewEcsEc2LaunchTarget(&EcsEc2LaunchTargetOptions{
-//   		PlacementStrategies: []placementStrategy{
-//   			ecs.*placementStrategy_SpreadAcrossInstances(),
-//   			ecs.*placementStrategy_PackedByCpu(),
-//   			ecs.*placementStrategy_Randomly(),
+//   		PlacementStrategies: []PlacementStrategy{
+//   			ecs.PlacementStrategy_SpreadAcrossInstances(),
+//   			ecs.PlacementStrategy_PackedByCpu(),
+//   			ecs.PlacementStrategy_Randomly(),
 //   		},
-//   		PlacementConstraints: []placementConstraint{
-//   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
+//   		PlacementConstraints: []PlacementConstraint{
+//   			ecs.PlacementConstraint_MemberOf(jsii.String("blieptuut")),
 //   		},
 //   	}),
 //   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,

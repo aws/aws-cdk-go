@@ -14,15 +14,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
-//   var securityGroup securityGroup
+//   var role Role
+//   var securityGroup SecurityGroup
 //
 //   modelAttributes := &ModelAttributes{
 //   	ModelArn: jsii.String("modelArn"),
 //
 //   	// the properties below are optional
 //   	Role: role,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

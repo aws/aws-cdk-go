@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucketRef iBucketRef
+//   var bucketRef IBucketRef
 //
 //   s3Code := awscdk.Aws_synthetics.NewS3Code(bucketRef, jsii.String("key"), jsii.String("objectVersion"))
 //

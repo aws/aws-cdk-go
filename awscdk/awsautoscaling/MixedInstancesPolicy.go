@@ -12,9 +12,9 @@ import (
 // https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html
 //
 // Example:
-//   var vpc vpc
-//   var launchTemplate1 launchTemplate
-//   var launchTemplate2 launchTemplate
+//   var vpc Vpc
+//   var launchTemplate1 LaunchTemplate
+//   var launchTemplate2 LaunchTemplate
 //
 //
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -24,14 +24,14 @@ import (
 //   			OnDemandPercentageAboveBaseCapacity: jsii.Number(50),
 //   		},
 //   		LaunchTemplate: launchTemplate1,
-//   		LaunchTemplateOverrides: []launchTemplateOverrides{
-//   			&launchTemplateOverrides{
+//   		LaunchTemplateOverrides: []LaunchTemplateOverrides{
+//   			&LaunchTemplateOverrides{
 //   				InstanceType: ec2.NewInstanceType(jsii.String("t3.micro")),
 //   			},
-//   			&launchTemplateOverrides{
+//   			&LaunchTemplateOverrides{
 //   				InstanceType: ec2.NewInstanceType(jsii.String("t3a.micro")),
 //   			},
-//   			&launchTemplateOverrides{
+//   			&LaunchTemplateOverrides{
 //   				InstanceType: ec2.NewInstanceType(jsii.String("t4g.micro")),
 //   				LaunchTemplate: launchTemplate2,
 //   			},

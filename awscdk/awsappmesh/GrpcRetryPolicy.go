@@ -7,14 +7,14 @@ import (
 // gRPC retry policy.
 //
 // Example:
-//   var router virtualRouter
-//   var node virtualNode
+//   var router VirtualRouter
+//   var node VirtualNode
 //
 //
 //   router.addRoute(jsii.String("route-grpc-retry"), &RouteBaseProps{
 //   	RouteSpec: appmesh.RouteSpec_Grpc(&GrpcRouteSpecOptions{
-//   		WeightedTargets: []weightedTarget{
-//   			&weightedTarget{
+//   		WeightedTargets: []WeightedTarget{
+//   			&WeightedTarget{
 //   				VirtualNode: node,
 //   			},
 //   		},
@@ -25,15 +25,15 @@ import (
 //   			TcpRetryEvents: []cONNECTION_ERROR{
 //   				appmesh.TcpRetryEvent_*cONNECTION_ERROR,
 //   			},
-//   			HttpRetryEvents: []httpRetryEvent{
-//   				appmesh.*httpRetryEvent_GATEWAY_ERROR,
+//   			HttpRetryEvents: []HttpRetryEvent{
+//   				appmesh.HttpRetryEvent_GATEWAY_ERROR,
 //   			},
 //   			// Retry if gRPC responds that the request was cancelled, a resource
 //   			// was exhausted, or if the service is unavailable
-//   			GrpcRetryEvents: []grpcRetryEvent{
-//   				appmesh.*grpcRetryEvent_CANCELLED,
-//   				appmesh.*grpcRetryEvent_RESOURCE_EXHAUSTED,
-//   				appmesh.*grpcRetryEvent_UNAVAILABLE,
+//   			GrpcRetryEvents: []GrpcRetryEvent{
+//   				appmesh.GrpcRetryEvent_CANCELLED,
+//   				appmesh.GrpcRetryEvent_RESOURCE_EXHAUSTED,
+//   				appmesh.GrpcRetryEvent_UNAVAILABLE,
 //   			},
 //   			RetryAttempts: jsii.Number(5),
 //   			RetryTimeout: awscdk.Duration_Seconds(jsii.Number(1)),

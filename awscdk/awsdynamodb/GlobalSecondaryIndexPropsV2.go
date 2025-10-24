@@ -9,8 +9,8 @@ package awsdynamodb
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	GlobalSecondaryIndexes: []globalSecondaryIndexPropsV2{
-//   		&globalSecondaryIndexPropsV2{
+//   	GlobalSecondaryIndexes: []GlobalSecondaryIndexPropsV2{
+//   		&GlobalSecondaryIndexPropsV2{
 //   			IndexName: jsii.String("gsi1"),
 //   			PartitionKey: &Attribute{
 //   				Name: jsii.String("pk"),
@@ -20,7 +20,7 @@ package awsdynamodb
 //   	},
 //   })
 //
-//   table.AddGlobalSecondaryIndex(&globalSecondaryIndexPropsV2{
+//   table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexPropsV2{
 //   	IndexName: jsii.String("gsi2"),
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("pk"),

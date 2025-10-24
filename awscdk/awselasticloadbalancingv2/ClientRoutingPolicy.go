@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Indicates how traffic is distributed among the load balancer Availability Zones.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{

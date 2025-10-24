@@ -13,7 +13,7 @@ import (
 // Example:
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, namespace, unit, value, timestamp FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewCloudWatchPutMetricAction(&CloudWatchPutMetricActionProps{
 //   			MetricName: jsii.String("${topic(2)}"),
 //   			MetricNamespace: jsii.String("${namespace}"),

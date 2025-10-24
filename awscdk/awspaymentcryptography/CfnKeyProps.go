@@ -34,8 +34,8 @@ import (
 //   	DeriveKeyUsage: jsii.String("deriveKeyUsage"),
 //   	Enabled: jsii.Boolean(false),
 //   	KeyCheckValueAlgorithm: jsii.String("keyCheckValueAlgorithm"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

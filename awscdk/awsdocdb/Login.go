@@ -8,7 +8,7 @@ import (
 // Login credentials for a database cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{

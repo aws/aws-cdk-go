@@ -9,7 +9,7 @@ import (
 // Properties for a `CodePipeline`.
 //
 // Example:
-//   var codePipeline pipeline
+//   var codePipeline Pipeline
 //
 //
 //   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))

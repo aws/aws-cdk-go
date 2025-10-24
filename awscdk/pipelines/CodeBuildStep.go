@@ -41,7 +41,7 @@ import (
 //   })
 //
 //   pipeline.AddWave(jsii.String("MyWave"), &WaveOptions{
-//   	Post: []step{
+//   	Post: []Step{
 //   		pipelines.NewCodeBuildStep(jsii.String("RunApproval"), &CodeBuildStepProps{
 //   			Commands: []*string{
 //   				jsii.String("command-from-image"),
@@ -202,7 +202,7 @@ type CodeBuildStep interface {
 	//
 	// Example:
 	//   // Access the output of one CodeBuildStep in another CodeBuildStep
-	//   var pipeline codePipeline
+	//   var pipeline CodePipeline
 	//
 	//
 	//   step1 := pipelines.NewCodeBuildStep(jsii.String("Step1"), &CodeBuildStepProps{

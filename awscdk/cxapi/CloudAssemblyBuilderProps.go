@@ -8,7 +8,7 @@ package cxapi
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cloudAssemblyBuilder cloudAssemblyBuilder
+//   var cloudAssemblyBuilder CloudAssemblyBuilder
 //
 //   cloudAssemblyBuilderProps := &CloudAssemblyBuilderProps{
 //   	AssetOutdir: jsii.String("assetOutdir"),

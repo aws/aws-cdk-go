@@ -93,13 +93,13 @@ You can configure the permission settings for queues that can designate the crea
 By default, all queues within the same account and region are permitted as source queues.
 
 ```go
-var sourceQueue iQueue
+var sourceQueue IQueue
 
 
 // Only the sourceQueue can specify this queue as the dead-letter queue.
 queue1 := sqs.NewQueue(this, jsii.String("Queue2"), &QueueProps{
 	RedriveAllowPolicy: &RedriveAllowPolicy{
-		SourceQueues: []*iQueue{
+		SourceQueues: []IQueue{
 			sourceQueue,
 		},
 	},

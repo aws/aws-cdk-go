@@ -10,7 +10,7 @@ import (
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{

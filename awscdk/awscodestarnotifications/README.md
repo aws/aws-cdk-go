@@ -45,7 +45,7 @@ rule := notifications.NewNotificationRule(this, jsii.String("NotificationRule"),
 		jsii.String("codebuild-project-build-state-succeeded"),
 		jsii.String("codebuild-project-build-state-failed"),
 	},
-	Targets: []iNotificationRuleTarget{
+	Targets: []INotificationRuleTarget{
 		topic,
 	},
 	NotificationRuleName: jsii.String("MyNotificationRuleName"),

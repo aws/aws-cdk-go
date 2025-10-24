@@ -8,9 +8,9 @@ package awsappmesh
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var mutualTlsCertificate mutualTlsCertificate
-//   var subjectAlternativeNames subjectAlternativeNames
-//   var tlsValidationTrust tlsValidationTrust
+//   var mutualTlsCertificate MutualTlsCertificate
+//   var subjectAlternativeNames SubjectAlternativeNames
+//   var tlsValidationTrust TlsValidationTrust
 //
 //   virtualServiceBackendOptions := &VirtualServiceBackendOptions{
 //   	TlsClientPolicy: &TlsClientPolicy{

@@ -28,8 +28,8 @@ import (
 //   		},
 //   		UserSecretId: jsii.String("userSecretId"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -56,6 +56,8 @@ type CfnConnectorProps struct {
 	//
 	AccessRole *string `field:"required" json:"accessRole" yaml:"accessRole"`
 	// The URL of the partner's AS2 or SFTP endpoint.
+	//
+	// When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-url
 	//
 	Url *string `field:"required" json:"url" yaml:"url"`

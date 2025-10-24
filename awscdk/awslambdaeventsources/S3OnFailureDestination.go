@@ -15,8 +15,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket iBucket
-//   var myFunction function
+//   var bucket IBucket
+//   var myFunction Function
 //
 //
 //   // Your MSK cluster arn

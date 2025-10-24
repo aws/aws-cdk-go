@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpcOriginEndpoint vpcOriginEndpoint
+//   var vpcOriginEndpoint VpcOriginEndpoint
 //
 //   vpcOrigin := awscdk.Aws_cloudfront.NewVpcOrigin(this, jsii.String("MyVpcOrigin"), &VpcOriginProps{
 //   	Endpoint: vpcOriginEndpoint,
@@ -24,8 +24,8 @@ import (
 //   	// the properties below are optional
 //   	HttpPort: jsii.Number(123),
 //   	HttpsPort: jsii.Number(123),
-//   	OriginSslProtocols: []originSslPolicy{
-//   		awscdk.*Aws_cloudfront.*originSslPolicy_SSL_V3,
+//   	OriginSslProtocols: []OriginSslPolicy{
+//   		awscdk.*Aws_cloudfront.OriginSslPolicy_SSL_V3,
 //   	},
 //   	ProtocolPolicy: awscdk.*Aws_cloudfront.OriginProtocolPolicy_HTTP_ONLY,
 //   	VpcOriginName: jsii.String("vpcOriginName"),

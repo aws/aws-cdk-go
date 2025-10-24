@@ -38,8 +38,8 @@ import (
 //   	ForceDelete: jsii.Boolean(false),
 //   	ForceUpdate: jsii.Boolean(false),
 //   	NoExpiry: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

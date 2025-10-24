@@ -18,11 +18,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkeks-v2alpha"
 //
-//   var accessPolicy accessPolicy
-//   var cluster cluster
+//   var accessPolicy AccessPolicy
+//   var cluster Cluster
 //
 //   accessEntry := eks_v2_alpha.NewAccessEntry(this, jsii.String("MyAccessEntry"), &AccessEntryProps{
-//   	AccessPolicies: []iAccessPolicy{
+//   	AccessPolicies: []IAccessPolicy{
 //   		accessPolicy,
 //   	},
 //   	Cluster: cluster,

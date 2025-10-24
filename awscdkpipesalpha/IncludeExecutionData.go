@@ -4,9 +4,9 @@ package awscdkpipesalpha
 // Log data configuration for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
-//   var logGroup logGroup
+//   var sourceQueue Queue
+//   var targetQueue Queue
+//   var logGroup LogGroup
 //
 //
 //   cwlLogDestination := pipes.NewCloudwatchLogsLogDestination(logGroup)
@@ -18,7 +18,7 @@ package awscdkpipesalpha
 //   	LogIncludeExecutionData: []aLL{
 //   		pipes.IncludeExecutionData_*aLL,
 //   	},
-//   	LogDestinations: []iLogDestination{
+//   	LogDestinations: []ILogDestination{
 //   		cwlLogDestination,
 //   	},
 //   })

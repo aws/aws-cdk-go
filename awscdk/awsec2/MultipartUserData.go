@@ -27,7 +27,7 @@ import (
 //
 //   ec2.NewLaunchTemplate(this, jsii.String(""), &LaunchTemplateProps{
 //   	UserData: multipartUserData,
-//   	BlockDevices: []blockDevice{
+//   	BlockDevices: []BlockDevice{
 //   	},
 //   })
 //

@@ -128,8 +128,8 @@ import (
 //   		PropagateTags: jsii.String("propagateTags"),
 //   	},
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -143,6 +143,11 @@ type CfnCapacityProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
 	//
 	AutoScalingGroupProvider interface{} `field:"optional" json:"autoScalingGroupProvider" yaml:"autoScalingGroupProvider"`
+	// The cluster that this capacity provider is associated with.
+	//
+	// Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
+	//
+	// This is required for Managed instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-clustername
 	//
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`

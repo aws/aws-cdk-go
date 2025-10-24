@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
-//   var vpcLink vpcLink
+//   var role Role
+//   var vpcLink VpcLink
 //
 //   stepFunctionsExecutionIntegrationOptions := &StepFunctionsExecutionIntegrationOptions{
 //   	Authorizer: jsii.Boolean(false),
@@ -28,8 +28,8 @@ import (
 //   	CredentialsPassthrough: jsii.Boolean(false),
 //   	CredentialsRole: role,
 //   	Headers: jsii.Boolean(false),
-//   	IntegrationResponses: []integrationResponse{
-//   		&integrationResponse{
+//   	IntegrationResponses: []IntegrationResponse{
+//   		&IntegrationResponse{
 //   			StatusCode: jsii.String("statusCode"),
 //
 //   			// the properties below are optional

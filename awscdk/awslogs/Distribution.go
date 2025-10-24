@@ -7,8 +7,8 @@ package awslogs
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stream stream
-//   var logGroup logGroup
+//   var stream Stream
+//   var logGroup LogGroup
 //
 //
 //   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{

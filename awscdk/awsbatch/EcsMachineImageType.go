@@ -4,13 +4,13 @@ package awsbatch
 // Maps the image to instance types.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //
 //   batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 //   	Vpc: Vpc,
-//   	Images: []ecsMachineImage{
-//   		&ecsMachineImage{
+//   	Images: []EcsMachineImage{
+//   		&EcsMachineImage{
 //   			ImageType: batch.EcsMachineImageType_ECS_AL2023,
 //   		},
 //   	},

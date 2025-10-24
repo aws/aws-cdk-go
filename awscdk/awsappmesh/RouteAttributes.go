@@ -8,7 +8,7 @@ package awsappmesh
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var virtualRouter virtualRouter
+//   var virtualRouter VirtualRouter
 //
 //   routeAttributes := &RouteAttributes{
 //   	RouteName: jsii.String("routeName"),

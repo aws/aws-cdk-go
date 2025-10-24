@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pipelineBase pipelineBase
+//   var pipelineBase PipelineBase
 //
 //   stackOutputsMap := awscdk.Pipelines.NewStackOutputsMap(pipelineBase)
 //

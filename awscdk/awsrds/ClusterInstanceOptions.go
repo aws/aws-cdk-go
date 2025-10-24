@@ -12,9 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var caCertificate caCertificate
-//   var key key
-//   var parameterGroup parameterGroup
+//   var caCertificate CaCertificate
+//   var key Key
+//   var parameterGroup ParameterGroup
 //
 //   clusterInstanceOptions := &ClusterInstanceOptions{
 //   	AllowMajorVersionUpgrade: jsii.Boolean(false),
@@ -88,7 +88,7 @@ type ClusterInstanceOptions struct {
 	//
 	// Example:
 	//   // existing cluster
-	//   var vpc vpc
+	//   var vpc Vpc
 	//
 	//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -123,7 +123,7 @@ type ClusterInstanceOptions struct {
 	//   		InstanceType: instanceProps.instanceType,
 	//   		IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
 	//   	}),
-	//   	Readers: []iClusterInstance{
+	//   	Readers: []IClusterInstance{
 	//   		rds.ClusterInstance_*Provisioned(jsii.String("Instance2"), &ProvisionedClusterInstanceProps{
 	//   			InstanceType: instanceProps.instanceType,
 	//   			IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,

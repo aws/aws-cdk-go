@@ -8,8 +8,8 @@ import (
 // The properties for defining a service using the EC2 launch type.
 //
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var taskDefinition TaskDefinition
+//   var cluster Cluster
 //
 //
 //   // Add a container to the task definition

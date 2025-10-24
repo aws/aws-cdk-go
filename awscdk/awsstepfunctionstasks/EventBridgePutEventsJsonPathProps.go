@@ -16,15 +16,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var eventBus eventBus
+//   var eventBus EventBus
 //   var resultSelector interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   eventBridgePutEventsJsonPathProps := &EventBridgePutEventsJsonPathProps{
-//   	Entries: []eventBridgePutEventsEntry{
-//   		&eventBridgePutEventsEntry{
+//   	Entries: []EventBridgePutEventsEntry{
+//   		&EventBridgePutEventsEntry{
 //   			Detail: taskInput,
 //   			DetailType: jsii.String("detailType"),
 //   			Source: jsii.String("source"),

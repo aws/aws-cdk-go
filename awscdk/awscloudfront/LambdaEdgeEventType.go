@@ -4,7 +4,7 @@ package awscloudfront
 // The type of events that a Lambda@Edge function can be invoked in response to.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //   // A Lambda@Edge function added to default behavior of a Distribution
 //   // and triggered on every request
 //   myFunc := experimental.NewEdgeFunction(this, jsii.String("MyFunction"), &EdgeFunctionProps{
@@ -15,8 +15,8 @@ package awscloudfront
 //   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewS3Origin(myBucket),
-//   		EdgeLambdas: []edgeLambda{
-//   			&edgeLambda{
+//   		EdgeLambdas: []EdgeLambda{
+//   			&EdgeLambda{
 //   				FunctionVersion: myFunc.currentVersion,
 //   				EventType: cloudfront.LambdaEdgeEventType_VIEWER_REQUEST,
 //   			},

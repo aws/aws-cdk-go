@@ -28,7 +28,7 @@ type CfnDataSet_CastColumnTypeOperationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
 	//
 	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
-	// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+	// When casting a column from string to datetime type, you can supply a string in a format supported by Quick Sight to denote the source data format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
 	//
 	Format *string `field:"optional" json:"format" yaml:"format"`

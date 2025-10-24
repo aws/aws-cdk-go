@@ -16,10 +16,10 @@ import (
 //
 //   var assign interface{}
 //   var outputs interface{}
-//   var stateMachine stateMachine
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var stateMachine StateMachine
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   stepFunctionsStartExecutionJsonataProps := &StepFunctionsStartExecutionJsonataProps{
 //   	StateMachine: stateMachine,

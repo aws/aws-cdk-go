@@ -3,7 +3,7 @@ package awsquicksight
 
 // A scatter plot.
 //
-// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

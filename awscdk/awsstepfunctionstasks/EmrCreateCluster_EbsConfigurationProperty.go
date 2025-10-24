@@ -9,11 +9,11 @@ package awsstepfunctionstasks
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var size size
+//   var size Size
 //
 //   ebsConfigurationProperty := &EbsConfigurationProperty{
-//   	EbsBlockDeviceConfigs: []ebsBlockDeviceConfigProperty{
-//   		&ebsBlockDeviceConfigProperty{
+//   	EbsBlockDeviceConfigs: []EbsBlockDeviceConfigProperty{
+//   		&EbsBlockDeviceConfigProperty{
 //   			VolumeSpecification: &VolumeSpecificationProperty{
 //   				VolumeSize: size,
 //   				VolumeType: awscdk.Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP3,

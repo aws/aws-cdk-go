@@ -17,19 +17,19 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var acceleratorType acceleratorType
+//   var acceleratorType AcceleratorType
 //   var assign interface{}
-//   var instanceType instanceType
-//   var keyRef iKeyRef
+//   var instanceType InstanceType
+//   var keyRef IKeyRef
 //   var resultSelector interface{}
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   sageMakerCreateEndpointConfigJsonPathProps := &SageMakerCreateEndpointConfigJsonPathProps{
 //   	EndpointConfigName: jsii.String("endpointConfigName"),
-//   	ProductionVariants: []productionVariant{
-//   		&productionVariant{
+//   	ProductionVariants: []ProductionVariant{
+//   		&ProductionVariant{
 //   			InstanceType: instanceType,
 //   			ModelName: jsii.String("modelName"),
 //   			VariantName: jsii.String("variantName"),

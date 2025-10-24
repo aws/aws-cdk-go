@@ -23,12 +23,12 @@ import (
 //
 // Example:
 //   type myStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newMyStack(scope construct, id *string, props stackProps) *myStack {
+//   func newMyStack(scope Construct, id *string, props StackProps) *myStack {
 //   	this := &myStack{}
-//   	newStack_Override(this, scope, id, &stackProps{
+//   	newStack_Override(this, scope, id, &StackProps{
 //   		(SpreadAssignment ...props
 //   				Props),
 //   		Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{

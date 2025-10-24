@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var roleRef iRoleRef
-//   var subnetGroup subnetGroup
+//   var roleRef IRoleRef
+//   var subnetGroup SubnetGroup
 //
 //   clusterInstanceBindOptions := &ClusterInstanceBindOptions{
 //   	MonitoringInterval: cdk.Duration_Minutes(jsii.Number(30)),

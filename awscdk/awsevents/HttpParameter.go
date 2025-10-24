@@ -15,7 +15,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secretValue secretValue
+//   var secretValue SecretValue
 //
 //   httpParameter := awscdk.Aws_events.HttpParameter_FromSecret(secretValue)
 //

@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// A list of Amazon QuickSight parameters and the list's override values.
+// A list of Quick Sight parameters and the list's override values.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

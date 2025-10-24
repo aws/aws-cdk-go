@@ -21,8 +21,8 @@ import (
 //   		Status: jsii.String("status"),
 //   		TimeOfDay: jsii.String("timeOfDay"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

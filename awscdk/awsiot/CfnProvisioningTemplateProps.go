@@ -22,8 +22,8 @@ import (
 //   		PayloadVersion: jsii.String("payloadVersion"),
 //   		TargetArn: jsii.String("targetArn"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

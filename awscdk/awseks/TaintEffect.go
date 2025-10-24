@@ -13,14 +13,14 @@ package awseks
 // - 'NoExecute' instead of TaintEffect.NO_EXECUTE
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
-//   	InstanceTypes: []instanceType{
+//   	InstanceTypes: []InstanceType{
 //   		ec2.NewInstanceType(jsii.String("m5.large")),
 //   	},
-//   	Taints: []taintSpec{
-//   		&taintSpec{
+//   	Taints: []TaintSpec{
+//   		&TaintSpec{
 //   			Effect: eks.TaintEffect_NO_SCHEDULE,
 //   			Key: jsii.String("foo"),
 //   			Value: jsii.String("bar"),

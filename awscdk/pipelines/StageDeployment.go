@@ -18,29 +18,29 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stack stack
-//   var stage stage
-//   var step step
+//   var stack Stack
+//   var stage Stage
+//   var step Step
 //
 //   stageDeployment := awscdk.Pipelines.StageDeployment_FromStage(stage, &StageDeploymentProps{
-//   	Post: []*step{
+//   	Post: []Step{
 //   		step,
 //   	},
-//   	Pre: []*step{
+//   	Pre: []Step{
 //   		step,
 //   	},
-//   	StackSteps: []stackSteps{
-//   		&stackSteps{
+//   	StackSteps: []StackSteps{
+//   		&StackSteps{
 //   			Stack: stack,
 //
 //   			// the properties below are optional
-//   			ChangeSet: []*step{
+//   			ChangeSet: []Step{
 //   				step,
 //   			},
-//   			Post: []*step{
+//   			Post: []Step{
 //   				step,
 //   			},
-//   			Pre: []*step{
+//   			Pre: []Step{
 //   				step,
 //   			},
 //   		},

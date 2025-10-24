@@ -7,7 +7,7 @@ import (
 // Properties for BottleRocketImage.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{

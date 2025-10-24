@@ -70,21 +70,21 @@ You would configure it like this:
 
 ```go
 var capacity scalableAttribute
-var cpuUtilization metric
+var cpuUtilization Metric
 
 
-capacity.scaleOnMetric(jsii.String("ScaleToCPU"), &basicStepScalingPolicyProps{
+capacity.scaleOnMetric(jsii.String("ScaleToCPU"), &BasicStepScalingPolicyProps{
 	Metric: cpuUtilization,
-	ScalingSteps: []scalingInterval{
-		&scalingInterval{
+	ScalingSteps: []ScalingInterval{
+		&ScalingInterval{
 			Upper: jsii.Number(10),
 			Change: -jsii.Number(1),
 		},
-		&scalingInterval{
+		&ScalingInterval{
 			Lower: jsii.Number(50),
 			Change: +jsii.Number(1),
 		},
-		&scalingInterval{
+		&ScalingInterval{
 			Lower: jsii.Number(70),
 			Change: +jsii.Number(3),
 		},
@@ -109,21 +109,21 @@ optional `evaluationPeriods` and `datapointsToAlarm` properties:
 
 ```go
 var capacity scalableAttribute
-var cpuUtilization metric
+var cpuUtilization Metric
 
 
-capacity.scaleOnMetric(jsii.String("ScaleToCPUWithMultipleDatapoints"), &basicStepScalingPolicyProps{
+capacity.scaleOnMetric(jsii.String("ScaleToCPUWithMultipleDatapoints"), &BasicStepScalingPolicyProps{
 	Metric: cpuUtilization,
-	ScalingSteps: []scalingInterval{
-		&scalingInterval{
+	ScalingSteps: []ScalingInterval{
+		&ScalingInterval{
 			Upper: jsii.Number(10),
 			Change: -jsii.Number(1),
 		},
-		&scalingInterval{
+		&ScalingInterval{
 			Lower: jsii.Number(50),
 			Change: +jsii.Number(1),
 		},
-		&scalingInterval{
+		&ScalingInterval{
 			Lower: jsii.Number(70),
 			Change: +jsii.Number(3),
 		},
@@ -154,7 +154,7 @@ to be around 60% utilization:
 ```go
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 
-var table table
+var table Table
 
 
 readCapacity := table.AutoScaleReadCapacity(&EnableScalingProps{
@@ -200,7 +200,7 @@ capacity := resource.autoScaleCapacity(&caps{
 	maxCapacity: jsii.Number(50),
 })
 
-capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
+capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &ScalingSchedule{
 	Schedule: appscaling.Schedule_Cron(&CronOptions{
 		Hour: jsii.String("8"),
 		Minute: jsii.String("0"),
@@ -209,7 +209,7 @@ capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
 	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
 })
 
-capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
+capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &ScalingSchedule{
 	Schedule: appscaling.Schedule_*Cron(&CronOptions{
 		Hour: jsii.String("20"),
 		Minute: jsii.String("0"),
@@ -226,7 +226,7 @@ capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedul
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var code code
+var code Code
 
 
 handler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{

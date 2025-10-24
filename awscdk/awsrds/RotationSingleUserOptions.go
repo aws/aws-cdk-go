@@ -8,8 +8,8 @@ import (
 // Options to add the multi user rotation.
 //
 // Example:
-//   var instance databaseInstance
-//   var mySecurityGroup securityGroup
+//   var instance DatabaseInstance
+//   var mySecurityGroup SecurityGroup
 //
 //
 //   instance.addRotationSingleUser(&RotationSingleUserOptions{

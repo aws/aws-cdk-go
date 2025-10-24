@@ -15,8 +15,8 @@ import (
 // See https://docs.aws.amazon.com/servicecatalog/latest/adminguide/tagoptions.html
 //
 // Example:
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var portfolio Portfolio
+//   var product CloudFormationProduct
 //
 //
 //   tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &TagOptionsProps{

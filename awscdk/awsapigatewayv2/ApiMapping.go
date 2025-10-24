@@ -16,9 +16,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var domainName domainName
-//   var stage iStage
+//   var api IApi
+//   var domainName DomainName
+//   var stage IStage
 //
 //   apiMapping := awscdk.Aws_apigatewayv2.NewApiMapping(this, jsii.String("MyApiMapping"), &ApiMappingProps{
 //   	Api: api,

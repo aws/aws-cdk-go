@@ -7,9 +7,9 @@ import (
 // Construction properties for a LoadBalancer.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var vpc vpc
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var vpc Vpc
 //
 //   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,

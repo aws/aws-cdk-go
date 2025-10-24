@@ -11,13 +11,13 @@ package awsbatch
 //   		Cpu: jsii.Number(256),
 //   	}),
 //   	RetryAttempts: jsii.Number(5),
-//   	RetryStrategies: []retryStrategy{
-//   		batch.*retryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()),
+//   	RetryStrategies: []RetryStrategy{
+//   		batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()),
 //   	},
 //   })
-//   jobDefn.addRetryStrategy(batch.retryStrategy_Of(batch.Action_EXIT, batch.Reason_SPOT_INSTANCE_RECLAIMED()))
-//   jobDefn.addRetryStrategy(batch.retryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()))
-//   jobDefn.addRetryStrategy(batch.retryStrategy_Of(batch.Action_EXIT, batch.Reason_Custom(&CustomReason{
+//   jobDefn.addRetryStrategy(batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_SPOT_INSTANCE_RECLAIMED()))
+//   jobDefn.addRetryStrategy(batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_CANNOT_PULL_CONTAINER()))
+//   jobDefn.addRetryStrategy(batch.RetryStrategy_Of(batch.Action_EXIT, batch.Reason_Custom(&CustomReason{
 //   	OnExitCode: jsii.String("40*"),
 //   	OnReason: jsii.String("some reason"),
 //   })))

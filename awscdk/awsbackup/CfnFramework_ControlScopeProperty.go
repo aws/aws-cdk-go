@@ -22,8 +22,8 @@ import (
 //   	ComplianceResourceTypes: []*string{
 //   		jsii.String("complianceResourceTypes"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

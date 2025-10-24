@@ -6,13 +6,13 @@ package awsapigateway
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var model model
+//   var model Model
 //
 //   methodResponse := &MethodResponse{
 //   	StatusCode: jsii.String("statusCode"),
 //
 //   	// the properties below are optional
-//   	ResponseModels: map[string]iModel{
+//   	ResponseModels: map[string]IModel{
 //   		"responseModelsKey": model,
 //   	},
 //   	ResponseParameters: map[string]*bool{

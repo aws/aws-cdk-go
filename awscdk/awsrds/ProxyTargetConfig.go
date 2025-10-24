@@ -8,17 +8,17 @@ package awsrds
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var databaseCluster databaseCluster
-//   var databaseInstance databaseInstance
+//   var databaseCluster DatabaseCluster
+//   var databaseInstance DatabaseInstance
 //
 //   proxyTargetConfig := &ProxyTargetConfig{
 //   	EngineFamily: jsii.String("engineFamily"),
 //
 //   	// the properties below are optional
-//   	DbClusters: []iDatabaseCluster{
+//   	DbClusters: []IDatabaseCluster{
 //   		databaseCluster,
 //   	},
-//   	DbInstances: []iDatabaseInstance{
+//   	DbInstances: []IDatabaseInstance{
 //   		databaseInstance,
 //   	},
 //   }

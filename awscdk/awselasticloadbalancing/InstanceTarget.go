@@ -10,7 +10,7 @@ import (
 // An EC2 instance that is the target for load balancing.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,

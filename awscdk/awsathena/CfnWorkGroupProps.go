@@ -18,8 +18,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	RecursiveDeleteOption: jsii.Boolean(false),
 //   	State: jsii.String("state"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

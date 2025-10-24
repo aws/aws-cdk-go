@@ -8,7 +8,7 @@ package pipelines
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fileSetProducer iFileSetProducer
+//   var fileSetProducer IFileSetProducer
 //
 //   pipelineBaseProps := &PipelineBaseProps{
 //   	Synth: fileSetProducer,

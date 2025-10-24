@@ -7,18 +7,18 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   var fn function
+//   var fn Function
 //
 //
 //   bucket := s3.NewBucket(this, jsii.String("mybucket"))
 //
 //   fn.AddEventSource(awscdk.NewS3EventSource(bucket, &S3EventSourceProps{
-//   	Events: []eventType{
-//   		s3.*eventType_OBJECT_CREATED,
-//   		s3.*eventType_OBJECT_REMOVED,
+//   	Events: []EventType{
+//   		s3.EventType_OBJECT_CREATED,
+//   		s3.EventType_OBJECT_REMOVED,
 //   	},
-//   	Filters: []notificationKeyFilter{
-//   		&notificationKeyFilter{
+//   	Filters: []NotificationKeyFilter{
+//   		&NotificationKeyFilter{
 //   			Prefix: jsii.String("subdir/"),
 //   		},
 //   	},

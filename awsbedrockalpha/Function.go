@@ -17,8 +17,8 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	Parameters: map[string]functionParameterProps{
-//   		"parametersKey": &functionParameterProps{
+//   	Parameters: map[string]FunctionParameterProps{
+//   		"parametersKey": &FunctionParameterProps{
 //   			"type": bedrock_alpha.ParameterType_STRING,
 //
 //   			// the properties below are optional

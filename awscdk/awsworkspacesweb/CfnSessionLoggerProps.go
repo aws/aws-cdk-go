@@ -38,8 +38,8 @@ import (
 //   	},
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
 //   	DisplayName: jsii.String("displayName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

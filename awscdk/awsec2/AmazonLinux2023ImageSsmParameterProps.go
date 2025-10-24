@@ -4,8 +4,8 @@ package awsec2
 // Properties specific to al2023 images.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
+//   var vpc Vpc
+//   var instanceType InstanceType
 //
 //
 //   // Amazon Linux 2
@@ -38,7 +38,7 @@ package awsec2
 //   // Graviton 3 Processor
 //   ec2.NewInstance(this, jsii.String("Instance5"), &InstanceProps{
 //   	Vpc: Vpc,
-//   	InstanceType: ec2.*instanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C7G, ec2.InstanceSize_LARGE),
 //   	MachineImage: ec2.MachineImage_*LatestAmazonLinux2023(&AmazonLinux2023ImageSsmParameterProps{
 //   		CpuType: ec2.AmazonLinuxCpuType_ARM_64,
 //   	}),

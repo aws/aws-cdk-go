@@ -10,7 +10,7 @@ import (
 // EFS Replication Configuration.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   // auto generate a regional replication destination file system

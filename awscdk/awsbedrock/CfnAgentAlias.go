@@ -572,25 +572,6 @@ func (j *jsiiProxy_CfnAgentAlias)SetTags(val *map[string]*string) {
 	)
 }
 
-// Creates a new IAgentAliasRef from an ARN.
-func CfnAgentAlias_FromAgentAliasArn(scope constructs.Construct, id *string, arn *string) IAgentAliasRef {
-	_init_.Initialize()
-
-	if err := validateCfnAgentAlias_FromAgentAliasArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IAgentAliasRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_bedrock.CfnAgentAlias",
-		"fromAgentAliasArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

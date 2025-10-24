@@ -11,12 +11,18 @@ package awselasticloadbalancingv2
 //   ruleConditionProperty := &RuleConditionProperty{
 //   	Field: jsii.String("field"),
 //   	HostHeaderConfig: &HostHeaderConfigProperty{
+//   		RegexValues: []*string{
+//   			jsii.String("regexValues"),
+//   		},
 //   		Values: []*string{
 //   			jsii.String("values"),
 //   		},
 //   	},
 //   	HttpHeaderConfig: &HttpHeaderConfigProperty{
 //   		HttpHeaderName: jsii.String("httpHeaderName"),
+//   		RegexValues: []*string{
+//   			jsii.String("regexValues"),
+//   		},
 //   		Values: []*string{
 //   			jsii.String("values"),
 //   		},
@@ -27,6 +33,9 @@ package awselasticloadbalancingv2
 //   		},
 //   	},
 //   	PathPatternConfig: &PathPatternConfigProperty{
+//   		RegexValues: []*string{
+//   			jsii.String("regexValues"),
+//   		},
 //   		Values: []*string{
 //   			jsii.String("values"),
 //   		},
@@ -38,6 +47,9 @@ package awselasticloadbalancingv2
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   	},
+//   	RegexValues: []*string{
+//   		jsii.String("regexValues"),
 //   	},
 //   	SourceIpConfig: &SourceIpConfigProperty{
 //   		Values: []*string{
@@ -93,6 +105,9 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
 	//
 	QueryStringConfig interface{} `field:"optional" json:"queryStringConfig" yaml:"queryStringConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-regexvalues
+	//
+	RegexValues *[]*string `field:"optional" json:"regexValues" yaml:"regexValues"`
 	// Information for a source IP condition.
 	//
 	// Specify only when `Field` is `source-ip` .

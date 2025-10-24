@@ -8,8 +8,8 @@ package awscdkintegtestsalpha
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //
-//   var actualResult actualResult
-//   var expectedResult expectedResult
+//   var actualResult ActualResult
+//   var expectedResult ExpectedResult
 //
 //   equalsAssertionProps := &EqualsAssertionProps{
 //   	Actual: actualResult,

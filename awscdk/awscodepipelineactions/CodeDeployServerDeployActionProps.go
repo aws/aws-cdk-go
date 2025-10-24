@@ -9,7 +9,7 @@ import (
 // Construction properties of the `CodeDeployServerDeployAction CodeDeploy server deploy CodePipeline Action`.
 //
 // Example:
-//   var deploymentGroup serverDeploymentGroup
+//   var deploymentGroup ServerDeploymentGroup
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
 //   	PipelineName: jsii.String("MyPipeline"),
 //   })
@@ -23,7 +23,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Deploy"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		deployAction,
 //   	},
 //   })

@@ -11,7 +11,7 @@ import (
 // An alarm on a CloudWatch metric.
 //
 // Example:
-//   var logGroup logGroup
+//   var logGroup LogGroup
 //
 //   mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
 //   	LogGroup: LogGroup,

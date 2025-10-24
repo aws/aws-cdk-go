@@ -14,11 +14,11 @@ import (
 // A StepFunctions task to call DynamoGetItem.
 //
 // Example:
-//   var myTable table
+//   var myTable Table
 //
 //   tasks.NewDynamoGetItem(this, jsii.String("Get Item"), &DynamoGetItemProps{
-//   	Key: map[string]dynamoAttributeValue{
-//   		"messageId": tasks.*dynamoAttributeValue_fromString(jsii.String("message-007")),
+//   	Key: map[string]DynamoAttributeValue{
+//   		"messageId": tasks.DynamoAttributeValue_fromString(jsii.String("message-007")),
 //   	},
 //   	Table: myTable,
 //   })

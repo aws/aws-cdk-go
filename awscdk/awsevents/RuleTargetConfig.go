@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var construct construct
-//   var role role
-//   var ruleTargetInput ruleTargetInput
+//   var construct Construct
+//   var role Role
+//   var ruleTargetInput RuleTargetInput
 //
 //   ruleTargetConfig := &RuleTargetConfig{
 //   	Arn: jsii.String("arn"),

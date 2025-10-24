@@ -4,8 +4,8 @@ package awscodebuild
 // Build machine compute type.
 //
 // Example:
-//   var vpc vpc
-//   var mySecurityGroup securityGroup
+//   var vpc Vpc
+//   var mySecurityGroup SecurityGroup
 //
 //   pipelines.NewCodeBuildStep(jsii.String("Synth"), &CodeBuildStepProps{
 //   	// ...standard ShellStep props...
@@ -32,13 +32,13 @@ package awscodebuild
 //   		Privileged: jsii.Boolean(true),
 //   		DockerServer: &DockerServerOptions{
 //   			ComputeType: codebuild.DockerServerComputeType_SMALL,
-//   			SecurityGroups: []iSecurityGroup{
+//   			SecurityGroups: []ISecurityGroup{
 //   				mySecurityGroup,
 //   			},
 //   		},
 //   	},
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
-//   	FileSystemLocations: []iFileSystemLocation{
+//   	FileSystemLocations: []IFileSystemLocation{
 //   		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
 //   			Identifier: jsii.String("myidentifier2"),
 //   			Location: jsii.String("myclodation.mydnsroot.com:/loc"),
@@ -52,7 +52,7 @@ package awscodebuild
 //   	SubnetSelection: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   	},
-//   	SecurityGroups: []*iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		mySecurityGroup,
 //   	},
 //
@@ -60,7 +60,7 @@ package awscodebuild
 //   	Cache: codebuild.Cache_Bucket(s3.NewBucket(this, jsii.String("Cache"))),
 //
 //   	// Additional policy statements for the execution role
-//   	RolePolicyStatements: []policyStatement{
+//   	RolePolicyStatements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   		}),
 //   	},

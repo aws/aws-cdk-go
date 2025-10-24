@@ -7,10 +7,10 @@ import (
 // Basic properties for a Network Listener.
 //
 // Example:
-//   var vpc vpc
-//   var asg autoScalingGroup
-//   var sg1 iSecurityGroup
-//   var sg2 iSecurityGroup
+//   var vpc Vpc
+//   var asg AutoScalingGroup
+//   var sg1 ISecurityGroup
+//   var sg2 ISecurityGroup
 //
 //
 //   // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -18,7 +18,7 @@ import (
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(true),
-//   	SecurityGroups: []*iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		sg1,
 //   	},
 //   })
@@ -32,7 +32,7 @@ import (
 //   // Add targets on a particular port.
 //   listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
 //   	Port: jsii.Number(443),
-//   	Targets: []iNetworkLoadBalancerTarget{
+//   	Targets: []INetworkLoadBalancerTarget{
 //   		asg,
 //   	},
 //   })

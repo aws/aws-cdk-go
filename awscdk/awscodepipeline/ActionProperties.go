@@ -12,9 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var artifact artifact
-//   var resource resource
-//   var role role
+//   var artifact Artifact
+//   var resource Resource
+//   var role Role
 //
 //   actionProperties := &ActionProperties{
 //   	ActionName: jsii.String("actionName"),
@@ -32,10 +32,10 @@ import (
 //   	Commands: []*string{
 //   		jsii.String("commands"),
 //   	},
-//   	Inputs: []*artifact{
+//   	Inputs: []Artifact{
 //   		artifact,
 //   	},
-//   	Outputs: []*artifact{
+//   	Outputs: []Artifact{
 //   		artifact,
 //   	},
 //   	OutputVariables: []*string{

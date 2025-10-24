@@ -18,10 +18,10 @@ import (
 //
 //   var assign interface{}
 //   var parameters interface{}
-//   var policyStatement policyStatement
+//   var policyStatement PolicyStatement
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   callAwsServiceCrossRegionJsonPathProps := &CallAwsServiceCrossRegionJsonPathProps{
 //   	Action: jsii.String("action"),
@@ -32,7 +32,7 @@ import (
 //   	Service: jsii.String("service"),
 //
 //   	// the properties below are optional
-//   	AdditionalIamStatements: []*policyStatement{
+//   	AdditionalIamStatements: []PolicyStatement{
 //   		policyStatement,
 //   	},
 //   	Assign: map[string]interface{}{

@@ -12,7 +12,7 @@ package awsquicksight
 // - Horizontal stacked 100% bar chart
 // - Vertical stacked 100% bar chart
 //
-// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

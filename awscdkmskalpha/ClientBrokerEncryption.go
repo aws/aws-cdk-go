@@ -6,17 +6,17 @@ package awscdkmskalpha
 // Example:
 //   import acmpca "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+//   	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
 //   	Vpc: Vpc,
 //   	EncryptionInTransit: &EncryptionInTransitConfig{
 //   		ClientBroker: msk.ClientBrokerEncryption_TLS,
 //   	},
 //   	ClientAuthentication: msk.ClientAuthentication_Tls(&TlsAuthProps{
-//   		CertificateAuthorities: []iCertificateAuthority{
+//   		CertificateAuthorities: []ICertificateAuthority{
 //   			acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), jsii.String("arn:aws:acm-pca:us-west-2:1234567890:certificate-authority/11111111-1111-1111-1111-111111111111")),
 //   		},
 //   	}),

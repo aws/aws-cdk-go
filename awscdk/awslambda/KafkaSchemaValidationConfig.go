@@ -8,7 +8,7 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var kafkaSchemaValidationAttribute kafkaSchemaValidationAttribute
+//   var kafkaSchemaValidationAttribute KafkaSchemaValidationAttribute
 //
 //   kafkaSchemaValidationConfig := &KafkaSchemaValidationConfig{
 //   	Attribute: kafkaSchemaValidationAttribute,

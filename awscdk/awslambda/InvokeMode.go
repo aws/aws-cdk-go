@@ -4,7 +4,7 @@ package awslambda
 // The invoke modes for a Lambda function.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //
 //   fn.AddFunctionUrl(&FunctionUrlOptions{

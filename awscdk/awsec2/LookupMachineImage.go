@@ -25,7 +25,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var userData userData
+//   var userData UserData
 //
 //   lookupMachineImage := awscdk.Aws_ec2.NewLookupMachineImage(&LookupMachineImageProps{
 //   	Name: jsii.String("name"),

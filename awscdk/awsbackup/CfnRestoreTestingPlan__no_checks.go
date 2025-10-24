@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnRestoreTestingPlan) validateValidatePropertiesParameters(_
 	return nil
 }
 
-func validateCfnRestoreTestingPlan_FromRestoreTestingPlanArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnRestoreTestingPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -14,7 +14,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secret secret
+//   var secret Secret
 //
 //   fireLensLogDriver := awscdk.Aws_ecs.NewFireLensLogDriver(&FireLensLogDriverProps{
 //   	Env: []*string{
@@ -27,7 +27,7 @@ import (
 //   	Options: map[string]*string{
 //   		"optionsKey": jsii.String("options"),
 //   	},
-//   	SecretOptions: map[string]*secret{
+//   	SecretOptions: map[string]Secret{
 //   		"secretOptionsKey": secret,
 //   	},
 //   	Tag: jsii.String("tag"),

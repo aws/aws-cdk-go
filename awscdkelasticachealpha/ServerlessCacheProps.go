@@ -8,7 +8,7 @@ import (
 // Properties for defining a ServerlessCache.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{

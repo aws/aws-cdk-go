@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assumeRoleAdditionalOptions interface{}
-//   var cloudAssembly cloudAssembly
+//   var cloudAssembly CloudAssembly
 //
 //   cloudFormationStackArtifact := awscdk.Cx_api.NewCloudFormationStackArtifact(cloudAssembly, jsii.String("artifactId"), &ArtifactManifest{
 //   	Type: awscdk.Cloud_assembly_schema.ArtifactType_NONE,
@@ -25,9 +25,9 @@ import (
 //   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	Environment: jsii.String("environment"),
-//   	Metadata: map[string][]metadataEntry{
-//   		"metadataKey": []*metadataEntry{
-//   			&metadataEntry{
+//   	Metadata: map[string][]MetadataEntry{
+//   		"metadataKey": []MetadataEntry{
+//   			&MetadataEntry{
 //   				"type": jsii.String("type"),
 //
 //   				// the properties below are optional

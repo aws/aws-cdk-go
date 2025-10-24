@@ -8,8 +8,8 @@ package awsautoscalingcommon
 //
 //   arbitraryIntervals := &ArbitraryIntervals{
 //   	Absolute: jsii.Boolean(false),
-//   	Intervals: []scalingInterval{
-//   		&scalingInterval{
+//   	Intervals: []ScalingInterval{
+//   		&ScalingInterval{
 //   			Change: jsii.Number(123),
 //
 //   			// the properties below are optional

@@ -13,8 +13,8 @@ import (
 // A sourced configuration represents configuration stored in an Amazon S3 bucket, AWS Secrets Manager secret, Systems Manager (SSM) Parameter Store parameter, SSM document, or AWS CodePipeline.
 //
 // Example:
-//   var application application
-//   var bucket bucket
+//   var application Application
+//   var bucket Bucket
 //
 //
 //   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{

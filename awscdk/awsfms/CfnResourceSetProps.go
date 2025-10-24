@@ -22,8 +22,8 @@ import (
 //   	Resources: []*string{
 //   		jsii.String("resources"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

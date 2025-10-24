@@ -8,7 +8,7 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var job job
+//   var job Job
 //
 //   condition := &Condition{
 //   	CrawlerName: jsii.String("crawlerName"),

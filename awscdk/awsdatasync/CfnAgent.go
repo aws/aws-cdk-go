@@ -33,8 +33,8 @@ import (
 //   	SubnetArns: []*string{
 //   		jsii.String("subnetArns"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

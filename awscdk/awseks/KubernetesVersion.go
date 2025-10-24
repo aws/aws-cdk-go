@@ -18,7 +18,7 @@ import (
 //   })
 //
 //   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
-//   	InstanceTypes: []instanceType{
+//   	InstanceTypes: []InstanceType{
 //   		ec2.NewInstanceType(jsii.String("m5.large")),
 //   	},
 //   	MinSize: jsii.Number(4),

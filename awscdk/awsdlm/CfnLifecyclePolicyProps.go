@@ -197,8 +197,8 @@ import (
 //   	},
 //   	RetainInterval: jsii.Number(123),
 //   	State: jsii.String("state"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

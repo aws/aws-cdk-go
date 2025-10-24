@@ -12,14 +12,14 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cidrRoutingConfig cidrRoutingConfig
-//   var geoLocation geoLocation
-//   var healthCheck healthCheck
-//   var hostedZone hostedZone
+//   var cidrRoutingConfig CidrRoutingConfig
+//   var geoLocation GeoLocation
+//   var healthCheck HealthCheck
+//   var hostedZone HostedZone
 //
 //   srvRecordProps := &SrvRecordProps{
-//   	Values: []srvRecordValue{
-//   		&srvRecordValue{
+//   	Values: []SrvRecordValue{
+//   		&SrvRecordValue{
 //   			HostName: jsii.String("hostName"),
 //   			Port: jsii.Number(123),
 //   			Priority: jsii.Number(123),

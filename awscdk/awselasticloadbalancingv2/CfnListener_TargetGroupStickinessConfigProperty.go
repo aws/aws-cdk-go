@@ -16,7 +16,7 @@ package awselasticloadbalancingv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html
 //
 type CfnListener_TargetGroupStickinessConfigProperty struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group.
+	// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group.
 	//
 	// The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-durationseconds

@@ -6,7 +6,7 @@ package awsses
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myPool iDedicatedIpPool
+//   var myPool IDedicatedIpPool
 //
 //
 //   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{

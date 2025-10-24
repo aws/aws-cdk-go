@@ -21,8 +21,8 @@ import (
 // Example:
 //   host := ec2.NewBastionHostLinux(this, jsii.String("BastionHost"), &BastionHostLinuxProps{
 //   	Vpc: Vpc,
-//   	BlockDevices: []blockDevice{
-//   		&blockDevice{
+//   	BlockDevices: []BlockDevice{
+//   		&BlockDevice{
 //   			DeviceName: jsii.String("/dev/sdh"),
 //   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(10), &EbsDeviceOptions{
 //   				Encrypted: jsii.Boolean(true),

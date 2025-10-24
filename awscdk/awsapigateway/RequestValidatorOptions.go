@@ -2,10 +2,10 @@ package awsapigateway
 
 
 // Example:
-//   var integration lambdaIntegration
-//   var resource resource
-//   var responseModel model
-//   var errorResponseModel model
+//   var integration LambdaIntegration
+//   var resource Resource
+//   var responseModel Model
+//   var errorResponseModel Model
 //
 //
 //   resource.AddMethod(jsii.String("GET"), integration, &MethodOptions{
@@ -19,8 +19,8 @@ package awsapigateway
 //   		ValidateRequestBody: jsii.Boolean(true),
 //   		ValidateRequestParameters: jsii.Boolean(false),
 //   	},
-//   	MethodResponses: []methodResponse{
-//   		&methodResponse{
+//   	MethodResponses: []MethodResponse{
+//   		&MethodResponse{
 //   			// Successful response from the integration
 //   			StatusCode: jsii.String("200"),
 //   			// Define what parameters are allowed or not
@@ -30,11 +30,11 @@ package awsapigateway
 //   				"method.response.header.Access-Control-Allow-Credentials": jsii.Boolean(true),
 //   			},
 //   			// Validate the schema on the response
-//   			ResponseModels: map[string]iModel{
+//   			ResponseModels: map[string]IModel{
 //   				"application/json": responseModel,
 //   			},
 //   		},
-//   		&methodResponse{
+//   		&MethodResponse{
 //   			// Same thing for the error responses
 //   			StatusCode: jsii.String("400"),
 //   			ResponseParameters: map[string]*bool{
@@ -42,7 +42,7 @@ package awsapigateway
 //   				"method.response.header.Access-Control-Allow-Origin": jsii.Boolean(true),
 //   				"method.response.header.Access-Control-Allow-Credentials": jsii.Boolean(true),
 //   			},
-//   			ResponseModels: map[string]*iModel{
+//   			ResponseModels: map[string]IModel{
 //   				"application/json": errorResponseModel,
 //   			},
 //   		},

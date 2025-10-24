@@ -15,26 +15,21 @@ import (
 // the specified AWS service principal defined in `serviceAssumeRole`.
 //
 // Example:
-//   // Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
-//   var cluster cluster
-//
-//
-//   consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
-//   	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+//   // Create a custom execution role
+//   executionRole := iam.NewRole(this, jsii.String("BrowserExecutionRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+//   	ManagedPolicies: []IManagedPolicy{
+//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreBrowserExecutionRolePolicy")),
+//   	},
 //   })
-//   consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("eks:AccessKubernetesApi"),
-//   		jsii.String("eks:Describe*"),
-//   		jsii.String("eks:List*"),
-//   	},
-//   	Resources: []*string{
-//   		cluster.ClusterArn,
-//   	},
-//   }))
 //
-//   // Add this role to system:masters RBAC group
-//   cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
+//   // Create browser with custom execution role
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("my_browser"),
+//   	Description: jsii.String("Browser with custom execution role"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+//   	ExecutionRole: executionRole,
+//   })
 //
 type Role interface {
 	awscdk.Resource
@@ -323,7 +318,7 @@ func NewRole_Override(r Role, scope constructs.Construct, id *string, props *Rol
 // in `usePrecreatedRoles`.
 //
 // Example:
-//   var app app
+//   var app App
 //
 //   iam.Role_CustomizeRoles(app, &CustomizeRolesOptions{
 //   	UsePrecreatedRoles: map[string]*string{

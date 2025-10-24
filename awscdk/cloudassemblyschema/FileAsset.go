@@ -11,8 +11,8 @@ package cloudassemblyschema
 //   var assumeRoleAdditionalOptions interface{}
 //
 //   fileAsset := &FileAsset{
-//   	Destinations: map[string]fileDestination{
-//   		"destinationsKey": &fileDestination{
+//   	Destinations: map[string]FileDestination{
+//   		"destinationsKey": &FileDestination{
 //   			"bucketName": jsii.String("bucketName"),
 //   			"objectKey": jsii.String("objectKey"),
 //

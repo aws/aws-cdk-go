@@ -13,13 +13,13 @@ import (
 // An API Gateway ApiKey, for which a rate limiting configuration can be specified.
 //
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 //   	CustomerId: jsii.String("hello-customer"),
-//   	ApiStages: []usagePlanPerApiStage{
-//   		&usagePlanPerApiStage{
+//   	ApiStages: []UsagePlanPerApiStage{
+//   		&UsagePlanPerApiStage{
 //   			Stage: api.DeploymentStage,
 //   		},
 //   	},

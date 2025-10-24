@@ -50,7 +50,7 @@ stream. Configure this behaviour by passing in a data stream in the `source`
 property via the `KinesisStreamSource` class when constructing a delivery stream:
 
 ```go
-var destination iDestination
+var destination IDestination
 
 sourceStream := kinesis.NewStream(this, jsii.String("Source Stream"))
 
@@ -90,7 +90,7 @@ Currently in the AWS CDK, only S3 is implemented as an L2 construct destination.
 Defining a delivery stream with an S3 bucket destination:
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 s3Destination := firehose.NewS3Bucket(bucket)
 
@@ -105,7 +105,7 @@ failed records before writing them to S3.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var bucket bucket
+var bucket Bucket
 
 s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	DataOutputPrefix: jsii.String("myFirehose/DeliveredYear=!{timestamp:yyyy}/anyMonth/rand=!{firehose:random-string}"),
@@ -121,11 +121,113 @@ in the *Amazon Data Firehose Developer Guide*.
 To override default file extension appended by Data Format Conversion or S3 compression features, specify `fileExtension`.
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	Compression: firehose.Compression_GZIP(),
 	FileExtension: jsii.String(".json.gz"),
+})
+```
+
+## Data Format Conversion
+
+Data format conversion allows automatic conversion of inputs from JSON to either Parquet or ORC.
+Converting JSON records to columnar formats like Parquet or ORC can help speed up analytical querying while also increasing compression efficiency.
+When data format conversion is specified, it automatically enables Snappy compression on the output.
+
+Only S3 Destinations support data format conversion.
+
+An example of defining an S3 destination configured with data format conversion:
+
+```go
+var bucket Bucket
+var schemaGlueTable CfnTable
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	DataFormatConversion: &DataFormatConversionProps{
+		SchemaConfiguration: firehose.SchemaConfiguration_FromCfnTable(schemaGlueTable),
+		InputFormat: firehose.InputFormat_OPENX_JSON(),
+		OutputFormat: firehose.OutputFormat_PARQUET(),
+	},
+})
+```
+
+When data format conversion is enabled, the Delivery Stream's buffering size must be at least 64 MiB.
+Additionally, the default buffering size is changed from 5 MiB to 128 MiB. This mirrors the Cloudformation behavior.
+
+You can only parse JSON and transform it into either Parquet or ORC:
+
+* to read JSON using OpenX parser, choose `InputFormat.OPENX_JSON`.
+* to read JSON using Hive parser, choose `InputFormat.HIVE_JSON`.
+* to transform into Parquet, choose `OutputFormat.PARQUET`.
+* to transform into ORC, choose `OutputFormat.ORC`.
+
+The following subsections explain how to specify advanced configuration options for each input and output format if the defaults are not desirable
+
+### Input Format: OpenX JSON
+
+Example creation of custom OpenX JSON InputFormat:
+
+```go
+inputFormat := firehose.NewOpenXJsonInputFormat(&OpenXJsonInputFormatProps{
+	LowercaseColumnNames: jsii.Boolean(false),
+	ColumnToJsonKeyMappings: map[string]*string{
+		"ts": jsii.String("timestamp"),
+	},
+	ConvertDotsInJsonKeysToUnderscores: jsii.Boolean(true),
+})
+```
+
+### Input Format: Hive JSON
+
+Example creation of custom Hive JSON InputFormat:
+
+```go
+inputFormat := firehose.NewHiveJsonInputFormat(&HiveJsonInputFormatProps{
+	TimestampParsers: []TimestampParser{
+		firehose.TimestampParser_FromFormatString(jsii.String("yyyy-MM-dd")),
+		firehose.TimestampParser_EPOCH_MILLIS(),
+	},
+})
+```
+
+Hive JSON allows you to specify custom timestamp formats to parse. The syntax of the format string is Joda Time.
+
+To parse timestamps formatted as milliseconds since epoch, use the convenience constant `TimestampParser.EPOCH_MILLIS`.
+
+### Output Format: Parquet
+
+Example of a custom Parquet OutputFormat, with all values changed from the defaults.
+
+```go
+outputFormat := firehose.NewParquetOutputFormat(&ParquetOutputFormatProps{
+	BlockSize: awscdk.Size_Mebibytes(jsii.Number(512)),
+	Compression: firehose.ParquetCompression_UNCOMPRESSED(),
+	EnableDictionaryCompression: jsii.Boolean(true),
+	MaxPadding: awscdk.Size_Bytes(jsii.Number(10)),
+	PageSize: awscdk.Size_*Mebibytes(jsii.Number(2)),
+	WriterVersion: firehose.ParquetWriterVersion_V2,
+})
+```
+
+### Output Format: ORC
+
+Example creation of custom ORC OutputFormat, with all values changed from the defaults.
+
+```go
+outputFormat := firehose.NewOrcOutputFormat(&OrcOutputFormatProps{
+	FormatVersion: firehose.OrcFormatVersion_V0_11,
+	BlockSize: awscdk.Size_Mebibytes(jsii.Number(256)),
+	Compression: firehose.OrcCompression_NONE(),
+	BloomFilterColumns: []*string{
+		jsii.String("columnA"),
+	},
+	BloomFilterFalsePositiveProbability: jsii.Number(0.1),
+	DictionaryKeyThreshold: jsii.Number(0.7),
+	EnablePadding: jsii.Boolean(true),
+	PaddingTolerance: jsii.Number(0.2),
+	RowIndexStride: jsii.Number(9000),
+	StripeSize: awscdk.Size_*Mebibytes(jsii.Number(32)),
 })
 ```
 
@@ -151,9 +253,9 @@ See: [AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concep
 in the *KMS Developer Guide*.
 
 ```go
-var destination iDestination
+var destination IDestination
 // SSE with an customer-managed key that is explicitly specified
-var key key
+var key Key
 
 
 // SSE with an AWS-owned key
@@ -194,7 +296,7 @@ specify your own log group to be used for capturing and storing log events. For 
 
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
-var bucket bucket
+var bucket Bucket
 
 
 logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))
@@ -210,7 +312,7 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStream
 Logging can also be disabled:
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	LoggingConfig: firehose.NewDisableLogging(),
@@ -243,13 +345,13 @@ are pre-populated with the correct dimensions for the delivery stream.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var deliveryStream deliveryStream
+var deliveryStream DeliveryStream
 
 
 // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
 incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
 	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
-	UsingMetrics: map[string]iMetric{
+	UsingMetrics: map[string]IMetric{
 		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
 			"statistic": cloudwatch.Statistic_SUM,
 		}),
@@ -277,7 +379,7 @@ delivered to S3 without compression.
 
 ```go
 // Compress data delivered to S3 using Snappy
-var bucket bucket
+var bucket Bucket
 
 s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	Compression: firehose.Compression_SNAPPY(),
@@ -298,7 +400,7 @@ buffer size is 5 MiB and the buffer interval is 5 minutes.
 
 ```go
 // Increase the buffer interval and size to 10 minutes and 8 MiB, respectively
-var bucket bucket
+var bucket Bucket
 
 destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	BufferingInterval: awscdk.Duration_Minutes(jsii.Number(10)),
@@ -317,7 +419,7 @@ setting the "buffer interval" to 0.
 
 ```go
 // Setup zero buffering
-var bucket bucket
+var bucket Bucket
 
 destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	BufferingInterval: awscdk.Duration_Seconds(jsii.Number(0)),
@@ -340,8 +442,8 @@ see [Protecting Data Using Server-Side Encryption with AWS KMS–Managed Keys (S
 By default, encryption isn’t directly enabled on the delivery stream; instead, it uses the default encryption settings of the destination S3 bucket.
 
 ```go
-var bucket bucket
-var key key
+var bucket Bucket
+var key Key
 
 destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
 	EncryptionKey: key,
@@ -363,9 +465,9 @@ backed up to S3.
 
 ```go
 // Enable backup of all source records (to an S3 bucket created by CDK).
-var bucket bucket
+var bucket Bucket
 // Explicitly provide an S3 bucket to which all source records will be backed up.
-var backupBucket bucket
+var backupBucket Bucket
 
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &DeliveryStreamProps{
 	Destination:
@@ -428,7 +530,7 @@ is retried 3 times by default, but can be configured using `retries` in the proc
 configuration.
 
 ```go
-var bucket bucket
+var bucket Bucket
 // Provide a Lambda function that will transform records before delivery, with custom
 // buffering and retry configuration
 lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
@@ -534,7 +636,7 @@ firehose.NewDeliveryStream(stack, jsii.String("ZeroBufferingDeliveryStream"), &D
 })
 
 testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-tests"), &IntegTestProps{
-	TestCases: []stack{
+	TestCases: []Stack{
 		stack,
 	},
 	Regions: []*string{
@@ -595,7 +697,7 @@ will be provided automatically.
 
 ```go
 // Specify the roles created above when defining the destination and delivery stream.
-var bucket bucket
+var bucket Bucket
 // Create service roles for the delivery stream and destination.
 // These can be used for other purposes and granted access to different resources.
 // They must include the Amazon Data Firehose service principal in their trust policies.
@@ -633,7 +735,7 @@ can be granted permissions to a delivery stream by calling:
 
 ```go
 // Give the role permissions to write data to the delivery stream
-var deliveryStream deliveryStream
+var deliveryStream DeliveryStream
 lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -656,7 +758,7 @@ permissions automatically. However, custom or third-party destinations may requi
 permissions. In this case, use the delivery stream as an `IGrantable`, as follows:
 
 ```go
-var deliveryStream deliveryStream
+var deliveryStream DeliveryStream
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => {}")),
 	Runtime: lambda.Runtime_NODEJS_LATEST(),

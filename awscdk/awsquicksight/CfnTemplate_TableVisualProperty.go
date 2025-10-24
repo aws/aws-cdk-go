@@ -3,7 +3,7 @@ package awsquicksight
 
 // A table visual.
 //
-// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

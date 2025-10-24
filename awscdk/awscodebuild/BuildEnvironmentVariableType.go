@@ -22,8 +22,8 @@ package awscodebuild
 //   task := tasks.NewCodeBuildStartBuild(this, jsii.String("Task"), &CodeBuildStartBuildProps{
 //   	Project: codebuildProject,
 //   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
-//   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
-//   		"ZONE": &buildEnvironmentVariable{
+//   	EnvironmentVariablesOverride: map[string]BuildEnvironmentVariable{
+//   		"ZONE": &BuildEnvironmentVariable{
 //   			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   			"value": sfn.JsonPath_stringAt(jsii.String("$.envVariables.zone")),
 //   		},

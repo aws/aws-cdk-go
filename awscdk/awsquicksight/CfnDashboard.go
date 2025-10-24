@@ -11,7 +11,7 @@ import (
 
 // Creates a dashboard from a template. To first create a template, see the `CreateTemplate` API operation.
 //
-// A dashboard is an entity in QuickSight that identifies QuickSight reports, created from analyses. You can share QuickSight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
+// A dashboard is an entity in Quick Suite that identifies Quick Suite reports, created from analyses. You can share Quick Suite dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
 //
 // Example:
 //

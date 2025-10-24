@@ -8,7 +8,7 @@ import (
 // Properties for ``ServerlessClusterFromSnapshot``.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &ServerlessClusterFromSnapshotProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),

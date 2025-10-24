@@ -8,16 +8,16 @@ import (
 // Thresholds for highlighting cells in TableWidget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 //   	// ...
 //
-//   	Thresholds: []tableThreshold{
-//   		cloudwatch.*tableThreshold_Above(jsii.Number(1000), cloudwatch.Color_RED()),
-//   		cloudwatch.*tableThreshold_Between(jsii.Number(500), jsii.Number(1000), cloudwatch.Color_ORANGE()),
-//   		cloudwatch.*tableThreshold_Below(jsii.Number(500), cloudwatch.Color_GREEN()),
+//   	Thresholds: []TableThreshold{
+//   		cloudwatch.TableThreshold_Above(jsii.Number(1000), cloudwatch.Color_RED()),
+//   		cloudwatch.TableThreshold_Between(jsii.Number(500), jsii.Number(1000), cloudwatch.Color_ORANGE()),
+//   		cloudwatch.TableThreshold_Below(jsii.Number(500), cloudwatch.Color_GREEN()),
 //   	},
 //   }))
 //

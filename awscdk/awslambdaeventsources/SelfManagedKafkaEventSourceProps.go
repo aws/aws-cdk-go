@@ -17,9 +17,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
-//   var secret secret
+//   var secret Secret
 //
-//   var myFunction function
+//   var myFunction Function
 //
 //
 //   // The list of Kafka brokers

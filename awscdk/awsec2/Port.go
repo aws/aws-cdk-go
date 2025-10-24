@@ -8,16 +8,26 @@ import (
 // Interface for classes that provide the connection-specification parts of a security group rule.
 //
 // Example:
-//   var vpc vpc
+//   var loadBalancer ApplicationLoadBalancer
 //
-//   cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-//   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V4_0_X_KRAFT(),
+//
+//   vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
+//   fleet := codebuild.NewFleet(this, jsii.String("MyProject"), &FleetProps{
+//   	ComputeType: codebuild.FleetComputeType_MEDIUM,
+//   	EnvironmentType: codebuild.EnvironmentType_LINUX_CONTAINER,
+//   	BaseCapacity: jsii.Number(1),
 //   	Vpc: Vpc,
 //   })
 //
-//   cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(2181)))
-//   cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(9094)))
+//   fleet.connections.AllowTo(loadBalancer, ec2.Port_Tcp(jsii.Number(443)))
+//
+//   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+//   	Environment: &BuildEnvironment{
+//   		Fleet: *Fleet,
+//   	},
+//   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+//   	}),
+//   })
 //
 type Port interface {
 	// Whether the rule containing this port range can be inlined into a securitygroup or not.

@@ -17,8 +17,8 @@ package awsamazonmq
 //   	Data: jsii.String("data"),
 //   	Description: jsii.String("description"),
 //   	EngineVersion: jsii.String("engineVersion"),
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

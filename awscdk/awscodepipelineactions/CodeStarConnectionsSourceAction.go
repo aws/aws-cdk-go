@@ -12,7 +12,7 @@ import (
 // A CodePipeline source action for the CodeStar Connections source, which allows connecting to GitHub and BitBucket.
 //
 // Example:
-//   var project project
+//   var project Project
 //
 //
 //   sourceOutput := codepipeline.NewArtifact()
@@ -32,8 +32,8 @@ import (
 //   	ActionName: jsii.String("CodeBuild"),
 //   	Project: Project,
 //   	Input: sourceOutput,
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"COMMIT_ID": &buildEnvironmentVariable{
+//   	EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   		"COMMIT_ID": &BuildEnvironmentVariable{
 //   			"value": sourceAction.variables.commitId,
 //   		},
 //   	},

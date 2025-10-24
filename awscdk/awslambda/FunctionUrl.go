@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var fn function
+//   var fn Function
 //
 //
 //   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{

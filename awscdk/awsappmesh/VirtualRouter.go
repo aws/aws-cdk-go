@@ -10,11 +10,11 @@ import (
 )
 
 // Example:
-//   var mesh mesh
+//   var mesh Mesh
 //
 //   router := mesh.addVirtualRouter(jsii.String("router"), &VirtualRouterBaseProps{
-//   	Listeners: []virtualRouterListener{
-//   		appmesh.*virtualRouterListener_Http(jsii.Number(8080)),
+//   	Listeners: []VirtualRouterListener{
+//   		appmesh.VirtualRouterListener_Http(jsii.Number(8080)),
 //   	},
 //   })
 //

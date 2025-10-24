@@ -11,9 +11,9 @@ package awssynthetics
 //   		Handler: jsii.String("index.handler"),
 //   	}),
 //   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_9_1(),
-//   	BrowserConfigs: []browserType{
-//   		synthetics.*browserType_CHROME,
-//   		synthetics.*browserType_FIREFOX,
+//   	BrowserConfigs: []BrowserType{
+//   		synthetics.BrowserType_CHROME,
+//   		synthetics.BrowserType_FIREFOX,
 //   	},
 //   })
 //

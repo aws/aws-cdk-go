@@ -30,12 +30,12 @@ import (
 // match a selector in that profile in order to be scheduled onto Fargate.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   eks.NewFargateProfile(this, jsii.String("MyProfile"), &FargateProfileProps{
 //   	Cluster: Cluster,
-//   	Selectors: []selector{
-//   		&selector{
+//   	Selectors: []Selector{
+//   		&Selector{
 //   			Namespace: jsii.String("default"),
 //   		},
 //   	},

@@ -6,7 +6,7 @@ package awsecs
 // [Source](https://docs.docker.com/config/containers/logging/splunk/)
 //
 // Example:
-//   var secret secret
+//   var secret Secret
 //
 //
 //   // Create a Task Definition for the container to start

@@ -16,10 +16,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
-//   var authHandler function
+//   var authHandler Function
 //
 //   // This function handles your WebSocket requests
-//   var handler function
+//   var handler Function
 //
 //
 //   authorizer := awscdk.NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)

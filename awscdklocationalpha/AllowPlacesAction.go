@@ -6,14 +6,14 @@ package awscdklocationalpha
 // Example:
 //   location.NewApiKey(this, jsii.String("APIKeyAny"), &ApiKeyProps{
 //   	// specify allowed actions
-//   	AllowMapsActions: []allowMapsAction{
-//   		location.*allowMapsAction_GET_STATIC_MAP,
+//   	AllowMapsActions: []AllowMapsAction{
+//   		location.AllowMapsAction_GET_STATIC_MAP,
 //   	},
-//   	AllowPlacesActions: []allowPlacesAction{
-//   		location.*allowPlacesAction_GET_PLACE,
+//   	AllowPlacesActions: []AllowPlacesAction{
+//   		location.AllowPlacesAction_GET_PLACE,
 //   	},
-//   	AllowRoutesActions: []allowRoutesAction{
-//   		location.*allowRoutesAction_CALCULATE_ISOLINES,
+//   	AllowRoutesActions: []AllowRoutesAction{
+//   		location.AllowRoutesAction_CALCULATE_ISOLINES,
 //   	},
 //   })
 //

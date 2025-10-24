@@ -184,8 +184,8 @@ cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCl
 	// Audit logs are enabled via the clusterParameterGroup
 	ClusterParameterGroup: ClusterParameterGroup,
 	// Optionally configuring audit logs to be exported to CloudWatch Logs
-	CloudwatchLogsExports: []logType{
-		neptune.*logType_AUDIT(),
+	CloudwatchLogsExports: []LogType{
+		neptune.LogType_AUDIT(),
 	},
 	// Optionally set a retention period on exported CloudWatch Logs
 	CloudwatchLogsRetention: logs.RetentionDays_ONE_MONTH,
@@ -201,8 +201,8 @@ For more information on exporting logs to CloudWatch Logs, refer to https://docs
 Both `DatabaseCluster` and `DatabaseInstance` provide a `metric()` method to help with cluster-level and instance-level monitoring.
 
 ```go
-var cluster databaseCluster
-var instance databaseInstance
+var cluster DatabaseCluster
+var instance DatabaseInstance
 
 
 cluster.Metric(jsii.String("SparqlRequestsPerSec")) // cluster-level SparqlErrors metric

@@ -11,8 +11,8 @@ package awslogs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   splitStringProperty := &SplitStringProperty{
-//   	Entries: []splitStringEntryProperty{
-//   		&splitStringEntryProperty{
+//   	Entries: []SplitStringEntryProperty{
+//   		&SplitStringEntryProperty{
 //   			Delimiter: awscdk.Aws_logs.DelimiterCharacter_COMMA,
 //   			Source: jsii.String("source"),
 //   		},

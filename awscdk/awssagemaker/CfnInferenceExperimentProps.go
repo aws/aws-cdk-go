@@ -62,8 +62,8 @@ import (
 //   		SourceModelVariantName: jsii.String("sourceModelVariantName"),
 //   	},
 //   	StatusReason: jsii.String("statusReason"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -6,22 +6,22 @@ import (
 )
 
 // Example:
-//   var myDatabase database
+//   var myDatabase Database
 //
 //   glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 //   	Database: myDatabase,
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
-//   	PartitionKeys: []*column{
-//   		&column{
+//   	PartitionKeys: []Column{
+//   		&Column{
 //   			Name: jsii.String("year"),
 //   			Type: glue.Schema_SMALL_INT(),
 //   		},
-//   		&column{
+//   		&Column{
 //   			Name: jsii.String("month"),
 //   			Type: glue.Schema_SMALL_INT(),
 //   		},

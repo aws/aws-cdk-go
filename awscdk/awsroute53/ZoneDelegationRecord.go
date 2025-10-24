@@ -16,10 +16,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cidrRoutingConfig cidrRoutingConfig
-//   var geoLocation geoLocation
-//   var healthCheck healthCheck
-//   var hostedZone hostedZone
+//   var cidrRoutingConfig CidrRoutingConfig
+//   var geoLocation GeoLocation
+//   var healthCheck HealthCheck
+//   var hostedZone HostedZone
 //
 //   zoneDelegationRecord := awscdk.Aws_route53.NewZoneDelegationRecord(this, jsii.String("MyZoneDelegationRecord"), &ZoneDelegationRecordProps{
 //   	NameServers: []*string{

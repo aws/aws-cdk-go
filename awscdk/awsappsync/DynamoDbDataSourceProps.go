@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var graphqlApi graphqlApi
-//   var role role
-//   var table table
+//   var graphqlApi GraphqlApi
+//   var role Role
+//   var table Table
 //
 //   dynamoDbDataSourceProps := &DynamoDbDataSourceProps{
 //   	Api: graphqlApi,

@@ -11,7 +11,7 @@ package awsappconfig
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
 //   	Application: app,
-//   	DeployTo: []iEnvironment{
+//   	DeployTo: []IEnvironment{
 //   		env,
 //   	},
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my first configuration content.")),
@@ -19,7 +19,7 @@ package awsappconfig
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
 //   	Application: app,
-//   	DeployTo: []*iEnvironment{
+//   	DeployTo: []IEnvironment{
 //   		env,
 //   	},
 //   	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my second configuration content.")),

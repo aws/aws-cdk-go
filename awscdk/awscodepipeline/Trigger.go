@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var action action
+//   var action Action
 //
 //   trigger := awscdk.Aws_codepipeline.NewTrigger(&TriggerProps{
 //   	ProviderType: awscdk.*Aws_codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
@@ -22,16 +22,16 @@ import (
 //   		SourceAction: action,
 //
 //   		// the properties below are optional
-//   		PullRequestFilter: []gitPullRequestFilter{
-//   			&gitPullRequestFilter{
+//   		PullRequestFilter: []GitPullRequestFilter{
+//   			&GitPullRequestFilter{
 //   				BranchesExcludes: []*string{
 //   					jsii.String("branchesExcludes"),
 //   				},
 //   				BranchesIncludes: []*string{
 //   					jsii.String("branchesIncludes"),
 //   				},
-//   				Events: []gitPullRequestEvent{
-//   					awscdk.*Aws_codepipeline.*gitPullRequestEvent_OPEN,
+//   				Events: []GitPullRequestEvent{
+//   					awscdk.*Aws_codepipeline.GitPullRequestEvent_OPEN,
 //   				},
 //   				FilePathsExcludes: []*string{
 //   					jsii.String("filePathsExcludes"),
@@ -41,8 +41,8 @@ import (
 //   				},
 //   			},
 //   		},
-//   		PushFilter: []gitPushFilter{
-//   			&gitPushFilter{
+//   		PushFilter: []GitPushFilter{
+//   			&GitPushFilter{
 //   				BranchesExcludes: []*string{
 //   					jsii.String("branchesExcludes"),
 //   				},

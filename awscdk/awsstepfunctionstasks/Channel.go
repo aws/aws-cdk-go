@@ -8,7 +8,7 @@ package awsstepfunctionstasks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var s3Location s3Location
+//   var s3Location S3Location
 //
 //   channel := &Channel{
 //   	ChannelName: jsii.String("channelName"),

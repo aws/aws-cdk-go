@@ -21,11 +21,11 @@ import (
 //   	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
 //   		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 //   	}),
-//   	Configurations: []optionConfiguration{
-//   		&optionConfiguration{
+//   	Configurations: []OptionConfiguration{
+//   		&OptionConfiguration{
 //   			Name: jsii.String("LOCATOR"),
 //   		},
-//   		&optionConfiguration{
+//   		&OptionConfiguration{
 //   			Name: jsii.String("OEM"),
 //   			Port: jsii.Number(1158),
 //   			Vpc: *Vpc,
@@ -84,7 +84,7 @@ import (
 //   fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_20_X(),
 //   })
 //
 //   availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{

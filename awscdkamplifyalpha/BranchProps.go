@@ -16,11 +16,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var app app
-//   var asset asset
-//   var basicAuth basicAuth
-//   var buildSpec buildSpec
-//   var role role
+//   var app App
+//   var asset Asset
+//   var basicAuth BasicAuth
+//   var buildSpec BuildSpec
+//   var role Role
 //
 //   branchProps := &BranchProps{
 //   	App: app,

@@ -7,14 +7,14 @@ import (
 // Options to pass to the Lambda invokeFunction API call.
 //
 // Example:
-//   var lambdaFunction iFunction
-//   var app app
+//   var lambdaFunction IFunction
+//   var app App
 //
 //
 //   stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
 //
 //   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-//   	TestCases: []stack{
+//   	TestCases: []Stack{
 //   		stack,
 //   	},
 //   })

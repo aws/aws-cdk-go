@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var metric metric
+//   var metric Metric
 //
 //   trackCustomMetricProps := &TrackCustomMetricProps{
 //   	Metric: metric,

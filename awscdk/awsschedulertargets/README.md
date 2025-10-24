@@ -112,7 +112,7 @@ called every hour by EventBridge Scheduler.
 ```go
 import codebuild "github.com/aws/aws-cdk-go/awscdk"
 
-var project project
+var project Project
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -217,7 +217,7 @@ called every hour by EventBridge Scheduler.
 ```go
 import inspector "github.com/aws/aws-cdk-go/awscdk"
 
-var cfnAssessmentTemplate cfnAssessmentTemplate
+var cfnAssessmentTemplate CfnAssessmentTemplate
 
 
 assessmentTemplate := inspector.AssessmentTemplate_FromCfnAssessmentTemplate(this, jsii.String("MyAssessmentTemplate"), cfnAssessmentTemplate)
@@ -258,7 +258,7 @@ called every hour by EventBridge Scheduler with a custom payload.
 
 ```go
 import firehose "github.com/aws/aws-cdk-go/awscdk"
-var deliveryStream iDeliveryStream
+var deliveryStream IDeliveryStream
 
 
 payload := map[string]*string{
@@ -283,7 +283,7 @@ called every hour by EventBridge Scheduler.
 ```go
 import codepipeline "github.com/aws/aws-cdk-go/awscdk"
 
-var pipeline pipeline
+var pipeline Pipeline
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -302,14 +302,14 @@ called every hour by EventBridge Scheduler.
 ```go
 import sagemaker "github.com/aws/aws-cdk-go/awscdk"
 
-var pipeline iPipeline
+var pipeline IPipeline
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Schedule: awscdk.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
 	Target: targets.NewSageMakerStartPipelineExecution(pipeline, &SageMakerStartPipelineExecutionProps{
-		PipelineParameterList: []sageMakerPipelineParameter{
-			&sageMakerPipelineParameter{
+		PipelineParameterList: []SageMakerPipelineParameter{
+			&SageMakerPipelineParameter{
 				Name: jsii.String("parameter-name"),
 				Value: jsii.String("parameter-value"),
 			},
@@ -327,8 +327,8 @@ The code snippet below creates an event rule with a Fargate task definition and 
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition fargateTaskDefinition
+var cluster ICluster
+var taskDefinition FargateTaskDefinition
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -344,8 +344,8 @@ The code snippet below creates an event rule with a EC2 task definition and clus
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition ec2TaskDefinition
+var cluster ICluster
+var taskDefinition Ec2TaskDefinition
 
 
 awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -391,7 +391,7 @@ awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Target: targets.NewUniversal(&UniversalTargetProps{
 		Service: jsii.String("sqs"),
 		Action: jsii.String("sendMessage"),
-		PolicyStatements: []policyStatement{
+		PolicyStatements: []PolicyStatement{
 			iam.NewPolicyStatement(&PolicyStatementProps{
 				Actions: []*string{
 					jsii.String("sqs:SendMessage"),

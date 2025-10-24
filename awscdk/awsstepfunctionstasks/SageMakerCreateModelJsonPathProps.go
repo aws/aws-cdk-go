@@ -19,15 +19,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var containerDefinition containerDefinition
+//   var containerDefinition ContainerDefinition
 //   var resultSelector interface{}
-//   var role role
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
-//   var vpc vpc
+//   var role Role
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
+//   var vpc Vpc
 //
 //   sageMakerCreateModelJsonPathProps := &SageMakerCreateModelJsonPathProps{
 //   	ModelName: jsii.String("modelName"),
@@ -38,7 +38,7 @@ import (
 //   		"assignKey": assign,
 //   	},
 //   	Comment: jsii.String("comment"),
-//   	Containers: []iContainerDefinition{
+//   	Containers: []IContainerDefinition{
 //   		containerDefinition,
 //   	},
 //   	Credentials: &Credentials{
@@ -62,11 +62,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

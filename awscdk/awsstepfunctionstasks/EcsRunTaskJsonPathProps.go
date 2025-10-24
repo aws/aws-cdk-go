@@ -19,16 +19,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var ecsLaunchTarget iEcsLaunchTarget
+//   var cluster Cluster
+//   var containerDefinition ContainerDefinition
+//   var ecsLaunchTarget IEcsLaunchTarget
 //   var resultSelector interface{}
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var taskDefinition taskDefinition
-//   var taskRole taskRole
-//   var timeout timeout
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var taskDefinition TaskDefinition
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   ecsRunTaskJsonPathProps := &EcsRunTaskJsonPathProps{
 //   	Cluster: cluster,
@@ -41,8 +41,8 @@ import (
 //   	},
 //   	AssignPublicIp: jsii.Boolean(false),
 //   	Comment: jsii.String("comment"),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
+//   	ContainerOverrides: []ContainerOverride{
+//   		&ContainerOverride{
 //   			ContainerDefinition: containerDefinition,
 //
 //   			// the properties below are optional
@@ -50,8 +50,8 @@ import (
 //   				jsii.String("command"),
 //   			},
 //   			Cpu: jsii.Number(123),
-//   			Environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
+//   			Environment: []TaskEnvironmentVariable{
+//   				&TaskEnvironmentVariable{
 //   					Name: jsii.String("name"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -78,7 +78,7 @@ import (
 //   		"resultSelectorKey": resultSelector,
 //   	},
 //   	RevisionNumber: jsii.Number(123),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	StateName: jsii.String("stateName"),
@@ -87,11 +87,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

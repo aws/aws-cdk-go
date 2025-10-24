@@ -16,7 +16,7 @@ import (
 //
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
-//   var bucket bucket
+//   var bucket Bucket
 //
 //
 //   logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))

@@ -17,15 +17,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var dynamoAttributeValue dynamoAttributeValue
-//   var dynamoProjectionExpression dynamoProjectionExpression
+//   var dynamoAttributeValue DynamoAttributeValue
+//   var dynamoProjectionExpression DynamoProjectionExpression
 //   var outputs interface{}
-//   var table table
-//   var taskRole taskRole
-//   var timeout timeout
+//   var table Table
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   dynamoGetItemJsonataProps := &DynamoGetItemJsonataProps{
-//   	Key: map[string]*dynamoAttributeValue{
+//   	Key: map[string]DynamoAttributeValue{
 //   		"keyKey": dynamoAttributeValue,
 //   	},
 //   	Table: table,
@@ -46,7 +46,7 @@ import (
 //   	HeartbeatTimeout: timeout,
 //   	IntegrationPattern: awscdk.Aws_stepfunctions.IntegrationPattern_REQUEST_RESPONSE,
 //   	Outputs: outputs,
-//   	ProjectionExpression: []*dynamoProjectionExpression{
+//   	ProjectionExpression: []DynamoProjectionExpression{
 //   		dynamoProjectionExpression,
 //   	},
 //   	QueryLanguage: awscdk.*Aws_stepfunctions.QueryLanguage_JSON_PATH,

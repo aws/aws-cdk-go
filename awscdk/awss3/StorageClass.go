@@ -9,8 +9,8 @@ import (
 //
 // Example:
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
-//   	LifecycleRules: []lifecycleRule{
-//   		&lifecycleRule{
+//   	LifecycleRules: []LifecycleRule{
+//   		&LifecycleRule{
 //   			AbortIncompleteMultipartUploadAfter: awscdk.Duration_Minutes(jsii.Number(30)),
 //   			Enabled: jsii.Boolean(false),
 //   			Expiration: awscdk.Duration_Days(jsii.Number(30)),
@@ -21,8 +21,8 @@ import (
 //
 //   			// the properties below are optional
 //   			NoncurrentVersionsToRetain: jsii.Number(123),
-//   			NoncurrentVersionTransitions: []noncurrentVersionTransition{
-//   				&noncurrentVersionTransition{
+//   			NoncurrentVersionTransitions: []NoncurrentVersionTransition{
+//   				&NoncurrentVersionTransition{
 //   					StorageClass: s3.StorageClass_GLACIER(),
 //   					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
 //
@@ -33,8 +33,8 @@ import (
 //   			ObjectSizeGreaterThan: jsii.Number(500),
 //   			Prefix: jsii.String("prefix"),
 //   			ObjectSizeLessThan: jsii.Number(10000),
-//   			Transitions: []transition{
-//   				&transition{
+//   			Transitions: []Transition{
+//   				&Transition{
 //   					StorageClass: s3.StorageClass_GLACIER(),
 //
 //   					// exactly one of transitionAfter or transitionDate must be specified

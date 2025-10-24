@@ -99,7 +99,7 @@ If you need access to the s3 accesspoint, you can get its ARN like so:
 ```go
 import s3objectlambda "github.com/aws/aws-cdk-go/awscdks3objectlambdaalpha"
 
-var accessPoint accessPoint
+var accessPoint AccessPoint
 s3AccessPointArn := accessPoint.S3AccessPointArn
 ```
 

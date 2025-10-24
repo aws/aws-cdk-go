@@ -15,7 +15,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var graphqlApi graphqlApi
+//   var graphqlApi GraphqlApi
 //
 //   noneDataSource := awscdk.Aws_appsync.NewNoneDataSource(this, jsii.String("MyNoneDataSource"), &NoneDataSourceProps{
 //   	Api: graphqlApi,

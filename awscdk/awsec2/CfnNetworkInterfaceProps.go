@@ -53,8 +53,8 @@ import (
 //   	},
 //   	SecondaryPrivateIpAddressCount: jsii.Number(123),
 //   	SourceDestCheck: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

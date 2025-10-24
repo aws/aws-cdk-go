@@ -8,11 +8,11 @@ package awsbedrockalpha
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var bedrockFoundationModel bedrockFoundationModel
+//   var bedrockFoundationModel BedrockFoundationModel
 //
 //   promptRouterProps := &PromptRouterProps{
 //   	PromptRouterId: jsii.String("promptRouterId"),
-//   	RoutingModels: []*bedrockFoundationModel{
+//   	RoutingModels: []BedrockFoundationModel{
 //   		bedrockFoundationModel,
 //   	},
 //   }

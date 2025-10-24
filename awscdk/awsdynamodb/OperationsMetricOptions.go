@@ -22,8 +22,8 @@ import (
 //   	},
 //   	Id: jsii.String("id"),
 //   	Label: jsii.String("label"),
-//   	Operations: []operation{
-//   		awscdk.Aws_dynamodb.*operation_GET_ITEM,
+//   	Operations: []Operation{
+//   		awscdk.Aws_dynamodb.Operation_GET_ITEM,
 //   	},
 //   	Period: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Region: jsii.String("region"),

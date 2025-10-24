@@ -51,15 +51,15 @@ type CfnDataSource_RedshiftParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
 	//
 	Host *string `field:"optional" json:"host" yaml:"host"`
-	// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster.
+	// An optional parameter that uses IAM authentication to grant Quick Sight access to your cluster.
 	//
 	// This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-iamparameters
 	//
 	IamParameters interface{} `field:"optional" json:"iamParameters" yaml:"iamParameters"`
-	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+	// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your cluster.
 	//
-	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+	// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-identitycenterconfiguration
 	//
 	IdentityCenterConfiguration interface{} `field:"optional" json:"identityCenterConfiguration" yaml:"identityCenterConfiguration"`

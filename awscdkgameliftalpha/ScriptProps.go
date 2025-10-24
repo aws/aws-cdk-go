@@ -7,7 +7,7 @@ import (
 // Properties for a new realtime server script.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   gamelift.NewScript(this, jsii.String("Script"), &ScriptProps{
 //   	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),

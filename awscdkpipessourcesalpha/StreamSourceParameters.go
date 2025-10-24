@@ -13,7 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
+//   var queue Queue
 //
 //   streamSourceParameters := &StreamSourceParameters{
 //   	BatchSize: jsii.Number(123),

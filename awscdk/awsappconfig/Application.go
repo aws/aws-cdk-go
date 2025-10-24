@@ -20,7 +20,7 @@ import (
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
 //   	Application: app,
-//   	DeployTo: []iEnvironment{
+//   	DeployTo: []IEnvironment{
 //   		env,
 //   	},
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),

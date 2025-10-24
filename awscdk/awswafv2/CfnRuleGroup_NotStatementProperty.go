@@ -17,15 +17,15 @@ package awswafv2
 //   var httpMethod interface{}
 //   var ip interface{}
 //   var method interface{}
-//   var notStatementProperty_ notStatementProperty
+//   var notStatementProperty_ NotStatementProperty
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
+//   var statementProperty_ StatementProperty
 //   var uriPath interface{}
 //
-//   notStatementProperty := &notStatementProperty{
-//   	Statement: &statementProperty{
+//   notStatementProperty := &NotStatementProperty{
+//   	Statement: &StatementProperty{
 //   		AndStatement: &AndStatementProperty{
 //   			Statements: []interface{}{
 //   				statementProperty_,

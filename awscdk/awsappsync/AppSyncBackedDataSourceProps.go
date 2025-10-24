@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api iApi
-//   var role role
+//   var api IApi
+//   var role Role
 //
 //   appSyncBackedDataSourceProps := &AppSyncBackedDataSourceProps{
 //   	Api: api,

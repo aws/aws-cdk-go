@@ -8,31 +8,31 @@ package awscodepipeline
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var action action
-//   var rule rule
+//   var action Action
+//   var rule Rule
 //
 //   stageProps := &StageProps{
 //   	StageName: jsii.String("stageName"),
 //
 //   	// the properties below are optional
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		action,
 //   	},
 //   	BeforeEntry: &Conditions{
-//   		Conditions: []condition{
-//   			&condition{
+//   		Conditions: []Condition{
+//   			&Condition{
 //   				Result: awscdk.Aws_codepipeline.Result_ROLLBACK,
-//   				Rules: []*rule{
+//   				Rules: []Rule{
 //   					rule,
 //   				},
 //   			},
 //   		},
 //   	},
 //   	OnFailure: &FailureConditions{
-//   		Conditions: []*condition{
-//   			&condition{
+//   		Conditions: []Condition{
+//   			&Condition{
 //   				Result: awscdk.*Aws_codepipeline.Result_ROLLBACK,
-//   				Rules: []*rule{
+//   				Rules: []Rule{
 //   					rule,
 //   				},
 //   			},
@@ -41,10 +41,10 @@ package awscodepipeline
 //   		RetryMode: awscdk.*Aws_codepipeline.RetryMode_ALL_ACTIONS,
 //   	},
 //   	OnSuccess: &Conditions{
-//   		Conditions: []*condition{
-//   			&condition{
+//   		Conditions: []Condition{
+//   			&Condition{
 //   				Result: awscdk.*Aws_codepipeline.Result_ROLLBACK,
-//   				Rules: []*rule{
+//   				Rules: []Rule{
 //   					rule,
 //   				},
 //   			},

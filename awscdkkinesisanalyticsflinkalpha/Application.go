@@ -15,7 +15,7 @@ import (
 // The L2 construct for Flink Kinesis Data Applications.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 //   	PropertyGroups: map[string]map[string]*string{

@@ -10,8 +10,8 @@ package awsrds
 // - 731 (2 years).
 //
 // Example:
-//   var vpc vpc
-//   var kmsKey key
+//   var vpc Vpc
+//   var kmsKey Key
 //
 //   rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA(),

@@ -8,15 +8,15 @@ package awscognito
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var resourceServerScope resourceServerScope
-//   var userPool userPool
+//   var resourceServerScope ResourceServerScope
+//   var userPool UserPool
 //
 //   userPoolResourceServerProps := &UserPoolResourceServerProps{
 //   	Identifier: jsii.String("identifier"),
 //   	UserPool: userPool,
 //
 //   	// the properties below are optional
-//   	Scopes: []*resourceServerScope{
+//   	Scopes: []ResourceServerScope{
 //   		resourceServerScope,
 //   	},
 //   	UserPoolResourceServerName: jsii.String("userPoolResourceServerName"),

@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Load balancing protocol version for application load balancers.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{

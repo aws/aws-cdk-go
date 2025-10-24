@@ -9,7 +9,7 @@ import (
 // Example:
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //   import acm "github.com/aws/aws-cdk-go/awscdk"
-//   var bucket bucket
+//   var bucket Bucket
 //
 //
 //   certArn := "arn:aws:acm:us-east-1:111111111111:certificate"

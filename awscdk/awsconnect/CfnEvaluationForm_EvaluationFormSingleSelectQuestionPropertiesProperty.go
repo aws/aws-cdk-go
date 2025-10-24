@@ -16,6 +16,9 @@ package awsconnect
 //
 //   			// the properties below are optional
 //   			AutomaticFail: jsii.Boolean(false),
+//   			AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   				TargetSection: jsii.String("targetSection"),
+//   			},
 //   			Score: jsii.Number(123),
 //   		},
 //   	},
@@ -33,6 +36,9 @@ package awsconnect
 //   		},
 //
 //   		// the properties below are optional
+//   		AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   			SourceType: jsii.String("sourceType"),
+//   		},
 //   		DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   	},
 //   	DisplayAs: jsii.String("displayAs"),

@@ -9,6 +9,9 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   evaluationFormNumericQuestionAutomationProperty := &EvaluationFormNumericQuestionAutomationProperty{
+//   	AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   		SourceType: jsii.String("sourceType"),
+//   	},
 //   	PropertyValue: &NumericQuestionPropertyValueAutomationProperty{
 //   		Label: jsii.String("label"),
 //   	},
@@ -17,6 +20,9 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html
 //
 type CfnEvaluationForm_EvaluationFormNumericQuestionAutomationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-answersource
+	//
+	AnswerSource interface{} `field:"optional" json:"answerSource" yaml:"answerSource"`
 	// The property value of the automation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-propertyvalue
 	//

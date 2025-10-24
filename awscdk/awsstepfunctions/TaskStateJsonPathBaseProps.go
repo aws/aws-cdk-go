@@ -14,8 +14,8 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   taskStateJsonPathBaseProps := &TaskStateJsonPathBaseProps{
 //   	Assign: map[string]interface{}{

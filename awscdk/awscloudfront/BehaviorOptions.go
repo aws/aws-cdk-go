@@ -4,7 +4,7 @@ package awscloudfront
 // Options for creating a new behavior.
 //
 // Example:
-//   var s3Bucket bucket
+//   var s3Bucket Bucket
 //   // Add a cloudfront Function to a Distribution
 //   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
@@ -13,8 +13,8 @@ package awscloudfront
 //   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewS3Origin(s3Bucket),
-//   		FunctionAssociations: []functionAssociation{
-//   			&functionAssociation{
+//   		FunctionAssociations: []FunctionAssociation{
+//   			&FunctionAssociation{
 //   				Function: cfFunction,
 //   				EventType: cloudfront.FunctionEventType_VIEWER_REQUEST,
 //   			},

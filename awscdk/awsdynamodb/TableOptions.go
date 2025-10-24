@@ -19,10 +19,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var inputFormat inputFormat
-//   var key key
-//   var policyDocument policyDocument
+//   var bucket Bucket
+//   var inputFormat InputFormat
+//   var key Key
+//   var policyDocument PolicyDocument
 //
 //   tableOptions := &TableOptions{
 //   	PartitionKey: &Attribute{

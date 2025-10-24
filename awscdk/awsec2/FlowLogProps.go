@@ -4,7 +4,7 @@ package awsec2
 // Properties of a VPC Flow Log.
 //
 // Example:
-//   var tgw cfnTransitGateway
+//   var tgw CfnTransitGateway
 //
 //
 //   ec2.NewFlowLog(this, jsii.String("TransitGatewayFlowLog"), &FlowLogProps{

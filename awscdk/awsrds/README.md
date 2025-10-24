@@ -14,7 +14,7 @@ You must specify the instance to use as the writer, along with an optional list
 of readers (up to 15).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -25,7 +25,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 		PubliclyAccessible: jsii.Boolean(false),
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
 			PromotionTier: jsii.Number(1),
 		}),
@@ -41,7 +41,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 To adopt Aurora I/O-Optimized, specify `DBClusterStorageType.AURORA_IOPT1` on the `storageType` property.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
@@ -53,7 +53,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 		PubliclyAccessible: jsii.Boolean(false),
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 	},
 	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
@@ -81,7 +81,7 @@ You can place each instance in fixed availability zone by specifying `availabili
 For details, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -97,7 +97,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 // VPC and subnets must have IPv6 CIDR blocks
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -120,7 +120,7 @@ Local write forwarding allows read replicas to accept write transactions and for
 To enable local write forwarding, set the `enableLocalWriteForwarding` property to `true`:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
@@ -128,7 +128,7 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 		Version: rds.AuroraMysqlEngineVersion_VER_3_07_0(),
 	}),
 	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writerInstance")),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*ServerlessV2(jsii.String("readerInstance1")),
 	},
 	Vpc: Vpc,
@@ -142,7 +142,7 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 Use `DatabaseClusterFromSnapshot` to create a cluster from a snapshot:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClusterFromSnapshotProps{
 	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{
@@ -158,7 +158,7 @@ By default, automatic minor version upgrades for the engine type are enabled in 
 To do so, set `autoMinorVersionUpgrade` to `false`.
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
@@ -182,7 +182,7 @@ This adds a dependency between each instance so the update is performed on only 
 Use `InstanceUpdateBehavior.BULK` to update all instances at once.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -191,7 +191,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
 		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 	},
 	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
@@ -212,14 +212,14 @@ a serverless v2 reader.
 > consideration.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader")),
 	},
 	Vpc: Vpc,
@@ -238,14 +238,14 @@ v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverle
   cluster.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader")),
 	},
 	Vpc: Vpc,
@@ -274,7 +274,7 @@ minimum and maximum capacity range on the cluster. This is an example showing
 the default values:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -311,7 +311,7 @@ if they don't have any connections initiated by user activity within a time peri
 For more information, see [Scaling to Zero ACUs with automatic pause and resume for Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2-auto-pause.html).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -333,14 +333,14 @@ wants to ensure that in the event of a failover the reader that gets promoted is
 scaled to handle the write load.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
 			ScaleWithWriter: jsii.Boolean(true),
 		}),
@@ -385,7 +385,7 @@ the minimum capacity so if your cluster has spiky workloads you may need to set
 a higher minimum capacity.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -396,7 +396,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	}),
 	ServerlessV2MinCapacity: jsii.Number(6.5),
 	ServerlessV2MaxCapacity: jsii.Number(64),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
 			ScaleWithWriter: jsii.Boolean(true),
 		}),
@@ -424,7 +424,7 @@ Use the `caCertificate` property to specify the [CA certificates](https://docs.a
 to use for a cluster instances:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -433,7 +433,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 		CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
 			CaCertificate: rds.CaCertificate_Of(jsii.String("custom-ca")),
 		}),
@@ -447,7 +447,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 To schedule modifications to database instances in the next scheduled maintenance window, specify `applyImmediately` to `false` in the instance props:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -456,7 +456,7 @@ rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 		ApplyImmediately: jsii.Boolean(false),
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
 			ApplyImmediately: jsii.Boolean(false),
 		}),
@@ -478,7 +478,7 @@ For details, see [Modifying an Amazon Aurora DB cluster](https://docs.aws.amazon
 By default, when a database cluster is deleted, automated backups are removed immediately unless an AWS Backup policy specifies a point-in-time restore rule. You can control this behavior using the `deleteAutomatedBackups` property:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 // Retain automated backups after cluster deletion
 // Retain automated backups after cluster deletion
@@ -504,7 +504,7 @@ deprecated. To migrate to the new properties you can provide the
 For example, in order to migrate from this deprecated config:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -531,7 +531,7 @@ Make sure to run a `cdk diff` before deploying to make sure that all changes are
 expected. **Always test the migration in a non-production environment first.**
 
 ```go
-var vpc vpc
+var vpc Vpc
 instanceProps := map[string]interface{}{
 	"instanceType": ec2.InstanceType_of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 	"isFromLegacyInstanceProps": jsii.Boolean(true),
@@ -548,7 +548,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 		InstanceType: instanceProps.instanceType,
 		IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*Provisioned(jsii.String("Instance2"), &ProvisionedClusterInstanceProps{
 			InstanceType: instanceProps.instanceType,
 			IsFromLegacyInstanceProps: instanceProps.isFromLegacyInstanceProps,
@@ -562,8 +562,8 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 Use `replicationSourceIdentifier` to create a read replica cluster:
 
 ```go
-var vpc vpc
-var primaryCluster databaseCluster
+var vpc Vpc
+var primaryCluster DatabaseCluster
 
 
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
@@ -585,7 +585,7 @@ always launch a database in a VPC. Use the `vpcSubnets` attribute to control whe
 your instances will be launched privately or publicly:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
@@ -617,7 +617,7 @@ This is the upper limit to which RDS can automatically scale the storage. More i
 Example for max storage configuration:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
@@ -634,7 +634,7 @@ When you create a DB instance, you can choose an Availability Zone or have Amazo
 For details, see [Regions, Availability Zones, and Local Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
@@ -648,7 +648,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 To use dual-stack mode, specify `NetworkType.DUAL` on the `networkType` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 // VPC and subnets must have IPv6 CIDR blocks
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
@@ -666,9 +666,9 @@ Use `DatabaseInstanceFromSnapshot` and `DatabaseInstanceReadReplica` to create a
 a source database respectively:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
-var sourceInstance databaseInstance
+var sourceInstance DatabaseInstance
 
 rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
 	SnapshotIdentifier: jsii.String("my-snapshot"),
@@ -689,7 +689,7 @@ rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &DatabaseIn
 Or you can [restore a DB instance from a Multi-AZ DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RestoreFromMultiAZDBClusterSnapshot.html)
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &DatabaseInstanceFromSnapshotProps{
@@ -722,11 +722,11 @@ optionGroup := rds.NewOptionGroup(this, jsii.String("OptionGroup"), &OptionGroup
 	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
 		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	Configurations: []optionConfiguration{
-		&optionConfiguration{
+	Configurations: []OptionConfiguration{
+		&OptionConfiguration{
 			Name: jsii.String("LOCATOR"),
 		},
-		&optionConfiguration{
+		&OptionConfiguration{
 			Name: jsii.String("OEM"),
 			Port: jsii.Number(1158),
 			Vpc: *Vpc,
@@ -785,7 +785,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Runtime: lambda.Runtime_NODEJS_20_X(),
 })
 
 availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
@@ -817,11 +817,11 @@ optionGroup := rds.NewOptionGroup(this, jsii.String("OptionGroup"), &OptionGroup
 	Engine: rds.DatabaseInstanceEngine_*OracleSe2(&OracleSe2InstanceEngineProps{
 		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 	}),
-	Configurations: []optionConfiguration{
-		&optionConfiguration{
+	Configurations: []OptionConfiguration{
+		&OptionConfiguration{
 			Name: jsii.String("LOCATOR"),
 		},
-		&optionConfiguration{
+		&OptionConfiguration{
 			Name: jsii.String("OEM"),
 			Port: jsii.Number(1158),
 			Vpc: *Vpc,
@@ -880,7 +880,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &AlarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Runtime: lambda.Runtime_NODEJS_20_X(),
 })
 
 availabilityRule := instance.OnEvent(jsii.String("Availability"), &OnEventOptions{
@@ -899,7 +899,7 @@ Use the `storageType` property to specify the [type of storage](https://docs.aws
 to use for the instance:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
@@ -926,11 +926,11 @@ Use the `allocatedStorage` property to specify the amount of storage (in gigabyt
 to use for the instance:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 // Setting allocatedStorage for DatabaseInstance replica
 // Note: If allocatedStorage isn't set here, the replica instance will inherit the allocatedStorage of the source instance
-var sourceInstance databaseInstance
+var sourceInstance DatabaseInstance
 
 
 // Setting allocatedStorage for DatabaseInstance
@@ -955,7 +955,7 @@ Use the `caCertificate` property to specify the [CA certificates](https://docs.a
 to use for the instance:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
@@ -970,7 +970,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 You can specify a custom CA certificate with:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
@@ -987,7 +987,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 To schedule modifications in the next scheduled maintenance window, specify `applyImmediately` to `false`:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
@@ -1014,7 +1014,7 @@ cluster, the default value will be determined on the vpc placement of the `Datab
 based on the vpc placement of standalone `DatabaseInstance`.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 // Setting public accessibility for DB instance
 // Setting public accessibility for DB instance
@@ -1051,8 +1051,8 @@ To define Amazon CloudWatch event rules for database instances, use the `onEvent
 method:
 
 ```go
-var instance databaseInstance
-var fn function
+var instance DatabaseInstance
+var fn Function
 
 rule := instance.OnEvent(jsii.String("InstanceEvent"), &OnEventOptions{
 	Target: targets.NewLambdaFunction(fn),
@@ -1067,7 +1067,7 @@ An alternative username (and password) may be specified for the admin user inste
 The following examples use a `DatabaseInstance`, but the same usage is applicable to `DatabaseCluster`.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
 	Version: rds.PostgresEngineVersion_VER_16_3(),
@@ -1095,7 +1095,7 @@ rds.NewDatabaseInstance(this, jsii.String("InstanceWithSecretLogin"), &DatabaseI
 Secrets generated by `fromGeneratedSecret()` can be customized:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
 	Version: rds.PostgresEngineVersion_VER_16_3(),
@@ -1109,11 +1109,11 @@ rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &Data
 		SecretName: jsii.String("my-cool-name"),
 		EncryptionKey: myKey,
 		ExcludeCharacters: jsii.String("!&*^#@()"),
-		ReplicaRegions: []replicaRegion{
-			&replicaRegion{
+		ReplicaRegions: []ReplicaRegion{
+			&ReplicaRegion{
 				Region: jsii.String("eu-west-1"),
 			},
-			&replicaRegion{
+			&ReplicaRegion{
 				Region: jsii.String("eu-west-2"),
 			},
 		},
@@ -1126,7 +1126,7 @@ rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &Data
 As noted above, Databases created with `DatabaseInstanceFromSnapshot` or `ServerlessClusterFromSnapshot` will not create user and auto-generated password by default because it's not possible to change the master username for a snapshot. Instead, they will use the existing username and password from the snapshot. You can still generate a new password - to generate a secret similarly to the other constructs, pass in credentials with `fromGeneratedSecret()` or `fromGeneratedPassword()`.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
 	Version: rds.PostgresEngineVersion_VER_16_3(),
@@ -1140,11 +1140,11 @@ rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithC
 	Credentials: rds.SnapshotCredentials_FromGeneratedSecret(jsii.String("username"), &SnapshotCredentialsFromGeneratedPasswordOptions{
 		EncryptionKey: myKey,
 		ExcludeCharacters: jsii.String("!&*^#@()"),
-		ReplicaRegions: []replicaRegion{
-			&replicaRegion{
+		ReplicaRegions: []ReplicaRegion{
+			&ReplicaRegion{
 				Region: jsii.String("eu-west-1"),
 			},
-			&replicaRegion{
+			&ReplicaRegion{
 				Region: jsii.String("eu-west-2"),
 			},
 		},
@@ -1158,7 +1158,7 @@ To control who can access the cluster or instance, use the `.connections` attrib
 a default port, so you don't need to specify the port:
 
 ```go
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 cluster.Connections.AllowFromAnyIpv4(ec2.Port_AllTraffic(), jsii.String("Open to the world"))
 ```
@@ -1167,7 +1167,7 @@ The endpoints to access your database cluster will be available as the `.cluster
 attributes:
 
 ```go
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 writeAddress := cluster.ClusterEndpoint.SocketAddress
 ```
@@ -1175,7 +1175,7 @@ writeAddress := cluster.ClusterEndpoint.SocketAddress
 For an instance database:
 
 ```go
-var instance databaseInstance
+var instance DatabaseInstance
 
 address := instance.InstanceEndpoint.SocketAddress
 ```
@@ -1185,8 +1185,8 @@ address := instance.InstanceEndpoint.SocketAddress
 When the master password is generated and stored in AWS Secrets Manager, it can be rotated automatically:
 
 ```go
-var instance databaseInstance
-var mySecurityGroup securityGroup
+var instance DatabaseInstance
+var mySecurityGroup SecurityGroup
 
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
@@ -1230,8 +1230,8 @@ clusterWithCustomRotationOptions.addRotationSingleUser(&RotationSingleUserOption
 The multi user rotation scheme is also available:
 
 ```go
-var instance databaseInstance
-var myImportedSecret databaseSecret
+var instance DatabaseInstance
+var myImportedSecret DatabaseSecret
 
 instance.addRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
 	Secret: myImportedSecret,
@@ -1241,7 +1241,7 @@ instance.addRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
 It's also possible to create user credentials together with the instance/cluster and add rotation:
 
 ```go
-var instance databaseInstance
+var instance DatabaseInstance
 
 myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &DatabaseSecretProps{
 	Username: jsii.String("myuser"),
@@ -1269,8 +1269,8 @@ is deployed in the same subnets as the instance/cluster. If access to the Secret
 those subnets or using the default API endpoint, use the `vpcSubnets` and/or `endpoint` options:
 
 ```go
-var instance databaseInstance
-var myEndpoint interfaceVpcEndpoint
+var instance DatabaseInstance
+var myEndpoint InterfaceVpcEndpoint
 
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
@@ -1287,8 +1287,8 @@ See also [aws-cdk-lib/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/ma
 By default, any stack updates will cause AWS Secrets Manager to rotate a secret immediately. To prevent this behavior and wait until the next scheduled rotation window specified via the `automaticallyAfter` property, set the `rotateImmediatelyOnUpdate` property to false:
 
 ```go
-var instance databaseInstance
-var mySecurityGroup securityGroup
+var instance DatabaseInstance
+var mySecurityGroup SecurityGroup
 
 
 instance.addRotationSingleUser(&RotationSingleUserOptions{
@@ -1313,7 +1313,7 @@ The following example shows enabling IAM authentication for a database instance 
 ### Instance
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
@@ -1333,7 +1333,7 @@ instance.grantConnect(role)
 The following example shows granting connection access for RDS Proxy to an IAM role.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -1345,7 +1345,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 
 proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
 	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-	Secrets: []iSecret{
+	Secrets: []ISecret{
 		cluster.Secret,
 	},
 	Vpc: Vpc,
@@ -1364,7 +1364,7 @@ To specify the details of authentication used by a proxy to log in as a specific
 user use the `clientPasswordAuthType` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -1376,7 +1376,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 
 proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
 	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-	Secrets: []iSecret{
+	Secrets: []ISecret{
 		cluster.Secret,
 	},
 	Vpc: Vpc,
@@ -1389,7 +1389,7 @@ proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
 The following example shows granting connection access for an IAM role to an Aurora Cluster.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -1417,13 +1417,13 @@ The following example shows enabling domain support for a database instance and 
 Directory Services.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &RoleProps{
 	AssumedBy: iam.NewCompositePrincipal(
 	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
 	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
-	ManagedPolicies: []iManagedPolicy{
+	ManagedPolicies: []IManagedPolicy{
 		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
 	},
 })
@@ -1441,13 +1441,13 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 You can also use the Kerberos authentication for an Aurora database cluster.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 iamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewCompositePrincipal(
 	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
 	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
-	ManagedPolicies: []iManagedPolicy{
+	ManagedPolicies: []IManagedPolicy{
 		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
 	},
 })
@@ -1478,10 +1478,10 @@ Database instances and clusters both expose metrics (`cloudwatch.Metric`):
 
 ```go
 // The number of database connections in use (average over 5 minutes)
-var instance databaseInstance
+var instance DatabaseInstance
 
 // Average CPU utilization over 5 minutes
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 dbConnections := instance.metricDatabaseConnections()
 cpuUtilization := cluster.metricCPUUtilization()
@@ -1517,7 +1517,7 @@ The following snippet sets up a database cluster with different S3 buckets where
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 importBucket := s3.NewBucket(this, jsii.String("importbucket"))
 exportBucket := s3.NewBucket(this, jsii.String("exportbucket"))
@@ -1527,10 +1527,10 @@ rds.NewDatabaseCluster(this, jsii.String("dbcluster"), &DatabaseClusterProps{
 	}),
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
 	Vpc: Vpc,
-	S3ImportBuckets: []iBucket{
+	S3ImportBuckets: []IBucket{
 		importBucket,
 	},
-	S3ExportBuckets: []*iBucket{
+	S3ExportBuckets: []IBucket{
 		exportBucket,
 	},
 })
@@ -1546,10 +1546,10 @@ RDS Proxy is supported for MySQL, MariaDB, Postgres, and SQL Server.
 The following code configures an RDS Proxy for a `DatabaseInstance`.
 
 ```go
-var vpc vpc
-var securityGroup securityGroup
-var secrets []secret
-var dbInstance databaseInstance
+var vpc Vpc
+var securityGroup SecurityGroup
+var secrets []Secret
+var dbInstance DatabaseInstance
 
 
 proxy := dbInstance.AddProxy(jsii.String("proxy"), &DatabaseProxyOptions{
@@ -1565,9 +1565,9 @@ proxy := dbInstance.AddProxy(jsii.String("proxy"), &DatabaseProxyOptions{
 The following example add additional endpoint to RDS Proxy.
 
 ```go
-var vpc vpc
-var secrets []secret
-var dbInstance databaseInstance
+var vpc Vpc
+var secrets []Secret
+var dbInstance DatabaseInstance
 
 
 proxy := dbInstance.AddProxy(jsii.String("Proxy"), &DatabaseProxyOptions{
@@ -1590,8 +1590,8 @@ instances and clusters; the types of logs available depend on the database type 
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-var myLogsPublishingRole role
-var vpc vpc
+var myLogsPublishingRole Role
+var vpc Vpc
 
 
 // Exporting logs from a cluster
@@ -1643,20 +1643,20 @@ Amazon RDS uses option groups to enable and configure these features. An option 
 that are available for a particular Amazon RDS DB instance.
 
 ```go
-var vpc vpc
-var securityGroup securityGroup
+var vpc Vpc
+var securityGroup SecurityGroup
 
 
 rds.NewOptionGroup(this, jsii.String("Options"), &OptionGroupProps{
 	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
 		Version: rds.OracleEngineVersion_VER_19(),
 	}),
-	Configurations: []optionConfiguration{
-		&optionConfiguration{
+	Configurations: []OptionConfiguration{
+		&OptionConfiguration{
 			Name: jsii.String("OEM"),
 			Port: jsii.Number(5500),
 			Vpc: *Vpc,
-			SecurityGroups: []iSecurityGroup{
+			SecurityGroups: []ISecurityGroup{
 				securityGroup,
 			},
 		},
@@ -1674,7 +1674,7 @@ Amazon RDS defines parameter groups with default settings.
 You can create your own parameter group for your cluster or instance and associate it with your database:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &ParameterGroupProps{
@@ -1698,7 +1698,7 @@ Another way to specify parameters is to use the inline field `parameters` that c
 You can use this if you do not want to reuse the parameter group instance for different instances:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
@@ -1726,7 +1726,7 @@ Aurora Serverless clusters can specify scaling properties which will be used to
 automatically scale the database cluster seamlessly based on the workload.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
@@ -1773,7 +1773,7 @@ Learn more about using Amazon Aurora Serverless v1 by reading the [documentation
 Use `ServerlessClusterFromSnapshot` to create a serverless cluster from a snapshot:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &ServerlessClusterFromSnapshotProps{
 	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
@@ -1789,9 +1789,9 @@ You can access your Aurora DB cluster using the built-in Data API. The Data API 
 The following example shows granting Data API access to a Lambda function.
 
 ```go
-var vpc vpc
-var fn function
-var secret secret
+var vpc Vpc
+var fn Function
+var secret Secret
 
 
 // Create a serverless V1 cluster
@@ -1841,7 +1841,7 @@ The following code snippet shows an example of setting the cluster's maintenance
 to 23:15-23:45 on Sundays
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA(),
@@ -1856,7 +1856,7 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 You can also set the preferred maintenance window via reader and writer props:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA(),
@@ -1882,8 +1882,8 @@ If you want to specify the detailed settings, you can use the `performanceInsigh
 The settings are then applied to all instances in the cluster.
 
 ```go
-var vpc vpc
-var kmsKey key
+var vpc Vpc
+var kmsKey Key
 
 rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA(),
@@ -1905,8 +1905,8 @@ In this way, different settings can be applied to different instances in a clust
 for each instance require the same retention period and encryption key as the cluster level.
 
 ```go
-var vpc vpc
-var kmsKey key
+var vpc Vpc
+var kmsKey Key
 
 rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA(),
@@ -1917,7 +1917,7 @@ rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 		PerformanceInsightRetention: rds.PerformanceInsightRetention_LONG_TERM,
 		PerformanceInsightEncryptionKey: kmsKey,
 	}),
-	Readers: []iClusterInstance{
+	Readers: []IClusterInstance{
 		rds.ClusterInstance_*Provisioned(jsii.String("Reader"), &ProvisionedClusterInstanceProps{
 			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_R7G, ec2.InstanceSize_LARGE),
 			EnablePerformanceInsights: jsii.Boolean(false),
@@ -1932,8 +1932,8 @@ To enable Performance Insights for an instance database, set the `enablePerforma
 If you want to specify the detailed settings, you can use the `performanceInsightRetention` and `performanceInsightEncryptionKey` properties.
 
 ```go
-var vpc vpc
-var kmsKey key
+var vpc Vpc
+var kmsKey Key
 
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
@@ -1966,7 +1966,7 @@ You can enhance the monitoring of your Aurora databases by enabling the advanced
 To control Database Insights mode, use the `databaseInsightsMode` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA(),
@@ -1984,7 +1984,7 @@ rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 Database Insights is also supported for RDS instances:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 rds.NewDatabaseInstance(this, jsii.String("PostgresInstance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
@@ -2011,7 +2011,7 @@ This value is applied at instance level to all instances in the cluster by defau
 If you want to enable enhanced monitoring at the cluster level, you can set the `enableClusterLevelEnhancedMonitoring` property to `true`. Note that you must set `monitoringInterval` when using `enableClusterLevelEnhancedMonitoring`
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 // Enable Enhanced Monitoring at instance level to all instances in the cluster
 // Enable Enhanced Monitoring at instance level to all instances in the cluster
@@ -2041,8 +2041,8 @@ AWS CDK automatically generate the IAM role for Enhanced Monitoring.
 If you want to create the IAM role manually, you can use the `monitoringRole` property.
 
 ```go
-var vpc vpc
-var monitoringRole role
+var vpc Vpc
+var monitoringRole Role
 
 
 rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
@@ -2062,7 +2062,7 @@ With Amazon RDS Extended Support, you can continue running your database on a ma
 standard support date for an additional cost. To configure the life cycle type, use the `engineLifecycleSupport` property:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
@@ -2093,7 +2093,7 @@ You can lookup an existing DatabaseInstance by its instanceIdentifier using `Dat
 Here's how `DatabaseInstance.fromLookup()` can be used:
 
 ```go
-var myUserRole role
+var myUserRole Role
 
 
 dbFromLookup := rds.DatabaseInstance_FromLookup(this, jsii.String("dbFromLookup"), &DatabaseInstanceLookupOptions{
@@ -2113,7 +2113,7 @@ You can lookup an existing DatabaseCluster by its clusterIdentifier using `Datab
 Here's how `DatabaseCluster.fromLookup()` can be used:
 
 ```go
-var myUserRole role
+var myUserRole Role
 
 
 clusterFromLookup := rds.DatabaseCluster_FromLookup(this, jsii.String("ClusterFromLookup"), &DatabaseClusterLookupOptions{
@@ -2131,7 +2131,7 @@ Amazon Aurora [PostgreSQL Limitless Database](https://docs.aws.amazon.com/Amazon
 The following example shows creating an Aurora PostgreSQL Limitless Database cluster:
 
 ```go
-var vpc iVpc
+var vpc IVpc
 
 
 rds.NewDatabaseCluster(this, jsii.String("LimitlessDatabaseCluster"), &DatabaseClusterProps{

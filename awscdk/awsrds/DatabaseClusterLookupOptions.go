@@ -4,7 +4,7 @@ package awsrds
 // Properties for looking up an existing DatabaseCluster.
 //
 // Example:
-//   var myUserRole role
+//   var myUserRole Role
 //
 //
 //   clusterFromLookup := rds.DatabaseCluster_FromLookup(this, jsii.String("ClusterFromLookup"), &DatabaseClusterLookupOptions{

@@ -15,13 +15,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var compression compression
-//   var dataProcessor iDataProcessor
-//   var key key
-//   var loggingConfig iLoggingConfig
-//   var role role
-//   var size size
+//   var bucket Bucket
+//   var compression Compression
+//   var dataProcessor IDataProcessor
+//   var key Key
+//   var loggingConfig ILoggingConfig
+//   var role Role
+//   var size Size
 //
 //   commonDestinationProps := &CommonDestinationProps{
 //   	LoggingConfig: loggingConfig,

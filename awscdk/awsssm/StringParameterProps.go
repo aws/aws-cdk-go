@@ -6,7 +6,7 @@ package awsssm
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var func iFunction
+//   var func IFunction
 //
 //
 //   simpleParameter := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{

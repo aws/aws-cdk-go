@@ -16,12 +16,12 @@ import (
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var chatMessage chatMessage
-//   var tool tool
-//   var toolChoice toolChoice
+//   var chatMessage ChatMessage
+//   var tool Tool
+//   var toolChoice ToolChoice
 //
 //   promptTemplateConfiguration := bedrock_alpha.PromptTemplateConfiguration_Chat(&ChatTemplateConfigurationProps{
-//   	Messages: []*chatMessage{
+//   	Messages: []ChatMessage{
 //   		chatMessage,
 //   	},
 //
@@ -32,7 +32,7 @@ import (
 //   	System: jsii.String("system"),
 //   	ToolConfiguration: &ToolConfiguration{
 //   		ToolChoice: toolChoice,
-//   		Tools: []*tool{
+//   		Tools: []Tool{
 //   			tool,
 //   		},
 //   	},

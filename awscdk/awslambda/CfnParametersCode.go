@@ -52,7 +52,7 @@ import (
 //   })
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		cdkSourceAction,
 //   		lambdaSourceAction,
 //   	},
@@ -88,7 +88,7 @@ import (
 //   	ActionName: jsii.String("CDK_Build"),
 //   	Project: cdkBuildProject,
 //   	Input: cdkSourceOutput,
-//   	Outputs: []artifact{
+//   	Outputs: []Artifact{
 //   		cdkBuildOutput,
 //   	},
 //   })
@@ -123,14 +123,14 @@ import (
 //   	ActionName: jsii.String("Lambda_Build"),
 //   	Project: lambdaBuildProject,
 //   	Input: lambdaSourceOutput,
-//   	Outputs: []*artifact{
+//   	Outputs: []Artifact{
 //   		lambdaBuildOutput,
 //   	},
 //   })
 //
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Build"),
-//   	Actions: []*iAction{
+//   	Actions: []IAction{
 //   		cdkBuildAction,
 //   		lambdaBuildAction,
 //   	},
@@ -139,14 +139,14 @@ import (
 //   // finally, deploy your Lambda Stack
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Deploy"),
-//   	Actions: []*iAction{
+//   	Actions: []IAction{
 //   		codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
 //   			ActionName: jsii.String("Lambda_CFN_Deploy"),
 //   			TemplatePath: cdkBuildOutput.AtPath(jsii.String("LambdaStack.template.yaml")),
 //   			StackName: jsii.String("LambdaStackDeployedName"),
 //   			AdminPermissions: jsii.Boolean(true),
 //   			ParameterOverrides: lambdaCode.Assign(lambdaBuildOutput.s3Location),
-//   			ExtraInputs: []*artifact{
+//   			ExtraInputs: []Artifact{
 //   				lambdaBuildOutput,
 //   			},
 //   		}),

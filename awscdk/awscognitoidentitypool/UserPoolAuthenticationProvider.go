@@ -10,7 +10,7 @@ import (
 // Defines a User Pool Authentication Provider.
 //
 // Example:
-//   var identityPool identityPool
+//   var identityPool IdentityPool
 //
 //   userPool := cognito.NewUserPool(this, jsii.String("Pool"))
 //   identityPool.AddUserPoolAuthentication(awscdk.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{

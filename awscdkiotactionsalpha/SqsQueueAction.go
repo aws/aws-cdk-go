@@ -19,7 +19,7 @@ import (
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 //   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		actions.NewSqsQueueAction(queue, &SqsQueueActionProps{
 //   			UseBase64: jsii.Boolean(true),
 //   		}),

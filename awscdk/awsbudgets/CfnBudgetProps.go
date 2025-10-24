@@ -9,7 +9,7 @@ package awsbudgets
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var costFilters interface{}
-//   var expressionProperty_ expressionProperty
+//   var expressionProperty_ ExpressionProperty
 //   var plannedBudgetLimits interface{}
 //
 //   cfnBudgetProps := &CfnBudgetProps{
@@ -46,7 +46,7 @@ package awsbudgets
 //   			UseAmortized: jsii.Boolean(false),
 //   			UseBlended: jsii.Boolean(false),
 //   		},
-//   		FilterExpression: &expressionProperty{
+//   		FilterExpression: &ExpressionProperty{
 //   			And: []interface{}{
 //   				expressionProperty_,
 //   			},

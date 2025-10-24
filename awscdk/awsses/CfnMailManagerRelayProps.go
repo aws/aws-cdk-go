@@ -23,8 +23,8 @@ import (
 //
 //   	// the properties below are optional
 //   	RelayName: jsii.String("relayName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

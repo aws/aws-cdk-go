@@ -16,8 +16,8 @@ import (
 //   		AlgorithmName: jsii.String("BlazingText"),
 //   		TrainingInputMode: tasks.InputMode_FILE,
 //   	},
-//   	InputDataConfig: []channel{
-//   		&channel{
+//   	InputDataConfig: []Channel{
+//   		&Channel{
 //   			ChannelName: jsii.String("train"),
 //   			DataSource: &DataSource{
 //   				S3DataSource: &S3DataSource{

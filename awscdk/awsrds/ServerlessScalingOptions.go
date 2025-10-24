@@ -7,7 +7,7 @@ import (
 // Options for configuring scaling on an Aurora Serverless v1 Cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{

@@ -13,8 +13,8 @@ import (
 // A EventBridge Pipes target that sends messages to an SNS topic.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetTopic topic
+//   var sourceQueue Queue
+//   var targetTopic Topic
 //
 //
 //   pipeTarget := targets.NewSnsTarget(targetTopic)

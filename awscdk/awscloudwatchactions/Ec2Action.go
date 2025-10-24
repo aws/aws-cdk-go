@@ -13,7 +13,7 @@ import (
 //
 // Example:
 //   // Alarm must be configured with an EC2 per-instance metric
-//   var alarm alarm
+//   var alarm Alarm
 //
 //   // Attach a reboot when alarm triggers
 //   alarm.AddAlarmAction(

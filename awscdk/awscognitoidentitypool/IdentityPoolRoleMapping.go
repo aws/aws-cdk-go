@@ -9,8 +9,8 @@ package awscognitoidentitypool
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var identityPoolProviderUrl identityPoolProviderUrl
-//   var role role
+//   var identityPoolProviderUrl IdentityPoolProviderUrl
+//   var role Role
 //
 //   identityPoolRoleMapping := &IdentityPoolRoleMapping{
 //   	ProviderUrl: identityPoolProviderUrl,
@@ -18,8 +18,8 @@ package awscognitoidentitypool
 //   	// the properties below are optional
 //   	MappingKey: jsii.String("mappingKey"),
 //   	ResolveAmbiguousRoles: jsii.Boolean(false),
-//   	Rules: []roleMappingRule{
-//   		&roleMappingRule{
+//   	Rules: []RoleMappingRule{
+//   		&RoleMappingRule{
 //   			Claim: jsii.String("claim"),
 //   			ClaimValue: jsii.String("claimValue"),
 //   			MappedRole: role,

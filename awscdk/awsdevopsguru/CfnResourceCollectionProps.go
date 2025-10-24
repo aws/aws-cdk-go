@@ -15,8 +15,8 @@ package awsdevopsguru
 //   				jsii.String("stackNames"),
 //   			},
 //   		},
-//   		Tags: []tagCollectionProperty{
-//   			&tagCollectionProperty{
+//   		Tags: []TagCollectionProperty{
+//   			&TagCollectionProperty{
 //   				AppBoundaryKey: jsii.String("appBoundaryKey"),
 //   				TagValues: []*string{
 //   					jsii.String("tagValues"),

@@ -8,17 +8,17 @@ import (
 // A services that be enabled, disabled or restarted when the instance is launched.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //
 //
 //   handle := ec2.NewInitServiceRestartHandle()
 //
 //   ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/nginx/nginx.conf"), jsii.String("..."), &InitFileOptions{
-//   	ServiceRestartHandles: []initServiceRestartHandle{
+//   	ServiceRestartHandles: []InitServiceRestartHandle{
 //   		handle,
 //   	},
 //   }), ec2.InitSource_FromS3Object(jsii.String("/var/www/html"), myBucket, jsii.String("html.zip"), &InitSourceOptions{
-//   	ServiceRestartHandles: []*initServiceRestartHandle{
+//   	ServiceRestartHandles: []InitServiceRestartHandle{
 //   		handle,
 //   	},
 //   }), ec2.InitService_Enable(jsii.String("nginx"), &InitServiceOptions{

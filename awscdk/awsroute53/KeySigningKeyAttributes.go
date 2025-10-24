@@ -8,7 +8,7 @@ package awsroute53
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var hostedZone hostedZone
+//   var hostedZone HostedZone
 //
 //   keySigningKeyAttributes := &KeySigningKeyAttributes{
 //   	HostedZone: hostedZone,

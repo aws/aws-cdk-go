@@ -23,6 +23,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	Tags: &TagsProperty{
 //   		Items: []interface{}{
 //   			&CfnTag{
@@ -61,6 +62,8 @@ type CfnAnycastIpList interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	IpAddressType() *string
+	SetIpAddressType(val *string)
 	// The number of IP addresses in the Anycast static IP list.
 	IpCount() *float64
 	SetIpCount(val *float64)
@@ -329,6 +332,16 @@ func (j *jsiiProxy_CfnAnycastIpList) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnycastIpList) IpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipAddressType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnycastIpList) IpCount() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -444,6 +457,14 @@ func NewCfnAnycastIpList_Override(c CfnAnycastIpList, scope constructs.Construct
 		"aws-cdk-lib.aws_cloudfront.CfnAnycastIpList",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnAnycastIpList)SetIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"ipAddressType",
+		val,
 	)
 }
 

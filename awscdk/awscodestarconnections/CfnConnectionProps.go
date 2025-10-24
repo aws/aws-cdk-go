@@ -17,8 +17,8 @@ import (
 //   	// the properties below are optional
 //   	HostArn: jsii.String("hostArn"),
 //   	ProviderType: jsii.String("providerType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

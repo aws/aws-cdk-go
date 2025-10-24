@@ -8,7 +8,7 @@ package awsec2alpha
 //   // The values are placeholders you should change.
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //
-//   var vpcV2 vpcV2
+//   var vpcV2 VpcV2
 //
 //   vPCPeeringConnectionProps := &VPCPeeringConnectionProps{
 //   	AcceptorVpc: vpcV2,

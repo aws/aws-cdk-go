@@ -53,13 +53,13 @@ type CfnTemplate_CategoryFilterConfigurationProperty struct {
 	CustomFilterConfiguration interface{} `field:"optional" json:"customFilterConfiguration" yaml:"customFilterConfiguration"`
 	// A list of custom filter values.
 	//
-	// In the Amazon QuickSight console, this filter type is called a custom filter list.
+	// In the Quick Sight console, this filter type is called a custom filter list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryfilterconfiguration.html#cfn-quicksight-template-categoryfilterconfiguration-customfilterlistconfiguration
 	//
 	CustomFilterListConfiguration interface{} `field:"optional" json:"customFilterListConfiguration" yaml:"customFilterListConfiguration"`
 	// A list of filter configurations.
 	//
-	// In the Amazon QuickSight console, this filter type is called a filter list.
+	// In the Quick Sight console, this filter type is called a filter list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryfilterconfiguration.html#cfn-quicksight-template-categoryfilterconfiguration-filterlistconfiguration
 	//
 	FilterListConfiguration interface{} `field:"optional" json:"filterListConfiguration" yaml:"filterListConfiguration"`

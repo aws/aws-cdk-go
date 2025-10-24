@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkeks-v2alpha"
 //
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   serviceAccount := eks_v2_alpha.NewServiceAccount(this, jsii.String("MyServiceAccount"), &ServiceAccountProps{
 //   	Cluster: cluster,

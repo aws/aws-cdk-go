@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnParameter cfnParameter
-//   var keyRef iKeyRef
+//   var cfnParameter CfnParameter
+//   var keyRef IKeyRef
 //
 //   cfnParametersCodeProps := &CfnParametersCodeProps{
 //   	BucketNameParam: cfnParameter,

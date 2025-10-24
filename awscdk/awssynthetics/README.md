@@ -186,9 +186,9 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 		Handler: jsii.String("index.handler"),
 	}),
 	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_9_1(),
-	BrowserConfigs: []browserType{
-		synthetics.*browserType_CHROME,
-		synthetics.*browserType_FIREFOX,
+	BrowserConfigs: []BrowserType{
+		synthetics.BrowserType_CHROME,
+		synthetics.BrowserType_FIREFOX,
 	},
 })
 ```
@@ -332,7 +332,7 @@ This will automatically attach the appropriate IAM permissions to attach to the 
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc iVpc
+var vpc IVpc
 
 synthetics.NewCanary(this, jsii.String("Vpc Canary"), &CanaryProps{
 	Test: synthetics.Test_Custom(&CustomTestOptions{
@@ -363,7 +363,7 @@ Create an alarm that tracks the canary metric:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var canary canary
+var canary Canary
 
 cloudwatch.NewAlarm(this, jsii.String("CanaryAlarm"), &AlarmProps{
 	Metric: canary.MetricSuccessPercent(),
@@ -411,8 +411,8 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 		Handler: jsii.String("index.handler"),
 	}),
 	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
-	ArtifactsBucketLifecycleRules: []lifecycleRule{
-		&lifecycleRule{
+	ArtifactsBucketLifecycleRules: []LifecycleRule{
+		&LifecycleRule{
 			Expiration: awscdk.Duration_Days(jsii.Number(30)),
 		},
 	},
@@ -438,8 +438,8 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 		Handler: jsii.String("index.handler"),
 	}),
 	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_7_0(),
-	ArtifactsBucketLifecycleRules: []lifecycleRule{
-		&lifecycleRule{
+	ArtifactsBucketLifecycleRules: []LifecycleRule{
+		&LifecycleRule{
 			Expiration: awscdk.Duration_Days(jsii.Number(30)),
 		},
 	},

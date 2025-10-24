@@ -8,8 +8,8 @@ package awscognito
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var providerAttribute providerAttribute
-//   var userPool userPool
+//   var providerAttribute ProviderAttribute
+//   var userPool UserPool
 //
 //   userPoolIdentityProviderOidcProps := &UserPoolIdentityProviderOidcProps{
 //   	ClientId: jsii.String("clientId"),
@@ -21,7 +21,7 @@ package awscognito
 //   	AttributeMapping: &AttributeMapping{
 //   		Address: providerAttribute,
 //   		Birthdate: providerAttribute,
-//   		Custom: map[string]*providerAttribute{
+//   		Custom: map[string]ProviderAttribute{
 //   			"customKey": providerAttribute,
 //   		},
 //   		Email: providerAttribute,

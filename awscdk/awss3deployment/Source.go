@@ -20,11 +20,11 @@ import (
 //     Source.yamlData('config.yaml', { baz: topic.topicArn })
 //
 // Example:
-//   var destinationBucket bucket
+//   var destinationBucket Bucket
 //
 //
 //   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
 //   	},
 //   	DestinationBucket: DestinationBucket,
@@ -87,14 +87,14 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 // and pass in the `encryptionKey` attribute explicitly.
 //
 // Example:
-//   var destinationBucket bucket
+//   var destinationBucket Bucket
 //
-//   sourceBucket := s3.bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
+//   sourceBucket := s3.Bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
 //   	BucketArn: jsii.String("arn:aws:s3:::my-source-bucket-name"),
 //   	EncryptionKey: kms.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>")),
 //   })
 //   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Bucket(sourceBucket, jsii.String("source.zip")),
 //   	},
 //   	DestinationBucket: DestinationBucket,

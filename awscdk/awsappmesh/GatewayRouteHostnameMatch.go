@@ -10,8 +10,8 @@ import (
 // Used to generate host name matching methods.
 //
 // Example:
-//   var gateway virtualGateway
-//   var virtualService virtualService
+//   var gateway VirtualGateway
+//   var virtualService VirtualService
 //
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &GatewayRouteBaseProps{

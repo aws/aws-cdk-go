@@ -8,15 +8,15 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var privateSubnet privateSubnet
-//   var publicSubnet publicSubnet
-//   var vpc vpc
+//   var privateSubnet PrivateSubnet
+//   var publicSubnet PublicSubnet
+//   var vpc Vpc
 //
 //   configureNatOptions := &ConfigureNatOptions{
-//   	NatSubnets: []*publicSubnet{
+//   	NatSubnets: []PublicSubnet{
 //   		publicSubnet,
 //   	},
-//   	PrivateSubnets: []*privateSubnet{
+//   	PrivateSubnets: []PrivateSubnet{
 //   		privateSubnet,
 //   	},
 //   	Vpc: vpc,

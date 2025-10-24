@@ -9,7 +9,7 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instance instance
+//   var instance Instance
 //
 //
 //   asset := awscdk.NewAsset(this, jsii.String("Asset"), &AssetProps{

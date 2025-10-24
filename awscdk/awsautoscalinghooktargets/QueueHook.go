@@ -18,7 +18,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
+//   var queue Queue
 //
 //   queueHook := awscdk.Aws_autoscaling_hooktargets.NewQueueHook(queue)
 //

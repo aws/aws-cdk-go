@@ -88,8 +88,8 @@ domain := es.Domain_FromDomainEndpoint(this, jsii.String("ImportedDomain"), doma
 Helper methods also exist for managing access to the domain.
 
 ```go
-var fn function
-var domain domain
+var fn Function
+var domain Domain
 
 
 // Grant write access to the app-search index
@@ -153,7 +153,7 @@ which security groups will be attached to the domain. By default, CDK will selec
 Helper methods exist to access common domain metrics for example:
 
 ```go
-var domain domain
+var domain Domain
 
 freeStorageSpace := domain.metricFreeStorageSpace()
 masterSysMemoryUtilization := domain.metric(jsii.String("MasterSysMemoryUtilization"))
@@ -223,14 +223,14 @@ For simple permissions the `accessPolicies` constructor may be sufficient:
 ```go
 domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	Version: es.ElasticsearchVersion_V7_1(),
-	AccessPolicies: []policyStatement{
+	AccessPolicies: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("es:*ESHttpPost"),
 				jsii.String("es:ESHttpPut*"),
 			},
 			Effect: iam.Effect_ALLOW,
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewAccountPrincipal(jsii.String("123456789012")),
 			},
 			Resources: []*string{
@@ -257,7 +257,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("es:ESHttpPut"),
 	},
 	Effect: iam.Effect_ALLOW,
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
 	Resources: []*string{
@@ -270,7 +270,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("es:ESHttpGet"),
 	},
 	Effect: iam.Effect_ALLOW,
-	Principals: []*iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
 	Resources: []*string{
@@ -385,13 +385,13 @@ Make the following modifications to your CDK application to migrate to the `aws-
   For example:
 
   ```go
-  version := es.elasticsearchVersion_V7_1()
+  version := es.ElasticsearchVersion_V7_1()
   ```
 
   ...becomes...
 
   ```go
-  version := opensearch.engineVersion_ELASTICSEARCH_7_1()
+  version := opensearch.EngineVersion_ELASTICSEARCH_7_1()
   ```
 * Replace the `cognitoKibanaAuth` property of `DomainProps` with `cognitoDashboardsAuth`.
   For example:

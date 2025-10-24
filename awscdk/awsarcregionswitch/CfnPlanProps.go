@@ -8,7 +8,7 @@ package awsarcregionswitch
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stepProperty_ stepProperty
+//   var stepProperty_ StepProperty
 //
 //   cfnPlanProps := &CfnPlanProps{
 //   	ExecutionRole: jsii.String("executionRole"),
@@ -23,7 +23,7 @@ package awsarcregionswitch
 //
 //   			// the properties below are optional
 //   			Steps: []interface{}{
-//   				&stepProperty{
+//   				&StepProperty{
 //   					ExecutionBlockConfiguration: &ExecutionBlockConfigurationProperty{
 //   						ArcRoutingControlConfig: &ArcRoutingControlConfigurationProperty{
 //   							RegionAndRoutingControls: map[string]interface{}{

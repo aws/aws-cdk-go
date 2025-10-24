@@ -3,7 +3,7 @@ package awsquicksight
 
 // A visual that contains custom content.
 //
-// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

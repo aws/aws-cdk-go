@@ -31,8 +31,8 @@ import (
 //   	},
 //   	SourceType: jsii.String("sourceType"),
 //   	SubscriptionName: jsii.String("subscriptionName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

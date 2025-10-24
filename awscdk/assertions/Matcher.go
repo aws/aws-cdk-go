@@ -23,9 +23,9 @@ import (
 //   // }
 //
 //   // The following will NOT throw an assertion error
-//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]matcher{
-//   	"Fred": map[string][]matcher{
-//   		"Wobble": []matcher{
+//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]Matcher{
+//   	"Fred": map[string][]Matcher{
+//   		"Wobble": []Matcher{
 //   			awscdk.Match_anyValue(),
 //   			awscdk.Match_anyValue(),
 //   		},
@@ -33,8 +33,8 @@ import (
 //   })
 //
 //   // The following will throw an assertion error
-//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]matcher{
-//   	"Fred": map[string]matcher{
+//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]Matcher{
+//   	"Fred": map[string]Matcher{
 //   		"Wimble": awscdk.Match_anyValue(),
 //   	},
 //   })

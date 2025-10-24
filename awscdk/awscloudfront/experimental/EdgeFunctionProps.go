@@ -15,7 +15,7 @@ import (
 // Properties for creating a Lambda@Edge function.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //   // A Lambda@Edge function added to default behavior of a Distribution
 //   // and triggered on every request
 //   myFunc := experimental.NewEdgeFunction(this, jsii.String("MyFunction"), &EdgeFunctionProps{
@@ -26,8 +26,8 @@ import (
 //   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewS3Origin(myBucket),
-//   		EdgeLambdas: []edgeLambda{
-//   			&edgeLambda{
+//   		EdgeLambdas: []EdgeLambda{
+//   			&EdgeLambda{
 //   				FunctionVersion: myFunc.currentVersion,
 //   				EventType: cloudfront.LambdaEdgeEventType_VIEWER_REQUEST,
 //   			},

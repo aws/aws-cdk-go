@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //
-//   var transitGatewayAttachment iTransitGatewayAttachment
-//   var transitGatewayRouteTable transitGatewayRouteTable
+//   var transitGatewayAttachment ITransitGatewayAttachment
+//   var transitGatewayRouteTable TransitGatewayRouteTable
 //
 //   transitGatewayRouteTableAssociation := ec2_alpha.NewTransitGatewayRouteTableAssociation(this, jsii.String("MyTransitGatewayRouteTableAssociation"), &TransitGatewayRouteTableAssociationProps{
 //   	TransitGatewayRouteTable: transitGatewayRouteTable,

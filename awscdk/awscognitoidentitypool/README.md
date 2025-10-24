@@ -63,7 +63,7 @@ to roles using the public `authenticatedRole` and `unauthenticatedRole` properti
 
 ```go
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
-var table table
+var table Table
 
 
 identityPool := awscdk.NewIdentityPool(this, jsii.String("myIdentityPool"))
@@ -122,7 +122,7 @@ userPool := cognito.NewUserPool(this, jsii.String("Pool"))
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
 	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
-		UserPools: []iUserPoolAuthenticationProvider{
+		UserPools: []IUserPoolAuthenticationProvider{
 			awscdk.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{
 				UserPool: *UserPool,
 			}),
@@ -135,7 +135,7 @@ User pools can also be associated with an identity pool after instantiation. The
 returns the User Pool Client that has been created:
 
 ```go
-var identityPool identityPool
+var identityPool IdentityPool
 
 userPool := cognito.NewUserPool(this, jsii.String("Pool"))
 userPoolClient := identityPool.AddUserPoolAuthentication(awscdk.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{
@@ -156,7 +156,7 @@ Setting `disableServerSideTokenCheck` to true will change the default behavior t
 more [here](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CognitoIdentityProvider.html#CognitoIdentity-Type-CognitoIdentityProvider-ServerSideTokenCheck):
 
 ```go
-var identityPool identityPool
+var identityPool IdentityPool
 
 userPool := cognito.NewUserPool(this, jsii.String("Pool"))
 identityPool.AddUserPoolAuthentication(awscdk.NewUserPoolAuthenticationProvider(&UserPoolAuthenticationProviderProps{
@@ -209,17 +209,17 @@ so that different users can be granted different sets of permissions. Associatin
 with an identity pool:
 
 ```go
-var openIdConnectProvider openIdConnectProvider
-var samlProvider samlProvider
+var openIdConnectProvider OpenIdConnectProvider
+var samlProvider SamlProvider
 
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
 	AuthenticationProviders: &IdentityPoolAuthenticationProviders{
-		OpenIdConnectProviders: []iOIDCProviderRef{
+		OpenIdConnectProviders: []IOIDCProviderRef{
 			openIdConnectProvider,
 		},
-		SamlProviders: []iSAMLProviderRef{
+		SamlProviders: []ISAMLProviderRef{
 			samlProvider,
 		},
 	},
@@ -236,7 +236,7 @@ Like the supported external providers, though, only one custom provider can be d
 pool.
 
 ```go
-var openIdConnectProvider openIdConnectProvider
+var openIdConnectProvider OpenIdConnectProvider
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
@@ -244,7 +244,7 @@ awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 		Google: &IdentityPoolGoogleLoginProvider{
 			ClientId: jsii.String("12345678012.apps.googleusercontent.com"),
 		},
-		OpenIdConnectProviders: []iOIDCProviderRef{
+		OpenIdConnectProviders: []IOIDCProviderRef{
 			openIdConnectProvider,
 		},
 		CustomProvider: jsii.String("my-custom-provider.example.com"),
@@ -269,8 +269,8 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
-	RoleMappings: []identityPoolRoleMapping{
-		&identityPoolRoleMapping{
+	RoleMappings: []IdentityPoolRoleMapping{
+		&IdentityPoolRoleMapping{
 			ProviderUrl: awscdk.IdentityPoolProviderUrl_AMAZON(),
 			UseToken: jsii.Boolean(true),
 		},
@@ -283,22 +283,22 @@ Using a rule-based approach to role mapping allows roles to be assigned based on
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var adminRole role
-var nonAdminRole role
+var adminRole Role
+var nonAdminRole Role
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
 	// Assign specific roles to users based on whether or not the custom admin claim is passed from the identity provider
-	RoleMappings: []identityPoolRoleMapping{
-		&identityPoolRoleMapping{
+	RoleMappings: []IdentityPoolRoleMapping{
+		&IdentityPoolRoleMapping{
 			ProviderUrl: awscdk.IdentityPoolProviderUrl_AMAZON(),
-			Rules: []roleMappingRule{
-				&roleMappingRule{
+			Rules: []RoleMappingRule{
+				&RoleMappingRule{
 					Claim: jsii.String("custom:admin"),
 					ClaimValue: jsii.String("admin"),
 					MappedRole: adminRole,
 				},
-				&roleMappingRule{
+				&RoleMappingRule{
 					Claim: jsii.String("custom:admin"),
 					ClaimValue: jsii.String("admin"),
 					MatchType: awscdk.RoleMappingMatchType_NOTEQUAL,
@@ -321,8 +321,8 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
-	RoleMappings: []identityPoolRoleMapping{
-		&identityPoolRoleMapping{
+	RoleMappings: []IdentityPoolRoleMapping{
+		&IdentityPoolRoleMapping{
 			ProviderUrl: awscdk.IdentityPoolProviderUrl_FACEBOOK(),
 			UseToken: jsii.Boolean(true),
 		},
@@ -338,8 +338,8 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
-	RoleMappings: []identityPoolRoleMapping{
-		&identityPoolRoleMapping{
+	RoleMappings: []IdentityPoolRoleMapping{
+		&IdentityPoolRoleMapping{
 			ProviderUrl: awscdk.IdentityPoolProviderUrl_Custom(jsii.String("my-custom-provider.com")),
 			UseToken: jsii.Boolean(true),
 		},
@@ -355,13 +355,13 @@ cannot be references. For example:
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var userPool userPool
-var userPoolClient userPoolClient
+var userPool UserPool
+var userPoolClient UserPoolClient
 
 awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
-	RoleMappings: []identityPoolRoleMapping{
-		&identityPoolRoleMapping{
+	RoleMappings: []IdentityPoolRoleMapping{
+		&IdentityPoolRoleMapping{
 			MappingKey: jsii.String("cognito"),
 			ProviderUrl: awscdk.IdentityPoolProviderUrl_UserPool(userPool, userPoolClient),
 			UseToken: jsii.Boolean(true),

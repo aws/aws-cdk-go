@@ -8,11 +8,11 @@ import (
 // The prefix to use for source NAT for a dual-stack network load balancer with UDP listeners.
 //
 // Example:
-//   var vpc iVpc
-//   var dualstackVpc iVpc
-//   var subnet iSubnet
-//   var dualstackSubnet iSubnet
-//   var cfnEip cfnEIP
+//   var vpc IVpc
+//   var dualstackVpc IVpc
+//   var subnet ISubnet
+//   var dualstackSubnet ISubnet
+//   var cfnEip CfnEIP
 //
 //
 //   // Internet facing Network Load Balancer with an Elastic IPv4 address
@@ -20,8 +20,8 @@ import (
 //   elbv2.NewNetworkLoadBalancer(this, jsii.String("InternetFacingLb"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(true),
-//   	SubnetMappings: []subnetMapping{
-//   		&subnetMapping{
+//   	SubnetMappings: []SubnetMapping{
+//   		&SubnetMapping{
 //   			Subnet: *Subnet,
 //   			// The allocation ID of the Elastic IP address
 //   			AllocationId: cfnEip.AttrAllocationId,
@@ -34,8 +34,8 @@ import (
 //   elbv2.NewNetworkLoadBalancer(this, jsii.String("InternalLb"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(false),
-//   	SubnetMappings: []*subnetMapping{
-//   		&subnetMapping{
+//   	SubnetMappings: []SubnetMapping{
+//   		&SubnetMapping{
 //   			Subnet: *Subnet,
 //   			// The private IPv4 address from the subnet
 //   			// The address must be in the subnet's CIDR range and
@@ -52,8 +52,8 @@ import (
 //   	// Configure the dualstack Network Load Balancer
 //   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 //   	EnablePrefixForIpv6SourceNat: jsii.Boolean(true),
-//   	SubnetMappings: []*subnetMapping{
-//   		&subnetMapping{
+//   	SubnetMappings: []SubnetMapping{
+//   		&SubnetMapping{
 //   			Subnet: dualstackSubnet,
 //   			// The IPv6 address from the subnet
 //   			// `ipAddresstype` must be `DUAL_STACK` or `DUAL_STACK_WITHOUT_PUBLIC_IPV4` to set the IPv6 address.

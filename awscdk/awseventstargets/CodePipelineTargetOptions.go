@@ -16,8 +16,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
-//   var role role
+//   var queue Queue
+//   var role Role
 //
 //   codePipelineTargetOptions := &CodePipelineTargetOptions{
 //   	DeadLetterQueue: queue,

@@ -3,7 +3,7 @@ package awsquicksight
 
 // A pivot table.
 //
-// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

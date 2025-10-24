@@ -2,7 +2,7 @@ package awsapigateway
 
 
 // Example:
-//   var resource resource
+//   var resource Resource
 //
 //
 //   subtree := resource.AddResource(jsii.String("subtree"), &ResourceOptions{

@@ -142,8 +142,8 @@ import (
 //   		ProcessingJobArn: jsii.String("processingJobArn"),
 //   	},
 //   	MonitoringScheduleStatus: jsii.String("monitoringScheduleStatus"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

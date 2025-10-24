@@ -11,7 +11,7 @@ import (
 // Construct that creates a custom resource that will perform an HTTP API Call.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //
 //   awscdkintegtestsalpha.NewHttpApiCall(stack, jsii.String("MyAsssertion"), &HttpCallProps{

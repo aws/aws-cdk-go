@@ -7,7 +7,7 @@ import (
 // Properties for a TableWidget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{

@@ -17,7 +17,7 @@ import (
 //
 // Example:
 //   // A Virtual Node with a gRPC listener with a connection pool set
-//   var mesh mesh
+//   var mesh Mesh
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{
 //   	Mesh: Mesh,
@@ -26,8 +26,8 @@ import (
 //   	// whereas ENDPOINTS means that the DNS resolver is returning all the endpoints.
 //   	// By default, the response type is assumed to be LOAD_BALANCER
 //   	ServiceDiscovery: appmesh.ServiceDiscovery_Dns(jsii.String("node"), appmesh.DnsResponseType_ENDPOINTS),
-//   	Listeners: []virtualNodeListener{
-//   		appmesh.*virtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
 //   			Port: jsii.Number(80),
 //   			ConnectionPool: &HttpConnectionPool{
 //   				MaxConnections: jsii.Number(100),
@@ -40,8 +40,8 @@ import (
 //   // A Virtual Gateway with a gRPC listener with a connection pool set
 //   gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &VirtualGatewayProps{
 //   	Mesh: Mesh,
-//   	Listeners: []virtualGatewayListener{
-//   		appmesh.*virtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
+//   	Listeners: []VirtualGatewayListener{
+//   		appmesh.VirtualGatewayListener_Grpc(&GrpcGatewayListenerOptions{
 //   			Port: jsii.Number(8080),
 //   			ConnectionPool: &GrpcConnectionPool{
 //   				MaxRequests: jsii.Number(10),

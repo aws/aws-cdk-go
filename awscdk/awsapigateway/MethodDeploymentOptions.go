@@ -11,8 +11,8 @@ import (
 //   })
 //   stage := apigateway.NewStage(this, jsii.String("my-stage"), &StageProps{
 //   	Deployment: Deployment,
-//   	MethodOptions: map[string]methodDeploymentOptions{
-//   		"/*/*": &methodDeploymentOptions{
+//   	MethodOptions: map[string]MethodDeploymentOptions{
+//   		"/*/*": &MethodDeploymentOptions{
 //   			 // This special path applies to all resource paths and all HTTP methods
 //   			"throttlingRateLimit": jsii.Number(100),
 //   			"throttlingBurstLimit": jsii.Number(200),

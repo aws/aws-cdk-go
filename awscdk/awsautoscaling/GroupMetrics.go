@@ -8,9 +8,9 @@ import (
 // A set of group metrics.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //
 //
 //   // Enable monitoring of all group metrics
@@ -22,8 +22,8 @@ import (
 //
 //   	// ...
 //
-//   	GroupMetrics: []groupMetrics{
-//   		autoscaling.*groupMetrics_All(),
+//   	GroupMetrics: []GroupMetrics{
+//   		autoscaling.GroupMetrics_All(),
 //   	},
 //   })
 //
@@ -36,7 +36,7 @@ import (
 //
 //   	// ...
 //
-//   	GroupMetrics: []*groupMetrics{
+//   	GroupMetrics: []GroupMetrics{
 //   		autoscaling.NewGroupMetrics(autoscaling.GroupMetric_MIN_SIZE(), autoscaling.GroupMetric_MAX_SIZE()),
 //   	},
 //   })

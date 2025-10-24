@@ -4,7 +4,7 @@ package awscloudwatch
 // Properties for a Text widget.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{

@@ -25,7 +25,7 @@ import (
 //   	UserName: jsii.String("my-user-name"),
 //
 //   	// set up to two passwords
-//   	Passwords: []secretValue{
+//   	Passwords: []SecretValue{
 //   		awscdk.SecretValue_SecretsManager(jsii.String("SecretIdForPassword")),
 //   		awscdk.SecretValue_*SecretsManager(jsii.String("AnotherSecretIdForPassword")),
 //   	},

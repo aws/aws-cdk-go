@@ -4,7 +4,7 @@ package awsecs
 // The interface for Runtime Platform.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,

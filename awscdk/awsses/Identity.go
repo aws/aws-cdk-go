@@ -11,7 +11,7 @@ import (
 //
 // Example:
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
-//   var user user
+//   var user User
 //
 //
 //   identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{

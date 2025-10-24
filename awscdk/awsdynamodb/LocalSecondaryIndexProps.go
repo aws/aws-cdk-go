@@ -13,8 +13,8 @@ package awsdynamodb
 //   		Name: jsii.String("sk"),
 //   		Type: dynamodb.AttributeType_NUMBER,
 //   	},
-//   	LocalSecondaryIndexes: []localSecondaryIndexProps{
-//   		&localSecondaryIndexProps{
+//   	LocalSecondaryIndexes: []LocalSecondaryIndexProps{
+//   		&LocalSecondaryIndexProps{
 //   			IndexName: jsii.String("lsi1"),
 //   			SortKey: &Attribute{
 //   				Name: jsii.String("sk"),
@@ -24,7 +24,7 @@ package awsdynamodb
 //   	},
 //   })
 //
-//   table.AddLocalSecondaryIndex(&localSecondaryIndexProps{
+//   table.AddLocalSecondaryIndex(&LocalSecondaryIndexProps{
 //   	IndexName: jsii.String("lsi2"),
 //   	SortKey: &Attribute{
 //   		Name: jsii.String("sk"),

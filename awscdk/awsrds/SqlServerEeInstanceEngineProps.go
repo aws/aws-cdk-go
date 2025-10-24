@@ -6,7 +6,7 @@ package awsrds
 // Used in `DatabaseInstanceEngine.sqlServerEe`.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &ParameterGroupProps{

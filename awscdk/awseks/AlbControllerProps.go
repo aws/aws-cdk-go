@@ -8,8 +8,8 @@ package awseks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var albControllerVersion albControllerVersion
-//   var cluster cluster
+//   var albControllerVersion AlbControllerVersion
+//   var cluster Cluster
 //   var policy interface{}
 //
 //   albControllerProps := &AlbControllerProps{

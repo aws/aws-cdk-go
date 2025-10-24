@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var key key
+//   var bucket Bucket
+//   var key Key
 //
 //   grantReplicationPermissionDestinationProps := &GrantReplicationPermissionDestinationProps{
 //   	Bucket: bucket,

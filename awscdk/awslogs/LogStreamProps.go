@@ -12,7 +12,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var logGroup logGroup
+//   var logGroup LogGroup
 //
 //   logStreamProps := &LogStreamProps{
 //   	LogGroup: logGroup,

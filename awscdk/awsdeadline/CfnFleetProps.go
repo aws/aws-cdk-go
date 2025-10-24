@@ -162,8 +162,8 @@ import (
 //   		ScriptTimeoutSeconds: jsii.Number(123),
 //   	},
 //   	MinWorkerCount: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

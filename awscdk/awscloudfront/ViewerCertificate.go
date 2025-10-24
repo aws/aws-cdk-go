@@ -13,13 +13,13 @@ import (
 //   s3BucketSource := s3.NewBucket(this, jsii.String("Bucket"))
 //
 //   distribution := cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProbably"), &CloudFrontWebDistributionProps{
-//   	OriginConfigs: []sourceConfiguration{
-//   		&sourceConfiguration{
+//   	OriginConfigs: []SourceConfiguration{
+//   		&SourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
 //   				S3BucketSource: *S3BucketSource,
 //   			},
-//   			Behaviors: []behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					IsDefaultBehavior: jsii.Boolean(true),
 //   				},
 //   			},

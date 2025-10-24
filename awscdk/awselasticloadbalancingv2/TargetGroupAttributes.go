@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Properties to reference an existing target group.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //
 //
 //   targetGroup := elbv2.ApplicationTargetGroup_FromTargetGroupAttributes(this, jsii.String("MyTargetGroup"), &TargetGroupAttributes{

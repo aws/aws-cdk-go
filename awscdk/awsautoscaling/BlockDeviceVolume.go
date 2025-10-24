@@ -8,17 +8,17 @@ import (
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
 //
 // Example:
-//   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //
 //
 //   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
 //   	InstanceType: InstanceType,
 //   	MachineImage: MachineImage,
-//   	BlockDevices: []blockDevice{
-//   		&blockDevice{
+//   	BlockDevices: []BlockDevice{
+//   		&BlockDevice{
 //   			DeviceName: jsii.String("gp3-volume"),
 //   			Volume: autoscaling.BlockDeviceVolume_Ebs(jsii.Number(15), &EbsDeviceOptions{
 //   				VolumeType: autoscaling.EbsDeviceVolumeType_GP3,

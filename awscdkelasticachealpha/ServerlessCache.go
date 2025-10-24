@@ -15,7 +15,7 @@ import (
 // A serverless ElastiCache cache.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{

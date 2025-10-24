@@ -89,9 +89,9 @@ Example with only required parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 	Role: Role,
@@ -105,9 +105,9 @@ Example with optional override parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 	JobName: jsii.String("PySparkETLJobCustomName"),
@@ -121,7 +121,7 @@ glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 	WorkerType: glue.WorkerType_G_2X,
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-	Connections: []iConnection{
+	Connections: []IConnection{
 		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 	},
 	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
@@ -155,9 +155,9 @@ Example with only required parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkStreamingJob(stack, jsii.String("ImportedJob"), &PySparkStreamingJobProps{
 	Role: Role,
@@ -170,9 +170,9 @@ Example with optional override parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkStreamingJob(stack, jsii.String("PySparkStreamingJob"), &PySparkStreamingJobProps{
 	JobName: jsii.String("PySparkStreamingJobCustomName"),
@@ -186,7 +186,7 @@ glue.NewPySparkStreamingJob(stack, jsii.String("PySparkStreamingJob"), &PySparkS
 	WorkerType: glue.WorkerType_G_2X,
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-	Connections: []iConnection{
+	Connections: []IConnection{
 		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 	},
 	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
@@ -217,9 +217,9 @@ Example with only required parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkFlexEtlJob(stack, jsii.String("ImportedJob"), &PySparkFlexEtlJobProps{
 	Role: Role,
@@ -232,9 +232,9 @@ Example with optional override parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkEtlJob(stack, jsii.String("pySparkEtlJob"), &PySparkEtlJobProps{
 	JobName: jsii.String("pySparkEtlJob"),
@@ -248,7 +248,7 @@ glue.NewPySparkEtlJob(stack, jsii.String("pySparkEtlJob"), &PySparkEtlJobProps{
 	WorkerType: glue.WorkerType_G_2X,
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-	Connections: []iConnection{
+	Connections: []IConnection{
 		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 	},
 	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
@@ -279,9 +279,9 @@ Example with only required parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPythonShellJob(stack, jsii.String("ImportedJob"), &PythonShellJobProps{
 	Role: Role,
@@ -294,9 +294,9 @@ Example with optional override parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProps{
 	JobName: jsii.String("PythonShellJobCustomName"),
@@ -312,7 +312,7 @@ glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProp
 	WorkerType: glue.WorkerType_G_2X,
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-	Connections: []iConnection{
+	Connections: []IConnection{
 		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 	},
 	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
@@ -340,9 +340,9 @@ Example with only required parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
 	Role: Role,
@@ -355,9 +355,9 @@ Example with optional override parameters:
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
 	Role: Role,
@@ -370,7 +370,7 @@ glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
 	MaxRetries: jsii.Number(3),
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-	Connections: []iConnection{
+	Connections: []IConnection{
 		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 	},
 	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
@@ -389,9 +389,9 @@ By default, Glue jobs enable CloudWatch metrics (`--enable-metrics`) and observa
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 
 // Disable both metrics for cost optimization
@@ -423,9 +423,9 @@ Enable job run queuing by setting the `jobRunQueuingEnabled` property to `true`.
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack stack
-var role iRole
-var script code
+var stack Stack
+var role IRole
+var script Code
 
 glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 	Role: Role,
@@ -510,13 +510,13 @@ certain types of data stores.
   library to make the best choice selection for the subnet.
 
 ```go
-var securityGroup securityGroup
-var subnet subnet
+var securityGroup SecurityGroup
+var subnet Subnet
 
 glue.NewConnection(this, jsii.String("MyConnection"), &ConnectionProps{
 	Type: glue.ConnectionType_NETWORK(),
 	// The security groups granting AWS Glue inbound access to the data source within the VPC
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		securityGroup,
 	},
 	// The VPC subnet which contains the data source
@@ -527,13 +527,13 @@ glue.NewConnection(this, jsii.String("MyConnection"), &ConnectionProps{
 For RDS `Connection` by JDBC, it is recommended to manage credentials using AWS Secrets Manager. To use Secret, specify `SECRET_ID` in `properties` like the following code. Note that in this case, the subnet must have a route to the AWS Secrets Manager VPC endpoint or to the AWS Secrets Manager endpoint through a NAT gateway.
 
 ```go
-var securityGroup securityGroup
-var subnet subnet
-var db databaseCluster
+var securityGroup SecurityGroup
+var subnet Subnet
+var db DatabaseCluster
 
 glue.NewConnection(this, jsii.String("RdsConnection"), &ConnectionProps{
 	Type: glue.ConnectionType_JDBC(),
-	SecurityGroups: []iSecurityGroup{
+	SecurityGroups: []ISecurityGroup{
 		securityGroup,
 	},
 	Subnet: Subnet,
@@ -570,7 +570,7 @@ glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &Sec
 By default, a shared KMS key is created for use with the encryption configurations that require one. You can also supply your own key for each encryption config, for example, for CloudWatch encryption:
 
 ```go
-var key key
+var key Key
 
 glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
 	CloudWatchEncryption: &CloudWatchEncryption{
@@ -598,16 +598,16 @@ glue.NewDatabase(this, jsii.String("MyDatabase"), &DatabaseProps{
 A Glue table describes a table of data in S3: its structure (column names and types), location of data (S3 objects with a common prefix in a S3 bucket), and format for the files (Json, Avro, Parquet, etc.):
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("col2"),
 			Type: glue.Schema_Array(glue.Schema_STRING()),
 			Comment: jsii.String("col2 is an array of strings"),
@@ -620,16 +620,16 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 By default, a S3 bucket will be created to store the table's data but you can manually pass the `bucket` and `s3Prefix`:
 
 ```go
-var myBucket bucket
-var myDatabase database
+var myBucket Bucket
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Bucket: myBucket,
 	S3Prefix: jsii.String("my-table/"),
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -641,18 +641,18 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 Glue tables can be configured to contain user-defined properties, to describe the physical storage of table data, through the `storageParameters` property:
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
-	StorageParameters: []storageParameter{
-		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
-		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),
-		glue.*storageParameter_Custom(jsii.String("separatorChar"), jsii.String(",")),
+	StorageParameters: []StorageParameter{
+		glue.StorageParameter_SkipHeaderLineCount(jsii.Number(1)),
+		glue.StorageParameter_CompressionType(glue.CompressionType_GZIP),
+		glue.StorageParameter_Custom(jsii.String("separatorChar"), jsii.String(",")),
 	},
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -664,7 +664,7 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 Glue tables can also be configured to contain user-defined table properties through the [`parameters`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters) property:
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Parameters: map[string]*string{
@@ -672,8 +672,8 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 		"key2": jsii.String("val2"),
 	},
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -687,22 +687,22 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 To improve query performance, a table can specify `partitionKeys` on which data is stored and queried separately. For example, you might partition a table by `year` and `month` to optimize queries based on a time window:
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
 	},
-	PartitionKeys: []*column{
-		&column{
+	PartitionKeys: []Column{
+		&Column{
 			Name: jsii.String("year"),
 			Type: glue.Schema_SMALL_INT(),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("month"),
 			Type: glue.Schema_SMALL_INT(),
 		},
@@ -724,28 +724,28 @@ maximum of 3 partition indexes per table. To specify a partition index, you can 
 property:
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
 	},
-	PartitionKeys: []*column{
-		&column{
+	PartitionKeys: []Column{
+		&Column{
 			Name: jsii.String("year"),
 			Type: glue.Schema_SMALL_INT(),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("month"),
 			Type: glue.Schema_SMALL_INT(),
 		},
 	},
-	PartitionIndexes: []partitionIndex{
-		&partitionIndex{
+	PartitionIndexes: []PartitionIndex{
+		&PartitionIndex{
 			IndexName: jsii.String("my-index"),
 			 // optional
 			KeyNames: []*string{
@@ -761,7 +761,7 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 Alternatively, you can call the `addPartitionIndex()` function on a table:
 
 ```go
-var myTable table
+var myTable Table
 
 myTable.AddPartitionIndex(&PartitionIndex{
 	IndexName: jsii.String("my-index"),
@@ -776,22 +776,22 @@ myTable.AddPartitionIndex(&PartitionIndex{
 If you have a table with a large number of partitions that grows over time, consider using AWS Glue partition indexing and filtering.
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
 	},
-	PartitionKeys: []*column{
-		&column{
+	PartitionKeys: []Column{
+		&Column{
 			Name: jsii.String("year"),
 			Type: glue.Schema_SMALL_INT(),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("month"),
 			Type: glue.Schema_SMALL_INT(),
 		},
@@ -808,8 +808,8 @@ Glue connections allow external data connections to third party databases and da
 Whereas `S3Table` will point to (and if needed, create) a bucket to store the tables' data, `ExternalTable` will point to an existing table in a data source. For example, to create a table in Glue that points to a table in Redshift:
 
 ```go
-var myConnection connection
-var myDatabase database
+var myConnection Connection
+var myDatabase Database
 
 glue.NewExternalTable(this, jsii.String("MyTable"), &ExternalTableProps{
 	Connection: myConnection,
@@ -817,8 +817,8 @@ glue.NewExternalTable(this, jsii.String("MyTable"), &ExternalTableProps{
 	 // A table in Redshift
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -834,14 +834,14 @@ You can enable encryption on a Table's data:
 * [S3Managed](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) - (default) Server side encryption (`SSE-S3`) with an Amazon S3-managed key.
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_S3_MANAGED,
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -853,7 +853,7 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 * [Kms](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) - Server-side encryption (`SSE-KMS`) with an AWS KMS Key managed by the account owner.
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 // KMS key is created automatically
 // KMS key is created automatically
@@ -861,8 +861,8 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_KMS,
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -877,8 +877,8 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	EncryptionKey: kms.NewKey(this, jsii.String("MyKey")),
 	// ...
 	Database: myDatabase,
-	Columns: []*column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -890,14 +890,14 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 * [KmsManaged](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) - Server-side encryption (`SSE-KMS`), like `Kms`, except with an AWS KMS Key managed by the AWS Key Management Service.
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_KMS_MANAGED,
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -909,7 +909,7 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 * [ClientSideKms](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html#client-side-encryption-kms-managed-master-key-intro) - Client-side encryption (`CSE-KMS`) with an AWS KMS Key managed by the account owner.
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 // KMS key is created automatically
 // KMS key is created automatically
@@ -917,8 +917,8 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	Encryption: glue.TableEncryption_CLIENT_SIDE_KMS,
 	// ...
 	Database: myDatabase,
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -933,8 +933,8 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 	EncryptionKey: kms.NewKey(this, jsii.String("MyKey")),
 	// ...
 	Database: myDatabase,
-	Columns: []*column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("col1"),
 			Type: glue.Schema_STRING(),
 		},
@@ -950,28 +950,28 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 A table's schema is a collection of columns, each of which have a `name` and a `type`. Types are recursive structures, consisting of primitive and complex types:
 
 ```go
-var myDatabase database
+var myDatabase Database
 
 glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
-	Columns: []column{
-		&column{
+	Columns: []Column{
+		&Column{
 			Name: jsii.String("primitive_column"),
 			Type: glue.Schema_STRING(),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("array_column"),
 			Type: glue.Schema_Array(glue.Schema_INTEGER()),
 			Comment: jsii.String("array<integer>"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("map_column"),
 			Type: glue.Schema_Map(glue.Schema_STRING(), glue.Schema_TIMESTAMP()),
 			Comment: jsii.String("map<string,string>"),
 		},
-		&column{
+		&Column{
 			Name: jsii.String("struct_column"),
-			Type: glue.Schema_Struct([]*column{
-				&column{
+			Type: glue.Schema_Struct([]Column{
+				&Column{
 					Name: jsii.String("nested_column"),
 					Type: glue.Schema_DATE(),
 					Comment: jsii.String("nested comment"),

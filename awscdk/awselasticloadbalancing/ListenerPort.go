@@ -26,8 +26,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var port port
-//   var securityGroup securityGroup
+//   var port Port
+//   var securityGroup SecurityGroup
 //
 //   listenerPort := awscdk.Aws_elasticloadbalancing.NewListenerPort(securityGroup, port)
 //

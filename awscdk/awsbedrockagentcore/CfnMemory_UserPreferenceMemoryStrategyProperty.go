@@ -1,6 +1,8 @@
 package awsbedrockagentcore
 
 
+// The memory strategy.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,7 +26,7 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html
 //
 type CfnMemory_UserPreferenceMemoryStrategyProperty struct {
-	// Name of the Memory resource.
+	// The memory strategy name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -32,27 +34,27 @@ type CfnMemory_UserPreferenceMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-createdat
 	//
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
-	// Description of the Memory resource.
+	// The memory strategy description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// List of namespaces for memory strategy.
+	// The memory namespaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-namespaces
 	//
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
-	// Status of the memory strategy.
+	// The memory strategy status.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// Unique identifier for the memory strategy.
+	// The memory strategy ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-strategyid
 	//
 	StrategyId *string `field:"optional" json:"strategyId" yaml:"strategyId"`
-	// Type of memory strategy.
+	// The memory strategy type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// Last update timestamp of the memory strategy.
+	// The memory strategy update date and time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-updatedat
 	//
 	UpdatedAt *string `field:"optional" json:"updatedAt" yaml:"updatedAt"`

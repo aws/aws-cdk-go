@@ -11,7 +11,7 @@ import (
 //
 // Example:
 //   // Instantiate an Amazon EC2 Task to run at a scheduled interval
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   ecsScheduledTask := ecsPatterns.NewScheduledEc2Task(this, jsii.String("ScheduledTask"), &ScheduledEc2TaskProps{
 //   	Cluster: Cluster,

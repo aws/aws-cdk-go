@@ -15,7 +15,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationLoadBalancer applicationLoadBalancer
+//   var applicationLoadBalancer ApplicationLoadBalancer
 //
 //   albTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewAlbTarget(applicationLoadBalancer, jsii.Number(123))
 //

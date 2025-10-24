@@ -11,7 +11,7 @@ package awsstepfunctions
 //   var assign interface{}
 //   var itemSelector interface{}
 //   var outputs interface{}
-//   var provideItems provideItems
+//   var provideItems ProvideItems
 //   var resultSelector interface{}
 //
 //   mapBaseProps := &MapBaseProps{

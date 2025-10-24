@@ -93,8 +93,8 @@ import (
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -1075,25 +1075,6 @@ func (j *jsiiProxy_CfnBroker)SetUsers(val interface{}) {
 		"users",
 		val,
 	)
-}
-
-// Creates a new IBrokerRef from an ARN.
-func CfnBroker_FromBrokerArn(scope constructs.Construct, id *string, arn *string) IBrokerRef {
-	_init_.Initialize()
-
-	if err := validateCfnBroker_FromBrokerArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IBrokerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
-		"fromBrokerArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

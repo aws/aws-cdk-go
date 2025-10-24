@@ -38,7 +38,7 @@ iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 	Description: jsii.String("invokes the lambda function"),
 	 // optional
 	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
-	Actions: []iAction{
+	Actions: []IAction{
 		actions.NewLambdaFunctionAction(func),
 	},
 })
@@ -47,7 +47,7 @@ iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 Or, you can add an action after constructing the `TopicRule` instance as following:
 
 ```go
-var func function
+var func Function
 
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
@@ -109,7 +109,7 @@ You can enable an account audit configuration with the following code:
 
 ```go
 // Audit notification are sent to the SNS topic
-var targetTopic iTopic
+var targetTopic ITopic
 
 
 iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &AccountAuditConfigurationProps{
@@ -167,15 +167,15 @@ iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &Accou
 You can create a [scheduled audit](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/AuditCommands.html#device-defender-AuditCommandsManageSchedules) that is run at a specified time interval. Checks must be enabled for your account by creating `AccountAuditConfiguration`.
 
 ```go
-var config accountAuditConfiguration
+var config AccountAuditConfiguration
 
 
 // Daily audit
 dailyAudit := iot.NewScheduledAudit(this, jsii.String("DailyAudit"), &ScheduledAuditProps{
 	AccountAuditConfiguration: config,
 	Frequency: iot.Frequency_DAILY,
-	AuditChecks: []auditCheck{
-		iot.*auditCheck_AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK,
+	AuditChecks: []AuditCheck{
+		iot.AuditCheck_AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK,
 	},
 })
 
@@ -184,8 +184,8 @@ weeklyAudit := iot.NewScheduledAudit(this, jsii.String("WeeklyAudit"), &Schedule
 	AccountAuditConfiguration: config,
 	Frequency: iot.Frequency_WEEKLY,
 	DayOfWeek: iot.DayOfWeek_SUNDAY,
-	AuditChecks: []*auditCheck{
-		iot.*auditCheck_CA_CERTIFICATE_EXPIRING_CHECK,
+	AuditChecks: []AuditCheck{
+		iot.AuditCheck_CA_CERTIFICATE_EXPIRING_CHECK,
 	},
 })
 
@@ -194,8 +194,8 @@ monthlyAudit := iot.NewScheduledAudit(this, jsii.String("MonthlyAudit"), &Schedu
 	AccountAuditConfiguration: config,
 	Frequency: iot.Frequency_MONTHLY,
 	DayOfMonth: iot.DayOfMonth_Of(jsii.Number(1)),
-	AuditChecks: []*auditCheck{
-		iot.*auditCheck_CA_CERTIFICATE_KEY_QUALITY_CHECK,
+	AuditChecks: []AuditCheck{
+		iot.AuditCheck_CA_CERTIFICATE_KEY_QUALITY_CHECK,
 	},
 })
 ```

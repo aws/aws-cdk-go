@@ -18,8 +18,8 @@ import (
 //   	// the properties below are optional
 //   	SingleSignOnUserIdentifier: jsii.String("singleSignOnUserIdentifier"),
 //   	SingleSignOnUserValue: jsii.String("singleSignOnUserValue"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

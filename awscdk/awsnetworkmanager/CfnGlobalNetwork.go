@@ -20,8 +20,8 @@ import (
 //   	CreatedAt: jsii.String("createdAt"),
 //   	Description: jsii.String("description"),
 //   	State: jsii.String("state"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

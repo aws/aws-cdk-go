@@ -8,8 +8,8 @@ package awssecretsmanager
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secret secret
-//   var secretAttachmentTarget iSecretAttachmentTarget
+//   var secret Secret
+//   var secretAttachmentTarget ISecretAttachmentTarget
 //
 //   secretTargetAttachmentProps := &SecretTargetAttachmentProps{
 //   	Secret: secret,

@@ -8,7 +8,7 @@ import (
 // Routing based on geographical location.
 //
 // Example:
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   // continent

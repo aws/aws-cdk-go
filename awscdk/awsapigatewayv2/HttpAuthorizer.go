@@ -17,7 +17,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApi httpApi
+//   var httpApi HttpApi
 //
 //   httpAuthorizer := awscdk.Aws_apigatewayv2.NewHttpAuthorizer(this, jsii.String("MyHttpAuthorizer"), &HttpAuthorizerProps{
 //   	HttpApi: httpApi,

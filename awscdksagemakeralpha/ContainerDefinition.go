@@ -8,8 +8,8 @@ package awscdksagemakeralpha
 //   // The values are placeholders you should change.
 //   import sagemaker_alpha "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
-//   var containerImage containerImage
-//   var modelData modelData
+//   var containerImage ContainerImage
+//   var modelData ModelData
 //
 //   containerDefinition := &ContainerDefinition{
 //   	Image: containerImage,

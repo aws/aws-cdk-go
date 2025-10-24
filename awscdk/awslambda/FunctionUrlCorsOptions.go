@@ -7,7 +7,7 @@ import (
 // Specifies a cross-origin access property for a function URL.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //
 //
 //   fn.AddFunctionUrl(&FunctionUrlOptions{

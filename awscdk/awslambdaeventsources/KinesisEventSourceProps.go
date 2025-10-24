@@ -10,7 +10,7 @@ import (
 //   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myFunction function
+//   var myFunction Function
 //
 //
 //   stream := kinesis.NewStream(this, jsii.String("MyStream"))

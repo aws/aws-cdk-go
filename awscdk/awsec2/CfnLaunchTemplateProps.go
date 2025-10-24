@@ -4,7 +4,7 @@ package awsec2
 // Properties for defining a `CfnLaunchTemplate`.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   userData := `MIME-Version: 1.0

@@ -10,8 +10,8 @@ import (
 // Integrates an AWS Lambda function to an API Gateway method.
 //
 // Example:
-//   var resource resource
-//   var handler function
+//   var resource Resource
+//   var handler Function
 //
 //   resource.AddMethod(jsii.String("GET"), apigateway.NewLambdaIntegration(handler))
 //

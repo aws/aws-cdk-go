@@ -32,8 +32,8 @@ import (
 //   		Name: jsii.String("name"),
 //   	},
 //   	SchemaDefinition: jsii.String("schemaDefinition"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

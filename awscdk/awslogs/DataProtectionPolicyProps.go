@@ -24,8 +24,8 @@ import (
 //   dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
 //   	Name: jsii.String("data protection policy"),
 //   	Description: jsii.String("policy description"),
-//   	Identifiers: []dataIdentifier{
-//   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+//   	Identifiers: []DataIdentifier{
+//   		logs.DataIdentifier_DRIVERSLICENSE_US(),
 //   		 // managed data identifier
 //   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
 //   		 // forward compatibility for new managed data identifiers

@@ -8,14 +8,14 @@ package awscdkioteventsalpha
 //   // The values are placeholders you should change.
 //   import iotevents_alpha "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 //
-//   var action iAction
-//   var expression expression
+//   var action IAction
+//   var expression Expression
 //
 //   event := &Event{
 //   	EventName: jsii.String("eventName"),
 //
 //   	// the properties below are optional
-//   	Actions: []*iAction{
+//   	Actions: []IAction{
 //   		action,
 //   	},
 //   	Condition: expression,

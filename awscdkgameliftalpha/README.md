@@ -57,13 +57,13 @@ There is two types of Matchmaking configuration:
 Through a game session queue system to let FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
 
 ```go
-var queue gameSessionQueue
-var ruleSet matchmakingRuleSet
+var queue GameSessionQueue
+var ruleSet MatchmakingRuleSet
 
 
 gamelift.NewQueuedMatchmakingConfiguration(this, jsii.String("QueuedMatchmakingConfiguration"), &QueuedMatchmakingConfigurationProps{
 	MatchmakingConfigurationName: jsii.String("test-queued-config-name"),
-	GameSessionQueues: []iGameSessionQueue{
+	GameSessionQueues: []IGameSessionQueue{
 		queue,
 	},
 	RuleSet: ruleSet,
@@ -73,7 +73,7 @@ gamelift.NewQueuedMatchmakingConfiguration(this, jsii.String("QueuedMatchmakingC
 Or through a standalone version to let FlexMatch forms matches and returns match information in an event.
 
 ```go
-var ruleSet matchmakingRuleSet
+var ruleSet MatchmakingRuleSet
 
 
 gamelift.NewStandaloneMatchmakingConfiguration(this, jsii.String("StandaloneMatchmaking"), &StandaloneMatchmakingConfigurationProps{
@@ -129,12 +129,12 @@ the configurations are pre-populated with the correct dimensions for the
 matchmaking configuration.
 
 ```go
-var matchmakingRuleSet matchmakingRuleSet
+var matchmakingRuleSet MatchmakingRuleSet
 
 // Alarm that triggers when the per-second average of not placed matches exceed 10%
 ruleEvaluationRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
 	Expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
-	UsingMetrics: map[string]iMetric{
+	UsingMetrics: map[string]IMetric{
 		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
 			"statistic": cloudwatch.Statistic_SUM,
 		}),
@@ -178,7 +178,7 @@ You can set up any application in your build, including your install script, to 
 services.
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),
@@ -197,7 +197,7 @@ To specify a server SDK version you used when integrating your game server build
 > See [Integrate games with custom game servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html) for more details.
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),
@@ -217,7 +217,7 @@ After you create the script resource, GameLift deploys the script with a new Rea
 server script onto each instance in the fleet, placing the script files in `/local/game`.
 
 ```go
-var bucket bucket
+var bucket Bucket
 
 gamelift.NewScript(this, jsii.String("Script"), &ScriptProps{
 	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),
@@ -239,8 +239,8 @@ gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
 	Content: gamelift.Build_FromAsset(this, jsii.String("Build"), path.join(__dirname, jsii.String("CustomerGameServer"))),
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("test-launch-path"),
 			},
 		},
@@ -264,7 +264,7 @@ server process configuration contains the following information:
 A GameLift instance is limited to 50 processes running concurrently.
 
 ```go
-var build build
+var build Build
 
 // Server processes can be delcared in a declarative way through the constructor
 fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
@@ -272,8 +272,8 @@ fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFl
 	Content: build,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 				Parameters: jsii.String("-logFile /local/game/logs/myserver1935.log -port 1935"),
 				ConcurrentExecutions: jsii.Number(100),
@@ -296,15 +296,15 @@ configuration. You can edit a fleet's runtime configuration and other fleet
 properties, but the type of resources cannot be changed.
 
 ```go
-var build build
+var build Build
 
 gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
 	FleetName: jsii.String("test-fleet"),
 	Content: build,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 			},
 		},
@@ -320,15 +320,15 @@ Instances, On-Demand Instances, or a combination.
 By default, fleet are using on demand capacity.
 
 ```go
-var build build
+var build Build
 
 gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
 	FleetName: jsii.String("test-fleet"),
 	Content: build,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 			},
 		},
@@ -348,7 +348,7 @@ have permissions explicitly set. For Realtime Servers fleets, GameLift
 automatically opens two port ranges, one for TCP messaging and one for UDP.
 
 ```go
-var build build
+var build Build
 
 
 fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
@@ -356,14 +356,14 @@ fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFl
 	Content: build,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 			},
 		},
 	},
-	IngressRules: []ingressRule{
-		&ingressRule{
+	IngressRules: []IngressRule{
+		&IngressRule{
 			Source: gamelift.Peer_AnyIpv4(),
 			Port: gamelift.Port_TcpRange(jsii.Number(100), jsii.Number(200)),
 		},
@@ -383,7 +383,7 @@ latency needs.
 By default, home region is used as default location but we can add new locations if needed and define desired capacity
 
 ```go
-var build build
+var build Build
 
 
 // Locations can be added directly through constructor
@@ -392,14 +392,14 @@ fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFl
 	Content: build,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 			},
 		},
 	},
-	Locations: []location{
-		&location{
+	Locations: []Location{
+		&Location{
 			Region: jsii.String("eu-west-1"),
 			Capacity: &LocationCapacity{
 				DesiredCapacity: jsii.Number(5),
@@ -407,7 +407,7 @@ fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFl
 				MaxSize: jsii.Number(10),
 			},
 		},
-		&location{
+		&Location{
 			Region: jsii.String("us-east-1"),
 			Capacity: &LocationCapacity{
 				DesiredCapacity: jsii.Number(5),
@@ -431,7 +431,7 @@ for GameLift to access your resources. If you wish, you may
 specify your own IAM role.
 
 ```go
-var build build
+var build Build
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewCompositePrincipal(iam.NewServicePrincipal(jsii.String("gamelift.amazonaws.com"))),
@@ -443,8 +443,8 @@ fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFl
 	Content: build,
 	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 	RuntimeConfiguration: &RuntimeConfiguration{
-		ServerProcesses: []serverProcess{
-			&serverProcess{
+		ServerProcesses: []ServerProcess{
+			&ServerProcess{
 				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 			},
 		},
@@ -465,7 +465,7 @@ can more easily and seamlessly switch player traffic from one fleet to another
 by changing the alias's target location.
 
 ```go
-var fleet buildFleet
+var fleet BuildFleet
 
 
 // Add an alias to an existing fleet using a dedicated fleet method
@@ -506,12 +506,12 @@ Game sessions or server processes; the configurations are pre-populated with
 the correct dimensions for the matchmaking configuration.
 
 ```go
-var fleet buildFleet
+var fleet BuildFleet
 
 // Alarm that triggers when the per-second average of not used instances exceed 10%
 instancesUsedRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
 	Expression: jsii.String("1 - (activeInstances / idleInstances)"),
-	UsingMetrics: map[string]iMetric{
+	UsingMetrics: map[string]IMetric{
 		"activeInstances": fleet.metric(jsii.String("ActiveInstances"), &MetricOptions{
 			"statistic": cloudwatch.Statistic_SUM,
 		}),
@@ -542,13 +542,13 @@ determine where the queue can place new game sessions. A queue can have destinat
 with varied fleet type (Spot and On-Demand), instance type, and AWS Region.
 
 ```go
-var fleet buildFleet
-var alias alias
+var fleet BuildFleet
+var alias Alias
 
 
 queue := gamelift.NewGameSessionQueue(this, jsii.String("GameSessionQueue"), &GameSessionQueueProps{
 	GameSessionQueueName: jsii.String("my-queue-name"),
-	Destinations: []iGameSessionQueueDestination{
+	Destinations: []IGameSessionQueueDestination{
 		fleet,
 	},
 })
@@ -558,8 +558,8 @@ queue.AddDestination(alias)
 A more complex configuration can also be definied to override how FleetIQ algorithms prioritize game session placement in order to favour a destination based on `Cost`, `Latency`, `Destination order`or `Location`.
 
 ```go
-var fleet buildFleet
-var topic topic
+var fleet BuildFleet
+var topic Topic
 
 
 gamelift.NewGameSessionQueue(this, jsii.String("MyGameSessionQueue"), &GameSessionQueueProps{
@@ -569,12 +569,12 @@ gamelift.NewGameSessionQueue(this, jsii.String("MyGameSessionQueue"), &GameSessi
 		jsii.String("eu-west-1"),
 		jsii.String("eu-west-2"),
 	},
-	Destinations: []iGameSessionQueueDestination{
+	Destinations: []IGameSessionQueueDestination{
 		fleet,
 	},
 	NotificationTarget: topic,
-	PlayerLatencyPolicies: []playerLatencyPolicy{
-		&playerLatencyPolicy{
+	PlayerLatencyPolicies: []PlayerLatencyPolicy{
+		&PlayerLatencyPolicy{
 			MaximumIndividualPlayerLatency: awscdk.Duration_Millis(jsii.Number(100)),
 			PolicyDuration: awscdk.Duration_Seconds(jsii.Number(300)),
 		},
@@ -584,11 +584,11 @@ gamelift.NewGameSessionQueue(this, jsii.String("MyGameSessionQueue"), &GameSessi
 			jsii.String("eu-west-1"),
 			jsii.String("eu-west-2"),
 		},
-		PriorityOrder: []priorityType{
-			gamelift.*priorityType_LATENCY,
-			gamelift.*priorityType_COST,
-			gamelift.*priorityType_DESTINATION,
-			gamelift.*priorityType_LOCATION,
+		PriorityOrder: []PriorityType{
+			gamelift.PriorityType_LATENCY,
+			gamelift.PriorityType_COST,
+			gamelift.PriorityType_DESTINATION,
+			gamelift.PriorityType_LOCATION,
 		},
 	},
 	Timeout: awscdk.Duration_*Seconds(jsii.Number(300)),
@@ -623,17 +623,17 @@ modify these directly on the Auto Scaling group using the AWS Console or
 dedicated Api.
 
 ```go
-var launchTemplate iLaunchTemplate
-var vpc iVpc
+var launchTemplate ILaunchTemplate
+var vpc IVpc
 
 
 gamelift.NewGameServerGroup(this, jsii.String("Game server group"), &GameServerGroupProps{
 	GameServerGroupName: jsii.String("sample-gameservergroup-name"),
-	InstanceDefinitions: []instanceDefinition{
-		&instanceDefinition{
+	InstanceDefinitions: []InstanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 		},
-		&instanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 		},
 	},
@@ -652,17 +652,17 @@ buffer of idle game servers that can immediately accommodate new games and
 players.
 
 ```go
-var launchTemplate iLaunchTemplate
-var vpc iVpc
+var launchTemplate ILaunchTemplate
+var vpc IVpc
 
 
 gamelift.NewGameServerGroup(this, jsii.String("Game server group"), &GameServerGroupProps{
 	GameServerGroupName: jsii.String("sample-gameservergroup-name"),
-	InstanceDefinitions: []instanceDefinition{
-		&instanceDefinition{
+	InstanceDefinitions: []InstanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 		},
-		&instanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 		},
 	},
@@ -685,8 +685,8 @@ permissions for GameLift to access your Amazon EC2 Auto Scaling groups. If you w
 specify your own IAM role. It must have the correct permissions, or FleetIQ creation or resource usage may fail.
 
 ```go
-var launchTemplate iLaunchTemplate
-var vpc iVpc
+var launchTemplate ILaunchTemplate
+var vpc IVpc
 
 
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
@@ -697,11 +697,11 @@ role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("Ga
 
 gamelift.NewGameServerGroup(this, jsii.String("Game server group"), &GameServerGroupProps{
 	GameServerGroupName: jsii.String("sample-gameservergroup-name"),
-	InstanceDefinitions: []instanceDefinition{
-		&instanceDefinition{
+	InstanceDefinitions: []InstanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 		},
-		&instanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 		},
 	},
@@ -725,17 +725,17 @@ corresponding Auto Scaling group will always use the property value that is set
 with this request, even if the Auto Scaling group is updated directly.
 
 ```go
-var launchTemplate iLaunchTemplate
-var vpc iVpc
+var launchTemplate ILaunchTemplate
+var vpc IVpc
 
 
 gamelift.NewGameServerGroup(this, jsii.String("GameServerGroup"), &GameServerGroupProps{
 	GameServerGroupName: jsii.String("sample-gameservergroup-name"),
-	InstanceDefinitions: []instanceDefinition{
-		&instanceDefinition{
+	InstanceDefinitions: []InstanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
 		},
-		&instanceDefinition{
+		&InstanceDefinition{
 			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 		},
 	},
@@ -765,7 +765,7 @@ the configurations are pre-populated with the correct dimensions for the
 matchmaking configuration.
 
 ```go
-var gameServerGroup iGameServerGroup
+var gameServerGroup IGameServerGroup
 
 // Alarm that triggers when the percent of utilized game servers exceed 90%
 // Alarm that triggers when the percent of utilized game servers exceed 90%

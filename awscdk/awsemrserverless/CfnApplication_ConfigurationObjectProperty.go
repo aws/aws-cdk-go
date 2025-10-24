@@ -10,9 +10,9 @@ package awsemrserverless
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationObjectProperty_ configurationObjectProperty
+//   var configurationObjectProperty_ ConfigurationObjectProperty
 //
-//   configurationObjectProperty := &configurationObjectProperty{
+//   configurationObjectProperty := &ConfigurationObjectProperty{
 //   	Classification: jsii.String("classification"),
 //
 //   	// the properties below are optional

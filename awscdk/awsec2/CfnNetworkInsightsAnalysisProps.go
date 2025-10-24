@@ -24,8 +24,8 @@ import (
 //   	FilterOutArns: []*string{
 //   		jsii.String("filterOutArns"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

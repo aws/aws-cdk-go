@@ -4,8 +4,8 @@ package awsservicecatalog
 // Properties for ResourceUpdateConstraint.
 //
 // Example:
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var portfolio Portfolio
+//   var product CloudFormationProduct
 //
 //
 //   // to disable tag updates:

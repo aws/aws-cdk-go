@@ -508,8 +508,8 @@ import (
 //   	SslProperties: &SslPropertiesProperty{
 //   		DisableSsl: jsii.Boolean(false),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -549,13 +549,13 @@ type CfnDataSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The credentials Amazon QuickSight that uses to connect to your underlying source.
+	// The credentials Amazon Quick Sight that uses to connect to your underlying source.
 	Credentials() interface{}
 	SetCredentials(val interface{})
 	// An ID for the data source.
 	DataSourceId() *string
 	SetDataSourceId(val *string)
-	// The parameters that Amazon QuickSight uses to connect to your underlying source.
+	// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 	DataSourceParameters() interface{}
 	SetDataSourceParameters(val interface{})
 	// A reference to a DataSource resource.
@@ -588,7 +588,7 @@ type CfnDataSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+	// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 	SslProperties() interface{}
 	SetSslProperties(val interface{})
 	// The stack in which this element is defined.
@@ -618,7 +618,7 @@ type CfnDataSource interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+	// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties() interface{}
 	SetVpcConnectionProperties(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -27,7 +27,6 @@ type CfnTagOptionAssociation interface {
 	awscdk.CfnResource
 	ITagOptionAssociationRef
 	awscdk.IInspectable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -213,16 +212,6 @@ type jsiiProxy_CfnTagOptionAssociation struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnTagOptionAssociation) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnTagOptionAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -382,9 +371,6 @@ func NewCfnTagOptionAssociation_Override(c CfnTagOptionAssociation, scope constr
 }
 
 func (j *jsiiProxy_CfnTagOptionAssociation)SetResourceId(val *string) {
-	if err := j.validateSetResourceIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"resourceId",
@@ -393,9 +379,6 @@ func (j *jsiiProxy_CfnTagOptionAssociation)SetResourceId(val *string) {
 }
 
 func (j *jsiiProxy_CfnTagOptionAssociation)SetTagOptionId(val *string) {
-	if err := j.validateSetTagOptionIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagOptionId",

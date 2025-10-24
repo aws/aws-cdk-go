@@ -21,8 +21,8 @@ import (
 //   cfnApplication := awscdk.Aws_codedeploy.NewCfnApplication(this, jsii.String("MyCfnApplication"), &CfnApplicationProps{
 //   	ApplicationName: jsii.String("applicationName"),
 //   	ComputePlatform: jsii.String("computePlatform"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

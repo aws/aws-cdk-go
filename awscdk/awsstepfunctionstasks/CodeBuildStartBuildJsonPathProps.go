@@ -17,10 +17,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var project project
+//   var project Project
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //   var value interface{}
 //
 //   codeBuildStartBuildJsonPathProps := &CodeBuildStartBuildJsonPathProps{
@@ -34,8 +34,8 @@ import (
 //   	Credentials: &Credentials{
 //   		Role: taskRole,
 //   	},
-//   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
-//   		"environmentVariablesOverrideKey": &buildEnvironmentVariable{
+//   	EnvironmentVariablesOverride: map[string]BuildEnvironmentVariable{
+//   		"environmentVariablesOverrideKey": &BuildEnvironmentVariable{
 //   			"value": value,
 //
 //   			// the properties below are optional

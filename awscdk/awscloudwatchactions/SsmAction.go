@@ -12,7 +12,7 @@ import (
 // Use an SSM OpsItem action as an Alarm action.
 //
 // Example:
-//   var alarm alarm
+//   var alarm Alarm
 //
 //   // Create an OpsItem with specific severity and category when alarm triggers
 //   alarm.AddAlarmAction(

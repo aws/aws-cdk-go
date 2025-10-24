@@ -13,10 +13,10 @@ import (
 // An API Destination enrichment for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
-//   var apiDestination apiDestination
+//   var apiDestination ApiDestination
 //
 //
 //   enrichment := enrichments.NewApiDestinationEnrichment(apiDestination)

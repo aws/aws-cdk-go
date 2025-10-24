@@ -55,8 +55,8 @@ import (
 //   	SnsTopicArn: jsii.String("snsTopicArn"),
 //   	SnsTopicStatus: jsii.String("snsTopicStatus"),
 //   	SubnetGroupName: jsii.String("subnetGroupName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

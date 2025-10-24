@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificate certificate
+//   var certificate Certificate
 //
 //   applicationListenerProps := &ApplicationListenerProps{
 //   	Name: jsii.String("name"),

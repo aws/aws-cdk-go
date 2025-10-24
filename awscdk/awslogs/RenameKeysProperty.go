@@ -11,8 +11,8 @@ package awslogs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   renameKeysProperty := &RenameKeysProperty{
-//   	Entries: []renameKeyEntryProperty{
-//   		&renameKeyEntryProperty{
+//   	Entries: []RenameKeyEntryProperty{
+//   		&RenameKeyEntryProperty{
 //   			Key: jsii.String("key"),
 //   			RenameTo: jsii.String("renameTo"),
 //

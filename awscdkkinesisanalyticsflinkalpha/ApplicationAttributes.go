@@ -12,13 +12,13 @@ import (
 //   import kinesisanalytics_flink_alpha "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   applicationAttributes := &ApplicationAttributes{
 //   	ApplicationArn: jsii.String("applicationArn"),
 //
 //   	// the properties below are optional
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

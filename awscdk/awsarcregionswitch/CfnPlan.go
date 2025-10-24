@@ -18,7 +18,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stepProperty_ stepProperty
+//   var stepProperty_ StepProperty
 //
 //   cfnPlan := awscdk.Aws_arcregionswitch.NewCfnPlan(this, jsii.String("MyCfnPlan"), &CfnPlanProps{
 //   	ExecutionRole: jsii.String("executionRole"),
@@ -33,7 +33,7 @@ import (
 //
 //   			// the properties below are optional
 //   			Steps: []interface{}{
-//   				&stepProperty{
+//   				&StepProperty{
 //   					ExecutionBlockConfiguration: &ExecutionBlockConfigurationProperty{
 //   						ArcRoutingControlConfig: &ArcRoutingControlConfigurationProperty{
 //   							RegionAndRoutingControls: map[string]interface{}{

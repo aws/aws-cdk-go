@@ -14,8 +14,8 @@ import (
 // Example:
 //   import cognito "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var domain userPoolDomain
+//   var zone HostedZone
+//   var domain UserPoolDomain
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,

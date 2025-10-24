@@ -12,8 +12,8 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpParameter httpParameter
-//   var secretValue secretValue
+//   var httpParameter HttpParameter
+//   var secretValue SecretValue
 //
 //   oAuthAuthorizationProps := &OAuthAuthorizationProps{
 //   	AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
@@ -22,13 +22,13 @@ import (
 //   	HttpMethod: awscdk.Aws_events.HttpMethod_POST,
 //
 //   	// the properties below are optional
-//   	BodyParameters: map[string]*httpParameter{
+//   	BodyParameters: map[string]HttpParameter{
 //   		"bodyParametersKey": httpParameter,
 //   	},
-//   	HeaderParameters: map[string]*httpParameter{
+//   	HeaderParameters: map[string]HttpParameter{
 //   		"headerParametersKey": httpParameter,
 //   	},
-//   	QueryStringParameters: map[string]*httpParameter{
+//   	QueryStringParameters: map[string]HttpParameter{
 //   		"queryStringParametersKey": httpParameter,
 //   	},
 //   }

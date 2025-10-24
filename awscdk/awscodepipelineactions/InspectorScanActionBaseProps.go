@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var artifact artifact
-//   var role role
+//   var artifact Artifact
+//   var role Role
 //
 //   inspectorScanActionBaseProps := &InspectorScanActionBaseProps{
 //   	ActionName: jsii.String("actionName"),

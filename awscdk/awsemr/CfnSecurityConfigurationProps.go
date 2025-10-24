@@ -40,7 +40,7 @@ package awsemr
 //   executionRole.AssumeRolePolicy.AddStatements(
 //   iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Effect: iam.Effect_ALLOW,
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		task.clusterRole,
 //   	},
 //   	Actions: []*string{
@@ -49,7 +49,7 @@ package awsemr
 //   }),
 //   iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Effect: iam.Effect_ALLOW,
-//   	Principals: []*iPrincipal{
+//   	Principals: []IPrincipal{
 //   		task.clusterRole,
 //   	},
 //   	Actions: []*string{

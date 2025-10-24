@@ -8,7 +8,7 @@ package awsec2alpha
 //   // The values are placeholders you should change.
 //   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //
-//   var transitGatewayRouteTable transitGatewayRouteTable
+//   var transitGatewayRouteTable TransitGatewayRouteTable
 //
 //   baseTransitGatewayRouteProps := &BaseTransitGatewayRouteProps{
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),

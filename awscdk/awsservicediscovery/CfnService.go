@@ -45,8 +45,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	NamespaceId: jsii.String("namespaceId"),
 //   	ServiceAttributes: serviceAttributes,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

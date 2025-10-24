@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnChannelPlacementGroup) validateValidatePropertiesParameter
 	return nil
 }
 
-func validateCfnChannelPlacementGroup_FromChannelPlacementGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnChannelPlacementGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

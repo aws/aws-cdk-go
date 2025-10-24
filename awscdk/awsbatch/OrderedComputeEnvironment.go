@@ -10,7 +10,7 @@ package awsbatch
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var computeEnvironment iComputeEnvironment
+//   var computeEnvironment IComputeEnvironment
 //
 //   orderedComputeEnvironment := &OrderedComputeEnvironment{
 //   	ComputeEnvironment: computeEnvironment,

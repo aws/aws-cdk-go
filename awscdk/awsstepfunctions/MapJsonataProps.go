@@ -12,7 +12,7 @@ package awsstepfunctions
 //   var itemSelector interface{}
 //   var outputs interface{}
 //   var parameters interface{}
-//   var provideItems provideItems
+//   var provideItems ProvideItems
 //
 //   mapJsonataProps := &MapJsonataProps{
 //   	Assign: map[string]interface{}{

@@ -11,7 +11,7 @@ import (
 // Use an AWS Lambda function to transform records.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{

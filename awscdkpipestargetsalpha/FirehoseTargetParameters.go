@@ -7,8 +7,8 @@ import (
 // Amazon Data Firehose target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetDeliveryStream deliveryStream
+//   var sourceQueue Queue
+//   var targetDeliveryStream DeliveryStream
 //
 //
 //   deliveryStreamTarget := targets.NewFirehoseTarget(targetDeliveryStream, &FirehoseTargetParameters{

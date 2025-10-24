@@ -24,8 +24,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	SchemaName: jsii.String("schemaName"),
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

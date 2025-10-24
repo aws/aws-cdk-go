@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnScene) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
-func validateCfnScene_FromSceneArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnScene_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

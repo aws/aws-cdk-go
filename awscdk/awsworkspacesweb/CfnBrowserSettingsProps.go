@@ -17,8 +17,8 @@ import (
 //   	},
 //   	BrowserPolicy: jsii.String("browserPolicy"),
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

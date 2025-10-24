@@ -16,22 +16,22 @@ import (
 //
 //   // Define a function schema with parameters
 //   functionSchema := bedrock.NewFunctionSchema(&FunctionSchemaProps{
-//   	Functions: []functionProps{
-//   		&functionProps{
+//   	Functions: []FunctionProps{
+//   		&FunctionProps{
 //   			Name: jsii.String("searchBooks"),
 //   			Description: jsii.String("Search for books in the library catalog"),
-//   			Parameters: map[string]functionParameterProps{
-//   				"query": &functionParameterProps{
+//   			Parameters: map[string]FunctionParameterProps{
+//   				"query": &FunctionParameterProps{
 //   					"type": bedrock.ParameterType_STRING,
 //   					"required": jsii.Boolean(true),
 //   					"description": jsii.String("The search query string"),
 //   				},
-//   				"maxResults": &functionParameterProps{
+//   				"maxResults": &FunctionParameterProps{
 //   					"type": bedrock.ParameterType_INTEGER,
 //   					"required": jsii.Boolean(false),
 //   					"description": jsii.String("Maximum number of results to return"),
 //   				},
-//   				"includeOutOfPrint": &functionParameterProps{
+//   				"includeOutOfPrint": &FunctionParameterProps{
 //   					"type": bedrock.ParameterType_BOOLEAN,
 //   					"required": jsii.Boolean(false),
 //   					"description": jsii.String("Whether to include out-of-print books"),
@@ -39,11 +39,11 @@ import (
 //   			},
 //   			RequireConfirmation: bedrock.RequireConfirmation_DISABLED,
 //   		},
-//   		&functionProps{
+//   		&FunctionProps{
 //   			Name: jsii.String("getBookDetails"),
 //   			Description: jsii.String("Get detailed information about a specific book"),
-//   			Parameters: map[string]*functionParameterProps{
-//   				"bookId": &functionParameterProps{
+//   			Parameters: map[string]FunctionParameterProps{
+//   				"bookId": &FunctionParameterProps{
 //   					"type": bedrock.ParameterType_STRING,
 //   					"required": jsii.Boolean(true),
 //   					"description": jsii.String("The unique identifier of the book"),
@@ -66,7 +66,7 @@ import (
 //   agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 //   	FoundationModel: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_V1_0(),
 //   	Instruction: jsii.String("You are a helpful and friendly agent that answers questions about literature."),
-//   	ActionGroups: []agentActionGroup{
+//   	ActionGroups: []AgentActionGroup{
 //   		actionGroup,
 //   	},
 //   })

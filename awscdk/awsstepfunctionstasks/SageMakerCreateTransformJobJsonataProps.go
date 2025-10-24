@@ -19,13 +19,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var instanceType instanceType
-//   var keyRef iKeyRef
+//   var instanceType InstanceType
+//   var keyRef IKeyRef
 //   var outputs interface{}
-//   var role role
-//   var size size
-//   var taskRole taskRole
-//   var timeout timeout
+//   var role Role
+//   var size Size
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   sageMakerCreateTransformJobJsonataProps := &SageMakerCreateTransformJobJsonataProps{
 //   	ModelName: jsii.String("modelName"),

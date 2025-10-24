@@ -10,7 +10,7 @@ package awscloudfront
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var functionRef iFunctionRef
+//   var functionRef IFunctionRef
 //
 //   functionAssociation := &FunctionAssociation{
 //   	EventType: awscdk.Aws_cloudfront.FunctionEventType_VIEWER_REQUEST,

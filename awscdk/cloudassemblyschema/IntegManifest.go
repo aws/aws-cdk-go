@@ -9,8 +9,8 @@ package cloudassemblyschema
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   integManifest := &IntegManifest{
-//   	TestCases: map[string]testCase{
-//   		"testCasesKey": &testCase{
+//   	TestCases: map[string]TestCase{
+//   		"testCasesKey": &TestCase{
 //   			"stacks": []*string{
 //   				jsii.String("stacks"),
 //   			},

@@ -4,7 +4,7 @@ package awsecs
 // Additional configuration properties for EcsOptimizedImage factory functions.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(&EcsOptimizedImageOptions{

@@ -5,8 +5,8 @@ package awscloudfront
 //
 // Example:
 //   // Add a behavior to a Distribution after initial creation.
-//   var myBucket bucket
-//   var myWebDistribution distribution
+//   var myBucket Bucket
+//   var myWebDistribution Distribution
 //
 //   myWebDistribution.AddBehavior(jsii.String("/images/*.jpg"), origins.NewS3Origin(myBucket), &AddBehaviorOptions{
 //   	ViewerProtocolPolicy: cloudfront.ViewerProtocolPolicy_REDIRECT_TO_HTTPS,

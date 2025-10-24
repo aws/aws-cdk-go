@@ -18,10 +18,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   type myStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newMyStack(scope construct, id *string, props stackProps) *myStack {
+//   func newMyStack(scope Construct, id *string, props StackProps) *myStack {
 //   	if props == nil {
 //   		props = &StackProps{
 //   		}
@@ -53,13 +53,13 @@ import (
 //   		EnableLogging: jsii.Boolean(false),
 //   		Cpu: jsii.Number(128),
 //   		MemoryLimitMiB: jsii.Number(64),
-//   		PortMappings: []portMapping{
-//   			&portMapping{
+//   		PortMappings: []PortMapping{
+//   			&PortMapping{
 //   				Name: jsii.String("cwagent-4316"),
 //   				ContainerPort: jsii.Number(4316),
 //   				HostPort: jsii.Number(4316),
 //   			},
-//   			&portMapping{
+//   			&PortMapping{
 //   				Name: jsii.String("cwagent-2000"),
 //   				ContainerPort: jsii.Number(2000),
 //   				HostPort: jsii.Number(2000),
@@ -72,18 +72,18 @@ import (
 //   	ecs.NewFargateService(this, jsii.String("CloudWatchAgentService"), &FargateServiceProps{
 //   		Cluster: cluster,
 //   		TaskDefinition: cwAgentTaskDefinition,
-//   		SecurityGroups: []iSecurityGroup{
+//   		SecurityGroups: []ISecurityGroup{
 //   			securityGroup,
 //   		},
 //   		ServiceConnectConfiguration: &ServiceConnectProps{
 //   			Namespace: dnsNamespace.NamespaceArn,
-//   			Services: []serviceConnectService{
-//   				&serviceConnectService{
+//   			Services: []ServiceConnectService{
+//   				&ServiceConnectService{
 //   					PortMappingName: jsii.String("cwagent-4316"),
 //   					DnsName: jsii.String("cwagent-4316-http"),
 //   					Port: jsii.Number(4316),
 //   				},
-//   				&serviceConnectService{
+//   				&ServiceConnectService{
 //   					PortMappingName: jsii.String("cwagent-2000"),
 //   					DnsName: jsii.String("cwagent-2000-http"),
 //   					Port: jsii.Number(2000),
@@ -111,16 +111,16 @@ import (
 //   			SdkVersion: appsignals.PythonInstrumentationVersion_V0_8_0(),
 //   		},
 //   		ServiceName: jsii.String("sample-app"),
-//   		OverrideEnvironments: []environmentExtension{
-//   			&environmentExtension{
+//   		OverrideEnvironments: []EnvironmentExtension{
+//   			&EnvironmentExtension{
 //   				Name: appsignals.CommonExporting_OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT(),
 //   				Value: jsii.String("http://cwagent-4316-http:4316/v1/metrics"),
 //   			},
-//   			&environmentExtension{
+//   			&EnvironmentExtension{
 //   				Name: appsignals.TraceExporting_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT(),
 //   				Value: jsii.String("http://cwagent-4316-http:4316/v1/traces"),
 //   			},
-//   			&environmentExtension{
+//   			&EnvironmentExtension{
 //   				Name: appsignals.TraceExporting_OTEL_TRACES_SAMPLER_ARG(),
 //   				Value: jsii.String("endpoint=http://cwagent-2000-http:2000"),
 //   			},

@@ -38,7 +38,7 @@ import (
 //   })
 //
 //   pipeline.AddWave(jsii.String("MyWave"), &WaveOptions{
-//   	Post: []step{
+//   	Post: []Step{
 //   		pipelines.NewCodeBuildStep(jsii.String("RunApproval"), &CodeBuildStepProps{
 //   			Commands: []*string{
 //   				jsii.String("command-from-image"),

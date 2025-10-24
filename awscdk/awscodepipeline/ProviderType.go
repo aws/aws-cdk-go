@@ -4,33 +4,33 @@ package awscodepipeline
 // Provider type for trigger.
 //
 // Example:
-//   var sourceAction codeStarConnectionsSourceAction
-//   var buildAction codeBuildAction
+//   var sourceAction CodeStarConnectionsSourceAction
+//   var buildAction CodeBuildAction
 //
 //
 //   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 //   	PipelineType: codepipeline.PipelineType_V2,
-//   	Stages: []stageProps{
-//   		&stageProps{
+//   	Stages: []StageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Source"),
-//   			Actions: []iAction{
+//   			Actions: []IAction{
 //   				sourceAction,
 //   			},
 //   		},
-//   		&stageProps{
+//   		&StageProps{
 //   			StageName: jsii.String("Build"),
-//   			Actions: []*iAction{
+//   			Actions: []IAction{
 //   				buildAction,
 //   			},
 //   		},
 //   	},
-//   	Triggers: []triggerProps{
-//   		&triggerProps{
+//   	Triggers: []TriggerProps{
+//   		&TriggerProps{
 //   			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 //   			GitConfiguration: &GitConfiguration{
 //   				SourceAction: *SourceAction,
-//   				PushFilter: []gitPushFilter{
-//   					&gitPushFilter{
+//   				PushFilter: []GitPushFilter{
+//   					&GitPushFilter{
 //   						TagsExcludes: []*string{
 //   							jsii.String("exclude1"),
 //   							jsii.String("exclude2"),

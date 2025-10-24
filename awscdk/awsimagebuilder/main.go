@@ -21,6 +21,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEncrypted", GoGetter: "AttrEncrypted"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersion", GoGetter: "AttrLatestVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionArn", GoGetter: "AttrLatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMajor", GoGetter: "AttrLatestVersionMajor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMinor", GoGetter: "AttrLatestVersionMinor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionPatch", GoGetter: "AttrLatestVersionPatch"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrType", GoGetter: "AttrType"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -66,6 +71,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnComponent.LatestVersionProperty",
+		reflect.TypeOf((*CfnComponent_LatestVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnComponentProps",
@@ -273,6 +282,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrImageId", GoGetter: "AttrImageId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrImageUri", GoGetter: "AttrImageUri"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersion", GoGetter: "AttrLatestVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionArn", GoGetter: "AttrLatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMajor", GoGetter: "AttrLatestVersionMajor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMinor", GoGetter: "AttrLatestVersionMinor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionPatch", GoGetter: "AttrLatestVersionPatch"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -334,6 +348,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageTestsConfigurationProperty",
 		reflect.TypeOf((*CfnImage_ImageTestsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.LatestVersionProperty",
+		reflect.TypeOf((*CfnImage_LatestVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.WorkflowConfigurationProperty",
@@ -722,6 +740,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersion", GoGetter: "AttrLatestVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionArn", GoGetter: "AttrLatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMajor", GoGetter: "AttrLatestVersionMajor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionMinor", GoGetter: "AttrLatestVersionMinor"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLatestVersionPatch", GoGetter: "AttrLatestVersionPatch"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -764,6 +787,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnWorkflow.LatestVersionProperty",
+		reflect.TypeOf((*CfnWorkflow_LatestVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnWorkflowProps",

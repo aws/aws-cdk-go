@@ -65,11 +65,11 @@ malwareList := route53resolver.FirewallDomainList_FromFirewallDomainListId(this,
 Create a rule group:
 
 ```go
-var myBlockList firewallDomainList
+var myBlockList FirewallDomainList
 
 route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &FirewallRuleGroupProps{
-	Rules: []firewallRule{
-		&firewallRule{
+	Rules: []FirewallRule{
+		&FirewallRule{
 			Priority: jsii.Number(10),
 			FirewallDomainList: myBlockList,
 			// block and reply with NODATA
@@ -82,8 +82,8 @@ route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &FirewallRu
 Rules can be added at construction time or using `addRule()`:
 
 ```go
-var myBlockList firewallDomainList
-var ruleGroup firewallRuleGroup
+var myBlockList FirewallDomainList
+var ruleGroup FirewallRuleGroup
 
 
 ruleGroup.AddRule(&FirewallRule{
@@ -106,8 +106,8 @@ Use `associate()` to associate a rule group with a VPC:
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-var ruleGroup firewallRuleGroup
-var myVpc vpc
+var ruleGroup FirewallRuleGroup
+var myVpc Vpc
 
 
 ruleGroup.Associate(jsii.String("Association"), &FirewallRuleGroupAssociationOptions{

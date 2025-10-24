@@ -12,7 +12,7 @@ package awswafv2
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var andStatementProperty_ andStatementProperty
+//   var andStatementProperty_ AndStatementProperty
 //   var asn interface{}
 //   var forwardedIp interface{}
 //   var httpMethod interface{}
@@ -21,12 +21,12 @@ package awswafv2
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
-//   var statementProperty_ statementProperty
+//   var statementProperty_ StatementProperty
 //   var uriPath interface{}
 //
-//   andStatementProperty := &andStatementProperty{
+//   andStatementProperty := &AndStatementProperty{
 //   	Statements: []interface{}{
-//   		&statementProperty{
+//   		&StatementProperty{
 //   			AndStatement: andStatementProperty_,
 //   			AsnMatchStatement: &AsnMatchStatementProperty{
 //   				AsnList: []interface{}{

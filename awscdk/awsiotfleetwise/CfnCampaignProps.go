@@ -116,8 +116,8 @@ import (
 //   	},
 //   	SpoolingMode: jsii.String("spoolingMode"),
 //   	StartTime: jsii.String("startTime"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

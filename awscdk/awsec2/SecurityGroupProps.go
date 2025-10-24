@@ -19,7 +19,7 @@ package awsec2
 //   		MemoryLimitMiB: jsii.Number(512),
 //   	},
 //   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   })

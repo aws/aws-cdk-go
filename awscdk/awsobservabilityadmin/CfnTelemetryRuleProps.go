@@ -32,8 +32,8 @@ import (
 //   	RuleName: jsii.String("ruleName"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -43,7 +43,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryrule.html
 //
 type CfnTelemetryRuleProps struct {
-	// The telemetry rule.
+	// Retrieves the details of a specific telemetry rule in your account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryrule.html#cfn-observabilityadmin-telemetryrule-rule
 	//
 	Rule interface{} `field:"required" json:"rule" yaml:"rule"`
@@ -51,7 +51,7 @@ type CfnTelemetryRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryrule.html#cfn-observabilityadmin-telemetryrule-rulename
 	//
 	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
-	// An array of key-value pairs to apply to this resource.
+	// Lists all tags attached to the specified telemetry rule resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryrule.html#cfn-observabilityadmin-telemetryrule-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

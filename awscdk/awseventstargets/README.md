@@ -105,8 +105,8 @@ Unlike other event targets, CloudWatchLogs requires a specific input template fo
 
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
+var logGroup LogGroup
+var rule Rule
 
 
 rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
@@ -122,8 +122,8 @@ value.
 
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
+var logGroup LogGroup
+var rule Rule
 
 
 rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
@@ -141,8 +141,8 @@ workaround this issue, set `installLatestAwsSdk` to `false`.
 
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
+var logGroup LogGroup
+var rule Rule
 
 
 rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
@@ -260,7 +260,7 @@ import ecs "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 
 computeEnvironment := batch.NewFargateComputeEnvironment(this, jsii.String("ComputeEnv"), &FargateComputeEnvironmentProps{
@@ -269,8 +269,8 @@ computeEnvironment := batch.NewFargateComputeEnvironment(this, jsii.String("Comp
 
 jobQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
 	Priority: jsii.Number(1),
-	ComputeEnvironments: []orderedComputeEnvironment{
-		&orderedComputeEnvironment{
+	ComputeEnvironments: []OrderedComputeEnvironment{
+		&OrderedComputeEnvironment{
 			ComputeEnvironment: *ComputeEnvironment,
 			Order: jsii.Number(1),
 		},
@@ -353,8 +353,8 @@ Use the `ApiGatewayV2` target to trigger a HTTP API.
 ```go
 import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 
-var httpApi httpApi
-var rule rule
+var httpApi HttpApi
+var rule Rule
 
 
 rule.AddTarget(targets.NewApiGatewayV2(httpApi))
@@ -404,8 +404,8 @@ In some cases, you may need to provide a custom IAM policy statement, especially
 import "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 
-var rule rule
-var bucket bucket
+var rule Rule
+var bucket Bucket
 
 
 rule.AddTarget(targets.NewAwsApi(&AwsApiProps{
@@ -447,7 +447,7 @@ destination := events.NewApiDestination(this, jsii.String("Destination"), &ApiDe
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
-	Targets: []iRuleTarget{
+	Targets: []IRuleTarget{
 		targets.NewApiDestination(destination),
 	},
 })
@@ -469,7 +469,7 @@ destination := events.ApiDestination_FromApiDestinationAttributes(this, jsii.Str
 
 rule := events.NewRule(this, jsii.String("OtherRule"), &RuleProps{
 	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
-	Targets: []iRuleTarget{
+	Targets: []IRuleTarget{
 		targets.NewApiDestination(destination),
 	},
 })
@@ -520,8 +520,8 @@ api := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedAP
 	GraphqlApiArn: jsii.String("<api-arn>"),
 	GraphQLEndpointArn: jsii.String("<api-endpoint-arn>"),
 	Visibility: appsync.Visibility_GLOBAL,
-	Modes: []authorizationType{
-		appsync.*authorizationType_IAM,
+	Modes: []AuthorizationType{
+		appsync.AuthorizationType_IAM,
 	},
 })
 
@@ -577,8 +577,8 @@ to set tags on the triggered task.
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition taskDefinition
+var cluster ICluster
+var taskDefinition TaskDefinition
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -590,8 +590,8 @@ targets.NewEcsTask(&EcsTaskProps{
 	Cluster: cluster,
 	TaskDefinition: taskDefinition,
 	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
-	Tags: []tag{
-		&tag{
+	Tags: []Tag{
+		&Tag{
 			Key: jsii.String("my-tag"),
 			Value: jsii.String("my-tag-value"),
 		},
@@ -608,8 +608,8 @@ If you want to override the default launch type, you can set the `launchType` pr
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition taskDefinition
+var cluster ICluster
+var taskDefinition TaskDefinition
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -633,8 +633,8 @@ You can specify the flag `true` only when the launch type is set to FARGATE.
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition taskDefinition
+var cluster ICluster
+var taskDefinition TaskDefinition
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -659,8 +659,8 @@ If you use Amazon ECS Exec, you can run commands in or get a shell to a containe
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition taskDefinition
+var cluster ICluster
+var taskDefinition TaskDefinition
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -671,8 +671,8 @@ rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	TaskCount: jsii.Number(1),
-	ContainerOverrides: []containerOverride{
-		&containerOverride{
+	ContainerOverrides: []ContainerOverride{
+		&ContainerOverride{
 			ContainerName: jsii.String("TheContainer"),
 			Command: []*string{
 				jsii.String("echo"),
@@ -693,8 +693,8 @@ supported.
 ```go
 import ecs "github.com/aws/aws-cdk-go/awscdk"
 
-var cluster iCluster
-var taskDefinition taskDefinition
+var cluster ICluster
+var taskDefinition TaskDefinition
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -721,7 +721,7 @@ The code snippet below creates the scheduled event rule that route events to an 
 ```go
 import redshiftserverless "github.com/aws/aws-cdk-go/awscdk"
 
-var workgroup cfnWorkgroup
+var workgroup CfnWorkgroup
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -749,7 +749,7 @@ The code snippet below creates the scheduled event rule that publishes to an SNS
 ```go
 import sns "github.com/aws/aws-cdk-go/awscdk"
 
-var topic iTopic
+var topic ITopic
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
@@ -764,7 +764,7 @@ Alternatively, a role can be attached to the target when the rule is triggered.
 ```go
 import sns "github.com/aws/aws-cdk-go/awscdk"
 
-var topic iTopic
+var topic ITopic
 
 
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{

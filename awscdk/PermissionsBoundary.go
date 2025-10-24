@@ -28,7 +28,7 @@ import (
 //
 //   // overriding the pb applied for this stack
 //   // overriding the pb applied for this stack
-//   awscdk.Newstack(prodStage, jsii.String("ProdStack1"), &stackProps{
+//   awscdk.Newstack(prodStage, jsii.String("ProdStack1"), &StackProps{
 //   	PermissionsBoundary: awscdk.PermissionsBoundary_*FromName(jsii.String("stack-pb")),
 //   })
 //

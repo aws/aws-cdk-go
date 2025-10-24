@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameterGroup parameterGroup
-//   var roleRef iRoleRef
+//   var parameterGroup ParameterGroup
+//   var roleRef IRoleRef
 //
 //   clusterEngineBindOptions := &ClusterEngineBindOptions{
 //   	ParameterGroup: parameterGroup,

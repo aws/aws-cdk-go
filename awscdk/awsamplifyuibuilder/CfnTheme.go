@@ -18,14 +18,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var themeValuesProperty_ themeValuesProperty
+//   var themeValuesProperty_ ThemeValuesProperty
 //
 //   cfnTheme := awscdk.Aws_amplifyuibuilder.NewCfnTheme(this, jsii.String("MyCfnTheme"), &CfnThemeProps{
 //   	AppId: jsii.String("appId"),
 //   	EnvironmentName: jsii.String("environmentName"),
 //   	Name: jsii.String("name"),
 //   	Overrides: []interface{}{
-//   		&themeValuesProperty{
+//   		&ThemeValuesProperty{
 //   			Key: jsii.String("key"),
 //   			Value: &ThemeValueProperty{
 //   				Children: []interface{}{
@@ -39,7 +39,7 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Values: []interface{}{
-//   		&themeValuesProperty{
+//   		&ThemeValuesProperty{
 //   			Key: jsii.String("key"),
 //   			Value: &ThemeValueProperty{
 //   				Children: []interface{}{

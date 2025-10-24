@@ -4,7 +4,7 @@ package awscloudwatch
 // Properties for Alarms.
 //
 // Example:
-//   var logGroup logGroup
+//   var logGroup LogGroup
 //
 //   mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
 //   	LogGroup: LogGroup,

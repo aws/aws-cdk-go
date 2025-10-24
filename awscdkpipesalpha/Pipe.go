@@ -16,8 +16,8 @@ import (
 // with support for advanced transformations and enrichment.
 //
 // Example:
-//   var sourceQueue queue
-//   var dest apiDestination
+//   var sourceQueue Queue
+//   var dest ApiDestination
 //
 //
 //   apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{

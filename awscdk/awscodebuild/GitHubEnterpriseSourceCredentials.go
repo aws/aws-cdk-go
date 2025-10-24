@@ -21,7 +21,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secretValue secretValue
+//   var secretValue SecretValue
 //
 //   gitHubEnterpriseSourceCredentials := awscdk.Aws_codebuild.NewGitHubEnterpriseSourceCredentials(this, jsii.String("MyGitHubEnterpriseSourceCredentials"), &GitHubEnterpriseSourceCredentialsProps{
 //   	AccessToken: secretValue,

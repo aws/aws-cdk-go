@@ -7,8 +7,8 @@ import (
 // CloudWatch Logs target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetLogGroup logGroup
+//   var sourceQueue Queue
+//   var targetLogGroup LogGroup
 //
 //
 //   logGroupTarget := targets.NewCloudWatchLogsTarget(targetLogGroup, &CloudWatchLogsTargetParameters{

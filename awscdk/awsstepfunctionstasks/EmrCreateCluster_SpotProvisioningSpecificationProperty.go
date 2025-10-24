@@ -9,8 +9,8 @@ import (
 // Example:
 //   tasks.NewEmrCreateCluster(this, jsii.String("OnDemandSpecification"), &EmrCreateClusterProps{
 //   	Instances: &InstancesConfigProperty{
-//   		InstanceFleets: []instanceFleetConfigProperty{
-//   			&instanceFleetConfigProperty{
+//   		InstanceFleets: []InstanceFleetConfigProperty{
+//   			&InstanceFleetConfigProperty{
 //   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
 //   				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   					OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
@@ -26,8 +26,8 @@ import (
 //
 //   tasks.NewEmrCreateCluster(this, jsii.String("SpotSpecification"), &EmrCreateClusterProps{
 //   	Instances: &InstancesConfigProperty{
-//   		InstanceFleets: []*instanceFleetConfigProperty{
-//   			&instanceFleetConfigProperty{
+//   		InstanceFleets: []InstanceFleetConfigProperty{
+//   			&InstanceFleetConfigProperty{
 //   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
 //   				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   					SpotSpecification: &SpotProvisioningSpecificationProperty{

@@ -18,7 +18,7 @@ import (
 //   	// You can scope down this role policy to be least privileged.
 //   	// If you want the other account to be able to manage specific records,
 //   	// you can scope down by resource and/or normalized record names
-//   	InlinePolicies: map[string]policyDocument{
+//   	InlinePolicies: map[string]PolicyDocument{
 //   		"crossAccountPolicy": iam.NewPolicyDocument(&PolicyDocumentProps{
 //   			"statements": []PolicyStatement{
 //   				iam.NewPolicyStatement(&PolicyStatementProps{

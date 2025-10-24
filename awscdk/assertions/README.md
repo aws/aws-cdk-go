@@ -271,14 +271,14 @@ level, the list of keys in the target is a subset of the provided pattern.
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Fred": awscdk.Match_objectLike(map[string]interface{}{
 		"Wobble": jsii.String("Flob"),
 	}),
 })
 
 // The following will throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Fred": awscdk.Match_objectLike(map[string]interface{}{
 		"Brew": jsii.String("Coffee"),
 	}),
@@ -310,14 +310,14 @@ or outside of any matchers.
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Fred": awscdk.Match_objectLike(map[string]interface{}{
 		"Bob": awscdk.Match_absent(),
 	}),
 })
 
 // The following will throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Fred": awscdk.Match_objectLike(map[string]interface{}{
 		"Wobble": awscdk.Match_absent(),
 	}),
@@ -346,9 +346,9 @@ This matcher can be combined with any of the other matchers.
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]matcher{
-	"Fred": map[string][]matcher{
-		"Wobble": []matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]Matcher{
+	"Fred": map[string][]Matcher{
+		"Wobble": []Matcher{
 			awscdk.Match_anyValue(),
 			awscdk.Match_anyValue(),
 		},
@@ -356,8 +356,8 @@ template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]
 })
 
 // The following will throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]matcher{
-	"Fred": map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]Matcher{
+	"Fred": map[string]Matcher{
 		"Wimble": awscdk.Match_anyValue(),
 	},
 })
@@ -383,7 +383,7 @@ This API will perform subset match on the target.
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Fred": awscdk.Match_arrayWith([]interface{}{
 		jsii.String("Flob"),
 	}),
@@ -422,12 +422,12 @@ provided regular expression.
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Template": awscdk.Match_stringLikeRegexp(jsii.String("includeHeaders = (true|false)")),
 })
 
 // The following will throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Template": awscdk.Match_stringLikeRegexp(jsii.String("includeHeaders = null")),
 })
 ```
@@ -451,7 +451,7 @@ not match the pattern specified.
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Fred": awscdk.Match_not([]interface{}{
 		jsii.String("Flob"),
 	}),
@@ -490,8 +490,8 @@ The `Match.serializedJson()` matcher allows deep matching within a stringified J
 // }
 
 // The following will NOT throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-	"Baz": awscdk.Match_serializedJson(map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
+	"Baz": awscdk.Match_serializedJson(map[string]Matcher{
 		"Fred": awscdk.Match_arrayWith([]interface{}{
 			jsii.String("Waldo"),
 		}),
@@ -499,7 +499,7 @@ template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
 })
 
 // The following will throw an assertion error
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Matcher{
 	"Baz": awscdk.Match_serializedJson(map[string][]*string{
 		"Fred": []*string{
 			jsii.String("Waldo"),
@@ -569,7 +569,7 @@ further Matchers.
 capture := awscdk.NewCapture(awscdk.Match_ArrayWith([]interface{}{
 	jsii.String("Cat"),
 }))
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Capture{
 	"Fred": capture,
 })
 
@@ -600,7 +600,7 @@ the `next()` API. The following example illustrates this -
 // }
 
 fredCapture := awscdk.NewCapture()
-template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
+template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Capture{
 	"Fred": fredCapture,
 })
 
@@ -625,21 +625,21 @@ import "github.com/aws/constructs-go/constructs"
 type myAspect struct {
 }
 
-func (this *myAspect) visit(node iConstruct) {
+func (this *myAspect) visit(node IConstruct) {
 	if *node instanceof cdk.CfnResource && *node.CfnResourceType == "Foo::Bar" {
 		this.error(*node, jsii.String("we do not want a Foo::Bar resource"))
 	}
 }
 
-func (this *myAspect) error(node iConstruct, message *string) {
+func (this *myAspect) error(node IConstruct, message *string) {
 	cdk.Annotations_Of(*node).AddError(*message)
 }
 
 type myStack struct {
-	stack
+	Stack
 }
 
-func newMyStack(scope construct, id *string) *myStack {
+func newMyStack(scope Construct, id *string) *myStack {
 	this := &myStack{}
 	cdk.NewStack_Override(this, scope, id)
 
@@ -710,7 +710,7 @@ tags.HasValues(map[string]*string{
 })
 
 // ... with Matchers embedded
-tags.HasValues(map[string]matcher{
+tags.HasValues(map[string]Matcher{
 	"tag-name": awscdk.Match_stringLikeRegexp(jsii.String("value")),
 })
 

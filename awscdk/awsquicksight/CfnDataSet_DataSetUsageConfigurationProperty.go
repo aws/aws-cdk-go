@@ -22,7 +22,7 @@ type CfnDataSet_DataSetUsageConfigurationProperty struct {
 	// Default: - false.
 	//
 	DisableUseAsDirectQuerySource interface{} `field:"optional" json:"disableUseAsDirectQuerySource" yaml:"disableUseAsDirectQuerySource"`
-	// An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+	// An option that controls whether a child dataset that's stored in Quick Sight can use this dataset as a source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html#cfn-quicksight-dataset-datasetusageconfiguration-disableuseasimportedsource
 	//
 	// Default: - false.

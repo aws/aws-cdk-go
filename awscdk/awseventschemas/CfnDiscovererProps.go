@@ -14,8 +14,8 @@ package awseventschemas
 //   	// the properties below are optional
 //   	CrossAccount: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
-//   	Tags: []tagsEntryProperty{
-//   		&tagsEntryProperty{
+//   	Tags: []TagsEntryProperty{
+//   		&TagsEntryProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

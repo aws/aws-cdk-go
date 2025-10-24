@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnSegment) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
-func validateCfnSegment_FromSegmentArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnSegment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

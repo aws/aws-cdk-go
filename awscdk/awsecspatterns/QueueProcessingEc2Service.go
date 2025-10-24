@@ -14,7 +14,7 @@ import (
 // Class to create a queue processing EC2 service.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii.String("Service"), &QueueProcessingEc2ServiceProps{
 //   	Cluster: Cluster,

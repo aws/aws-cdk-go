@@ -18,7 +18,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var attributeFilterProperty_ attributeFilterProperty
+//   var attributeFilterProperty_ AttributeFilterProperty
 //
 //   cfnDataAccessor := awscdk.Aws_qbusiness.NewCfnDataAccessor(this, jsii.String("MyCfnDataAccessor"), &CfnDataAccessorProps{
 //   	ActionConfigurations: []interface{}{
@@ -27,7 +27,7 @@ import (
 //
 //   			// the properties below are optional
 //   			FilterConfiguration: &ActionFilterConfigurationProperty{
-//   				DocumentAttributeFilter: &attributeFilterProperty{
+//   				DocumentAttributeFilter: &AttributeFilterProperty{
 //   					AndAllFilters: []interface{}{
 //   						attributeFilterProperty_,
 //   					},
@@ -134,8 +134,8 @@ import (
 //   			jsii.String("externalIds"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -681,25 +681,6 @@ func (j *jsiiProxy_CfnDataAccessor)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new IDataAccessorRef from an ARN.
-func CfnDataAccessor_FromDataAccessorArn(scope constructs.Construct, id *string, arn *string) IDataAccessorRef {
-	_init_.Initialize()
-
-	if err := validateCfnDataAccessor_FromDataAccessorArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IDataAccessorRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_qbusiness.CfnDataAccessor",
-		"fromDataAccessorArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

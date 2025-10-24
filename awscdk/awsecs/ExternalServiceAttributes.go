@@ -8,7 +8,7 @@ package awsecs
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   externalServiceAttributes := &ExternalServiceAttributes{
 //   	Cluster: cluster,

@@ -122,7 +122,7 @@ type CfnRecordSet interface {
 	// *Multivalue answer resource record sets only* : To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify `true` for `MultiValueAnswer` .
 	MultiValueAnswer() interface{}
 	SetMultiValueAnswer(val interface{})
-	// For `ChangeResourceRecordSets` requests, the name of the record that you want to create, update, or delete.
+	// The name of the record that you want to create, update, or delete.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

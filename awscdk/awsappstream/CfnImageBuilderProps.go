@@ -33,8 +33,8 @@ import (
 //   	IamRoleArn: jsii.String("iamRoleArn"),
 //   	ImageArn: jsii.String("imageArn"),
 //   	ImageName: jsii.String("imageName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

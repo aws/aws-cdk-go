@@ -22,7 +22,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var scalableTarget scalableTarget
+//   var scalableTarget ScalableTarget
 //
 //   stepScalingAction := awscdk.Aws_applicationautoscaling.NewStepScalingAction(this, jsii.String("MyStepScalingAction"), &StepScalingActionProps{
 //   	ScalingTarget: scalableTarget,

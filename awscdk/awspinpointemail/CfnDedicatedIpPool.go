@@ -18,8 +18,8 @@ import (
 //
 //   cfnDedicatedIpPool := awscdk.Aws_pinpointemail.NewCfnDedicatedIpPool(this, jsii.String("MyCfnDedicatedIpPool"), &CfnDedicatedIpPoolProps{
 //   	PoolName: jsii.String("poolName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

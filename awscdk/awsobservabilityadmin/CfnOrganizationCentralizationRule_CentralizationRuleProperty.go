@@ -1,6 +1,8 @@
 package awsobservabilityadmin
 
 
+// Defines how telemetry data should be centralized across an AWS Organization, including source and destination configurations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,9 +47,11 @@ package awsobservabilityadmin
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrule.html
 //
 type CfnOrganizationCentralizationRule_CentralizationRuleProperty struct {
+	// Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrule.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationrule-destination
 	//
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
+	// Configuration determining the source of the telemetry data to be centralized.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrule.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationrule-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`

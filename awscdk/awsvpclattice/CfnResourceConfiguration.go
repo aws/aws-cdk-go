@@ -39,8 +39,8 @@ import (
 //   	},
 //   	ResourceConfigurationGroupId: jsii.String("resourceConfigurationGroupId"),
 //   	ResourceGatewayId: jsii.String("resourceGatewayId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

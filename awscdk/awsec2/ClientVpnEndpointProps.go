@@ -12,14 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var clientVpnConnectionHandler iClientVpnConnectionHandler
-//   var clientVpnUserBasedAuthentication clientVpnUserBasedAuthentication
-//   var logGroup logGroup
-//   var logStream logStream
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var clientVpnConnectionHandler IClientVpnConnectionHandler
+//   var clientVpnUserBasedAuthentication ClientVpnUserBasedAuthentication
+//   var logGroup LogGroup
+//   var logStream LogStream
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   clientVpnEndpointProps := &ClientVpnEndpointProps{
 //   	Cidr: jsii.String("cidr"),
@@ -43,7 +43,7 @@ import (
 //   	LogGroup: logGroup,
 //   	LogStream: logStream,
 //   	Port: awscdk.Aws_ec2.VpnPort_HTTPS,
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	SelfServicePortal: jsii.Boolean(false),
@@ -56,11 +56,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.*Aws_ec2.SubnetType_PRIVATE_ISOLATED,

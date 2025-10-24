@@ -14,12 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventSourceDlq iEventSourceDlq
+//   var eventSourceDlq IEventSourceDlq
 //   var filters interface{}
-//   var function_ function
-//   var key key
-//   var schemaRegistry iSchemaRegistry
-//   var sourceAccessConfigurationType sourceAccessConfigurationType
+//   var function_ Function
+//   var key Key
+//   var schemaRegistry ISchemaRegistry
+//   var sourceAccessConfigurationType SourceAccessConfigurationType
 //
 //   eventSourceMappingProps := &EventSourceMappingProps{
 //   	Target: function_,
@@ -57,8 +57,8 @@ import (
 //   	ReportBatchItemFailures: jsii.Boolean(false),
 //   	RetryAttempts: jsii.Number(123),
 //   	SchemaRegistryConfig: schemaRegistry,
-//   	SourceAccessConfigurations: []sourceAccessConfiguration{
-//   		&sourceAccessConfiguration{
+//   	SourceAccessConfigurations: []SourceAccessConfiguration{
+//   		&SourceAccessConfiguration{
 //   			Type: sourceAccessConfigurationType,
 //   			Uri: jsii.String("uri"),
 //   		},

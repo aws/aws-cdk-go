@@ -14,10 +14,10 @@ import (
 //   variantChat := bedrock.PromptVariant_Chat(&ChatPromptVariantProps{
 //   	VariantName: jsii.String("variant1"),
 //   	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-//   	Messages: []chatMessage{
-//   		bedrock.*chatMessage_User(jsii.String("From now on, you speak Japanese!")),
-//   		bedrock.*chatMessage_Assistant(jsii.String("Konnichiwa!")),
-//   		bedrock.*chatMessage_*User(jsii.String("From now on, you speak {{language}}!")),
+//   	Messages: []ChatMessage{
+//   		bedrock.ChatMessage_User(jsii.String("From now on, you speak Japanese!")),
+//   		bedrock.ChatMessage_Assistant(jsii.String("Konnichiwa!")),
+//   		bedrock.ChatMessage_*User(jsii.String("From now on, you speak {{language}}!")),
 //   	},
 //   	System: jsii.String("You are a helpful assistant that only speaks the language you`re told."),
 //   	PromptVariables: []*string{
@@ -25,8 +25,8 @@ import (
 //   	},
 //   	ToolConfiguration: &ToolConfiguration{
 //   		ToolChoice: bedrock.ToolChoice_AUTO(),
-//   		Tools: []tool{
-//   			bedrock.*tool_Function(&FunctionToolProps{
+//   		Tools: []Tool{
+//   			bedrock.Tool_Function(&FunctionToolProps{
 //   				Name: jsii.String("top_song"),
 //   				Description: jsii.String("Get the most popular song played on a radio station."),
 //   				InputSchema: map[string]interface{}{
@@ -50,7 +50,7 @@ import (
 //   	PromptName: jsii.String("prompt-chat"),
 //   	Description: jsii.String("my first chat prompt"),
 //   	DefaultVariant: variantChat,
-//   	Variants: []iPromptVariant{
+//   	Variants: []IPromptVariant{
 //   		variantChat,
 //   	},
 //   	KmsKey: cmk,

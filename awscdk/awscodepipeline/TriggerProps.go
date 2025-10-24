@@ -4,16 +4,16 @@ package awscodepipeline
 // Properties of trigger.
 //
 // Example:
-//   var pipeline pipeline
-//   var sourceAction codeStarConnectionsSourceAction
+//   var pipeline Pipeline
+//   var sourceAction CodeStarConnectionsSourceAction
 //
 //
 //   pipeline.AddTrigger(&TriggerProps{
 //   	ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 //   	GitConfiguration: &GitConfiguration{
 //   		SourceAction: *SourceAction,
-//   		PushFilter: []gitPushFilter{
-//   			&gitPushFilter{
+//   		PushFilter: []GitPushFilter{
+//   			&GitPushFilter{
 //   				TagsExcludes: []*string{
 //   					jsii.String("exclude1"),
 //   					jsii.String("exclude2"),

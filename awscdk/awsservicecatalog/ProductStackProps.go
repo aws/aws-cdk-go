@@ -14,10 +14,10 @@ import (
 //
 //
 //   type lambdaProduct struct {
-//   	productStack
+//   	ProductStack
 //   }
 //
-//   func newLambdaProduct(scope construct, id *string, props productStackProps) *lambdaProduct {
+//   func newLambdaProduct(scope Construct, id *string, props ProductStackProps) *lambdaProduct {
 //   	this := &lambdaProduct{}
 //   	servicecatalog.NewProductStack_Override(this, scope, id, props)
 //
@@ -36,10 +36,10 @@ import (
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &CloudFormationProductProps{
 //   	ProductName: jsii.String("My Product"),
 //   	Owner: jsii.String("Product Owner"),
-//   	ProductVersions: []cloudFormationProductVersion{
-//   		&cloudFormationProductVersion{
+//   	ProductVersions: []CloudFormationProductVersion{
+//   		&CloudFormationProductVersion{
 //   			ProductVersionName: jsii.String("v1"),
-//   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &productStackProps{
+//   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &ProductStackProps{
 //   				AssetBucket: userDefinedBucket,
 //   			})),
 //   		},

@@ -14,14 +14,14 @@ import (
 // required to call the Grant factory functions.
 //
 // Example:
-//   var instance instance
-//   var volume volume
+//   var instance Instance
+//   var volume Volume
 //
 //
-//   attachGrant := volume.grantAttachVolumeByResourceTag(instance.GrantPrincipal, []construct{
+//   attachGrant := volume.grantAttachVolumeByResourceTag(instance.GrantPrincipal, []Construct{
 //   	instance,
 //   })
-//   detachGrant := volume.grantDetachVolumeByResourceTag(instance.GrantPrincipal, []construct{
+//   detachGrant := volume.grantDetachVolumeByResourceTag(instance.GrantPrincipal, []Construct{
 //   	instance,
 //   })
 //
@@ -126,16 +126,16 @@ func (j *jsiiProxy_Grant) Success() *bool {
 // Returns: A Grant object representing the result of the operation.
 //
 // Example:
-//   var grantee iGrantable
+//   var grantee IGrantable
 //   var actions []*string
 //   var resourceArns []*string
-//   var bucket bucket
+//   var bucket Bucket
 //
 //
 //   statement := iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Effect: iam.Effect_ALLOW,
 //   	Actions: actions,
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   	},
 //   	Conditions: map[string]interface{}{

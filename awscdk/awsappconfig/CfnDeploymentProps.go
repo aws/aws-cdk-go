@@ -28,8 +28,8 @@ import (
 //   		},
 //   	},
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

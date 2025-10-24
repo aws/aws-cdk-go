@@ -18,18 +18,18 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationConfiguration_ applicationConfiguration
+//   var applicationConfiguration_ ApplicationConfiguration
 //   var assign interface{}
-//   var bucket bucket
-//   var classification classification
-//   var logGroup logGroup
+//   var bucket Bucket
+//   var classification Classification
+//   var logGroup LogGroup
 //   var outputs interface{}
-//   var releaseLabel releaseLabel
-//   var role role
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
-//   var virtualClusterInput virtualClusterInput
+//   var releaseLabel ReleaseLabel
+//   var role Role
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
+//   var virtualClusterInput VirtualClusterInput
 //
 //   emrContainersStartJobRunJsonataProps := &EmrContainersStartJobRunJsonataProps{
 //   	JobDriver: &JobDriver{
@@ -45,12 +45,12 @@ import (
 //   	VirtualCluster: virtualClusterInput,
 //
 //   	// the properties below are optional
-//   	ApplicationConfig: []*applicationConfiguration{
-//   		&applicationConfiguration{
+//   	ApplicationConfig: []ApplicationConfiguration{
+//   		&ApplicationConfiguration{
 //   			Classification: classification,
 //
 //   			// the properties below are optional
-//   			NestedConfig: []*applicationConfiguration{
+//   			NestedConfig: []ApplicationConfiguration{
 //   				applicationConfiguration_,
 //   			},
 //   			Properties: map[string]*string{

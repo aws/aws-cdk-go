@@ -4,7 +4,7 @@ package awscdk
 // Initialization props for a stage.
 //
 // Example:
-//   var app app
+//   var app App
 //
 //
 //   awscdk.NewStage(app, jsii.String("DevStage"))

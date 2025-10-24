@@ -31,6 +31,10 @@ package awslogs
 //
 //   	// the properties below are optional
 //   	ApplyOnTransformedLogs: jsii.Boolean(false),
+//   	EmitSystemFieldDimensions: []*string{
+//   		jsii.String("emitSystemFieldDimensions"),
+//   	},
+//   	FieldSelectionCriteria: jsii.String("fieldSelectionCriteria"),
 //   	FilterName: jsii.String("filterName"),
 //   }
 //
@@ -59,6 +63,18 @@ type CfnMetricFilterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-applyontransformedlogs
 	//
 	ApplyOnTransformedLogs interface{} `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`
+	// The list of system fields that are emitted as additional dimensions in the generated metrics.
+	//
+	// Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-emitsystemfielddimensions
+	//
+	EmitSystemFieldDimensions *[]*string `field:"optional" json:"emitSystemFieldDimensions" yaml:"emitSystemFieldDimensions"`
+	// The filter expression that specifies which log events are processed by this metric filter based on system fields.
+	//
+	// Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-fieldselectioncriteria
+	//
+	FieldSelectionCriteria *string `field:"optional" json:"fieldSelectionCriteria" yaml:"fieldSelectionCriteria"`
 	// The name of the metric filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filtername
 	//

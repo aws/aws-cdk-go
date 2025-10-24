@@ -17,8 +17,8 @@ import (
 //   	// the properties below are optional
 //   	CredentialDurationSeconds: jsii.Number(123),
 //   	RoleAlias: jsii.String("roleAlias"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

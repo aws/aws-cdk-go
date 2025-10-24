@@ -28,8 +28,8 @@ import (
 //   	VodSourceName: jsii.String("vodSourceName"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -479,25 +479,6 @@ func (j *jsiiProxy_CfnVodSource)SetVodSourceName(val *string) {
 		"vodSourceName",
 		val,
 	)
-}
-
-// Creates a new IVodSourceRef from an ARN.
-func CfnVodSource_FromVodSourceArn(scope constructs.Construct, id *string, arn *string) IVodSourceRef {
-	_init_.Initialize()
-
-	if err := validateCfnVodSource_FromVodSourceArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IVodSourceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediatailor.CfnVodSource",
-		"fromVodSourceArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

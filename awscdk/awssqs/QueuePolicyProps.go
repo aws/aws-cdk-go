@@ -8,10 +8,10 @@ package awssqs
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue queue
+//   var queue Queue
 //
 //   queuePolicyProps := &QueuePolicyProps{
-//   	Queues: []iQueue{
+//   	Queues: []IQueue{
 //   		queue,
 //   	},
 //   }

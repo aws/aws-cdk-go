@@ -11,15 +11,15 @@ import (
 //
 // Example:
 //   type myConstruct struct {
-//   	resource
+//   	Resource
 //   	tags
 //   }
 //
-//   func newMyConstruct(scope construct, id *string) *myConstruct {
+//   func newMyConstruct(scope Construct, id *string) *myConstruct {
 //   	this := &myConstruct{}
 //   	newResource_Override(this, scope, id)
 //
-//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &cfnResourceProps{
+//   	awscdk.NewCfnResource(this, jsii.String("Resource"), &CfnResourceProps{
 //   		Type: jsii.String("Whatever::The::Type"),
 //   		Properties: map[string]interface{}{
 //   			// ...

@@ -9,7 +9,7 @@ import (
 // Properties of a Fleet.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{

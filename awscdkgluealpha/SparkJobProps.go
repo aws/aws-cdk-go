@@ -16,19 +16,19 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var code code
-//   var connection connection
-//   var logGroup logGroup
-//   var role role
-//   var securityConfiguration securityConfiguration
+//   var bucket Bucket
+//   var code Code
+//   var connection Connection
+//   var logGroup LogGroup
+//   var role Role
+//   var securityConfiguration SecurityConfiguration
 //
 //   sparkJobProps := &SparkJobProps{
 //   	Role: role,
 //   	Script: code,
 //
 //   	// the properties below are optional
-//   	Connections: []iConnection{
+//   	Connections: []IConnection{
 //   		connection,
 //   	},
 //   	ContinuousLogging: &ContinuousLoggingProps{

@@ -4,7 +4,7 @@ package awsrds
 // Properties for looking up an existing DatabaseInstance.
 //
 // Example:
-//   var myUserRole role
+//   var myUserRole Role
 //
 //
 //   dbFromLookup := rds.DatabaseInstance_FromLookup(this, jsii.String("dbFromLookup"), &DatabaseInstanceLookupOptions{

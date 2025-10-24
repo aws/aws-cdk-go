@@ -8,7 +8,7 @@ import (
 // The type of resource to create the flow log for.
 //
 // Example:
-//   var tgw cfnTransitGateway
+//   var tgw CfnTransitGateway
 //
 //
 //   ec2.NewFlowLog(this, jsii.String("TransitGatewayFlowLog"), &FlowLogProps{

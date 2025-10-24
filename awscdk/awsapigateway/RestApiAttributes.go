@@ -19,10 +19,10 @@ package awsapigateway
 //    */
 //
 //   type rootStack struct {
-//   	stack
+//   	Stack
 //   }
 //
-//   func newRootStack(scope construct) *rootStack {
+//   func newRootStack(scope Construct) *rootStack {
 //   	this := &rootStack{}
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
@@ -56,17 +56,17 @@ package awsapigateway
 //   }
 //
 //   type resourceNestedStackProps struct {
-//   	nestedStackProps
+//   	NestedStackProps
 //   	restApiId *string
 //   	rootResourceId *string
 //   }
 //
 //   type petsStack struct {
-//   	nestedStack
-//   	methods []method
+//   	NestedStack
+//   	methods []Method
 //   }
 //
-//   func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
+//   func newPetsStack(scope Construct, props resourceNestedStackProps) *petsStack {
 //   	this := &petsStack{}
 //   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-PetsStack"), props)
 //
@@ -76,8 +76,8 @@ package awsapigateway
 //   	})
 //
 //   	method := api.Root.AddResource(jsii.String("pets")).AddMethod(jsii.String("GET"), awscdk.NewMockIntegration(&IntegrationOptions{
-//   		IntegrationResponses: []integrationResponse{
-//   			&integrationResponse{
+//   		IntegrationResponses: []IntegrationResponse{
+//   			&IntegrationResponse{
 //   				StatusCode: jsii.String("200"),
 //   			},
 //   		},
@@ -86,8 +86,8 @@ package awsapigateway
 //   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   		},
 //   	}), &MethodOptions{
-//   		MethodResponses: []methodResponse{
-//   			&methodResponse{
+//   		MethodResponses: []MethodResponse{
+//   			&MethodResponse{
 //   				StatusCode: jsii.String("200"),
 //   			},
 //   		},
@@ -98,11 +98,11 @@ package awsapigateway
 //   }
 //
 //   type booksStack struct {
-//   	nestedStack
-//   	methods []*method
+//   	NestedStack
+//   	methods []Method
 //   }
 //
-//   func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack {
+//   func newBooksStack(scope Construct, props resourceNestedStackProps) *booksStack {
 //   	this := &booksStack{}
 //   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-BooksStack"), props)
 //
@@ -112,8 +112,8 @@ package awsapigateway
 //   	})
 //
 //   	method := api.Root.AddResource(jsii.String("books")).AddMethod(jsii.String("GET"), awscdk.NewMockIntegration(&IntegrationOptions{
-//   		IntegrationResponses: []*integrationResponse{
-//   			&integrationResponse{
+//   		IntegrationResponses: []IntegrationResponse{
+//   			&IntegrationResponse{
 //   				StatusCode: jsii.String("200"),
 //   			},
 //   		},
@@ -122,8 +122,8 @@ package awsapigateway
 //   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   		},
 //   	}), &MethodOptions{
-//   		MethodResponses: []*methodResponse{
-//   			&methodResponse{
+//   		MethodResponses: []MethodResponse{
+//   			&MethodResponse{
 //   				StatusCode: jsii.String("200"),
 //   			},
 //   		},
@@ -134,16 +134,16 @@ package awsapigateway
 //   }
 //
 //   type deployStackProps struct {
-//   	nestedStackProps
+//   	NestedStackProps
 //   	restApiId *string
-//   	methods []*method
+//   	methods []Method
 //   }
 //
 //   type deployStack struct {
-//   	nestedStack
+//   	NestedStack
 //   }
 //
-//   func newDeployStack(scope construct, props deployStackProps) *deployStack {
+//   func newDeployStack(scope Construct, props deployStackProps) *deployStack {
 //   	this := &deployStack{}
 //   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-DeployStack"), props)
 //

@@ -18,20 +18,20 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var buildImage iBuildImage
-//   var buildSpec buildSpec
-//   var cache cache
-//   var fileSystemLocation iFileSystemLocation
-//   var fleet fleet
-//   var key key
-//   var logGroup logGroup
-//   var role role
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
+//   var bucket Bucket
+//   var buildImage IBuildImage
+//   var buildSpec BuildSpec
+//   var cache Cache
+//   var fileSystemLocation IFileSystemLocation
+//   var fleet Fleet
+//   var key Key
+//   var logGroup LogGroup
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
 //   var value interface{}
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   commonProjectProps := &CommonProjectProps{
 //   	AllowAllOutbound: jsii.Boolean(false),
@@ -54,12 +54,12 @@ import (
 //   			ComputeType: awscdk.*Aws_codebuild.DockerServerComputeType_SMALL,
 //
 //   			// the properties below are optional
-//   			SecurityGroups: []iSecurityGroup{
+//   			SecurityGroups: []ISecurityGroup{
 //   				securityGroup,
 //   			},
 //   		},
-//   		EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   			"environmentVariablesKey": &buildEnvironmentVariable{
+//   		EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   			"environmentVariablesKey": &BuildEnvironmentVariable{
 //   				"value": value,
 //
 //   				// the properties below are optional
@@ -69,15 +69,15 @@ import (
 //   		Fleet: fleet,
 //   		Privileged: jsii.Boolean(false),
 //   	},
-//   	EnvironmentVariables: map[string]*buildEnvironmentVariable{
-//   		"environmentVariablesKey": &buildEnvironmentVariable{
+//   	EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   		"environmentVariablesKey": &BuildEnvironmentVariable{
 //   			"value": value,
 //
 //   			// the properties below are optional
 //   			"type": awscdk.*Aws_codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   		},
 //   	},
-//   	FileSystemLocations: []*iFileSystemLocation{
+//   	FileSystemLocations: []IFileSystemLocation{
 //   		fileSystemLocation,
 //   	},
 //   	GrantReportGroupPermissions: jsii.Boolean(false),
@@ -99,7 +99,7 @@ import (
 //   	ProjectName: jsii.String("projectName"),
 //   	QueuedTimeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Role: role,
-//   	SecurityGroups: []*iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   	SsmSessionPermissions: jsii.Boolean(false),
@@ -108,11 +108,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

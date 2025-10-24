@@ -10,9 +10,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cpuArchitecture cpuArchitecture
-//   var fargateTaskDefinition fargateTaskDefinition
-//   var operatingSystemFamily operatingSystemFamily
+//   var cpuArchitecture CpuArchitecture
+//   var fargateTaskDefinition FargateTaskDefinition
+//   var operatingSystemFamily OperatingSystemFamily
 //
 //   fargateServiceBaseProps := &FargateServiceBaseProps{
 //   	Cpu: jsii.Number(123),

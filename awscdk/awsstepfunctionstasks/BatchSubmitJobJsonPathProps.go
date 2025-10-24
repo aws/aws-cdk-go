@@ -16,12 +16,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var instanceType instanceType
+//   var instanceType InstanceType
 //   var resultSelector interface{}
-//   var size size
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var size Size
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   batchSubmitJobJsonPathProps := &BatchSubmitJobJsonPathProps{
 //   	JobDefinitionArn: jsii.String("jobDefinitionArn"),
@@ -50,8 +50,8 @@ import (
 //   	Credentials: &Credentials{
 //   		Role: taskRole,
 //   	},
-//   	DependsOn: []batchJobDependency{
-//   		&batchJobDependency{
+//   	DependsOn: []BatchJobDependency{
+//   		&BatchJobDependency{
 //   			JobId: jsii.String("jobId"),
 //   			Type: jsii.String("type"),
 //   		},

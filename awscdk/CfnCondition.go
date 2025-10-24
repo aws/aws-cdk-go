@@ -13,7 +13,7 @@ import (
 //   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &CfnBucketProps{
 //   })
 //   // -or-
-//   rawBucketAlt := myBucket.Node.defaultChild.(cfnBucket)
+//   rawBucketAlt := myBucket.Node.defaultChild.(CfnBucket)
 //
 //   // then
 //   rawBucket.CfnOptions.Condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &CfnConditionProps{

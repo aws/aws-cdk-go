@@ -23,7 +23,7 @@ import (
 //   		jsii.String("cool.example.com"),
 //   		jsii.String("test.example.net"),
 //   	},
-//   	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]iHostedZone{
+//   	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]IHostedZone{
 //   		"test.example.com": exampleCom,
 //   		"cool.example.com": exampleCom,
 //   		"test.example.net": exampleNet,

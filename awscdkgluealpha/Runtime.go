@@ -6,9 +6,9 @@ package awscdkgluealpha
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
-//   var stack stack
-//   var role iRole
-//   var script code
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
 //   glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
 //   	Role: Role,
@@ -21,7 +21,7 @@ package awscdkgluealpha
 //   	MaxRetries: jsii.Number(3),
 //   	MaxConcurrentRuns: jsii.Number(100),
 //   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-//   	Connections: []iConnection{
+//   	Connections: []IConnection{
 //   		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 //   	},
 //   	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),

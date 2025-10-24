@@ -8,8 +8,8 @@ import (
 // The properties for enabling scaling based on Application Load Balancer (ALB) request counts.
 //
 // Example:
-//   var target applicationTargetGroup
-//   var service baseService
+//   var target ApplicationTargetGroup
+//   var service BaseService
 //
 //   scaling := service.AutoScaleTaskCount(&EnableScalingProps{
 //   	MaxCapacity: jsii.Number(10),

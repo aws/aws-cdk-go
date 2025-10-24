@@ -121,8 +121,8 @@ import (
 //   		ObservabilityConfigurationArn: jsii.String("observabilityConfigurationArn"),
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

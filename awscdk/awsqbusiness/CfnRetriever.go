@@ -31,8 +31,8 @@ import (
 //
 //   	// the properties below are optional
 //   	RoleArn: jsii.String("roleArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -575,25 +575,6 @@ func (j *jsiiProxy_CfnRetriever)SetType(val *string) {
 		"type",
 		val,
 	)
-}
-
-// Creates a new IRetrieverRef from an ARN.
-func CfnRetriever_FromRetrieverArn(scope constructs.Construct, id *string, arn *string) IRetrieverRef {
-	_init_.Initialize()
-
-	if err := validateCfnRetriever_FromRetrieverArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IRetrieverRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_qbusiness.CfnRetriever",
-		"fromRetrieverArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

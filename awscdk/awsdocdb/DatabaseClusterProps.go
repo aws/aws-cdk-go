@@ -12,7 +12,7 @@ import (
 // Properties for a new database cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{

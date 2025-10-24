@@ -80,8 +80,8 @@ import (
 //   			Resource: jsii.String("resource"),
 //   		},
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -98,7 +98,7 @@ type CfnThemeProps struct {
 	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from.
 	//
-	// All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	// All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
 	//
 	BaseThemeId *string `field:"required" json:"baseThemeId" yaml:"baseThemeId"`

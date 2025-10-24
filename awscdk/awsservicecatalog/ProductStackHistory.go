@@ -12,10 +12,10 @@ import (
 //
 // Example:
 //   type s3BucketProduct struct {
-//   	productStack
+//   	ProductStack
 //   }
 //
-//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+//   func newS3BucketProduct(scope Construct, id *string) *s3BucketProduct {
 //   	this := &s3BucketProduct{}
 //   	servicecatalog.NewProductStack_Override(this, scope, id)
 //
@@ -32,7 +32,7 @@ import (
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &CloudFormationProductProps{
 //   	ProductName: jsii.String("My Product"),
 //   	Owner: jsii.String("Product Owner"),
-//   	ProductVersions: []cloudFormationProductVersion{
+//   	ProductVersions: []CloudFormationProductVersion{
 //   		productStackHistory.CurrentVersion(),
 //   	},
 //   })

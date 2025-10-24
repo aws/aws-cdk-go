@@ -19,8 +19,8 @@ import (
 //   cfnResolverQueryLoggingConfig := awscdk.Aws_route53resolver.NewCfnResolverQueryLoggingConfig(this, jsii.String("MyCfnResolverQueryLoggingConfig"), &CfnResolverQueryLoggingConfigProps{
 //   	DestinationArn: jsii.String("destinationArn"),
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

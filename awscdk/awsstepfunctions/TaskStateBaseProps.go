@@ -15,8 +15,8 @@ import (
 //   var assign interface{}
 //   var outputs interface{}
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   taskStateBaseProps := &TaskStateBaseProps{
 //   	Assign: map[string]interface{}{

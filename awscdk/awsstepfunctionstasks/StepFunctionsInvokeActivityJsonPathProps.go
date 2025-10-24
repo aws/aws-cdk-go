@@ -14,12 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var activity activity
+//   var activity Activity
 //   var assign interface{}
 //   var parameters interface{}
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   stepFunctionsInvokeActivityJsonPathProps := &StepFunctionsInvokeActivityJsonPathProps{
 //   	Activity: activity,

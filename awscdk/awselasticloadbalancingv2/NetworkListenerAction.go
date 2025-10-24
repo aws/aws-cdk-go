@@ -19,13 +19,13 @@ import (
 // by passing it in the `next` property.
 //
 // Example:
-//   var lb networkLoadBalancer
-//   var group networkTargetGroup
+//   var lb NetworkLoadBalancer
+//   var group NetworkTargetGroup
 //
 //
 //   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
 //   	Port: jsii.Number(80),
-//   	DefaultAction: elbv2.NetworkListenerAction_Forward([]iNetworkTargetGroup{
+//   	DefaultAction: elbv2.NetworkListenerAction_Forward([]INetworkTargetGroup{
 //   		group,
 //   	}),
 //

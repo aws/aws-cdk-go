@@ -15,7 +15,7 @@ import (
 // Example:
 //   import codebuild "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var project project
+//   var project Project
 //
 //
 //   awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{

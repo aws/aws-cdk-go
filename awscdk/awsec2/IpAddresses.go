@@ -23,8 +23,8 @@ import (
 //   	// 'subnetConfiguration' specifies the "subnet groups" to create.
 //   	// Every subnet group will have a subnet for each AZ, so this
 //   	// configuration will create `3 groups × 3 AZs = 9` subnets.
-//   	SubnetConfiguration: []subnetConfiguration{
-//   		&subnetConfiguration{
+//   	SubnetConfiguration: []SubnetConfiguration{
+//   		&SubnetConfiguration{
 //   			// 'subnetType' controls Internet access, as described above.
 //   			SubnetType: ec2.SubnetType_PUBLIC,
 //
@@ -42,12 +42,12 @@ import (
 //   			// divided across the remaining subnet groups.
 //   			CidrMask: jsii.Number(24),
 //   		},
-//   		&subnetConfiguration{
+//   		&SubnetConfiguration{
 //   			CidrMask: jsii.Number(24),
 //   			Name: jsii.String("Application"),
 //   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   		},
-//   		&subnetConfiguration{
+//   		&SubnetConfiguration{
 //   			CidrMask: jsii.Number(28),
 //   			Name: jsii.String("Database"),
 //   			SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,

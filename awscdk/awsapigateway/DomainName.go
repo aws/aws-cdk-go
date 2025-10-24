@@ -10,7 +10,7 @@ import (
 )
 
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //
 //   domainName := apigateway.DomainName_FromDomainNameAttributes(this, jsii.String("DomainName"), &DomainNameAttributes{

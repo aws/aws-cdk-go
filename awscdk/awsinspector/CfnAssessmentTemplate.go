@@ -14,7 +14,7 @@ import (
 // Example:
 //   import inspector "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnAssessmentTemplate cfnAssessmentTemplate
+//   var cfnAssessmentTemplate CfnAssessmentTemplate
 //
 //
 //   assessmentTemplate := inspector.AssessmentTemplate_FromCfnAssessmentTemplate(this, jsii.String("MyAssessmentTemplate"), cfnAssessmentTemplate)

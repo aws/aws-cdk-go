@@ -11,8 +11,8 @@ import (
 // Dynamic variables that can be used in the input transformation.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
 //
 //   targetInputTransformation := pipes.inputTransformation_FromObject(map[string]interface{}{

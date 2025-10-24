@@ -13,8 +13,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   projectNotifyOnOptions := &ProjectNotifyOnOptions{
-//   	Events: []projectNotificationEvents{
-//   		awscdk.Aws_codebuild.*projectNotificationEvents_BUILD_FAILED,
+//   	Events: []ProjectNotificationEvents{
+//   		awscdk.Aws_codebuild.ProjectNotificationEvents_BUILD_FAILED,
 //   	},
 //
 //   	// the properties below are optional

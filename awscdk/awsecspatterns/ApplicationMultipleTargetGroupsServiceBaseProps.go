@@ -21,16 +21,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificate certificate
-//   var cluster cluster
-//   var containerDefinition containerDefinition
-//   var containerImage containerImage
-//   var hostedZone hostedZone
-//   var logDriver logDriver
-//   var namespace iNamespace
-//   var role role
-//   var secret secret
-//   var vpc vpc
+//   var certificate Certificate
+//   var cluster Cluster
+//   var containerDefinition ContainerDefinition
+//   var containerImage ContainerImage
+//   var hostedZone HostedZone
+//   var logDriver LogDriver
+//   var namespace INamespace
+//   var role Role
+//   var secret Secret
+//   var vpc Vpc
 //
 //   applicationMultipleTargetGroupsServiceBaseProps := &ApplicationMultipleTargetGroupsServiceBaseProps{
 //   	CloudMapOptions: &CloudMapOptions{
@@ -47,10 +47,10 @@ import (
 //   	EnableECSManagedTags: jsii.Boolean(false),
 //   	EnableExecuteCommand: jsii.Boolean(false),
 //   	HealthCheckGracePeriod: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	LoadBalancers: []applicationLoadBalancerProps{
-//   		&applicationLoadBalancerProps{
-//   			Listeners: []applicationListenerProps{
-//   				&applicationListenerProps{
+//   	LoadBalancers: []ApplicationLoadBalancerProps{
+//   		&ApplicationLoadBalancerProps{
+//   			Listeners: []ApplicationListenerProps{
+//   				&ApplicationListenerProps{
 //   					Name: jsii.String("name"),
 //
 //   					// the properties below are optional
@@ -71,8 +71,8 @@ import (
 //   	},
 //   	PropagateTags: awscdk.Aws_ecs.PropagatedTagSource_SERVICE,
 //   	ServiceName: jsii.String("serviceName"),
-//   	TargetGroups: []applicationTargetProps{
-//   		&applicationTargetProps{
+//   	TargetGroups: []ApplicationTargetProps{
+//   		&ApplicationTargetProps{
 //   			ContainerPort: jsii.Number(123),
 //
 //   			// the properties below are optional
@@ -101,7 +101,7 @@ import (
 //   		ExecutionRole: role,
 //   		Family: jsii.String("family"),
 //   		LogDriver: logDriver,
-//   		Secrets: map[string]*secret{
+//   		Secrets: map[string]Secret{
 //   			"secretsKey": secret,
 //   		},
 //   		TaskRole: role,

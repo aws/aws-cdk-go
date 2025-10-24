@@ -8,7 +8,7 @@ The currently implemented actions are: EC2 Actions, SNS Actions, SSM OpsCenter A
 
 ```go
 // Alarm must be configured with an EC2 per-instance metric
-var alarm alarm
+var alarm Alarm
 
 // Attach a reboot when alarm triggers
 alarm.AddAlarmAction(
@@ -18,7 +18,7 @@ actions.NewEc2Action(actions.Ec2InstanceAction_REBOOT))
 ## SSM OpsCenter Action Example
 
 ```go
-var alarm alarm
+var alarm Alarm
 
 // Create an OpsItem with specific severity and category when alarm triggers
 alarm.AddAlarmAction(
@@ -28,7 +28,7 @@ actions.NewSsmAction(actions.OpsItemSeverity_CRITICAL, actions.OpsItemCategory_P
 ## SSM Incident Manager Action Example
 
 ```go
-var alarm alarm
+var alarm Alarm
 
 // Create an Incident Manager incident based on a specific response plan
 alarm.AddAlarmAction(
@@ -39,10 +39,10 @@ actions.NewSsmIncidentAction(jsii.String("ResponsePlanName")))
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var alarm alarm
-var fn function
-var alias alias
-var version version
+var alarm Alarm
+var fn Function
+var alias Alias
+var version Version
 
 
 // Attach a Lambda Function when alarm triggers

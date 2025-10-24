@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var construct construct
+//   var construct Construct
 //
 //   triggerOptions := &TriggerOptions{
-//   	ExecuteAfter: []*construct{
+//   	ExecuteAfter: []Construct{
 //   		construct,
 //   	},
-//   	ExecuteBefore: []*construct{
+//   	ExecuteBefore: []Construct{
 //   		construct,
 //   	},
 //   	ExecuteOnHandlerChange: jsii.Boolean(false),

@@ -13,8 +13,8 @@ package awsecs
 //
 //   	// the properties below are optional
 //   	ContainerPath: jsii.String("containerPath"),
-//   	Permissions: []devicePermission{
-//   		awscdk.Aws_ecs.*devicePermission_READ,
+//   	Permissions: []DevicePermission{
+//   		awscdk.Aws_ecs.DevicePermission_READ,
 //   	},
 //   }
 //

@@ -33,11 +33,11 @@ import (
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
 //   	Encryption: dynamodb.TableEncryptionV2_CustomerManagedKey(tableKey, replicaKeyArns),
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&replicaTableProps{
+//   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-2"),
 //   		},
 //   	},

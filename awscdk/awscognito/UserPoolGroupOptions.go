@@ -7,8 +7,8 @@ import (
 // Options to create a UserPoolGroup.
 //
 // Example:
-//   var userPool userPool
-//   var role role
+//   var userPool UserPool
+//   var role Role
 //
 //
 //   cognito.NewUserPoolGroup(this, jsii.String("UserPoolGroup"), &UserPoolGroupProps{

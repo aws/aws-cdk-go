@@ -9,8 +9,8 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   allocateIpv6CidrRequest := &AllocateIpv6CidrRequest{
-//   	AllocatedSubnets: []allocatedSubnet{
-//   		&allocatedSubnet{
+//   	AllocatedSubnets: []AllocatedSubnet{
+//   		&AllocatedSubnet{
 //   			Cidr: jsii.String("cidr"),
 //
 //   			// the properties below are optional

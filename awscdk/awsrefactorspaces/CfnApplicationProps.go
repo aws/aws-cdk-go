@@ -22,8 +22,8 @@ import (
 //   		EndpointType: jsii.String("endpointType"),
 //   		StageName: jsii.String("stageName"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

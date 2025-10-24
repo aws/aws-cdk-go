@@ -8,10 +8,10 @@ import (
 // Construction properties for a SecretRotation.
 //
 // Example:
-//   var myUserSecret secret
-//   var myMasterSecret secret
-//   var myDatabase iConnectable
-//   var myVpc vpc
+//   var myUserSecret Secret
+//   var myMasterSecret Secret
+//   var myDatabase IConnectable
+//   var myVpc Vpc
 //
 //
 //   secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &SecretRotationProps{

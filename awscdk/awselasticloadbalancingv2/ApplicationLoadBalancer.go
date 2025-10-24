@@ -15,7 +15,7 @@ import (
 // Define an Application Load Balancer.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   securityGroup1 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup1"), &SecurityGroupProps{

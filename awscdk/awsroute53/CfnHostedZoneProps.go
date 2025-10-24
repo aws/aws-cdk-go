@@ -12,8 +12,8 @@ package awsroute53
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},
-//   	HostedZoneTags: []hostedZoneTagProperty{
-//   		&hostedZoneTagProperty{
+//   	HostedZoneTags: []HostedZoneTagProperty{
+//   		&HostedZoneTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

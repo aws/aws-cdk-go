@@ -8,7 +8,7 @@ import (
 )
 
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // add service account
 //   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))

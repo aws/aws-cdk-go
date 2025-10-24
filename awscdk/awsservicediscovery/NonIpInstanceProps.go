@@ -6,7 +6,7 @@ package awsservicediscovery
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var service service
+//   var service Service
 //
 //   nonIpInstanceProps := &NonIpInstanceProps{
 //   	Service: service,

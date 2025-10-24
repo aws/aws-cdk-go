@@ -8,8 +8,8 @@ import (
 // Represents revision of a task definition, either a specific numbered revision or the `latest` revision.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
 //
 //
 //   ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{

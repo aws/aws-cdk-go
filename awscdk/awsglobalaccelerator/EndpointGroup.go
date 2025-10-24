@@ -13,17 +13,17 @@ import (
 // EndpointGroup construct.
 //
 // Example:
-//   var listener listener
+//   var listener Listener
 //
 //   // Non-open ALB
-//   var alb applicationLoadBalancer
+//   var alb ApplicationLoadBalancer
 //
 //   // Remember that there is only one AGA security group per VPC.
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   endpointGroup := listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-//   	Endpoints: []iEndpoint{
+//   	Endpoints: []IEndpoint{
 //   		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &ApplicationLoadBalancerEndpointOptions{
 //   			PreserveClientIp: jsii.Boolean(true),
 //   		}),

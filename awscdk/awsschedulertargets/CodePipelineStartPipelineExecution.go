@@ -15,7 +15,7 @@ import (
 // Example:
 //   import codepipeline "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pipeline pipeline
+//   var pipeline Pipeline
 //
 //
 //   awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{

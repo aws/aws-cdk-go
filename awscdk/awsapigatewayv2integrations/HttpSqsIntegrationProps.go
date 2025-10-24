@@ -11,15 +11,15 @@ import (
 //   import sqs "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var queue iQueue
-//   var httpApi httpApi
+//   var queue IQueue
+//   var httpApi HttpApi
 //
 //
 //   // default integration (send message)
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/default"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpSqsIntegration(jsii.String("defaultIntegration"), &HttpSqsIntegrationProps{
 //   		Queue: *Queue,
@@ -28,8 +28,8 @@ import (
 //   // send message integration
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/send-message"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpSqsIntegration(jsii.String("sendMessageIntegration"), &HttpSqsIntegrationProps{
 //   		Queue: *Queue,
@@ -39,8 +39,8 @@ import (
 //   // receive message integration
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/receive-message"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpSqsIntegration(jsii.String("receiveMessageIntegration"), &HttpSqsIntegrationProps{
 //   		Queue: *Queue,
@@ -50,8 +50,8 @@ import (
 //   // delete message integration
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/delete-message"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpSqsIntegration(jsii.String("deleteMessageIntegration"), &HttpSqsIntegrationProps{
 //   		Queue: *Queue,
@@ -61,8 +61,8 @@ import (
 //   // purge queue integration
 //   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/purge-queue"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_POST,
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
 //   	},
 //   	Integration: awscdk.NewHttpSqsIntegration(jsii.String("purgeQueueIntegration"), &HttpSqsIntegrationProps{
 //   		Queue: *Queue,

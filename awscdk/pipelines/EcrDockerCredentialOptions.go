@@ -12,12 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
+//   var role Role
 //
 //   ecrDockerCredentialOptions := &EcrDockerCredentialOptions{
 //   	AssumeRole: role,
-//   	Usages: []dockerCredentialUsage{
-//   		awscdk.Pipelines.*dockerCredentialUsage_SYNTH,
+//   	Usages: []DockerCredentialUsage{
+//   		awscdk.Pipelines.DockerCredentialUsage_SYNTH,
 //   	},
 //   }
 //

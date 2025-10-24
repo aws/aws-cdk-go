@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var bucket Bucket
 //
 //   s3EnvironmentFile := awscdk.Aws_ecs.NewS3EnvironmentFile(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //

@@ -9,11 +9,11 @@ package awsapigatewayv2
 //   		AllowHeaders: []*string{
 //   			jsii.String("Authorization"),
 //   		},
-//   		AllowMethods: []corsHttpMethod{
-//   			apigwv2.*corsHttpMethod_GET,
-//   			apigwv2.*corsHttpMethod_HEAD,
-//   			apigwv2.*corsHttpMethod_OPTIONS,
-//   			apigwv2.*corsHttpMethod_POST,
+//   		AllowMethods: []CorsHttpMethod{
+//   			apigwv2.CorsHttpMethod_GET,
+//   			apigwv2.CorsHttpMethod_HEAD,
+//   			apigwv2.CorsHttpMethod_OPTIONS,
+//   			apigwv2.CorsHttpMethod_POST,
 //   		},
 //   		AllowOrigins: []*string{
 //   			jsii.String("*"),

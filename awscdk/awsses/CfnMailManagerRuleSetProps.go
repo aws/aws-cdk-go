@@ -228,8 +228,8 @@ import (
 //
 //   	// the properties below are optional
 //   	RuleSetName: jsii.String("ruleSetName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

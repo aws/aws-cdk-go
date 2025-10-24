@@ -8,7 +8,7 @@ import (
 // Managed rules that are supported by AWS Config.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //   var samplePolicyText string
 //
 //

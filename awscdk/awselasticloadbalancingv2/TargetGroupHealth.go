@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Properties for configuring a target group health.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{

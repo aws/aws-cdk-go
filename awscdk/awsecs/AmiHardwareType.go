@@ -7,7 +7,7 @@ package awsecs
 // [Amazon ECS-optimized AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{

@@ -26,11 +26,11 @@ accelerator := globalaccelerator.NewAccelerator(this, jsii.String("Accelerator")
 
 // Create a Listener
 listener := accelerator.AddListener(jsii.String("Listener"), &ListenerOptions{
-	PortRanges: []portRange{
-		&portRange{
+	PortRanges: []PortRange{
+		&PortRange{
 			FromPort: jsii.Number(80),
 		},
-		&portRange{
+		&PortRange{
 			FromPort: jsii.Number(443),
 		},
 	},
@@ -46,7 +46,7 @@ nlb2 := elbv2.NetworkLoadBalancer_FromNetworkLoadBalancerAttributes(this, jsii.S
 
 // Add one EndpointGroup for each Region we are targeting
 listener.AddEndpointGroup(jsii.String("Group1"), &EndpointGroupOptions{
-	Endpoints: []iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb1),
 	},
 })
@@ -54,7 +54,7 @@ listener.AddEndpointGroup(jsii.String("Group2"), &EndpointGroupOptions{
 	// Imported load balancers automatically calculate their Region from the ARN.
 	// If you are load balancing to other resources, you must also pass a `region`
 	// parameter here.
-	Endpoints: []*iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb2),
 	},
 })
@@ -100,12 +100,12 @@ There are 4 types of Endpoints, and they can be found in the
 ### Application Load Balancers
 
 ```go
-var alb applicationLoadBalancer
-var listener listener
+var alb ApplicationLoadBalancer
+var listener Listener
 
 
 listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-	Endpoints: []iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &ApplicationLoadBalancerEndpointOptions{
 			Weight: jsii.Number(128),
 			PreserveClientIp: jsii.Boolean(true),
@@ -117,12 +117,12 @@ listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
 ### Network Load Balancers
 
 ```go
-var nlb networkLoadBalancer
-var listener listener
+var nlb NetworkLoadBalancer
+var listener Listener
 
 
 listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-	Endpoints: []iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb, &NetworkLoadBalancerEndpointProps{
 			Weight: jsii.Number(128),
 			PreserveClientIp: jsii.Boolean(true),
@@ -134,12 +134,12 @@ listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
 ### EC2 Instances
 
 ```go
-var listener listener
-var instance instance
+var listener Listener
+var instance Instance
 
 
 listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-	Endpoints: []iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewInstanceEndpoint(instance, &InstanceEndpointProps{
 			Weight: jsii.Number(128),
 			PreserveClientIp: jsii.Boolean(true),
@@ -151,12 +151,12 @@ listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
 ### Elastic IP Addresses
 
 ```go
-var listener listener
-var eip cfnEIP
+var listener Listener
+var eip CfnEIP
 
 
 listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-	Endpoints: []iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewCfnEipEndpoint(eip, &CfnEipEndpointProps{
 			Weight: jsii.Number(128),
 		}),
@@ -184,17 +184,17 @@ which you can use in connection rules. You must pass a reference to the VPC in w
 context the security group will be looked up. Example:
 
 ```go
-var listener listener
+var listener Listener
 
 // Non-open ALB
-var alb applicationLoadBalancer
+var alb ApplicationLoadBalancer
 
 // Remember that there is only one AGA security group per VPC.
-var vpc vpc
+var vpc Vpc
 
 
 endpointGroup := listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-	Endpoints: []iEndpoint{
+	Endpoints: []IEndpoint{
 		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &ApplicationLoadBalancerEndpointOptions{
 			PreserveClientIp: jsii.Boolean(true),
 		}),

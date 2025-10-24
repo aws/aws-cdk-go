@@ -13,8 +13,8 @@ import (
 //
 //   cfnOptOutListProps := &CfnOptOutListProps{
 //   	OptOutListName: jsii.String("optOutListName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

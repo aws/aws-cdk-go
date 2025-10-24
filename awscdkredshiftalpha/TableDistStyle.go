@@ -5,13 +5,13 @@ package awscdkredshiftalpha
 //
 // Example:
 //   awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
-//   	TableColumns: []column{
-//   		&column{
+//   	TableColumns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			DataType: jsii.String("varchar(4)"),
 //   			DistKey: jsii.Boolean(true),
 //   		},
-//   		&column{
+//   		&Column{
 //   			Name: jsii.String("col2"),
 //   			DataType: jsii.String("float"),
 //   		},

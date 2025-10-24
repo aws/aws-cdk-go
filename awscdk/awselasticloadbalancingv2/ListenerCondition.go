@@ -8,23 +8,23 @@ import (
 // ListenerCondition providers definition.
 //
 // Example:
-//   var listener applicationListener
-//   var asg autoScalingGroup
+//   var listener ApplicationListener
+//   var asg AutoScalingGroup
 //
 //
 //   listener.AddTargets(jsii.String("Example.Com Fleet"), &AddApplicationTargetsProps{
 //   	Priority: jsii.Number(10),
-//   	Conditions: []listenerCondition{
-//   		elbv2.*listenerCondition_HostHeaders([]*string{
+//   	Conditions: []ListenerCondition{
+//   		elbv2.ListenerCondition_HostHeaders([]*string{
 //   			jsii.String("example.com"),
 //   		}),
-//   		elbv2.*listenerCondition_PathPatterns([]*string{
+//   		elbv2.ListenerCondition_PathPatterns([]*string{
 //   			jsii.String("/ok"),
 //   			jsii.String("/path"),
 //   		}),
 //   	},
 //   	Port: jsii.Number(8080),
-//   	Targets: []iApplicationLoadBalancerTarget{
+//   	Targets: []IApplicationLoadBalancerTarget{
 //   		asg,
 //   	},
 //   })

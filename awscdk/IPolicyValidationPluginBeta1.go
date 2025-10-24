@@ -11,20 +11,20 @@ import (
 //   	name
 //   }
 //
-//   func (this *myPlugin) validate(context iPolicyValidationContextBeta1) policyValidationPluginReportBeta1 {
+//   func (this *myPlugin) validate(context IPolicyValidationContextBeta1) PolicyValidationPluginReportBeta1 {
 //   	// First read the templates using context.templatePaths...
 //
 //   	// ...then perform the validation, and then compose and return the report.
 //   	// Using hard-coded values here for better clarity:
-//   	return &policyValidationPluginReportBeta1{
+//   	return &PolicyValidationPluginReportBeta1{
 //   		Success: jsii.Boolean(false),
-//   		Violations: []policyViolationBeta1{
-//   			&policyViolationBeta1{
+//   		Violations: []PolicyViolationBeta1{
+//   			&PolicyViolationBeta1{
 //   				RuleName: jsii.String("CKV_AWS_117"),
 //   				Description: jsii.String("Ensure that AWS Lambda function is configured inside a VPC"),
 //   				Fix: jsii.String("https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1"),
-//   				ViolatingResources: []policyViolatingResourceBeta1{
-//   					&policyViolatingResourceBeta1{
+//   				ViolatingResources: []PolicyViolatingResourceBeta1{
+//   					&PolicyViolatingResourceBeta1{
 //   						ResourceLogicalId: jsii.String("MyFunction3BAA72D1"),
 //   						TemplatePath: jsii.String("/home/johndoe/myapp/cdk.out/MyService.template.json"),
 //   						Locations: []*string{

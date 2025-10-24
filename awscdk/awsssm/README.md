@@ -171,7 +171,7 @@ ssm.NewStringParameter(this, jsii.String("Parameter"), &StringParameterProps{
 
 ```go
 // Grant read access to some Role
-var role iRole
+var role IRole
 // Create a new SSM Parameter holding a String
 param := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{
 	// description: 'Some user-friendly description',
@@ -209,7 +209,7 @@ If the parameter name includes '/', set `simpleName` to `false`.
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var func iFunction
+var func IFunction
 
 
 simpleParameter := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{

@@ -1,7 +1,7 @@
 package awsobservabilityadmin
 
 
-// The destination configuration for telemetry data.
+// Configuration specifying where and how telemetry data should be delivered for AWS resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,19 +22,19 @@ package awsobservabilityadmin
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetrydestinationconfiguration.html
 //
 type CfnTelemetryRule_TelemetryDestinationConfigurationProperty struct {
-	// Pattern for telemetry data destination.
+	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-telemetryrule-telemetrydestinationconfiguration-destinationpattern
 	//
 	DestinationPattern *string `field:"optional" json:"destinationPattern" yaml:"destinationPattern"`
-	// Type of telemetry destination.
+	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-telemetryrule-telemetrydestinationconfiguration-destinationtype
 	//
 	DestinationType *string `field:"optional" json:"destinationType" yaml:"destinationType"`
-	// Number of days to retain the telemetry data in the specified destination.
+	// The number of days to retain the telemetry data in the destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-telemetryrule-telemetrydestinationconfiguration-retentionindays
 	//
 	RetentionInDays *float64 `field:"optional" json:"retentionInDays" yaml:"retentionInDays"`
-	// Telemetry parameters for VPC Flow logs.
+	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-telemetryrule-telemetrydestinationconfiguration-vpcflowlogparameters
 	//
 	VpcFlowLogParameters interface{} `field:"optional" json:"vpcFlowLogParameters" yaml:"vpcFlowLogParameters"`

@@ -16,8 +16,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup autoScalingGroup
-//   var schedule schedule
+//   var autoScalingGroup AutoScalingGroup
+//   var schedule Schedule
 //
 //   scheduledAction := awscdk.Aws_autoscaling.NewScheduledAction(this, jsii.String("MyScheduledAction"), &ScheduledActionProps{
 //   	AutoScalingGroup: autoScalingGroup,

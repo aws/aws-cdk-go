@@ -10,7 +10,7 @@ package awscdkelasticachealpha
 //   })
 //
 //   userGroup := elasticache.NewUserGroup(this, jsii.String("UserGroup"), &UserGroupProps{
-//   	Users: []iUser{
+//   	Users: []IUser{
 //   		newDefaultUser,
 //   	},
 //   })

@@ -16,10 +16,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var artifact artifact
-//   var artifactPath artifactPath
+//   var artifact Artifact
+//   var artifactPath ArtifactPath
 //   var parameterOverrides interface{}
-//   var role role
+//   var role Role
 //
 //   cloudFormationDeleteStackActionProps := &CloudFormationDeleteStackActionProps{
 //   	ActionName: jsii.String("actionName"),
@@ -28,11 +28,11 @@ import (
 //
 //   	// the properties below are optional
 //   	Account: jsii.String("account"),
-//   	CfnCapabilities: []cfnCapabilities{
-//   		cdk.*cfnCapabilities_NONE,
+//   	CfnCapabilities: []CfnCapabilities{
+//   		cdk.CfnCapabilities_NONE,
 //   	},
 //   	DeploymentRole: role,
-//   	ExtraInputs: []*artifact{
+//   	ExtraInputs: []Artifact{
 //   		artifact,
 //   	},
 //   	Output: artifact,

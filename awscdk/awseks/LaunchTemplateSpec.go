@@ -4,7 +4,7 @@ package awseks
 // Launch template property specification.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   userData := `MIME-Version: 1.0

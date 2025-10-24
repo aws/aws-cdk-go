@@ -26,8 +26,8 @@ import (
 //   	// the properties below are optional
 //   	DefaultValue: jsii.String("defaultValue"),
 //   	SplitChargeRules: jsii.String("splitChargeRules"),
-//   	Tags: []resourceTagProperty{
-//   		&resourceTagProperty{
+//   	Tags: []ResourceTagProperty{
+//   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

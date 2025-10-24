@@ -68,7 +68,7 @@ logGroup.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("logs:CreateLogStream"),
 		jsii.String("logs:PutLogEvents"),
 	},
-	Principals: []iPrincipal{
+	Principals: []IPrincipal{
 		iam.NewServicePrincipal(jsii.String("es.amazonaws.com")),
 	},
 	Resources: []*string{
@@ -133,8 +133,8 @@ below) and supply the intended destination:
 ```go
 import destinations "github.com/aws/aws-cdk-go/awscdk"
 
-var fn function
-var logGroup logGroup
+var fn Function
+var logGroup LogGroup
 
 
 logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
@@ -152,8 +152,8 @@ distribute log data to the destination by setting the `distribution` property.
 import destinations "github.com/aws/aws-cdk-go/awscdk"
 import kinesis "github.com/aws/aws-cdk-go/awscdk"
 
-var stream stream
-var logGroup logGroup
+var stream Stream
+var logGroup LogGroup
 
 
 logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
@@ -172,8 +172,8 @@ distribute log data to the destination by setting the `distribution` property.
 import destinations "github.com/aws/aws-cdk-go/awscdk"
 import firehose "github.com/aws/aws-cdk-go/awscdk"
 
-var deliveryStream iDeliveryStream
-var logGroup logGroup
+var deliveryStream IDeliveryStream
+var logGroup LogGroup
 
 
 logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
@@ -212,7 +212,7 @@ A very simple MetricFilter can be created by using the `logGroup.extractMetric()
 helper function:
 
 ```go
-var logGroup logGroup
+var logGroup LogGroup
 
 logGroup.extractMetric(jsii.String("$.jsonField"), jsii.String("Namespace"), jsii.String("MetricName"))
 ```
@@ -227,7 +227,7 @@ You can expose a metric on a metric filter by calling the `MetricFilter.metric()
 This has a default of `statistic = 'avg'` if the statistic is not set in the `props`.
 
 ```go
-var logGroup logGroup
+var logGroup LogGroup
 
 mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
 	LogGroup: LogGroup,
@@ -476,8 +476,8 @@ deliveryStream := firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"
 dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
 	Name: jsii.String("data protection policy"),
 	Description: jsii.String("policy description"),
-	Identifiers: []dataIdentifier{
-		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+	Identifiers: []DataIdentifier{
+		logs.DataIdentifier_DRIVERSLICENSE_US(),
 		 // managed data identifier
 		logs.NewDataIdentifier(jsii.String("EmailAddress")),
 		 // forward compatibility for new managed data identifiers
@@ -516,7 +516,7 @@ fieldIndexPolicy := logs.NewFieldIndexPolicy(&FieldIndexPolicyProps{
 
 logs.NewLogGroup(this, jsii.String("LogGroup"), &LogGroupProps{
 	LogGroupName: jsii.String("cdkIntegLogGroup"),
-	FieldIndexPolicies: []fieldIndexPolicy{
+	FieldIndexPolicies: []FieldIndexPolicy{
 		fieldIndexPolicy,
 	},
 })
@@ -561,8 +561,8 @@ jsonParser := logs.NewParserProcessor(&ParserProcessorProps{
 addKeysProcessor := logs.NewJsonMutatorProcessor(&JsonMutatorProps{
 	Type: logs.JsonMutatorType_ADD_KEYS,
 	AddKeysOptions: &AddKeysProperty{
-		Entries: []addKeyEntryProperty{
-			&addKeyEntryProperty{
+		Entries: []AddKeyEntryProperty{
+			&AddKeyEntryProperty{
 				Key: jsii.String("metadata.transformed_in"),
 				Value: jsii.String("CloudWatchLogs"),
 			},
@@ -575,7 +575,7 @@ addKeysProcessor := logs.NewJsonMutatorProcessor(&JsonMutatorProps{
 logs.NewTransformer(this, jsii.String("Transformer"), &TransformerProps{
 	TransformerName: jsii.String("MyTransformer"),
 	LogGroup: logGroup,
-	TransformerConfig: []iProcessor{
+	TransformerConfig: []IProcessor{
 		jsonParser,
 		addKeysProcessor,
 	},

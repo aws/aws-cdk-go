@@ -12,7 +12,7 @@ import (
 // The properties for the ApplicationLoadBalancedEc2Service service.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedEcsService := ecsPatterns.NewApplicationLoadBalancedEc2Service(this, jsii.String("Service"), &ApplicationLoadBalancedEc2ServiceProps{
 //   	Cluster: Cluster,

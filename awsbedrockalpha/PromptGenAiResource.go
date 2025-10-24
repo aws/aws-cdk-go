@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
 //
-//   var agentAlias agentAlias
+//   var agentAlias AgentAlias
 //
 //   promptGenAiResource := bedrock_alpha.PromptGenAiResource_Agent(&AgentGenAiResourceProps{
 //   	AgentAlias: agentAlias,

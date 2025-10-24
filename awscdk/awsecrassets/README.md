@@ -138,15 +138,15 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
 	Directory: path.join(__dirname, jsii.String("my-image")),
-	CacheFrom: []dockerCacheOption{
-		&dockerCacheOption{
+	CacheFrom: []DockerCacheOption{
+		&DockerCacheOption{
 			Type: jsii.String("registry"),
 			Params: map[string]*string{
 				"ref": jsii.String("ghcr.io/myorg/myimage:cache"),
 			},
 		},
 	},
-	CacheTo: &dockerCacheOption{
+	CacheTo: &DockerCacheOption{
 		Type: jsii.String("registry"),
 		Params: map[string]*string{
 			"ref": jsii.String("ghcr.io/myorg/myimage:cache"),

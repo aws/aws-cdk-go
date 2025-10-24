@@ -4,14 +4,14 @@ package awscdkgluealpha
 // Encryption options for a Table.
 //
 // Example:
-//   var myDatabase database
+//   var myDatabase Database
 //
 //   glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 //   	Encryption: glue.TableEncryption_S3_MANAGED,
 //   	// ...
 //   	Database: myDatabase,
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			Type: glue.Schema_STRING(),
 //   		},

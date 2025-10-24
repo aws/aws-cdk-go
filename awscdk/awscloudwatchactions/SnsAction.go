@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   import cw_actions "github.com/aws/aws-cdk-go/awscdk"
-//   var alarm alarm
+//   var alarm Alarm
 //
 //
 //   topic := sns.NewTopic(this, jsii.String("Topic"))

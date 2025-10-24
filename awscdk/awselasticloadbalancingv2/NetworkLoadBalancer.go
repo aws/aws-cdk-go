@@ -15,7 +15,7 @@ import (
 // Define a new network load balancer.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{

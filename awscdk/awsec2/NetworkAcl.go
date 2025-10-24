@@ -19,9 +19,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   networkAcl := awscdk.Aws_ec2.NewNetworkAcl(this, jsii.String("MyNetworkAcl"), &NetworkAclProps{
 //   	Vpc: vpc,
@@ -33,11 +33,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.*Aws_ec2.SubnetType_PRIVATE_ISOLATED,

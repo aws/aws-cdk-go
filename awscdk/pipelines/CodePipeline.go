@@ -17,7 +17,7 @@ import (
 // users that don't need to switch out engines.
 //
 // Example:
-//   var codePipeline pipeline
+//   var codePipeline Pipeline
 //
 //
 //   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))

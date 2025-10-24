@@ -20,18 +20,18 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var albControllerVersion albControllerVersion
-//   var endpointAccess endpointAccess
-//   var keyRef iKeyRef
-//   var kubernetesVersion kubernetesVersion
-//   var layerVersion layerVersion
+//   var albControllerVersion AlbControllerVersion
+//   var endpointAccess EndpointAccess
+//   var keyRef IKeyRef
+//   var kubernetesVersion KubernetesVersion
+//   var layerVersion LayerVersion
 //   var policy interface{}
-//   var role role
-//   var securityGroup securityGroup
-//   var size size
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var size Size
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
 //   clusterOptions := &ClusterOptions{
 //   	KubectlLayer: layerVersion,
@@ -55,8 +55,8 @@ import (
 //   		"clusterHandlerEnvironmentKey": jsii.String("clusterHandlerEnvironment"),
 //   	},
 //   	ClusterHandlerSecurityGroup: securityGroup,
-//   	ClusterLogging: []clusterLoggingTypes{
-//   		awscdk.*Aws_eks.*clusterLoggingTypes_API,
+//   	ClusterLogging: []ClusterLoggingTypes{
+//   		awscdk.*Aws_eks.ClusterLoggingTypes_API,
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
 //   	CoreDnsComputeType: awscdk.*Aws_eks.CoreDnsComputeType_EC2,
@@ -73,15 +73,15 @@ import (
 //   	OutputMastersRoleArn: jsii.Boolean(false),
 //   	PlaceClusterHandlerInVpc: jsii.Boolean(false),
 //   	Prune: jsii.Boolean(false),
-//   	RemoteNodeNetworks: []remoteNodeNetwork{
-//   		&remoteNodeNetwork{
+//   	RemoteNodeNetworks: []RemoteNodeNetwork{
+//   		&RemoteNodeNetwork{
 //   			Cidrs: []*string{
 //   				jsii.String("cidrs"),
 //   			},
 //   		},
 //   	},
-//   	RemotePodNetworks: []remotePodNetwork{
-//   		&remotePodNetwork{
+//   	RemotePodNetworks: []RemotePodNetwork{
+//   		&RemotePodNetwork{
 //   			Cidrs: []*string{
 //   				jsii.String("cidrs"),
 //   			},
@@ -93,17 +93,17 @@ import (
 //   	SecurityGroup: securityGroup,
 //   	ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   	Vpc: vpc,
-//   	VpcSubnets: []subnetSelection{
-//   		&subnetSelection{
+//   	VpcSubnets: []SubnetSelection{
+//   		&SubnetSelection{
 //   			AvailabilityZones: []*string{
 //   				jsii.String("availabilityZones"),
 //   			},
 //   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
+//   			SubnetFilters: []SubnetFilter{
 //   				subnetFilter,
 //   			},
 //   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []iSubnet{
+//   			Subnets: []ISubnet{
 //   				subnet,
 //   			},
 //   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,

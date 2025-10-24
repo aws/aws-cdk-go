@@ -12,8 +12,8 @@ import (
 // A secret environment variable.
 //
 // Example:
-//   var secret secret
-//   var parameter stringParameter
+//   var secret Secret
+//   var parameter StringParameter
 //
 //
 //   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -23,10 +23,10 @@ import (
 //   	Logging: ecs.LogDrivers_Firelens(&FireLensLogDriverProps{
 //   		Options: map[string]interface{}{
 //   		},
-//   		SecretOptions: map[string]secret{
+//   		SecretOptions: map[string]Secret{
 //   			 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store
-//   			"apikey": ecs.*secret_fromSecretsManager(secret),
-//   			"host": ecs.*secret_fromSsmParameter(parameter),
+//   			"apikey": ecs.Secret_fromSecretsManager(secret),
+//   			"host": ecs.Secret_fromSsmParameter(parameter),
 //   		},
 //   	}),
 //   })

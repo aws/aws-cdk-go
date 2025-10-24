@@ -8,10 +8,10 @@ package awsapigatewayv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApi httpApi
-//   var httpRouteAuthorizer iHttpRouteAuthorizer
-//   var httpRouteIntegration httpRouteIntegration
-//   var httpRouteKey httpRouteKey
+//   var httpApi HttpApi
+//   var httpRouteAuthorizer IHttpRouteAuthorizer
+//   var httpRouteIntegration HttpRouteIntegration
+//   var httpRouteKey HttpRouteKey
 //
 //   httpRouteProps := &HttpRouteProps{
 //   	HttpApi: httpApi,

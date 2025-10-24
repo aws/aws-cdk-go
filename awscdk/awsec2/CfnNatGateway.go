@@ -37,12 +37,13 @@ import (
 //   		jsii.String("secondaryPrivateIpAddresses"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VpcId: jsii.String("vpcId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
@@ -55,6 +56,7 @@ type CfnNatGateway interface {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	AttrEniId() *string
 	// The ID of the NAT gateway.
 	AttrNatGatewayId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -128,6 +130,9 @@ type CfnNatGateway interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The ID of the VPC in which the NAT gateway is located.
+	VpcId() *string
+	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -268,6 +273,16 @@ func (j *jsiiProxy_CfnNatGateway) AllocationId() *string {
 	_jsii_.Get(
 		j,
 		"allocationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) AttrEniId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEniId",
 		&returns,
 	)
 	return returns
@@ -483,6 +498,16 @@ func (j *jsiiProxy_CfnNatGateway) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNatGateway) VpcId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcId",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnNatGateway(scope constructs.Construct, id *string, props *CfnNatGatewayProps) CfnNatGateway {
 	_init_.Initialize()
@@ -582,6 +607,14 @@ func (j *jsiiProxy_CfnNatGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetVpcId(val *string) {
+	_jsii_.Set(
+		j,
+		"vpcId",
 		val,
 	)
 }

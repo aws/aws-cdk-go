@@ -14,9 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cfnResource cfnResource
-//   var role role
-//   var userData userData
+//   var cfnResource CfnResource
+//   var role Role
+//   var userData UserData
 //
 //   attachInitOptions := &AttachInitOptions{
 //   	InstanceRole: role,

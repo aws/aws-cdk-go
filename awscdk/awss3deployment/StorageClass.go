@@ -10,7 +10,7 @@ package awss3deployment
 //   })
 //
 //   s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
-//   	Sources: []iSource{
+//   	Sources: []ISource{
 //   		s3deploy.Source_Asset(jsii.String("./website-dist")),
 //   	},
 //   	DestinationBucket: websiteBucket,
@@ -27,9 +27,9 @@ package awss3deployment
 //   	ContentLanguage: jsii.String("en"),
 //   	StorageClass: s3deploy.StorageClass_INTELLIGENT_TIERING,
 //   	ServerSideEncryption: s3deploy.ServerSideEncryption_AES_256,
-//   	CacheControl: []cacheControl{
-//   		s3deploy.*cacheControl_SetPublic(),
-//   		s3deploy.*cacheControl_MaxAge(awscdk.Duration_Hours(jsii.Number(1))),
+//   	CacheControl: []CacheControl{
+//   		s3deploy.CacheControl_SetPublic(),
+//   		s3deploy.CacheControl_MaxAge(awscdk.Duration_Hours(jsii.Number(1))),
 //   	},
 //   	AccessControl: s3.BucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
 //   })

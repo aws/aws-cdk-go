@@ -7,8 +7,8 @@ package awsbedrockalpha
 //   agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
 //   	FoundationModel: bedrock.BedrockFoundationModel_AMAZON_NOVA_LITE_V1(),
 //   	Instruction: jsii.String("You are a helpful assistant."),
-//   	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]promptStepConfigBase{
-//   		&promptStepConfigBase{
+//   	PromptOverrideConfiguration: bedrock.PromptOverrideConfiguration_FromSteps([]PromptStepConfigBase{
+//   		&PromptStepConfigBase{
 //   			StepType: bedrock.AgentStepType_PRE_PROCESSING,
 //   			StepEnabled: jsii.Boolean(true),
 //   			CustomPromptTemplate: jsii.String("Your custom prompt template here"),

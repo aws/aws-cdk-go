@@ -25,8 +25,8 @@ import (
 //   				Inline: jsii.Boolean(false),
 //   				LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   				Name: jsii.String("name"),
-//   				Tags: []cfnTag{
-//   					&cfnTag{
+//   				Tags: []CfnTag{
+//   					&CfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},
@@ -44,8 +44,8 @@ import (
 //   				Inline: jsii.Boolean(false),
 //   				LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   				Name: jsii.String("name"),
-//   				Tags: []*cfnTag{
-//   					&cfnTag{
+//   				Tags: []CfnTag{
+//   					&CfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},
@@ -62,8 +62,8 @@ import (
 //   				Inline: jsii.Boolean(false),
 //   				LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   				Name: jsii.String("name"),
-//   				Tags: []*cfnTag{
-//   					&cfnTag{
+//   				Tags: []CfnTag{
+//   					&CfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},
@@ -72,8 +72,8 @@ import (
 //   		},
 //   		LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   		Name: jsii.String("name"),
-//   		Tags: []*cfnTag{
-//   			&cfnTag{
+//   		Tags: []CfnTag{
+//   			&CfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
 //   			},
@@ -96,8 +96,8 @@ import (
 //   					Inline: jsii.Boolean(false),
 //   					LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   					Name: jsii.String("name"),
-//   					Tags: []*cfnTag{
-//   						&cfnTag{
+//   					Tags: []CfnTag{
+//   						&CfnTag{
 //   							Key: jsii.String("key"),
 //   							Value: jsii.String("value"),
 //   						},
@@ -106,8 +106,8 @@ import (
 //   			},
 //   			RuleId: jsii.String("ruleId"),
 //   			RuleVersion: jsii.String("ruleVersion"),
-//   			Tags: []*cfnTag{
-//   				&cfnTag{
+//   			Tags: []CfnTag{
+//   				&CfnTag{
 //   					Key: jsii.String("key"),
 //   					Value: jsii.String("value"),
 //   				},
@@ -124,8 +124,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	DetectorVersionStatus: jsii.String("detectorVersionStatus"),
 //   	RuleExecutionMode: jsii.String("ruleExecutionMode"),
-//   	Tags: []*cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

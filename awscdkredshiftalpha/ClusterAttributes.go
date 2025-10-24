@@ -12,7 +12,7 @@ import (
 //   import redshift_alpha "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   clusterAttributes := &ClusterAttributes{
 //   	ClusterEndpointAddress: jsii.String("clusterEndpointAddress"),
@@ -20,7 +20,7 @@ import (
 //   	ClusterName: jsii.String("clusterName"),
 //
 //   	// the properties below are optional
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

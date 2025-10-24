@@ -55,7 +55,7 @@ import (
 //   			DeploymentMode: jsii.String("deploymentMode"),
 //   			DeploymentOrder: jsii.Number(123),
 //   			Description: jsii.String("description"),
-//   			Id: jsii.String("id"),
+//   			EnvironmentConfigurationId: jsii.String("environmentConfigurationId"),
 //   		},
 //   	},
 //   	Status: jsii.String("status"),

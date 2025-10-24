@@ -13,7 +13,7 @@ import (
 //
 // Example:
 //   import opensearch "github.com/aws/aws-cdk-go/awscdk"
-//   var domain domain
+//   var domain Domain
 //
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{

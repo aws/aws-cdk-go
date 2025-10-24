@@ -6,13 +6,13 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var database database
-//   var dataFormat dataFormat
-//   var storageParameter storageParameter
+//   var database Database
+//   var dataFormat DataFormat
+//   var storageParameter StorageParameter
 //
 //   tableBaseProps := &TableBaseProps{
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("name"),
 //   			Type: &Type{
 //   				InputString: jsii.String("inputString"),
@@ -33,8 +33,8 @@ package awscdkgluealpha
 //   	Parameters: map[string]*string{
 //   		"parametersKey": jsii.String("parameters"),
 //   	},
-//   	PartitionIndexes: []partitionIndex{
-//   		&partitionIndex{
+//   	PartitionIndexes: []PartitionIndex{
+//   		&PartitionIndex{
 //   			KeyNames: []*string{
 //   				jsii.String("keyNames"),
 //   			},
@@ -43,8 +43,8 @@ package awscdkgluealpha
 //   			IndexName: jsii.String("indexName"),
 //   		},
 //   	},
-//   	PartitionKeys: []*column{
-//   		&column{
+//   	PartitionKeys: []Column{
+//   		&Column{
 //   			Name: jsii.String("name"),
 //   			Type: &Type{
 //   				InputString: jsii.String("inputString"),
@@ -55,7 +55,7 @@ package awscdkgluealpha
 //   			Comment: jsii.String("comment"),
 //   		},
 //   	},
-//   	StorageParameters: []*storageParameter{
+//   	StorageParameters: []StorageParameter{
 //   		storageParameter,
 //   	},
 //   	StoredAsSubDirectories: jsii.Boolean(false),
@@ -122,20 +122,20 @@ type TableBaseProps struct {
 	// Some keys will be auto-populated by glue crawlers, however, you can override them by specifying the key and value in this property.
 	//
 	// Example:
-	//   var glueDatabase iDatabase
+	//   var glueDatabase IDatabase
 	//
 	//   table := glue.NewTable(this, jsii.String("Table"), &S3TableProps{
-	//   	StorageParameters: []storageParameter{
-	//   		glue.*storageParameter_SkipHeaderLineCount(jsii.Number(1)),
-	//   		glue.*storageParameter_CompressionType(glue.CompressionType_GZIP),
-	//   		glue.*storageParameter_Custom(jsii.String("foo"), jsii.String("bar")),
-	//   		glue.*storageParameter_*Custom(jsii.String("separatorChar"), jsii.String(",")),
-	//   		glue.*storageParameter_*Custom(glue.StorageParameters_WRITE_PARALLEL, jsii.String("off")),
+	//   	StorageParameters: []StorageParameter{
+	//   		glue.StorageParameter_SkipHeaderLineCount(jsii.Number(1)),
+	//   		glue.StorageParameter_CompressionType(glue.CompressionType_GZIP),
+	//   		glue.StorageParameter_Custom(jsii.String("foo"), jsii.String("bar")),
+	//   		glue.StorageParameter_*Custom(jsii.String("separatorChar"), jsii.String(",")),
+	//   		glue.StorageParameter_*Custom(glue.StorageParameters_WRITE_PARALLEL, jsii.String("off")),
 	//   	},
 	//   	// ...
 	//   	Database: glueDatabase,
-	//   	Columns: []column{
-	//   		&column{
+	//   	Columns: []Column{
+	//   		&Column{
 	//   			Name: jsii.String("col1"),
 	//   			Type: glue.Schema_STRING(),
 	//   		},

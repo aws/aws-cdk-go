@@ -34,7 +34,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var state state
+//   var state State
 //
 //   stateGraph := awscdk.Aws_stepfunctions.NewStateGraph(state, jsii.String("graphDescription"))
 //

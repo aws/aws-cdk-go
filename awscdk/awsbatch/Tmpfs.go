@@ -12,15 +12,15 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var size size
+//   var size Size
 //
 //   tmpfs := &Tmpfs{
 //   	ContainerPath: jsii.String("containerPath"),
 //   	Size: size,
 //
 //   	// the properties below are optional
-//   	MountOptions: []tmpfsMountOption{
-//   		awscdk.Aws_batch.*tmpfsMountOption_DEFAULTS,
+//   	MountOptions: []TmpfsMountOption{
+//   		awscdk.Aws_batch.TmpfsMountOption_DEFAULTS,
 //   	},
 //   }
 //

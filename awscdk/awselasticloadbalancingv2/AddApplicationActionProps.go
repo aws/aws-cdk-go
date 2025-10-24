@@ -4,13 +4,13 @@ package awselasticloadbalancingv2
 // Properties for adding a new action to a listener.
 //
 // Example:
-//   var listener applicationListener
+//   var listener ApplicationListener
 //
 //
 //   listener.AddAction(jsii.String("Fixed"), &AddApplicationActionProps{
 //   	Priority: jsii.Number(10),
-//   	Conditions: []listenerCondition{
-//   		elbv2.*listenerCondition_PathPatterns([]*string{
+//   	Conditions: []ListenerCondition{
+//   		elbv2.ListenerCondition_PathPatterns([]*string{
 //   			jsii.String("/ok"),
 //   		}),
 //   	},

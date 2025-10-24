@@ -34,8 +34,8 @@ import (
 //   	DataDelayOffsetInMinutes: jsii.Number(123),
 //   	InferenceSchedulerName: jsii.String("inferenceSchedulerName"),
 //   	ServerSideKmsKeyId: jsii.String("serverSideKmsKeyId"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -596,25 +596,6 @@ func (j *jsiiProxy_CfnInferenceScheduler)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-// Creates a new IInferenceSchedulerRef from an ARN.
-func CfnInferenceScheduler_FromInferenceSchedulerArn(scope constructs.Construct, id *string, arn *string) IInferenceSchedulerRef {
-	_init_.Initialize()
-
-	if err := validateCfnInferenceScheduler_FromInferenceSchedulerArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IInferenceSchedulerRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
-		"fromInferenceSchedulerArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

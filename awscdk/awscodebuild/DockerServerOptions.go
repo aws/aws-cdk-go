@@ -7,8 +7,8 @@ import (
 // The Docker server configuration CodeBuild use to build your Docker image.
 //
 // Example:
-//   var vpc vpc
-//   var mySecurityGroup securityGroup
+//   var vpc Vpc
+//   var mySecurityGroup SecurityGroup
 //
 //   pipelines.NewCodeBuildStep(jsii.String("Synth"), &CodeBuildStepProps{
 //   	// ...standard ShellStep props...
@@ -35,13 +35,13 @@ import (
 //   		Privileged: jsii.Boolean(true),
 //   		DockerServer: &DockerServerOptions{
 //   			ComputeType: codebuild.DockerServerComputeType_SMALL,
-//   			SecurityGroups: []iSecurityGroup{
+//   			SecurityGroups: []ISecurityGroup{
 //   				mySecurityGroup,
 //   			},
 //   		},
 //   	},
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(90)),
-//   	FileSystemLocations: []iFileSystemLocation{
+//   	FileSystemLocations: []IFileSystemLocation{
 //   		codebuild.FileSystemLocation_Efs(&EfsFileSystemLocationProps{
 //   			Identifier: jsii.String("myidentifier2"),
 //   			Location: jsii.String("myclodation.mydnsroot.com:/loc"),
@@ -55,7 +55,7 @@ import (
 //   	SubnetSelection: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   	},
-//   	SecurityGroups: []*iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		mySecurityGroup,
 //   	},
 //
@@ -63,7 +63,7 @@ import (
 //   	Cache: codebuild.Cache_Bucket(s3.NewBucket(this, jsii.String("Cache"))),
 //
 //   	// Additional policy statements for the execution role
-//   	RolePolicyStatements: []policyStatement{
+//   	RolePolicyStatements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   		}),
 //   	},

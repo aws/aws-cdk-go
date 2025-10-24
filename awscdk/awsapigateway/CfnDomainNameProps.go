@@ -28,8 +28,8 @@ import (
 //   	RegionalCertificateArn: jsii.String("regionalCertificateArn"),
 //   	RoutingMode: jsii.String("routingMode"),
 //   	SecurityPolicy: jsii.String("securityPolicy"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

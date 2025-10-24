@@ -22,8 +22,8 @@ import (
 //
 //   	// the properties below are optional
 //   	CodeRepositoryName: jsii.String("codeRepositoryName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

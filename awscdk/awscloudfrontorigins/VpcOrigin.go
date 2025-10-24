@@ -16,7 +16,7 @@ import (
 //
 // Example:
 //   // Creates a distribution from a Network Load Balancer
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   // Create a network load balancer in a VPC. 'internetFacing' can be 'false'.
 //   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
@@ -25,7 +25,7 @@ import (
 //   	VpcSubnets: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
 //   	},
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		ec2.NewSecurityGroup(this, jsii.String("NLB-SG"), &SecurityGroupProps{
 //   			Vpc: *Vpc,
 //   		}),

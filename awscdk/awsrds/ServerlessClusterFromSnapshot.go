@@ -15,7 +15,7 @@ import (
 // A Aurora Serverless v1 Cluster restored from a snapshot.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &ServerlessClusterFromSnapshotProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),

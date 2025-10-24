@@ -16,12 +16,12 @@ package awscdkredshiftalpha
 //   })
 //   table := awscdkredshiftalpha.Table_FromTableAttributes(this, jsii.String("Table"), &TableAttributes{
 //   	TableName: tableName,
-//   	TableColumns: []column{
-//   		&column{
+//   	TableColumns: []Column{
+//   		&Column{
 //   			Name: jsii.String("col1"),
 //   			DataType: jsii.String("varchar(4)"),
 //   		},
-//   		&column{
+//   		&Column{
 //   			Name: jsii.String("col2"),
 //   			DataType: jsii.String("float"),
 //   		},

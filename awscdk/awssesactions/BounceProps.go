@@ -12,8 +12,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bounceTemplate bounceTemplate
-//   var topic topic
+//   var bounceTemplate BounceTemplate
+//   var topic Topic
 //
 //   bounceProps := &BounceProps{
 //   	Sender: jsii.String("sender"),

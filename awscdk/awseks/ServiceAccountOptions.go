@@ -4,7 +4,7 @@ package awseks
 // Options for `ServiceAccount`.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // add service account with annotations and labels
 //   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &ServiceAccountOptions{

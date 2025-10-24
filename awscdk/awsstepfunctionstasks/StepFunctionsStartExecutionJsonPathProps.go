@@ -16,10 +16,10 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var stateMachine stateMachine
-//   var taskInput taskInput
-//   var taskRole taskRole
-//   var timeout timeout
+//   var stateMachine StateMachine
+//   var taskInput TaskInput
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   stepFunctionsStartExecutionJsonPathProps := &StepFunctionsStartExecutionJsonPathProps{
 //   	StateMachine: stateMachine,

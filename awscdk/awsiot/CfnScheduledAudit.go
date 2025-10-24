@@ -28,8 +28,8 @@ import (
 //   	DayOfMonth: jsii.String("dayOfMonth"),
 //   	DayOfWeek: jsii.String("dayOfWeek"),
 //   	ScheduledAuditName: jsii.String("scheduledAuditName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -13,7 +13,7 @@ import (
 // A new custom rule.
 //
 // Example:
-//   var fn function
+//   var fn Function
 //   var samplePolicyText string
 //
 //

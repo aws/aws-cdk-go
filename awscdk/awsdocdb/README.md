@@ -7,7 +7,7 @@ always launch a database in a VPC. Use the `vpcSubnets` attribute to control whe
 your instances will be launched privately or publicly:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	MasterUser: &Login{
@@ -36,7 +36,7 @@ DocumentDB supports serverless clusters that automatically scale capacity based 
 To create a serverless cluster, specify the `serverlessV2ScalingConfiguration` instead of `instanceType`:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	MasterUser: &Login{
@@ -59,7 +59,7 @@ To control who can access the cluster, use the `.connections` attribute. Documen
 you don't need to specify the port:
 
 ```go
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 cluster.Connections.AllowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
 ```
@@ -68,7 +68,7 @@ The endpoints to access your database cluster will be available as the `.cluster
 attributes:
 
 ```go
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 writeAddress := cluster.ClusterEndpoint.SocketAddress
 ```
@@ -77,8 +77,8 @@ If you have existing security groups you would like to add to the cluster, use t
 groups added in this way will not be managed by the `Connections` object of the cluster.
 
 ```go
-var vpc vpc
-var cluster databaseCluster
+var vpc Vpc
+var cluster DatabaseCluster
 
 
 securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
@@ -92,7 +92,7 @@ cluster.AddSecurityGroups(securityGroup)
 Deletion protection can be enabled on an Amazon DocumentDB cluster to prevent accidental deletion of the cluster:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 	MasterUser: &Login{
@@ -112,7 +112,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 When the master password is generated and stored in AWS Secrets Manager, it can be rotated automatically:
 
 ```go
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 cluster.AddRotationSingleUser()
 ```
@@ -135,8 +135,8 @@ The multi user rotation scheme is also available:
 ```go
 import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 
-var myImportedSecret secret
-var cluster databaseCluster
+var myImportedSecret Secret
+var cluster DatabaseCluster
 
 
 cluster.AddRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
@@ -147,7 +147,7 @@ cluster.AddRotationMultiUser(jsii.String("MyUser"), &RotationMultiUserOptions{
 It's also possible to create user credentials together with the cluster and add rotation:
 
 ```go
-var cluster databaseCluster
+var cluster DatabaseCluster
 
 myUserSecret := docdb.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &DatabaseSecretProps{
 	Username: jsii.String("myuser"),
@@ -178,8 +178,8 @@ Sending audit or profiler needs to be configured in two places:
 import iam "github.com/aws/aws-cdk-go/awscdk"
 import logs "github.com/aws/aws-cdk-go/awscdk"
 
-var myLogsPublishingRole role
-var vpc vpc
+var myLogsPublishingRole Role
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -206,7 +206,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 By enabling this feature it will be cascaded and enabled in all instances inside the cluster:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -228,7 +228,7 @@ This resource supports the snapshot removal policy.
 To specify it use the `removalPolicy` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -254,7 +254,7 @@ To specify a custom removal policy for the cluster's instances, use the
 `instanceRemovalPolicy` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -275,7 +275,7 @@ To specify a custom removal policy for the cluster's security group, use the
 `securityGroupRemovalPolicy` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -297,7 +297,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 Use the `caCertificate` property to specify the [CA certificate](https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html) to use for all instances inside the cluster:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
@@ -318,7 +318,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 You can specify [storage type](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-storage-configs.html) for the cluster.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{

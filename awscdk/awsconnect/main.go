@@ -411,8 +411,36 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationForm_AutoEvaluationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.AutomaticFailConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_AutomaticFailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormBaseItemProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormBaseItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemEnablementConditionOperandProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemEnablementConditionOperandProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemEnablementConditionProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemEnablementConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemEnablementConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemEnablementConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemEnablementExpressionProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemEnablementExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemEnablementSourceProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemEnablementSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemEnablementSourceValueProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormItemEnablementSourceValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormItemProperty",
@@ -429,6 +457,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormNumericQuestionPropertiesProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormNumericQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormQuestionAutomationAnswerSourceProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormQuestionAutomationAnswerSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormQuestionProperty",
@@ -457,6 +489,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormSingleSelectQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormTextQuestionAutomationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormTextQuestionAutomationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormTextQuestionPropertiesProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormTextQuestionPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.NumericQuestionPropertyValueAutomationProperty",

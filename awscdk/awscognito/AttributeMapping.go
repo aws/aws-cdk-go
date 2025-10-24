@@ -14,9 +14,9 @@ package awscognito
 //   		Email: cognito.ProviderAttribute_AMAZON_EMAIL(),
 //   		Website: cognito.ProviderAttribute_Other(jsii.String("url")),
 //   		 // use other() when an attribute is not pre-defined in the CDK
-//   		Custom: map[string]providerAttribute{
+//   		Custom: map[string]ProviderAttribute{
 //   			// custom user pool attributes go here
-//   			"uniqueId": cognito.*providerAttribute_AMAZON_USER_ID(),
+//   			"uniqueId": cognito.ProviderAttribute_AMAZON_USER_ID(),
 //   		},
 //   	},
 //   })

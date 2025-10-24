@@ -4,7 +4,7 @@ package awseks
 // EKS node bootstrapping options.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   cluster.AddAutoScalingGroupCapacity(jsii.String("spot"), &AutoScalingGroupCapacityOptions{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),

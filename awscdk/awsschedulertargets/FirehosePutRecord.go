@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var deliveryStream iDeliveryStream
+//   var deliveryStream IDeliveryStream
 //
 //
 //   payload := map[string]*string{

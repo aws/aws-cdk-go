@@ -12,7 +12,7 @@ import (
 // The details of a task definition run on a Fargate cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &ClusterProps{
@@ -30,12 +30,12 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("FARGATE_SPOT"),
 //   			Weight: jsii.Number(2),
 //   		},
-//   		&capacityProviderStrategy{
+//   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("FARGATE"),
 //   			Weight: jsii.Number(1),
 //   		},

@@ -16,8 +16,8 @@ import (
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //   import firehose "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var deliveryStream iDeliveryStream
-//   var logGroup logGroup
+//   var deliveryStream IDeliveryStream
+//   var logGroup LogGroup
 //
 //
 //   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{

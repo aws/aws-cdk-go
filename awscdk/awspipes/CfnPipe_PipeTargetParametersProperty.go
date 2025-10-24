@@ -6,8 +6,8 @@ package awspipes
 // For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
 //
 // Example:
-//   var sourceStream stream
-//   var targetQueue queue
+//   var sourceStream Stream
+//   var targetQueue Queue
 //
 //
 //   pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{

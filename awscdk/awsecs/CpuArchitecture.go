@@ -22,8 +22,8 @@ import (
 //   	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
 //   		StreamPrefix: jsii.String("win-iis-on-fargate"),
 //   	}),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
+//   	PortMappings: []PortMapping{
+//   		&PortMapping{
 //   			ContainerPort: jsii.Number(80),
 //   		},
 //   	},

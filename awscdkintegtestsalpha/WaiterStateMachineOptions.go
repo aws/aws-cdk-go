@@ -91,7 +91,7 @@ import (
 //   })
 //
 //   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-tests"), &IntegTestProps{
-//   	TestCases: []stack{
+//   	TestCases: []Stack{
 //   		stack,
 //   	},
 //   	Regions: []*string{

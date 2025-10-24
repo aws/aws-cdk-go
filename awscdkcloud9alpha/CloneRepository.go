@@ -13,7 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // create a new Cloud9 environment and clone the two repositories
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   // create a codecommit repository to clone into the cloud9 environment
@@ -25,9 +25,9 @@ import (
 //   repoExisting := codecommit.Repository_FromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
 //   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &Ec2EnvironmentProps{
 //   	Vpc: Vpc,
-//   	ClonedRepositories: []cloneRepository{
-//   		cloud9.*cloneRepository_FromCodeCommit(repoNew, jsii.String("/src/new-repo")),
-//   		cloud9.*cloneRepository_*FromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
+//   	ClonedRepositories: []CloneRepository{
+//   		cloud9.CloneRepository_FromCodeCommit(repoNew, jsii.String("/src/new-repo")),
+//   		cloud9.CloneRepository_*FromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 //   	},
 //   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 //   })

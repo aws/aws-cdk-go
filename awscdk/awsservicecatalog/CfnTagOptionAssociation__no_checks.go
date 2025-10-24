@@ -80,14 +80,6 @@ func validateCfnTagOptionAssociation_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnTagOptionAssociation) validateSetResourceIdParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnTagOptionAssociation) validateSetTagOptionIdParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnTagOptionAssociationParameters(scope constructs.Construct, id *string, props *CfnTagOptionAssociationProps) error {
 	return nil
 }

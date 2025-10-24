@@ -41,7 +41,7 @@ import fsx "github.com/aws/aws-cdk-go/awscdk"
 Setup required properties and create:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
@@ -59,7 +59,7 @@ fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), 
 You can set [the Lustre version for the file system](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtypeversion). To do this, use the `fileSystemTypeVersion` property:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
@@ -87,8 +87,8 @@ To control who can access the file system, use the `.connections` attribute. FSx
 need to specify the port. This example allows an EC2 instance to connect to a file system:
 
 ```go
-var fileSystem lustreFileSystem
-var instance instance
+var fileSystem LustreFileSystem
+var instance Instance
 
 
 fileSystem.Connections.AllowDefaultPortFrom(instance)
@@ -103,10 +103,10 @@ instance, and then use User Data to mount the file system on the instance at sta
 ```go
 import iam "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
-lustreConfiguration := map[string]lustreDeploymentType{
-	"deploymentType": fsx.lustreDeploymentType_SCRATCH_2,
+lustreConfiguration := map[string]LustreDeploymentType{
+	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
 }
 
 fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
@@ -196,8 +196,8 @@ The following example illustrates setting up a DRA to an S3 bucket, including au
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
-var bucket bucket
+var vpc Vpc
+var bucket Bucket
 
 
 lustreConfiguration := map[string]interface{}{
@@ -220,9 +220,9 @@ fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreF
 By default, transparent compression of data within FSx for Lustre is switched off.  To enable it, add the following to your `lustreConfiguration`:
 
 ```go
-lustreConfiguration := map[string]lustreDataCompressionType{
+lustreConfiguration := map[string]LustreDataCompressionType{
 	// ...
-	"dataCompressionType": fsx.lustreDataCompressionType_LZ4,
+	"dataCompressionType": fsx.LustreDataCompressionType_LZ4,
 }
 ```
 
@@ -259,7 +259,7 @@ For more information, see [Working with backups
 By default, FSx for Lustre uses SSD storage. To use HDD storage, specify `storageType`:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
@@ -278,7 +278,7 @@ fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), 
 To improve the performance of frequently accessed files by caching up to 20% of the total storage capacity of the file system, set `driveCacheType` to `READ`:
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{

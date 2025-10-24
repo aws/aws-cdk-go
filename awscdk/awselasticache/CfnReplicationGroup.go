@@ -94,8 +94,8 @@ import (
 //   	SnapshotRetentionLimit: jsii.Number(123),
 //   	SnapshottingClusterId: jsii.String("snapshottingClusterId"),
 //   	SnapshotWindow: jsii.String("snapshotWindow"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -173,8 +173,8 @@ package awsec2
 //   				TagSpecifications: []interface{}{
 //   					&SpotFleetTagSpecificationProperty{
 //   						ResourceType: jsii.String("resourceType"),
-//   						Tags: []cfnTag{
-//   							&cfnTag{
+//   						Tags: []CfnTag{
+//   							&CfnTag{
 //   								Key: jsii.String("key"),
 //   								Value: jsii.String("value"),
 //   							},
@@ -315,8 +315,8 @@ package awsec2
 //   		TagSpecifications: []interface{}{
 //   			&SpotFleetTagSpecificationProperty{
 //   				ResourceType: jsii.String("resourceType"),
-//   				Tags: []*cfnTag{
-//   					&cfnTag{
+//   				Tags: []CfnTag{
+//   					&CfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},

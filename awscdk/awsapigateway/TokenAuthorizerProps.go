@@ -9,8 +9,8 @@ import (
 // Properties for TokenAuthorizer.
 //
 // Example:
-//   var authFn function
-//   var books resource
+//   var authFn Function
+//   var books Resource
 //
 //
 //   auth := apigateway.NewTokenAuthorizer(this, jsii.String("booksAuthorizer"), &TokenAuthorizerProps{

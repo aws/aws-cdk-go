@@ -33,8 +33,8 @@ import (
 //   	// the properties below are optional
 //   	DirectoryId: jsii.String("directoryId"),
 //   	InstanceAlias: jsii.String("instanceAlias"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

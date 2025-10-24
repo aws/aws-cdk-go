@@ -46,8 +46,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	SelfAssignContactFlowArn: jsii.String("selfAssignContactFlowArn"),
 //   	Status: jsii.String("status"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

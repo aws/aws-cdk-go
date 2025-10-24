@@ -10,7 +10,7 @@ import (
 // A SSM Parameter that contains the AMI ID for Amazon Linux 2023.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{

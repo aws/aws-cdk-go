@@ -6,7 +6,7 @@ package awsapigatewayv2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var messageHandler function
+//   var messageHandler Function
 //
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))

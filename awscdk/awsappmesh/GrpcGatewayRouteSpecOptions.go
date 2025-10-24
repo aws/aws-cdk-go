@@ -4,8 +4,8 @@ package awsappmesh
 // Properties specific for a gRPC GatewayRoute.
 //
 // Example:
-//   var gateway virtualGateway
-//   var virtualService virtualService
+//   var gateway VirtualGateway
+//   var virtualService VirtualService
 //
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &GatewayRouteBaseProps{

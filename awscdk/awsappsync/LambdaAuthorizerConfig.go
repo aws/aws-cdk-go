@@ -11,7 +11,7 @@ import (
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var authFunction function
+//   var authFunction Function
 //
 //
 //   appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{

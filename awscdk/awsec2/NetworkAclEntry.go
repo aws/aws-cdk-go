@@ -16,9 +16,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var aclCidr aclCidr
-//   var aclTraffic aclTraffic
-//   var networkAcl networkAcl
+//   var aclCidr AclCidr
+//   var aclTraffic AclTraffic
+//   var networkAcl NetworkAcl
 //
 //   networkAclEntry := awscdk.Aws_ec2.NewNetworkAclEntry(this, jsii.String("MyNetworkAclEntry"), &NetworkAclEntryProps{
 //   	Cidr: aclCidr,

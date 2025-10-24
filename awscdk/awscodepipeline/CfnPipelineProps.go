@@ -205,8 +205,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	PipelineType: jsii.String("pipelineType"),
 //   	RestartExecutionOnUpdate: jsii.Boolean(false),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

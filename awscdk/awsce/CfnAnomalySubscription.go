@@ -39,8 +39,8 @@ import (
 //   	SubscriptionName: jsii.String("subscriptionName"),
 //
 //   	// the properties below are optional
-//   	ResourceTags: []resourceTagProperty{
-//   		&resourceTagProperty{
+//   	ResourceTags: []ResourceTagProperty{
+//   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

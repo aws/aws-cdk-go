@@ -10,7 +10,7 @@ import (
 // Example:
 //   handle := ec2.NewInitServiceRestartHandle()
 //   ec2.CloudFormationInit_FromElements(ec2.InitCommand_ShellCommand(jsii.String("/usr/bin/custom-nginx-install.sh"), &InitCommandOptions{
-//   	ServiceRestartHandles: []initServiceRestartHandle{
+//   	ServiceRestartHandles: []InitServiceRestartHandle{
 //   		handle,
 //   	},
 //   }), ec2.InitService_Enable(jsii.String("nginx"), &InitServiceOptions{

@@ -13,7 +13,7 @@ import (
 // Example:
 //   import events "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myConfigurationSet configurationSet
+//   var myConfigurationSet ConfigurationSet
 //
 //
 //   bus := events.EventBus_FromEventBusName(this, jsii.String("EventBus"), jsii.String("default"))

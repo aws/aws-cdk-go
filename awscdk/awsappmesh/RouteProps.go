@@ -8,9 +8,9 @@ package awsappmesh
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var mesh mesh
-//   var routeSpec routeSpec
-//   var virtualRouter virtualRouter
+//   var mesh Mesh
+//   var routeSpec RouteSpec
+//   var virtualRouter VirtualRouter
 //
 //   routeProps := &RouteProps{
 //   	Mesh: mesh,

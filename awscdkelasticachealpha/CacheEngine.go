@@ -4,7 +4,7 @@ package awscdkelasticachealpha
 // Supported cache engines together with available versions.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{

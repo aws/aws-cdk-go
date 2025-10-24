@@ -13,7 +13,7 @@ import (
 // serverless v2 instances.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   myCluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -24,7 +24,7 @@ import (
 //   	}),
 //   	ServerlessV2MinCapacity: jsii.Number(6.5),
 //   	ServerlessV2MaxCapacity: jsii.Number(64),
-//   	Readers: []iClusterInstance{
+//   	Readers: []IClusterInstance{
 //   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
 //   			ScaleWithWriter: jsii.Boolean(true),
 //   		}),

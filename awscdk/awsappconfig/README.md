@@ -20,7 +20,7 @@ env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
 	Application: app,
-	DeployTo: []iEnvironment{
+	DeployTo: []IEnvironment{
 		env,
 	},
 	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
@@ -63,16 +63,16 @@ appconfig.NewApplication(this, jsii.String("MyApplication"))
 Basic environment with monitors:
 
 ```go
-var application application
-var alarm alarm
-var compositeAlarm compositeAlarm
+var application Application
+var alarm Alarm
+var compositeAlarm CompositeAlarm
 
 
 appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 	Application: Application,
-	Monitors: []monitor{
-		appconfig.*monitor_FromCloudWatchAlarm(alarm),
-		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
+	Monitors: []Monitor{
+		appconfig.Monitor_FromCloudWatchAlarm(alarm),
+		appconfig.Monitor_*FromCloudWatchAlarm(compositeAlarm),
 	},
 })
 ```
@@ -156,7 +156,7 @@ You can define hosted configuration content using any of the following Configura
   be determined by the file extension unless specified.
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -168,7 +168,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 * `fromInlineText` - Defines the hosted configuration from inline text. The content type will be set as `text/plain`.
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -180,7 +180,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 * `fromInlineJson` - Defines the hosted configuration from inline JSON. The content type will be set as `application/json` unless specified.
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -192,7 +192,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 * `fromInlineYaml` - Defines the hosted configuration from inline YAML. The content type will be set as `application/x-yaml`.
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -204,7 +204,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 * `fromInline` - Defines the hosted configuration from user-specified content types. The content type will be set as `application/octet-stream` unless specified.
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -221,7 +221,7 @@ AWS AppConfig supports the following types of configuration profiles.
 A hosted configuration with type:
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -241,14 +241,14 @@ When you import a JSON Schema validator from a file, you can pass in a relative 
 A hosted configuration with validators:
 
 ```go
-var application application
-var fn function
+var application Application
+var fn Function
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
 	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-	Validators: []iValidator{
+	Validators: []IValidator{
 		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
 		appconfig.LambdaValidator_FromFunction(fn),
 	},
@@ -261,7 +261,7 @@ configuration to roll out.
 A hosted configuration with a deployment strategy:
 
 ```go
-var application application
+var application Application
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -282,14 +282,14 @@ The `deployTo` parameter is used to specify which environments to deploy the con
 A hosted configuration with `deployTo`:
 
 ```go
-var application application
-var env environment
+var application Application
+var env Environment
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
 	Application: Application,
 	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-	DeployTo: []iEnvironment{
+	DeployTo: []IEnvironment{
 		env,
 	},
 })
@@ -313,7 +313,7 @@ env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
 	Application: app,
-	DeployTo: []iEnvironment{
+	DeployTo: []IEnvironment{
 		env,
 	},
 	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my first configuration content.")),
@@ -321,7 +321,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &Host
 
 appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
 	Application: app,
-	DeployTo: []*iEnvironment{
+	DeployTo: []IEnvironment{
 		env,
 	},
 	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my second configuration content.")),
@@ -346,7 +346,7 @@ secondConfig := appconfig.NewHostedConfiguration(this, jsii.String("MySecondHost
 
 firstConfig := appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
 	Application: app,
-	DeployTo: []iEnvironment{
+	DeployTo: []IEnvironment{
 		env,
 	},
 	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my first configuration content.")),
@@ -394,8 +394,8 @@ The declaration order will be respected regardless of the approach used.
 You can use customer managed key to encrypt a hosted configuration. For mora information, see [Data encryption at rest for AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-security.html#appconfig-security-data-encryption).
 
 ```go
-var application application
-var kmsKey key
+var application Application
+var kmsKey Key
 
 
 appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
@@ -426,7 +426,7 @@ only if a version number is specified.
 Use an Amazon S3 bucket to store a configuration.
 
 ```go
-var application application
+var application Application
 
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
@@ -442,7 +442,7 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 Use an encrypted bucket:
 
 ```go
-var application application
+var application Application
 
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
@@ -461,8 +461,8 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 Use a Secrets Manager secret to store a configuration.
 
 ```go
-var application application
-var secret secret
+var application Application
+var secret Secret
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
@@ -476,8 +476,8 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 Use an SSM parameter to store a configuration.
 
 ```go
-var application application
-var parameter stringParameter
+var application Application
+var parameter StringParameter
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
@@ -492,8 +492,8 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 Use an SSM document to store a configuration.
 
 ```go
-var application application
-var document cfnDocument
+var application Application
+var document CfnDocument
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
@@ -507,8 +507,8 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 Use an AWS CodePipeline pipeline to store a configuration.
 
 ```go
-var application application
-var pipeline pipeline
+var application Application
+var pipeline Pipeline
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
@@ -522,8 +522,8 @@ Similar to a hosted configuration, a sourced configuration can optionally take i
 A sourced configuration with type:
 
 ```go
-var application application
-var bucket bucket
+var application Application
+var bucket Bucket
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
@@ -538,15 +538,15 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 A sourced configuration with validators:
 
 ```go
-var application application
-var bucket bucket
-var fn function
+var application Application
+var bucket Bucket
+var fn Function
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
 	Application: Application,
 	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
-	Validators: []iValidator{
+	Validators: []IValidator{
 		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
 		appconfig.LambdaValidator_FromFunction(fn),
 	},
@@ -556,8 +556,8 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 A sourced configuration with a deployment strategy:
 
 ```go
-var application application
-var bucket bucket
+var application Application
+var bucket Bucket
 
 
 appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
@@ -582,10 +582,10 @@ You can enable [deletion protection](https://docs.aws.amazon.com/appconfig/lates
 * BYPASS: Instructs AWS AppConfig to bypass the deletion protection check and delete an environment even if deletion protection would have otherwise prevented it.
 
 ```go
-var application application
-var alarm alarm
-var compositeAlarm compositeAlarm
-var bucket bucket
+var application Application
+var alarm Alarm
+var compositeAlarm CompositeAlarm
+var bucket Bucket
 
 
 // Environment deletion protection check
@@ -634,14 +634,14 @@ See: https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconf
 Use an AWS Lambda as the event destination for an extension.
 
 ```go
-var fn function
+var fn Function
 
 
 appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-	Actions: []action{
+	Actions: []Action{
 		appconfig.NewAction(&ActionProps{
-			ActionPoints: []actionPoint{
-				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+			ActionPoints: []ActionPoint{
+				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 			},
 			EventDestination: appconfig.NewLambdaDestination(fn),
 		}),
@@ -652,21 +652,21 @@ appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
 Lambda extension with parameters:
 
 ```go
-var fn function
+var fn Function
 
 
 appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-	Actions: []action{
+	Actions: []Action{
 		appconfig.NewAction(&ActionProps{
-			ActionPoints: []actionPoint{
-				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+			ActionPoints: []ActionPoint{
+				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 			},
 			EventDestination: appconfig.NewLambdaDestination(fn),
 		}),
 	},
-	Parameters: []parameter{
-		appconfig.*parameter_Required(jsii.String("testParam"), jsii.String("true")),
-		appconfig.*parameter_NotRequired(jsii.String("testNotRequiredParam")),
+	Parameters: []Parameter{
+		appconfig.Parameter_Required(jsii.String("testParam"), jsii.String("true")),
+		appconfig.Parameter_NotRequired(jsii.String("testNotRequiredParam")),
 	},
 })
 ```
@@ -676,14 +676,14 @@ appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
 Use a queue as the event destination for an extension.
 
 ```go
-var queue queue
+var queue Queue
 
 
 appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-	Actions: []action{
+	Actions: []Action{
 		appconfig.NewAction(&ActionProps{
-			ActionPoints: []actionPoint{
-				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+			ActionPoints: []ActionPoint{
+				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 			},
 			EventDestination: appconfig.NewSqsDestination(queue),
 		}),
@@ -696,14 +696,14 @@ appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
 Use an SNS topic as the event destination for an extension.
 
 ```go
-var topic topic
+var topic Topic
 
 
 appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-	Actions: []action{
+	Actions: []Action{
 		appconfig.NewAction(&ActionProps{
-			ActionPoints: []actionPoint{
-				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+			ActionPoints: []ActionPoint{
+				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 			},
 			EventDestination: appconfig.NewSnsDestination(topic),
 		}),
@@ -719,10 +719,10 @@ Use the default event bus as the event destination for an extension.
 bus := events.EventBus_FromEventBusName(this, jsii.String("MyEventBus"), jsii.String("default"))
 
 appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-	Actions: []action{
+	Actions: []Action{
 		appconfig.NewAction(&ActionProps{
-			ActionPoints: []actionPoint{
-				appconfig.*actionPoint_ON_DEPLOYMENT_START,
+			ActionPoints: []ActionPoint{
+				appconfig.ActionPoint_ON_DEPLOYMENT_START,
 			},
 			EventDestination: appconfig.NewEventBridgeDestination(bus),
 		}),
@@ -737,9 +737,9 @@ extension, you can call `addExtension()` on the resource.
 Adding an association to an AWS AppConfig application:
 
 ```go
-var application application
-var extension extension
-var lambdaDestination lambdaDestination
+var application Application
+var extension Extension
+var lambdaDestination LambdaDestination
 
 
 application.addExtension(extension)

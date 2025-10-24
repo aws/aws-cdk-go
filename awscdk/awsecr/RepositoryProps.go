@@ -6,8 +6,16 @@ import (
 )
 
 // Example:
-//   ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
-//   	ImageTagMutability: ecr.TagMutability_IMMUTABLE,
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+//   	RepositoryName: jsii.String("test-agent-runtime"),
+//   })
+//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+//
+//   // Explicitly using public network (this is the default)
+//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+//   	RuntimeName: jsii.String("myAgent"),
+//   	AgentRuntimeArtifact: agentRuntimeArtifact,
+//   	NetworkConfiguration: agentcore.RuntimeNetworkConfiguration_UsingPublicNetwork(),
 //   })
 //
 type RepositoryProps struct {
@@ -49,6 +57,14 @@ type RepositoryProps struct {
 	// Default: TagMutability.MUTABLE
 	//
 	ImageTagMutability TagMutability `field:"optional" json:"imageTagMutability" yaml:"imageTagMutability"`
+	// The image tag mutability exclusion filters for the repository.
+	//
+	// These filters specify which image tags can override the repository's default image tag mutability setting.
+	// See: https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html
+	//
+	// Default: undefined - AWS ECR default is no exclusion filters.
+	//
+	ImageTagMutabilityExclusionFilters *[]ImageTagMutabilityExclusionFilter `field:"optional" json:"imageTagMutabilityExclusionFilters" yaml:"imageTagMutabilityExclusionFilters"`
 	// The AWS account ID associated with the registry that contains the repository.
 	// See: https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutLifecyclePolicy.html
 	//

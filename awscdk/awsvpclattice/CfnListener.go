@@ -40,8 +40,8 @@ import (
 //   	Name: jsii.String("name"),
 //   	Port: jsii.Number(123),
 //   	ServiceIdentifier: jsii.String("serviceIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -8,8 +8,8 @@ package awsec2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var amazonLinux2022Kernel amazonLinux2022Kernel
-//   var userData userData
+//   var amazonLinux2022Kernel AmazonLinux2022Kernel
+//   var userData UserData
 //
 //   amazonLinux2022ImageSsmParameterProps := &AmazonLinux2022ImageSsmParameterProps{
 //   	AdditionalCacheKey: jsii.String("additionalCacheKey"),

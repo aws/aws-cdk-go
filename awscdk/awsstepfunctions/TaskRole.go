@@ -12,8 +12,8 @@ import (
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var submitLambda function
-//   var iamRole role
+//   var submitLambda Function
+//   var iamRole Role
 //
 //
 //   // use a fixed role for all task invocations

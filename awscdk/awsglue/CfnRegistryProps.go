@@ -13,7 +13,7 @@ import (
 //   // Your MSK cluster arn
 //   var clusterArn string
 //
-//   var myFunction function
+//   var myFunction Function
 //
 //
 //   // The Kafka topic you want to subscribe to
@@ -35,8 +35,8 @@ import (
 //   	SchemaRegistryConfig: awscdk.NewGlueSchemaRegistry(&GlueSchemaRegistryProps{
 //   		SchemaRegistry: glueRegistry,
 //   		EventRecordFormat: lambda.EventRecordFormat_JSON(),
-//   		SchemaValidationConfigs: []kafkaSchemaValidationConfig{
-//   			&kafkaSchemaValidationConfig{
+//   		SchemaValidationConfigs: []KafkaSchemaValidationConfig{
+//   			&KafkaSchemaValidationConfig{
 //   				Attribute: lambda.KafkaSchemaValidationAttribute_KEY(),
 //   			},
 //   		},

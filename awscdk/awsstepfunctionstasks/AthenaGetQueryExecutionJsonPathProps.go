@@ -16,8 +16,8 @@ import (
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   athenaGetQueryExecutionJsonPathProps := &AthenaGetQueryExecutionJsonPathProps{
 //   	QueryExecutionId: jsii.String("queryExecutionId"),

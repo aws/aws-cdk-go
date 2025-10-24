@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   awsAuth := awscdk.Aws_eks.NewAwsAuth(this, jsii.String("MyAwsAuth"), &AwsAuthProps{
 //   	Cluster: cluster,

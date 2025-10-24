@@ -8,7 +8,7 @@ package awsrds
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameterGroup parameterGroup
+//   var parameterGroup ParameterGroup
 //
 //   clusterEngineConfig := &ClusterEngineConfig{
 //   	Features: &ClusterEngineFeatures{

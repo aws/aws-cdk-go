@@ -4,9 +4,9 @@ package awsappsync
 // Handler configuration construct for onPublish and onSubscribe.
 //
 // Example:
-//   var api eventApi
-//   var ddbDataSource appSyncDynamoDbDataSource
-//   var ebDataSource appSyncEventBridgeDataSource
+//   var api EventApi
+//   var ddbDataSource AppSyncDynamoDbDataSource
+//   var ebDataSource AppSyncEventBridgeDataSource
 //
 //
 //   // DynamoDB data source for publish handler

@@ -4,8 +4,8 @@ package awsiam
 // The Effect element of an IAM policy.
 //
 // Example:
-//   var books resource
-//   var iamUser user
+//   var books Resource
+//   var iamUser User
 //
 //
 //   getBooks := books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
@@ -13,7 +13,7 @@ package awsiam
 //   })
 //
 //   iamUser.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &PolicyProps{
-//   	Statements: []policyStatement{
+//   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
 //   				jsii.String("execute-api:Invoke"),

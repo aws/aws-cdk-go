@@ -12,7 +12,7 @@ import (
 //   import pipes_alpha "github.com/aws/aws-cdk-go/awscdkpipesalpha"
 //   import pipes_enrichments_alpha "github.com/aws/aws-cdk-go/awscdkpipesenrichmentsalpha"
 //
-//   var inputTransformation inputTransformation
+//   var inputTransformation InputTransformation
 //
 //   apiDestinationEnrichmentProps := &ApiDestinationEnrichmentProps{
 //   	HeaderParameters: map[string]*string{

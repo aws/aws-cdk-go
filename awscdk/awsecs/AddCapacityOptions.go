@@ -10,7 +10,7 @@ import (
 // The properties for adding instance capacity to an AutoScalingGroup.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{

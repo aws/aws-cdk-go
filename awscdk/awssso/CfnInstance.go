@@ -25,8 +25,8 @@ import (
 //
 //   cfnInstance := awscdk.Aws_sso.NewCfnInstance(this, jsii.String("MyCfnInstance"), &CfnInstanceProps{
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

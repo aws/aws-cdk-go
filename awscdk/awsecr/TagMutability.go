@@ -4,8 +4,14 @@ package awsecr
 // The tag mutability setting for your repository.
 //
 // Example:
+//   // Make all tags immutable except for those starting with 'dev-' or 'test-'
+//   // Make all tags immutable except for those starting with 'dev-' or 'test-'
 //   ecr.NewRepository(this, jsii.String("Repo"), &RepositoryProps{
-//   	ImageTagMutability: ecr.TagMutability_IMMUTABLE,
+//   	ImageTagMutability: ecr.TagMutability_IMMUTABLE_WITH_EXCLUSION,
+//   	ImageTagMutabilityExclusionFilters: []ImageTagMutabilityExclusionFilter{
+//   		ecr.ImageTagMutabilityExclusionFilter_Wildcard(jsii.String("dev-*")),
+//   		ecr.ImageTagMutabilityExclusionFilter_*Wildcard(jsii.String("test-*")),
+//   	},
 //   })
 //
 type TagMutability string

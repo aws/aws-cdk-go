@@ -8,18 +8,18 @@ import (
 // TLS configuration for Service Connect service.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var kmsKey iKey
-//   var role iRole
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var kmsKey IKey
+//   var role IRole
 //
 //
 //   service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
-//   		Services: []serviceConnectService{
-//   			&serviceConnectService{
+//   		Services: []ServiceConnectService{
+//   			&ServiceConnectService{
 //   				Tls: &ServiceConnectTlsConfiguration{
 //   					Role: *Role,
 //   					KmsKey: *KmsKey,

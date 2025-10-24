@@ -23,8 +23,8 @@ import (
 //
 //   cfnAccessGrantsInstance := awscdk.Aws_s3.NewCfnAccessGrantsInstance(this, jsii.String("MyCfnAccessGrantsInstance"), &CfnAccessGrantsInstanceProps{
 //   	IdentityCenterArn: jsii.String("identityCenterArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

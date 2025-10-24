@@ -12,15 +12,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var database database
-//   var dataFormat dataFormat
-//   var key key
-//   var storageParameter storageParameter
+//   var bucket Bucket
+//   var database Database
+//   var dataFormat DataFormat
+//   var key Key
+//   var storageParameter StorageParameter
 //
 //   tableProps := &TableProps{
-//   	Columns: []column{
-//   		&column{
+//   	Columns: []Column{
+//   		&Column{
 //   			Name: jsii.String("name"),
 //   			Type: &Type{
 //   				InputString: jsii.String("inputString"),
@@ -44,8 +44,8 @@ import (
 //   	Parameters: map[string]*string{
 //   		"parametersKey": jsii.String("parameters"),
 //   	},
-//   	PartitionIndexes: []partitionIndex{
-//   		&partitionIndex{
+//   	PartitionIndexes: []PartitionIndex{
+//   		&PartitionIndex{
 //   			KeyNames: []*string{
 //   				jsii.String("keyNames"),
 //   			},
@@ -54,8 +54,8 @@ import (
 //   			IndexName: jsii.String("indexName"),
 //   		},
 //   	},
-//   	PartitionKeys: []*column{
-//   		&column{
+//   	PartitionKeys: []Column{
+//   		&Column{
 //   			Name: jsii.String("name"),
 //   			Type: &Type{
 //   				InputString: jsii.String("inputString"),
@@ -67,7 +67,7 @@ import (
 //   		},
 //   	},
 //   	S3Prefix: jsii.String("s3Prefix"),
-//   	StorageParameters: []*storageParameter{
+//   	StorageParameters: []StorageParameter{
 //   		storageParameter,
 //   	},
 //   	StoredAsSubDirectories: jsii.Boolean(false),

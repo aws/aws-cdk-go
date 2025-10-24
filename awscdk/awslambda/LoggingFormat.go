@@ -12,7 +12,7 @@ package awslambda
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var logGroup iLogGroup
+//   var logGroup ILogGroup
 //
 //
 //   lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{

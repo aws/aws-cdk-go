@@ -17,7 +17,7 @@ import (
 // A database instance restored from a snapshot.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
 //   	Version: rds.PostgresEngineVersion_VER_16_3(),
@@ -31,11 +31,11 @@ import (
 //   	Credentials: rds.SnapshotCredentials_FromGeneratedSecret(jsii.String("username"), &SnapshotCredentialsFromGeneratedPasswordOptions{
 //   		EncryptionKey: myKey,
 //   		ExcludeCharacters: jsii.String("!&*^#@()"),
-//   		ReplicaRegions: []replicaRegion{
-//   			&replicaRegion{
+//   		ReplicaRegions: []ReplicaRegion{
+//   			&ReplicaRegion{
 //   				Region: jsii.String("eu-west-1"),
 //   			},
-//   			&replicaRegion{
+//   			&ReplicaRegion{
 //   				Region: jsii.String("eu-west-2"),
 //   			},
 //   		},

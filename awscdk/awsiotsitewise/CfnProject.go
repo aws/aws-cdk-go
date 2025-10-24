@@ -31,8 +31,8 @@ import (
 //   		jsii.String("assetIds"),
 //   	},
 //   	ProjectDescription: jsii.String("projectDescription"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

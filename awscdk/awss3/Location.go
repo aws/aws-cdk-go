@@ -4,25 +4,24 @@ package awss3
 // An interface that represents the location of a specific object in an S3 Bucket.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &AthenaStartQueryExecutionProps{
-//   	QueryString: sfn.JsonPath_StringAt(jsii.String("$.queryString")),
-//   	QueryExecutionContext: &QueryExecutionContext{
-//   		DatabaseName: jsii.String("mydatabase"),
-//   	},
-//   	ResultConfiguration: &ResultConfiguration{
-//   		EncryptionConfiguration: &EncryptionConfiguration{
-//   			EncryptionOption: tasks.EncryptionOption_S3_MANAGED,
+//   // Create an S3 bucket for recordings
+//   recordingBucket := s3.NewBucket(this, jsii.String("RecordingBucket"), &BucketProps{
+//   	BucketName: jsii.String("my-browser-recordings"),
+//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+//   })
+//
+//   // Create browser with recording enabled
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("my_browser"),
+//   	Description: jsii.String("Browser with recording enabled"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+//   	RecordingConfig: &RecordingConfig{
+//   		Enabled: jsii.Boolean(true),
+//   		S3Location: &Location{
+//   			BucketName: recordingBucket.BucketName,
+//   			ObjectKey: jsii.String("browser-recordings/"),
 //   		},
-//   		OutputLocation: &Location{
-//   			BucketName: jsii.String("query-results-bucket"),
-//   			ObjectKey: jsii.String("folder"),
-//   		},
 //   	},
-//   	ExecutionParameters: []*string{
-//   		jsii.String("param1"),
-//   		jsii.String("param2"),
-//   	},
-//   	ResultReuseConfigurationMaxAge: awscdk.Duration_Minutes(jsii.Number(100)),
 //   })
 //
 type Location struct {

@@ -54,10 +54,10 @@ You can provide Stages when creating the Pipeline:
 ```go
 // Provide a Stage when creating a pipeline
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 			},
 		},
 	},
@@ -68,11 +68,11 @@ Or append a Stage to an existing Pipeline:
 
 ```go
 // Append a Stage to an existing Pipeline
-var pipeline pipeline
+var pipeline Pipeline
 
 sourceStage := pipeline.AddStage(&StageOptions{
 	StageName: jsii.String("Source"),
-	Actions: []iAction{
+	Actions: []IAction{
 	},
 })
 ```
@@ -81,9 +81,9 @@ You can insert the new Stage at an arbitrary point in the Pipeline:
 
 ```go
 // Insert a new Stage at an arbitrary point
-var pipeline pipeline
-var anotherStage iStage
-var yetAnotherStage iStage
+var pipeline Pipeline
+var anotherStage IStage
+var yetAnotherStage IStage
 
 
 someStage := pipeline.AddStage(&StageOptions{
@@ -100,7 +100,7 @@ You can disable transition to a Stage:
 
 ```go
 // Disable transition to a stage
-var pipeline pipeline
+var pipeline Pipeline
 
 
 someStage := pipeline.AddStage(&StageOptions{
@@ -123,8 +123,8 @@ or you can use the `IStage.addAction()` method to mutate an existing Stage:
 
 ```go
 // Use the `IStage.addAction()` method to mutate an existing Stage.
-var sourceStage iStage
-var someAction action
+var sourceStage IStage
+var someAction Action
 
 sourceStage.AddAction(someAction)
 ```
@@ -148,8 +148,8 @@ codepipeline.NewCustomActionRegistration(this, jsii.String("GenericGitSourceProv
 	Version: jsii.String("1"),
 	EntityUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
 	ExecutionUrl: jsii.String("https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html"),
-	ActionProperties: []customActionProperty{
-		&customActionProperty{
+	ActionProperties: []CustomActionProperty{
+		&CustomActionProperty{
 			Name: jsii.String("Branch"),
 			Required: jsii.Boolean(true),
 			Key: jsii.Boolean(false),
@@ -158,7 +158,7 @@ codepipeline.NewCustomActionRegistration(this, jsii.String("GenericGitSourceProv
 			Description: jsii.String("Git branch to pull"),
 			Type: jsii.String("String"),
 		},
-		&customActionProperty{
+		&CustomActionProperty{
 			Name: jsii.String("GitUrl"),
 			Required: jsii.Boolean(true),
 			Key: jsii.Boolean(false),
@@ -192,8 +192,8 @@ different account:
 
 ```go
 // Deploy an imported S3 bucket from a different account
-var stage iStage
-var input artifact
+var stage IStage
+var input Artifact
 
 stage.AddAction(codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 	Bucket: s3.Bucket_FromBucketAttributes(this, jsii.String("Bucket"), &BucketAttributes{
@@ -208,8 +208,8 @@ Actions that don't accept a resource object accept an explicit `account` paramet
 
 ```go
 // Actions that don't accept a resource objet accept an explicit `account` parameter
-var stage iStage
-var templatePath artifactPath
+var stage IStage
+var templatePath ArtifactPath
 
 stage.AddAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
 	Account: jsii.String("123456789012"),
@@ -232,8 +232,8 @@ account the role belongs to:
 
 ```go
 // Explicitly pass in a `role` when creating an action.
-var stage iStage
-var templatePath artifactPath
+var stage IStage
+var templatePath ArtifactPath
 
 stage.AddAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
 	TemplatePath: TemplatePath,
@@ -253,8 +253,8 @@ following Action deploys to an imported S3 bucket from a different Region:
 
 ```go
 // Deploy to an imported S3 bucket from a different Region.
-var stage iStage
-var input artifact
+var stage IStage
+var input Artifact
 
 stage.AddAction(codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 	Bucket: s3.Bucket_FromBucketAttributes(this, jsii.String("Bucket"), &BucketAttributes{
@@ -270,8 +270,8 @@ parameter:
 
 ```go
 // Actions that don't take an AWS resource will accept an explicit `region` parameter.
-var stage iStage
-var templatePath artifactPath
+var stage IStage
+var templatePath ArtifactPath
 
 stage.AddAction(codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&CloudFormationCreateUpdateStackActionProps{
 	TemplatePath: TemplatePath,
@@ -298,7 +298,7 @@ time using the `crossRegionReplicationBuckets` parameter. Example:
 pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &PipelineProps{
 	// ...
 
-	CrossRegionReplicationBuckets: map[string]iBucket{
+	CrossRegionReplicationBuckets: map[string]IBucket{
 		// note that a physical name of the replication Bucket must be known at synthesis time
 		"us-west-1": s3.Bucket_fromBucketAttributes(this, jsii.String("UsWest1ReplicationBucket"), &BucketAttributes{
 			"bucketName": jsii.String("amzn-s3-demo-bucket"),
@@ -335,7 +335,7 @@ replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBuck
 // later...
 // later...
 codepipeline.NewPipeline(replicationStack, jsii.String("Pipeline"), &PipelineProps{
-	CrossRegionReplicationBuckets: map[string]iBucket{
+	CrossRegionReplicationBuckets: map[string]IBucket{
 		"us-west-1": replicationBucket,
 	},
 })
@@ -432,22 +432,22 @@ NewOtherAction(&otherActionProps{
 The following is an actual code example.
 
 ```go
-var sourceAction s3SourceAction
-var sourceOutput artifact
-var deployBucket bucket
+var sourceAction S3SourceAction
+var sourceOutput Artifact
+var deployBucket Bucket
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Deploy"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 					ActionName: jsii.String("DeployAction"),
 					// can reference the variables
@@ -478,9 +478,9 @@ Note that using pipeline-level variables in any kind of Source action is not sup
 Also, the variables can only be used with pipeline type V2.
 
 ```go
-var sourceAction s3SourceAction
-var sourceOutput artifact
-var deployBucket bucket
+var sourceAction S3SourceAction
+var sourceOutput Artifact
+var deployBucket Bucket
 
 
 // Pipeline-level variable
@@ -492,19 +492,19 @@ variable := codepipeline.NewVariable(&VariableProps{
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Variables: []variable{
+	Variables: []Variable{
 		variable,
 	},
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Deploy"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
 					ActionName: jsii.String("DeployAction"),
 					// can reference the variables
@@ -521,7 +521,7 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 Or append a variable to an existing pipeline:
 
 ```go
-var pipeline pipeline
+var pipeline Pipeline
 
 
 variable := codepipeline.NewVariable(&VariableProps{
@@ -543,7 +543,7 @@ A pipeline can be used as a target for a CloudWatch event rule:
 import targets "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var pipeline pipeline
+var pipeline Pipeline
 
 
 // kick off the pipeline every day
@@ -567,10 +567,10 @@ construct:
 // Define event rules for events emitted by the pipeline
 import events "github.com/aws/aws-cdk-go/awscdk"
 
-var myPipeline pipeline
-var myStage iStage
-var myAction action
-var target iRuleTarget
+var myPipeline Pipeline
+var myStage IStage
+var myAction Action
+var target IRuleTarget
 
 myPipeline.onStateChange(jsii.String("MyPipelineStateChange"), &OnEventOptions{
 	Target: target,
@@ -588,7 +588,7 @@ They are very similar to `onXxx()` methods for CloudWatch events:
 // Define CodeStar Notification rules for Pipelines
 import chatbot "github.com/aws/aws-cdk-go/awscdk"
 
-var pipeline pipeline
+var pipeline Pipeline
 
 target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
 	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
@@ -612,33 +612,33 @@ In the case of Git tags, your pipeline starts when a Git tag is pushed.
 You can filter with glob patterns. The `tagsExcludes` takes priority over the `tagsIncludes`.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 		},
 	},
-	Triggers: []triggerProps{
-		&triggerProps{
+	Triggers: []TriggerProps{
+		&TriggerProps{
 			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 			GitConfiguration: &GitConfiguration{
 				SourceAction: *SourceAction,
-				PushFilter: []gitPushFilter{
-					&gitPushFilter{
+				PushFilter: []GitPushFilter{
+					&GitPushFilter{
 						TagsExcludes: []*string{
 							jsii.String("exclude1"),
 							jsii.String("exclude2"),
@@ -658,33 +658,33 @@ In the case of branches, your pipeline starts when a commit is pushed on the spe
 You can filter with glob patterns. The `branchesExcludes` takes priority over the `branchesIncludes`.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 		},
 	},
-	Triggers: []triggerProps{
-		&triggerProps{
+	Triggers: []TriggerProps{
+		&TriggerProps{
 			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 			GitConfiguration: &GitConfiguration{
 				SourceAction: *SourceAction,
-				PushFilter: []gitPushFilter{
-					&gitPushFilter{
+				PushFilter: []GitPushFilter{
+					&GitPushFilter{
 						BranchesExcludes: []*string{
 							jsii.String("exclude1"),
 							jsii.String("exclude2"),
@@ -704,33 +704,33 @@ File paths can also be specified along with the branches to start the pipeline.
 You can filter with glob patterns. The `filePathsExcludes` takes priority over the `filePathsIncludes`.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 		},
 	},
-	Triggers: []triggerProps{
-		&triggerProps{
+	Triggers: []TriggerProps{
+		&TriggerProps{
 			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 			GitConfiguration: &GitConfiguration{
 				SourceAction: *SourceAction,
-				PushFilter: []gitPushFilter{
-					&gitPushFilter{
+				PushFilter: []GitPushFilter{
+					&GitPushFilter{
 						BranchesExcludes: []*string{
 							jsii.String("exclude1"),
 							jsii.String("exclude2"),
@@ -764,33 +764,33 @@ In the case of branches, your pipeline starts when a pull request event occurs o
 You can filter with glob patterns. The `branchesExcludes` takes priority over the `branchesIncludes`.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 		},
 	},
-	Triggers: []triggerProps{
-		&triggerProps{
+	Triggers: []TriggerProps{
+		&TriggerProps{
 			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 			GitConfiguration: &GitConfiguration{
 				SourceAction: *SourceAction,
-				PullRequestFilter: []gitPullRequestFilter{
-					&gitPullRequestFilter{
+				PullRequestFilter: []GitPullRequestFilter{
+					&GitPullRequestFilter{
 						BranchesExcludes: []*string{
 							jsii.String("exclude1"),
 							jsii.String("exclude2"),
@@ -810,33 +810,33 @@ File paths can also be specified along with the branches to start the pipeline.
 You can filter with glob patterns. The `filePathsExcludes` takes priority over the `filePathsIncludes`.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 		},
 	},
-	Triggers: []triggerProps{
-		&triggerProps{
+	Triggers: []TriggerProps{
+		&TriggerProps{
 			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 			GitConfiguration: &GitConfiguration{
 				SourceAction: *SourceAction,
-				PullRequestFilter: []gitPullRequestFilter{
-					&gitPullRequestFilter{
+				PullRequestFilter: []GitPullRequestFilter{
+					&GitPullRequestFilter{
 						BranchesExcludes: []*string{
 							jsii.String("exclude1"),
 							jsii.String("exclude2"),
@@ -864,33 +864,33 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 To filter types of pull request events for triggers, you can specify the `events` property.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 		},
 	},
-	Triggers: []triggerProps{
-		&triggerProps{
+	Triggers: []TriggerProps{
+		&TriggerProps{
 			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 			GitConfiguration: &GitConfiguration{
 				SourceAction: *SourceAction,
-				PullRequestFilter: []gitPullRequestFilter{
-					&gitPullRequestFilter{
+				PullRequestFilter: []GitPullRequestFilter{
+					&GitPullRequestFilter{
 						BranchesExcludes: []*string{
 							jsii.String("exclude1"),
 							jsii.String("exclude2"),
@@ -899,9 +899,9 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 							jsii.String("include1"),
 							jsii.String("include2"),
 						},
-						Events: []gitPullRequestEvent{
-							codepipeline.*gitPullRequestEvent_OPEN,
-							codepipeline.*gitPullRequestEvent_CLOSED,
+						Events: []GitPullRequestEvent{
+							codepipeline.GitPullRequestEvent_OPEN,
+							codepipeline.GitPullRequestEvent_CLOSED,
 						},
 					},
 				},
@@ -916,16 +916,16 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 You can append a trigger to an existing pipeline:
 
 ```go
-var pipeline pipeline
-var sourceAction codeStarConnectionsSourceAction
+var pipeline Pipeline
+var sourceAction CodeStarConnectionsSourceAction
 
 
 pipeline.AddTrigger(&TriggerProps{
 	ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
 	GitConfiguration: &GitConfiguration{
 		SourceAction: *SourceAction,
-		PushFilter: []gitPushFilter{
-			&gitPushFilter{
+		PushFilter: []GitPushFilter{
+			&GitPushFilter{
 				TagsExcludes: []*string{
 					jsii.String("exclude1"),
 					jsii.String("exclude2"),
@@ -967,29 +967,29 @@ Conditions are supported by a set of rules for each type of condition.
 For each type of condition, there are specific actions that are set up by the condition. The action is the result of the succeeded or failed condition check. For example, the condition for entry (entry condition) encounters an alarm (rule), then the check is successful and the result (action) is that the stage entry is blocked.
 
 ```go
-var sourceAction codeStarConnectionsSourceAction
-var buildAction codeBuildAction
+var sourceAction CodeStarConnectionsSourceAction
+var buildAction CodeBuildAction
 
 
 codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 	PipelineType: codepipeline.PipelineType_V2,
-	Stages: []stageProps{
-		&stageProps{
+	Stages: []StageProps{
+		&StageProps{
 			StageName: jsii.String("Source"),
-			Actions: []iAction{
+			Actions: []IAction{
 				sourceAction,
 			},
 		},
-		&stageProps{
+		&StageProps{
 			StageName: jsii.String("Build"),
-			Actions: []*iAction{
+			Actions: []IAction{
 				buildAction,
 			},
 			// BeforeEntry condition - checks before entering the stage
 			BeforeEntry: &Conditions{
-				Conditions: []condition{
-					&condition{
-						Rules: []rule{
+				Conditions: []Condition{
+					&Condition{
+						Rules: []Rule{
 							codepipeline.NewRule(&RuleProps{
 								Name: jsii.String("LambdaCheck"),
 								Provider: jsii.String("LambdaInvoke"),
@@ -1005,10 +1005,10 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 			},
 			// OnSuccess condition - checks after successful stage completion
 			OnSuccess: &Conditions{
-				Conditions: []*condition{
-					&condition{
+				Conditions: []Condition{
+					&Condition{
 						Result: codepipeline.Result_FAIL,
-						Rules: []*rule{
+						Rules: []Rule{
 							codepipeline.NewRule(&RuleProps{
 								Name: jsii.String("CloudWatchCheck"),
 								Provider: jsii.String("LambdaInvoke"),
@@ -1026,10 +1026,10 @@ codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 			},
 			// OnFailure condition - handles stage failure
 			OnFailure: &FailureConditions{
-				Conditions: []*condition{
-					&condition{
+				Conditions: []Condition{
+					&Condition{
 						Result: codepipeline.Result_ROLLBACK,
-						Rules: []*rule{
+						Rules: []Rule{
 							codepipeline.NewRule(&RuleProps{
 								Name: jsii.String("RollBackOnFailure"),
 								Provider: jsii.String("LambdaInvoke"),

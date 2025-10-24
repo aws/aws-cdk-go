@@ -57,11 +57,11 @@ pass the construct to the other stack:
  * Stack that defines the key
  */
 type keyStack struct {
-	stack
-	key key
+	Stack
+	key Key
 }
 
-func newKeyStack(scope app, id *string, props stackProps) *keyStack {
+func newKeyStack(scope App, id *string, props StackProps) *keyStack {
 	this := &keyStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 	this.key = kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
@@ -71,18 +71,18 @@ func newKeyStack(scope app, id *string, props stackProps) *keyStack {
 }
 
 type useStackProps struct {
-	stackProps
-	key iKey
+	StackProps
+	key IKey
 }
 
 /**
  * Stack that uses the key
  */
 type useStack struct {
-	stack
+	Stack
 }
 
-func newUseStack(scope app, id *string, props useStackProps) *useStack {
+func newUseStack(scope App, id *string, props useStackProps) *useStack {
 	this := &useStack{}
 	cdk.NewStack_Override(this, scope, id, props)
 
@@ -242,7 +242,7 @@ via the `grantAdmin` method.
 ```go
 myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
 key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
-	Admins: []iPrincipal{
+	Admins: []IPrincipal{
 		myTrustedAdminRole,
 	},
 })
@@ -261,7 +261,7 @@ Alternatively, a custom key policy can be specified, which will replace the defa
 myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
 // Creates a limited admin policy and assigns to the account root.
 myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
-	Statements: []policyStatement{
+	Statements: []PolicyStatement{
 		iam.NewPolicyStatement(&PolicyStatementProps{
 			Actions: []*string{
 				jsii.String("kms:Create*"),
@@ -270,7 +270,7 @@ myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
 				jsii.String("kms:List*"),
 				jsii.String("kms:Put*"),
 			},
-			Principals: []iPrincipal{
+			Principals: []IPrincipal{
 				iam.NewAccountRootPrincipal(),
 			},
 			Resources: []*string{

@@ -12,7 +12,7 @@ import (
 // Use an SQS queue as a subscription target.
 //
 // Example:
-//   var queue queue
+//   var queue Queue
 //
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 //

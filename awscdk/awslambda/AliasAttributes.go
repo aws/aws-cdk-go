@@ -6,7 +6,7 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var version version
+//   var version Version
 //
 //   aliasAttributes := &AliasAttributes{
 //   	AliasName: jsii.String("aliasName"),

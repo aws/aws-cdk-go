@@ -11,8 +11,8 @@ package awslogs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   substituteStringProperty := &SubstituteStringProperty{
-//   	Entries: []substituteStringEntryProperty{
-//   		&substituteStringEntryProperty{
+//   	Entries: []SubstituteStringEntryProperty{
+//   		&SubstituteStringEntryProperty{
 //   			From: jsii.String("from"),
 //   			Source: jsii.String("source"),
 //   			To: jsii.String("to"),

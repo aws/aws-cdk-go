@@ -45,8 +45,8 @@ import (
 //   	Subnets: []*string{
 //   		jsii.String("subnets"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -57,6 +57,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 //
 type CfnLoadBalancerProps struct {
+	// Indicates whether to enable stabilization when creating or updating an LCU reservation.
+	//
+	// This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enablecapacityreservationprovisionstabilize
 	//
 	// Default: - false.

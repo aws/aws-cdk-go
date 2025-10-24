@@ -16,8 +16,8 @@ import (
 //   })
 //
 //   tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"), &EventBridgePutEventsProps{
-//   	Entries: []eventBridgePutEventsEntry{
-//   		&eventBridgePutEventsEntry{
+//   	Entries: []EventBridgePutEventsEntry{
+//   		&EventBridgePutEventsEntry{
 //   			Detail: sfn.TaskInput_FromObject(map[string]interface{}{
 //   				"Message": jsii.String("Hello from Step Functions!"),
 //   			}),

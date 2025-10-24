@@ -4,7 +4,7 @@ package awsappsync
 // the CDK properties for AppSync Functions.
 //
 // Example:
-//   var api graphqlApi
+//   var api GraphqlApi
 //
 //
 //   appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{

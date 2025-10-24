@@ -3,7 +3,7 @@ package awsquicksight
 
 // The declaration definition of a parameter.
 //
-// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 //
 // This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 //

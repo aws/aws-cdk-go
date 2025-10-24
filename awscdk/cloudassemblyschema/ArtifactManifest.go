@@ -19,9 +19,9 @@ package cloudassemblyschema
 //   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	Environment: jsii.String("environment"),
-//   	Metadata: map[string][]metadataEntry{
-//   		"metadataKey": []*metadataEntry{
-//   			&metadataEntry{
+//   	Metadata: map[string][]MetadataEntry{
+//   		"metadataKey": []MetadataEntry{
+//   			&MetadataEntry{
 //   				"type": jsii.String("type"),
 //
 //   				// the properties below are optional

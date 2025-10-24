@@ -4,7 +4,7 @@ package awsrds
 // TimeoutAction defines the action to take when a timeout occurs if a scaling point is not found.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{

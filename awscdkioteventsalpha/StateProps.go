@@ -8,15 +8,15 @@ package awscdkioteventsalpha
 //   import "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
 //   import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
 //
-//   var input iInput
+//   var input IInput
 //
 //   state := iotevents.NewState(&StateProps{
 //   	StateName: jsii.String("MyState"),
-//   	OnEnter: []event{
-//   		&event{
+//   	OnEnter: []Event{
+//   		&Event{
 //   			EventName: jsii.String("test-event"),
 //   			Condition: iotevents.Expression_CurrentInput(input),
-//   			Actions: []iAction{
+//   			Actions: []IAction{
 //   				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
 //   					"duration": cdk.Duration_seconds(jsii.Number(60)),
 //   				}),

@@ -9,9 +9,9 @@ import (
 // Example:
 //   import pinpoint "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var userPool userPool
-//   var pinpointApp cfnApp
-//   var pinpointRole role
+//   var userPool UserPool
+//   var pinpointApp CfnApp
+//   var pinpointRole Role
 //
 //
 //   cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{

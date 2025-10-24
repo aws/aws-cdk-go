@@ -46,8 +46,8 @@ import (
 //   	Action: jsii.String("action"),
 //   	Description: jsii.String("description"),
 //   	Rank: jsii.Number(123),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -4,9 +4,9 @@ package awsfsx
 // The permitted Lustre data compression algorithms.
 //
 // Example:
-//   lustreConfiguration := map[string]lustreDataCompressionType{
+//   lustreConfiguration := map[string]LustreDataCompressionType{
 //   	// ...
-//   	"dataCompressionType": fsx.lustreDataCompressionType_LZ4,
+//   	"dataCompressionType": fsx.LustreDataCompressionType_LZ4,
 //   }
 //
 type LustreDataCompressionType string

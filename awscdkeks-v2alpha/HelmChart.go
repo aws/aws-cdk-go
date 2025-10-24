@@ -14,7 +14,7 @@ import (
 // Applies/deletes the resources using `kubectl` in sync with the resource.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // option 1: use a construct
 //   // option 1: use a construct

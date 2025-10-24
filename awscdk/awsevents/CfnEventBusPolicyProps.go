@@ -39,6 +39,7 @@ type CfnEventBusPolicyProps struct {
 	// The action that you are enabling the other account to perform.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
 	//
+	// Deprecated: this property has been deprecated.
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
 	//
@@ -49,6 +50,7 @@ type CfnEventBusPolicyProps struct {
 	// The `Condition` is a JSON string which must contain `Type` , `Key` , and `Value` fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
 	//
+	// Deprecated: this property has been deprecated.
 	Condition interface{} `field:"optional" json:"condition" yaml:"condition"`
 	// The name of the event bus associated with the rule.
 	//
@@ -63,6 +65,7 @@ type CfnEventBusPolicyProps struct {
 	// If you specify "*" without specifying `Condition` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
 	//
+	// Deprecated: this property has been deprecated.
 	Principal *string `field:"optional" json:"principal" yaml:"principal"`
 	// A JSON string that describes the permission policy statement.
 	//

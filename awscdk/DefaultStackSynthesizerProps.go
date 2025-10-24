@@ -4,7 +4,7 @@ package awscdk
 // Configuration properties for DefaultStackSynthesizer.
 //
 // Example:
-//   var app app
+//   var app App
 //
 //
 //   prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{

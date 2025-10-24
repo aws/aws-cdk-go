@@ -14,8 +14,8 @@ package awsstepfunctionstasks
 //   		MaxCapacity: jsii.Number(123),
 //   		MinCapacity: jsii.Number(123),
 //   	},
-//   	Rules: []scalingRuleProperty{
-//   		&scalingRuleProperty{
+//   	Rules: []ScalingRuleProperty{
+//   		&ScalingRuleProperty{
 //   			Action: &ScalingActionProperty{
 //   				SimpleScalingPolicyConfiguration: &SimpleScalingPolicyConfigurationProperty{
 //   					ScalingAdjustment: jsii.Number(123),
@@ -36,8 +36,8 @@ package awsstepfunctionstasks
 //   					Period: cdk.Duration_Minutes(jsii.Number(30)),
 //
 //   					// the properties below are optional
-//   					Dimensions: []metricDimensionProperty{
-//   						&metricDimensionProperty{
+//   					Dimensions: []MetricDimensionProperty{
+//   						&MetricDimensionProperty{
 //   							Key: jsii.String("key"),
 //   							Value: jsii.String("value"),
 //   						},

@@ -8,7 +8,7 @@ package awscloudfront
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var origin iOrigin
+//   var origin IOrigin
 //
 //   originBindConfig := &OriginBindConfig{
 //   	FailoverConfig: &OriginFailoverConfig{

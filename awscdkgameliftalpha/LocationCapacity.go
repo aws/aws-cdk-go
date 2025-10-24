@@ -6,7 +6,7 @@ package awscdkgameliftalpha
 // The location value might refer to a fleet's remote location or its home Region.
 //
 // Example:
-//   var build build
+//   var build Build
 //
 //
 //   // Locations can be added directly through constructor
@@ -15,14 +15,14 @@ package awscdkgameliftalpha
 //   	Content: build,
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C4, ec2.InstanceSize_LARGE),
 //   	RuntimeConfiguration: &RuntimeConfiguration{
-//   		ServerProcesses: []serverProcess{
-//   			&serverProcess{
+//   		ServerProcesses: []ServerProcess{
+//   			&ServerProcess{
 //   				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
 //   			},
 //   		},
 //   	},
-//   	Locations: []location{
-//   		&location{
+//   	Locations: []Location{
+//   		&Location{
 //   			Region: jsii.String("eu-west-1"),
 //   			Capacity: &LocationCapacity{
 //   				DesiredCapacity: jsii.Number(5),
@@ -30,7 +30,7 @@ package awscdkgameliftalpha
 //   				MaxSize: jsii.Number(10),
 //   			},
 //   		},
-//   		&location{
+//   		&Location{
 //   			Region: jsii.String("us-east-1"),
 //   			Capacity: &LocationCapacity{
 //   				DesiredCapacity: jsii.Number(5),

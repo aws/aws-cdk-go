@@ -20,8 +20,8 @@ import (
 //   	NetworkType: jsii.String("networkType"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	SubnetGroupIdentifier: jsii.String("subnetGroupIdentifier"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

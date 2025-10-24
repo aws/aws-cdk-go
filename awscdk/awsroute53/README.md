@@ -13,7 +13,7 @@ To add a private hosted zone, use `PrivateHostedZone`. Note that
 VPC you're configuring for private hosted zones.
 
 ```go
-var vpc vpc
+var vpc Vpc
 
 
 zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &PrivateHostedZoneProps{
@@ -29,7 +29,7 @@ Additional VPCs can be added with `zone.addVpc()`.
 To add a TXT record to your zone:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewTxtRecord(this, jsii.String("TXTRecord"), &TxtRecordProps{
@@ -50,7 +50,7 @@ route53.NewTxtRecord(this, jsii.String("TXTRecord"), &TxtRecordProps{
 To add a NS record to your zone:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewNsRecord(this, jsii.String("NSRecord"), &NsRecordProps{
@@ -67,7 +67,7 @@ route53.NewNsRecord(this, jsii.String("NSRecord"), &NsRecordProps{
 To add a DS record to your zone:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewDsRecord(this, jsii.String("DSRecord"), &DsRecordProps{
@@ -83,7 +83,7 @@ route53.NewDsRecord(this, jsii.String("DSRecord"), &DsRecordProps{
 To add an A record to your zone:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
@@ -95,9 +95,9 @@ route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
 To add an A record for an EC2 instance with an Elastic IP (EIP) to your zone:
 
 ```go
-var instance instance
+var instance Instance
 
-var myZone hostedZone
+var myZone HostedZone
 
 
 elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &CfnEIPProps{
@@ -117,7 +117,7 @@ This function registers the given input i.e. DNS Name(string) of an existing rec
 Detailed information can be found in the [documentation](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_route53_targets-readme.html).
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 targetRecord := "existing.record.cdk.local"
@@ -133,8 +133,8 @@ To add an AAAA record pointing to a CloudFront distribution:
 ```go
 import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 
-var myZone hostedZone
-var distribution cloudFrontWebDistribution
+var myZone HostedZone
+var distribution CloudFrontWebDistribution
 
 route53.NewAaaaRecord(this, jsii.String("Alias"), &AaaaRecordProps{
 	Zone: myZone,
@@ -147,8 +147,8 @@ To add an HTTPS record:
 ```go
 import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 
-var myZone hostedZone
-var distribution cloudFrontWebDistribution
+var myZone HostedZone
+var distribution CloudFrontWebDistribution
 
 // Alias to CloudFront target
 // Alias to CloudFront target
@@ -160,11 +160,11 @@ route53.NewHttpsRecord(this, jsii.String("HttpsRecord-CloudFrontAlias"), &HttpsR
 // ServiceMode (priority >= 1)
 route53.NewHttpsRecord(this, jsii.String("HttpsRecord-ServiceMode"), &HttpsRecordProps{
 	Zone: myZone,
-	Values: []httpsRecordValue{
-		route53.*httpsRecordValue_Service(&HttpsRecordServiceModeProps{
-			Alpn: []alpn{
-				route53.*alpn_H3(),
-				route53.*alpn_H2(),
+	Values: []HttpsRecordValue{
+		route53.HttpsRecordValue_Service(&HttpsRecordServiceModeProps{
+			Alpn: []Alpn{
+				route53.Alpn_H3(),
+				route53.Alpn_H2(),
 			},
 		}),
 	},
@@ -173,8 +173,8 @@ route53.NewHttpsRecord(this, jsii.String("HttpsRecord-ServiceMode"), &HttpsRecor
 // AliasMode (priority = 0)
 route53.NewHttpsRecord(this, jsii.String("HttpsRecord-AliasMode"), &HttpsRecordProps{
 	Zone: myZone,
-	Values: []*httpsRecordValue{
-		route53.*httpsRecordValue_Alias(jsii.String("service.example.com")),
+	Values: []HttpsRecordValue{
+		route53.HttpsRecordValue_Alias(jsii.String("service.example.com")),
 	},
 })
 ```
@@ -182,7 +182,7 @@ route53.NewHttpsRecord(this, jsii.String("HttpsRecord-AliasMode"), &HttpsRecordP
 [Geolocation routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geo.html) can be enabled for continent, country or subdivision:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 // continent
@@ -221,7 +221,7 @@ route53.NewARecord(this, jsii.String("ARecordGeoLocationDefault"), &ARecordProps
 To enable [weighted routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-weighted.html), use the `weight` parameter:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewARecord(this, jsii.String("ARecordWeighted1"), &ARecordProps{
@@ -234,7 +234,7 @@ route53.NewARecord(this, jsii.String("ARecordWeighted1"), &ARecordProps{
 To enable [latency based routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html), use the `region` parameter:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewARecord(this, jsii.String("ARecordLatency1"), &ARecordProps{
@@ -247,7 +247,7 @@ route53.NewARecord(this, jsii.String("ARecordLatency1"), &ARecordProps{
 To enable [multivalue answer routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html), use the `multivalueAnswer` parameter:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewARecord(this, jsii.String("ARecordMultiValue1"), &ARecordProps{
@@ -260,7 +260,7 @@ route53.NewARecord(this, jsii.String("ARecordMultiValue1"), &ARecordProps{
 To enable [IP-based routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-ipbased.html), use the `cidrRoutingConfig` parameter:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 cidrCollection := route53.NewCfnCidrCollection(this, jsii.String("CidrCollection"), &CfnCidrCollectionProps{
@@ -289,7 +289,7 @@ route53.NewARecord(this, jsii.String("CidrRoutingConfig"), &ARecordProps{
 To use the default CIDR record, call the `route53.CidrRoutingConfig.default`. This sets the `locationName` to `*`. The `collectionId` is still required.
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 cidrCollection := route53.NewCfnCidrCollection(this, jsii.String("CidrCollection"), &CfnCidrCollectionProps{
@@ -315,7 +315,7 @@ route53.NewARecord(this, jsii.String("DefaultCidrRoutingConfig"), &ARecordProps{
 To specify a unique identifier to differentiate among multiple resource record sets that have the same combination of name and type, use the `setIdentifier` parameter:
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewARecord(this, jsii.String("ARecordWeighted1"), &ARecordProps{
@@ -345,7 +345,7 @@ In the following example, the `ARecord` will be returned by Route 53 in response
 In case, when the endpoint is not healthy, the `ARecord2` will be returned by Route 53 in response to DNS queries.
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 healthCheck := route53.NewHealthCheck(this, jsii.String("HealthCheck"), &HealthCheckProps{
@@ -384,7 +384,7 @@ going to be deleted (migration).
 > will delete the record!
 
 ```go
-var myZone hostedZone
+var myZone HostedZone
 
 
 route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
@@ -414,7 +414,7 @@ crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProp
 	// You can scope down this role policy to be least privileged.
 	// If you want the other account to be able to manage specific records,
 	// you can scope down by resource and/or normalized record names
-	InlinePolicies: map[string]policyDocument{
+	InlinePolicies: map[string]PolicyDocument{
 		"crossAccountPolicy": iam.NewPolicyDocument(&PolicyDocumentProps{
 			"statements": []PolicyStatement{
 				iam.NewPolicyStatement(&PolicyStatementProps{
@@ -551,8 +551,8 @@ this configuration. If it is necessary to create a key signing key manually, tha
 using the `KeySigningKey` construct:
 
 ```go
-var hostedZone hostedZone
-var kmsKey key
+var hostedZone HostedZone
+var kmsKey Key
 
 route53.NewKeySigningKey(this, jsii.String("KeySigningKey"), &KeySigningKeyProps{
 	HostedZone: HostedZone,
@@ -683,7 +683,7 @@ nlb := awscdk.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalan
 	Vpc: Vpc,
 })
 vpces := ec2.NewVpcEndpointService(this, jsii.String("VPCES"), &VpcEndpointServiceProps{
-	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
+	VpcEndpointServiceLoadBalancers: []IVpcEndpointServiceLoadBalancer{
 		nlb,
 	},
 })

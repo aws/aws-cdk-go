@@ -7,29 +7,29 @@ import (
 // A custom origin configuration.
 //
 // Example:
-//   var sourceBucket bucket
-//   var oai originAccessIdentity
+//   var sourceBucket Bucket
+//   var oai OriginAccessIdentity
 //
 //
 //   cloudfront.NewCloudFrontWebDistribution(this, jsii.String("MyCfWebDistribution"), &CloudFrontWebDistributionProps{
-//   	OriginConfigs: []sourceConfiguration{
-//   		&sourceConfiguration{
+//   	OriginConfigs: []SourceConfiguration{
+//   		&SourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
 //   				S3BucketSource: sourceBucket,
 //   				OriginAccessIdentity: oai,
 //   			},
-//   			Behaviors: []behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					IsDefaultBehavior: jsii.Boolean(true),
 //   				},
 //   			},
 //   		},
-//   		&sourceConfiguration{
+//   		&SourceConfiguration{
 //   			CustomOriginSource: &CustomOriginConfig{
 //   				DomainName: jsii.String("MYALIAS"),
 //   			},
-//   			Behaviors: []*behavior{
-//   				&behavior{
+//   			Behaviors: []Behavior{
+//   				&Behavior{
 //   					PathPattern: jsii.String("/somewhere"),
 //   				},
 //   			},

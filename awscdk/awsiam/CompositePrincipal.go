@@ -11,13 +11,13 @@ import (
 // have conditions. i.e. multiple ServicePrincipals that form a composite principal
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &RoleProps{
 //   	AssumedBy: iam.NewCompositePrincipal(
 //   	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
 //   	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
-//   	ManagedPolicies: []iManagedPolicy{
+//   	ManagedPolicies: []IManagedPolicy{
 //   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
 //   	},
 //   })

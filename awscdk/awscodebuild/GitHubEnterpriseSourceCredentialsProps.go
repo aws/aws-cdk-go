@@ -12,7 +12,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secretValue secretValue
+//   var secretValue SecretValue
 //
 //   gitHubEnterpriseSourceCredentialsProps := &GitHubEnterpriseSourceCredentialsProps{
 //   	AccessToken: secretValue,

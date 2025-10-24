@@ -17,7 +17,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var size size
+//   var size Size
 //
 //   linuxParameters := awscdk.Aws_batch.NewLinuxParameters(this, jsii.String("MyLinuxParameters"), &LinuxParametersProps{
 //   	InitProcessEnabled: jsii.Boolean(false),

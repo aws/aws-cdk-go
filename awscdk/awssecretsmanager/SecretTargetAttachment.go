@@ -18,8 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var secret secret
-//   var secretAttachmentTarget iSecretAttachmentTarget
+//   var secret Secret
+//   var secretAttachmentTarget ISecretAttachmentTarget
 //
 //   secretTargetAttachment := awscdk.Aws_secretsmanager.NewSecretTargetAttachment(this, jsii.String("MySecretTargetAttachment"), &SecretTargetAttachmentProps{
 //   	Secret: secret,

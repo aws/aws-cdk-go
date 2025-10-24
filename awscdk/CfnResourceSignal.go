@@ -4,7 +4,7 @@ package awscdk
 // When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
 //
 // Example:
-//   var resource cfnResource
+//   var resource CfnResource
 //
 //
 //   resource.CfnOptions.CreationPolicy = &CfnCreationPolicy{

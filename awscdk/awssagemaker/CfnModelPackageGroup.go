@@ -24,8 +24,8 @@ import (
 //   	// the properties below are optional
 //   	ModelPackageGroupDescription: jsii.String("modelPackageGroupDescription"),
 //   	ModelPackageGroupPolicy: modelPackageGroupPolicy,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

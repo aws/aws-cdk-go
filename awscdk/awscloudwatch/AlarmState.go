@@ -4,18 +4,18 @@ package awscloudwatch
 // Enumeration indicates state of Alarm used in building Alarm Rule.
 //
 // Example:
-//   var dashboard dashboard
-//   var errorAlarm alarm
+//   var dashboard Dashboard
+//   var errorAlarm Alarm
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
 //   	Title: jsii.String("Errors"),
-//   	Alarms: []iAlarm{
+//   	Alarms: []IAlarm{
 //   		errorAlarm,
 //   	},
 //   	SortBy: cloudwatch.AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,
-//   	States: []alarmState{
-//   		cloudwatch.*alarmState_ALARM,
+//   	States: []AlarmState{
+//   		cloudwatch.AlarmState_ALARM,
 //   	},
 //   }))
 //

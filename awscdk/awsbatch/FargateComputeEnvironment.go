@@ -14,7 +14,7 @@ import (
 // A ManagedComputeEnvironment that uses ECS orchestration on Fargate instances.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //   sharedComputeEnv := batch.NewFargateComputeEnvironment(this, jsii.String("spotEnv"), &FargateComputeEnvironmentProps{
 //   	Vpc: Vpc,

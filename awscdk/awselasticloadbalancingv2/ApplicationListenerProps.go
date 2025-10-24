@@ -8,21 +8,21 @@ package awselasticloadbalancingv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationLoadBalancer applicationLoadBalancer
-//   var applicationTargetGroup applicationTargetGroup
-//   var listenerAction listenerAction
-//   var listenerCertificate listenerCertificate
-//   var trustStore trustStore
+//   var applicationLoadBalancer ApplicationLoadBalancer
+//   var applicationTargetGroup ApplicationTargetGroup
+//   var listenerAction ListenerAction
+//   var listenerCertificate ListenerCertificate
+//   var trustStore TrustStore
 //
 //   applicationListenerProps := &ApplicationListenerProps{
 //   	LoadBalancer: applicationLoadBalancer,
 //
 //   	// the properties below are optional
-//   	Certificates: []iListenerCertificate{
+//   	Certificates: []IListenerCertificate{
 //   		listenerCertificate,
 //   	},
 //   	DefaultAction: listenerAction,
-//   	DefaultTargetGroups: []iApplicationTargetGroup{
+//   	DefaultTargetGroups: []IApplicationTargetGroup{
 //   		applicationTargetGroup,
 //   	},
 //   	MutualAuthentication: &MutualAuthentication{

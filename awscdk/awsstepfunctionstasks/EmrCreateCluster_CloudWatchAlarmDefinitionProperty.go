@@ -21,8 +21,8 @@ import (
 //   	Period: cdk.Duration_Minutes(jsii.Number(30)),
 //
 //   	// the properties below are optional
-//   	Dimensions: []metricDimensionProperty{
-//   		&metricDimensionProperty{
+//   	Dimensions: []MetricDimensionProperty{
+//   		&MetricDimensionProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

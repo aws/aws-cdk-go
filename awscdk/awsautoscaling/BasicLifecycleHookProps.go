@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var lifecycleHookTarget iLifecycleHookTarget
-//   var role role
+//   var lifecycleHookTarget ILifecycleHookTarget
+//   var role Role
 //
 //   basicLifecycleHookProps := &BasicLifecycleHookProps{
 //   	LifecycleTransition: awscdk.Aws_autoscaling.LifecycleTransition_INSTANCE_LAUNCHING,

@@ -6,8 +6,8 @@ package awsapigateway
 // Example:
 //   api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 //   	EndpointConfiguration: &EndpointConfiguration{
-//   		Types: []endpointType{
-//   			apigateway.*endpointType_REGIONAL,
+//   		Types: []EndpointType{
+//   			apigateway.EndpointType_REGIONAL,
 //   		},
 //   		IpAddressType: apigateway.IpAddressType_DUAL_STACK,
 //   	},

@@ -25,8 +25,8 @@ import (
 //
 //   	// the properties below are optional
 //   	AccessEndpoint: jsii.String("accessEndpoint"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

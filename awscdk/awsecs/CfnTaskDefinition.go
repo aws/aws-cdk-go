@@ -259,8 +259,8 @@ import (
 //   		CpuArchitecture: jsii.String("cpuArchitecture"),
 //   		OperatingSystemFamily: jsii.String("operatingSystemFamily"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

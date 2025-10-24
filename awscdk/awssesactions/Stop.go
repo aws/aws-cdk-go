@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var topic topic
+//   var topic Topic
 //
 //   stop := awscdk.Aws_ses_actions.NewStop(&StopProps{
 //   	Topic: topic,

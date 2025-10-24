@@ -7,7 +7,7 @@ import (
 // Properties for the Rollout Strategy.
 //
 // Example:
-//   var application application
+//   var application Application
 //
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{

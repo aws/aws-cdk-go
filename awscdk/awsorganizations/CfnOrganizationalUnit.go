@@ -29,8 +29,8 @@ import (
 //   	ParentId: jsii.String("parentId"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -472,25 +472,6 @@ func (j *jsiiProxy_CfnOrganizationalUnit)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-// Creates a new IOrganizationalUnitRef from an ARN.
-func CfnOrganizationalUnit_FromOrganizationalUnitArn(scope constructs.Construct, id *string, arn *string) IOrganizationalUnitRef {
-	_init_.Initialize()
-
-	if err := validateCfnOrganizationalUnit_FromOrganizationalUnitArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns IOrganizationalUnitRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_organizations.CfnOrganizationalUnit",
-		"fromOrganizationalUnitArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

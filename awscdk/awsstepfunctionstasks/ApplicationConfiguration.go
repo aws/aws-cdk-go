@@ -12,14 +12,14 @@ package awsstepfunctionstasks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationConfiguration_ applicationConfiguration
-//   var classification classification
+//   var applicationConfiguration_ ApplicationConfiguration
+//   var classification Classification
 //
-//   applicationConfiguration := &applicationConfiguration{
+//   applicationConfiguration := &ApplicationConfiguration{
 //   	Classification: classification,
 //
 //   	// the properties below are optional
-//   	NestedConfig: []*applicationConfiguration{
+//   	NestedConfig: []ApplicationConfiguration{
 //   		applicationConfiguration_,
 //   	},
 //   	Properties: map[string]*string{

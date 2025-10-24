@@ -5,7 +5,7 @@ package awsstepfunctionstasks
 //
 // Example:
 //   import apigateway "github.com/aws/aws-cdk-go/awscdk"
-//   var api restApi
+//   var api RestApi
 //
 //
 //   tasks.CallApiGatewayRestApiEndpoint_Jsonata(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointJsonataProps{

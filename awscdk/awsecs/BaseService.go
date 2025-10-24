@@ -27,7 +27,7 @@ import (
 //   // add source and build stages to the pipeline as usual...
 //   deployStage := pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("Deploy"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		codepipeline_actions.NewEcsDeployAction(&EcsDeployActionProps{
 //   			ActionName: jsii.String("DeployAction"),
 //   			Service: service,
@@ -175,12 +175,12 @@ type BaseService interface {
 	// target, instead of the `Service` object itself.
 	//
 	// Example:
-	//   var listener applicationListener
-	//   var service baseService
+	//   var listener ApplicationListener
+	//   var service BaseService
 	//
 	//   listener.AddTargets(jsii.String("ECS"), &AddApplicationTargetsProps{
 	//   	Port: jsii.Number(80),
-	//   	Targets: []iApplicationLoadBalancerTarget{
+	//   	Targets: []IApplicationLoadBalancerTarget{
 	//   		service.LoadBalancerTarget(&LoadBalancerTargetOptions{
 	//   			ContainerName: jsii.String("MyContainer"),
 	//   			ContainerPort: jsii.Number(1234),
@@ -204,8 +204,8 @@ type BaseService interface {
 	// Alternatively, you can use `listener.addTargets()` to create targets and add them to target groups.
 	//
 	// Example:
-	//   var listener applicationListener
-	//   var service baseService
+	//   var listener ApplicationListener
+	//   var service BaseService
 	//
 	//   service.RegisterLoadBalancerTargets(&EcsTarget{
 	//   	ContainerName: jsii.String("web"),

@@ -12,7 +12,7 @@ import (
 // Construct an Bottlerocket image from the latest AMI published in SSM.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //
 //   cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{

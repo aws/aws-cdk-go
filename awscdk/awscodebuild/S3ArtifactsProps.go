@@ -7,7 +7,7 @@ import (
 // Construction properties for `S3Artifacts`.
 //
 // Example:
-//   var bucket bucket
+//   var bucket Bucket
 //
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{

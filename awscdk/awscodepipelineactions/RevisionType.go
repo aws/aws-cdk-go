@@ -11,18 +11,18 @@ package awscodepipelineactions
 //   targetPipeline := codepipeline.Pipeline_FromPipelineArn(this, jsii.String("Pipeline"), jsii.String("arn:aws:codepipeline:us-east-1:123456789012:InvokePipelineAction")) // If targetPipeline is not created by cdk, import from arn.
 //   pipeline.AddStage(&StageOptions{
 //   	StageName: jsii.String("stageName"),
-//   	Actions: []iAction{
+//   	Actions: []IAction{
 //   		cpactions.NewPipelineInvokeAction(&PipelineInvokeActionProps{
 //   			ActionName: jsii.String("Invoke"),
 //   			TargetPipeline: *TargetPipeline,
-//   			Variables: []variable{
-//   				&variable{
+//   			Variables: []Variable{
+//   				&Variable{
 //   					Name: jsii.String("name1"),
 //   					Value: jsii.String("value1"),
 //   				},
 //   			},
-//   			SourceRevisions: []sourceRevision{
-//   				&sourceRevision{
+//   			SourceRevisions: []SourceRevision{
+//   				&SourceRevision{
 //   					ActionName: jsii.String("Source"),
 //   					RevisionType: cpactions.RevisionType_S3_OBJECT_VERSION_ID,
 //   					RevisionValue: jsii.String("testRevisionValue"),

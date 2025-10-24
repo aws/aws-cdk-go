@@ -7,8 +7,8 @@ import (
 // Props for EcsJobDefinition.
 //
 // Example:
-//   var myFileSystem iFileSystem
-//   var myJobRole role
+//   var myFileSystem IFileSystem
+//   var myJobRole Role
 //
 //   myFileSystem.GrantRead(myJobRole)
 //
@@ -17,8 +17,8 @@ import (
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 //   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
-//   		Volumes: []ecsVolume{
-//   			batch.*ecsVolume_Efs(&EfsVolumeOptions{
+//   		Volumes: []EcsVolume{
+//   			batch.EcsVolume_Efs(&EfsVolumeOptions{
 //   				Name: jsii.String("myVolume"),
 //   				FileSystem: myFileSystem,
 //   				ContainerPath: jsii.String("/Volumes/myVolume"),

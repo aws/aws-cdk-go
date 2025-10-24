@@ -9,11 +9,14 @@ package awsevents
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   eventBusPolicyReference := &EventBusPolicyReference{
-//   	EventBusPolicyId: jsii.String("eventBusPolicyId"),
+//   	EventBusName: jsii.String("eventBusName"),
+//   	StatementId: jsii.String("statementId"),
 //   }
 //
 type EventBusPolicyReference struct {
-	// The Id of the EventBusPolicy resource.
-	EventBusPolicyId *string `field:"required" json:"eventBusPolicyId" yaml:"eventBusPolicyId"`
+	// The EventBusName of the EventBusPolicy resource.
+	EventBusName *string `field:"required" json:"eventBusName" yaml:"eventBusName"`
+	// The StatementId of the EventBusPolicy resource.
+	StatementId *string `field:"required" json:"statementId" yaml:"statementId"`
 }
 

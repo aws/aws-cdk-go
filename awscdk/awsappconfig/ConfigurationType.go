@@ -4,8 +4,8 @@ package awsappconfig
 // The configuration type.
 //
 // Example:
-//   var application application
-//   var kmsKey key
+//   var application Application
+//   var kmsKey Key
 //
 //
 //   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{

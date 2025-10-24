@@ -7,7 +7,7 @@ import (
 // Options for creating a serverless v2 instance.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -16,7 +16,7 @@ import (
 //   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 //   		CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
 //   	}),
-//   	Readers: []iClusterInstance{
+//   	Readers: []IClusterInstance{
 //   		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
 //   			CaCertificate: rds.CaCertificate_Of(jsii.String("custom-ca")),
 //   		}),

@@ -68,10 +68,6 @@ func (c *jsiiProxy_CfnFargateProfile) validateValidatePropertiesParameters(_prop
 	return nil
 }
 
-func validateCfnFargateProfile_FromFargateProfileArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
 func validateCfnFargateProfile_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -14,7 +14,7 @@ import (
 // An Origin for an API Gateway REST API.
 //
 // Example:
-//   var api restApi
+//   var api RestApi
 //
 //   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{

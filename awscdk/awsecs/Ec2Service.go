@@ -17,8 +17,8 @@ import (
 // This creates a service using the EC2 launch type on an ECS cluster.
 //
 // Example:
-//   var taskDefinition taskDefinition
-//   var cluster cluster
+//   var taskDefinition TaskDefinition
+//   var cluster Cluster
 //
 //
 //   // Add a container to the task definition

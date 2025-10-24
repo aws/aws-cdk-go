@@ -6,8 +6,8 @@ package awsecs
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster iCluster
-//   var taskDefinition taskDefinition
+//   var cluster ICluster
+//   var taskDefinition TaskDefinition
 //
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{

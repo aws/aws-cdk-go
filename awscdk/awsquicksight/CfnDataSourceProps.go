@@ -503,8 +503,8 @@ import (
 //   	SslProperties: &SslPropertiesProperty{
 //   		DisableSsl: jsii.Boolean(false),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -537,7 +537,7 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
 	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
-	// The credentials Amazon QuickSight that uses to connect to your underlying source.
+	// The credentials Amazon Quick Sight that uses to connect to your underlying source.
 	//
 	// Currently, only credentials based on user name and password are supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
@@ -549,7 +549,7 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
 	//
 	DataSourceId *string `field:"optional" json:"dataSourceId" yaml:"dataSourceId"`
-	// The parameters that Amazon QuickSight uses to connect to your underlying source.
+	// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
 	//
 	DataSourceParameters interface{} `field:"optional" json:"dataSourceParameters" yaml:"dataSourceParameters"`
@@ -564,7 +564,7 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
 	//
 	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+	// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
 	//
 	SslProperties interface{} `field:"optional" json:"sslProperties" yaml:"sslProperties"`
@@ -572,7 +572,7 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+	// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
 	//
 	VpcConnectionProperties interface{} `field:"optional" json:"vpcConnectionProperties" yaml:"vpcConnectionProperties"`

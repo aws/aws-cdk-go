@@ -13,8 +13,8 @@ package awsappsync
 //   	GraphqlApiArn: jsii.String("<api-arn>"),
 //   	GraphQLEndpointArn: jsii.String("<api-endpoint-arn>"),
 //   	Visibility: appsync.Visibility_GLOBAL,
-//   	Modes: []authorizationType{
-//   		appsync.*authorizationType_IAM,
+//   	Modes: []AuthorizationType{
+//   		appsync.AuthorizationType_IAM,
 //   	},
 //   })
 //

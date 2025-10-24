@@ -15,9 +15,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var authorizer authorizer
-//   var model model
-//   var requestValidator requestValidator
+//   var authorizer Authorizer
+//   var model Model
+//   var requestValidator RequestValidator
 //
 //   apiEventSource := awscdk.Aws_lambda_event_sources.NewApiEventSource(jsii.String("method"), jsii.String("path"), &MethodOptions{
 //   	ApiKeyRequired: jsii.Boolean(false),
@@ -26,12 +26,12 @@ import (
 //   	},
 //   	AuthorizationType: awscdk.Aws_apigateway.AuthorizationType_NONE,
 //   	Authorizer: authorizer,
-//   	MethodResponses: []methodResponse{
-//   		&methodResponse{
+//   	MethodResponses: []MethodResponse{
+//   		&MethodResponse{
 //   			StatusCode: jsii.String("statusCode"),
 //
 //   			// the properties below are optional
-//   			ResponseModels: map[string]iModel{
+//   			ResponseModels: map[string]IModel{
 //   				"responseModelsKey": model,
 //   			},
 //   			ResponseParameters: map[string]*bool{
@@ -40,7 +40,7 @@ import (
 //   		},
 //   	},
 //   	OperationName: jsii.String("operationName"),
-//   	RequestModels: map[string]*iModel{
+//   	RequestModels: map[string]IModel{
 //   		"requestModelsKey": model,
 //   	},
 //   	RequestParameters: map[string]*bool{

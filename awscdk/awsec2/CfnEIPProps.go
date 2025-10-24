@@ -7,9 +7,9 @@ import (
 // Properties for defining a `CfnEIP`.
 //
 // Example:
-//   var instance instance
+//   var instance Instance
 //
-//   var myZone hostedZone
+//   var myZone HostedZone
 //
 //
 //   elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &CfnEIPProps{

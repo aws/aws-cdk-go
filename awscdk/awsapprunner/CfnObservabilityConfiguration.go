@@ -26,8 +26,8 @@ import (
 //
 //   cfnObservabilityConfiguration := awscdk.Aws_apprunner.NewCfnObservabilityConfiguration(this, jsii.String("MyCfnObservabilityConfiguration"), &CfnObservabilityConfigurationProps{
 //   	ObservabilityConfigurationName: jsii.String("observabilityConfigurationName"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Backend protocol for network load balancers and health checks.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{

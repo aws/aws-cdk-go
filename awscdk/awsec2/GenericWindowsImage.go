@@ -16,7 +16,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var userData userData
+//   var userData UserData
 //
 //   genericWindowsImage := awscdk.Aws_ec2.NewGenericWindowsImage(map[string]*string{
 //   	"amiMapKey": jsii.String("amiMap"),

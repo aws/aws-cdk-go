@@ -14,7 +14,7 @@ import (
 // `#classic`, `#application` and `#network`.
 //
 // Example:
-//   var alb applicationLoadBalancer
+//   var alb ApplicationLoadBalancer
 //
 //   listener := alb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),

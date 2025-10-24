@@ -8,13 +8,13 @@ import (
 // A dashboard widget that displays alarms in a grid view.
 //
 // Example:
-//   var dashboard dashboard
-//   var errorAlarm alarm
+//   var dashboard Dashboard
+//   var errorAlarm Alarm
 //
 //
 //   dashboard.AddWidgets(
 //   cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-//   	Alarms: []iAlarm{
+//   	Alarms: []IAlarm{
 //   		errorAlarm,
 //   	},
 //   }))

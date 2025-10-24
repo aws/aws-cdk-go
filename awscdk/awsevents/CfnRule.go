@@ -46,8 +46,8 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	State: jsii.String("state"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -122,7 +122,7 @@ import (
 //   				PropagateTags: jsii.String("propagateTags"),
 //   				ReferenceId: jsii.String("referenceId"),
 //   				TagList: []interface{}{
-//   					&cfnTag{
+//   					&CfnTag{
 //   						Key: jsii.String("key"),
 //   						Value: jsii.String("value"),
 //   					},

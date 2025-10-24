@@ -16,10 +16,10 @@ import (
 //
 //
 //   type s3BucketProduct struct {
-//   	productStack
+//   	ProductStack
 //   }
 //
-//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+//   func newS3BucketProduct(scope Construct, id *string) *s3BucketProduct {
 //   	this := &s3BucketProduct{}
 //   	servicecatalog.NewProductStack_Override(this, scope, id)
 //
@@ -30,8 +30,8 @@ import (
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &CloudFormationProductProps{
 //   	ProductName: jsii.String("My Product"),
 //   	Owner: jsii.String("Product Owner"),
-//   	ProductVersions: []cloudFormationProductVersion{
-//   		&cloudFormationProductVersion{
+//   	ProductVersions: []CloudFormationProductVersion{
+//   		&CloudFormationProductVersion{
 //   			ProductVersionName: jsii.String("v1"),
 //   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 //   		},

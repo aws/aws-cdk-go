@@ -44,8 +44,8 @@ import (
 //   	// the properties below are optional
 //   	DataFrequency: jsii.String("dataFrequency"),
 //   	EncryptionConfig: encryptionConfig,
-//   	Tags: []tagsItemsProperty{
-//   		&tagsItemsProperty{
+//   	Tags: []TagsItemsProperty{
+//   		&TagsItemsProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -2,7 +2,7 @@ package awscdk
 
 
 // Example:
-//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-1"),
 //   	},
@@ -13,7 +13,7 @@ package awscdk
 //   	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 //   })
 //
-//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-2"),
 //   	},
@@ -74,7 +74,7 @@ type StackProps struct {
 	//   // `.account` and `.region` will simply return these values.
 	//   // Use a concrete account and region to deploy this stack to:
 	//   // `.account` and `.region` will simply return these values.
-	//   awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+	//   awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 	//   	Env: &Environment{
 	//   		Account: jsii.String("123456789012"),
 	//   		Region: jsii.String("us-east-1"),
@@ -87,7 +87,7 @@ type StackProps struct {
 	//   // Use the CLI's current credentials to determine the target environment:
 	//   // `.account` and `.region` will reflect the account+region the CLI
 	//   // is configured to use (based on the user CLI credentials)
-	//   awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+	//   awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
 	//   	Env: &Environment{
 	//   		Account: process.env.cDK_DEFAULT_ACCOUNT,
 	//   		Region: process.env.cDK_DEFAULT_REGION,

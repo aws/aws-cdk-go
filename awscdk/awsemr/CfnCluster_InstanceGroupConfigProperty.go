@@ -10,7 +10,7 @@ package awsemr
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationProperty_ configurationProperty
+//   var configurationProperty_ ConfigurationProperty
 //
 //   instanceGroupConfigProperty := &InstanceGroupConfigProperty{
 //   	InstanceCount: jsii.Number(123),
@@ -65,7 +65,7 @@ package awsemr
 //   	},
 //   	BidPrice: jsii.String("bidPrice"),
 //   	Configurations: []interface{}{
-//   		&configurationProperty{
+//   		&ConfigurationProperty{
 //   			Classification: jsii.String("classification"),
 //   			ConfigurationProperties: map[string]*string{
 //   				"configurationPropertiesKey": jsii.String("configurationProperties"),

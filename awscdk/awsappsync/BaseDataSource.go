@@ -14,8 +14,8 @@ import (
 // Do not use directly but use subclasses for concrete datasources.
 //
 // Example:
-//   var api graphqlApi
-//   var appsyncFunction appsyncFunction
+//   var api GraphqlApi
+//   var appsyncFunction AppsyncFunction
 //
 //
 //   pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &ResolverProps{
@@ -24,7 +24,7 @@ import (
 //   	TypeName: jsii.String("typeName"),
 //   	FieldName: jsii.String("fieldName"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
-//   	PipelineConfig: []iAppsyncFunction{
+//   	PipelineConfig: []IAppsyncFunction{
 //   		appsyncFunction,
 //   	},
 //   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),

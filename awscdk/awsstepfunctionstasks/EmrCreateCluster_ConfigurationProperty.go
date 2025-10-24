@@ -10,11 +10,11 @@ package awsstepfunctionstasks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationProperty_ configurationProperty
+//   var configurationProperty_ ConfigurationProperty
 //
-//   configurationProperty := &configurationProperty{
+//   configurationProperty := &ConfigurationProperty{
 //   	Classification: jsii.String("classification"),
-//   	Configurations: []*configurationProperty{
+//   	Configurations: []ConfigurationProperty{
 //   		configurationProperty_,
 //   	},
 //   	Properties: map[string]*string{

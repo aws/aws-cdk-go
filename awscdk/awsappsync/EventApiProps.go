@@ -5,7 +5,7 @@ package awsappsync
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var handler function
+//   var handler Function
 //
 //
 //   iamProvider := &AppSyncAuthProvider{
@@ -24,7 +24,7 @@ package awsappsync
 //   	ApiName: jsii.String("api"),
 //   	AuthorizationConfig: &EventApiAuthConfig{
 //   		// set auth providers
-//   		AuthProviders: []appSyncAuthProvider{
+//   		AuthProviders: []AppSyncAuthProvider{
 //   			iamProvider,
 //   			apiKeyProvider,
 //   		},

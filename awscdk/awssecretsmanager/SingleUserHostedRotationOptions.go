@@ -7,9 +7,9 @@ import (
 // Single user hosted rotation options.
 //
 // Example:
-//   var myVpc iVpc
-//   var dbConnections connections
-//   var secret secret
+//   var myVpc IVpc
+//   var dbConnections Connections
+//   var secret Secret
 //
 //
 //   myHostedRotation := secretsmanager.HostedRotation_MysqlSingleUser(&SingleUserHostedRotationOptions{

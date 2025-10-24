@@ -95,7 +95,7 @@ against the Data API with GraphQL queries, mutations, and subscriptions.
 
 ```go
 // Build a data source for AppSync to access the database.
-var api graphqlApi
+var api GraphqlApi
 // Create username and password secret for DB Cluster
 secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
 	Username: jsii.String("clusteradmin"),
@@ -160,7 +160,7 @@ rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverPro
 
 ```go
 // Build a data source for AppSync to access the database.
-var api graphqlApi
+var api GraphqlApi
 // Create username and password secret for DB Cluster
 secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
 	Username: jsii.String("clusteradmin"),
@@ -405,7 +405,7 @@ subscriptions.
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 
-var api graphqlApi
+var api GraphqlApi
 
 
 user := iam.NewUser(this, jsii.String("User"))
@@ -474,12 +474,12 @@ secondApi := appsync.NewGraphqlApi(this, jsii.String("SecondSourceAPI"), &Graphq
 mergedApi := appsync.NewGraphqlApi(this, jsii.String("MergedAPI"), &GraphqlApiProps{
 	Name: jsii.String("MergedAPI"),
 	Definition: appsync.Definition_FromSourceApis(&SourceApiOptions{
-		SourceApis: []sourceApi{
-			&sourceApi{
+		SourceApis: []SourceApi{
+			&SourceApi{
 				SourceApi: firstApi,
 				MergeType: appsync.MergeType_MANUAL_MERGE,
 			},
-			&sourceApi{
+			&SourceApi{
 				SourceApi: secondApi,
 				MergeType: appsync.MergeType_AUTO_MERGE,
 			},
@@ -614,10 +614,10 @@ another stack into your CDK app. Utilizing the `fromXxx` function, you have
 the ability to add data sources and resolvers through a `IGraphqlApi` interface.
 
 ```go
-var api graphqlApi
-var table table
+var api GraphqlApi
+var table Table
 
-importedApi := appsync.graphqlApi_FromGraphqlApiAttributes(this, jsii.String("IApi"), &GraphqlApiAttributes{
+importedApi := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("IApi"), &GraphqlApiAttributes{
 	GraphqlApiId: api.ApiId,
 	GraphqlApiArn: api.Arn,
 })
@@ -666,7 +666,7 @@ with AWS Lambda Authorization.
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var authFunction function
+var authFunction Function
 
 
 appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
@@ -727,7 +727,7 @@ To make this easier, CDK provides `grant` API.
 Use the `grant` function for more granular authorization.
 
 ```go
-var api iGraphqlApi
+var api IGraphqlApi
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -754,8 +754,8 @@ These include:
 * grantSubscription (use to grant access to Subscription fields)
 
 ```go
-var api iGraphqlApi
-var role role
+var api IGraphqlApi
+var role Role
 
 
 // For generic types
@@ -772,7 +772,7 @@ backend data source. Developers can compose operations (Functions) and execute
 them in sequence with Pipeline Resolvers.
 
 ```go
-var api graphqlApi
+var api GraphqlApi
 
 
 appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
@@ -789,8 +789,8 @@ inputs that will be sent to a single AWS Lambda function in a BatchInvoke operat
 by setting the `maxBatchSize` property.
 
 ```go
-var api graphqlApi
-var lambdaDataSource lambdaDataSource
+var api GraphqlApi
+var lambdaDataSource LambdaDataSource
 
 
 appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
@@ -805,8 +805,8 @@ AppSync Functions are used in tandem with pipeline resolvers to compose multiple
 operations.
 
 ```go
-var api graphqlApi
-var appsyncFunction appsyncFunction
+var api GraphqlApi
+var appsyncFunction AppsyncFunction
 
 
 pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &ResolverProps{
@@ -815,7 +815,7 @@ pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &Resolver
 	TypeName: jsii.String("typeName"),
 	FieldName: jsii.String("fieldName"),
 	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
-	PipelineConfig: []iAppsyncFunction{
+	PipelineConfig: []IAppsyncFunction{
 		appsyncFunction,
 	},
 	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),
@@ -827,7 +827,7 @@ pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &Resolver
 JS Functions and resolvers are also supported. You can use a `.js` file within your CDK project, or specify your function code inline.
 
 ```go
-var api graphqlApi
+var api GraphqlApi
 
 
 myJsFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
@@ -855,7 +855,7 @@ appsync.NewResolver(this, jsii.String("PipelineResolver"), &ResolverProps{
 	    }
 	  `)),
 	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
-	PipelineConfig: []iAppsyncFunction{
+	PipelineConfig: []IAppsyncFunction{
 		myJsFunction,
 	},
 })
@@ -935,8 +935,8 @@ The code snippet below creates a AppSync GraphQL API target that is invoked, cal
 import events "github.com/aws/aws-cdk-go/awscdk"
 import targets "github.com/aws/aws-cdk-go/awscdk"
 
-var rule rule
-var api graphqlApi
+var rule Rule
+var api GraphqlApi
 
 
 rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
@@ -975,17 +975,17 @@ api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
 	ApiName: jsii.String("Api"),
 	OwnerContact: jsii.String("OwnerContact"),
 	AuthorizationConfig: &EventApiAuthConfig{
-		AuthProviders: []appSyncAuthProvider{
+		AuthProviders: []AppSyncAuthProvider{
 			apiKeyProvider,
 		},
-		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
 	},
 })
@@ -1012,7 +1012,7 @@ For mor information, see [Configuring authorization and authentication to secure
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var handler function
+var handler Function
 
 
 iamProvider := &AppSyncAuthProvider{
@@ -1036,19 +1036,19 @@ api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
 	ApiName: jsii.String("api"),
 	AuthorizationConfig: &EventApiAuthConfig{
 		// set auth providers
-		AuthProviders: []appSyncAuthProvider{
+		AuthProviders: []AppSyncAuthProvider{
 			iamProvider,
 			apiKeyProvider,
 			lambdaProvider,
 		},
-		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_IAM,
+		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_IAM,
 		},
-		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_LAMBDA,
+		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_LAMBDA,
 		},
 	},
 })
@@ -1060,7 +1060,7 @@ If you don't specify any overrides for the `connectionAuthModeTypes`, `defaultPu
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
-var handler function
+var handler Function
 
 
 iamProvider := &AppSyncAuthProvider{
@@ -1079,7 +1079,7 @@ api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
 	ApiName: jsii.String("api"),
 	AuthorizationConfig: &EventApiAuthConfig{
 		// set auth providers
-		AuthProviders: []appSyncAuthProvider{
+		AuthProviders: []AppSyncAuthProvider{
 			iamProvider,
 			apiKeyProvider,
 		},
@@ -1118,7 +1118,7 @@ dataSource := api.AddDynamoDbDataSource(jsii.String("ddbsource"), table)
 ```go
 import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 
-var vpc vpc
+var vpc Vpc
 
 databaseName := "mydb"
 cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
@@ -1163,7 +1163,7 @@ dataSource := api.AddEventBridgeDataSource(jsii.String("eventbridgeds"), eventBu
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
-var lambdaDs function
+var lambdaDs Function
 
 
 api := appsync.NewEventApi(this, jsii.String("EventApiLambda"), &EventApiProps{
@@ -1214,8 +1214,8 @@ api := appsync.NewEventApi(this, jsii.String("EventApiHttp"), &EventApiProps{
 randomApi := apigw.NewRestApi(this, jsii.String("RandomApi"))
 randomRoute := randomApi.Root.AddResource(jsii.String("random"))
 randomRoute.AddMethod(jsii.String("GET"), apigw.NewMockIntegration(&IntegrationOptions{
-	IntegrationResponses: []integrationResponse{
-		&integrationResponse{
+	IntegrationResponses: []IntegrationResponse{
+		&IntegrationResponse{
 			StatusCode: jsii.String("200"),
 			ResponseTemplates: map[string]*string{
 				"application/json": jsii.String("my-random-value"),
@@ -1227,8 +1227,8 @@ randomRoute.AddMethod(jsii.String("GET"), apigw.NewMockIntegration(&IntegrationO
 		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 	},
 }), &MethodOptions{
-	MethodResponses: []methodResponse{
-		&methodResponse{
+	MethodResponses: []MethodResponse{
+		&MethodResponse{
 			StatusCode: jsii.String("200"),
 		},
 	},
@@ -1262,17 +1262,17 @@ api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
 	ApiName: jsii.String("Api"),
 	OwnerContact: jsii.String("OwnerContact"),
 	AuthorizationConfig: &EventApiAuthConfig{
-		AuthProviders: []appSyncAuthProvider{
+		AuthProviders: []AppSyncAuthProvider{
 			apiKeyProvider,
 		},
-		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
 	},
 	// Custom Domain Settings
@@ -1318,17 +1318,17 @@ api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
 	ApiName: jsii.String("Api"),
 	OwnerContact: jsii.String("OwnerContact"),
 	AuthorizationConfig: &EventApiAuthConfig{
-		AuthProviders: []appSyncAuthProvider{
+		AuthProviders: []AppSyncAuthProvider{
 			apiKeyProvider,
 		},
-		ConnectionAuthModeTypes: []appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
-		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
 	},
 	LogConfig: &AppSyncLogConfig{
@@ -1348,8 +1348,8 @@ These could affect API availability and performance, compromise security, or con
 For more information, see [Using AWS WAF to protect AWS AppSync Event APIs](https://docs.aws.amazon.com/appsync/latest/eventapi/using-waf-protect-apis.html).
 
 ```go
-var api eventApi
-var webAcl cfnWebACL
+var api EventApi
+var webAcl CfnWebACL
 
 
 // Associate waf with Event API
@@ -1372,7 +1372,7 @@ Channel namespace can optionally interact with data sources configured on the Ev
 For more information, see [Understanding channel namespaces](https://docs.aws.amazon.com/appsync/latest/eventapi/channel-namespaces.html).
 
 ```go
-var api eventApi
+var api EventApi
 
 
 // create a channel namespace
@@ -1390,19 +1390,19 @@ The API's publishing and subscribing authorization configuration is automaticall
 You can override this configuration at the namespace level. **Note**: the authorization type you select for a namespace must be defined as an authorization provider at the API level.
 
 ```go
-var api eventApi
+var api EventApi
 
 
 appsync.NewChannelNamespace(this, jsii.String("Namespace"), &ChannelNamespaceProps{
 	Api: Api,
 	AuthorizationConfig: &NamespaceAuthConfig{
 		// Override publishing authorization to API Key
-		PublishAuthModeTypes: []appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_API_KEY,
+		PublishAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_API_KEY,
 		},
 		// Override subscribing authorization to Lambda
-		SubscribeAuthModeTypes: []*appSyncAuthorizationType{
-			appsync.*appSyncAuthorizationType_LAMBDA,
+		SubscribeAuthModeTypes: []AppSyncAuthorizationType{
+			appsync.AppSyncAuthorizationType_LAMBDA,
 		},
 	},
 })
@@ -1414,7 +1414,7 @@ You can use an event handler to process published events or process and authoriz
 For more information, see [Channel namespace handlers and event processing](https://docs.aws.amazon.com/appsync/latest/eventapi/channel-namespace-handlers.html).
 
 ```go
-var api eventApi
+var api EventApi
 
 
 appsync.NewChannelNamespace(this, jsii.String("Namespace"), &ChannelNamespaceProps{
@@ -1439,9 +1439,9 @@ Below are examples using Amazon DynamoDB, Amazon EventBridge, and AWS Lambda. Yo
 #### Amazon DynamoDB & Amazon EventBridge
 
 ```go
-var api eventApi
-var ddbDataSource appSyncDynamoDbDataSource
-var ebDataSource appSyncEventBridgeDataSource
+var api EventApi
+var ddbDataSource AppSyncDynamoDbDataSource
+var ebDataSource AppSyncEventBridgeDataSource
 
 
 // DynamoDB data source for publish handler
@@ -1459,8 +1459,8 @@ api.AddChannelNamespace(jsii.String("ddb-eb-ns"), &ChannelNamespaceOptions{
 #### AWS Lambda
 
 ```go
-var api eventApi
-var lambdaDataSource appSyncLambdaDataSource
+var api EventApi
+var lambdaDataSource AppSyncLambdaDataSource
 
 
 // Lambda data source for publish handler

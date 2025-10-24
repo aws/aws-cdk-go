@@ -17,7 +17,7 @@ import (
 //   	Resources: []*string{
 //   		bucket.ArnForObjects(jsii.String("file.txt")),
 //   	},
-//   	Principals: []iPrincipal{
+//   	Principals: []IPrincipal{
 //   		iam.NewAccountRootPrincipal(),
 //   	},
 //   }))

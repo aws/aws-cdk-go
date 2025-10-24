@@ -28,8 +28,8 @@ import (
 //   	SourceLocationName: jsii.String("sourceLocationName"),
 //
 //   	// the properties below are optional
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -479,25 +479,6 @@ func (j *jsiiProxy_CfnLiveSource)SetTags(val *[]*awscdk.CfnTag) {
 		"tags",
 		val,
 	)
-}
-
-// Creates a new ILiveSourceRef from an ARN.
-func CfnLiveSource_FromLiveSourceArn(scope constructs.Construct, id *string, arn *string) ILiveSourceRef {
-	_init_.Initialize()
-
-	if err := validateCfnLiveSource_FromLiveSourceArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns ILiveSourceRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediatailor.CfnLiveSource",
-		"fromLiveSourceArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

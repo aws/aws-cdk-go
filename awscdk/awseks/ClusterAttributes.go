@@ -10,10 +10,10 @@ import (
 // Attributes for EKS clusters.
 //
 // Example:
-//   var cluster cluster
-//   var asg autoScalingGroup
+//   var cluster Cluster
+//   var asg AutoScalingGroup
 //
-//   importedCluster := eks.cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
+//   importedCluster := eks.Cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
 //   	ClusterName: cluster.ClusterName,
 //   	ClusterSecurityGroupId: cluster.ClusterSecurityGroupId,
 //   })

@@ -127,8 +127,8 @@ import (
 //   	SourceRegion: jsii.String("sourceRegion"),
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	StorageType: jsii.String("storageType"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

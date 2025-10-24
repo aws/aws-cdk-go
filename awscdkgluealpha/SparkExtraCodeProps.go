@@ -8,17 +8,17 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var code code
+//   var code Code
 //
 //   sparkExtraCodeProps := &SparkExtraCodeProps{
-//   	ExtraFiles: []*code{
+//   	ExtraFiles: []Code{
 //   		code,
 //   	},
-//   	ExtraJars: []*code{
+//   	ExtraJars: []Code{
 //   		code,
 //   	},
 //   	ExtraJarsFirst: jsii.Boolean(false),
-//   	ExtraPythonFiles: []*code{
+//   	ExtraPythonFiles: []Code{
 //   		code,
 //   	},
 //   }

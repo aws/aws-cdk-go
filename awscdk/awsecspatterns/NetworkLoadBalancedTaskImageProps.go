@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   // Two network load balancers, each with their own listener and target group.
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   loadBalancedEc2Service := ecsPatterns.NewNetworkMultipleTargetGroupsEc2Service(this, jsii.String("Service"), &NetworkMultipleTargetGroupsEc2ServiceProps{
 //   	Cluster: Cluster,
@@ -17,30 +17,30 @@ import (
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	LoadBalancers: []networkLoadBalancerProps{
-//   		&networkLoadBalancerProps{
+//   	LoadBalancers: []NetworkLoadBalancerProps{
+//   		&NetworkLoadBalancerProps{
 //   			Name: jsii.String("lb1"),
-//   			Listeners: []networkListenerProps{
-//   				&networkListenerProps{
+//   			Listeners: []NetworkListenerProps{
+//   				&NetworkListenerProps{
 //   					Name: jsii.String("listener1"),
 //   				},
 //   			},
 //   		},
-//   		&networkLoadBalancerProps{
+//   		&NetworkLoadBalancerProps{
 //   			Name: jsii.String("lb2"),
-//   			Listeners: []*networkListenerProps{
-//   				&networkListenerProps{
+//   			Listeners: []NetworkListenerProps{
+//   				&NetworkListenerProps{
 //   					Name: jsii.String("listener2"),
 //   				},
 //   			},
 //   		},
 //   	},
-//   	TargetGroups: []networkTargetProps{
-//   		&networkTargetProps{
+//   	TargetGroups: []NetworkTargetProps{
+//   		&NetworkTargetProps{
 //   			ContainerPort: jsii.Number(80),
 //   			Listener: jsii.String("listener1"),
 //   		},
-//   		&networkTargetProps{
+//   		&NetworkTargetProps{
 //   			ContainerPort: jsii.Number(90),
 //   			Listener: jsii.String("listener2"),
 //   		},

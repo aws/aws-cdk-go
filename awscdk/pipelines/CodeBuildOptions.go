@@ -10,7 +10,7 @@ import (
 // Options for customizing a single CodeBuild project.
 //
 // Example:
-//   var source iFileSetProducer // the repository source
+//   var source IFileSetProducer // the repository source
 //   var synthCommands []*string // Commands to synthesize your app
 //   var installCommands []*string
 //   // Commands to install your toolchain
@@ -34,11 +34,11 @@ import (
 //   			},
 //   		}),
 //   		BuildEnvironment: &BuildEnvironment{
-//   			EnvironmentVariables: map[string]buildEnvironmentVariable{
+//   			EnvironmentVariables: map[string]BuildEnvironmentVariable{
 //   				// Instruct the AWS CDK to use `drop-in-replacement` instead of
 //   				// `docker` when building / publishing docker images.
 //   				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
-//   				"CDK_DOCKER": &buildEnvironmentVariable{
+//   				"CDK_DOCKER": &BuildEnvironmentVariable{
 //   					"value": jsii.String("drop-in-replacement"),
 //   				},
 //   			},

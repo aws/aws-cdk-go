@@ -18,8 +18,8 @@ import (
 //   	Inline: jsii.Boolean(false),
 //   	LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   	Name: jsii.String("name"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

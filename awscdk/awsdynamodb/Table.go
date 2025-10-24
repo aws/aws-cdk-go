@@ -18,7 +18,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
+//   var fn Function
 //
 //   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 //   	PartitionKey: &Attribute{

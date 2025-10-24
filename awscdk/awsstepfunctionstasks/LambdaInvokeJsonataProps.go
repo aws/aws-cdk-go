@@ -11,8 +11,8 @@ import (
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var callApiFunc function
-//   var useVariableFunc function
+//   var callApiFunc Function
+//   var useVariableFunc Function
 //
 //   step1 := tasks.LambdaInvoke_Jsonata(this, jsii.String("Step 1"), &LambdaInvokeJsonataProps{
 //   	LambdaFunction: callApiFunc,

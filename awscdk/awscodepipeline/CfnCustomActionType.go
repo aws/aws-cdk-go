@@ -51,8 +51,8 @@ import (
 //   		RevisionUrlTemplate: jsii.String("revisionUrlTemplate"),
 //   		ThirdPartyConfigurationUrl: jsii.String("thirdPartyConfigurationUrl"),
 //   	},
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

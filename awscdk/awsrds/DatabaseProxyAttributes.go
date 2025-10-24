@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityGroup securityGroup
+//   var securityGroup SecurityGroup
 //
 //   databaseProxyAttributes := &DatabaseProxyAttributes{
 //   	DbProxyArn: jsii.String("dbProxyArn"),
 //   	DbProxyName: jsii.String("dbProxyName"),
 //   	Endpoint: jsii.String("endpoint"),
-//   	SecurityGroups: []iSecurityGroup{
+//   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
 //   }

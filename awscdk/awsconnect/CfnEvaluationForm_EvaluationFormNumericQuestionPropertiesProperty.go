@@ -14,6 +14,9 @@ package awsconnect
 //
 //   	// the properties below are optional
 //   	Automation: &EvaluationFormNumericQuestionAutomationProperty{
+//   		AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   			SourceType: jsii.String("sourceType"),
+//   		},
 //   		PropertyValue: &NumericQuestionPropertyValueAutomationProperty{
 //   			Label: jsii.String("label"),
 //   		},
@@ -25,6 +28,9 @@ package awsconnect
 //
 //   			// the properties below are optional
 //   			AutomaticFail: jsii.Boolean(false),
+//   			AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   				TargetSection: jsii.String("targetSection"),
+//   			},
 //   			Score: jsii.Number(123),
 //   		},
 //   	},

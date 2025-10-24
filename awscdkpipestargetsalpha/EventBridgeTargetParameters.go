@@ -7,8 +7,8 @@ import (
 // EventBridge target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetEventBus eventBus
+//   var sourceQueue Queue
+//   var targetEventBus EventBus
 //
 //
 //   eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTargetParameters{

@@ -15,10 +15,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var eksClusterInput eksClusterInput
+//   var eksClusterInput EksClusterInput
 //   var outputs interface{}
-//   var taskRole taskRole
-//   var timeout timeout
+//   var taskRole TaskRole
+//   var timeout Timeout
 //
 //   emrContainersCreateVirtualClusterJsonataProps := &EmrContainersCreateVirtualClusterJsonataProps{
 //   	EksCluster: eksClusterInput,

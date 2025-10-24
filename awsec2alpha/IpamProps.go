@@ -29,7 +29,7 @@ package awsec2alpha
 //
 //   awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 //   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
-//   	SecondaryAddressBlocks: []iIpAddresses{
+//   	SecondaryAddressBlocks: []IIpAddresses{
 //   		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 //   			CidrBlockName: jsii.String("AmazonIpv6"),
 //   		}),

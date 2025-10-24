@@ -8,16 +8,16 @@ package awselasticloadbalancingv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationTargetGroup applicationTargetGroup
-//   var listenerCondition listenerCondition
+//   var applicationTargetGroup ApplicationTargetGroup
+//   var listenerCondition ListenerCondition
 //
 //   addApplicationTargetGroupsProps := &AddApplicationTargetGroupsProps{
-//   	TargetGroups: []iApplicationTargetGroup{
+//   	TargetGroups: []IApplicationTargetGroup{
 //   		applicationTargetGroup,
 //   	},
 //
 //   	// the properties below are optional
-//   	Conditions: []*listenerCondition{
+//   	Conditions: []ListenerCondition{
 //   		listenerCondition,
 //   	},
 //   	Priority: jsii.Number(123),

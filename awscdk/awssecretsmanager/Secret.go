@@ -14,14 +14,14 @@ import (
 // Creates a new secret in AWS SecretsManager.
 //
 // Example:
-//   var stack stack
+//   var stack Stack
 //   user := iam.NewUser(this, jsii.String("User"))
 //   accessKey := iam.NewAccessKey(this, jsii.String("AccessKey"), &AccessKeyProps{
 //   	User: User,
 //   })
 //
 //   secretsmanager.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretObjectValue: map[string]secretValue{
+//   	SecretObjectValue: map[string]SecretValue{
 //   		"username": awscdk.SecretValue_unsafePlainText(user.userName),
 //   		"database": awscdk.SecretValue_unsafePlainText(jsii.String("foo")),
 //   		"password": accessKey.secretAccessKey,

@@ -30,7 +30,7 @@ import (
 //   // }
 //
 //   fredCapture := awscdk.NewCapture()
-//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
+//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]Capture{
 //   	"Fred": fredCapture,
 //   })
 //

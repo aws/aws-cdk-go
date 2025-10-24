@@ -16,7 +16,7 @@ import (
 //   import targets "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var pipeline pipeline
+//   var pipeline Pipeline
 //
 //
 //   // kick off the pipeline every day

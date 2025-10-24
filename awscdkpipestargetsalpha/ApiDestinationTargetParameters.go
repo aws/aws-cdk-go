@@ -7,8 +7,8 @@ import (
 // EventBridge API destination target properties.
 //
 // Example:
-//   var sourceQueue queue
-//   var dest apiDestination
+//   var sourceQueue Queue
+//   var dest ApiDestination
 //
 //
 //   apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{

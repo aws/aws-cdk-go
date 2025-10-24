@@ -14,7 +14,7 @@ import (
 // It routes traffic either to a Virtual Node or to a Virtual Router.
 //
 // Example:
-//   var mesh mesh
+//   var mesh Mesh
 //
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &VirtualNodeProps{

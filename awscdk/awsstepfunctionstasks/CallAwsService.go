@@ -14,7 +14,7 @@ import (
 // A StepFunctions task to call an AWS service API.
 //
 // Example:
-//   var myBucket bucket
+//   var myBucket Bucket
 //
 //   getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &CallAwsServiceProps{
 //   	Service: jsii.String("s3"),

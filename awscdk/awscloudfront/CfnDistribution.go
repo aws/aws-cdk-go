@@ -15,9 +15,9 @@ import (
 //   // Create the simple Origin
 //   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
 //   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
-//   	OriginAccessLevels: []accessLevel{
-//   		cloudfront.*accessLevel_READ,
-//   		cloudfront.*accessLevel_LIST,
+//   	OriginAccessLevels: []AccessLevel{
+//   		cloudfront.AccessLevel_READ,
+//   		cloudfront.AccessLevel_LIST,
 //   	},
 //   })
 //
@@ -30,7 +30,7 @@ import (
 //   })
 //
 //   // Access the underlying L1 CfnDistribution to configure SaaS Manager properties which are not yet available in the L2 Distribution construct
-//   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(cfnDistribution)
+//   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 //
 //   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
 //   	TargetOriginId: myBucket.BucketArn,

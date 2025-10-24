@@ -154,6 +154,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
 			_jsii_.MemberProperty{JsiiProperty: "ipCount", GoGetter: "IpCount"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -2721,6 +2722,7 @@ func init() {
 			"TLS_V1_2_2018": SecurityPolicyProtocol_TLS_V1_2_2018,
 			"TLS_V1_2_2019": SecurityPolicyProtocol_TLS_V1_2_2019,
 			"TLS_V1_2_2021": SecurityPolicyProtocol_TLS_V1_2_2021,
+			"TLS_V1_2_2025": SecurityPolicyProtocol_TLS_V1_2_2025,
 			"TLS_V1_3_2025": SecurityPolicyProtocol_TLS_V1_3_2025,
 		},
 	)

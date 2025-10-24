@@ -7,8 +7,8 @@ package pipelines
 //   dockerHubSecret := secretsmanager.Secret_FromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
 //   // Only the image asset publishing actions will be granted read access to the secret.
 //   creds := pipelines.DockerCredential_DockerHub(dockerHubSecret, &ExternalDockerCredentialOptions{
-//   	Usages: []dockerCredentialUsage{
-//   		pipelines.*dockerCredentialUsage_ASSET_PUBLISHING,
+//   	Usages: []DockerCredentialUsage{
+//   		pipelines.DockerCredentialUsage_ASSET_PUBLISHING,
 //   	},
 //   })
 //

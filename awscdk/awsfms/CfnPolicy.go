@@ -136,8 +136,8 @@ import (
 //   	ResourceTypeList: []*string{
 //   		jsii.String("resourceTypeList"),
 //   	},
-//   	Tags: []policyTagProperty{
-//   		&policyTagProperty{
+//   	Tags: []PolicyTagProperty{
+//   		&PolicyTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -15,8 +15,8 @@ import (
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dockerImageAsset dockerImageAsset
-//   var secret secret
+//   var dockerImageAsset DockerImageAsset
+//   var secret Secret
 //
 //   assetSource := apprunner_alpha.NewAssetSource(&AssetProps{
 //   	Asset: dockerImageAsset,
@@ -26,7 +26,7 @@ import (
 //   		Environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
 //   		},
-//   		EnvironmentSecrets: map[string]*secret{
+//   		EnvironmentSecrets: map[string]Secret{
 //   			"environmentSecretsKey": secret,
 //   		},
 //   		EnvironmentVariables: map[string]*string{

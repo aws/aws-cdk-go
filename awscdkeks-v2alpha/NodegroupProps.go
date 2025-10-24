@@ -14,12 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var instanceType instanceType
-//   var role role
-//   var securityGroup securityGroup
-//   var subnet subnet
-//   var subnetFilter subnetFilter
+//   var cluster Cluster
+//   var instanceType InstanceType
+//   var role Role
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
 //
 //   nodegroupProps := &NodegroupProps{
 //   	Cluster: cluster,
@@ -32,7 +32,7 @@ import (
 //   	EnableNodeAutoRepair: jsii.Boolean(false),
 //   	ForceUpdate: jsii.Boolean(false),
 //   	InstanceType: instanceType,
-//   	InstanceTypes: []*instanceType{
+//   	InstanceTypes: []InstanceType{
 //   		instanceType,
 //   	},
 //   	Labels: map[string]*string{
@@ -55,7 +55,7 @@ import (
 //   		SshKeyName: jsii.String("sshKeyName"),
 //
 //   		// the properties below are optional
-//   		SourceSecurityGroups: []iSecurityGroup{
+//   		SourceSecurityGroups: []ISecurityGroup{
 //   			securityGroup,
 //   		},
 //   	},
@@ -64,11 +64,11 @@ import (
 //   			jsii.String("availabilityZones"),
 //   		},
 //   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []*subnetFilter{
+//   		SubnetFilters: []SubnetFilter{
 //   			subnetFilter,
 //   		},
 //   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []iSubnet{
+//   		Subnets: []ISubnet{
 //   			subnet,
 //   		},
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
@@ -76,8 +76,8 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
-//   	Taints: []taintSpec{
-//   		&taintSpec{
+//   	Taints: []TaintSpec{
+//   		&TaintSpec{
 //   			Effect: eks_v2_alpha.TaintEffect_NO_SCHEDULE,
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),

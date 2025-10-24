@@ -17,7 +17,7 @@ package awsquicksight
 type CfnDataSet_JoinKeyPropertiesProperty struct {
 	// A value that indicates that a row in a table is uniquely identified by the columns in a join key.
 	//
-	// This is used by QuickSight to optimize query performance.
+	// This is used by Quick Suite to optimize query performance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
 	//
 	UniqueKey interface{} `field:"optional" json:"uniqueKey" yaml:"uniqueKey"`

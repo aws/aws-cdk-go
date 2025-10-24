@@ -2,8 +2,8 @@ package awsapigateway
 
 
 // Example:
-//   var getBookHandler function
-//   var getBookIntegration lambdaIntegration
+//   var getBookHandler Function
+//   var getBookIntegration LambdaIntegration
 //
 //
 //   getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &LambdaIntegrationOptions{

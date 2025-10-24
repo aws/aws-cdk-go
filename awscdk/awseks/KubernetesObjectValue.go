@@ -13,7 +13,7 @@ import (
 // Use this to fetch any information available by the `kubectl get` command.
 //
 // Example:
-//   var cluster cluster
+//   var cluster Cluster
 //
 //   // query the load balancer address
 //   myServiceAddress := eks.NewKubernetesObjectValue(this, jsii.String("LoadBalancerAttribute"), &KubernetesObjectValueProps{

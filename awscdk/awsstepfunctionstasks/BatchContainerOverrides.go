@@ -14,8 +14,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var instanceType instanceType
-//   var size size
+//   var instanceType InstanceType
+//   var size Size
 //
 //   batchContainerOverrides := &BatchContainerOverrides{
 //   	Command: []*string{

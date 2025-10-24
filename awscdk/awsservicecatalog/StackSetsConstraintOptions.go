@@ -7,8 +7,8 @@ import (
 // Properties for deploying with Stackset, which creates a StackSet constraint.
 //
 // Example:
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var portfolio Portfolio
+//   var product CloudFormationProduct
 //
 //
 //   adminRole := iam.NewRole(this, jsii.String("AdminRole"), &RoleProps{

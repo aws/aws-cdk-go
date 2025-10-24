@@ -367,6 +367,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DataFormatConversionProps",
+		reflect.TypeOf((*DataFormatConversionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.DataProcessorBindOptions",
 		reflect.TypeOf((*DataProcessorBindOptions)(nil)).Elem(),
 	)
@@ -464,6 +468,23 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.HiveJsonInputFormat",
+		reflect.TypeOf((*HiveJsonInputFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "createInputFormatConfig", GoMethod: "CreateInputFormatConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HiveJsonInputFormat{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInputFormat)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.HiveJsonInputFormatProps",
+		reflect.TypeOf((*HiveJsonInputFormatProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_kinesisfirehose.IDataProcessor",
 		reflect.TypeOf((*IDataProcessor)(nil)).Elem(),
@@ -528,6 +549,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.IInputFormat",
+		reflect.TypeOf((*IInputFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "createInputFormatConfig", GoMethod: "CreateInputFormatConfig"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IInputFormat{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_kinesisfirehose.ILoggingConfig",
 		reflect.TypeOf((*ILoggingConfig)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -539,6 +570,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.IOutputFormat",
+		reflect.TypeOf((*IOutputFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "createOutputFormatConfig", GoMethod: "CreateOutputFormatConfig"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IOutputFormat{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_kinesisfirehose.ISource",
 		reflect.TypeOf((*ISource)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -546,6 +587,14 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ISource{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.InputFormat",
+		reflect.TypeOf((*InputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_InputFormat{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -574,6 +623,101 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.OpenXJsonInputFormat",
+		reflect.TypeOf((*OpenXJsonInputFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "createInputFormatConfig", GoMethod: "CreateInputFormatConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OpenXJsonInputFormat{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInputFormat)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.OpenXJsonInputFormatProps",
+		reflect.TypeOf((*OpenXJsonInputFormatProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.OrcCompression",
+		reflect.TypeOf((*OrcCompression)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_OrcCompression{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.OrcFormatVersion",
+		reflect.TypeOf((*OrcFormatVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"V0_11": OrcFormatVersion_V0_11,
+			"V0_12": OrcFormatVersion_V0_12,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.OrcOutputFormat",
+		reflect.TypeOf((*OrcOutputFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "createOutputFormatConfig", GoMethod: "CreateOutputFormatConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OrcOutputFormat{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOutputFormat)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.OrcOutputFormatProps",
+		reflect.TypeOf((*OrcOutputFormatProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.OutputFormat",
+		reflect.TypeOf((*OutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_OutputFormat{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.ParquetCompression",
+		reflect.TypeOf((*ParquetCompression)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ParquetCompression{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.ParquetOutputFormat",
+		reflect.TypeOf((*ParquetOutputFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "createOutputFormatConfig", GoMethod: "CreateOutputFormatConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ParquetOutputFormat{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOutputFormat)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.ParquetOutputFormatProps",
+		reflect.TypeOf((*ParquetOutputFormatProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.ParquetWriterVersion",
+		reflect.TypeOf((*ParquetWriterVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"V1": ParquetWriterVersion_V1,
+			"V2": ParquetWriterVersion_V2,
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.S3Bucket",
 		reflect.TypeOf((*S3Bucket)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -588,6 +732,24 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.S3BucketProps",
 		reflect.TypeOf((*S3BucketProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.SchemaConfiguration",
+		reflect.TypeOf((*SchemaConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_SchemaConfiguration{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.SchemaConfigurationBindOptions",
+		reflect.TypeOf((*SchemaConfigurationBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.SchemaConfigurationFromCfnTableProps",
+		reflect.TypeOf((*SchemaConfigurationFromCfnTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.StreamEncryption",
@@ -607,6 +769,16 @@ func init() {
 			"UNENCRYPTED": StreamEncryptionType_UNENCRYPTED,
 			"CUSTOMER_MANAGED": StreamEncryptionType_CUSTOMER_MANAGED,
 			"AWS_OWNED": StreamEncryptionType_AWS_OWNED,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.TimestampParser",
+		reflect.TypeOf((*TimestampParser)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "format", GoGetter: "Format"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TimestampParser{}
 		},
 	)
 }

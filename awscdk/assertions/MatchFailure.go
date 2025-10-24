@@ -8,7 +8,7 @@ package assertions
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var matcher matcher
+//   var matcher Matcher
 //
 //   matchFailure := &MatchFailure{
 //   	Matcher: matcher,

@@ -179,22 +179,6 @@ func validateCfnPortfolioPrincipalAssociation_IsConstructParameters(x interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPortfolioIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPrincipalArnParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPrincipalTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

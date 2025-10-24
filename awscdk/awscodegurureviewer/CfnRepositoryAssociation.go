@@ -33,8 +33,8 @@ import (
 //   	BucketName: jsii.String("bucketName"),
 //   	ConnectionArn: jsii.String("connectionArn"),
 //   	Owner: jsii.String("owner"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

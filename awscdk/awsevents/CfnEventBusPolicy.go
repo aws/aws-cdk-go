@@ -50,7 +50,9 @@ type CfnEventBusPolicy interface {
 	IEventBusPolicyRef
 	awscdk.IInspectable
 	// The action that you are enabling the other account to perform.
+	// Deprecated: this property has been deprecated.
 	Action() *string
+	// Deprecated: this property has been deprecated.
 	SetAction(val *string)
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -59,7 +61,9 @@ type CfnEventBusPolicy interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+	// Deprecated: this property has been deprecated.
 	Condition() interface{}
+	// Deprecated: this property has been deprecated.
 	SetCondition(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
@@ -83,7 +87,9 @@ type CfnEventBusPolicy interface {
 	// The tree node.
 	Node() constructs.Node
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus.
+	// Deprecated: this property has been deprecated.
 	Principal() *string
+	// Deprecated: this property has been deprecated.
 	SetPrincipal(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//

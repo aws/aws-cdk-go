@@ -3,7 +3,7 @@ package awsquicksight
 
 // A gauge chart.
 //
-// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 //
 // Example:
 //

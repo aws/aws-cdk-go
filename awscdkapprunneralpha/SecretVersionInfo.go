@@ -7,7 +7,7 @@ package awscdkapprunneralpha
 //   import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var stack stack
+//   var stack Stack
 //
 //
 //   secret := secretsmanager.NewSecret(stack, jsii.String("Secret"))
@@ -20,13 +20,13 @@ package awscdkapprunneralpha
 //   	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
 //   		ImageConfiguration: &ImageConfiguration{
 //   			Port: jsii.Number(8000),
-//   			EnvironmentSecrets: map[string]secret{
-//   				"SECRET": apprunner.*secret_fromSecretsManager(secret),
-//   				"PARAMETER": apprunner.*secret_fromSsmParameter(parameter),
-//   				"SECRET_ID": apprunner.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
+//   			EnvironmentSecrets: map[string]Secret{
+//   				"SECRET": apprunner.Secret_fromSecretsManager(secret),
+//   				"PARAMETER": apprunner.Secret_fromSsmParameter(parameter),
+//   				"SECRET_ID": apprunner.Secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 //   					"versionId": jsii.String("version-id"),
 //   				}),
-//   				"SECRET_STAGE": apprunner.*secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
+//   				"SECRET_STAGE": apprunner.Secret_fromSecretsManagerVersion(secret, &SecretVersionInfo{
 //   					"versionStage": jsii.String("version-stage"),
 //   				}),
 //   			},
@@ -35,7 +35,7 @@ package awscdkapprunneralpha
 //   	}),
 //   })
 //
-//   service.AddSecret(jsii.String("LATER_SECRET"), apprunner.secret_FromSecretsManager(secret, jsii.String("field")))
+//   service.AddSecret(jsii.String("LATER_SECRET"), apprunner.Secret_FromSecretsManager(secret, jsii.String("field")))
 //
 // Experimental.
 type SecretVersionInfo struct {

@@ -39,7 +39,7 @@ package awsdatazone
 //   	DeploymentMode: jsii.String("deploymentMode"),
 //   	DeploymentOrder: jsii.Number(123),
 //   	Description: jsii.String("description"),
-//   	Id: jsii.String("id"),
+//   	EnvironmentConfigurationId: jsii.String("environmentConfigurationId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfiguration.html
@@ -77,9 +77,8 @@ type CfnProjectProfile_EnvironmentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfiguration.html#cfn-datazone-projectprofile-environmentconfiguration-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The environment ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfiguration.html#cfn-datazone-projectprofile-environmentconfiguration-id
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfiguration.html#cfn-datazone-projectprofile-environmentconfiguration-environmentconfigurationid
 	//
-	Id *string `field:"optional" json:"id" yaml:"id"`
+	EnvironmentConfigurationId *string `field:"optional" json:"environmentConfigurationId" yaml:"environmentConfigurationId"`
 }
 

@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api restApi
+//   var api RestApi
 //   var hostedZoneForExampleCom interface{}
 //
 //

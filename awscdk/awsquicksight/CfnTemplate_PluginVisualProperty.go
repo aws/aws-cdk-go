@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// A flexible visualization type that allows engineers to create new custom charts in Amazon QuickSight.
+// A flexible visualization type that allows engineers to create new custom charts in Quick Sight.
 //
 // Example:
 //

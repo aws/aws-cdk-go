@@ -4,7 +4,7 @@ package awsautoscaling
 // Options for a warm pool.
 //
 // Example:
-//   var autoScalingGroup autoScalingGroup
+//   var autoScalingGroup AutoScalingGroup
 //
 //
 //   autoScalingGroup.addWarmPool(&WarmPoolOptions{

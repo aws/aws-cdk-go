@@ -15,7 +15,7 @@ import (
 //   import eventsources "github.com/aws/aws-cdk-go/awscdk"
 //   import sqs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
+//   var fn Function
 //
 //   queue := sqs.NewQueue(this, jsii.String("Queue"))
 //   fn.AddEventSource(eventsources.NewSqsEventSource(queue))

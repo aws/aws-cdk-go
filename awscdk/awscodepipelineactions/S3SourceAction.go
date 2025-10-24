@@ -15,10 +15,10 @@ import (
 // a CloudTrail Trail in the account that captures the S3 event.
 //
 // Example:
-//   var sourceBucket bucket
+//   var sourceBucket Bucket
 //
 //   // later:
-//   var project pipelineProject
+//   var project PipelineProject
 //   key := "some/key.zip"
 //   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
@@ -32,8 +32,8 @@ import (
 //   	ActionName: jsii.String("CodeBuild"),
 //   	Project: Project,
 //   	Input: sourceOutput,
-//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
-//   		"VERSION_ID": &buildEnvironmentVariable{
+//   	EnvironmentVariables: map[string]BuildEnvironmentVariable{
+//   		"VERSION_ID": &BuildEnvironmentVariable{
 //   			"value": sourceAction.variables.versionId,
 //   		},
 //   	},

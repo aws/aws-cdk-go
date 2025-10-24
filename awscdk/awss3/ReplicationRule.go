@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var key key
-//   var replicationTimeValue replicationTimeValue
-//   var storageClass storageClass
+//   var bucket Bucket
+//   var key Key
+//   var replicationTimeValue ReplicationTimeValue
+//   var storageClass StorageClass
 //
 //   replicationRule := &ReplicationRule{
 //   	Destination: bucket,
@@ -25,8 +25,8 @@ import (
 //   	DeleteMarkerReplication: jsii.Boolean(false),
 //   	Filter: &Filter{
 //   		Prefix: jsii.String("prefix"),
-//   		Tags: []tag{
-//   			&tag{
+//   		Tags: []Tag{
+//   			&Tag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
 //   			},

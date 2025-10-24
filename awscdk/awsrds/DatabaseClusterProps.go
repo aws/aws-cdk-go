@@ -12,7 +12,7 @@ import (
 // Properties for a new database cluster.
 //
 // Example:
-//   var vpc vpc
+//   var vpc Vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
@@ -23,7 +23,7 @@ import (
 //   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
 //   		PubliclyAccessible: jsii.Boolean(false),
 //   	}),
-//   	Readers: []iClusterInstance{
+//   	Readers: []IClusterInstance{
 //   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
 //   			PromotionTier: jsii.Number(1),
 //   		}),

@@ -6,8 +6,8 @@ package awsapigatewayv2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var handler function
-//   var dn domainName
+//   var handler Function
+//   var dn DomainName
 //
 //
 //   apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{

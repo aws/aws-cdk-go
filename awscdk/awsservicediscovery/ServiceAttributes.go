@@ -6,7 +6,7 @@ package awsservicediscovery
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var namespace iNamespace
+//   var namespace INamespace
 //
 //   serviceAttributes := &ServiceAttributes{
 //   	DnsRecordType: awscdk.Aws_servicediscovery.DnsRecordType_A,

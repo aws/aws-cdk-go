@@ -8,16 +8,16 @@ package awsappsync
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var appSyncBackedDataSource appSyncBackedDataSource
-//   var code code
+//   var appSyncBackedDataSource AppSyncBackedDataSource
+//   var code Code
 //
 //   baseChannelNamespaceProps := &BaseChannelNamespaceProps{
 //   	AuthorizationConfig: &NamespaceAuthConfig{
-//   		PublishAuthModeTypes: []appSyncAuthorizationType{
-//   			awscdk.Aws_appsync.*appSyncAuthorizationType_API_KEY,
+//   		PublishAuthModeTypes: []AppSyncAuthorizationType{
+//   			awscdk.Aws_appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
-//   		SubscribeAuthModeTypes: []*appSyncAuthorizationType{
-//   			awscdk.*Aws_appsync.*appSyncAuthorizationType_API_KEY,
+//   		SubscribeAuthModeTypes: []AppSyncAuthorizationType{
+//   			awscdk.*Aws_appsync.AppSyncAuthorizationType_API_KEY,
 //   		},
 //   	},
 //   	ChannelNamespaceName: jsii.String("channelNamespaceName"),

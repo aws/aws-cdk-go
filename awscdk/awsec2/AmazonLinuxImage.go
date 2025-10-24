@@ -17,7 +17,7 @@ import (
 // The AMI ID is selected using the values published to the SSM parameter store.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc IVpc
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
 //   	Vpc: Vpc,

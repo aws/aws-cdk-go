@@ -8,7 +8,7 @@ package awscdkgameliftalpha
 //   // The values are placeholders you should change.
 //   import gamelift_alpha "github.com/aws/aws-cdk-go/awscdkgameliftalpha"
 //
-//   var ruleSetBody iRuleSetBody
+//   var ruleSetBody IRuleSetBody
 //
 //   ruleSetContentProps := &RuleSetContentProps{
 //   	Content: ruleSetBody,

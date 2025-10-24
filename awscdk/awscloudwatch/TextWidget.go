@@ -8,7 +8,7 @@ import (
 // A dashboard widget that displays MarkDown.
 //
 // Example:
-//   var dashboard dashboard
+//   var dashboard Dashboard
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{

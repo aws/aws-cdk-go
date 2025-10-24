@@ -14,7 +14,7 @@ For example, `lambda.Function` objects have the `fn.metricErrors()` method, whic
 represents the amount of errors reported by that Lambda function:
 
 ```go
-var fn function
+var fn Function
 
 
 errors := fn.metricErrors()
@@ -78,7 +78,7 @@ The `id` must start with a lowercase letter and can only contain letters, number
 Metrics can be hidden from dashboard graphs using the `visible` property:
 
 ```go
-var fn function
+var fn Function
 
 
 metric := fn.metricErrors(&MetricOptions{
@@ -96,12 +96,12 @@ Math expressions are supported by instantiating the `MathExpression` class.
 For example, a math expression that sums two other metrics looks like this:
 
 ```go
-var fn function
+var fn Function
 
 
 allProblems := cloudwatch.NewMathExpression(&MathExpressionProps{
 	Expression: jsii.String("errors + throttles"),
-	UsingMetrics: map[string]iMetric{
+	UsingMetrics: map[string]IMetric{
 		"errors": fn.metricErrors(),
 		"throttles": fn.metricThrottles(),
 	},
@@ -112,13 +112,13 @@ You can use `MathExpression` objects like any other metric, including using
 them in other math expressions:
 
 ```go
-var fn function
-var allProblems mathExpression
+var fn Function
+var allProblems MathExpression
 
 
 problemPercentage := cloudwatch.NewMathExpression(&MathExpressionProps{
 	Expression: jsii.String("(problems / invocations) * 100"),
-	UsingMetrics: map[string]iMetric{
+	UsingMetrics: map[string]IMetric{
 		"problems": allProblems,
 		"invocations": fn.metricInvocations(),
 	},
@@ -130,7 +130,7 @@ problemPercentage := cloudwatch.NewMathExpression(&MathExpressionProps{
 When metrics have custom IDs, you can reference them directly in math expressions.
 
 ```go
-var fn function
+var fn Function
 
 
 invocations := fn.metricInvocations(&MetricOptions{
@@ -194,7 +194,7 @@ the function or the period), you can do so by passing additional parameters
 to the metric function call:
 
 ```go
-var fn function
+var fn Function
 
 
 minuteErrorRate := fn.metricErrors(&MetricOptions{
@@ -251,7 +251,7 @@ The most common values are provided in the `cloudwatch.Stats` class. You can pro
 Read more at [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 
 ```go
-var hostedZone hostedZone
+var hostedZone HostedZone
 
 
 cloudwatch.NewMetric(&MetricProps{
@@ -294,7 +294,7 @@ to show summary information about the displayed time series
 in the legend. For example, if you use:
 
 ```go
-var fn function
+var fn Function
 
 
 minuteErrorRate := fn.metricErrors(&MetricOptions{
@@ -319,7 +319,7 @@ Alarms can be created on metrics in one of two ways. Either create an `Alarm`
 object, passing the `Metric` object to set the alarm on:
 
 ```go
-var fn function
+var fn Function
 
 
 cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
@@ -332,7 +332,7 @@ cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
 Alternatively, you can call `metric.createAlarm()`:
 
 ```go
-var fn function
+var fn Function
 
 
 fn.metricErrors().CreateAlarm(this, jsii.String("Alarm"), &CreateAlarmOptions{
@@ -365,7 +365,7 @@ an SNS topic when an alarm breaches, do the following:
 
 ```go
 import cw_actions "github.com/aws/aws-cdk-go/awscdk"
-var alarm alarm
+var alarm Alarm
 
 
 topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -399,10 +399,10 @@ code to consume these notifications, be sure to handle both formats.
 can be created from existing Alarm resources.
 
 ```go
-var alarm1 alarm
-var alarm2 alarm
-var alarm3 alarm
-var alarm4 alarm
+var alarm1 Alarm
+var alarm2 Alarm
+var alarm3 Alarm
+var alarm4 Alarm
 
 
 alarmRule := cloudwatch.AlarmRule_AnyOf(cloudwatch.AlarmRule_AllOf(cloudwatch.AlarmRule_AnyOf(alarm1, cloudwatch.AlarmRule_FromAlarm(alarm2, cloudwatch.AlarmState_OK), alarm3), cloudwatch.AlarmRule_Not(cloudwatch.AlarmRule_FromAlarm(alarm4, cloudwatch.AlarmState_INSUFFICIENT_DATA))), cloudwatch.AlarmRule_FromBoolean(jsii.Boolean(false)))
@@ -417,11 +417,11 @@ cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &Comp
 If you want to disable actions of a Composite Alarm based on a certain condition, you can use [Actions Suppression](https://www.amazonaws.cn/en/new/2022/amazon-cloudwatch-supports-composite-alarm-actions-suppression/).
 
 ```go
-var alarm1 alarm
-var alarm2 alarm
-var onAlarmAction iAlarmAction
-var onOkAction iAlarmAction
-var actionsSuppressor alarm
+var alarm1 Alarm
+var alarm2 Alarm
+var onAlarmAction IAlarmAction
+var onOkAction IAlarmAction
+var actionsSuppressor Alarm
 
 
 alarmRule := cloudwatch.AlarmRule_AnyOf(alarm1, alarm2)
@@ -530,19 +530,19 @@ A graph widget can display any number of metrics on either the `left` or
 `right` vertical axis:
 
 ```go
-var dashboard dashboard
-var executionCountMetric metric
-var errorCountMetric metric
+var dashboard Dashboard
+var executionCountMetric Metric
+var errorCountMetric Metric
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 	Title: jsii.String("Executions vs error rate"),
 
-	Left: []iMetric{
+	Left: []IMetric{
 		executionCountMetric,
 	},
 
-	Right: []*iMetric{
+	Right: []IMetric{
 		errorCountMetric.With(&MetricOptions{
 			Statistic: cloudwatch.Stats_AVERAGE(),
 			Label: jsii.String("Error rate"),
@@ -557,26 +557,26 @@ Using the methods `addLeftMetric()` and `addRightMetric()` you can add metrics t
 Graph widgets can also display annotations attached to the left or right y-axis or the x-axis.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 	// ...
 
-	LeftAnnotations: []horizontalAnnotation{
-		&horizontalAnnotation{
+	LeftAnnotations: []HorizontalAnnotation{
+		&HorizontalAnnotation{
 			Value: jsii.Number(1800),
 			Label: awscdk.Duration_Minutes(jsii.Number(30)).ToHumanString(),
 			Color: cloudwatch.Color_RED(),
 		},
-		&horizontalAnnotation{
+		&HorizontalAnnotation{
 			Value: jsii.Number(3600),
 			Label: jsii.String("1 hour"),
 			Color: jsii.String("#2ca02c"),
 		},
 	},
-	VerticalAnnotations: []verticalAnnotation{
-		&verticalAnnotation{
+	VerticalAnnotations: []VerticalAnnotation{
+		&VerticalAnnotation{
 			Date: jsii.String("2022-10-19T00:00:00Z"),
 			Label: jsii.String("Deployment"),
 			Color: cloudwatch.Color_RED(),
@@ -588,7 +588,7 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 The graph legend can be adjusted from the default position at bottom of the widget.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
@@ -601,7 +601,7 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 The graph can publish live data within the last minute that has not been fully aggregated.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
@@ -614,7 +614,7 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 The graph view can be changed from default 'timeSeries' to 'bar' or 'pie'.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
@@ -627,7 +627,7 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 The `displayLabelsOnChart` property can be set to `true` to show labels on the chart. Note that this only has an effect when the `view` property is set to `cloudwatch.GraphWidgetView.PIE`.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
@@ -642,7 +642,7 @@ The `start` and `end` properties can be used to specify the time range for each 
 The parameters can be specified at `GraphWidget`, `GaugeWidget`, and `SingleValueWidget`.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
@@ -658,13 +658,13 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 A `TableWidget` can display any number of metrics in tabular form.
 
 ```go
-var dashboard dashboard
-var executionCountMetric metric
+var dashboard Dashboard
+var executionCountMetric Metric
 
 
 dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 	Title: jsii.String("Executions"),
-	Metrics: []iMetric{
+	Metrics: []IMetric{
 		executionCountMetric,
 	},
 }))
@@ -675,7 +675,7 @@ The default `cloudwatch.TableLayout.HORIZONTAL` means that metrics are shown in 
 `cloudwatch.TableLayout.VERTICAL` means that metrics are shown in columns and datapoints in rows.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
@@ -690,15 +690,15 @@ whether to make the summary columns sticky remaining in view while scrolling (`s
 and to optionally only present summary columns (`hideNonSummaryColumns` sub property).
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 	// ...
 
 	Summary: &TableSummaryProps{
-		Columns: []tableSummaryColumn{
-			cloudwatch.*tableSummaryColumn_AVERAGE,
+		Columns: []TableSummaryColumn{
+			cloudwatch.TableSummaryColumn_AVERAGE,
 		},
 		HideNonSummaryColumns: jsii.Boolean(true),
 		Sticky: jsii.Boolean(true),
@@ -709,16 +709,16 @@ dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 The `thresholds` property can be used to highlight cells with a color when the datapoint value falls within the threshold.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 	// ...
 
-	Thresholds: []tableThreshold{
-		cloudwatch.*tableThreshold_Above(jsii.Number(1000), cloudwatch.Color_RED()),
-		cloudwatch.*tableThreshold_Between(jsii.Number(500), jsii.Number(1000), cloudwatch.Color_ORANGE()),
-		cloudwatch.*tableThreshold_Below(jsii.Number(500), cloudwatch.Color_GREEN()),
+	Thresholds: []TableThreshold{
+		cloudwatch.TableThreshold_Above(jsii.Number(1000), cloudwatch.Color_RED()),
+		cloudwatch.TableThreshold_Between(jsii.Number(500), jsii.Number(1000), cloudwatch.Color_ORANGE()),
+		cloudwatch.TableThreshold_Below(jsii.Number(500), cloudwatch.Color_GREEN()),
 	},
 }))
 ```
@@ -726,7 +726,7 @@ dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 The `showUnitsInLabel` property can be used to display what unit is associated with a metric in the label column.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
@@ -739,7 +739,7 @@ dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 The `fullPrecision` property can be used to show as many digits as can fit in a cell, before rounding.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
@@ -754,13 +754,13 @@ dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
 Gauge graph requires the max and min value of the left Y axis, if no value is informed the limits will be from 0 to 100.
 
 ```go
-var dashboard dashboard
-var errorAlarm alarm
-var gaugeMetric metric
+var dashboard Dashboard
+var errorAlarm Alarm
+var gaugeMetric Metric
 
 
 dashboard.AddWidgets(cloudwatch.NewGaugeWidget(&GaugeWidgetProps{
-	Metrics: []iMetric{
+	Metrics: []IMetric{
 		gaugeMetric,
 	},
 	LeftYAxis: &YAxisProps{
@@ -775,8 +775,8 @@ dashboard.AddWidgets(cloudwatch.NewGaugeWidget(&GaugeWidgetProps{
 An alarm widget shows the graph and the alarm line of a single alarm:
 
 ```go
-var dashboard dashboard
-var errorAlarm alarm
+var dashboard Dashboard
+var errorAlarm Alarm
 
 
 dashboard.AddWidgets(cloudwatch.NewAlarmWidget(&AlarmWidgetProps{
@@ -791,13 +791,13 @@ A single-value widget shows the latest value of a set of metrics (as opposed
 to a graph of the value over time):
 
 ```go
-var dashboard dashboard
-var visitorCount metric
-var purchaseCount metric
+var dashboard Dashboard
+var visitorCount Metric
+var purchaseCount Metric
 
 
 dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
-	Metrics: []iMetric{
+	Metrics: []IMetric{
 		visitorCount,
 		purchaseCount,
 	},
@@ -807,11 +807,11 @@ dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
 Show as many digits as can fit, before rounding.
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
-	Metrics: []iMetric{
+	Metrics: []IMetric{
 	},
 
 	FullPrecision: jsii.Boolean(true),
@@ -821,11 +821,11 @@ dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
 Sparkline allows you to glance the trend of a metric by displaying a simplified linegraph below the value. You can't use `sparkline: true` together with `setPeriodToTimeRange: true`
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
-	Metrics: []iMetric{
+	Metrics: []IMetric{
 	},
 
 	Sparkline: jsii.Boolean(true),
@@ -835,11 +835,11 @@ dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
 Period allows you to set the default period for the widget:
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
-	Metrics: []iMetric{
+	Metrics: []IMetric{
 	},
 
 	Period: awscdk.Duration_Minutes(jsii.Number(15)),
@@ -852,7 +852,7 @@ A text widget shows an arbitrary piece of MarkDown. Use this to add explanations
 to your dashboard:
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
@@ -863,7 +863,7 @@ dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
 Optionally set the TextWidget background to be transparent
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewTextWidget(&TextWidgetProps{
@@ -878,13 +878,13 @@ An alarm status widget displays instantly the status of any type of alarms and g
 ability to aggregate one or more alarms together in a small surface.
 
 ```go
-var dashboard dashboard
-var errorAlarm alarm
+var dashboard Dashboard
+var errorAlarm Alarm
 
 
 dashboard.AddWidgets(
 cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-	Alarms: []iAlarm{
+	Alarms: []IAlarm{
 		errorAlarm,
 	},
 }))
@@ -893,18 +893,18 @@ cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
 An alarm status widget only showing firing alarms, sorted by state and timestamp:
 
 ```go
-var dashboard dashboard
-var errorAlarm alarm
+var dashboard Dashboard
+var errorAlarm Alarm
 
 
 dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
 	Title: jsii.String("Errors"),
-	Alarms: []iAlarm{
+	Alarms: []IAlarm{
 		errorAlarm,
 	},
 	SortBy: cloudwatch.AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,
-	States: []alarmState{
-		cloudwatch.*alarmState_ALARM,
+	States: []AlarmState{
+		cloudwatch.AlarmState_ALARM,
 	},
 }))
 ```
@@ -914,7 +914,7 @@ dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
 A `LogQueryWidget` shows the results of a query from Logs Insights:
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
@@ -933,7 +933,7 @@ dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
 Log Insights QL is the default query language. You may specify an [alternate query language: OpenSearch PPL or SQL](https://aws.amazon.com/blogs/aws/new-amazon-cloudwatch-and-amazon-opensearch-service-launch-an-integrated-analytics-experience/), if desired:
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
@@ -951,7 +951,7 @@ dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
 A `CustomWidget` shows the result of an AWS Lambda function:
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 // Import or create a lambda function
@@ -991,8 +991,8 @@ A column widget contains other widgets and they will be laid out in a
 vertical column. Widgets will be put one after another in order.
 
 ```go
-var widgetA iWidget
-var widgetB iWidget
+var widgetA IWidget
+var widgetB IWidget
 
 
 cloudwatch.NewColumn(widgetA, widgetB)
@@ -1009,8 +1009,8 @@ If the total width of the row exceeds the max width of the grid of 24
 columns, the row will wrap automatically and adapt its height.
 
 ```go
-var widgetA iWidget
-var widgetB iWidget
+var widgetA IWidget
+var widgetB IWidget
 
 
 cloudwatch.NewRow(widgetA, widgetB)
@@ -1056,7 +1056,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
-	Variables: []iVariable{
+	Variables: []IVariable{
 		cw.NewDashboardVariable(&DashboardVariableOptions{
 			Id: jsii.String("region"),
 			Type: cw.VariableType_PROPERTY,
@@ -1085,7 +1085,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
-	Variables: []iVariable{
+	Variables: []IVariable{
 		cw.NewDashboardVariable(&DashboardVariableOptions{
 			Id: jsii.String("region2"),
 			Type: cw.VariableType_PATTERN,
@@ -1109,7 +1109,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 dashboard := cw.NewDashboard(this, jsii.String("Dash"), &DashboardProps{
 	DefaultInterval: awscdk.Duration_Days(jsii.Number(7)),
-	Variables: []iVariable{
+	Variables: []IVariable{
 		cw.NewDashboardVariable(&DashboardVariableOptions{
 			Id: jsii.String("functionName"),
 			Type: cw.VariableType_PATTERN,
@@ -1149,7 +1149,7 @@ For detailed setup instructions, see [Cross-Account Cross-Region CloudWatch Cons
 To use this feature, you can set the `accountId` property on `LogQueryWidget`, `GraphWidget`, `AlarmWidget`, `SingleValueWidget`, and `GaugeWidget` constructs:
 
 ```go
-var dashboard dashboard
+var dashboard Dashboard
 
 
 dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{

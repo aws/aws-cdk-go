@@ -18,7 +18,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var service service
+//   var service Service
 //
 //   aliasTargetInstance := awscdk.Aws_servicediscovery.NewAliasTargetInstance(this, jsii.String("MyAliasTargetInstance"), &AliasTargetInstanceProps{
 //   	DnsName: jsii.String("dnsName"),

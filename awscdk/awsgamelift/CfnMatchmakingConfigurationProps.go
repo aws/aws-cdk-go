@@ -37,8 +37,8 @@ import (
 //   	},
 //   	NotificationTarget: jsii.String("notificationTarget"),
 //   	RuleSetArn: jsii.String("ruleSetArn"),
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

@@ -6,9 +6,9 @@ package awsecs
 // Example:
 //   import cw "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var elbAlarm alarm
+//   var cluster Cluster
+//   var taskDefinition TaskDefinition
+//   var elbAlarm Alarm
 //
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{

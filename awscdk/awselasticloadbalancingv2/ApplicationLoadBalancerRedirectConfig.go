@@ -4,7 +4,7 @@ package awselasticloadbalancingv2
 // Properties for a redirection config.
 //
 // Example:
-//   var lb applicationLoadBalancer
+//   var lb ApplicationLoadBalancer
 //
 //
 //   lb.AddRedirect(&ApplicationLoadBalancerRedirectConfig{

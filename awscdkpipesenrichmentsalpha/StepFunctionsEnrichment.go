@@ -13,10 +13,10 @@ import (
 // A StepFunctions enrichment for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   var sourceQueue Queue
+//   var targetQueue Queue
 //
-//   var enrichmentStateMachine stateMachine
+//   var enrichmentStateMachine StateMachine
 //
 //
 //   enrichment := enrichments.NewStepFunctionsEnrichment(enrichmentStateMachine)

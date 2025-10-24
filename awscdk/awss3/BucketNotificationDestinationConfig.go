@@ -12,14 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var dependable iDependable
+//   var dependable IDependable
 //
 //   bucketNotificationDestinationConfig := &BucketNotificationDestinationConfig{
 //   	Arn: jsii.String("arn"),
 //   	Type: awscdk.Aws_s3.BucketNotificationDestinationType_LAMBDA,
 //
 //   	// the properties below are optional
-//   	Dependencies: []*iDependable{
+//   	Dependencies: []IDependable{
 //   		dependable,
 //   	},
 //   }

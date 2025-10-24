@@ -7,10 +7,10 @@ package awscdkeks-v2alpha
 //   cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	// ...
 //   	Version: eks.KubernetesVersion_V1_33(),
-//   	ClusterLogging: []clusterLoggingTypes{
-//   		eks.*clusterLoggingTypes_API,
-//   		eks.*clusterLoggingTypes_AUTHENTICATOR,
-//   		eks.*clusterLoggingTypes_SCHEDULER,
+//   	ClusterLogging: []ClusterLoggingTypes{
+//   		eks.ClusterLoggingTypes_API,
+//   		eks.ClusterLoggingTypes_AUTHENTICATOR,
+//   		eks.ClusterLoggingTypes_SCHEDULER,
 //   	},
 //   })
 //

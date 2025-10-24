@@ -28,8 +28,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventBus eventBus
-//   var policyStatement policyStatement
+//   var eventBus EventBus
+//   var policyStatement PolicyStatement
 //
 //   eventBusPolicy := awscdk.Aws_events.NewEventBusPolicy(this, jsii.String("MyEventBusPolicy"), &EventBusPolicyProps{
 //   	EventBus: eventBus,

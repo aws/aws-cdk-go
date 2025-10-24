@@ -1,9 +1,9 @@
 package awselasticloadbalancingv2
 
 
-// Information for creating an action that distributes requests among one or more target groups.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when `Type` is `forward` .
 //
-// For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
+// If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

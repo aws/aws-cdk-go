@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var subscriptionFilter subscriptionFilter
+//   var subscriptionFilter SubscriptionFilter
 //
 //   filter := awscdk.Aws_sns.NewFilter(subscriptionFilter)
 //

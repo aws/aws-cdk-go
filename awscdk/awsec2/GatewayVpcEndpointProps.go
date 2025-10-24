@@ -19,7 +19,7 @@ package awsec2
 //   dynamoEndpoint := ec2.NewGatewayVpcEndpoint(this, jsii.String("DynamoEndpoint"), &GatewayVpcEndpointProps{
 //   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
 //   	Vpc: myVpc,
-//   	Subnets: []subnetSelection{
+//   	Subnets: []SubnetSelection{
 //   		subnet,
 //   	},
 //   })

@@ -20,8 +20,8 @@ import (
 //   	// the properties below are optional
 //   	DbParameterGroupName: jsii.String("dbParameterGroupName"),
 //   	Parameters: parameters,
-//   	Tags: []cfnTag{
-//   		&cfnTag{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},

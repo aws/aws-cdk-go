@@ -12,11 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var hostedZone hostedZone
+//   var hostedZone HostedZone
 //
 //   certificationValidationProps := &CertificationValidationProps{
 //   	HostedZone: hostedZone,
-//   	HostedZones: map[string]iHostedZone{
+//   	HostedZones: map[string]IHostedZone{
 //   		"hostedZonesKey": hostedZone,
 //   	},
 //   	Method: awscdk.Aws_certificatemanager.ValidationMethod_EMAIL,

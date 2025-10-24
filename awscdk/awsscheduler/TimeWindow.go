@@ -10,7 +10,7 @@ import (
 // A time window during which EventBridge Scheduler invokes the schedule.
 //
 // Example:
-//   var target lambdaInvoke
+//   var target LambdaInvoke
 //
 //
 //   schedule := awscdk.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
