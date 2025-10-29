@@ -2,6 +2,7 @@ package awsstepfunctions
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties for defining a State Machine.
@@ -62,7 +63,7 @@ type StateMachineProps struct {
 	// The execution role for the state machine service.
 	// Default: A role is automatically created.
 	//
-	Role interface{ awsiam.IRoleRef;awsiam.IGrantable } `field:"optional" json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// A name for the state machine.
 	// Default: A name is automatically generated.
 	//

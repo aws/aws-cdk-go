@@ -60,8 +60,6 @@ type StateMachine interface {
 	//   cross-environment scenarios.
 	PhysicalName() *string
 	// Execution role of this state machine.
-	//
-	// Will throw if the Role object that was given does not implement IRole.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
