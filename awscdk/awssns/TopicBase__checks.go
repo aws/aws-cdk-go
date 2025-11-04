@@ -13,9 +13,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (t *jsiiProxy_TopicBase) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
-	if topicSubscription == nil {
-		return fmt.Errorf("parameter topicSubscription is required, but nil was provided")
+func (t *jsiiProxy_TopicBase) validateAddSubscriptionParameters(subscription ITopicSubscription) error {
+	if subscription == nil {
+		return fmt.Errorf("parameter subscription is required, but nil was provided")
 	}
 
 	return nil
@@ -37,9 +37,9 @@ func (t *jsiiProxy_TopicBase) validateApplyRemovalPolicyParameters(policy awscdk
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateBindAsNotificationRuleTargetParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (t *jsiiProxy_TopicBase) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil
@@ -68,17 +68,17 @@ func (t *jsiiProxy_TopicBase) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateGrantPublishParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_TopicBase) validateGrantPublishParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateGrantSubscribeParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_TopicBase) validateGrantSubscribeParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil

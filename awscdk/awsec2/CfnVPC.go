@@ -87,6 +87,7 @@ type CfnVPC interface {
 	// Indicates whether the DNS resolution is supported for the VPC.
 	EnableDnsSupport() interface{}
 	SetEnableDnsSupport(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The allowed tenancy of instances launched into the VPC.
 	InstanceTenancy() *string
 	SetInstanceTenancy(val *string)
@@ -397,6 +398,16 @@ func (j *jsiiProxy_CfnVPC) EnableDnsSupport() interface{} {
 	_jsii_.Get(
 		j,
 		"enableDnsSupport",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

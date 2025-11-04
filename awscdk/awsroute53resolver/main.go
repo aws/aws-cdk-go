@@ -34,6 +34,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "domainFileUrl", GoGetter: "DomainFileUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "domains", GoGetter: "Domains"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallDomainListRef", GoGetter: "FirewallDomainListRef"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -96,6 +97,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupRef", GoGetter: "FirewallRuleGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRules", GoGetter: "FirewallRules"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -157,6 +159,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupAssociationRef", GoGetter: "FirewallRuleGroupAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupId", GoGetter: "FirewallRuleGroupId"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -225,6 +228,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -283,6 +287,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -335,6 +340,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -394,6 +400,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "direction", GoGetter: "Direction"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -466,6 +473,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "destinationArn", GoGetter: "DestinationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -518,6 +526,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -580,6 +589,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "delegationRecord", GoGetter: "DelegationRecord"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -639,6 +649,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -694,12 +705,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IFirewallDomainListRef",
 		reflect.TypeOf((*IFirewallDomainListRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallDomainListRef", GoGetter: "FirewallDomainListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFirewallDomainListRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -707,12 +720,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IFirewallRuleGroupAssociationRef",
 		reflect.TypeOf((*IFirewallRuleGroupAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupAssociationRef", GoGetter: "FirewallRuleGroupAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFirewallRuleGroupAssociationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -720,12 +735,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IFirewallRuleGroupRef",
 		reflect.TypeOf((*IFirewallRuleGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupRef", GoGetter: "FirewallRuleGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFirewallRuleGroupRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -733,12 +750,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IOutpostResolverRef",
 		reflect.TypeOf((*IOutpostResolverRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outpostResolverRef", GoGetter: "OutpostResolverRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOutpostResolverRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -746,12 +765,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverConfigRef",
 		reflect.TypeOf((*IResolverConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverConfigRef", GoGetter: "ResolverConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverConfigRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -759,12 +780,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverDNSSECConfigRef",
 		reflect.TypeOf((*IResolverDNSSECConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverDnssecConfigRef", GoGetter: "ResolverDnssecConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverDNSSECConfigRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -772,12 +795,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverEndpointRef",
 		reflect.TypeOf((*IResolverEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverEndpointRef", GoGetter: "ResolverEndpointRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverEndpointRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -785,12 +810,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverQueryLoggingConfigAssociationRef",
 		reflect.TypeOf((*IResolverQueryLoggingConfigAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverQueryLoggingConfigAssociationRef", GoGetter: "ResolverQueryLoggingConfigAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverQueryLoggingConfigAssociationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -798,12 +825,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverQueryLoggingConfigRef",
 		reflect.TypeOf((*IResolverQueryLoggingConfigRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverQueryLoggingConfigRef", GoGetter: "ResolverQueryLoggingConfigRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverQueryLoggingConfigRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -811,12 +840,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverRuleAssociationRef",
 		reflect.TypeOf((*IResolverRuleAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverRuleAssociationRef", GoGetter: "ResolverRuleAssociationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverRuleAssociationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -824,12 +855,14 @@ func init() {
 		"aws-cdk-lib.aws_route53resolver.IResolverRuleRef",
 		reflect.TypeOf((*IResolverRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "resolverRuleRef", GoGetter: "ResolverRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IResolverRuleRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

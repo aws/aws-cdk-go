@@ -30,6 +30,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customActionRef", GoGetter: "CustomActionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -95,6 +96,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configurationName", GoGetter: "ConfigurationName"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customizationResourceArns", GoGetter: "CustomizationResourceArns"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "guardrailPolicies", GoGetter: "GuardrailPolicies"},
@@ -158,6 +160,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configurationName", GoGetter: "ConfigurationName"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customizationResourceArns", GoGetter: "CustomizationResourceArns"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "guardrailPolicies", GoGetter: "GuardrailPolicies"},
@@ -208,11 +211,13 @@ func init() {
 		reflect.TypeOf((*ICustomActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "customActionRef", GoGetter: "CustomActionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ICustomActionRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -220,12 +225,14 @@ func init() {
 		"aws-cdk-lib.aws_chatbot.IMicrosoftTeamsChannelConfigurationRef",
 		reflect.TypeOf((*IMicrosoftTeamsChannelConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "microsoftTeamsChannelConfigurationRef", GoGetter: "MicrosoftTeamsChannelConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IMicrosoftTeamsChannelConfigurationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -257,12 +264,14 @@ func init() {
 		"aws-cdk-lib.aws_chatbot.ISlackChannelConfigurationRef",
 		reflect.TypeOf((*ISlackChannelConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationRef", GoGetter: "SlackChannelConfigurationRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISlackChannelConfigurationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

@@ -24,7 +24,7 @@ import (
 type S3ApiDefinition interface {
 	ApiDefinition
 	// Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct) *ApiDefinitionConfig
+	Bind(scope constructs.Construct) *ApiDefinitionConfig
 	// Called after the CFN RestApi resource has been created to allow the Api Definition to bind to it.
 	//
 	// Specifically it's required to allow assets to add
@@ -167,8 +167,8 @@ func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	return returns
 }
 
-func (s *jsiiProxy_S3ApiDefinition) Bind(_scope constructs.Construct) *ApiDefinitionConfig {
-	if err := s.validateBindParameters(_scope); err != nil {
+func (s *jsiiProxy_S3ApiDefinition) Bind(scope constructs.Construct) *ApiDefinitionConfig {
+	if err := s.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *ApiDefinitionConfig
@@ -176,7 +176,7 @@ func (s *jsiiProxy_S3ApiDefinition) Bind(_scope constructs.Construct) *ApiDefini
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

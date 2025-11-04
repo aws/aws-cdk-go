@@ -60,6 +60,7 @@ type CfnAlias interface {
 	// A description of the alias.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
@@ -308,6 +309,16 @@ func (j *jsiiProxy_CfnAlias) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlias) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

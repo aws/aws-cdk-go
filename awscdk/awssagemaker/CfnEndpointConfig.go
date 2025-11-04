@@ -227,6 +227,7 @@ type CfnEndpointConfig interface {
 	SetEndpointConfigName(val *string)
 	// A reference to a EndpointConfig resource.
 	EndpointConfigRef() *EndpointConfigReference
+	Env() *awscdk.ResourceEnvironment
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// A parameter to activate explainers.
@@ -522,6 +523,16 @@ func (j *jsiiProxy_CfnEndpointConfig) EndpointConfigRef() *EndpointConfigReferen
 	_jsii_.Get(
 		j,
 		"endpointConfigRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

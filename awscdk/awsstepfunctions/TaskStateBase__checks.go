@@ -191,9 +191,9 @@ func (t *jsiiProxy_TaskStateBase) validateMetricTimedOutParameters(props *awsclo
 	return nil
 }
 
-func (t *jsiiProxy_TaskStateBase) validateNextParameters(next IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (t *jsiiProxy_TaskStateBase) validateNextParameters(state IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

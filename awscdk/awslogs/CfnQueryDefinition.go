@@ -46,6 +46,7 @@ type CfnQueryDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Use this parameter if you want the query to query only certain log groups.
 	LogGroupNames() *[]*string
 	SetLogGroupNames(val *[]*string)
@@ -273,6 +274,16 @@ func (j *jsiiProxy_CfnQueryDefinition) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueryDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

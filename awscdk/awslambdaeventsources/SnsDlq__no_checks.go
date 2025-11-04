@@ -4,7 +4,7 @@ package awslambdaeventsources
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_SnsDlq) validateBindParameters(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) error {
+func (s *jsiiProxy_SnsDlq) validateBindParameters(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) error {
 	return nil
 }
 

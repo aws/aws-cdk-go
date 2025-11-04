@@ -21,7 +21,7 @@ import (
 type FileDefinitionBody interface {
 	DefinitionBody
 	Path() *string
-	Bind(scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps, _graph StateGraph) *DefinitionConfig
+	Bind(scope constructs.Construct, sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps, graph StateGraph) *DefinitionConfig
 }
 
 // The jsii proxy struct for FileDefinitionBody
@@ -121,8 +121,8 @@ func FileDefinitionBody_FromString(definition *string) DefinitionBody {
 	return returns
 }
 
-func (f *jsiiProxy_FileDefinitionBody) Bind(scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps, _graph StateGraph) *DefinitionConfig {
-	if err := f.validateBindParameters(scope, _sfnPrincipal, _sfnProps); err != nil {
+func (f *jsiiProxy_FileDefinitionBody) Bind(scope constructs.Construct, sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps, graph StateGraph) *DefinitionConfig {
+	if err := f.validateBindParameters(scope, sfnPrincipal, sfnProps); err != nil {
 		panic(err)
 	}
 	var returns *DefinitionConfig
@@ -130,7 +130,7 @@ func (f *jsiiProxy_FileDefinitionBody) Bind(scope constructs.Construct, _sfnPrin
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{scope, _sfnPrincipal, _sfnProps, _graph},
+		[]interface{}{scope, sfnPrincipal, sfnProps, graph},
 		&returns,
 	)
 

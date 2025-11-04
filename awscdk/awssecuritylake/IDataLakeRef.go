@@ -3,6 +3,7 @@ package awssecuritylake
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecuritylake/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDataLakeRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a DataLake resource.
 	// Experimental.
 	DataLakeRef() *DataLakeReference
@@ -19,6 +21,7 @@ type IDataLakeRef interface {
 // The jsii proxy for IDataLakeRef
 type jsiiProxy_IDataLakeRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDataLakeRef) DataLakeRef() *DataLakeReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDataLakeRef) DataLakeRef() *DataLakeReference {
 	_jsii_.Get(
 		j,
 		"dataLakeRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDataLakeRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDataLakeRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -35,6 +35,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "detectorId", GoGetter: "DetectorId"},
 			_jsii_.MemberProperty{JsiiProperty: "detectorRef", GoGetter: "DetectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "detectorVersionStatus", GoGetter: "DetectorVersionStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "eventType", GoGetter: "EventType"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -121,6 +122,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "entityTypeRef", GoGetter: "EntityTypeRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -177,6 +179,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "entityTypes", GoGetter: "EntityTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "eventTypeRef", GoGetter: "EventTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "eventVariables", GoGetter: "EventVariables"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -247,6 +250,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -304,6 +308,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "elements", GoGetter: "Elements"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -361,6 +366,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -420,6 +426,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataType", GoGetter: "DataType"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultValue", GoGetter: "DefaultValue"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -474,11 +481,13 @@ func init() {
 		reflect.TypeOf((*IDetectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "detectorRef", GoGetter: "DetectorRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IDetectorRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -487,11 +496,13 @@ func init() {
 		reflect.TypeOf((*IEntityTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "entityTypeRef", GoGetter: "EntityTypeRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IEntityTypeRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -499,12 +510,14 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IEventTypeRef",
 		reflect.TypeOf((*IEventTypeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "eventTypeRef", GoGetter: "EventTypeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IEventTypeRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -512,12 +525,14 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.ILabelRef",
 		reflect.TypeOf((*ILabelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "labelRef", GoGetter: "LabelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ILabelRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -525,12 +540,14 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IListRef",
 		reflect.TypeOf((*IListRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "listRef", GoGetter: "ListRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IListRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -538,12 +555,14 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IOutcomeRef",
 		reflect.TypeOf((*IOutcomeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outcomeRef", GoGetter: "OutcomeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOutcomeRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -551,12 +570,14 @@ func init() {
 		"aws-cdk-lib.aws_frauddetector.IVariableRef",
 		reflect.TypeOf((*IVariableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "variableRef", GoGetter: "VariableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVariableRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

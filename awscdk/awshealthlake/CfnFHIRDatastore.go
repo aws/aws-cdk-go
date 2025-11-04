@@ -88,6 +88,7 @@ type CfnFHIRDatastore interface {
 	// The FHIR release version supported by the data store.
 	DatastoreTypeVersion() *string
 	SetDatastoreTypeVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FHIRDatastore resource.
 	FhirDatastoreRef() *FHIRDatastoreReference
 	// The identity provider configuration selected when the data store was created.
@@ -398,6 +399,16 @@ func (j *jsiiProxy_CfnFHIRDatastore) DatastoreTypeVersion() *string {
 	_jsii_.Get(
 		j,
 		"datastoreTypeVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

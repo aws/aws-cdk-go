@@ -90,6 +90,7 @@ type CfnGlobalReplicationGroup interface {
 	// The Elasticache Valkey or Redis OSS engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The number of node groups that comprise the Global Datastore.
 	GlobalNodeGroupCount() *float64
 	SetGlobalNodeGroupCount(val *float64)
@@ -380,6 +381,16 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalReplicationGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

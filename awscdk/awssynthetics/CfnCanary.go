@@ -188,6 +188,7 @@ type CfnCanary interface {
 	// Specifies whether to perform a dry run before updating the canary.
 	DryRunAndUpdate() interface{}
 	SetDryRunAndUpdate(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the IAM role to be used to run the canary.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -537,6 +538,16 @@ func (j *jsiiProxy_CfnCanary) DryRunAndUpdate() interface{} {
 	_jsii_.Get(
 		j,
 		"dryRunAndUpdate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCanary) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

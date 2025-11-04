@@ -60,6 +60,7 @@ type CfnDeviceDefinitionVersion interface {
 	// The devices in this version.
 	Devices() interface{}
 	SetDevices(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -303,6 +304,16 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) Devices() interface{} {
 	_jsii_.Get(
 		j,
 		"devices",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeviceDefinitionVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

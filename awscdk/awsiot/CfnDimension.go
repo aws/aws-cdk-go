@@ -54,6 +54,7 @@ type CfnDimension interface {
 	CreationStack() *[]*string
 	// A reference to a Dimension resource.
 	DimensionRef() *DimensionReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -292,6 +293,16 @@ func (j *jsiiProxy_CfnDimension) DimensionRef() *DimensionReference {
 	_jsii_.Get(
 		j,
 		"dimensionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDimension) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

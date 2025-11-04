@@ -69,6 +69,7 @@ type CfnMultiRegionCluster interface {
 	// The version of the engine used by the multi-Region cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -366,6 +367,16 @@ func (j *jsiiProxy_CfnMultiRegionCluster) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMultiRegionCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

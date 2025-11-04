@@ -35,7 +35,7 @@ type EventField interface {
 	// the path to a field in the event pattern.
 	Path() *string
 	// Produce the Token's value at resolution time.
-	Resolve(_ctx awscdk.IResolveContext) interface{}
+	Resolve(context awscdk.IResolveContext) interface{}
 	// Convert the path to the field in the event pattern to JSON.
 	ToJSON() *string
 	// Return a string representation of this resolvable object.
@@ -165,8 +165,8 @@ func EventField_Time() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EventField) Resolve(_ctx awscdk.IResolveContext) interface{} {
-	if err := e.validateResolveParameters(_ctx); err != nil {
+func (e *jsiiProxy_EventField) Resolve(context awscdk.IResolveContext) interface{} {
+	if err := e.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -174,7 +174,7 @@ func (e *jsiiProxy_EventField) Resolve(_ctx awscdk.IResolveContext) interface{} 
 	_jsii_.Invoke(
 		e,
 		"resolve",
-		[]interface{}{_ctx},
+		[]interface{}{context},
 		&returns,
 	)
 

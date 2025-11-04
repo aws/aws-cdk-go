@@ -4,7 +4,7 @@ package awss3
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (b *jsiiProxy_BucketPolicy) validateApplyRemovalPolicyParameters(removalPolicy awscdk.RemovalPolicy) error {
+func (b *jsiiProxy_BucketPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
 

@@ -75,6 +75,7 @@ type CfnSecurityConfig interface {
 	// The description of the security configuration.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Describes IAM federation options in the form of a key-value map.
 	IamFederationOptions() interface{}
 	SetIamFederationOptions(val interface{})
@@ -345,6 +346,16 @@ func (j *jsiiProxy_CfnSecurityConfig) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

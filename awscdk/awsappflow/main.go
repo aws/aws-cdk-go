@@ -29,6 +29,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -88,6 +89,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connectorProfileRef", GoGetter: "ConnectorProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "connectorType", GoGetter: "ConnectorType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -315,6 +317,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "destinationFlowConfigList", GoGetter: "DestinationFlowConfigList"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flowName", GoGetter: "FlowName"},
 			_jsii_.MemberProperty{JsiiProperty: "flowRef", GoGetter: "FlowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "flowStatus", GoGetter: "FlowStatus"},
@@ -574,11 +577,13 @@ func init() {
 		reflect.TypeOf((*IConnectorProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "connectorProfileRef", GoGetter: "ConnectorProfileRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IConnectorProfileRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -587,11 +592,13 @@ func init() {
 		reflect.TypeOf((*IConnectorRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IConnectorRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -599,12 +606,14 @@ func init() {
 		"aws-cdk-lib.aws_appflow.IFlowRef",
 		reflect.TypeOf((*IFlowRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flowRef", GoGetter: "FlowRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFlowRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

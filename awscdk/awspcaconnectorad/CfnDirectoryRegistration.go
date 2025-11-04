@@ -50,6 +50,7 @@ type CfnDirectoryRegistration interface {
 	SetDirectoryId(val *string)
 	// A reference to a DirectoryRegistration resource.
 	DirectoryRegistrationRef() *DirectoryRegistrationReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -297,6 +298,16 @@ func (j *jsiiProxy_CfnDirectoryRegistration) DirectoryRegistrationRef() *Directo
 	_jsii_.Get(
 		j,
 		"directoryRegistrationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectoryRegistration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

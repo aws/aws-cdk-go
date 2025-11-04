@@ -75,6 +75,7 @@ type CfnRepository interface {
 	// The 12-digit account number of the AWS account that owns the domain that contains the repository.
 	DomainOwner() *string
 	SetDomainOwner(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An array of external connections associated with the repository.
 	ExternalConnections() *[]*string
 	SetExternalConnections(val *[]*string)
@@ -368,6 +369,16 @@ func (j *jsiiProxy_CfnRepository) DomainOwner() *string {
 	_jsii_.Get(
 		j,
 		"domainOwner",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepository) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -122,6 +122,7 @@ type CfnIndex interface {
 	// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 	Edition() *string
 	SetEdition(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Index resource.
 	IndexRef() *IndexReference
 	// The logical ID for this CloudFormation stack element.
@@ -408,6 +409,16 @@ func (j *jsiiProxy_CfnIndex) Edition() *string {
 	_jsii_.Get(
 		j,
 		"edition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIndex) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

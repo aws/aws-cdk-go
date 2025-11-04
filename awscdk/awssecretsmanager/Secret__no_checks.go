@@ -40,7 +40,7 @@ func (s *jsiiProxy_Secret) validateGrantWriteParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
-func (s *jsiiProxy_Secret) validateSecretValueFromJsonParameters(jsonField *string) error {
+func (s *jsiiProxy_Secret) validateSecretValueFromJsonParameters(key *string) error {
 	return nil
 }
 

@@ -64,6 +64,7 @@ type CfnEnvironmentTemplate interface {
 	// The customer provided encryption key for the environment template.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EnvironmentTemplate resource.
 	EnvironmentTemplateRef() *EnvironmentTemplateReference
 	// The logical ID for this CloudFormation stack element.
@@ -321,6 +322,16 @@ func (j *jsiiProxy_CfnEnvironmentTemplate) EncryptionKey() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

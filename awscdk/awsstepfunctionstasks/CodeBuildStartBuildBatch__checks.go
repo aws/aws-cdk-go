@@ -192,9 +192,9 @@ func (c *jsiiProxy_CodeBuildStartBuildBatch) validateMetricTimedOutParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CodeBuildStartBuildBatch) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (c *jsiiProxy_CodeBuildStartBuildBatch) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

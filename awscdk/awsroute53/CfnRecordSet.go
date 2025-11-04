@@ -91,6 +91,7 @@ type CfnRecordSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets.
 	Failover() *string
 	SetFailover(val *string)
@@ -380,6 +381,16 @@ func (j *jsiiProxy_CfnRecordSet) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

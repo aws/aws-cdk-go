@@ -92,6 +92,7 @@ type CfnConfigurationSet interface {
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions() interface{}
 	SetDeliveryOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -349,6 +350,16 @@ func (j *jsiiProxy_CfnConfigurationSet) DeliveryOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"deliveryOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

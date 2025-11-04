@@ -141,6 +141,7 @@ type CfnApi interface {
 	SetDomain(val interface{})
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	GatewayResponses() interface{}
 	SetGatewayResponses(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -517,6 +518,16 @@ func (j *jsiiProxy_CfnApi) EndpointConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"endpointConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApi) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -86,6 +86,7 @@ type CfnAgreement interface {
 	// Determines whether or not unsigned messages from your trading partners will be accepted.
 	EnforceMessageSigning() *string
 	SetEnforceMessageSigning(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A unique identifier for the AS2 local profile.
 	LocalProfileId() *string
 	SetLocalProfileId(val *string)
@@ -390,6 +391,16 @@ func (j *jsiiProxy_CfnAgreement) EnforceMessageSigning() *string {
 	_jsii_.Get(
 		j,
 		"enforceMessageSigning",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgreement) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

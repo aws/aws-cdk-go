@@ -75,6 +75,7 @@ type CfnMissionProfile interface {
 	// A list containing lists of config ARNs.
 	DataflowEdges() interface{}
 	SetDataflowEdges(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -361,6 +362,16 @@ func (j *jsiiProxy_CfnMissionProfile) DataflowEdges() interface{} {
 	_jsii_.Get(
 		j,
 		"dataflowEdges",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMissionProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

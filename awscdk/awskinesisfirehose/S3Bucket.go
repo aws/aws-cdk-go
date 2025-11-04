@@ -34,7 +34,7 @@ type S3Bucket interface {
 	// Binds this destination to the Amazon Data Firehose delivery stream.
 	//
 	// Implementers should use this method to bind resources to the stack and initialize values using the provided stream.
-	Bind(scope constructs.Construct, _options *DestinationBindOptions) *DestinationConfig
+	Bind(scope constructs.Construct, options *DestinationBindOptions) *DestinationConfig
 }
 
 // The jsii proxy struct for S3Bucket
@@ -69,8 +69,8 @@ func NewS3Bucket_Override(s S3Bucket, bucket awss3.IBucket, props *S3BucketProps
 	)
 }
 
-func (s *jsiiProxy_S3Bucket) Bind(scope constructs.Construct, _options *DestinationBindOptions) *DestinationConfig {
-	if err := s.validateBindParameters(scope, _options); err != nil {
+func (s *jsiiProxy_S3Bucket) Bind(scope constructs.Construct, options *DestinationBindOptions) *DestinationConfig {
+	if err := s.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *DestinationConfig
@@ -78,7 +78,7 @@ func (s *jsiiProxy_S3Bucket) Bind(scope constructs.Construct, _options *Destinat
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{scope, _options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

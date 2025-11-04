@@ -155,6 +155,7 @@ type CfnWorkspace interface {
 	// The user-defined description of the workspace.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the version of Grafana to support in the workspace.
 	GrafanaVersion() *string
 	SetGrafanaVersion(val *string)
@@ -526,6 +527,16 @@ func (j *jsiiProxy_CfnWorkspace) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkspace) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

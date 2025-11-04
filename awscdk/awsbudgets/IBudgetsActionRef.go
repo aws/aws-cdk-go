@@ -3,6 +3,7 @@ package awsbudgets
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbudgets/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IBudgetsActionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a BudgetsAction resource.
 	// Experimental.
 	BudgetsActionRef() *BudgetsActionReference
@@ -19,6 +21,7 @@ type IBudgetsActionRef interface {
 // The jsii proxy for IBudgetsActionRef
 type jsiiProxy_IBudgetsActionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IBudgetsActionRef) BudgetsActionRef() *BudgetsActionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IBudgetsActionRef) BudgetsActionRef() *BudgetsActionReference
 	_jsii_.Get(
 		j,
 		"budgetsActionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBudgetsActionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBudgetsActionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

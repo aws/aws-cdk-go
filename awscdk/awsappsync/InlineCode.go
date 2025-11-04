@@ -20,7 +20,7 @@ import (
 type InlineCode interface {
 	Code
 	// Bind source code to an AppSync Function or resolver.
-	Bind(_scope constructs.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 }
 
 // The jsii proxy struct for InlineCode
@@ -95,8 +95,8 @@ func InlineCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
-	if err := i.validateBindParameters(_scope); err != nil {
+func (i *jsiiProxy_InlineCode) Bind(scope constructs.Construct) *CodeConfig {
+	if err := i.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *CodeConfig
@@ -104,7 +104,7 @@ func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

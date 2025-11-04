@@ -118,6 +118,7 @@ type CfnNodegroup interface {
 	// The root device disk size (in GiB) for your node group instances.
 	DiskSize() *float64
 	SetDiskSize(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// Force the update if any `Pod` on the existing node group can't be drained due to a `Pod` disruption budget issue.
 	ForceUpdateEnabled() interface{}
 	SetForceUpdateEnabled(val interface{})
@@ -451,6 +452,16 @@ func (j *jsiiProxy_CfnNodegroup) DiskSize() *float64 {
 	_jsii_.Get(
 		j,
 		"diskSize",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNodegroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

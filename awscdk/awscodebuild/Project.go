@@ -40,12 +40,13 @@ type Project interface {
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
@@ -78,7 +79,7 @@ type Project interface {
 	//
 	AddSecondarySource(secondarySource ISource)
 	// Add a permission only if there's a policy attached.
-	AddToRolePolicy(statement awsiam.PolicyStatement)
+	AddToRolePolicy(policyStatement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -90,7 +91,7 @@ type Project interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns a source configuration for notification rule.
-	BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig
+	BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig
 	// A callback invoked when the given project is added to a CodePipeline.
 	BindToCodePipeline(_scope constructs.Construct, options *BindToCodePipelineOptions)
 	// Enable batch builds.
@@ -508,14 +509,14 @@ func (p *jsiiProxy_Project) AddSecondarySource(secondarySource ISource) {
 	)
 }
 
-func (p *jsiiProxy_Project) AddToRolePolicy(statement awsiam.PolicyStatement) {
-	if err := p.validateAddToRolePolicyParameters(statement); err != nil {
+func (p *jsiiProxy_Project) AddToRolePolicy(policyStatement awsiam.PolicyStatement) {
+	if err := p.validateAddToRolePolicyParameters(policyStatement); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		p,
 		"addToRolePolicy",
-		[]interface{}{statement},
+		[]interface{}{policyStatement},
 	)
 }
 
@@ -530,8 +531,8 @@ func (p *jsiiProxy_Project) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-func (p *jsiiProxy_Project) BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
-	if err := p.validateBindAsNotificationRuleSourceParameters(_scope); err != nil {
+func (p *jsiiProxy_Project) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
+	if err := p.validateBindAsNotificationRuleSourceParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
@@ -539,7 +540,7 @@ func (p *jsiiProxy_Project) BindAsNotificationRuleSource(_scope constructs.Const
 	_jsii_.Invoke(
 		p,
 		"bindAsNotificationRuleSource",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

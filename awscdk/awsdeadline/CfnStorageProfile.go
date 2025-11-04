@@ -51,6 +51,7 @@ type CfnStorageProfile interface {
 	// The display name of the storage profile summary to update.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -285,6 +286,16 @@ func (j *jsiiProxy_CfnStorageProfile) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStorageProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

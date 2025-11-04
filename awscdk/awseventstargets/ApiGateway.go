@@ -58,7 +58,7 @@ type ApiGateway interface {
 	// Returns a RuleTarget that can be used to trigger this API Gateway REST APIs as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 	//
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for ApiGateway
@@ -114,7 +114,7 @@ func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.IRestApi, props 
 	)
 }
 
-func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := a.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -123,7 +123,7 @@ func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevent
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

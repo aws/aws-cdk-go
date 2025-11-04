@@ -52,7 +52,7 @@ type CfnCondition interface {
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
 	// Synthesizes the condition.
-	Resolve(_context IResolveContext) interface{}
+	Resolve(context IResolveContext) interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -228,8 +228,8 @@ func (c *jsiiProxy_CfnCondition) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-func (c *jsiiProxy_CfnCondition) Resolve(_context IResolveContext) interface{} {
-	if err := c.validateResolveParameters(_context); err != nil {
+func (c *jsiiProxy_CfnCondition) Resolve(context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -237,7 +237,7 @@ func (c *jsiiProxy_CfnCondition) Resolve(_context IResolveContext) interface{} {
 	_jsii_.Invoke(
 		c,
 		"resolve",
-		[]interface{}{_context},
+		[]interface{}{context},
 		&returns,
 	)
 

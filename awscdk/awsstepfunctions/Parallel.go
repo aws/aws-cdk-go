@@ -128,7 +128,7 @@ type Parallel interface {
 	// Make the indicated state the default transition of this state.
 	MakeNext(next State)
 	// Continue normal execution with the given state.
-	Next(next IChainable) Chain
+	Next(state IChainable) Chain
 	// Render the assign in ASL JSON format.
 	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
@@ -150,7 +150,7 @@ type Parallel interface {
 	// Render error recovery options in ASL JSON format.
 	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{}
+	ToStateJson(stateMachineQueryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this state.
@@ -752,8 +752,8 @@ func (p *jsiiProxy_Parallel) MakeNext(next State) {
 	)
 }
 
-func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
-	if err := p.validateNextParameters(next); err != nil {
+func (p *jsiiProxy_Parallel) Next(state IChainable) Chain {
+	if err := p.validateNextParameters(state); err != nil {
 		panic(err)
 	}
 	var returns Chain
@@ -761,7 +761,7 @@ func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
 	_jsii_.Invoke(
 		p,
 		"next",
-		[]interface{}{next},
+		[]interface{}{state},
 		&returns,
 	)
 
@@ -898,13 +898,13 @@ func (p *jsiiProxy_Parallel) RenderRetryCatch(topLevelQueryLanguage QueryLanguag
 	return returns
 }
 
-func (p *jsiiProxy_Parallel) ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{} {
+func (p *jsiiProxy_Parallel) ToStateJson(stateMachineQueryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		p,
 		"toStateJson",
-		[]interface{}{topLevelQueryLanguage},
+		[]interface{}{stateMachineQueryLanguage},
 		&returns,
 	)
 

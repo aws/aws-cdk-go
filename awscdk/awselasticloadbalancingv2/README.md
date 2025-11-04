@@ -369,8 +369,6 @@ Balancers:
 ```go
 var vpc Vpc
 var asg AutoScalingGroup
-var sg1 ISecurityGroup
-var sg2 ISecurityGroup
 
 
 // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -378,11 +376,7 @@ var sg2 ISecurityGroup
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
-	SecurityGroups: []ISecurityGroup{
-		sg1,
-	},
 })
-lb.AddSecurityGroup(sg2)
 
 // Add a listener on a particular port.
 listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
@@ -396,6 +390,44 @@ listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
 		asg,
 	},
 })
+```
+
+### Security Groups for Network Load Balancer
+
+By default, Network Load Balancers (NLB) have a security group associated with them.
+This is controlled by the feature flag `@aws-cdk/aws-elasticloadbalancingv2:networkLoadBalancerWithSecurityGroupByDefault`.
+When this flag is enabled (the default for new projects), a security group will be automatically created and attached to the NLB unless you explicitly provide your own security groups via the `securityGroups` property.
+
+If you wish to create an NLB without any security groups, you can set the `disableSecurityGroups` property to `true`. When this property is set, no security group will be associated with the NLB, regardless of the feature flag.
+
+```go
+var vpc IVpc
+
+
+nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	// To disable security groups for this NLB
+	DisableSecurityGroups: jsii.Boolean(true),
+})
+```
+
+If you want to use your own security groups, provide them via the `securityGroups` property:
+
+```go
+var vpc IVpc
+var sg1 ISecurityGroup
+var sg2 ISecurityGroup
+
+
+nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	// Provide your own security groups
+	SecurityGroups: []ISecurityGroup{
+		sg1,
+	},
+})
+// Add another security group to the NLB
+nlb.AddSecurityGroup(sg2)
 ```
 
 ### Enforce security group inbound rules on PrivateLink traffic for a Network Load Balancer

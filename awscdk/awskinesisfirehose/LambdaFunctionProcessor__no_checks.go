@@ -4,7 +4,7 @@ package awskinesisfirehose
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (l *jsiiProxy_LambdaFunctionProcessor) validateBindParameters(_scope constructs.Construct, options *DataProcessorBindOptions) error {
+func (l *jsiiProxy_LambdaFunctionProcessor) validateBindParameters(scope constructs.Construct, options *DataProcessorBindOptions) error {
 	return nil
 }
 

@@ -118,6 +118,7 @@ type CfnDataSource interface {
 	ElasticsearchConfig() interface{}
 	// Deprecated: this property has been deprecated.
 	SetElasticsearchConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// An EventBridge configuration that contains a valid ARN of an event bus.
 	EventBridgeConfig() interface{}
 	SetEventBridgeConfig(val interface{})
@@ -418,6 +419,16 @@ func (j *jsiiProxy_CfnDataSource) ElasticsearchConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"elasticsearchConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

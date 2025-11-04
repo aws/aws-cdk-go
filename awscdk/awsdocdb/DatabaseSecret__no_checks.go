@@ -40,7 +40,7 @@ func (d *jsiiProxy_DatabaseSecret) validateGrantWriteParameters(grantee awsiam.I
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseSecret) validateSecretValueFromJsonParameters(jsonField *string) error {
+func (d *jsiiProxy_DatabaseSecret) validateSecretValueFromJsonParameters(key *string) error {
 	return nil
 }
 

@@ -105,6 +105,7 @@ type CfnFlywheel interface {
 	// Data security configuration.
 	DataSecurityConfig() interface{}
 	SetDataSecurityConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Name for the flywheel.
 	FlywheelName() *string
 	SetFlywheelName(val *string)
@@ -375,6 +376,16 @@ func (j *jsiiProxy_CfnFlywheel) DataSecurityConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"dataSecurityConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlywheel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

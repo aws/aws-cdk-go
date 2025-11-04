@@ -3,6 +3,7 @@ package awsrekognition
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrekognition/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IProjectRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Project resource.
 	// Experimental.
 	ProjectRef() *ProjectReference
@@ -19,6 +21,7 @@ type IProjectRef interface {
 // The jsii proxy for IProjectRef
 type jsiiProxy_IProjectRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IProjectRef) ProjectRef() *ProjectReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IProjectRef) ProjectRef() *ProjectReference {
 	_jsii_.Get(
 		j,
 		"projectRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProjectRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProjectRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

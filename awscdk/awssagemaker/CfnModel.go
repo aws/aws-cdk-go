@@ -140,6 +140,7 @@ type CfnModel interface {
 	// Isolates the model container.
 	EnableNetworkIsolation() interface{}
 	SetEnableNetworkIsolation(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -406,6 +407,16 @@ func (j *jsiiProxy_CfnModel) EnableNetworkIsolation() interface{} {
 	_jsii_.Get(
 		j,
 		"enableNetworkIsolation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

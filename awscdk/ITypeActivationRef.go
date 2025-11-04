@@ -11,6 +11,7 @@ import (
 // Experimental.
 type ITypeActivationRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a TypeActivation resource.
 	// Experimental.
 	TypeActivationRef() *TypeActivationReference
@@ -19,6 +20,7 @@ type ITypeActivationRef interface {
 // The jsii proxy for ITypeActivationRef
 type jsiiProxy_ITypeActivationRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_ITypeActivationRef) TypeActivationRef() *TypeActivationReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_ITypeActivationRef) TypeActivationRef() *TypeActivationRefere
 	_jsii_.Get(
 		j,
 		"typeActivationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITypeActivationRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITypeActivationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

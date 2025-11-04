@@ -65,6 +65,7 @@ type CfnAutomatedReasoningPolicyVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The hash of the policy definition that was last updated.
 	LastUpdatedDefinitionHash() *string
 	SetLastUpdatedDefinitionHash(val *string)
@@ -368,6 +369,16 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) CreationStack() *[]*strin
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutomatedReasoningPolicyVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

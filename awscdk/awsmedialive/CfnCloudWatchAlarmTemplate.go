@@ -80,6 +80,7 @@ type CfnCloudWatchAlarmTemplate interface {
 	// A resource's optional description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
@@ -424,6 +425,16 @@ func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCloudWatchAlarmTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

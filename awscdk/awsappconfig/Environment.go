@@ -50,12 +50,13 @@ type Environment interface {
 	Description() *string
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the environment.
 	EnvironmentArn() *string
@@ -122,7 +123,7 @@ type Environment interface {
 	// Permits an IAM principal to perform read operations on this environment's configurations.
 	//
 	// Actions: GetLatestConfiguration, StartConfigurationSession.
-	GrantReadConfig(identity awsiam.IGrantable) awsiam.Grant
+	GrantReadConfig(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the environment.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the environment.
@@ -575,8 +576,8 @@ func (e *jsiiProxy_Environment) Grant(grantee awsiam.IGrantable, actions ...*str
 	return returns
 }
 
-func (e *jsiiProxy_Environment) GrantReadConfig(identity awsiam.IGrantable) awsiam.Grant {
-	if err := e.validateGrantReadConfigParameters(identity); err != nil {
+func (e *jsiiProxy_Environment) GrantReadConfig(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := e.validateGrantReadConfigParameters(grantee); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -584,7 +585,7 @@ func (e *jsiiProxy_Environment) GrantReadConfig(identity awsiam.IGrantable) awsi
 	_jsii_.Invoke(
 		e,
 		"grantReadConfig",
-		[]interface{}{identity},
+		[]interface{}{grantee},
 		&returns,
 	)
 

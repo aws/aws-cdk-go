@@ -2010,6 +2010,18 @@ api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &SpecRestApiPro
 })
 ```
 
+`SpecRestApi` also supports binary media types, similar to `RestApi`:
+
+```go
+api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &SpecRestApiProps{
+	ApiDefinition: apigateway.ApiDefinition_FromAsset(jsii.String("path-to-file.json")),
+	BinaryMediaTypes: []*string{
+		jsii.String("image/png"),
+		jsii.String("application/pdf"),
+	},
+})
+```
+
 ### Endpoint configuration
 
 By default, `SpecRestApi` will create an edge optimized endpoint.

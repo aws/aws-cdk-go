@@ -43,6 +43,7 @@ type CfnVPCBlockPublicAccessOptions interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The desired VPC Block Public Access mode for internet gateways in your account.
 	InternetGatewayBlockMode() *string
 	SetInternetGatewayBlockMode(val *string)
@@ -271,6 +272,16 @@ func (j *jsiiProxy_CfnVPCBlockPublicAccessOptions) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCBlockPublicAccessOptions) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

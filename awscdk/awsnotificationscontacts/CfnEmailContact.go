@@ -69,6 +69,7 @@ type CfnEmailContact interface {
 	SetEmailAddress(val *string)
 	// A reference to a EmailContact resource.
 	EmailContactRef() *EmailContactReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -389,6 +390,16 @@ func (j *jsiiProxy_CfnEmailContact) EmailContactRef() *EmailContactReference {
 	_jsii_.Get(
 		j,
 		"emailContactRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailContact) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

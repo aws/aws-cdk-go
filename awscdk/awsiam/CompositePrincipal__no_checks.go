@@ -4,7 +4,7 @@ package awsiam
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CompositePrincipal) validateAddToAssumeRolePolicyParameters(doc PolicyDocument) error {
+func (c *jsiiProxy_CompositePrincipal) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
 	return nil
 }
 
@@ -12,7 +12,7 @@ func (c *jsiiProxy_CompositePrincipal) validateAddToPolicyParameters(statement P
 	return nil
 }
 
-func (c *jsiiProxy_CompositePrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
+func (c *jsiiProxy_CompositePrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }
 

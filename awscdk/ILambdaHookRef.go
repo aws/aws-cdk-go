@@ -11,6 +11,7 @@ import (
 // Experimental.
 type ILambdaHookRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a LambdaHook resource.
 	// Experimental.
 	LambdaHookRef() *LambdaHookReference
@@ -19,6 +20,7 @@ type ILambdaHookRef interface {
 // The jsii proxy for ILambdaHookRef
 type jsiiProxy_ILambdaHookRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_ILambdaHookRef) LambdaHookRef() *LambdaHookReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_ILambdaHookRef) LambdaHookRef() *LambdaHookReference {
 	_jsii_.Get(
 		j,
 		"lambdaHookRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILambdaHookRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILambdaHookRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

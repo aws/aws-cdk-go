@@ -8,7 +8,7 @@ func (s *jsiiProxy_StepFunctionInvokeAction) validateBindParameters(scope constr
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionInvokeAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (s *jsiiProxy_StepFunctionInvokeAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

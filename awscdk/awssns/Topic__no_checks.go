@@ -8,7 +8,7 @@ func (t *jsiiProxy_Topic) validateAddLoggingConfigParameters(config *LoggingConf
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
+func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(subscription ITopicSubscription) error {
 	return nil
 }
 
@@ -20,7 +20,7 @@ func (t *jsiiProxy_Topic) validateApplyRemovalPolicyParameters(policy awscdk.Rem
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateBindAsNotificationRuleTargetParameters(_scope constructs.Construct) error {
+func (t *jsiiProxy_Topic) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {
 	return nil
 }
 
@@ -32,11 +32,11 @@ func (t *jsiiProxy_Topic) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateGrantPublishParameters(grantee awsiam.IGrantable) error {
+func (t *jsiiProxy_Topic) validateGrantPublishParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateGrantSubscribeParameters(grantee awsiam.IGrantable) error {
+func (t *jsiiProxy_Topic) validateGrantSubscribeParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 

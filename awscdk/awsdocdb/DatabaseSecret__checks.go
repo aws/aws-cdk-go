@@ -99,9 +99,9 @@ func (d *jsiiProxy_DatabaseSecret) validateGrantWriteParameters(grantee awsiam.I
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseSecret) validateSecretValueFromJsonParameters(jsonField *string) error {
-	if jsonField == nil {
-		return fmt.Errorf("parameter jsonField is required, but nil was provided")
+func (d *jsiiProxy_DatabaseSecret) validateSecretValueFromJsonParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
 	}
 
 	return nil

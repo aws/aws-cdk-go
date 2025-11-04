@@ -91,6 +91,7 @@ type CfnComponent interface {
 	// Describes the contents of the component.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -448,6 +449,16 @@ func (j *jsiiProxy_CfnComponent) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

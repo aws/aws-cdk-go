@@ -46,7 +46,7 @@ type SamlPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -188,8 +188,8 @@ func (s *jsiiProxy_SamlPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	return returns
 }
 
-func (s *jsiiProxy_SamlPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := s.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (s *jsiiProxy_SamlPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -197,7 +197,7 @@ func (s *jsiiProxy_SamlPrincipal) AddToPrincipalPolicy(_statement PolicyStatemen
 	_jsii_.Invoke(
 		s,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

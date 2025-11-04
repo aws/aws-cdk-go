@@ -219,6 +219,7 @@ type CfnRule interface {
 	// The description of the rule.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name or ARN of the event bus associated with the rule.
 	EventBusName() *string
 	SetEventBusName(val *string)
@@ -479,6 +480,16 @@ func (j *jsiiProxy_CfnRule) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

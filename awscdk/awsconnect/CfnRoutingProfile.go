@@ -90,6 +90,7 @@ type CfnRoutingProfile interface {
 	// The description of the routing profile.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -364,6 +365,16 @@ func (j *jsiiProxy_CfnRoutingProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRoutingProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

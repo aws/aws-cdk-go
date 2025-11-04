@@ -62,6 +62,7 @@ type CfnWebACL interface {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -296,6 +297,16 @@ func (j *jsiiProxy_CfnWebACL) DefaultAction() interface{} {
 	_jsii_.Get(
 		j,
 		"defaultAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebACL) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -83,6 +83,7 @@ type CfnEnvironment interface {
 	// The version of the runtime engine.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Environment resource.
 	EnvironmentRef() *EnvironmentReference
 	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025.
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnEnvironment) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

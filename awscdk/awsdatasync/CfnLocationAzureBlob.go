@@ -104,6 +104,7 @@ type CfnLocationAzureBlob interface {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text.
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a LocationAzureBlob resource.
 	LocationAzureBlobRef() *LocationAzureBlobReference
 	// The logical ID for this CloudFormation stack element.
@@ -446,6 +447,16 @@ func (j *jsiiProxy_CfnLocationAzureBlob) CustomSecretConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"customSecretConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationAzureBlob) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

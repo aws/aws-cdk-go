@@ -113,6 +113,7 @@ type CfnServer interface {
 	// The major release version of the engine that you want to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the instance profile that your Amazon EC2 instances use.
 	InstanceProfileArn() *string
 	SetInstanceProfileArn(val *string)
@@ -488,6 +489,16 @@ func (j *jsiiProxy_CfnServer) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

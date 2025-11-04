@@ -73,6 +73,7 @@ type CfnDomainNameV2 interface {
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -359,6 +360,16 @@ func (j *jsiiProxy_CfnDomainNameV2) EndpointConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"endpointConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainNameV2) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

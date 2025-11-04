@@ -12,7 +12,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_InlineCode) validateBindParameters(scope constructs.Construct, handler *string, _family RuntimeFamily) error {
+func (i *jsiiProxy_InlineCode) validateBindParameters(scope constructs.Construct, handler *string, family RuntimeFamily) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -21,8 +21,8 @@ func (i *jsiiProxy_InlineCode) validateBindParameters(scope constructs.Construct
 		return fmt.Errorf("parameter handler is required, but nil was provided")
 	}
 
-	if _family == "" {
-		return fmt.Errorf("parameter _family is required, but nil was provided")
+	if family == "" {
+		return fmt.Errorf("parameter family is required, but nil was provided")
 	}
 
 	return nil

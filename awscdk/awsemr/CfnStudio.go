@@ -90,6 +90,7 @@ type CfnStudio interface {
 	// The ID of the Amazon EMR Studio Engine security group.
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the IAM Identity Center instance the Studio application belongs to.
 	IdcInstanceArn() *string
 	SetIdcInstanceArn(val *string)
@@ -414,6 +415,16 @@ func (j *jsiiProxy_CfnStudio) EngineSecurityGroupId() *string {
 	_jsii_.Get(
 		j,
 		"engineSecurityGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudio) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

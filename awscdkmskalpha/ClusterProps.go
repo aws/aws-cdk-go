@@ -35,6 +35,14 @@ type ClusterProps struct {
 	// Must have at least 2 subnets in two different AZs.
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// The broker type for the cluster.
+	//
+	// When set to EXPRESS, the cluster will be created with Express Brokers.
+	// When this is set to EXPRESS, instanceType must also be specified.
+	// Default: BrokerType.STANDARD
+	//
+	// Experimental.
+	BrokerType BrokerType `field:"optional" json:"brokerType" yaml:"brokerType"`
 	// Configuration properties for client authentication.
 	//
 	// MSK supports using private TLS certificates or SASL/SCRAM to authenticate the identity of clients.

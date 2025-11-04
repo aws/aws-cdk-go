@@ -117,6 +117,7 @@ type CfnMailManagerTrafficPolicy interface {
 	// Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements.
 	DefaultAction() *string
 	SetDefaultAction(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -375,6 +376,16 @@ func (j *jsiiProxy_CfnMailManagerTrafficPolicy) DefaultAction() *string {
 	_jsii_.Get(
 		j,
 		"defaultAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMailManagerTrafficPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

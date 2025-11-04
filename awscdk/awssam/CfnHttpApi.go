@@ -111,6 +111,7 @@ type CfnHttpApi interface {
 	SetDisableExecuteApiEndpoint(val interface{})
 	Domain() interface{}
 	SetDomain(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
 	// A reference to a HttpApi resource.
@@ -419,6 +420,16 @@ func (j *jsiiProxy_CfnHttpApi) Domain() interface{} {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHttpApi) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

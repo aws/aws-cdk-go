@@ -60,9 +60,9 @@ func (p *jsiiProxy_Pipeline) validateApplyRemovalPolicyParameters(policy awscdk.
 	return nil
 }
 
-func (p *jsiiProxy_Pipeline) validateBindAsNotificationRuleSourceParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (p *jsiiProxy_Pipeline) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

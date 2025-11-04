@@ -10,9 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (c *jsiiProxy_CloudFrontTarget) validateBindParameters(_record awsroute53.IRecordSet) error {
-	if _record == nil {
-		return fmt.Errorf("parameter _record is required, but nil was provided")
+func (c *jsiiProxy_CloudFrontTarget) validateBindParameters(record awsroute53.IRecordSet) error {
+	if record == nil {
+		return fmt.Errorf("parameter record is required, but nil was provided")
 	}
 
 	return nil

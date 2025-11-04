@@ -89,6 +89,7 @@ type CfnQueue interface {
 	// The time in seconds for which the delivery of all messages in the queue is delayed.
 	DelaySeconds() *float64
 	SetDelaySeconds(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// If set to true, creates a FIFO queue.
 	FifoQueue() interface{}
 	SetFifoQueue(val interface{})
@@ -396,6 +397,16 @@ func (j *jsiiProxy_CfnQueue) DelaySeconds() *float64 {
 	_jsii_.Get(
 		j,
 		"delaySeconds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

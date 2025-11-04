@@ -150,9 +150,9 @@ func (t *jsiiProxy_TriggerFunction) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_TriggerFunction) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
@@ -166,25 +166,25 @@ func (t *jsiiProxy_TriggerFunction) validateGrantInvokeCompositePrincipalParamet
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_TriggerFunction) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_TriggerFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version awslambda.IVersion) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_TriggerFunction) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version awslambda.IVersion) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	if version == nil {

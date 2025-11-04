@@ -11,15 +11,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (a *jsiiProxy_Application) validateAddAttributeGroupParameters(id *string, props *AttributeGroupAssociationProps) error {
+func (a *jsiiProxy_Application) validateAddAttributeGroupParameters(id *string, attributeGroupProps *AttributeGroupAssociationProps) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
+	if attributeGroupProps == nil {
+		return fmt.Errorf("parameter attributeGroupProps is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+	if err := _jsii_.ValidateStruct(attributeGroupProps, func() string { return "parameter attributeGroupProps" }); err != nil {
 		return err
 	}
 
@@ -34,9 +34,9 @@ func (a *jsiiProxy_Application) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateAssociateAllStacksInScopeParameters(scope constructs.Construct) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
+func (a *jsiiProxy_Application) validateAssociateAllStacksInScopeParameters(construct constructs.Construct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}
 
 	return nil

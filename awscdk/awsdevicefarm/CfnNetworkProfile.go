@@ -73,6 +73,7 @@ type CfnNetworkProfile interface {
 	// Proportion of received packets that fail to arrive from 0 to 100 percent.
 	DownlinkLossPercent() *float64
 	SetDownlinkLossPercent(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnNetworkProfile) DownlinkLossPercent() *float64 {
 	_jsii_.Get(
 		j,
 		"downlinkLossPercent",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

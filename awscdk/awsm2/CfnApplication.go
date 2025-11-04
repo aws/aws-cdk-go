@@ -68,6 +68,7 @@ type CfnApplication interface {
 	// The type of the target platform for this application.
 	EngineType() *string
 	SetEngineType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of a customer managed key.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -346,6 +347,16 @@ func (j *jsiiProxy_CfnApplication) EngineType() *string {
 	_jsii_.Get(
 		j,
 		"engineType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

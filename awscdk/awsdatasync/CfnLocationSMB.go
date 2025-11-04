@@ -99,6 +99,7 @@ type CfnLocationSMB interface {
 	// Specifies the Windows domain name that your SMB file server belongs to.
 	Domain() *string
 	SetDomain(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Base64 string representation of the Keytab file.
 	KerberosKeytab() *string
 	SetKerberosKeytab(val *string)
@@ -434,6 +435,16 @@ func (j *jsiiProxy_CfnLocationSMB) Domain() *string {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationSMB) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

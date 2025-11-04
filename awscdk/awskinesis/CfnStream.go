@@ -61,6 +61,7 @@ type CfnStream interface {
 	// A list of shard-level metrics in properties to enable enhanced monitoring mode.
 	DesiredShardLevelMetrics() *[]*string
 	SetDesiredShardLevelMetrics(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -307,6 +308,16 @@ func (j *jsiiProxy_CfnStream) DesiredShardLevelMetrics() *[]*string {
 	_jsii_.Get(
 		j,
 		"desiredShardLevelMetrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStream) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

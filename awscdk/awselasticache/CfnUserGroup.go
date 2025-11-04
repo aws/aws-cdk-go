@@ -57,6 +57,7 @@ type CfnUserGroup interface {
 	// The current supported values are valkey and redis.
 	Engine() *string
 	SetEngine(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -304,6 +305,16 @@ func (j *jsiiProxy_CfnUserGroup) Engine() *string {
 	_jsii_.Get(
 		j,
 		"engine",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

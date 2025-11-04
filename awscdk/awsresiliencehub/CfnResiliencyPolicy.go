@@ -57,6 +57,7 @@ type CfnResiliencyPolicy interface {
 	// Specifies a high-level geographical location constraint for where your resilience policy data can be stored.
 	DataLocationConstraint() *string
 	SetDataLocationConstraint(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -300,6 +301,16 @@ func (j *jsiiProxy_CfnResiliencyPolicy) DataLocationConstraint() *string {
 	_jsii_.Get(
 		j,
 		"dataLocationConstraint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResiliencyPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

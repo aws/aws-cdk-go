@@ -69,6 +69,7 @@ type CfnEndpoint interface {
 	SetCustomerOwnedIpv4Pool(val *string)
 	// A reference to a Endpoint resource.
 	EndpointRef() *EndpointReference
+	Env() *awscdk.ResourceEnvironment
 	// The failure reason, if any, for a create or delete endpoint operation.
 	FailedReason() interface{}
 	SetFailedReason(val interface{})
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
 	_jsii_.Get(
 		j,
 		"endpointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

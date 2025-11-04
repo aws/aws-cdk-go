@@ -57,6 +57,7 @@ type CfnBot interface {
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	ErrorLogSettings() interface{}
 	SetErrorLogSettings(val interface{})
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
@@ -369,6 +370,16 @@ func (j *jsiiProxy_CfnBot) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBot) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

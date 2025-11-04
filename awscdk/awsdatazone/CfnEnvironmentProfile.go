@@ -75,6 +75,7 @@ type CfnEnvironmentProfile interface {
 	// The identifier of the Amazon DataZone domain in which the environment profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of a blueprint with which an environment profile is created.
 	EnvironmentBlueprintIdentifier() *string
 	SetEnvironmentBlueprintIdentifier(val *string)
@@ -402,6 +403,16 @@ func (j *jsiiProxy_CfnEnvironmentProfile) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

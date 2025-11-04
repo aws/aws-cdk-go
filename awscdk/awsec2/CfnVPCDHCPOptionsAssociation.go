@@ -41,6 +41,7 @@ type CfnVPCDHCPOptionsAssociation interface {
 	// The ID of the DHCP options set, or `default` to associate no DHCP options with the VPC.
 	DhcpOptionsId() *string
 	SetDhcpOptionsId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -259,6 +260,16 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) DhcpOptionsId() *string {
 	_jsii_.Get(
 		j,
 		"dhcpOptionsId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

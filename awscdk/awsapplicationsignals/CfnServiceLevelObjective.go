@@ -282,6 +282,7 @@ type CfnServiceLevelObjective interface {
 	// An optional description for this SLO.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The time window to be excluded from the SLO performance metrics.
 	ExclusionWindows() interface{}
 	SetExclusionWindows(val interface{})
@@ -576,6 +577,16 @@ func (j *jsiiProxy_CfnServiceLevelObjective) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceLevelObjective) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

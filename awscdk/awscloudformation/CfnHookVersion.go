@@ -60,6 +60,7 @@ type CfnHookVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Hook permission.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -327,6 +328,16 @@ func (j *jsiiProxy_CfnHookVersion) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -64,6 +64,7 @@ type CfnChannel interface {
 	// The encoding configuration for the output content.
 	EncoderSettings() interface{}
 	SetEncoderSettings(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The list of input attachments for the channel.
 	InputAttachments() interface{}
 	SetInputAttachments(val interface{})
@@ -404,6 +405,16 @@ func (j *jsiiProxy_CfnChannel) EncoderSettings() interface{} {
 	_jsii_.Get(
 		j,
 		"encoderSettings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

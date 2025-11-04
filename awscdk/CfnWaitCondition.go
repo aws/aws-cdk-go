@@ -45,6 +45,7 @@ type CfnWaitCondition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *ResourceEnvironment
 	// A reference to the wait condition handle used to signal this wait condition.
 	Handle() *string
 	SetHandle(val *string)
@@ -286,6 +287,16 @@ func (j *jsiiProxy_CfnWaitCondition) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWaitCondition) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

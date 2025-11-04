@@ -108,6 +108,7 @@ type CfnLifecyclePolicy interface {
 	// Optional description for the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -365,6 +366,16 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

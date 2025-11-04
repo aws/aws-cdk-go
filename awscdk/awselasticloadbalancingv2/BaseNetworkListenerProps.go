@@ -9,8 +9,6 @@ import (
 // Example:
 //   var vpc Vpc
 //   var asg AutoScalingGroup
-//   var sg1 ISecurityGroup
-//   var sg2 ISecurityGroup
 //
 //
 //   // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -18,11 +16,7 @@ import (
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(true),
-//   	SecurityGroups: []ISecurityGroup{
-//   		sg1,
-//   	},
 //   })
-//   lb.AddSecurityGroup(sg2)
 //
 //   // Add a listener on a particular port.
 //   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{

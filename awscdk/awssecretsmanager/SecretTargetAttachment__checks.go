@@ -90,9 +90,9 @@ func (s *jsiiProxy_SecretTargetAttachment) validateGrantWriteParameters(grantee 
 	return nil
 }
 
-func (s *jsiiProxy_SecretTargetAttachment) validateSecretValueFromJsonParameters(jsonField *string) error {
-	if jsonField == nil {
-		return fmt.Errorf("parameter jsonField is required, but nil was provided")
+func (s *jsiiProxy_SecretTargetAttachment) validateSecretValueFromJsonParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
 	}
 
 	return nil

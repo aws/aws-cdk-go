@@ -3,6 +3,7 @@ package awsgreengrass
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDeviceDefinitionVersionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a DeviceDefinitionVersion resource.
 	// Experimental.
 	DeviceDefinitionVersionRef() *DeviceDefinitionVersionReference
@@ -19,6 +21,7 @@ type IDeviceDefinitionVersionRef interface {
 // The jsii proxy for IDeviceDefinitionVersionRef
 type jsiiProxy_IDeviceDefinitionVersionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDeviceDefinitionVersionRef) DeviceDefinitionVersionRef() *DeviceDefinitionVersionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDeviceDefinitionVersionRef) DeviceDefinitionVersionRef() *De
 	_jsii_.Get(
 		j,
 		"deviceDefinitionVersionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeviceDefinitionVersionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeviceDefinitionVersionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

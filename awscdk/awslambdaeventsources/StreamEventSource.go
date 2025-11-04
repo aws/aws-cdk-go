@@ -13,7 +13,7 @@ type StreamEventSource interface {
 	awslambda.IEventSource
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	Bind(_target awslambda.IFunction)
+	Bind(target awslambda.IFunction)
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
@@ -43,14 +43,14 @@ func NewStreamEventSource_Override(s StreamEventSource, props *StreamEventSource
 	)
 }
 
-func (s *jsiiProxy_StreamEventSource) Bind(_target awslambda.IFunction) {
-	if err := s.validateBindParameters(_target); err != nil {
+func (s *jsiiProxy_StreamEventSource) Bind(target awslambda.IFunction) {
+	if err := s.validateBindParameters(target); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",
-		[]interface{}{_target},
+		[]interface{}{target},
 	)
 }
 

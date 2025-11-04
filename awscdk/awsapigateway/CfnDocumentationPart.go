@@ -49,6 +49,7 @@ type CfnDocumentationPart interface {
 	CreationStack() *[]*string
 	// A reference to a DocumentationPart resource.
 	DocumentationPartRef() *DocumentationPartReference
+	Env() *awscdk.ResourceEnvironment
 	// The location of the targeted API entity of the to-be-created documentation part.
 	Location() interface{}
 	SetLocation(val interface{})
@@ -281,6 +282,16 @@ func (j *jsiiProxy_CfnDocumentationPart) DocumentationPartRef() *DocumentationPa
 	_jsii_.Get(
 		j,
 		"documentationPartRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDocumentationPart) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

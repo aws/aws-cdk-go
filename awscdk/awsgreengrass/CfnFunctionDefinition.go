@@ -104,6 +104,7 @@ type CfnFunctionDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FunctionDefinition resource.
 	FunctionDefinitionRef() *FunctionDefinitionReference
 	// The function definition version to include when the function definition is created.
@@ -361,6 +362,16 @@ func (j *jsiiProxy_CfnFunctionDefinition) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunctionDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

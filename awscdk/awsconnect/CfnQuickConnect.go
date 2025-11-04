@@ -71,6 +71,7 @@ type CfnQuickConnect interface {
 	// The description of the quick connect.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -321,6 +322,16 @@ func (j *jsiiProxy_CfnQuickConnect) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQuickConnect) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

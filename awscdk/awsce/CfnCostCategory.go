@@ -61,6 +61,7 @@ type CfnCostCategory interface {
 	// The default value for the cost category.
 	DefaultValue() *string
 	SetDefaultValue(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -330,6 +331,16 @@ func (j *jsiiProxy_CfnCostCategory) DefaultValue() *string {
 	_jsii_.Get(
 		j,
 		"defaultValue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCostCategory) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

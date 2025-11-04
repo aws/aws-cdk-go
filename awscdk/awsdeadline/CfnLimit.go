@@ -62,6 +62,7 @@ type CfnLimit interface {
 	// The name of the limit used in lists to identify the limit.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the farm that contains the limit.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -323,6 +324,16 @@ func (j *jsiiProxy_CfnLimit) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLimit) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

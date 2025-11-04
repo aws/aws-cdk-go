@@ -12,15 +12,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (v *jsiiProxy_VirtualGateway) validateAddGatewayRouteParameters(id *string, props *GatewayRouteBaseProps) error {
+func (v *jsiiProxy_VirtualGateway) validateAddGatewayRouteParameters(id *string, route *GatewayRouteBaseProps) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
+	if route == nil {
+		return fmt.Errorf("parameter route is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+	if err := _jsii_.ValidateStruct(route, func() string { return "parameter route" }); err != nil {
 		return err
 	}
 

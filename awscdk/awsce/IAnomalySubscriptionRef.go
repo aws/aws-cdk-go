@@ -3,6 +3,7 @@ package awsce
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsce/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IAnomalySubscriptionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a AnomalySubscription resource.
 	// Experimental.
 	AnomalySubscriptionRef() *AnomalySubscriptionReference
@@ -19,6 +21,7 @@ type IAnomalySubscriptionRef interface {
 // The jsii proxy for IAnomalySubscriptionRef
 type jsiiProxy_IAnomalySubscriptionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IAnomalySubscriptionRef) AnomalySubscriptionRef() *AnomalySubscriptionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IAnomalySubscriptionRef) AnomalySubscriptionRef() *AnomalySub
 	_jsii_.Get(
 		j,
 		"anomalySubscriptionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAnomalySubscriptionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAnomalySubscriptionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

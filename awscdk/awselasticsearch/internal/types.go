@@ -11,3 +11,4 @@ type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

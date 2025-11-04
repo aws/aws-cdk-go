@@ -76,6 +76,7 @@ type CfnJobTemplate interface {
 	// Optional.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Optional.
 	HopDestinations() interface{}
 	SetHopDestinations(val interface{})
@@ -365,6 +366,16 @@ func (j *jsiiProxy_CfnJobTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

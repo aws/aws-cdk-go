@@ -42,6 +42,7 @@ type CfnSecurityGroupVpcAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The association's security group ID.
 	GroupId() *string
 	SetGroupId(val *string)
@@ -283,6 +284,16 @@ func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityGroupVpcAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

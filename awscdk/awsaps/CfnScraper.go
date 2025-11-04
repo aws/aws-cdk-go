@@ -116,6 +116,7 @@ type CfnScraper interface {
 	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	Destination() interface{}
 	SetDestination(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -397,6 +398,16 @@ func (j *jsiiProxy_CfnScraper) Destination() interface{} {
 	_jsii_.Get(
 		j,
 		"destination",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScraper) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

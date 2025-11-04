@@ -82,6 +82,7 @@ type CfnRepository interface {
 	// The encryption configuration for the repository.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// > The `imageScanningConfiguration` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
@@ -351,6 +352,16 @@ func (j *jsiiProxy_CfnRepository) EncryptionConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepository) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

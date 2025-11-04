@@ -10,13 +10,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (h *jsiiProxy_HttpApiCall) validateAssertAtPathParameters(_path *string, _expected ExpectedResult) error {
-	if _path == nil {
-		return fmt.Errorf("parameter _path is required, but nil was provided")
+func (h *jsiiProxy_HttpApiCall) validateAssertAtPathParameters(path *string, expected ExpectedResult) error {
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
 	}
 
-	if _expected == nil {
-		return fmt.Errorf("parameter _expected is required, but nil was provided")
+	if expected == nil {
+		return fmt.Errorf("parameter expected is required, but nil was provided")
 	}
 
 	return nil

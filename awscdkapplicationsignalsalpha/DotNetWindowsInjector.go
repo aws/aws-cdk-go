@@ -50,7 +50,7 @@ type DotNetWindowsInjector interface {
 	InjectInitContainer(taskDefinition awsecs.TaskDefinition) awsecs.ContainerDefinition
 	// Override environment variables in the application container.
 	// Experimental.
-	OverrideAdditionalEnvironments(_envsToOverride *map[string]*string, _envsFromTaskDef *map[string]*string)
+	OverrideAdditionalEnvironments(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string)
 	// Render the application container for SDK instrumentation.
 	// Experimental.
 	RenderDefaultContainer(taskDefinition awsecs.TaskDefinition)
@@ -213,14 +213,14 @@ func (d *jsiiProxy_DotNetWindowsInjector) InjectInitContainer(taskDefinition aws
 	return returns
 }
 
-func (d *jsiiProxy_DotNetWindowsInjector) OverrideAdditionalEnvironments(_envsToOverride *map[string]*string, _envsFromTaskDef *map[string]*string) {
-	if err := d.validateOverrideAdditionalEnvironmentsParameters(_envsToOverride, _envsFromTaskDef); err != nil {
+func (d *jsiiProxy_DotNetWindowsInjector) OverrideAdditionalEnvironments(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string) {
+	if err := d.validateOverrideAdditionalEnvironmentsParameters(envsToOverride, envsFromTaskDef); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		d,
 		"overrideAdditionalEnvironments",
-		[]interface{}{_envsToOverride, _envsFromTaskDef},
+		[]interface{}{envsToOverride, envsFromTaskDef},
 	)
 }
 

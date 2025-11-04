@@ -209,6 +209,7 @@ type CfnBroker interface {
 	// The version of the broker engine.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The broker's instance type.
 	HostInstanceType() *string
 	SetHostInstanceType(val *string)
@@ -675,6 +676,16 @@ func (j *jsiiProxy_CfnBroker) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBroker) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

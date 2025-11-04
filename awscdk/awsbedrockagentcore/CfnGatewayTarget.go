@@ -151,6 +151,7 @@ type CfnGatewayTarget interface {
 	// The description for the gateway target.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The gateway ID for the gateway target.
 	GatewayIdentifier() *string
 	SetGatewayIdentifier(val *string)
@@ -445,6 +446,16 @@ func (j *jsiiProxy_CfnGatewayTarget) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGatewayTarget) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

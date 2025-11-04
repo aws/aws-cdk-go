@@ -57,7 +57,7 @@ type HttpApiCall interface {
 	//
 	// If you wanted to assert the value of `Body` you could do.
 	// Experimental.
-	AssertAtPath(_path *string, _expected ExpectedResult) IApiCall
+	AssertAtPath(path *string, expected ExpectedResult) IApiCall
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
 	// Experimental.
 	Expect(expected ExpectedResult) IApiCall
@@ -265,8 +265,8 @@ func HttpApiCall_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (h *jsiiProxy_HttpApiCall) AssertAtPath(_path *string, _expected ExpectedResult) IApiCall {
-	if err := h.validateAssertAtPathParameters(_path, _expected); err != nil {
+func (h *jsiiProxy_HttpApiCall) AssertAtPath(path *string, expected ExpectedResult) IApiCall {
+	if err := h.validateAssertAtPathParameters(path, expected); err != nil {
 		panic(err)
 	}
 	var returns IApiCall
@@ -274,7 +274,7 @@ func (h *jsiiProxy_HttpApiCall) AssertAtPath(_path *string, _expected ExpectedRe
 	_jsii_.Invoke(
 		h,
 		"assertAtPath",
-		[]interface{}{_path, _expected},
+		[]interface{}{path, expected},
 		&returns,
 	)
 

@@ -3,6 +3,7 @@ package awsgreengrass
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ILoggerDefinitionVersionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a LoggerDefinitionVersion resource.
 	// Experimental.
 	LoggerDefinitionVersionRef() *LoggerDefinitionVersionReference
@@ -19,6 +21,7 @@ type ILoggerDefinitionVersionRef interface {
 // The jsii proxy for ILoggerDefinitionVersionRef
 type jsiiProxy_ILoggerDefinitionVersionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ILoggerDefinitionVersionRef) LoggerDefinitionVersionRef() *LoggerDefinitionVersionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ILoggerDefinitionVersionRef) LoggerDefinitionVersionRef() *Lo
 	_jsii_.Get(
 		j,
 		"loggerDefinitionVersionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILoggerDefinitionVersionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILoggerDefinitionVersionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

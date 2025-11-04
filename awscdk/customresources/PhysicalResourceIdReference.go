@@ -41,7 +41,7 @@ type PhysicalResourceIdReference interface {
 	// to get this property populated, if it was skipped for performance reasons.
 	CreationStack() *[]*string
 	// Produce the Token's value at resolution time.
-	Resolve(_context awscdk.IResolveContext) interface{}
+	Resolve(context awscdk.IResolveContext) interface{}
 	// toJSON serialization to replace `PhysicalResourceIdReference` with a magic string.
 	ToJSON() *string
 	// Return a string representation of this resolvable object.
@@ -90,8 +90,8 @@ func NewPhysicalResourceIdReference_Override(p PhysicalResourceIdReference) {
 	)
 }
 
-func (p *jsiiProxy_PhysicalResourceIdReference) Resolve(_context awscdk.IResolveContext) interface{} {
-	if err := p.validateResolveParameters(_context); err != nil {
+func (p *jsiiProxy_PhysicalResourceIdReference) Resolve(context awscdk.IResolveContext) interface{} {
+	if err := p.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -99,7 +99,7 @@ func (p *jsiiProxy_PhysicalResourceIdReference) Resolve(_context awscdk.IResolve
 	_jsii_.Invoke(
 		p,
 		"resolve",
-		[]interface{}{_context},
+		[]interface{}{context},
 		&returns,
 	)
 

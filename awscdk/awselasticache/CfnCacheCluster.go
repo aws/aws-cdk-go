@@ -132,6 +132,7 @@ type CfnCacheCluster interface {
 	// The version number of the cache engine to be used for this cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
@@ -536,6 +537,16 @@ func (j *jsiiProxy_CfnCacheCluster) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCacheCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

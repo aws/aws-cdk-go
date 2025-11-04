@@ -85,6 +85,7 @@ type CfnCertificate interface {
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions() interface{}
 	SetDomainValidationOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
@@ -373,6 +374,16 @@ func (j *jsiiProxy_CfnCertificate) DomainValidationOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"domainValidationOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCertificate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

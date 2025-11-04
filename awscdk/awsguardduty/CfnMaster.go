@@ -44,6 +44,7 @@ type CfnMaster interface {
 	// The unique ID of the detector of the GuardDuty member account.
 	DetectorId() *string
 	SetDetectorId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the invitation that is sent to the account designated as a member account.
 	InvitationId() *string
 	SetInvitationId(val *string)
@@ -265,6 +266,16 @@ func (j *jsiiProxy_CfnMaster) DetectorId() *string {
 	_jsii_.Get(
 		j,
 		"detectorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

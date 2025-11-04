@@ -87,6 +87,7 @@ type CfnCustomPermissions interface {
 	SetCustomPermissionsName(val *string)
 	// A reference to a CustomPermissions resource.
 	CustomPermissionsRef() *CustomPermissionsReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -354,6 +355,16 @@ func (j *jsiiProxy_CfnCustomPermissions) CustomPermissionsRef() *CustomPermissio
 	_jsii_.Get(
 		j,
 		"customPermissionsRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomPermissions) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

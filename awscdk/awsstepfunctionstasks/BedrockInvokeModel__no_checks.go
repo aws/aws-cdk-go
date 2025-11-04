@@ -84,7 +84,7 @@ func (b *jsiiProxy_BedrockInvokeModel) validateMetricTimedOutParameters(props *a
 	return nil
 }
 
-func (b *jsiiProxy_BedrockInvokeModel) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (b *jsiiProxy_BedrockInvokeModel) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

@@ -22,9 +22,9 @@ func (w *jsiiProxy_WebIdentityPrincipal) validateAddToPolicyParameters(statement
 	return nil
 }
 
-func (w *jsiiProxy_WebIdentityPrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
-	if _statement == nil {
-		return fmt.Errorf("parameter _statement is required, but nil was provided")
+func (w *jsiiProxy_WebIdentityPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
 	}
 
 	return nil

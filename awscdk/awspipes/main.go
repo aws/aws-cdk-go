@@ -32,6 +32,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "desiredState", GoGetter: "DesiredState"},
 			_jsii_.MemberProperty{JsiiProperty: "enrichment", GoGetter: "Enrichment"},
 			_jsii_.MemberProperty{JsiiProperty: "enrichmentParameters", GoGetter: "EnrichmentParameters"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -307,12 +308,14 @@ func init() {
 		"aws-cdk-lib.aws_pipes.IPipeRef",
 		reflect.TypeOf((*IPipeRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "pipeRef", GoGetter: "PipeRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPipeRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

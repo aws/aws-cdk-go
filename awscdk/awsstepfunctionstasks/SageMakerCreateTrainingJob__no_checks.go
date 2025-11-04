@@ -88,7 +88,7 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) validateMetricTimedOutParameters(
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerCreateTrainingJob) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (s *jsiiProxy_SageMakerCreateTrainingJob) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

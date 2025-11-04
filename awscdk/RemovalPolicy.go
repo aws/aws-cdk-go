@@ -28,25 +28,41 @@ package awscdk
 // ```.
 //
 // Example:
-//   var myRole Role
+//   bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
+//   	BucketName: jsii.String("test-memory"),
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	AutoDeleteObjects: jsii.Boolean(true),
+//   })
 //
-//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
-//   	Role: myRole,
-//   	 // must be assumable by the `lambda.amazonaws.com` service principal
-//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	 // defaults to 2 minutes
-//   	MemorySize: jsii.Number(1025),
-//   	 // defaults to 512 if installLatestAwsSdk is true
-//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
-//   		Retention: logs.RetentionDays_ONE_DAY,
-//   	}),
-//   	FunctionName: jsii.String("my-custom-name"),
-//   	 // defaults to a CloudFormation generated name
-//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
-//   	 // defaults to `RemovalPolicy.DESTROY`
-//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
-//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
-//   	}),
+//   topic := sns.NewTopic(this, jsii.String("topic"))
+//
+//   // Create a custom semantic memory strategy
+//   selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
+//   	Name: jsii.String("selfManagedStrategy"),
+//   	Description: jsii.String("self managed memory strategy"),
+//   	HistoricalContextWindowSize: jsii.Number(5),
+//   	InvocationConfiguration: &InvocationConfiguration{
+//   		Topic: topic,
+//   		S3Location: &Location{
+//   			BucketName: bucket.BucketName,
+//   			ObjectKey: jsii.String("memory/"),
+//   		},
+//   	},
+//   	TriggerConditions: &TriggerConditions{
+//   		MessageBasedTrigger: jsii.Number(1),
+//   		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
+//   		TokenBasedTrigger: jsii.Number(100),
+//   	},
+//   })
+//
+//   // Create memory with custom strategy
+//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+//   	MemoryName: jsii.String("my-custom-memory"),
+//   	Description: jsii.String("Memory with custom strategy"),
+//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+//   	MemoryStrategies: []IMemoryStrategy{
+//   		selfManagedStrategy,
+//   	},
 //   })
 //
 type RemovalPolicy string

@@ -3,6 +3,7 @@ package awsmedialive
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IChannelPlacementGroupRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ChannelPlacementGroup resource.
 	// Experimental.
 	ChannelPlacementGroupRef() *ChannelPlacementGroupReference
@@ -19,6 +21,7 @@ type IChannelPlacementGroupRef interface {
 // The jsii proxy for IChannelPlacementGroupRef
 type jsiiProxy_IChannelPlacementGroupRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IChannelPlacementGroupRef) ChannelPlacementGroupRef() *ChannelPlacementGroupReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IChannelPlacementGroupRef) ChannelPlacementGroupRef() *Channe
 	_jsii_.Get(
 		j,
 		"channelPlacementGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IChannelPlacementGroupRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IChannelPlacementGroupRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

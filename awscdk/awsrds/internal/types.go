@@ -15,3 +15,4 @@ type Type__awssecretsmanagerISecretAttachmentTarget = awssecretsmanager.ISecretA
 type Type__awssecretsmanagerSecret = awssecretsmanager.Secret
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

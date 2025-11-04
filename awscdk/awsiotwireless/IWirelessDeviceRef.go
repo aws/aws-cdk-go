@@ -3,6 +3,7 @@ package awsiotwireless
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IWirelessDeviceRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a WirelessDevice resource.
 	// Experimental.
 	WirelessDeviceRef() *WirelessDeviceReference
@@ -19,6 +21,7 @@ type IWirelessDeviceRef interface {
 // The jsii proxy for IWirelessDeviceRef
 type jsiiProxy_IWirelessDeviceRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IWirelessDeviceRef) WirelessDeviceRef() *WirelessDeviceReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IWirelessDeviceRef) WirelessDeviceRef() *WirelessDeviceRefere
 	_jsii_.Get(
 		j,
 		"wirelessDeviceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWirelessDeviceRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWirelessDeviceRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

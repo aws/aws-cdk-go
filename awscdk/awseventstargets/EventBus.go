@@ -22,7 +22,7 @@ type EventBus interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for EventBus
@@ -57,7 +57,7 @@ func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *Event
 	)
 }
 
-func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := e.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -66,7 +66,7 @@ func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, _id *string) *awsevents.
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

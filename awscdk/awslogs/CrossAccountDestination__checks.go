@@ -28,13 +28,13 @@ func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
-func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(_scope constructs.Construct, _sourceLogGroup ILogGroup) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup ILogGroup) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _sourceLogGroup == nil {
-		return fmt.Errorf("parameter _sourceLogGroup is required, but nil was provided")
+	if sourceLogGroup == nil {
+		return fmt.Errorf("parameter sourceLogGroup is required, but nil was provided")
 	}
 
 	return nil

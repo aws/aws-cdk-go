@@ -8,16 +8,21 @@ import (
 // An IAM principal that represents an AWS service (i.e. `sqs.amazonaws.com`).
 //
 // Example:
-//   var definition IChainable
-//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
-//   })
-//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
+//   	Description: jsii.String("Example role..."),
 //   })
 //
-//   // Give role permission to get execution history of ALL executions for the state machine
-//   stateMachine.grantExecution(role, jsii.String("states:GetExecutionHistory"))
+//   stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
+//   	Encryption: kinesis.StreamEncryption_KMS,
+//   })
+//   streamConsumer := kinesis.NewStreamConsumer(this, jsii.String("MyStreamConsumer"), &StreamConsumerProps{
+//   	StreamConsumerName: jsii.String("MyStreamConsumer"),
+//   	Stream: Stream,
+//   })
+//
+//   // give lambda permissions to read stream via the stream consumer
+//   streamConsumer.grantRead(lambdaRole)
 //
 type ServicePrincipal interface {
 	PrincipalBase
@@ -44,7 +49,7 @@ type ServicePrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -240,8 +245,8 @@ func (s *jsiiProxy_ServicePrincipal) AddToPolicy(statement PolicyStatement) *boo
 	return returns
 }
 
-func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := s.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -249,7 +254,7 @@ func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(_statement PolicyState
 	_jsii_.Invoke(
 		s,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

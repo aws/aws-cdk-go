@@ -12,7 +12,7 @@ func (s *jsiiProxy_SageMakerStartPipelineExecution) validateBindParameters(sched
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerStartPipelineExecution) validateBindBaseTargetConfigParameters(schedule awsscheduler.ISchedule) error {
+func (s *jsiiProxy_SageMakerStartPipelineExecution) validateBindBaseTargetConfigParameters(_schedule awsscheduler.ISchedule) error {
 	return nil
 }
 

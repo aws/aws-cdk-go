@@ -94,6 +94,7 @@ type CfnGroup interface {
 	// The description of the resource group.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Group resource.
 	GroupRef() *GroupReference
 	// The logical ID for this CloudFormation stack element.
@@ -344,6 +345,16 @@ func (j *jsiiProxy_CfnGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

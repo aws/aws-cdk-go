@@ -181,6 +181,7 @@ type CfnEventSourceMapping interface {
 	// When false, Lambda pauses polling and invocation.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the event source.
 	EventSourceArn() *string
 	SetEventSourceArn(val *string)
@@ -542,6 +543,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

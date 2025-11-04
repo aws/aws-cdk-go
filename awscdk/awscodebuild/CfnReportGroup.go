@@ -69,6 +69,7 @@ type CfnReportGroup interface {
 	// When deleting a report group, specifies if reports within the report group should be deleted.
 	DeleteReports() interface{}
 	SetDeleteReports(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Information about the destination where the raw data of this `ReportGroup` is exported.
 	ExportConfig() interface{}
 	SetExportConfig(val interface{})
@@ -321,6 +322,16 @@ func (j *jsiiProxy_CfnReportGroup) DeleteReports() interface{} {
 	_jsii_.Get(
 		j,
 		"deleteReports",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReportGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

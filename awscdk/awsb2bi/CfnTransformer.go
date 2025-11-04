@@ -182,6 +182,7 @@ type CfnTransformer interface {
 	EdiType() interface{}
 	// Deprecated: this property has been deprecated.
 	SetEdiType(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Deprecated: this property has been deprecated.
 	FileFormat() *string
 	// Deprecated: this property has been deprecated.
@@ -483,6 +484,16 @@ func (j *jsiiProxy_CfnTransformer) EdiType() interface{} {
 	_jsii_.Get(
 		j,
 		"ediType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransformer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

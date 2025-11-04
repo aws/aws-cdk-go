@@ -192,9 +192,9 @@ func (d *jsiiProxy_DynamoUpdateItem) validateMetricTimedOutParameters(props *aws
 	return nil
 }
 
-func (d *jsiiProxy_DynamoUpdateItem) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (d *jsiiProxy_DynamoUpdateItem) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

@@ -165,6 +165,7 @@ type CfnWorkgroup interface {
 	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting() interface{}
 	SetEnhancedVpcRouting(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -638,6 +639,16 @@ func (j *jsiiProxy_CfnWorkgroup) EnhancedVpcRouting() interface{} {
 	_jsii_.Get(
 		j,
 		"enhancedVpcRouting",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkgroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

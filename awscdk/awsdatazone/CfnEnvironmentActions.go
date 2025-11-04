@@ -58,6 +58,7 @@ type CfnEnvironmentActions interface {
 	// The Amazon DataZone domain ID of the environment action.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EnvironmentActions resource.
 	EnvironmentActionsRef() *EnvironmentActionsReference
 	// The environment ID of the environment action.
@@ -325,6 +326,16 @@ func (j *jsiiProxy_CfnEnvironmentActions) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentActions) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

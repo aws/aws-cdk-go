@@ -40,12 +40,13 @@ type Role interface {
 	AssumeRolePolicy() PolicyDocument
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
@@ -114,9 +115,9 @@ type Role interface {
 	// Grant the actions defined in actions to the identity Principal on this resource.
 	Grant(grantee IPrincipal, actions ...*string) Grant
 	// Grant permissions to the given principal to assume this role.
-	GrantAssumeRole(identity IPrincipal) Grant
+	GrantAssumeRole(grantee IPrincipal) Grant
 	// Grant permissions to the given principal to pass this role.
-	GrantPassRole(identity IPrincipal) Grant
+	GrantPassRole(grantee IPrincipal) Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Return a copy of this Role object whose Policies will not be updated.
@@ -642,8 +643,8 @@ func (r *jsiiProxy_Role) Grant(grantee IPrincipal, actions ...*string) Grant {
 	return returns
 }
 
-func (r *jsiiProxy_Role) GrantAssumeRole(identity IPrincipal) Grant {
-	if err := r.validateGrantAssumeRoleParameters(identity); err != nil {
+func (r *jsiiProxy_Role) GrantAssumeRole(grantee IPrincipal) Grant {
+	if err := r.validateGrantAssumeRoleParameters(grantee); err != nil {
 		panic(err)
 	}
 	var returns Grant
@@ -651,15 +652,15 @@ func (r *jsiiProxy_Role) GrantAssumeRole(identity IPrincipal) Grant {
 	_jsii_.Invoke(
 		r,
 		"grantAssumeRole",
-		[]interface{}{identity},
+		[]interface{}{grantee},
 		&returns,
 	)
 
 	return returns
 }
 
-func (r *jsiiProxy_Role) GrantPassRole(identity IPrincipal) Grant {
-	if err := r.validateGrantPassRoleParameters(identity); err != nil {
+func (r *jsiiProxy_Role) GrantPassRole(grantee IPrincipal) Grant {
+	if err := r.validateGrantPassRoleParameters(grantee); err != nil {
 		panic(err)
 	}
 	var returns Grant
@@ -667,7 +668,7 @@ func (r *jsiiProxy_Role) GrantPassRole(identity IPrincipal) Grant {
 	_jsii_.Invoke(
 		r,
 		"grantPassRole",
-		[]interface{}{identity},
+		[]interface{}{grantee},
 		&returns,
 	)
 

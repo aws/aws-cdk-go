@@ -39,12 +39,13 @@ type Resource interface {
 	DefaultMethodOptions() *MethodOptions
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
@@ -76,7 +77,7 @@ type Resource interface {
 	// own.
 	AddCorsPreflight(options *CorsOptions) Method
 	// Defines a new method for this resource.
-	AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method
+	AddMethod(httpMethod *string, target Integration, options *MethodOptions) Method
 	// Adds a greedy proxy resource ("{proxy+}") and an ANY method to this route.
 	AddProxy(options *ProxyResourceOptions) ProxyResource
 	// Defines a new child resource where this resource is the parent.
@@ -388,7 +389,7 @@ func (r *jsiiProxy_Resource) AddCorsPreflight(options *CorsOptions) Method {
 	return returns
 }
 
-func (r *jsiiProxy_Resource) AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method {
+func (r *jsiiProxy_Resource) AddMethod(httpMethod *string, target Integration, options *MethodOptions) Method {
 	if err := r.validateAddMethodParameters(httpMethod, options); err != nil {
 		panic(err)
 	}
@@ -397,7 +398,7 @@ func (r *jsiiProxy_Resource) AddMethod(httpMethod *string, integration Integrati
 	_jsii_.Invoke(
 		r,
 		"addMethod",
-		[]interface{}{httpMethod, integration, options},
+		[]interface{}{httpMethod, target, options},
 		&returns,
 	)
 

@@ -92,6 +92,7 @@ type CfnVerifiedAccessTrustProvider interface {
 	// The type of device-based trust provider.
 	DeviceTrustProviderType() *string
 	SetDeviceTrustProviderType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -381,6 +382,16 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) DeviceTrustProviderType() *st
 	_jsii_.Get(
 		j,
 		"deviceTrustProviderType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

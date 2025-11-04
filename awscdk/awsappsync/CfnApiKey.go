@@ -53,6 +53,7 @@ type CfnApiKey interface {
 	// Unique description of your API key.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The time after which the API key expires.
 	Expires() *float64
 	SetExpires(val *float64)
@@ -319,6 +320,16 @@ func (j *jsiiProxy_CfnApiKey) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApiKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -12,7 +12,7 @@ func (p *jsiiProxy_PrincipalWithConditions) validateAddConditionsParameters(cond
 	return nil
 }
 
-func (p *jsiiProxy_PrincipalWithConditions) validateAddToAssumeRolePolicyParameters(doc PolicyDocument) error {
+func (p *jsiiProxy_PrincipalWithConditions) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
 	return nil
 }
 

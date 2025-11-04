@@ -3,6 +3,7 @@ package awss3
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IMultiRegionAccessPointRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a MultiRegionAccessPoint resource.
 	// Experimental.
 	MultiRegionAccessPointRef() *MultiRegionAccessPointReference
@@ -19,6 +21,7 @@ type IMultiRegionAccessPointRef interface {
 // The jsii proxy for IMultiRegionAccessPointRef
 type jsiiProxy_IMultiRegionAccessPointRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IMultiRegionAccessPointRef) MultiRegionAccessPointRef() *MultiRegionAccessPointReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IMultiRegionAccessPointRef) MultiRegionAccessPointRef() *Mult
 	_jsii_.Get(
 		j,
 		"multiRegionAccessPointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMultiRegionAccessPointRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMultiRegionAccessPointRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

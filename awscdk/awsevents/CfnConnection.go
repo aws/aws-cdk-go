@@ -167,6 +167,7 @@ type CfnConnection interface {
 	// A description for the connection to create.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// For connections to private APIs, the parameters to use for invoking the API.
 	InvocationConnectivityParameters() interface{}
 	SetInvocationConnectivityParameters(val interface{})
@@ -469,6 +470,16 @@ func (j *jsiiProxy_CfnConnection) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -134,7 +134,7 @@ type GlueStartJobRun interface {
 	//
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	Next(state awsstepfunctions.IChainable) awsstepfunctions.Chain
 	// Render the assign in ASL JSON format.
 	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
@@ -156,7 +156,7 @@ type GlueStartJobRun interface {
 	// Render error recovery options in ASL JSON format.
 	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
+	ToStateJson(stateMachineQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -919,8 +919,8 @@ func (g *jsiiProxy_GlueStartJobRun) MetricTimedOut(props *awscloudwatch.MetricOp
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
-	if err := g.validateNextParameters(next); err != nil {
+func (g *jsiiProxy_GlueStartJobRun) Next(state awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := g.validateNextParameters(state); err != nil {
 		panic(err)
 	}
 	var returns awsstepfunctions.Chain
@@ -928,7 +928,7 @@ func (g *jsiiProxy_GlueStartJobRun) Next(next awsstepfunctions.IChainable) awsst
 	_jsii_.Invoke(
 		g,
 		"next",
-		[]interface{}{next},
+		[]interface{}{state},
 		&returns,
 	)
 
@@ -1065,13 +1065,13 @@ func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch(topLevelQueryLanguage awsst
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
+func (g *jsiiProxy_GlueStartJobRun) ToStateJson(stateMachineQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		g,
 		"toStateJson",
-		[]interface{}{topLevelQueryLanguage},
+		[]interface{}{stateMachineQueryLanguage},
 		&returns,
 	)
 

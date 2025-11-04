@@ -34,12 +34,13 @@ type FunctionUrl interface {
 	AuthType() FunctionUrlAuthType
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN of the function this URL refers to.
 	FunctionArn() *string
@@ -82,7 +83,7 @@ type FunctionUrl interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -331,8 +332,8 @@ func (f *jsiiProxy_FunctionUrl) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
-func (f *jsiiProxy_FunctionUrl) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := f.validateGrantInvokeUrlParameters(grantee); err != nil {
+func (f *jsiiProxy_FunctionUrl) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeUrlParameters(identity); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -340,7 +341,7 @@ func (f *jsiiProxy_FunctionUrl) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam
 	_jsii_.Invoke(
 		f,
 		"grantInvokeUrl",
-		[]interface{}{grantee},
+		[]interface{}{identity},
 		&returns,
 	)
 

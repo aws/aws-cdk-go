@@ -8,7 +8,7 @@ func (s *jsiiProxy_SubnetV2) validateApplyRemovalPolicyParameters(policy awscdk.
 	return nil
 }
 
-func (s *jsiiProxy_SubnetV2) validateAssociateNetworkAclParameters(id *string, networkAcl awsec2.INetworkAcl) error {
+func (s *jsiiProxy_SubnetV2) validateAssociateNetworkAclParameters(id *string, acl awsec2.INetworkAcl) error {
 	return nil
 }
 

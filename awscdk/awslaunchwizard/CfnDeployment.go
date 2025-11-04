@@ -70,6 +70,7 @@ type CfnDeployment interface {
 	SetDeploymentPatternName(val *string)
 	// A reference to a Deployment resource.
 	DeploymentRef() *DeploymentReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -376,6 +377,16 @@ func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
 	_jsii_.Get(
 		j,
 		"deploymentRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

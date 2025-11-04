@@ -114,6 +114,10 @@ type SpecRestApiProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html
 	//
 	ApiDefinition ApiDefinition `field:"required" json:"apiDefinition" yaml:"apiDefinition"`
+	// The list of binary media mime-types that are supported by the SpecRestApi resource, such as "image/png" or "application/octet-stream".
+	// Default: - SpecRestApi supports only UTF-8-encoded text payloads.
+	//
+	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// A Size(in bytes, kibibytes, mebibytes etc) that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
 	// When compression is enabled, compression or

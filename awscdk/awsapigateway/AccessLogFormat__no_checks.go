@@ -12,3 +12,7 @@ func validateAccessLogFormat_JsonWithStandardFieldsParameters(fields *JsonWithSt
 	return nil
 }
 
+func validateNewAccessLogFormatParameters(format *string) error {
+	return nil
+}
+

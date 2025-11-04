@@ -3,6 +3,7 @@ package awsroute53resolver
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IFirewallRuleGroupAssociationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a FirewallRuleGroupAssociation resource.
 	// Experimental.
 	FirewallRuleGroupAssociationRef() *FirewallRuleGroupAssociationReference
@@ -19,6 +21,7 @@ type IFirewallRuleGroupAssociationRef interface {
 // The jsii proxy for IFirewallRuleGroupAssociationRef
 type jsiiProxy_IFirewallRuleGroupAssociationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IFirewallRuleGroupAssociationRef) FirewallRuleGroupAssociationRef() *FirewallRuleGroupAssociationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IFirewallRuleGroupAssociationRef) FirewallRuleGroupAssociatio
 	_jsii_.Get(
 		j,
 		"firewallRuleGroupAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFirewallRuleGroupAssociationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFirewallRuleGroupAssociationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -107,7 +107,7 @@ type DistributedMap interface {
 	// Make the indicated state the default transition of this state.
 	MakeNext(next State)
 	// Continue normal execution with the given state.
-	Next(next IChainable) Chain
+	Next(state IChainable) Chain
 	// Render the assign in ASL JSON format.
 	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
@@ -800,8 +800,8 @@ func (d *jsiiProxy_DistributedMap) MakeNext(next State) {
 	)
 }
 
-func (d *jsiiProxy_DistributedMap) Next(next IChainable) Chain {
-	if err := d.validateNextParameters(next); err != nil {
+func (d *jsiiProxy_DistributedMap) Next(state IChainable) Chain {
+	if err := d.validateNextParameters(state); err != nil {
 		panic(err)
 	}
 	var returns Chain
@@ -809,7 +809,7 @@ func (d *jsiiProxy_DistributedMap) Next(next IChainable) Chain {
 	_jsii_.Invoke(
 		d,
 		"next",
-		[]interface{}{next},
+		[]interface{}{state},
 		&returns,
 	)
 

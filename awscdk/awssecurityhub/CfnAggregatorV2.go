@@ -54,6 +54,7 @@ type CfnAggregatorV2 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The list of Regions that are linked to the aggregation Region.
 	LinkedRegions() *[]*string
 	SetLinkedRegions(val *[]*string)
@@ -307,6 +308,16 @@ func (j *jsiiProxy_CfnAggregatorV2) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAggregatorV2) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

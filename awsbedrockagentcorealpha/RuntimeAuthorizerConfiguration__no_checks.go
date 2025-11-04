@@ -4,7 +4,7 @@ package awsbedrockagentcorealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateRuntimeAuthorizerConfiguration_UsingCognitoParameters(userPoolId *string, clientId *string) error {
+func validateRuntimeAuthorizerConfiguration_UsingCognitoParameters(userPool awscognito.IUserPool, userPoolClients *[]awscognito.IUserPoolClient) error {
 	return nil
 }
 

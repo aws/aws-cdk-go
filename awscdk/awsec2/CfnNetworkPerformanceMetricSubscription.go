@@ -41,6 +41,7 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// The Region or Availability Zone that's the target for the subscription.
 	Destination() *string
 	SetDestination(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -265,6 +266,16 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) Destination() *strin
 	_jsii_.Get(
 		j,
 		"destination",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

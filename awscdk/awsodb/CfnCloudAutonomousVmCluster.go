@@ -153,6 +153,7 @@ type CfnCloudAutonomousVmCluster interface {
 	// The display name of the Autonomous VM cluster.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	IsMtlsEnabledVmCluster() interface{}
 	SetIsMtlsEnabledVmCluster(val interface{})
@@ -747,6 +748,16 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCloudAutonomousVmCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

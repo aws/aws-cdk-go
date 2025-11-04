@@ -109,6 +109,7 @@ type CfnPartition interface {
 	// The name of the catalog database in which to create the partition.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -350,6 +351,16 @@ func (j *jsiiProxy_CfnPartition) DatabaseName() *string {
 	_jsii_.Get(
 		j,
 		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPartition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

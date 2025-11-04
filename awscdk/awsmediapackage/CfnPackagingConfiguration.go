@@ -202,6 +202,7 @@ type CfnPackagingConfiguration interface {
 	// Parameters for DASH-ISO packaging.
 	DashPackage() interface{}
 	SetDashPackage(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Parameters for Apple HLS packaging.
 	HlsPackage() interface{}
 	SetHlsPackage(val interface{})
@@ -455,6 +456,16 @@ func (j *jsiiProxy_CfnPackagingConfiguration) DashPackage() interface{} {
 	_jsii_.Get(
 		j,
 		"dashPackage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPackagingConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

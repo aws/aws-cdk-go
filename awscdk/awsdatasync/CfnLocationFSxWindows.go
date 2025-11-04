@@ -58,6 +58,7 @@ type CfnLocationFSxWindows interface {
 	// Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.
 	Domain() *string
 	SetDomain(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
@@ -314,6 +315,16 @@ func (j *jsiiProxy_CfnLocationFSxWindows) Domain() *string {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

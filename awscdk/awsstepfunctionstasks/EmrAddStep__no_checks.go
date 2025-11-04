@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrAddStep) validateMetricTimedOutParameters(props *awscloudw
 	return nil
 }
 
-func (e *jsiiProxy_EmrAddStep) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrAddStep) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

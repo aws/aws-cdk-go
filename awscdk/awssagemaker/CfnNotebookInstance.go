@@ -83,6 +83,7 @@ type CfnNotebookInstance interface {
 	// Sets whether SageMaker AI provides internet access to the notebook instance.
 	DirectInternetAccess() *string
 	SetDirectInternetAccess(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Information on the IMDS configuration of the notebook instance.
 	InstanceMetadataServiceConfiguration() interface{}
 	SetInstanceMetadataServiceConfiguration(val interface{})
@@ -389,6 +390,16 @@ func (j *jsiiProxy_CfnNotebookInstance) DirectInternetAccess() *string {
 	_jsii_.Get(
 		j,
 		"directInternetAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNotebookInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

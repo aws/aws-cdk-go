@@ -87,6 +87,7 @@ type CfnResolverEndpoint interface {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:.
 	Direction() *string
 	SetDirection(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	IpAddresses() interface{}
 	SetIpAddresses(val interface{})
@@ -421,6 +422,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) Direction() *string {
 	_jsii_.Get(
 		j,
 		"direction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

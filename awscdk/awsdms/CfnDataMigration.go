@@ -81,6 +81,7 @@ type CfnDataMigration interface {
 	// Specifies whether the data migration is full-load only, change data capture (CDC) only, or full-load and CDC.
 	DataMigrationType() *string
 	SetDataMigrationType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -377,6 +378,16 @@ func (j *jsiiProxy_CfnDataMigration) DataMigrationType() *string {
 	_jsii_.Get(
 		j,
 		"dataMigrationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataMigration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

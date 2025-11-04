@@ -56,6 +56,7 @@ type CfnLabel interface {
 	// The label description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Label resource.
 	LabelRef() *LabelReference
 	// The logical ID for this CloudFormation stack element.
@@ -310,6 +311,16 @@ func (j *jsiiProxy_CfnLabel) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLabel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

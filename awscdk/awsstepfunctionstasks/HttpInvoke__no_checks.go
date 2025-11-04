@@ -84,7 +84,7 @@ func (h *jsiiProxy_HttpInvoke) validateMetricTimedOutParameters(props *awscloudw
 	return nil
 }
 
-func (h *jsiiProxy_HttpInvoke) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (h *jsiiProxy_HttpInvoke) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

@@ -7,9 +7,10 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Interface for the Resource construct.
+// Interface for L2 Resource constructs.
 type IResource interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -20,15 +21,6 @@ type IResource interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy RemovalPolicy)
-	// The environment this resource belongs to.
-	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
-	Env() *ResourceEnvironment
 	// The stack in which this resource is defined.
 	Stack() Stack
 }
@@ -36,6 +28,7 @@ type IResource interface {
 // The jsii proxy for IResource
 type jsiiProxy_IResource struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (i *jsiiProxy_IResource) ApplyRemovalPolicy(policy RemovalPolicy) {
@@ -49,6 +42,16 @@ func (i *jsiiProxy_IResource) ApplyRemovalPolicy(policy RemovalPolicy) {
 	)
 }
 
+func (j *jsiiProxy_IResource) Stack() Stack {
+	var returns Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IResource) Env() *ResourceEnvironment {
 	var returns *ResourceEnvironment
 	_jsii_.Get(
@@ -59,11 +62,11 @@ func (j *jsiiProxy_IResource) Env() *ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IResource) Stack() Stack {
-	var returns Stack
+func (j *jsiiProxy_IResource) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
-		"stack",
+		"node",
 		&returns,
 	)
 	return returns

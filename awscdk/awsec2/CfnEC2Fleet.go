@@ -222,6 +222,7 @@ type CfnEC2Fleet interface {
 	CreationStack() *[]*string
 	// A reference to a EC2Fleet resource.
 	Ec2FleetRef() *EC2FleetReference
+	Env() *awscdk.ResourceEnvironment
 	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
 	ExcessCapacityTerminationPolicy() *string
 	SetExcessCapacityTerminationPolicy(val *string)
@@ -492,6 +493,16 @@ func (j *jsiiProxy_CfnEC2Fleet) Ec2FleetRef() *EC2FleetReference {
 	_jsii_.Get(
 		j,
 		"ec2FleetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEC2Fleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

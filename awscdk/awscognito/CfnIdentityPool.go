@@ -65,6 +65,7 @@ type CfnIdentityPool interface {
 	// The "domain" Amazon Cognito uses when referencing your users.
 	DeveloperProviderName() *string
 	SetDeveloperProviderName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of your Amazon Cognito identity pool.
 	IdentityPoolName() *string
 	SetIdentityPoolName(val *string)
@@ -379,6 +380,16 @@ func (j *jsiiProxy_CfnIdentityPool) DeveloperProviderName() *string {
 	_jsii_.Get(
 		j,
 		"developerProviderName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentityPool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -98,6 +98,7 @@ type CfnApp interface {
 	// Whether to enable SSL for the app.
 	EnableSsl() interface{}
 	SetEnableSsl(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// An array of `EnvironmentVariable` objects that specify environment variables to be associated with the app.
 	Environment() interface{}
 	SetEnvironment(val interface{})
@@ -399,6 +400,16 @@ func (j *jsiiProxy_CfnApp) EnableSsl() interface{} {
 	_jsii_.Get(
 		j,
 		"enableSsl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApp) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -10,9 +10,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 )
 
-func (s *jsiiProxy_Sns) validateBindParameters(_rule awsses.IReceiptRule) error {
-	if _rule == nil {
-		return fmt.Errorf("parameter _rule is required, but nil was provided")
+func (s *jsiiProxy_Sns) validateBindParameters(receiptRule awsses.IReceiptRule) error {
+	if receiptRule == nil {
+		return fmt.Errorf("parameter receiptRule is required, but nil was provided")
 	}
 
 	return nil

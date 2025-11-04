@@ -89,6 +89,7 @@ type CfnLocationObjectStorage interface {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text.
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a LocationObjectStorage resource.
 	LocationObjectStorageRef() *LocationObjectStorageReference
 	// The logical ID for this CloudFormation stack element.
@@ -408,6 +409,16 @@ func (j *jsiiProxy_CfnLocationObjectStorage) CustomSecretConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"customSecretConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationObjectStorage) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -48,6 +48,7 @@ type CfnSimulationApplicationVersion interface {
 	// The current revision id for the simulation application.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -293,6 +294,16 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) CurrentRevisionId() *string 
 	_jsii_.Get(
 		j,
 		"currentRevisionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimulationApplicationVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

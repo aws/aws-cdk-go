@@ -53,6 +53,7 @@ type CfnSchedule interface {
 	// The dates and times when the job is to run.
 	CronExpression() *string
 	SetCronExpression(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A list of jobs to be run, according to the schedule.
 	JobNames() *[]*string
 	SetJobNames(val *[]*string)
@@ -280,6 +281,16 @@ func (j *jsiiProxy_CfnSchedule) CronExpression() *string {
 	_jsii_.Get(
 		j,
 		"cronExpression",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSchedule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

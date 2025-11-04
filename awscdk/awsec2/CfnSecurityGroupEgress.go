@@ -69,6 +69,7 @@ type CfnSecurityGroupEgress interface {
 	// The ID of the security group.
 	DestinationSecurityGroupId() *string
 	SetDestinationSecurityGroupId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// If the protocol is TCP or UDP, this is the start of the port range.
 	FromPort() *float64
 	SetFromPort(val *float64)
@@ -346,6 +347,16 @@ func (j *jsiiProxy_CfnSecurityGroupEgress) DestinationSecurityGroupId() *string 
 	_jsii_.Get(
 		j,
 		"destinationSecurityGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityGroupEgress) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

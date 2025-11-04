@@ -110,6 +110,7 @@ type CfnBudgetsAction interface {
 	// Specifies all of the type-specific parameters.
 	Definition() interface{}
 	SetDefinition(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The role passed for action execution and reversion.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -406,6 +407,16 @@ func (j *jsiiProxy_CfnBudgetsAction) Definition() interface{} {
 	_jsii_.Get(
 		j,
 		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

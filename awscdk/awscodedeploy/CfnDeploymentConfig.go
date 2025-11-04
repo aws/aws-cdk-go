@@ -71,6 +71,7 @@ type CfnDeploymentConfig interface {
 	SetDeploymentConfigName(val *string)
 	// A reference to a DeploymentConfig resource.
 	DeploymentConfigRef() *DeploymentConfigReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -313,6 +314,16 @@ func (j *jsiiProxy_CfnDeploymentConfig) DeploymentConfigRef() *DeploymentConfigR
 	_jsii_.Get(
 		j,
 		"deploymentConfigRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

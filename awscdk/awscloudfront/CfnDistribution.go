@@ -125,6 +125,7 @@ type CfnDistribution interface {
 	SetDistributionConfig(val interface{})
 	// A reference to a Distribution resource.
 	DistributionRef() *DistributionReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnDistribution) DistributionRef() *DistributionReference {
 	_jsii_.Get(
 		j,
 		"distributionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDistribution) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

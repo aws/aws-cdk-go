@@ -58,6 +58,7 @@ type CfnEncoderConfiguration interface {
 	CreationStack() *[]*string
 	// A reference to a EncoderConfiguration resource.
 	EncoderConfigurationRef() *EncoderConfigurationReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -301,6 +302,16 @@ func (j *jsiiProxy_CfnEncoderConfiguration) EncoderConfigurationRef() *EncoderCo
 	_jsii_.Get(
 		j,
 		"encoderConfigurationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEncoderConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

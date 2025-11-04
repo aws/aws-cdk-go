@@ -25,10 +25,10 @@ type FirehoseLogDestination interface {
 	ILogDestination
 	// Bind the log destination to the pipe.
 	// Experimental.
-	Bind(_pipe IPipe) *LogDestinationConfig
+	Bind(pipe IPipe) *LogDestinationConfig
 	// Grant the pipe role to push to the log destination.
 	// Experimental.
-	GrantPush(pipeRole awsiam.IRole)
+	GrantPush(grantee awsiam.IRole)
 }
 
 // The jsii proxy struct for FirehoseLogDestination
@@ -65,8 +65,8 @@ func NewFirehoseLogDestination_Override(f FirehoseLogDestination, deliveryStream
 	)
 }
 
-func (f *jsiiProxy_FirehoseLogDestination) Bind(_pipe IPipe) *LogDestinationConfig {
-	if err := f.validateBindParameters(_pipe); err != nil {
+func (f *jsiiProxy_FirehoseLogDestination) Bind(pipe IPipe) *LogDestinationConfig {
+	if err := f.validateBindParameters(pipe); err != nil {
 		panic(err)
 	}
 	var returns *LogDestinationConfig
@@ -74,21 +74,21 @@ func (f *jsiiProxy_FirehoseLogDestination) Bind(_pipe IPipe) *LogDestinationConf
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{_pipe},
+		[]interface{}{pipe},
 		&returns,
 	)
 
 	return returns
 }
 
-func (f *jsiiProxy_FirehoseLogDestination) GrantPush(pipeRole awsiam.IRole) {
-	if err := f.validateGrantPushParameters(pipeRole); err != nil {
+func (f *jsiiProxy_FirehoseLogDestination) GrantPush(grantee awsiam.IRole) {
+	if err := f.validateGrantPushParameters(grantee); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		f,
 		"grantPush",
-		[]interface{}{pipeRole},
+		[]interface{}{grantee},
 	)
 }
 

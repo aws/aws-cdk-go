@@ -87,6 +87,7 @@ type CfnMLTransform interface {
 	// A user-defined, long-form description text for the machine learning transform.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// This value determines which version of AWS Glue this machine learning transform is compatible with.
 	GlueVersion() *string
 	SetGlueVersion(val *string)
@@ -353,6 +354,16 @@ func (j *jsiiProxy_CfnMLTransform) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMLTransform) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -124,7 +124,7 @@ type TaskStateBase interface {
 	//
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	Next(next IChainable) Chain
+	Next(state IChainable) Chain
 	// Render the assign in ASL JSON format.
 	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
@@ -146,7 +146,7 @@ type TaskStateBase interface {
 	// Render error recovery options in ASL JSON format.
 	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{}
+	ToStateJson(stateMachineQueryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -845,8 +845,8 @@ func (t *jsiiProxy_TaskStateBase) MetricTimedOut(props *awscloudwatch.MetricOpti
 	return returns
 }
 
-func (t *jsiiProxy_TaskStateBase) Next(next IChainable) Chain {
-	if err := t.validateNextParameters(next); err != nil {
+func (t *jsiiProxy_TaskStateBase) Next(state IChainable) Chain {
+	if err := t.validateNextParameters(state); err != nil {
 		panic(err)
 	}
 	var returns Chain
@@ -854,7 +854,7 @@ func (t *jsiiProxy_TaskStateBase) Next(next IChainable) Chain {
 	_jsii_.Invoke(
 		t,
 		"next",
-		[]interface{}{next},
+		[]interface{}{state},
 		&returns,
 	)
 
@@ -991,13 +991,13 @@ func (t *jsiiProxy_TaskStateBase) RenderRetryCatch(topLevelQueryLanguage QueryLa
 	return returns
 }
 
-func (t *jsiiProxy_TaskStateBase) ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{} {
+func (t *jsiiProxy_TaskStateBase) ToStateJson(stateMachineQueryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		t,
 		"toStateJson",
-		[]interface{}{topLevelQueryLanguage},
+		[]interface{}{stateMachineQueryLanguage},
 		&returns,
 	)
 

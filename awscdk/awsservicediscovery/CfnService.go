@@ -82,6 +82,7 @@ type CfnService interface {
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 	DnsConfig() interface{}
 	SetDnsConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
 	HealthCheckConfig() interface{}
 	SetHealthCheckConfig(val interface{})
@@ -361,6 +362,16 @@ func (j *jsiiProxy_CfnService) DnsConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"dnsConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

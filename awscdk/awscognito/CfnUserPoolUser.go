@@ -64,6 +64,7 @@ type CfnUserPoolUser interface {
 	// Specify `EMAIL` if email will be used to send the welcome message.
 	DesiredDeliveryMediums() *[]*string
 	SetDesiredDeliveryMediums(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` .
 	ForceAliasCreation() interface{}
 	SetForceAliasCreation(val interface{})
@@ -307,6 +308,16 @@ func (j *jsiiProxy_CfnUserPoolUser) DesiredDeliveryMediums() *[]*string {
 	_jsii_.Get(
 		j,
 		"desiredDeliveryMediums",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPoolUser) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

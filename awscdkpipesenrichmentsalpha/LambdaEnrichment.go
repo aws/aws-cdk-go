@@ -40,7 +40,7 @@ type LambdaEnrichment interface {
 	Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.EnrichmentParametersConfig
 	// Grant the pipes role to invoke the enrichment.
 	// Experimental.
-	GrantInvoke(pipeRole awsiam.IRole)
+	GrantInvoke(grantee awsiam.IRole)
 }
 
 // The jsii proxy struct for LambdaEnrichment
@@ -104,14 +104,14 @@ func (l *jsiiProxy_LambdaEnrichment) Bind(pipe awscdkpipesalpha.IPipe) *awscdkpi
 	return returns
 }
 
-func (l *jsiiProxy_LambdaEnrichment) GrantInvoke(pipeRole awsiam.IRole) {
-	if err := l.validateGrantInvokeParameters(pipeRole); err != nil {
+func (l *jsiiProxy_LambdaEnrichment) GrantInvoke(grantee awsiam.IRole) {
+	if err := l.validateGrantInvokeParameters(grantee); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		l,
 		"grantInvoke",
-		[]interface{}{pipeRole},
+		[]interface{}{grantee},
 	)
 }
 

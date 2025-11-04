@@ -3,6 +3,7 @@ package awsdax
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdax/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ISubnetGroupRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a SubnetGroup resource.
 	// Experimental.
 	SubnetGroupRef() *SubnetGroupReference
@@ -19,6 +21,7 @@ type ISubnetGroupRef interface {
 // The jsii proxy for ISubnetGroupRef
 type jsiiProxy_ISubnetGroupRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ISubnetGroupRef) SubnetGroupRef() *SubnetGroupReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ISubnetGroupRef) SubnetGroupRef() *SubnetGroupReference {
 	_jsii_.Get(
 		j,
 		"subnetGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubnetGroupRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubnetGroupRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

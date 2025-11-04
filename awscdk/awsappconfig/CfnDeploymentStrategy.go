@@ -74,6 +74,7 @@ type CfnDeploymentStrategy interface {
 	// A description of the deployment strategy.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete.
 	FinalBakeTimeInMinutes() *float64
 	SetFinalBakeTimeInMinutes(val *float64)
@@ -348,6 +349,16 @@ func (j *jsiiProxy_CfnDeploymentStrategy) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentStrategy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

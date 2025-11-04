@@ -3,6 +3,7 @@ package awsbackup
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IBackupSelectionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a BackupSelection resource.
 	// Experimental.
 	BackupSelectionRef() *BackupSelectionReference
@@ -19,6 +21,7 @@ type IBackupSelectionRef interface {
 // The jsii proxy for IBackupSelectionRef
 type jsiiProxy_IBackupSelectionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IBackupSelectionRef) BackupSelectionRef() *BackupSelectionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IBackupSelectionRef) BackupSelectionRef() *BackupSelectionRef
 	_jsii_.Get(
 		j,
 		"backupSelectionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBackupSelectionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBackupSelectionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

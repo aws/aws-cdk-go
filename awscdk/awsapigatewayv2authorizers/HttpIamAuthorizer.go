@@ -35,7 +35,7 @@ type HttpIamAuthorizer interface {
 	// The authorizationType used for IAM Authorizer.
 	AuthorizationType() awsapigatewayv2.HttpAuthorizerType
 	// Bind this authorizer to a specified Http route.
-	Bind(_options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig
+	Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig
 }
 
 // The jsii proxy struct for HttpIamAuthorizer
@@ -78,8 +78,8 @@ func NewHttpIamAuthorizer_Override(h HttpIamAuthorizer) {
 	)
 }
 
-func (h *jsiiProxy_HttpIamAuthorizer) Bind(_options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig {
-	if err := h.validateBindParameters(_options); err != nil {
+func (h *jsiiProxy_HttpIamAuthorizer) Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsapigatewayv2.HttpRouteAuthorizerConfig
@@ -87,7 +87,7 @@ func (h *jsiiProxy_HttpIamAuthorizer) Bind(_options *awsapigatewayv2.HttpRouteAu
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

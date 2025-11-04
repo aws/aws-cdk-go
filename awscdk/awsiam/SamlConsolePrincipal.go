@@ -44,7 +44,7 @@ type SamlConsolePrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -186,8 +186,8 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToPolicy(statement PolicyStatement) 
 	return returns
 }
 
-func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := s.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -195,7 +195,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(_statement PolicyS
 	_jsii_.Invoke(
 		s,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

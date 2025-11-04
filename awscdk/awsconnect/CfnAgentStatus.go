@@ -66,6 +66,7 @@ type CfnAgentStatus interface {
 	// The display order of the agent status.
 	DisplayOrder() *float64
 	SetDisplayOrder(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -358,6 +359,16 @@ func (j *jsiiProxy_CfnAgentStatus) DisplayOrder() *float64 {
 	_jsii_.Get(
 		j,
 		"displayOrder",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentStatus) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -56,6 +56,7 @@ type CfnDirectoryConfig interface {
 	// The fully qualified name of the directory (for example, corp.example.com).
 	DirectoryName() *string
 	SetDirectoryName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,6 +296,16 @@ func (j *jsiiProxy_CfnDirectoryConfig) DirectoryName() *string {
 	_jsii_.Get(
 		j,
 		"directoryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectoryConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

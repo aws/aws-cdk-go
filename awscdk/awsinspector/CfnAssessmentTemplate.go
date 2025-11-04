@@ -52,6 +52,7 @@ type CfnAssessmentTemplate interface {
 	// The duration of the assessment run in seconds.
 	DurationInSeconds() *float64
 	SetDurationInSeconds(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -311,6 +312,16 @@ func (j *jsiiProxy_CfnAssessmentTemplate) DurationInSeconds() *float64 {
 	_jsii_.Get(
 		j,
 		"durationInSeconds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssessmentTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

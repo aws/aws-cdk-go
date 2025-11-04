@@ -36,7 +36,7 @@ type AssetApiDefinition interface {
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindAfterCreate(scope constructs.Construct, restApi IRestApiRef)
+	BindAfterCreate(_scope constructs.Construct, _restApi IRestApiRef)
 }
 
 // The jsii proxy struct for AssetApiDefinition
@@ -190,14 +190,14 @@ func (a *jsiiProxy_AssetApiDefinition) Bind(scope constructs.Construct) *ApiDefi
 	return returns
 }
 
-func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(scope constructs.Construct, restApi IRestApiRef) {
-	if err := a.validateBindAfterCreateParameters(scope, restApi); err != nil {
+func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApiRef) {
+	if err := a.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"bindAfterCreate",
-		[]interface{}{scope, restApi},
+		[]interface{}{_scope, _restApi},
 	)
 }
 

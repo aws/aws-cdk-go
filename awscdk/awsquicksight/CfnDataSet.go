@@ -395,6 +395,7 @@ type CfnDataSet interface {
 	// The usage configuration to apply to child datasets that reference this dataset as a source.
 	DataSetUsageConfiguration() interface{}
 	SetDataSetUsageConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders() interface{}
 	SetFieldFolders(val interface{})
@@ -770,6 +771,16 @@ func (j *jsiiProxy_CfnDataSet) DataSetUsageConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"dataSetUsageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

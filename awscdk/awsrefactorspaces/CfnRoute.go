@@ -104,6 +104,7 @@ type CfnRoute interface {
 	// Configuration for the default route type.
 	DefaultRoute() interface{}
 	SetDefaultRoute(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the environment.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -377,6 +378,16 @@ func (j *jsiiProxy_CfnRoute) DefaultRoute() interface{} {
 	_jsii_.Get(
 		j,
 		"defaultRoute",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRoute) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

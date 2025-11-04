@@ -38,7 +38,7 @@ type RedshiftQuery interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for RedshiftQuery
@@ -73,7 +73,7 @@ func NewRedshiftQuery_Override(r RedshiftQuery, clusterArn *string, props *Redsh
 	)
 }
 
-func (r *jsiiProxy_RedshiftQuery) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (r *jsiiProxy_RedshiftQuery) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := r.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -82,7 +82,7 @@ func (r *jsiiProxy_RedshiftQuery) Bind(rule awsevents.IRule, _id *string) *awsev
 	_jsii_.Invoke(
 		r,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

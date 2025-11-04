@@ -99,6 +99,7 @@ type CfnFileSystem interface {
 	// A Boolean value that, if true, creates an encrypted file system.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The `FileSystemPolicy` for the EFS file system.
 	FileSystemPolicy() interface{}
 	SetFileSystemPolicy(val interface{})
@@ -394,6 +395,16 @@ func (j *jsiiProxy_CfnFileSystem) Encrypted() interface{} {
 	_jsii_.Get(
 		j,
 		"encrypted",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFileSystem) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

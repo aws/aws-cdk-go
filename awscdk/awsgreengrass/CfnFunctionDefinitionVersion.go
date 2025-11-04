@@ -91,6 +91,7 @@ type CfnFunctionDefinitionVersion interface {
 	// The default configuration that applies to all Lambda functions in the group.
 	DefaultConfig() interface{}
 	SetDefaultConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the function definition associated with this version.
 	FunctionDefinitionId() *string
 	SetFunctionDefinitionId(val *string)
@@ -322,6 +323,16 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) DefaultConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"defaultConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunctionDefinitionVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

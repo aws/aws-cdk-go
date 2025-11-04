@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateMetricTimedOutParameter
 	return nil
 }
 
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

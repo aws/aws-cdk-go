@@ -217,6 +217,7 @@ type CfnUserProfile interface {
 	// The domain ID.
 	DomainId() *string
 	SetDomainId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -460,6 +461,16 @@ func (j *jsiiProxy_CfnUserProfile) DomainId() *string {
 	_jsii_.Get(
 		j,
 		"domainId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

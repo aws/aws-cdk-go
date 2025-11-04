@@ -85,6 +85,7 @@ type CfnWorkspacesPool interface {
 	// The identifier of the directory used by the pool.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -394,6 +395,16 @@ func (j *jsiiProxy_CfnWorkspacesPool) DirectoryId() *string {
 	_jsii_.Get(
 		j,
 		"directoryId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkspacesPool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

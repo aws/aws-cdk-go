@@ -7,6 +7,19 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.AppendDelimiterToRecordProcessor",
+		reflect.TypeOf((*AppendDelimiterToRecordProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppendDelimiterToRecordProcessor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_kinesisfirehose.BackupMode",
 		reflect.TypeOf((*BackupMode)(nil)).Elem(),
@@ -41,6 +54,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamType", GoGetter: "DeliveryStreamType"},
 			_jsii_.MemberProperty{JsiiProperty: "directPutSourceConfiguration", GoGetter: "DirectPutSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "elasticsearchDestinationConfiguration", GoGetter: "ElasticsearchDestinationConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "extendedS3DestinationConfiguration", GoGetter: "ExtendedS3DestinationConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -348,6 +362,23 @@ func init() {
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStreamProps",
 		reflect.TypeOf((*CfnDeliveryStreamProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.CloudWatchLogProcessor",
+		reflect.TypeOf((*CloudWatchLogProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CloudWatchLogProcessor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CloudWatchLogProcessorOptions",
+		reflect.TypeOf((*CloudWatchLogProcessorOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CommonDestinationProps",
 		reflect.TypeOf((*CommonDestinationProps)(nil)).Elem(),
@@ -385,6 +416,33 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.DataProcessorProps",
 		reflect.TypeOf((*DataProcessorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.DecompressionProcessor",
+		reflect.TypeOf((*DecompressionProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DecompressionProcessor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.DecompressionProcessorCompressionFormat",
+		reflect.TypeOf((*DecompressionProcessorCompressionFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "compressionFormat", GoGetter: "CompressionFormat"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DecompressionProcessorCompressionFormat{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DecompressionProcessorOptions",
+		reflect.TypeOf((*DecompressionProcessorOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStream",
@@ -530,11 +588,13 @@ func init() {
 		reflect.TypeOf((*IDeliveryStreamRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamRef", GoGetter: "DeliveryStreamRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IDeliveryStreamRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

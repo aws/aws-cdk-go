@@ -68,6 +68,7 @@ type CfnLogAnomalyDetector interface {
 	// A name for this anomaly detector.
 	DetectorName() *string
 	SetDetectorName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies how often the anomaly detector is to run and look for anomalies.
 	EvaluationFrequency() *string
 	SetEvaluationFrequency(val *string)
@@ -355,6 +356,16 @@ func (j *jsiiProxy_CfnLogAnomalyDetector) DetectorName() *string {
 	_jsii_.Get(
 		j,
 		"detectorName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogAnomalyDetector) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

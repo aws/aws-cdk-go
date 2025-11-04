@@ -60,6 +60,7 @@ type CfnArchive interface {
 	// A description for the archive.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An event pattern to use to filter events sent to the archive.
 	EventPattern() interface{}
 	SetEventPattern(val interface{})
@@ -315,6 +316,16 @@ func (j *jsiiProxy_CfnArchive) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnArchive) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

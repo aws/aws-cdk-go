@@ -154,6 +154,7 @@ type CfnCollaboration interface {
 	// A description of the collaboration provided by the collaboration owner.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	JobLogStatus() *string
 	SetJobLogStatus(val *string)
@@ -493,6 +494,16 @@ func (j *jsiiProxy_CfnCollaboration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCollaboration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

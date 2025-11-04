@@ -126,6 +126,7 @@ type CfnMatchingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Optional.
 	IncrementalRunConfig() interface{}
 	SetIncrementalRunConfig(val interface{})
@@ -403,6 +404,16 @@ func (j *jsiiProxy_CfnMatchingWorkflow) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMatchingWorkflow) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -121,9 +121,9 @@ func (f *jsiiProxy_FunctionBase) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
@@ -137,25 +137,25 @@ func (f *jsiiProxy_FunctionBase) validateGrantInvokeCompositePrincipalParameters
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version IVersion) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	if version == nil {

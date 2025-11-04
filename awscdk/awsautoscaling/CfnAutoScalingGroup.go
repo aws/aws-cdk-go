@@ -316,6 +316,7 @@ type CfnAutoScalingGroup interface {
 	// The unit of measurement for the value specified for desired capacity.
 	DesiredCapacityType() *string
 	SetDesiredCapacityType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check.
 	HealthCheckGracePeriod() *float64
 	SetHealthCheckGracePeriod(val *float64)
@@ -725,6 +726,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) DesiredCapacityType() *string {
 	_jsii_.Get(
 		j,
 		"desiredCapacityType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

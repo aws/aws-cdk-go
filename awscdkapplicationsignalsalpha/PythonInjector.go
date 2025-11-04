@@ -44,7 +44,7 @@ type PythonInjector interface {
 	SetSharedVolumeName(val *string)
 	// Inject additional environment variables to the application container other than the DEFAULT_ENVS.
 	// Experimental.
-	InjectAdditionalEnvironments(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string)
+	InjectAdditionalEnvironments(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string)
 	// Inject ADOT SDK agent init container.
 	//
 	// Returns: The created ContainerDefinition.
@@ -177,14 +177,14 @@ func PythonInjector_PYTHON_ENVS() *[]*EnvironmentExtension {
 	return returns
 }
 
-func (p *jsiiProxy_PythonInjector) InjectAdditionalEnvironments(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string) {
-	if err := p.validateInjectAdditionalEnvironmentsParameters(envsToInject, _envsFromTaskDef); err != nil {
+func (p *jsiiProxy_PythonInjector) InjectAdditionalEnvironments(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string) {
+	if err := p.validateInjectAdditionalEnvironmentsParameters(envsToInject, envsFromTaskDef); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		p,
 		"injectAdditionalEnvironments",
-		[]interface{}{envsToInject, _envsFromTaskDef},
+		[]interface{}{envsToInject, envsFromTaskDef},
 	)
 }
 

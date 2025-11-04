@@ -4,7 +4,7 @@ package awscodedeploy
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (t *jsiiProxy_TimeBasedCanaryTrafficRouting) validateBindParameters(_scope constructs.Construct) error {
+func (t *jsiiProxy_TimeBasedCanaryTrafficRouting) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 

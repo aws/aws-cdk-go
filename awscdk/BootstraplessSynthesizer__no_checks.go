@@ -8,11 +8,11 @@ func (b *jsiiProxy_BootstraplessSynthesizer) validateAddBootstrapVersionRulePara
 	return nil
 }
 
-func (b *jsiiProxy_BootstraplessSynthesizer) validateAddDockerImageAssetParameters(_asset *DockerImageAssetSource) error {
+func (b *jsiiProxy_BootstraplessSynthesizer) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
 	return nil
 }
 
-func (b *jsiiProxy_BootstraplessSynthesizer) validateAddFileAssetParameters(_asset *FileAssetSource) error {
+func (b *jsiiProxy_BootstraplessSynthesizer) validateAddFileAssetParameters(asset *FileAssetSource) error {
 	return nil
 }
 

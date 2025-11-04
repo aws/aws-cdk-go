@@ -129,6 +129,7 @@ type CfnTrail interface {
 	// The default is false.
 	EnableLogFileValidation() interface{}
 	SetEnableLogFileValidation(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Use event selectors to further specify the management and data event settings for your trail.
 	EventSelectors() interface{}
 	SetEventSelectors(val interface{})
@@ -435,6 +436,16 @@ func (j *jsiiProxy_CfnTrail) EnableLogFileValidation() interface{} {
 	_jsii_.Get(
 		j,
 		"enableLogFileValidation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrail) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

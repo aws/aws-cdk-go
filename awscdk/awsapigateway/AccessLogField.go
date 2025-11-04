@@ -367,6 +367,24 @@ func AccessLogField_ContextCallerAccountId() *string {
 	return returns
 }
 
+// A unique ID for the connection that can be used to make a callback to the client.
+// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html
+//
+func AccessLogField_ContextConnectionId() *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.AccessLogField",
+		"contextConnectionId",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The path for an API mapping that an incoming request matched.
 //
 // Applicable when a client uses a custom domain name to access an API. For example if a client sends a request to
@@ -484,6 +502,24 @@ func AccessLogField_ContextErrorValidationErrorString() *string {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.AccessLogField",
 		"contextErrorValidationErrorString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// The event type: CONNECT, MESSAGE, or DISCONNECT.
+// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html
+//
+func AccessLogField_ContextEventType() *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.AccessLogField",
+		"contextEventType",
 		nil, // no parameters
 		&returns,
 	)
@@ -1192,6 +1228,24 @@ func AccessLogField_ContextResponseOverrideStatus() *string {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.AccessLogField",
 		"contextResponseOverrideStatus",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// The selected route key.
+// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html
+//
+func AccessLogField_ContextRouteKey() *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.AccessLogField",
+		"contextRouteKey",
 		nil, // no parameters
 		&returns,
 	)

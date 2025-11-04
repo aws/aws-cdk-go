@@ -84,6 +84,7 @@ type CfnApplication interface {
 	// The Amazon Resource Name (ARN) of the database.
 	DatabaseArn() *string
 	SetDatabaseArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances() *[]*string
 	SetInstances(val *[]*string)
@@ -372,6 +373,16 @@ func (j *jsiiProxy_CfnApplication) DatabaseArn() *string {
 	_jsii_.Get(
 		j,
 		"databaseArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -202,6 +202,7 @@ type CfnSegment interface {
 	// An array that defines the dimensions for the segment.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -459,6 +460,16 @@ func (j *jsiiProxy_CfnSegment) Dimensions() interface{} {
 	_jsii_.Get(
 		j,
 		"dimensions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSegment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

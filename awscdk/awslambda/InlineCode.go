@@ -47,7 +47,7 @@ type InlineCode interface {
 	// Determines whether this Code is inline code or not.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
@@ -282,8 +282,8 @@ func InlineCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
-	if err := i.validateBindParameters(_scope); err != nil {
+func (i *jsiiProxy_InlineCode) Bind(scope constructs.Construct) *CodeConfig {
+	if err := i.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *CodeConfig
@@ -291,7 +291,7 @@ func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

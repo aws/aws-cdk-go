@@ -21,7 +21,7 @@ import (
 type KinesisStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Kinesis Stream as a result from a CloudWatch event.
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for KinesisStream
@@ -56,8 +56,8 @@ func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props
 	)
 }
 
-func (k *jsiiProxy_KinesisStream) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := k.validateBindParameters(_rule); err != nil {
+func (k *jsiiProxy_KinesisStream) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := k.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -65,7 +65,7 @@ func (k *jsiiProxy_KinesisStream) Bind(_rule awsevents.IRule, _id *string) *awse
 	_jsii_.Invoke(
 		k,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

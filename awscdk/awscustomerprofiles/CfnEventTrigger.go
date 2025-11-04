@@ -94,6 +94,7 @@ type CfnEventTrigger interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions() interface{}
 	SetEventTriggerConditions(val interface{})
@@ -368,6 +369,16 @@ func (j *jsiiProxy_CfnEventTrigger) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventTrigger) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

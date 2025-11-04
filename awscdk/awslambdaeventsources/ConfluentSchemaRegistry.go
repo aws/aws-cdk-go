@@ -50,7 +50,7 @@ import (
 type ConfluentSchemaRegistry interface {
 	awslambda.ISchemaRegistry
 	// Returns a schema registry configuration.
-	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig
+	Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig
 }
 
 // The jsii proxy struct for ConfluentSchemaRegistry
@@ -85,8 +85,8 @@ func NewConfluentSchemaRegistry_Override(c ConfluentSchemaRegistry, props *Confl
 	)
 }
 
-func (c *jsiiProxy_ConfluentSchemaRegistry) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig {
-	if err := c.validateBindParameters(_target, targetHandler); err != nil {
+func (c *jsiiProxy_ConfluentSchemaRegistry) Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig {
+	if err := c.validateBindParameters(target, targetHandler); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.KafkaSchemaRegistryConfig
@@ -94,7 +94,7 @@ func (c *jsiiProxy_ConfluentSchemaRegistry) Bind(_target awslambda.IEventSourceM
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{_target, targetHandler},
+		[]interface{}{target, targetHandler},
 		&returns,
 	)
 

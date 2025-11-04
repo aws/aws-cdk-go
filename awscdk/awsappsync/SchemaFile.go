@@ -55,7 +55,7 @@ type SchemaFile interface {
 	Definition() *string
 	SetDefinition(val *string)
 	// Called when the GraphQL Api is initialized to allow this object to bind to the stack.
-	Bind(api IGraphqlApi, _options *SchemaBindOptions) ISchemaConfig
+	Bind(api IGraphqlApi, options *SchemaBindOptions) ISchemaConfig
 }
 
 // The jsii proxy struct for SchemaFile
@@ -133,8 +133,8 @@ func SchemaFile_FromAsset(filePath *string) SchemaFile {
 	return returns
 }
 
-func (s *jsiiProxy_SchemaFile) Bind(api IGraphqlApi, _options *SchemaBindOptions) ISchemaConfig {
-	if err := s.validateBindParameters(api, _options); err != nil {
+func (s *jsiiProxy_SchemaFile) Bind(api IGraphqlApi, options *SchemaBindOptions) ISchemaConfig {
+	if err := s.validateBindParameters(api, options); err != nil {
 		panic(err)
 	}
 	var returns ISchemaConfig
@@ -142,7 +142,7 @@ func (s *jsiiProxy_SchemaFile) Bind(api IGraphqlApi, _options *SchemaBindOptions
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{api, _options},
+		[]interface{}{api, options},
 		&returns,
 	)
 

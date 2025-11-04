@@ -61,6 +61,7 @@ type CfnFlowVersion interface {
 	// The description of the flow version.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow that the version belongs to.
 	FlowArn() *string
 	SetFlowArn(val *string)
@@ -359,6 +360,16 @@ func (j *jsiiProxy_CfnFlowVersion) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -70,6 +70,7 @@ type CfnDevEndpoint interface {
 	// The name of the `DevEndpoint` .
 	EndpointName() *string
 	SetEndpointName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The path to one or more Java `.jar` files in an S3 bucket that should be loaded in your `DevEndpoint` .
 	ExtraJarsS3Path() *string
 	SetExtraJarsS3Path(val *string)
@@ -355,6 +356,16 @@ func (j *jsiiProxy_CfnDevEndpoint) EndpointName() *string {
 	_jsii_.Get(
 		j,
 		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDevEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

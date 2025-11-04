@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (u *jsiiProxy_UserGroupBase) validateAddUserParameters(_user IUser) error {
-	if _user == nil {
-		return fmt.Errorf("parameter _user is required, but nil was provided")
+func (u *jsiiProxy_UserGroupBase) validateAddUserParameters(user IUser) error {
+	if user == nil {
+		return fmt.Errorf("parameter user is required, but nil was provided")
 	}
 
 	return nil

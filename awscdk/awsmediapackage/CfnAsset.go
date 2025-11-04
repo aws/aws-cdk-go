@@ -67,6 +67,7 @@ type CfnAsset interface {
 	// List of playback endpoints that are available for this asset.
 	EgressEndpoints() interface{}
 	SetEgressEndpoints(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Unique identifier that you assign to the asset.
 	Id() *string
 	SetId(val *string)
@@ -331,6 +332,16 @@ func (j *jsiiProxy_CfnAsset) EgressEndpoints() interface{} {
 	_jsii_.Get(
 		j,
 		"egressEndpoints",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAsset) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

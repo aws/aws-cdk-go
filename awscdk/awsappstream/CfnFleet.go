@@ -59,6 +59,7 @@ type CfnFleet interface {
 	// Enables or disables default internet access for the fleet.
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Fleet resource.
 	FleetRef() *FleetReference
 	// The fleet type.
@@ -387,6 +388,16 @@ func (j *jsiiProxy_CfnFleet) EnableDefaultInternetAccess() interface{} {
 	_jsii_.Get(
 		j,
 		"enableDefaultInternetAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

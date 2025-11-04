@@ -4,7 +4,7 @@ package awssynthetics
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3Code) validateBindParameters(_scope constructs.Construct, _handler *string, _family RuntimeFamily) error {
+func (s *jsiiProxy_S3Code) validateBindParameters(scope constructs.Construct, handler *string, family RuntimeFamily) error {
 	return nil
 }
 

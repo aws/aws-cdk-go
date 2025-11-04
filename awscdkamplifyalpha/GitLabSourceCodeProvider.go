@@ -21,7 +21,7 @@ type GitLabSourceCodeProvider interface {
 	ISourceCodeProvider
 	// Binds the source code provider to an app.
 	// Experimental.
-	Bind(_app App) *SourceCodeProviderConfig
+	Bind(app App) *SourceCodeProviderConfig
 }
 
 // The jsii proxy struct for GitLabSourceCodeProvider
@@ -58,8 +58,8 @@ func NewGitLabSourceCodeProvider_Override(g GitLabSourceCodeProvider, props *Git
 	)
 }
 
-func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderConfig {
-	if err := g.validateBindParameters(_app); err != nil {
+func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(app App) *SourceCodeProviderConfig {
+	if err := g.validateBindParameters(app); err != nil {
 		panic(err)
 	}
 	var returns *SourceCodeProviderConfig
@@ -67,7 +67,7 @@ func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 	_jsii_.Invoke(
 		g,
 		"bind",
-		[]interface{}{_app},
+		[]interface{}{app},
 		&returns,
 	)
 

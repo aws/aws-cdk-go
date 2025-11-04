@@ -98,6 +98,7 @@ type CfnKey interface {
 	// Specifies whether the key is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether the key is exportable.
 	Exportable() interface{}
 	SetExportable(val interface{})
@@ -375,6 +376,16 @@ func (j *jsiiProxy_CfnKey) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

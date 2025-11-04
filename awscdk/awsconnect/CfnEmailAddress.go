@@ -64,6 +64,7 @@ type CfnEmailAddress interface {
 	SetEmailAddress(val *string)
 	// A reference to a EmailAddress resource.
 	EmailAddressRef() *EmailAddressReference
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -334,6 +335,16 @@ func (j *jsiiProxy_CfnEmailAddress) EmailAddressRef() *EmailAddressReference {
 	_jsii_.Get(
 		j,
 		"emailAddressRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailAddress) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

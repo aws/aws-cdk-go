@@ -82,17 +82,17 @@ func (r *jsiiProxy_Role) validateGrantParameters(grantee IPrincipal) error {
 	return nil
 }
 
-func (r *jsiiProxy_Role) validateGrantAssumeRoleParameters(identity IPrincipal) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
+func (r *jsiiProxy_Role) validateGrantAssumeRoleParameters(grantee IPrincipal) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (r *jsiiProxy_Role) validateGrantPassRoleParameters(identity IPrincipal) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
+func (r *jsiiProxy_Role) validateGrantPassRoleParameters(grantee IPrincipal) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

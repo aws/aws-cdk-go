@@ -71,6 +71,7 @@ type CfnOptionGroup interface {
 	// Specifies the name of the engine that this option group should be associated with.
 	EngineName() *string
 	SetEngineName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -304,6 +305,16 @@ func (j *jsiiProxy_CfnOptionGroup) EngineName() *string {
 	_jsii_.Get(
 		j,
 		"engineName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOptionGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

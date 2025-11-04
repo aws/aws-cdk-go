@@ -12,13 +12,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (c *jsiiProxy_ChainDefinitionBody) validateBindParameters(scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps) error {
+func (c *jsiiProxy_ChainDefinitionBody) validateBindParameters(scope constructs.Construct, sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _sfnPrincipal == nil {
-		return fmt.Errorf("parameter _sfnPrincipal is required, but nil was provided")
+	if sfnPrincipal == nil {
+		return fmt.Errorf("parameter sfnPrincipal is required, but nil was provided")
 	}
 
 	if sfnProps == nil {

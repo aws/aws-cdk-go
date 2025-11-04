@@ -139,6 +139,7 @@ type CfnTask interface {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	DestinationLocationArn() *string
 	SetDestinationLocationArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer.
 	Excludes() interface{}
 	SetExcludes(val interface{})
@@ -437,6 +438,16 @@ func (j *jsiiProxy_CfnTask) DestinationLocationArn() *string {
 	_jsii_.Get(
 		j,
 		"destinationLocationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTask) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

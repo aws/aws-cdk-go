@@ -67,6 +67,7 @@ type CfnDataCellsFilter interface {
 	SetDatabaseName(val *string)
 	// A reference to a DataCellsFilter resource.
 	DataCellsFilterRef() *DataCellsFilterReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -322,6 +323,16 @@ func (j *jsiiProxy_CfnDataCellsFilter) DataCellsFilterRef() *DataCellsFilterRefe
 	_jsii_.Get(
 		j,
 		"dataCellsFilterRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

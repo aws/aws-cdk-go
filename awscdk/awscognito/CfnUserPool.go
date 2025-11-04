@@ -221,6 +221,7 @@ type CfnUserPool interface {
 	// Set enabled MFA options on a specified user pool.
 	EnabledMfas() *[]*string
 	SetEnabledMfas(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// A collection of user pool Lambda triggers.
 	LambdaConfig() interface{}
 	SetLambdaConfig(val interface{})
@@ -640,6 +641,16 @@ func (j *jsiiProxy_CfnUserPool) EnabledMfas() *[]*string {
 	_jsii_.Get(
 		j,
 		"enabledMfas",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

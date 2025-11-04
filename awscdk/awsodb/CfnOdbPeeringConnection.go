@@ -61,6 +61,7 @@ type CfnOdbPeeringConnection interface {
 	// The display name of the ODB peering connection.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnOdbPeeringConnection) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOdbPeeringConnection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -36,7 +36,7 @@ import (
 type FireLensLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for FireLensLogDriver
@@ -92,8 +92,8 @@ func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (f *jsiiProxy_FireLensLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
-	if err := f.validateBindParameters(_scope, _containerDefinition); err != nil {
+func (f *jsiiProxy_FireLensLogDriver) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := f.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}
 	var returns *LogDriverConfig
@@ -101,7 +101,7 @@ func (f *jsiiProxy_FireLensLogDriver) Bind(_scope constructs.Construct, _contain
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{_scope, _containerDefinition},
+		[]interface{}{scope, containerDefinition},
 		&returns,
 	)
 

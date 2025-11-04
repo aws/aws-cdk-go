@@ -87,6 +87,7 @@ type CfnPolicy interface {
 	// Specifies the policy type and content to use for the new or updated policy.
 	Definition() interface{}
 	SetDefinition(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -325,6 +326,16 @@ func (j *jsiiProxy_CfnPolicy) Definition() interface{} {
 	_jsii_.Get(
 		j,
 		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

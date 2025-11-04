@@ -4,7 +4,7 @@ package awssnssubscriptions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (e *jsiiProxy_EmailSubscription) validateBindParameters(_topic awssns.ITopic) error {
+func (e *jsiiProxy_EmailSubscription) validateBindParameters(topic awssns.ITopic) error {
 	return nil
 }
 

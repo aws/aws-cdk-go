@@ -34,7 +34,7 @@ import (
 type WorkMail interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for WorkMail
@@ -69,8 +69,8 @@ func NewWorkMail_Override(w WorkMail, props *WorkMailProps) {
 	)
 }
 
-func (w *jsiiProxy_WorkMail) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := w.validateBindParameters(_rule); err != nil {
+func (w *jsiiProxy_WorkMail) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := w.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -78,7 +78,7 @@ func (w *jsiiProxy_WorkMail) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRule
 	_jsii_.Invoke(
 		w,
 		"bind",
-		[]interface{}{_rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

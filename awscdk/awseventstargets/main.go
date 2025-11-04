@@ -191,6 +191,22 @@ func init() {
 		"aws-cdk-lib.aws_events_targets.EventBusProps",
 		reflect.TypeOf((*EventBusProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events_targets.FirehoseDeliveryStream",
+		reflect.TypeOf((*FirehoseDeliveryStream)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_FirehoseDeliveryStream{}
+			_jsii_.InitJsiiProxy(&j.Type__awseventsIRuleTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.FirehoseDeliveryStreamProps",
+		reflect.TypeOf((*FirehoseDeliveryStreamProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_events_targets.IDeliveryStream",
 		reflect.TypeOf((*IDeliveryStream)(nil)).Elem(),

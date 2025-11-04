@@ -81,6 +81,7 @@ type CfnApplicationInferenceProfile interface {
 	// The description of the inference profile.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the inference profile.
 	InferenceProfileName() *string
 	SetInferenceProfileName(val *string)
@@ -404,6 +405,16 @@ func (j *jsiiProxy_CfnApplicationInferenceProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationInferenceProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -67,7 +67,7 @@ type HttpNoneAuthorizer interface {
 	// The authorizationType used for IAM Authorizer.
 	AuthorizationType() *string
 	// Bind this authorizer to a specified Http route.
-	Bind(_options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig
+	Bind(options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig
 }
 
 // The jsii proxy struct for HttpNoneAuthorizer
@@ -110,8 +110,8 @@ func NewHttpNoneAuthorizer_Override(h HttpNoneAuthorizer) {
 	)
 }
 
-func (h *jsiiProxy_HttpNoneAuthorizer) Bind(_options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig {
-	if err := h.validateBindParameters(_options); err != nil {
+func (h *jsiiProxy_HttpNoneAuthorizer) Bind(options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *HttpRouteAuthorizerConfig
@@ -119,7 +119,7 @@ func (h *jsiiProxy_HttpNoneAuthorizer) Bind(_options *HttpRouteAuthorizerBindOpt
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

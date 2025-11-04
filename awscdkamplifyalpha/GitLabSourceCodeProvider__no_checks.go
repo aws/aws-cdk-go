@@ -4,7 +4,7 @@ package awscdkamplifyalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_GitLabSourceCodeProvider) validateBindParameters(_app App) error {
+func (g *jsiiProxy_GitLabSourceCodeProvider) validateBindParameters(app App) error {
 	return nil
 }
 

@@ -11,9 +11,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
-func (s *jsiiProxy_SfnStateMachine) validateBindParameters(_rule awsevents.IRule) error {
-	if _rule == nil {
-		return fmt.Errorf("parameter _rule is required, but nil was provided")
+func (s *jsiiProxy_SfnStateMachine) validateBindParameters(rule awsevents.IRule) error {
+	if rule == nil {
+		return fmt.Errorf("parameter rule is required, but nil was provided")
 	}
 
 	return nil

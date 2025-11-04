@@ -27,7 +27,7 @@ type S3Content interface {
 	Content
 	// Called when the Build is initialized to allow this object to bind.
 	// Experimental.
-	Bind(_scope constructs.Construct, role awsiam.IRole) *ContentConfig
+	Bind(scope constructs.Construct, role awsiam.IRole) *ContentConfig
 }
 
 // The jsii proxy struct for S3Content
@@ -104,8 +104,8 @@ func S3Content_FromBucket(bucket awss3.IBucket, key *string, objectVersion *stri
 	return returns
 }
 
-func (s *jsiiProxy_S3Content) Bind(_scope constructs.Construct, role awsiam.IRole) *ContentConfig {
-	if err := s.validateBindParameters(_scope, role); err != nil {
+func (s *jsiiProxy_S3Content) Bind(scope constructs.Construct, role awsiam.IRole) *ContentConfig {
+	if err := s.validateBindParameters(scope, role); err != nil {
 		panic(err)
 	}
 	var returns *ContentConfig
@@ -113,7 +113,7 @@ func (s *jsiiProxy_S3Content) Bind(_scope constructs.Construct, role awsiam.IRol
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, role},
+		[]interface{}{scope, role},
 		&returns,
 	)
 

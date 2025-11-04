@@ -52,6 +52,7 @@ type CfnLocationFSxLustre interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
@@ -294,6 +295,16 @@ func (j *jsiiProxy_CfnLocationFSxLustre) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationFSxLustre) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

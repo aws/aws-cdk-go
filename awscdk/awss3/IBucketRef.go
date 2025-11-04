@@ -3,6 +3,7 @@ package awss3
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IBucketRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Bucket resource.
 	// Experimental.
 	BucketRef() *BucketReference
@@ -19,6 +21,7 @@ type IBucketRef interface {
 // The jsii proxy for IBucketRef
 type jsiiProxy_IBucketRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IBucketRef) BucketRef() *BucketReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IBucketRef) BucketRef() *BucketReference {
 	_jsii_.Get(
 		j,
 		"bucketRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBucketRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBucketRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

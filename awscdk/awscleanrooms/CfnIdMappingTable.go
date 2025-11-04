@@ -67,6 +67,7 @@ type CfnIdMappingTable interface {
 	// The description of the ID mapping table.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a IdMappingTable resource.
 	IdMappingTableRef() *IdMappingTableReference
 	// The input reference configuration for the ID mapping table.
@@ -368,6 +369,16 @@ func (j *jsiiProxy_CfnIdMappingTable) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdMappingTable) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

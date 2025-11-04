@@ -8,7 +8,7 @@ func (r *jsiiProxy_Repository) validateApplyRemovalPolicyParameters(policy awscd
 	return nil
 }
 
-func (r *jsiiProxy_Repository) validateBindAsNotificationRuleSourceParameters(_scope constructs.Construct) error {
+func (r *jsiiProxy_Repository) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {
 	return nil
 }
 

@@ -5,18 +5,23 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A resource with a resource policy that can be added to.
+//
+// This interface is maintained for backwards compatibility, but should
+// not be used in new code. Prefer `IResourceWithPolicyV2` instead.
+// Deprecated: Implement `IResourceWithPolicyV2` instead.
 type IResourceWithPolicy interface {
 	awscdk.IResource
-	// Add a statement to the resource's resource policy.
-	AddToResourcePolicy(statement PolicyStatement) *AddToResourcePolicyResult
+	IResourceWithPolicyV2
 }
 
 // The jsii proxy for IResourceWithPolicy
 type jsiiProxy_IResourceWithPolicy struct {
 	internal.Type__awscdkIResource
+	jsiiProxy_IResourceWithPolicyV2
 }
 
 func (i *jsiiProxy_IResourceWithPolicy) AddToResourcePolicy(statement PolicyStatement) *AddToResourcePolicyResult {
@@ -32,6 +37,47 @@ func (i *jsiiProxy_IResourceWithPolicy) AddToResourcePolicy(statement PolicyStat
 		&returns,
 	)
 
+	return returns
+}
+
+func (i *jsiiProxy_IResourceWithPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (j *jsiiProxy_IResourceWithPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResourceWithPolicy) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IResourceWithPolicy) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
 	return returns
 }
 

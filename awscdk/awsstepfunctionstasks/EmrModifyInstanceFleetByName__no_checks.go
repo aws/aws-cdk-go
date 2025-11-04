@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) validateMetricTimedOutParameter
 	return nil
 }
 
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

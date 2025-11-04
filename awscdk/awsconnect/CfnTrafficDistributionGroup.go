@@ -57,6 +57,7 @@ type CfnTrafficDistributionGroup interface {
 	// The description of the traffic distribution group.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN).
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -322,6 +323,16 @@ func (j *jsiiProxy_CfnTrafficDistributionGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrafficDistributionGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

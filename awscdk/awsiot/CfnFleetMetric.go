@@ -74,6 +74,7 @@ type CfnFleetMetric interface {
 	// The fleet metric description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FleetMetric resource.
 	FleetMetricRef() *FleetMetricReference
 	// The name of the index to search.
@@ -373,6 +374,16 @@ func (j *jsiiProxy_CfnFleetMetric) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleetMetric) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

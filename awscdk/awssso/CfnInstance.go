@@ -62,6 +62,7 @@ type CfnInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Instance resource.
 	InstanceRef() *InstanceReference
 	// The logical ID for this CloudFormation stack element.
@@ -324,6 +325,16 @@ func (j *jsiiProxy_CfnInstance) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

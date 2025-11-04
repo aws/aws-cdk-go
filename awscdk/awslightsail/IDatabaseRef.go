@@ -3,6 +3,7 @@ package awslightsail
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDatabaseRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Database resource.
 	// Experimental.
 	DatabaseRef() *DatabaseReference
@@ -19,6 +21,7 @@ type IDatabaseRef interface {
 // The jsii proxy for IDatabaseRef
 type jsiiProxy_IDatabaseRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDatabaseRef) DatabaseRef() *DatabaseReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDatabaseRef) DatabaseRef() *DatabaseReference {
 	_jsii_.Get(
 		j,
 		"databaseRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

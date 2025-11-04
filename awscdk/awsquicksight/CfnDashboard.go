@@ -65,6 +65,7 @@ type CfnDashboard interface {
 	DashboardRef() *DashboardReference
 	Definition() interface{}
 	SetDefinition(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	FolderArns() *[]*string
 	SetFolderArns(val *[]*string)
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
@@ -503,6 +504,16 @@ func (j *jsiiProxy_CfnDashboard) Definition() interface{} {
 	_jsii_.Get(
 		j,
 		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDashboard) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

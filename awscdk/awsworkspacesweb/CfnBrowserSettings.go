@@ -65,6 +65,7 @@ type CfnBrowserSettings interface {
 	// The custom managed key of the browser settings.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -342,6 +343,16 @@ func (j *jsiiProxy_CfnBrowserSettings) CustomerManagedKey() *string {
 	_jsii_.Get(
 		j,
 		"customerManagedKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBrowserSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

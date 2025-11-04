@@ -27,7 +27,7 @@ import (
 type EventBridgeDestination interface {
 	awslambda.IDestination
 	// Returns a destination configuration.
-	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for EventBridgeDestination
@@ -63,8 +63,8 @@ func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsev
 	)
 }
 
-func (e *jsiiProxy_EventBridgeDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
-	if err := e.validateBindParameters(_scope, fn, _options); err != nil {
+func (e *jsiiProxy_EventBridgeDestination) Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+	if err := e.validateBindParameters(scope, fn, options); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.DestinationConfig
@@ -72,7 +72,7 @@ func (e *jsiiProxy_EventBridgeDestination) Bind(_scope constructs.Construct, fn 
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{_scope, fn, _options},
+		[]interface{}{scope, fn, options},
 		&returns,
 	)
 

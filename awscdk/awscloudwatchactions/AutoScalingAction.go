@@ -25,7 +25,7 @@ import (
 type AutoScalingAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an AutoScaling StepScalingAction as an alarm action.
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for AutoScalingAction
@@ -60,8 +60,8 @@ func NewAutoScalingAction_Override(a AutoScalingAction, stepScalingAction awsaut
 	)
 }
 
-func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
-	if err := a.validateBindParameters(_scope, _alarm); err != nil {
+func (a *jsiiProxy_AutoScalingAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := a.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}
 	var returns *awscloudwatch.AlarmActionConfig
@@ -69,7 +69,7 @@ func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm a
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_scope, _alarm},
+		[]interface{}{scope, alarm},
 		&returns,
 	)
 

@@ -86,6 +86,7 @@ type CfnInstance interface {
 	// The identifier for the directory.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identity management type.
 	IdentityManagementType() *string
 	SetIdentityManagementType(val *string)
@@ -381,6 +382,16 @@ func (j *jsiiProxy_CfnInstance) DirectoryId() *string {
 	_jsii_.Get(
 		j,
 		"directoryId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

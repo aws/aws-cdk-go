@@ -32,7 +32,7 @@ type LinuxGpuBuildImage interface {
 	// The type of build environment.
 	Type() *string
 	// Function that allows the build image access to the construct tree.
-	Bind(scope constructs.Construct, project IProject, _options *BuildImageBindOptions) *BuildImageConfig
+	Bind(scope constructs.Construct, project IProject, options *BuildImageBindOptions) *BuildImageConfig
 	// Make a buildspec to run the indicated script.
 	RunScriptBuildspec(entrypoint *string) BuildSpec
 	// Allows the image a chance to validate whether the passed configuration is correct.
@@ -317,8 +317,8 @@ func LinuxGpuBuildImage_DLC_TENSORFLOW_2_2_0_TRAINING() IBuildImage {
 	return returns
 }
 
-func (l *jsiiProxy_LinuxGpuBuildImage) Bind(scope constructs.Construct, project IProject, _options *BuildImageBindOptions) *BuildImageConfig {
-	if err := l.validateBindParameters(scope, project, _options); err != nil {
+func (l *jsiiProxy_LinuxGpuBuildImage) Bind(scope constructs.Construct, project IProject, options *BuildImageBindOptions) *BuildImageConfig {
+	if err := l.validateBindParameters(scope, project, options); err != nil {
 		panic(err)
 	}
 	var returns *BuildImageConfig
@@ -326,7 +326,7 @@ func (l *jsiiProxy_LinuxGpuBuildImage) Bind(scope constructs.Construct, project 
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{scope, project, _options},
+		[]interface{}{scope, project, options},
 		&returns,
 	)
 

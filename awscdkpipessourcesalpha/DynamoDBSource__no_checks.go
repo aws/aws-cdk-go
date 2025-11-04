@@ -4,7 +4,7 @@ package awscdkpipessourcesalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DynamoDBSource) validateBindParameters(_pipe awscdkpipesalpha.IPipe) error {
+func (d *jsiiProxy_DynamoDBSource) validateBindParameters(pipe awscdkpipesalpha.IPipe) error {
 	return nil
 }
 

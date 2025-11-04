@@ -22,7 +22,7 @@ type JsonNull interface {
 	// to get this property populated, if it was skipped for performance reasons.
 	CreationStack() *[]*string
 	// Produce the Token's value at resolution time.
-	Resolve(_ctx IResolveContext) interface{}
+	Resolve(context IResolveContext) interface{}
 	// Obtains the JSON representation of this object (`null`).
 	ToJSON() interface{}
 	// Obtains the string representation of this object (`'null'`).
@@ -56,8 +56,8 @@ func JsonNull_INSTANCE() JsonNull {
 	return returns
 }
 
-func (j *jsiiProxy_JsonNull) Resolve(_ctx IResolveContext) interface{} {
-	if err := j.validateResolveParameters(_ctx); err != nil {
+func (j *jsiiProxy_JsonNull) Resolve(context IResolveContext) interface{} {
+	if err := j.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -65,7 +65,7 @@ func (j *jsiiProxy_JsonNull) Resolve(_ctx IResolveContext) interface{} {
 	_jsii_.Invoke(
 		j,
 		"resolve",
-		[]interface{}{_ctx},
+		[]interface{}{context},
 		&returns,
 	)
 

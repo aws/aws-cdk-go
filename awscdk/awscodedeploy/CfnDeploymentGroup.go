@@ -235,6 +235,7 @@ type CfnDeploymentGroup interface {
 	// The target Amazon ECS services in the deployment group.
 	EcsServices() interface{}
 	SetEcsServices(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Information about the load balancer to use in a deployment.
 	LoadBalancerInfo() interface{}
 	SetLoadBalancerInfo(val interface{})
@@ -605,6 +606,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) EcsServices() interface{} {
 	_jsii_.Get(
 		j,
 		"ecsServices",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

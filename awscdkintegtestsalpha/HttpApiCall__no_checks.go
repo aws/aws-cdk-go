@@ -4,7 +4,7 @@ package awscdkintegtestsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (h *jsiiProxy_HttpApiCall) validateAssertAtPathParameters(_path *string, _expected ExpectedResult) error {
+func (h *jsiiProxy_HttpApiCall) validateAssertAtPathParameters(path *string, expected ExpectedResult) error {
 	return nil
 }
 

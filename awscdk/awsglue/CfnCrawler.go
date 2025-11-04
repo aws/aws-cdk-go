@@ -167,6 +167,7 @@ type CfnCrawler interface {
 	// A description of the crawler.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
 	LakeFormationConfiguration() interface{}
 	SetLakeFormationConfiguration(val interface{})
@@ -460,6 +461,16 @@ func (j *jsiiProxy_CfnCrawler) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCrawler) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

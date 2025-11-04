@@ -62,6 +62,7 @@ type CfnFormType interface {
 	// The identifier of the Amazon DataZone domain in which the form type exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FormType resource.
 	FormTypeRef() *FormTypeReference
 	// The logical ID for this CloudFormation stack element.
@@ -359,6 +360,16 @@ func (j *jsiiProxy_CfnFormType) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFormType) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

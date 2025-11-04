@@ -61,6 +61,7 @@ type CfnAccessLogSubscription interface {
 	// The Amazon Resource Name (ARN) of the destination.
 	DestinationArn() *string
 	SetDestinationArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnAccessLogSubscription) DestinationArn() *string {
 	_jsii_.Get(
 		j,
 		"destinationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessLogSubscription) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

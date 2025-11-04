@@ -53,6 +53,7 @@ type CfnRoleAlias interface {
 	// The number of seconds for which the credential is valid.
 	CredentialDurationSeconds() *float64
 	SetCredentialDurationSeconds(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -290,6 +291,16 @@ func (j *jsiiProxy_CfnRoleAlias) CredentialDurationSeconds() *float64 {
 	_jsii_.Get(
 		j,
 		"credentialDurationSeconds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRoleAlias) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

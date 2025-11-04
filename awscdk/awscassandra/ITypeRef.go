@@ -3,6 +3,7 @@ package awscassandra
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscassandra/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ITypeRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Type resource.
 	// Experimental.
 	TypeRef() *TypeReference
@@ -19,6 +21,7 @@ type ITypeRef interface {
 // The jsii proxy for ITypeRef
 type jsiiProxy_ITypeRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ITypeRef) TypeRef() *TypeReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ITypeRef) TypeRef() *TypeReference {
 	_jsii_.Get(
 		j,
 		"typeRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITypeRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITypeRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

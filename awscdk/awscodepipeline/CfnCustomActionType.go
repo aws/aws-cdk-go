@@ -84,6 +84,7 @@ type CfnCustomActionType interface {
 	CreationStack() *[]*string
 	// A reference to a CustomActionType resource.
 	CustomActionTypeRef() *CustomActionTypeReference
+	Env() *awscdk.ResourceEnvironment
 	// The details of the input artifact for the action, such as its commit ID.
 	InputArtifactDetails() interface{}
 	SetInputArtifactDetails(val interface{})
@@ -348,6 +349,16 @@ func (j *jsiiProxy_CfnCustomActionType) CustomActionTypeRef() *CustomActionTypeR
 	_jsii_.Get(
 		j,
 		"customActionTypeRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomActionType) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

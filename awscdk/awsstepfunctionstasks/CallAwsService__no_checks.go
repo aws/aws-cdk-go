@@ -84,7 +84,7 @@ func (c *jsiiProxy_CallAwsService) validateMetricTimedOutParameters(props *awscl
 	return nil
 }
 
-func (c *jsiiProxy_CallAwsService) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (c *jsiiProxy_CallAwsService) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

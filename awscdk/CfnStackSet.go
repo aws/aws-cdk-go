@@ -122,6 +122,7 @@ type CfnStackSet interface {
 	// A description of the StackSet.
 	Description() *string
 	SetDescription(val *string)
+	Env() *ResourceEnvironment
 	// The name of the IAM execution role to use to create the StackSet.
 	ExecutionRoleName() *string
 	SetExecutionRoleName(val *string)
@@ -420,6 +421,16 @@ func (j *jsiiProxy_CfnStackSet) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStackSet) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

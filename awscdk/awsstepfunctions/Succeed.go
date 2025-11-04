@@ -88,7 +88,7 @@ type Succeed interface {
 	// Render error recovery options in ASL JSON format.
 	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson(queryLanguage QueryLanguage) *map[string]interface{}
+	ToStateJson(stateMachineQueryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -763,13 +763,13 @@ func (s *jsiiProxy_Succeed) RenderRetryCatch(topLevelQueryLanguage QueryLanguage
 	return returns
 }
 
-func (s *jsiiProxy_Succeed) ToStateJson(queryLanguage QueryLanguage) *map[string]interface{} {
+func (s *jsiiProxy_Succeed) ToStateJson(stateMachineQueryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		s,
 		"toStateJson",
-		[]interface{}{queryLanguage},
+		[]interface{}{stateMachineQueryLanguage},
 		&returns,
 	)
 

@@ -52,6 +52,7 @@ type CfnDelegatedAdmin interface {
 	CreationStack() *[]*string
 	// A reference to a DelegatedAdmin resource.
 	DelegatedAdminRef() *DelegatedAdminReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,6 +296,16 @@ func (j *jsiiProxy_CfnDelegatedAdmin) DelegatedAdminRef() *DelegatedAdminReferen
 	_jsii_.Get(
 		j,
 		"delegatedAdminRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDelegatedAdmin) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

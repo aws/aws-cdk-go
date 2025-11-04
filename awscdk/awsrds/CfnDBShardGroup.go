@@ -78,6 +78,7 @@ type CfnDBShardGroup interface {
 	SetDbShardGroupIdentifier(val *string)
 	// A reference to a DBShardGroup resource.
 	DbShardGroupRef() *DBShardGroupReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -364,6 +365,16 @@ func (j *jsiiProxy_CfnDBShardGroup) DbShardGroupRef() *DBShardGroupReference {
 	_jsii_.Get(
 		j,
 		"dbShardGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBShardGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

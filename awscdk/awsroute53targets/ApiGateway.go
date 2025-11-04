@@ -29,7 +29,7 @@ import (
 type ApiGateway interface {
 	ApiGatewayDomain
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for ApiGateway
@@ -64,8 +64,8 @@ func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 	)
 }
 
-func (a *jsiiProxy_ApiGateway) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := a.validateBindParameters(_record); err != nil {
+func (a *jsiiProxy_ApiGateway) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := a.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -73,7 +73,7 @@ func (a *jsiiProxy_ApiGateway) Bind(_record awsroute53.IRecordSet, _zone awsrout
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

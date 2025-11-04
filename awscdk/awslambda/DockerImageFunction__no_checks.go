@@ -52,7 +52,7 @@ func (d *jsiiProxy_DockerImageFunction) validateGetResourceNameAttributeParamete
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
@@ -60,15 +60,15 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeCompositePrincipalPar
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

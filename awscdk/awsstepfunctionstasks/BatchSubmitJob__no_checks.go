@@ -84,7 +84,7 @@ func (b *jsiiProxy_BatchSubmitJob) validateMetricTimedOutParameters(props *awscl
 	return nil
 }
 
-func (b *jsiiProxy_BatchSubmitJob) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (b *jsiiProxy_BatchSubmitJob) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

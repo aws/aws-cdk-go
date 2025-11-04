@@ -13,9 +13,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_S3Code) validateBindParameters(_scope constructs.Construct, grantable awsiam.IGrantable) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (s *jsiiProxy_S3Code) validateBindParameters(scope constructs.Construct, grantable awsiam.IGrantable) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if grantable == nil {

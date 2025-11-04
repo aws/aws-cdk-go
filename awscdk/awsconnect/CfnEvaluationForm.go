@@ -191,6 +191,7 @@ type CfnEvaluationForm interface {
 	// The description of the evaluation form.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EvaluationForm resource.
 	EvaluationFormRef() *EvaluationFormReference
 	// The identifier of the Amazon Connect instance.
@@ -447,6 +448,16 @@ func (j *jsiiProxy_CfnEvaluationForm) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEvaluationForm) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

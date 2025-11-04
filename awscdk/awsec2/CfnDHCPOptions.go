@@ -65,6 +65,7 @@ type CfnDHCPOptions interface {
 	// The IPv4 addresses of up to four domain name servers, or `AmazonProvidedDNS` .
 	DomainNameServers() *[]*string
 	SetDomainNameServers(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
 	Ipv6AddressPreferredLeaseTime() *float64
 	SetIpv6AddressPreferredLeaseTime(val *float64)
@@ -326,6 +327,16 @@ func (j *jsiiProxy_CfnDHCPOptions) DomainNameServers() *[]*string {
 	_jsii_.Get(
 		j,
 		"domainNameServers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDHCPOptions) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

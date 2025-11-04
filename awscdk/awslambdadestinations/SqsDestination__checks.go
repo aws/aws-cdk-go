@@ -12,16 +12,16 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_SqsDestination) validateBindParameters(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (s *jsiiProxy_SqsDestination) validateBindParameters(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if fn == nil {
 		return fmt.Errorf("parameter fn is required, but nil was provided")
 	}
 
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

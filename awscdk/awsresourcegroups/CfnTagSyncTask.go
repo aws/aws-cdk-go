@@ -59,6 +59,7 @@ type CfnTagSyncTask interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task.
 	Group() *string
 	SetGroup(val *string)
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnTagSyncTask) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagSyncTask) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -3,6 +3,7 @@ package awslookoutequipment
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslookoutequipment/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IInferenceSchedulerRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a InferenceScheduler resource.
 	// Experimental.
 	InferenceSchedulerRef() *InferenceSchedulerReference
@@ -19,6 +21,7 @@ type IInferenceSchedulerRef interface {
 // The jsii proxy for IInferenceSchedulerRef
 type jsiiProxy_IInferenceSchedulerRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IInferenceSchedulerRef) InferenceSchedulerRef() *InferenceSchedulerReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IInferenceSchedulerRef) InferenceSchedulerRef() *InferenceSch
 	_jsii_.Get(
 		j,
 		"inferenceSchedulerRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IInferenceSchedulerRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IInferenceSchedulerRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

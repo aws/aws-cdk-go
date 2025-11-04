@@ -53,7 +53,7 @@ type CfnJson interface {
 	// IResolvable, so it can be simply used as a value.
 	Value() Reference
 	// Produce the Token's value at resolution time.
-	Resolve(_context IResolveContext) interface{}
+	Resolve(context IResolveContext) interface{}
 	// This is required in case someone JSON.stringifys an object which references this object. Otherwise, we'll get a cyclic JSON reference.
 	ToJSON() *string
 	// Returns a string representation of this construct.
@@ -159,8 +159,8 @@ func CfnJson_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnJson) Resolve(_context IResolveContext) interface{} {
-	if err := c.validateResolveParameters(_context); err != nil {
+func (c *jsiiProxy_CfnJson) Resolve(context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -168,7 +168,7 @@ func (c *jsiiProxy_CfnJson) Resolve(_context IResolveContext) interface{} {
 	_jsii_.Invoke(
 		c,
 		"resolve",
-		[]interface{}{_context},
+		[]interface{}{context},
 		&returns,
 	)
 

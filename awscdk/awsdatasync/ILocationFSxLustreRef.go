@@ -3,6 +3,7 @@ package awsdatasync
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ILocationFSxLustreRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a LocationFSxLustre resource.
 	// Experimental.
 	LocationFSxLustreRef() *LocationFSxLustreReference
@@ -19,6 +21,7 @@ type ILocationFSxLustreRef interface {
 // The jsii proxy for ILocationFSxLustreRef
 type jsiiProxy_ILocationFSxLustreRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ILocationFSxLustreRef) LocationFSxLustreRef() *LocationFSxLustreReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ILocationFSxLustreRef) LocationFSxLustreRef() *LocationFSxLus
 	_jsii_.Get(
 		j,
 		"locationFSxLustreRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocationFSxLustreRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILocationFSxLustreRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -95,6 +95,7 @@ type CfnObjectType interface {
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The number of days until the data of this type expires.
 	ExpirationDays() *float64
 	SetExpirationDays(val *float64)
@@ -397,6 +398,16 @@ func (j *jsiiProxy_CfnObjectType) EncryptionKey() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnObjectType) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

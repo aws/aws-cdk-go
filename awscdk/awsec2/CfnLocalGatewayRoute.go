@@ -50,6 +50,7 @@ type CfnLocalGatewayRoute interface {
 	// The CIDR block used for destination matches.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a LocalGatewayRoute resource.
 	LocalGatewayRouteRef() *LocalGatewayRouteReference
 	// The ID of the local gateway route table.
@@ -294,6 +295,16 @@ func (j *jsiiProxy_CfnLocalGatewayRoute) DestinationCidrBlock() *string {
 	_jsii_.Get(
 		j,
 		"destinationCidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocalGatewayRoute) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

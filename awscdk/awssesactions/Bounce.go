@@ -30,7 +30,7 @@ import (
 type Bounce interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Bounce
@@ -65,8 +65,8 @@ func NewBounce_Override(b Bounce, props *BounceProps) {
 	)
 }
 
-func (b *jsiiProxy_Bounce) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := b.validateBindParameters(_rule); err != nil {
+func (b *jsiiProxy_Bounce) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := b.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -74,7 +74,7 @@ func (b *jsiiProxy_Bounce) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleAc
 	_jsii_.Invoke(
 		b,
 		"bind",
-		[]interface{}{_rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

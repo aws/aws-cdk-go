@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (c *jsiiProxy_ClusterInstance) validateBindParameters(scope constructs.Construct, cluster IDatabaseCluster, props *ClusterInstanceBindOptions) error {
+func (c *jsiiProxy_ClusterInstance) validateBindParameters(scope constructs.Construct, cluster IDatabaseCluster, options *ClusterInstanceBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -19,10 +19,10 @@ func (c *jsiiProxy_ClusterInstance) validateBindParameters(scope constructs.Cons
 		return fmt.Errorf("parameter cluster is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

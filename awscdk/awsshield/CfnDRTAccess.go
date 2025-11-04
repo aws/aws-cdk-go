@@ -56,6 +56,7 @@ type CfnDRTAccess interface {
 	CreationStack() *[]*string
 	// A reference to a DRTAccess resource.
 	DrtAccessRef() *DRTAccessReference
+	Env() *awscdk.ResourceEnvironment
 	// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources.
 	LogBucketList() *[]*string
 	SetLogBucketList(val *[]*string)
@@ -285,6 +286,16 @@ func (j *jsiiProxy_CfnDRTAccess) DrtAccessRef() *DRTAccessReference {
 	_jsii_.Get(
 		j,
 		"drtAccessRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDRTAccess) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

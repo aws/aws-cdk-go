@@ -78,6 +78,7 @@ type CfnCapacityReservationFleet interface {
 	// The date and time at which the Capacity Reservation Fleet expires.
 	EndDate() *string
 	SetEndDate(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
 	InstanceMatchCriteria() *string
 	SetInstanceMatchCriteria(val *string)
@@ -353,6 +354,16 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) EndDate() *string {
 	_jsii_.Get(
 		j,
 		"endDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

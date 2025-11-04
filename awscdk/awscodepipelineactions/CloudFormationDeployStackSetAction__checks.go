@@ -31,13 +31,13 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) validateBindParameters(sc
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationDeployStackSetAction) validateBoundParameters(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _stage == nil {
-		return fmt.Errorf("parameter _stage is required, but nil was provided")
+	if stage == nil {
+		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
 
 	if options == nil {

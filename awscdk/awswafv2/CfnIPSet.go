@@ -66,6 +66,7 @@ type CfnIPSet interface {
 	// A description of the IP set that helps with identification.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The version of the IP addresses, either `IPV4` or `IPV6` .
 	IpAddressVersion() *string
 	SetIpAddressVersion(val *string)
@@ -326,6 +327,16 @@ func (j *jsiiProxy_CfnIPSet) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

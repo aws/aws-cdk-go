@@ -57,6 +57,7 @@ type CfnDataCatalogEncryptionSettings interface {
 	SetDataCatalogEncryptionSettings(val interface{})
 	// A reference to a DataCatalogEncryptionSettings resource.
 	DataCatalogEncryptionSettingsRef() *DataCatalogEncryptionSettingsReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -300,6 +301,16 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) DataCatalogEncryptionSettin
 	_jsii_.Get(
 		j,
 		"dataCatalogEncryptionSettingsRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

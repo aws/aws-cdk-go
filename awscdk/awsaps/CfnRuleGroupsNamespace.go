@@ -55,6 +55,7 @@ type CfnRuleGroupsNamespace interface {
 	// The rules file used in the namespace.
 	Data() *string
 	SetData(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -292,6 +293,16 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Data() *string {
 	_jsii_.Get(
 		j,
 		"data",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuleGroupsNamespace) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

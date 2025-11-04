@@ -73,6 +73,7 @@ type CfnDelivery interface {
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName() *string
 	SetDeliverySourceName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The field delimiter that is used between record fields when the final output format of a delivery is in `Plain` , `W3C` , or `Raw` format.
 	FieldDelimiter() *string
 	SetFieldDelimiter(val *string)
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnDelivery) DeliverySourceName() *string {
 	_jsii_.Get(
 		j,
 		"deliverySourceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDelivery) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

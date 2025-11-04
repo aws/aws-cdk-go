@@ -104,6 +104,7 @@ type CfnBridge interface {
 	// An egress bridge is a cloud-to-ground bridge.
 	EgressGatewayBridge() interface{}
 	SetEgressGatewayBridge(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// An ingress bridge is a ground-to-cloud bridge.
 	IngressGatewayBridge() interface{}
 	SetIngressGatewayBridge(val interface{})
@@ -365,6 +366,16 @@ func (j *jsiiProxy_CfnBridge) EgressGatewayBridge() interface{} {
 	_jsii_.Get(
 		j,
 		"egressGatewayBridge",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBridge) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

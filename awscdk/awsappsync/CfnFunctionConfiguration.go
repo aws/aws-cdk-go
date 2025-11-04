@@ -90,6 +90,7 @@ type CfnFunctionConfiguration interface {
 	// The `Function` description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FunctionConfiguration resource.
 	FunctionConfigurationRef() *FunctionConfigurationReference
 	// The version of the request mapping template.
@@ -412,6 +413,16 @@ func (j *jsiiProxy_CfnFunctionConfiguration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunctionConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

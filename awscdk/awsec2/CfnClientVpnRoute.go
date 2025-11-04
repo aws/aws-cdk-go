@@ -58,6 +58,7 @@ type CfnClientVpnRoute interface {
 	// For example:.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -314,6 +315,16 @@ func (j *jsiiProxy_CfnClientVpnRoute) DestinationCidrBlock() *string {
 	_jsii_.Get(
 		j,
 		"destinationCidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClientVpnRoute) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

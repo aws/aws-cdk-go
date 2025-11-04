@@ -73,6 +73,7 @@ type CfnSimulationApplication interface {
 	// The current revision id.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The environment of the simulation application.
 	Environment() *string
 	SetEnvironment(val *string)
@@ -332,6 +333,16 @@ func (j *jsiiProxy_CfnSimulationApplication) CurrentRevisionId() *string {
 	_jsii_.Get(
 		j,
 		"currentRevisionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimulationApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -38,9 +38,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) validateApplyRemovalPolicyParamete
 	return nil
 }
 
-func (s *jsiiProxy_SlackChannelConfiguration) validateBindAsNotificationRuleTargetParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (s *jsiiProxy_SlackChannelConfiguration) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

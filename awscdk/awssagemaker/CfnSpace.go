@@ -152,6 +152,7 @@ type CfnSpace interface {
 	// The ID of the associated domain.
 	DomainId() *string
 	SetDomainId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -408,6 +409,16 @@ func (j *jsiiProxy_CfnSpace) DomainId() *string {
 	_jsii_.Get(
 		j,
 		"domainId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSpace) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

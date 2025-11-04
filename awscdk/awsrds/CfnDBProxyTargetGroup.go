@@ -85,6 +85,7 @@ type CfnDBProxyTargetGroup interface {
 	SetDbProxyName(val *string)
 	// A reference to a DBProxyTargetGroup resource.
 	DbProxyTargetGroupRef() *DBProxyTargetGroupReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -351,6 +352,16 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) DbProxyTargetGroupRef() *DBProxyTarget
 	_jsii_.Get(
 		j,
 		"dbProxyTargetGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxyTargetGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

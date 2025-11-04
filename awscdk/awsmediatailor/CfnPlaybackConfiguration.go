@@ -146,6 +146,7 @@ type CfnPlaybackConfiguration interface {
 	// The configuration for a DASH source.
 	DashConfiguration() interface{}
 	SetDashConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The configuration for HLS content.
 	HlsConfiguration() interface{}
 	SetHlsConfiguration(val interface{})
@@ -507,6 +508,16 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) DashConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"dashConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -47,12 +47,13 @@ type PublicHostedZone interface {
 	CrossAccountZoneDelegationRole() awsiam.Role
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// ARN of this hosted zone, such as arn:${Partition}:route53:::hostedzone/${Id}.
 	HostedZoneArn() *string
@@ -81,7 +82,7 @@ type PublicHostedZone interface {
 	// Adds a delegation from this zone to a designated zone.
 	AddDelegation(delegate IPublicHostedZone, opts *ZoneDelegationOptions)
 	// Add another VPC to this private hosted zone.
-	AddVpc(_vpc awsec2.IVpc)
+	AddVpc(vpc awsec2.IVpc)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -457,14 +458,14 @@ func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, o
 	)
 }
 
-func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
-	if err := p.validateAddVpcParameters(_vpc); err != nil {
+func (p *jsiiProxy_PublicHostedZone) AddVpc(vpc awsec2.IVpc) {
+	if err := p.validateAddVpcParameters(vpc); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		p,
 		"addVpc",
-		[]interface{}{_vpc},
+		[]interface{}{vpc},
 	)
 }
 

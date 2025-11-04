@@ -84,7 +84,7 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) validateMetricTimedOutParameters(pro
 	return nil
 }
 
-func (g *jsiiProxy_GlueDataBrewStartJobRun) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (g *jsiiProxy_GlueDataBrewStartJobRun) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

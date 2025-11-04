@@ -21,7 +21,7 @@ import (
 type ChainDefinitionBody interface {
 	DefinitionBody
 	Chainable() IChainable
-	Bind(scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps, graph StateGraph) *DefinitionConfig
+	Bind(scope constructs.Construct, sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps, graph StateGraph) *DefinitionConfig
 }
 
 // The jsii proxy struct for ChainDefinitionBody
@@ -121,8 +121,8 @@ func ChainDefinitionBody_FromString(definition *string) DefinitionBody {
 	return returns
 }
 
-func (c *jsiiProxy_ChainDefinitionBody) Bind(scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps, graph StateGraph) *DefinitionConfig {
-	if err := c.validateBindParameters(scope, _sfnPrincipal, sfnProps); err != nil {
+func (c *jsiiProxy_ChainDefinitionBody) Bind(scope constructs.Construct, sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps, graph StateGraph) *DefinitionConfig {
+	if err := c.validateBindParameters(scope, sfnPrincipal, sfnProps); err != nil {
 		panic(err)
 	}
 	var returns *DefinitionConfig
@@ -130,7 +130,7 @@ func (c *jsiiProxy_ChainDefinitionBody) Bind(scope constructs.Construct, _sfnPri
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{scope, _sfnPrincipal, sfnProps, graph},
+		[]interface{}{scope, sfnPrincipal, sfnProps, graph},
 		&returns,
 	)
 

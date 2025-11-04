@@ -82,6 +82,7 @@ type CfnStateMachine interface {
 	SetDefinitionSubstitutions(val interface{})
 	DefinitionUri() interface{}
 	SetDefinitionUri(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	Events() interface{}
 	SetEvents(val interface{})
 	Logging() interface{}
@@ -338,6 +339,16 @@ func (j *jsiiProxy_CfnStateMachine) DefinitionUri() interface{} {
 	_jsii_.Get(
 		j,
 		"definitionUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStateMachine) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

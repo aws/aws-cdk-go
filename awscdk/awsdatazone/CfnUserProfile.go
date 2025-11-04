@@ -50,6 +50,7 @@ type CfnUserProfile interface {
 	// The identifier of a Amazon DataZone domain in which a user profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -314,6 +315,16 @@ func (j *jsiiProxy_CfnUserProfile) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

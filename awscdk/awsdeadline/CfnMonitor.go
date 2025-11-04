@@ -64,6 +64,7 @@ type CfnMonitor interface {
 	// The name of the monitor that displays on the Deadline Cloud console.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn() *string
 	SetIdentityCenterInstanceArn(val *string)
@@ -342,6 +343,16 @@ func (j *jsiiProxy_CfnMonitor) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMonitor) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

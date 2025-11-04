@@ -159,6 +159,7 @@ type CfnConnectionGroup interface {
 	// Whether the connection group is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// IPv6 is enabled for the connection group.
 	Ipv6Enabled() interface{}
 	SetIpv6Enabled(val interface{})
@@ -492,6 +493,16 @@ func (j *jsiiProxy_CfnConnectionGroup) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectionGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -62,6 +62,7 @@ type CfnSubscription interface {
 	// The subscription's endpoint.
 	Endpoint() *string
 	SetEndpoint(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The filter policy JSON assigned to the subscription.
 	FilterPolicy() interface{}
 	SetFilterPolicy(val interface{})
@@ -324,6 +325,16 @@ func (j *jsiiProxy_CfnSubscription) Endpoint() *string {
 	_jsii_.Get(
 		j,
 		"endpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscription) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

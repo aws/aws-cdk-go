@@ -12,7 +12,7 @@ func (d *jsiiProxy_DotNetLinuxInjector) validateInjectInitContainerParameters(ta
 	return nil
 }
 
-func (d *jsiiProxy_DotNetLinuxInjector) validateOverrideAdditionalEnvironmentsParameters(_envsToOverride *map[string]*string, _envsFromTaskDef *map[string]*string) error {
+func (d *jsiiProxy_DotNetLinuxInjector) validateOverrideAdditionalEnvironmentsParameters(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string) error {
 	return nil
 }
 

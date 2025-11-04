@@ -20,14 +20,13 @@ import (
 //   // Create a cross-region inference profile
 //   crossRegionProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
 //   	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
-//   	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V2_0(),
+//   	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
 //   })
 //
-//   // Create an application inference profile across regions
-//   appProfile := bedrock.NewApplicationInferenceProfile(this, jsii.String("MyMultiRegionProfile"), &ApplicationInferenceProfileProps{
-//   	ApplicationInferenceProfileName: jsii.String("claude-35-sonnet-v2-multi-region"),
-//   	ModelSource: crossRegionProfile,
-//   	Description: jsii.String("Multi-region application profile for cost tracking"),
+//   // Use the cross-region profile with an agent
+//   agent := bedrock.NewAgent(this, jsii.String("Agent"), &AgentProps{
+//   	FoundationModel: crossRegionProfile,
+//   	Instruction: jsii.String("You are a helpful and friendly agent that answers questions about agriculture."),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html

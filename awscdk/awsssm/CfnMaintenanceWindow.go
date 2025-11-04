@@ -73,6 +73,7 @@ type CfnMaintenanceWindow interface {
 	// The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
 	EndDate() *string
 	SetEndDate(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -359,6 +360,16 @@ func (j *jsiiProxy_CfnMaintenanceWindow) EndDate() *string {
 	_jsii_.Get(
 		j,
 		"endDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindow) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

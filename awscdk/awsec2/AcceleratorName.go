@@ -88,5 +88,15 @@ const (
 	AcceleratorName_V100 AcceleratorName = "V100"
 	// Xilinx VU9P FPGA.
 	AcceleratorName_VU9P AcceleratorName = "VU9P"
+	// NVIDIA A10G GPU.
+	AcceleratorName_A10G AcceleratorName = "A10G"
+	// NVIDIA H100 GPU.
+	AcceleratorName_H100 AcceleratorName = "H100"
+	// AWS Inferentia chips.
+	AcceleratorName_INFERENTIA AcceleratorName = "INFERENTIA"
+	// NVIDIA GRID K520 GPU.
+	AcceleratorName_K520 AcceleratorName = "K520"
+	// NVIDIA T4G GPUs.
+	AcceleratorName_T4G AcceleratorName = "T4G"
 )
 

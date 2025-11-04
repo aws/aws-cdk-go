@@ -192,9 +192,9 @@ func (b *jsiiProxy_BedrockCreateModelCustomizationJob) validateMetricTimedOutPar
 	return nil
 }
 
-func (b *jsiiProxy_BedrockCreateModelCustomizationJob) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (b *jsiiProxy_BedrockCreateModelCustomizationJob) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

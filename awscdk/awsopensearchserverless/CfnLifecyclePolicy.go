@@ -45,6 +45,7 @@ type CfnLifecyclePolicy interface {
 	// The description of the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a LifecyclePolicy resource.
 	LifecyclePolicyRef() *LifecyclePolicyReference
 	// The logical ID for this CloudFormation stack element.
@@ -269,6 +270,16 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

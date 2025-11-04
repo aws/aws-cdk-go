@@ -107,6 +107,7 @@ type CfnCluster interface {
 	// Whether deletion protection is enabled on this cluster.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The KMS key that encrypts data on the cluster.
 	KmsEncryptionKey() *string
 	SetKmsEncryptionKey(val *string)
@@ -410,6 +411,16 @@ func (j *jsiiProxy_CfnCluster) DeletionProtectionEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

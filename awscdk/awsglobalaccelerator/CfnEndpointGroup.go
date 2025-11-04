@@ -72,6 +72,7 @@ type CfnEndpointGroup interface {
 	// The AWS Regions where the endpoint group is located.
 	EndpointGroupRegion() *string
 	SetEndpointGroupRegion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The time—10 seconds or 30 seconds—between health checks for each endpoint.
 	HealthCheckIntervalSeconds() *float64
 	SetHealthCheckIntervalSeconds(val *float64)
@@ -339,6 +340,16 @@ func (j *jsiiProxy_CfnEndpointGroup) EndpointGroupRegion() *string {
 	_jsii_.Get(
 		j,
 		"endpointGroupRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -87,6 +87,7 @@ type CfnRecordSetGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the hosted zone that you want to create records in.
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
@@ -321,6 +322,16 @@ func (j *jsiiProxy_CfnRecordSetGroup) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordSetGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

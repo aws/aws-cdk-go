@@ -26,9 +26,9 @@ func (p *jsiiProxy_PrincipalWithConditions) validateAddConditionsParameters(cond
 	return nil
 }
 
-func (p *jsiiProxy_PrincipalWithConditions) validateAddToAssumeRolePolicyParameters(doc PolicyDocument) error {
-	if doc == nil {
-		return fmt.Errorf("parameter doc is required, but nil was provided")
+func (p *jsiiProxy_PrincipalWithConditions) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
+	if document == nil {
+		return fmt.Errorf("parameter document is required, but nil was provided")
 	}
 
 	return nil

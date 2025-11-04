@@ -67,6 +67,7 @@ type CfnDomainNameAccessAssociation interface {
 	// The ARN of the domain name.
 	DomainNameArn() *string
 	SetDomainNameArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -334,6 +335,16 @@ func (j *jsiiProxy_CfnDomainNameAccessAssociation) DomainNameArn() *string {
 	_jsii_.Get(
 		j,
 		"domainNameArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainNameAccessAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

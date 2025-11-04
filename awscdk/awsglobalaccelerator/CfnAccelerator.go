@@ -72,6 +72,7 @@ type CfnAccelerator interface {
 	// The value is true or false. The default value is true.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	IpAddresses() *[]*string
 	SetIpAddresses(val *[]*string)
@@ -360,6 +361,16 @@ func (j *jsiiProxy_CfnAccelerator) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccelerator) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

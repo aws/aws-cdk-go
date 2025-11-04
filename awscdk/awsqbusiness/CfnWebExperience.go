@@ -97,6 +97,7 @@ type CfnWebExperience interface {
 	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration() interface{}
 	SetCustomizationConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
@@ -427,6 +428,16 @@ func (j *jsiiProxy_CfnWebExperience) CustomizationConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"customizationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebExperience) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

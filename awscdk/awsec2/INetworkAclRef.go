@@ -3,6 +3,7 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type INetworkAclRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a NetworkAcl resource.
 	// Experimental.
 	NetworkAclRef() *NetworkAclReference
@@ -19,6 +21,7 @@ type INetworkAclRef interface {
 // The jsii proxy for INetworkAclRef
 type jsiiProxy_INetworkAclRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_INetworkAclRef) NetworkAclRef() *NetworkAclReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_INetworkAclRef) NetworkAclRef() *NetworkAclReference {
 	_jsii_.Get(
 		j,
 		"networkAclRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkAclRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkAclRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

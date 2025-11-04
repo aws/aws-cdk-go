@@ -91,6 +91,7 @@ type CfnJobTemplate interface {
 	// An S3 link, or S3 object URL, to the job document.
 	DocumentSource() *string
 	SetDocumentSource(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the job to use as the basis for the job template.
 	JobArn() *string
 	SetJobArn(val *string)
@@ -383,6 +384,16 @@ func (j *jsiiProxy_CfnJobTemplate) DocumentSource() *string {
 	_jsii_.Get(
 		j,
 		"documentSource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

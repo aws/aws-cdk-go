@@ -162,6 +162,7 @@ type CfnDataProvider interface {
 	// The type of database engine for the data provider.
 	Engine() *string
 	SetEngine(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The property describes the exact settings which can be modified.
 	ExactSettings() interface{}
 	SetExactSettings(val interface{})
@@ -455,6 +456,16 @@ func (j *jsiiProxy_CfnDataProvider) Engine() *string {
 	_jsii_.Get(
 		j,
 		"engine",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataProvider) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

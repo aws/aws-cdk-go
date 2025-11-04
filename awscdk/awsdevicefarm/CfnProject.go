@@ -61,6 +61,7 @@ type CfnProject interface {
 	// Sets the execution timeout value (in minutes) for a project.
 	DefaultJobTimeoutMinutes() *float64
 	SetDefaultJobTimeoutMinutes(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -298,6 +299,16 @@ func (j *jsiiProxy_CfnProject) DefaultJobTimeoutMinutes() *float64 {
 	_jsii_.Get(
 		j,
 		"defaultJobTimeoutMinutes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

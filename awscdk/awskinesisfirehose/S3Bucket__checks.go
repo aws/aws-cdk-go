@@ -11,15 +11,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_S3Bucket) validateBindParameters(scope constructs.Construct, _options *DestinationBindOptions) error {
+func (s *jsiiProxy_S3Bucket) validateBindParameters(scope constructs.Construct, options *DestinationBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

@@ -22,9 +22,9 @@ func (r *jsiiProxy_Repository) validateApplyRemovalPolicyParameters(policy awscd
 	return nil
 }
 
-func (r *jsiiProxy_Repository) validateBindAsNotificationRuleSourceParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (r *jsiiProxy_Repository) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

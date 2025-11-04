@@ -129,6 +129,7 @@ type CfnVPNConnection interface {
 	// Indicate whether to enable acceleration for the VPN connection.
 	EnableAcceleration() interface{}
 	SetEnableAcceleration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv4NetworkCidr() *string
 	SetLocalIpv4NetworkCidr(val *string)
@@ -409,6 +410,16 @@ func (j *jsiiProxy_CfnVPNConnection) EnableAcceleration() interface{} {
 	_jsii_.Get(
 		j,
 		"enableAcceleration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

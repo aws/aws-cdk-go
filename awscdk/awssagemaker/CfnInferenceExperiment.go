@@ -133,6 +133,7 @@ type CfnInferenceExperiment interface {
 	// The name of the endpoint.
 	EndpointName() *string
 	SetEndpointName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a InferenceExperiment resource.
 	InferenceExperimentRef() *InferenceExperimentReference
 	// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
@@ -488,6 +489,16 @@ func (j *jsiiProxy_CfnInferenceExperiment) EndpointName() *string {
 	_jsii_.Get(
 		j,
 		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInferenceExperiment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

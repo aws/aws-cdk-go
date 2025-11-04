@@ -217,6 +217,7 @@ type CfnNetworkInsightsAccessScope interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The paths to exclude.
 	ExcludePaths() interface{}
 	SetExcludePaths(val interface{})
@@ -474,6 +475,16 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsAccessScope) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

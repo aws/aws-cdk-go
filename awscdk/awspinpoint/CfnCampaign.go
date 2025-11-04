@@ -497,6 +497,7 @@ type CfnCampaign interface {
 	// A custom description of the campaign.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
 	HoldoutPercent() *float64
 	SetHoldoutPercent(val *float64)
@@ -822,6 +823,16 @@ func (j *jsiiProxy_CfnCampaign) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCampaign) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

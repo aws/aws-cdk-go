@@ -8,7 +8,7 @@ func (p *jsiiProxy_PublicHostedZone) validateAddDelegationParameters(delegate IP
 	return nil
 }
 
-func (p *jsiiProxy_PublicHostedZone) validateAddVpcParameters(_vpc awsec2.IVpc) error {
+func (p *jsiiProxy_PublicHostedZone) validateAddVpcParameters(vpc awsec2.IVpc) error {
 	return nil
 }
 

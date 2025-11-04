@@ -61,6 +61,7 @@ type CfnThreatIntelSet interface {
 	// The unique ID of the detector of the GuardDuty account for which you want to create a `threatIntelSet` .
 	DetectorId() *string
 	SetDetectorId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 	ExpectedBucketOwner() *string
 	SetExpectedBucketOwner(val *string)
@@ -314,6 +315,16 @@ func (j *jsiiProxy_CfnThreatIntelSet) DetectorId() *string {
 	_jsii_.Get(
 		j,
 		"detectorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnThreatIntelSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -103,6 +103,7 @@ type CfnFlowOutput interface {
 	// The type of key used for the encryption.
 	Encryption() interface{}
 	SetEncryption(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow this output is attached to.
 	FlowArn() *string
 	SetFlowArn(val *string)
@@ -400,6 +401,16 @@ func (j *jsiiProxy_CfnFlowOutput) Encryption() interface{} {
 	_jsii_.Get(
 		j,
 		"encryption",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowOutput) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

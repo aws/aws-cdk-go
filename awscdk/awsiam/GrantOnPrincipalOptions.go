@@ -50,6 +50,7 @@ type GrantOnPrincipalOptions struct {
 	// Construct to report warnings on in case grant could not be registered.
 	// Default: - the construct in which this construct is defined.
 	//
+	// Deprecated: The scope argument is currently unused.
 	Scope constructs.IConstruct `field:"optional" json:"scope" yaml:"scope"`
 }
 

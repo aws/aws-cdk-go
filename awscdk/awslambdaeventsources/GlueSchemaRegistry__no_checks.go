@@ -4,7 +4,7 @@ package awslambdaeventsources
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_GlueSchemaRegistry) validateBindParameters(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) error {
+func (g *jsiiProxy_GlueSchemaRegistry) validateBindParameters(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) error {
 	return nil
 }
 

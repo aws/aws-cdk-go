@@ -50,6 +50,7 @@ type CfnIPAMAllocation interface {
 	// A description for the allocation.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a IPAMAllocation resource.
 	IpamAllocationRef() *IPAMAllocationReference
 	// The ID of the IPAM pool from which you would like to allocate a CIDR.
@@ -293,6 +294,16 @@ func (j *jsiiProxy_CfnIPAMAllocation) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAMAllocation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

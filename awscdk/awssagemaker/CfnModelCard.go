@@ -255,6 +255,7 @@ type CfnModelCard interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	LastModifiedBy() interface{}
 	SetLastModifiedBy(val interface{})
@@ -608,6 +609,16 @@ func (j *jsiiProxy_CfnModelCard) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModelCard) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -48,6 +48,7 @@ type CfnVolumeAttachment interface {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
 	Device() *string
 	SetDevice(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the instance to which the volume attaches.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -269,6 +270,16 @@ func (j *jsiiProxy_CfnVolumeAttachment) Device() *string {
 	_jsii_.Get(
 		j,
 		"device",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVolumeAttachment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

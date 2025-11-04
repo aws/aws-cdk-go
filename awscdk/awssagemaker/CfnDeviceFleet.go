@@ -62,6 +62,7 @@ type CfnDeviceFleet interface {
 	SetDeviceFleetName(val *string)
 	// A reference to a DeviceFleet resource.
 	DeviceFleetRef() *DeviceFleetReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -307,6 +308,16 @@ func (j *jsiiProxy_CfnDeviceFleet) DeviceFleetRef() *DeviceFleetReference {
 	_jsii_.Get(
 		j,
 		"deviceFleetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeviceFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

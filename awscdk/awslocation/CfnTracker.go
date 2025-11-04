@@ -72,6 +72,7 @@ type CfnTracker interface {
 	// An optional description for the tracker resource.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	EventBridgeEnabled() interface{}
 	SetEventBridgeEnabled(val interface{})
 	KmsKeyEnableGeospatialQueries() interface{}
@@ -363,6 +364,16 @@ func (j *jsiiProxy_CfnTracker) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTracker) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

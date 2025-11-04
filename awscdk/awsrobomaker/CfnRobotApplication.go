@@ -63,6 +63,7 @@ type CfnRobotApplication interface {
 	// The current revision id.
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The environment of the robot application.
 	Environment() *string
 	SetEnvironment(val *string)
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnRobotApplication) CurrentRevisionId() *string {
 	_jsii_.Get(
 		j,
 		"currentRevisionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRobotApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

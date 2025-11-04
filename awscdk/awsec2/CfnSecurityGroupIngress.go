@@ -67,6 +67,7 @@ type CfnSecurityGroupIngress interface {
 	// Updates the description of an ingress (inbound) security group rule.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	FromPort() *float64
 	SetFromPort(val *float64)
@@ -339,6 +340,16 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityGroupIngress) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

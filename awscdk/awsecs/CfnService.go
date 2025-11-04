@@ -313,6 +313,7 @@ type CfnService interface {
 	// Determines whether the execute command functionality is turned on for the service.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Determines whether to force a new deployment of the service.
 	ForceNewDeployment() interface{}
 	SetForceNewDeployment(val interface{})
@@ -679,6 +680,16 @@ func (j *jsiiProxy_CfnService) EnableExecuteCommand() interface{} {
 	_jsii_.Get(
 		j,
 		"enableExecuteCommand",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

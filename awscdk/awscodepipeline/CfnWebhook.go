@@ -70,6 +70,7 @@ type CfnWebhook interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// A list of rules applied to the body/payload sent in the POST request to a webhook URL.
 	Filters() interface{}
 	SetFilters(val interface{})
@@ -333,6 +334,16 @@ func (j *jsiiProxy_CfnWebhook) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebhook) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

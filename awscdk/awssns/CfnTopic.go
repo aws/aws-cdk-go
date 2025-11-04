@@ -91,6 +91,7 @@ type CfnTopic interface {
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic.
 	FifoThroughputScope() *string
 	SetFifoThroughputScope(val *string)
@@ -393,6 +394,16 @@ func (j *jsiiProxy_CfnTopic) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTopic) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

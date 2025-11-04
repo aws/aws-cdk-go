@@ -113,6 +113,7 @@ type CfnEndpoint interface {
 	SetEndpointName(val *string)
 	// A reference to a Endpoint resource.
 	EndpointRef() *EndpointReference
+	Env() *awscdk.ResourceEnvironment
 	// When you are updating endpoint resources with [RetainAllVariantProperties](https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties) whose value is set to `true` , `ExcludeRetainedVariantProperties` specifies the list of type [VariantProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html) to override with the values provided by `EndpointConfig` . If you don't specify a value for `ExcludeAllVariantProperties` , no variant properties are overridden. Don't use this property when creating new endpoint resources or when `RetainAllVariantProperties` is set to `false` .
 	ExcludeRetainedVariantProperties() interface{}
 	SetExcludeRetainedVariantProperties(val interface{})
@@ -401,6 +402,16 @@ func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
 	_jsii_.Get(
 		j,
 		"endpointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

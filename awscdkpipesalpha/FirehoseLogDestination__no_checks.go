@@ -4,11 +4,11 @@ package awscdkpipesalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(_pipe IPipe) error {
+func (f *jsiiProxy_FirehoseLogDestination) validateBindParameters(pipe IPipe) error {
 	return nil
 }
 
-func (f *jsiiProxy_FirehoseLogDestination) validateGrantPushParameters(pipeRole awsiam.IRole) error {
+func (f *jsiiProxy_FirehoseLogDestination) validateGrantPushParameters(grantee awsiam.IRole) error {
 	return nil
 }
 

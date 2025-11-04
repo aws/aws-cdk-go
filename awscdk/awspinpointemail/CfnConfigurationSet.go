@@ -66,6 +66,7 @@ type CfnConfigurationSet interface {
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 	DeliveryOptions() interface{}
 	SetDeliveryOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -325,6 +326,16 @@ func (j *jsiiProxy_CfnConfigurationSet) DeliveryOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"deliveryOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -55,6 +55,7 @@ type CfnDestination interface {
 	SetDescription(val *string)
 	// A reference to a Destination resource.
 	DestinationRef() *DestinationReference
+	Env() *awscdk.ResourceEnvironment
 	// The rule name to send messages to.
 	Expression() *string
 	SetExpression(val *string)
@@ -306,6 +307,16 @@ func (j *jsiiProxy_CfnDestination) DestinationRef() *DestinationReference {
 	_jsii_.Get(
 		j,
 		"destinationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDestination) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

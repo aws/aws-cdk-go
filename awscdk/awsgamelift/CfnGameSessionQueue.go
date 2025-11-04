@@ -85,6 +85,7 @@ type CfnGameSessionQueue interface {
 	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
 	Destinations() interface{}
 	SetDestinations(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A list of locations where a queue is allowed to place new game sessions.
 	FilterConfiguration() interface{}
 	SetFilterConfiguration(val interface{})
@@ -354,6 +355,16 @@ func (j *jsiiProxy_CfnGameSessionQueue) Destinations() interface{} {
 	_jsii_.Get(
 		j,
 		"destinations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGameSessionQueue) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

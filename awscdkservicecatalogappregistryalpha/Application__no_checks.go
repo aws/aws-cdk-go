@@ -4,7 +4,7 @@ package awscdkservicecatalogappregistryalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_Application) validateAddAttributeGroupParameters(id *string, props *AttributeGroupAssociationProps) error {
+func (a *jsiiProxy_Application) validateAddAttributeGroupParameters(id *string, attributeGroupProps *AttributeGroupAssociationProps) error {
 	return nil
 }
 
@@ -12,7 +12,7 @@ func (a *jsiiProxy_Application) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
-func (a *jsiiProxy_Application) validateAssociateAllStacksInScopeParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_Application) validateAssociateAllStacksInScopeParameters(construct constructs.Construct) error {
 	return nil
 }
 

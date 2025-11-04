@@ -11,6 +11,7 @@ import (
 // Experimental.
 type ICustomResourceRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a CustomResource resource.
 	// Experimental.
 	CustomResourceRef() *CustomResourceReference
@@ -19,6 +20,7 @@ type ICustomResourceRef interface {
 // The jsii proxy for ICustomResourceRef
 type jsiiProxy_ICustomResourceRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_ICustomResourceRef) CustomResourceRef() *CustomResourceReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_ICustomResourceRef) CustomResourceRef() *CustomResourceRefere
 	_jsii_.Get(
 		j,
 		"customResourceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICustomResourceRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICustomResourceRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

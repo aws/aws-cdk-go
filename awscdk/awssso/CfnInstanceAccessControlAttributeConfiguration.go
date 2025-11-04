@@ -66,6 +66,7 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes.
 	// Deprecated: this property has been deprecated.
 	InstanceAccessControlAttributeConfiguration() interface{}
@@ -289,6 +290,16 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) CreationStack
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

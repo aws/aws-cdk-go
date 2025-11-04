@@ -91,6 +91,7 @@ type CfnQueue interface {
 	// The display name of the queue summary to update.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The farm ID.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -385,6 +386,16 @@ func (j *jsiiProxy_CfnQueue) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

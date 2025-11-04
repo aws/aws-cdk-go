@@ -53,6 +53,7 @@ type CfnDeployment interface {
 	CreationStack() *[]*string
 	// A reference to a Deployment resource.
 	DeploymentRef() *DeploymentReference
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the runtime environment.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -309,6 +310,16 @@ func (j *jsiiProxy_CfnDeployment) DeploymentRef() *DeploymentReference {
 	_jsii_.Get(
 		j,
 		"deploymentRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

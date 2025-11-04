@@ -117,6 +117,7 @@ type CfnServerlessCache interface {
 	// The engine the serverless cache is compatible with.
 	Engine() *string
 	SetEngine(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the final snapshot taken of a cache before the cache is deleted.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
@@ -496,6 +497,16 @@ func (j *jsiiProxy_CfnServerlessCache) Engine() *string {
 	_jsii_.Get(
 		j,
 		"engine",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServerlessCache) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

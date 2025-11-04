@@ -24,7 +24,7 @@ func (s *jsiiProxy_SingletonFunction) validateAddMetadataParameters(type_ *strin
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateAddPermissionParameters(name *string, permission *Permission) error {
+func (s *jsiiProxy_SingletonFunction) validateAddPermissionParameters(id *string, permission *Permission) error {
 	return nil
 }
 
@@ -56,7 +56,7 @@ func (s *jsiiProxy_SingletonFunction) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
+func (s *jsiiProxy_SingletonFunction) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
@@ -64,15 +64,15 @@ func (s *jsiiProxy_SingletonFunction) validateGrantInvokeCompositePrincipalParam
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+func (s *jsiiProxy_SingletonFunction) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+func (s *jsiiProxy_SingletonFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
+func (s *jsiiProxy_SingletonFunction) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

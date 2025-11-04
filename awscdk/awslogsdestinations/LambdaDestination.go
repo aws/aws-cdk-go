@@ -36,7 +36,7 @@ type LambdaDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -73,8 +73,8 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 	)
 }
 
-func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
-	if err := l.validateBindParameters(scope, logGroup); err != nil {
+func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+	if err := l.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}
 	var returns *awslogs.LogSubscriptionDestinationConfig
@@ -82,7 +82,7 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, logGroup 
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{scope, logGroup},
+		[]interface{}{scope, sourceLogGroup},
 		&returns,
 	)
 

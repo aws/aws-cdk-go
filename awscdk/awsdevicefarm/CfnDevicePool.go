@@ -63,6 +63,7 @@ type CfnDevicePool interface {
 	SetDescription(val *string)
 	// A reference to a DevicePool resource.
 	DevicePoolRef() *DevicePoolReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -314,6 +315,16 @@ func (j *jsiiProxy_CfnDevicePool) DevicePoolRef() *DevicePoolReference {
 	_jsii_.Get(
 		j,
 		"devicePoolRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDevicePool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

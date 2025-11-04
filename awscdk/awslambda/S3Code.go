@@ -28,7 +28,7 @@ type S3Code interface {
 	// Determines whether this Code is inline code or not.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
@@ -263,8 +263,8 @@ func S3Code_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct) *CodeConfig {
-	if err := s.validateBindParameters(_scope); err != nil {
+func (s *jsiiProxy_S3Code) Bind(scope constructs.Construct) *CodeConfig {
+	if err := s.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *CodeConfig
@@ -272,7 +272,7 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct) *CodeConfig {
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

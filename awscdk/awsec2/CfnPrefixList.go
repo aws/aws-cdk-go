@@ -78,6 +78,7 @@ type CfnPrefixList interface {
 	// The entries for the prefix list.
 	Entries() interface{}
 	SetEntries(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -355,6 +356,16 @@ func (j *jsiiProxy_CfnPrefixList) Entries() interface{} {
 	_jsii_.Get(
 		j,
 		"entries",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrefixList) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

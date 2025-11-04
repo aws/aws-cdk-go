@@ -177,6 +177,7 @@ type CfnCluster interface {
 	// Specifies the level of monitoring for the MSK cluster.
 	EnhancedMonitoring() *string
 	SetEnhancedMonitoring(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The version of Apache Kafka.
 	KafkaVersion() *string
 	SetKafkaVersion(val *string)
@@ -491,6 +492,16 @@ func (j *jsiiProxy_CfnCluster) EnhancedMonitoring() *string {
 	_jsii_.Get(
 		j,
 		"enhancedMonitoring",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

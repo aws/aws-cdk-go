@@ -80,6 +80,7 @@ type CfnFeature interface {
 	// Specify users that should always be served a specific variation of a feature.
 	EntityOverrides() interface{}
 	SetEntityOverrides(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments.
 	EvaluationStrategy() *string
 	SetEvaluationStrategy(val *string)
@@ -343,6 +344,16 @@ func (j *jsiiProxy_CfnFeature) EntityOverrides() interface{} {
 	_jsii_.Get(
 		j,
 		"entityOverrides",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFeature) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

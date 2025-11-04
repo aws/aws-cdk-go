@@ -10,17 +10,17 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-func (s *jsiiProxy_S3LogDestination) validateBindParameters(_pipe IPipe) error {
-	if _pipe == nil {
-		return fmt.Errorf("parameter _pipe is required, but nil was provided")
+func (s *jsiiProxy_S3LogDestination) validateBindParameters(pipe IPipe) error {
+	if pipe == nil {
+		return fmt.Errorf("parameter pipe is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (s *jsiiProxy_S3LogDestination) validateGrantPushParameters(pipeRole awsiam.IRole) error {
-	if pipeRole == nil {
-		return fmt.Errorf("parameter pipeRole is required, but nil was provided")
+func (s *jsiiProxy_S3LogDestination) validateGrantPushParameters(grantee awsiam.IRole) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

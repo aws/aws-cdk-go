@@ -54,6 +54,7 @@ type CfnMountTarget interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the file system for which to create the mount target.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
@@ -297,6 +298,16 @@ func (j *jsiiProxy_CfnMountTarget) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMountTarget) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

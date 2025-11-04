@@ -4,7 +4,7 @@ package awsautoscalinghooktargets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_FunctionHook) validateBindParameters(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) error {
+func (f *jsiiProxy_FunctionHook) validateBindParameters(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) error {
 	return nil
 }
 

@@ -33,7 +33,7 @@ type RemoveTag interface {
 	ApplyTag(resource ITaggable)
 	ApplyTagV2(resource ITaggableV2)
 	// All aspects can visit an IConstruct.
-	Visit(construct constructs.IConstruct)
+	Visit(node constructs.IConstruct)
 }
 
 // The jsii proxy struct for RemoveTag
@@ -111,14 +111,14 @@ func (r *jsiiProxy_RemoveTag) ApplyTagV2(resource ITaggableV2) {
 	)
 }
 
-func (r *jsiiProxy_RemoveTag) Visit(construct constructs.IConstruct) {
-	if err := r.validateVisitParameters(construct); err != nil {
+func (r *jsiiProxy_RemoveTag) Visit(node constructs.IConstruct) {
+	if err := r.validateVisitParameters(node); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		r,
 		"visit",
-		[]interface{}{construct},
+		[]interface{}{node},
 	)
 }
 

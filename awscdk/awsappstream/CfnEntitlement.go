@@ -63,6 +63,7 @@ type CfnEntitlement interface {
 	SetDescription(val *string)
 	// A reference to a Entitlement resource.
 	EntitlementRef() *EntitlementReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -332,6 +333,16 @@ func (j *jsiiProxy_CfnEntitlement) EntitlementRef() *EntitlementReference {
 	_jsii_.Get(
 		j,
 		"entitlementRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEntitlement) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

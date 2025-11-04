@@ -84,7 +84,7 @@ func (g *jsiiProxy_GlueStartCrawlerRun) validateMetricTimedOutParameters(props *
 	return nil
 }
 
-func (g *jsiiProxy_GlueStartCrawlerRun) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (g *jsiiProxy_GlueStartCrawlerRun) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

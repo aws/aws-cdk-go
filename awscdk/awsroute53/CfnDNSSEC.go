@@ -37,6 +37,7 @@ type CfnDNSSEC interface {
 	CreationStack() *[]*string
 	// A reference to a DNSSEC resource.
 	DnssecRef() *DNSSECReference
+	Env() *awscdk.ResourceEnvironment
 	// A unique string (ID) that is used to identify a hosted zone.
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
@@ -253,6 +254,16 @@ func (j *jsiiProxy_CfnDNSSEC) DnssecRef() *DNSSECReference {
 	_jsii_.Get(
 		j,
 		"dnssecRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDNSSEC) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

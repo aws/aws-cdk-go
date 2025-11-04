@@ -21,7 +21,7 @@ import (
 type InlineCode interface {
 	Code
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(scope constructs.Construct, handler *string, _family RuntimeFamily, _runtimeName *string) *CodeConfig
+	Bind(scope constructs.Construct, handler *string, family RuntimeFamily, runtimeName *string) *CodeConfig
 }
 
 // The jsii proxy struct for InlineCode
@@ -128,8 +128,8 @@ func InlineCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (i *jsiiProxy_InlineCode) Bind(scope constructs.Construct, handler *string, _family RuntimeFamily, _runtimeName *string) *CodeConfig {
-	if err := i.validateBindParameters(scope, handler, _family); err != nil {
+func (i *jsiiProxy_InlineCode) Bind(scope constructs.Construct, handler *string, family RuntimeFamily, runtimeName *string) *CodeConfig {
+	if err := i.validateBindParameters(scope, handler, family); err != nil {
 		panic(err)
 	}
 	var returns *CodeConfig
@@ -137,7 +137,7 @@ func (i *jsiiProxy_InlineCode) Bind(scope constructs.Construct, handler *string,
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{scope, handler, _family, _runtimeName},
+		[]interface{}{scope, handler, family, runtimeName},
 		&returns,
 	)
 

@@ -259,6 +259,7 @@ type CfnInstance interface {
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	EnclaveOptions() interface{}
 	SetEnclaveOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Indicates whether an instance is enabled for hibernation.
 	HibernationOptions() interface{}
 	SetHibernationOptions(val interface{})
@@ -755,6 +756,16 @@ func (j *jsiiProxy_CfnInstance) EnclaveOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"enclaveOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -80,6 +80,7 @@ type CfnProject interface {
 	// The ID of the domain unit.
 	DomainUnitId() *string
 	SetDomainUnitId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms() *[]*string
 	SetGlossaryTerms(val *[]*string)
@@ -390,6 +391,16 @@ func (j *jsiiProxy_CfnProject) DomainUnitId() *string {
 	_jsii_.Get(
 		j,
 		"domainUnitId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

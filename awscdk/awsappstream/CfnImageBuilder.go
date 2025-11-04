@@ -92,6 +92,7 @@ type CfnImageBuilder interface {
 	// Enables or disables default internet access for the image builder.
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the IAM role that is applied to the image builder.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -393,6 +394,16 @@ func (j *jsiiProxy_CfnImageBuilder) EnableDefaultInternetAccess() interface{} {
 	_jsii_.Get(
 		j,
 		"enableDefaultInternetAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageBuilder) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

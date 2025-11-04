@@ -102,6 +102,7 @@ type CfnResolver interface {
 	// The resolver data source name.
 	DataSourceName() *string
 	SetDataSourceName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The GraphQL field on a type that invokes the resolver.
 	FieldName() *string
 	SetFieldName(val *string)
@@ -423,6 +424,16 @@ func (j *jsiiProxy_CfnResolver) DataSourceName() *string {
 	_jsii_.Get(
 		j,
 		"dataSourceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolver) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

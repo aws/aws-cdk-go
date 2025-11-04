@@ -48,6 +48,7 @@ type CfnLogging interface {
 	// The default log level.
 	DefaultLogLevel() *string
 	SetDefaultLogLevel(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Logging resource.
 	LoggingRef() *LoggingReference
 	// The logical ID for this CloudFormation stack element.
@@ -276,6 +277,16 @@ func (j *jsiiProxy_CfnLogging) DefaultLogLevel() *string {
 	_jsii_.Get(
 		j,
 		"defaultLogLevel",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogging) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

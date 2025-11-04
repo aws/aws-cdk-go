@@ -57,6 +57,7 @@ type CfnDatastore interface {
 	SetDatastoreName(val *string)
 	// A reference to a Datastore resource.
 	DatastoreRef() *DatastoreReference
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -347,6 +348,16 @@ func (j *jsiiProxy_CfnDatastore) DatastoreRef() *DatastoreReference {
 	_jsii_.Get(
 		j,
 		"datastoreRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatastore) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

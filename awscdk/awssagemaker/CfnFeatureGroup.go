@@ -79,6 +79,7 @@ type CfnFeatureGroup interface {
 	// A free form description of a `FeatureGroup` .
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the feature that stores the `EventTime` of a Record in a `FeatureGroup` .
 	EventTimeFeatureName() *string
 	SetEventTimeFeatureName(val *string)
@@ -346,6 +347,16 @@ func (j *jsiiProxy_CfnFeatureGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFeatureGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

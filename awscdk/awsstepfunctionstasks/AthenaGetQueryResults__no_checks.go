@@ -84,7 +84,7 @@ func (a *jsiiProxy_AthenaGetQueryResults) validateMetricTimedOutParameters(props
 	return nil
 }
 
-func (a *jsiiProxy_AthenaGetQueryResults) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (a *jsiiProxy_AthenaGetQueryResults) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

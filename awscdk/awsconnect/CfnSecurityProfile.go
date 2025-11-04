@@ -92,6 +92,7 @@ type CfnSecurityProfile interface {
 	// The description of the security profile.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources() *[]*string
 	SetHierarchyRestrictedResources(val *[]*string)
@@ -396,6 +397,16 @@ func (j *jsiiProxy_CfnSecurityProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

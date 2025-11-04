@@ -246,6 +246,7 @@ type CfnScalingPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// *Not needed if the default instance warmup is defined for the group.*.
 	EstimatedInstanceWarmup() *float64
 	SetEstimatedInstanceWarmup(val *float64)
@@ -529,6 +530,16 @@ func (j *jsiiProxy_CfnScalingPolicy) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScalingPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

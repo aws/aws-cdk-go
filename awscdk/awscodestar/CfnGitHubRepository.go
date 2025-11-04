@@ -64,6 +64,7 @@ type CfnGitHubRepository interface {
 	// Indicates whether to enable issues for the GitHub repository.
 	EnableIssues() interface{}
 	SetEnableIssues(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a GitHubRepository resource.
 	GitHubRepositoryRef() *GitHubRepositoryReference
 	// Indicates whether the GitHub repository is a private repository.
@@ -324,6 +325,16 @@ func (j *jsiiProxy_CfnGitHubRepository) EnableIssues() interface{} {
 	_jsii_.Get(
 		j,
 		"enableIssues",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGitHubRepository) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

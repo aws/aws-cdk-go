@@ -10,14 +10,14 @@ package awsiam
 //
 //   var conditions interface{}
 //   var grantable IGrantable
-//   var resourceWithPolicy IResourceWithPolicy
+//   var resourceWithPolicyV2 IResourceWithPolicyV2
 //
 //   grantWithResourceOptions := &GrantWithResourceOptions{
 //   	Actions: []*string{
 //   		jsii.String("actions"),
 //   	},
 //   	Grantee: grantable,
-//   	Resource: resourceWithPolicy,
+//   	Resource: resourceWithPolicyV2,
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
@@ -50,7 +50,7 @@ type GrantWithResourceOptions struct {
 	//
 	// The statement will be added to the resource policy if it couldn't be
 	// added to the principal policy.
-	Resource IResourceWithPolicy `field:"required" json:"resource" yaml:"resource"`
+	Resource IResourceWithPolicyV2 `field:"required" json:"resource" yaml:"resource"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).

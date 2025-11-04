@@ -87,6 +87,7 @@ type CfnTransitGateway interface {
 	// Enable or disable DNS support.
 	DnsSupport() *string
 	SetDnsSupport(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -403,6 +404,16 @@ func (j *jsiiProxy_CfnTransitGateway) DnsSupport() *string {
 	_jsii_.Get(
 		j,
 		"dnsSupport",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGateway) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

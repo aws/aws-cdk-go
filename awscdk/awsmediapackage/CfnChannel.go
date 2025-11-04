@@ -73,6 +73,7 @@ type CfnChannel interface {
 	// Configures egress access logs.
 	EgressAccessLogs() interface{}
 	SetEgressAccessLogs(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The input URL where the source stream should be sent.
 	HlsIngest() interface{}
 	SetHlsIngest(val interface{})
@@ -331,6 +332,16 @@ func (j *jsiiProxy_CfnChannel) EgressAccessLogs() interface{} {
 	_jsii_.Get(
 		j,
 		"egressAccessLogs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -11,9 +11,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 )
 
-func (c *jsiiProxy_CodePipeline) validateBindParameters(_rule awsevents.IRule) error {
-	if _rule == nil {
-		return fmt.Errorf("parameter _rule is required, but nil was provided")
+func (c *jsiiProxy_CodePipeline) validateBindParameters(rule awsevents.IRule) error {
+	if rule == nil {
+		return fmt.Errorf("parameter rule is required, but nil was provided")
 	}
 
 	return nil

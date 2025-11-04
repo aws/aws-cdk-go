@@ -16,7 +16,7 @@ func (f *jsiiProxy_FunctionUrl) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
-func (f *jsiiProxy_FunctionUrl) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+func (f *jsiiProxy_FunctionUrl) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 

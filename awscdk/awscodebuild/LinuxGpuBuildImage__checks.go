@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope constructs.Construct, project IProject, _options *BuildImageBindOptions) error {
+func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope constructs.Construct, project IProject, options *BuildImageBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -20,10 +20,10 @@ func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope constructs.C
 		return fmt.Errorf("parameter project is required, but nil was provided")
 	}
 
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

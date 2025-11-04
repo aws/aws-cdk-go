@@ -74,25 +74,25 @@ func (l *jsiiProxy_LazyRole) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateGrantParameters(identity IPrincipal) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
+func (l *jsiiProxy_LazyRole) validateGrantParameters(grantee IPrincipal) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateGrantAssumeRoleParameters(identity IPrincipal) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
+func (l *jsiiProxy_LazyRole) validateGrantAssumeRoleParameters(grantee IPrincipal) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateGrantPassRoleParameters(identity IPrincipal) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
+func (l *jsiiProxy_LazyRole) validateGrantPassRoleParameters(grantee IPrincipal) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

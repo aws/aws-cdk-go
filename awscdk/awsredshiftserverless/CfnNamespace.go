@@ -114,6 +114,7 @@ type CfnNamespace interface {
 	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	DefaultIamRoleArn() *string
 	SetDefaultIamRoleArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the snapshot to be created before the namespace is deleted.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
@@ -525,6 +526,16 @@ func (j *jsiiProxy_CfnNamespace) DefaultIamRoleArn() *string {
 	_jsii_.Get(
 		j,
 		"defaultIamRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNamespace) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

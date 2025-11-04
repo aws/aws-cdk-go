@@ -11,22 +11,22 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
-func (h *jsiiProxy_HttpLambdaIntegration) validateBindParameters(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (h *jsiiProxy_HttpLambdaIntegration) validateBindParameters(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (h *jsiiProxy_HttpLambdaIntegration) validateCompleteBindParameters(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) error {
-	if options == nil {
-		return fmt.Errorf("parameter options is required, but nil was provided")
+func (h *jsiiProxy_HttpLambdaIntegration) validateCompleteBindParameters(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) error {
+	if _options == nil {
+		return fmt.Errorf("parameter _options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
 		return err
 	}
 

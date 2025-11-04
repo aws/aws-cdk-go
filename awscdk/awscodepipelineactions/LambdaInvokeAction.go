@@ -39,7 +39,7 @@ type LambdaInvokeAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the `IAction.bind` method.
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// Reference a CodePipeline variable defined by the Lambda function this action points to.
@@ -121,8 +121,8 @@ func (l *jsiiProxy_LambdaInvokeAction) Bind(scope constructs.Construct, stage aw
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvokeAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	if err := l.validateBoundParameters(scope, _stage, options); err != nil {
+func (l *jsiiProxy_LambdaInvokeAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := l.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
 	var returns *awscodepipeline.ActionConfig
@@ -130,7 +130,7 @@ func (l *jsiiProxy_LambdaInvokeAction) Bound(scope constructs.Construct, _stage 
 	_jsii_.Invoke(
 		l,
 		"bound",
-		[]interface{}{scope, _stage, options},
+		[]interface{}{scope, stage, options},
 		&returns,
 	)
 

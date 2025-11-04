@@ -136,6 +136,7 @@ type CfnGraphQLApi interface {
 	// Enables and controls the enhanced metrics feature.
 	EnhancedMetricsConfig() interface{}
 	SetEnhancedMetricsConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A map containing the list of resources with their properties and environment variables.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
@@ -496,6 +497,16 @@ func (j *jsiiProxy_CfnGraphQLApi) EnhancedMetricsConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"enhancedMetricsConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLApi) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

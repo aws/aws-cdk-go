@@ -3,6 +3,7 @@ package awscognito
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IUserPoolRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a UserPool resource.
 	// Experimental.
 	UserPoolRef() *UserPoolReference
@@ -19,6 +21,7 @@ type IUserPoolRef interface {
 // The jsii proxy for IUserPoolRef
 type jsiiProxy_IUserPoolRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IUserPoolRef) UserPoolRef() *UserPoolReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IUserPoolRef) UserPoolRef() *UserPoolReference {
 	_jsii_.Get(
 		j,
 		"userPoolRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

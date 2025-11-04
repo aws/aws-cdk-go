@@ -104,6 +104,7 @@ type CfnLoadBalancer interface {
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink .
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
 	SetEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The IP address type.
 	//
 	// Internal load balancers must use `ipv4` .
@@ -437,6 +438,16 @@ func (j *jsiiProxy_CfnLoadBalancer) EnforceSecurityGroupInboundRulesOnPrivateLin
 	_jsii_.Get(
 		j,
 		"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

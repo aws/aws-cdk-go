@@ -171,6 +171,7 @@ type CfnPolicy interface {
 	// If `true` , Firewall Manager performs cleanup according to the policy type.
 	DeleteAllPolicyResources() interface{}
 	SetDeleteAllPolicyResources(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy.
 	ExcludeMap() interface{}
 	SetExcludeMap(val interface{})
@@ -459,6 +460,16 @@ func (j *jsiiProxy_CfnPolicy) DeleteAllPolicyResources() interface{} {
 	_jsii_.Get(
 		j,
 		"deleteAllPolicyResources",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -52,7 +52,7 @@ import (
 type AddHeader interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for AddHeader
@@ -87,8 +87,8 @@ func NewAddHeader_Override(a AddHeader, props *AddHeaderProps) {
 	)
 }
 
-func (a *jsiiProxy_AddHeader) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := a.validateBindParameters(_rule); err != nil {
+func (a *jsiiProxy_AddHeader) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := a.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -96,7 +96,7 @@ func (a *jsiiProxy_AddHeader) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRul
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

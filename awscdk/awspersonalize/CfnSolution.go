@@ -67,6 +67,7 @@ type CfnSolution interface {
 	// The Amazon Resource Name (ARN) of the dataset group that provides the training data.
 	DatasetGroupArn() *string
 	SetDatasetGroupArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The event type (for example, 'click' or 'like') that is used for training the model.
 	EventType() *string
 	SetEventType(val *string)
@@ -310,6 +311,16 @@ func (j *jsiiProxy_CfnSolution) DatasetGroupArn() *string {
 	_jsii_.Get(
 		j,
 		"datasetGroupArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSolution) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

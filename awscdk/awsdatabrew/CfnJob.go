@@ -228,6 +228,7 @@ type CfnJob interface {
 	// The encryption mode for the job, which can be one of the following:.
 	EncryptionMode() *string
 	SetEncryptionMode(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Job resource.
 	JobRef() *JobReference
 	// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
@@ -531,6 +532,16 @@ func (j *jsiiProxy_CfnJob) EncryptionMode() *string {
 	_jsii_.Get(
 		j,
 		"encryptionMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJob) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

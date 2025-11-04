@@ -18,12 +18,14 @@ import (
 //   	Message: ruleTargetInput,
 //   }
 //
+// Deprecated: Use FirehoseDeliveryStreamProps.
 type KinesisFirehoseStreamProps struct {
 	// The message to send to the stream.
 	//
 	// Must be a valid JSON text passed to the target stream.
 	// Default: - the entire Event Bridge event.
 	//
+	// Deprecated: Use FirehoseDeliveryStreamProps.
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
 }
 

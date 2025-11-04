@@ -29,7 +29,7 @@ import (
 type LoadBalancerTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for LoadBalancerTarget
@@ -64,8 +64,8 @@ func NewLoadBalancerTarget_Override(l LoadBalancerTarget, loadBalancer awselasti
 	)
 }
 
-func (l *jsiiProxy_LoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := l.validateBindParameters(_record); err != nil {
+func (l *jsiiProxy_LoadBalancerTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := l.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -73,7 +73,7 @@ func (l *jsiiProxy_LoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{_record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

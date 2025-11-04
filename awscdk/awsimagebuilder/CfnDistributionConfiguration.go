@@ -104,6 +104,7 @@ type CfnDistributionConfiguration interface {
 	// The distributions of this distribution configuration formatted as an array of Distribution objects.
 	Distributions() interface{}
 	SetDistributions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -366,6 +367,16 @@ func (j *jsiiProxy_CfnDistributionConfiguration) Distributions() interface{} {
 	_jsii_.Get(
 		j,
 		"distributions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDistributionConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

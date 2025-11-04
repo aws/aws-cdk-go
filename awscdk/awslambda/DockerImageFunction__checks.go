@@ -149,9 +149,9 @@ func (d *jsiiProxy_DockerImageFunction) validateGetResourceNameAttributeParamete
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
@@ -165,25 +165,25 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeCompositePrincipalPar
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version IVersion) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	if version == nil {

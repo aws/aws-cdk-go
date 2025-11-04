@@ -17,7 +17,7 @@ import (
 type WebSocketNoneAuthorizer interface {
 	IWebSocketRouteAuthorizer
 	// Bind this authorizer to a specified WebSocket route.
-	Bind(_options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig
+	Bind(options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig
 }
 
 // The jsii proxy struct for WebSocketNoneAuthorizer
@@ -49,8 +49,8 @@ func NewWebSocketNoneAuthorizer_Override(w WebSocketNoneAuthorizer) {
 	)
 }
 
-func (w *jsiiProxy_WebSocketNoneAuthorizer) Bind(_options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig {
-	if err := w.validateBindParameters(_options); err != nil {
+func (w *jsiiProxy_WebSocketNoneAuthorizer) Bind(options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig {
+	if err := w.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *WebSocketRouteAuthorizerConfig
@@ -58,7 +58,7 @@ func (w *jsiiProxy_WebSocketNoneAuthorizer) Bind(_options *WebSocketRouteAuthori
 	_jsii_.Invoke(
 		w,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

@@ -80,6 +80,7 @@ type CfnDataRepositoryAssociation interface {
 	// The path to the Amazon S3 data repository that will be linked to the file system.
 	DataRepositoryPath() *string
 	SetDataRepositoryPath(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the file system on which the data repository association is configured.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
@@ -351,6 +352,16 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) DataRepositoryPath() *string {
 	_jsii_.Get(
 		j,
 		"dataRepositoryPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataRepositoryAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

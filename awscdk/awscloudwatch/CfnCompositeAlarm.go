@@ -99,6 +99,7 @@ type CfnCompositeAlarm interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
 	InsufficientDataActions() *[]*string
 	SetInsufficientDataActions(val *[]*string)
@@ -422,6 +423,16 @@ func (j *jsiiProxy_CfnCompositeAlarm) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCompositeAlarm) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

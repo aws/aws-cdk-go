@@ -8,7 +8,7 @@ func (c *jsiiProxy_CfnCondition) validateOverrideLogicalIdParameters(newLogicalI
 	return nil
 }
 
-func (c *jsiiProxy_CfnCondition) validateResolveParameters(_context IResolveContext) error {
+func (c *jsiiProxy_CfnCondition) validateResolveParameters(context IResolveContext) error {
 	return nil
 }
 

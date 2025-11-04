@@ -3,6 +3,7 @@ package awskinesisvideo
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisvideo/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ISignalingChannelRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a SignalingChannel resource.
 	// Experimental.
 	SignalingChannelRef() *SignalingChannelReference
@@ -19,6 +21,7 @@ type ISignalingChannelRef interface {
 // The jsii proxy for ISignalingChannelRef
 type jsiiProxy_ISignalingChannelRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ISignalingChannelRef) SignalingChannelRef() *SignalingChannelReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ISignalingChannelRef) SignalingChannelRef() *SignalingChannel
 	_jsii_.Get(
 		j,
 		"signalingChannelRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISignalingChannelRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISignalingChannelRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

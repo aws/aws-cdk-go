@@ -10,4 +10,5 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscodestarnotificationsINotificationRuleSource = awscodestarnotifications.INotificationRuleSource
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscdkResource = awscdk.Resource

@@ -507,8 +507,11 @@ Data can be transformed before being delivered to destinations. There are two ty
 data processing for delivery streams: record transformation with AWS Lambda, and record
 format conversion using a schema stored in an AWS Glue table. If both types of data
 processing are configured, then the Lambda transformation is performed first. By default,
-no data processing occurs. This construct library currently only supports data
-transformation with AWS Lambda. See [#15501](https://github.com/aws/aws-cdk/issues/15501)
+no data processing occurs.
+
+This construct library currently only supports data
+transformation with AWS Lambda and some built-in data processors.
+See [#15501](https://github.com/aws/aws-cdk/issues/15501)
 to track the status of adding support for record format conversion.
 
 ### Data transformation with AWS Lambda
@@ -544,7 +547,9 @@ lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &DataProc
 	Retries: jsii.Number(5),
 })
 s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
-	Processor: lambdaProcessor,
+	Processors: []IDataProcessor{
+		lambdaProcessor,
+	},
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
 	Destination: s3Destination,
@@ -677,6 +682,64 @@ if s3ApiCall instanceof awscdkintegtestsalpha.AwsApiCall && s3ApiCall.WaiterProv
 
 See: [Data Transformation](https://docs.aws.amazon.com/firehose/latest/dev/data-transformation.html)
 in the *Amazon Data Firehose Developer Guide*.
+
+### Add a new line delimiter when delivering data to Amazon S3
+
+You can specify the `AppendDelimiterToRecordProcessor` built-in processor to add a new line delimiter between records in objects that are delivered to Amazon S3. This can be helpful for parsing objects in Amazon S3.
+For details, see [Use Amazon S3 bucket prefix to deliver data](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning-s3bucketprefix.html).
+
+```go
+var bucket Bucket
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	Processors: []IDataProcessor{
+		firehose.NewAppendDelimiterToRecordProcessor(),
+	},
+})
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destination: s3Destination,
+})
+```
+
+### Decompress and extract message of CloudWatch Logs
+
+CloudWatch Logs events are sent to Firehose in compressed gzip format. If you want to deliver decompressed log events to Firehose destinations, you can use the `DecompressionProcessor` to automatically decompress CloudWatch Logs.
+For details, see [Send CloudWatch Logs to Firehose](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-cloudwatch-logs.html).
+
+You may also needed to specify `AppendDelimiterToRecordProcessor`
+because decompressed log events record has no trailing newline.
+
+```go
+var bucket Bucket
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	Processors: []IDataProcessor{
+		firehose.NewDecompressionProcessor(),
+		firehose.NewAppendDelimiterToRecordProcessor(),
+	},
+})
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destination: s3Destination,
+})
+```
+
+When you enable decompression, you have the option to also enable message extraction. When using message extraction, Firehose filters out all metadata, such as owner, loggroup, logstream, and others from the decompressed CloudWatch Logs records and delivers only the content inside the message fields.
+
+```go
+var bucket Bucket
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	Processors: []IDataProcessor{
+		firehose.NewDecompressionProcessor(),
+		firehose.NewCloudWatchLogProcessor(&CloudWatchLogProcessorOptions{
+			DataMessageExtraction: jsii.Boolean(true),
+		}),
+	},
+})
+firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+	Destination: s3Destination,
+})
+```
 
 ## Specifying an IAM role
 

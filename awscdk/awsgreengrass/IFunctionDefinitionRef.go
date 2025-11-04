@@ -3,6 +3,7 @@ package awsgreengrass
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IFunctionDefinitionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a FunctionDefinition resource.
 	// Experimental.
 	FunctionDefinitionRef() *FunctionDefinitionReference
@@ -19,6 +21,7 @@ type IFunctionDefinitionRef interface {
 // The jsii proxy for IFunctionDefinitionRef
 type jsiiProxy_IFunctionDefinitionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IFunctionDefinitionRef) FunctionDefinitionRef() *FunctionDefinitionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IFunctionDefinitionRef) FunctionDefinitionRef() *FunctionDefi
 	_jsii_.Get(
 		j,
 		"functionDefinitionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFunctionDefinitionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFunctionDefinitionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

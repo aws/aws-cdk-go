@@ -161,6 +161,7 @@ type CfnModelQualityJobDefinition interface {
 	// The name of the endpoint used to run the monitoring job.
 	EndpointName() *string
 	SetEndpointName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the monitoring job definition.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
@@ -429,6 +430,16 @@ func (j *jsiiProxy_CfnModelQualityJobDefinition) EndpointName() *string {
 	_jsii_.Get(
 		j,
 		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModelQualityJobDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

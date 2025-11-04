@@ -71,6 +71,7 @@ type CfnCoreDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The core definition version to include when the core definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnCoreDefinition) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCoreDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

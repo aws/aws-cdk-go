@@ -118,6 +118,7 @@ type CfnCluster interface {
 	// The Redis engine version used by the cluster .
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The user-supplied name of a final cluster snapshot.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
@@ -527,6 +528,16 @@ func (j *jsiiProxy_CfnCluster) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

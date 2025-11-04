@@ -62,6 +62,7 @@ type CfnEnabledControl interface {
 	CreationStack() *[]*string
 	// A reference to a EnabledControl resource.
 	EnabledControlRef() *EnabledControlReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -305,6 +306,16 @@ func (j *jsiiProxy_CfnEnabledControl) EnabledControlRef() *EnabledControlReferen
 	_jsii_.Get(
 		j,
 		"enabledControlRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnabledControl) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

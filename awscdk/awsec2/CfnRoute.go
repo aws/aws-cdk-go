@@ -75,6 +75,7 @@ type CfnRoute interface {
 	// [IPv6 traffic only] The ID of an egress-only internet gateway.
 	EgressOnlyInternetGatewayId() *string
 	SetEgressOnlyInternetGatewayId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
 	GatewayId() *string
 	SetGatewayId(val *string)
@@ -377,6 +378,16 @@ func (j *jsiiProxy_CfnRoute) EgressOnlyInternetGatewayId() *string {
 	_jsii_.Get(
 		j,
 		"egressOnlyInternetGatewayId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRoute) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

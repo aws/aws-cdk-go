@@ -19,9 +19,9 @@ import (
 type DefaultTokenResolver interface {
 	ITokenResolver
 	// Resolve a tokenized list.
-	ResolveList(xs *[]*string, context IResolveContext) interface{}
+	ResolveList(l *[]*string, context IResolveContext) interface{}
 	// Resolve string fragments to Tokens.
-	ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{}
+	ResolveString(s TokenizedStringFragments, context IResolveContext) interface{}
 	// Default Token resolution.
 	//
 	// Resolve the Token, recurse into whatever it returns,
@@ -61,8 +61,8 @@ func NewDefaultTokenResolver_Override(d DefaultTokenResolver, concat IFragmentCo
 	)
 }
 
-func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IResolveContext) interface{} {
-	if err := d.validateResolveListParameters(xs, context); err != nil {
+func (d *jsiiProxy_DefaultTokenResolver) ResolveList(l *[]*string, context IResolveContext) interface{} {
+	if err := d.validateResolveListParameters(l, context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -70,15 +70,15 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IRes
 	_jsii_.Invoke(
 		d,
 		"resolveList",
-		[]interface{}{xs, context},
+		[]interface{}{l, context},
 		&returns,
 	)
 
 	return returns
 }
 
-func (d *jsiiProxy_DefaultTokenResolver) ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{} {
-	if err := d.validateResolveStringParameters(fragments, context); err != nil {
+func (d *jsiiProxy_DefaultTokenResolver) ResolveString(s TokenizedStringFragments, context IResolveContext) interface{} {
+	if err := d.validateResolveStringParameters(s, context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -86,7 +86,7 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveString(fragments TokenizedString
 	_jsii_.Invoke(
 		d,
 		"resolveString",
-		[]interface{}{fragments, context},
+		[]interface{}{s, context},
 		&returns,
 	)
 

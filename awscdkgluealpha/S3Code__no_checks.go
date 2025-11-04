@@ -4,7 +4,7 @@ package awscdkgluealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3Code) validateBindParameters(_scope constructs.Construct, grantable awsiam.IGrantable) error {
+func (s *jsiiProxy_S3Code) validateBindParameters(scope constructs.Construct, grantable awsiam.IGrantable) error {
 	return nil
 }
 

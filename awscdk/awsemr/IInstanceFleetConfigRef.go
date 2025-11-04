@@ -3,6 +3,7 @@ package awsemr
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsemr/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IInstanceFleetConfigRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a InstanceFleetConfig resource.
 	// Experimental.
 	InstanceFleetConfigRef() *InstanceFleetConfigReference
@@ -19,6 +21,7 @@ type IInstanceFleetConfigRef interface {
 // The jsii proxy for IInstanceFleetConfigRef
 type jsiiProxy_IInstanceFleetConfigRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IInstanceFleetConfigRef) InstanceFleetConfigRef() *InstanceFleetConfigReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IInstanceFleetConfigRef) InstanceFleetConfigRef() *InstanceFl
 	_jsii_.Get(
 		j,
 		"instanceFleetConfigRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IInstanceFleetConfigRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IInstanceFleetConfigRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

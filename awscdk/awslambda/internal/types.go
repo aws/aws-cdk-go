@@ -13,6 +13,7 @@ type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IClientVpnConnectionHandler = awsec2.IClientVpnConnectionHandler
 type Type__awscdkIAspect = awscdk.IAspect
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awsiamIGrantable = awsiam.IGrantable

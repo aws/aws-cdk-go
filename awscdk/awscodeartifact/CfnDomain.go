@@ -66,6 +66,7 @@ type CfnDomain interface {
 	// The key used to encrypt the domain.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -348,6 +349,16 @@ func (j *jsiiProxy_CfnDomain) EncryptionKey() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

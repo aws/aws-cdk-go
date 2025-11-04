@@ -89,6 +89,7 @@ type CfnDBInstance interface {
 	// A value that indicates whether to enable Performance Insights for the DB Instance.
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -421,6 +422,16 @@ func (j *jsiiProxy_CfnDBInstance) EnablePerformanceInsights() interface{} {
 	_jsii_.Get(
 		j,
 		"enablePerformanceInsights",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

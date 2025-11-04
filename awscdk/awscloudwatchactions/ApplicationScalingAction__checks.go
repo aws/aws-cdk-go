@@ -10,13 +10,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (a *jsiiProxy_ApplicationScalingAction) validateBindParameters(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (a *jsiiProxy_ApplicationScalingAction) validateBindParameters(scope constructs.Construct, alarm awscloudwatch.IAlarm) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _alarm == nil {
-		return fmt.Errorf("parameter _alarm is required, but nil was provided")
+	if alarm == nil {
+		return fmt.Errorf("parameter alarm is required, but nil was provided")
 	}
 
 	return nil

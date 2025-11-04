@@ -45,6 +45,7 @@ type CfnDomainNameApiAssociation interface {
 	SetDomainName(val *string)
 	// A reference to a DomainNameApiAssociation resource.
 	DomainNameApiAssociationRef() *DomainNameApiAssociationReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -288,6 +289,16 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) DomainNameApiAssociationRef() *D
 	_jsii_.Get(
 		j,
 		"domainNameApiAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainNameApiAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

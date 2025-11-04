@@ -42,7 +42,7 @@ import (
 type LambdaFunction interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Lambda as a result from an EventBridge event.
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for LambdaFunction
@@ -77,7 +77,7 @@ func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, p
 	)
 }
 
-func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := l.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -86,7 +86,7 @@ func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, _id *string) *awse
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

@@ -12,7 +12,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) validateAddToPolicyParameters(statement
 	return nil
 }
 
-func (w *jsiiProxy_WebIdentityPrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
+func (w *jsiiProxy_WebIdentityPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }
 

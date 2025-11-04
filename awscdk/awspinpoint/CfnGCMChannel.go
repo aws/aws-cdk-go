@@ -61,6 +61,7 @@ type CfnGCMChannel interface {
 	// Specifies whether to enable the GCM channel for the Amazon Pinpoint application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a GCMChannel resource.
 	GcmChannelRef() *GCMChannelReference
 	// The logical ID for this CloudFormation stack element.
@@ -319,6 +320,16 @@ func (j *jsiiProxy_CfnGCMChannel) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGCMChannel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

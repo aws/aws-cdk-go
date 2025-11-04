@@ -85,6 +85,7 @@ type CfnTrigger interface {
 	// A description of this trigger.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 	EventBatchingCondition() interface{}
 	SetEventBatchingCondition(val interface{})
@@ -337,6 +338,16 @@ func (j *jsiiProxy_CfnTrigger) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrigger) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

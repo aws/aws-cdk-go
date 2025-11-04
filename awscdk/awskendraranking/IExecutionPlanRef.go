@@ -3,6 +3,7 @@ package awskendraranking
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskendraranking/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IExecutionPlanRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ExecutionPlan resource.
 	// Experimental.
 	ExecutionPlanRef() *ExecutionPlanReference
@@ -19,6 +21,7 @@ type IExecutionPlanRef interface {
 // The jsii proxy for IExecutionPlanRef
 type jsiiProxy_IExecutionPlanRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IExecutionPlanRef) ExecutionPlanRef() *ExecutionPlanReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IExecutionPlanRef) ExecutionPlanRef() *ExecutionPlanReference
 	_jsii_.Get(
 		j,
 		"executionPlanRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IExecutionPlanRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IExecutionPlanRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

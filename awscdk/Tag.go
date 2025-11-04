@@ -35,7 +35,7 @@ type Tag interface {
 	ApplyTag(resource ITaggable)
 	ApplyTagV2(resource ITaggableV2)
 	// All aspects can visit an IConstruct.
-	Visit(construct constructs.IConstruct)
+	Visit(node constructs.IConstruct)
 }
 
 // The jsii proxy struct for Tag
@@ -123,14 +123,14 @@ func (t *jsiiProxy_Tag) ApplyTagV2(resource ITaggableV2) {
 	)
 }
 
-func (t *jsiiProxy_Tag) Visit(construct constructs.IConstruct) {
-	if err := t.validateVisitParameters(construct); err != nil {
+func (t *jsiiProxy_Tag) Visit(node constructs.IConstruct) {
+	if err := t.validateVisitParameters(node); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		t,
 		"visit",
-		[]interface{}{construct},
+		[]interface{}{node},
 	)
 }
 

@@ -4,7 +4,7 @@ package awsiam
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_SessionTagsPrincipal) validateAddToAssumeRolePolicyParameters(doc PolicyDocument) error {
+func (s *jsiiProxy_SessionTagsPrincipal) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
 	return nil
 }
 

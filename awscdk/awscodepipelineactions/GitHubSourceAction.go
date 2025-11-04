@@ -43,7 +43,7 @@ type GitHubSourceAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the `IAction.bind` method.
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	VariableExpression(variableName *string) *string
@@ -128,8 +128,8 @@ func (g *jsiiProxy_GitHubSourceAction) Bind(scope constructs.Construct, stage aw
 	return returns
 }
 
-func (g *jsiiProxy_GitHubSourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	if err := g.validateBoundParameters(scope, stage, _options); err != nil {
+func (g *jsiiProxy_GitHubSourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := g.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
 	var returns *awscodepipeline.ActionConfig
@@ -137,7 +137,7 @@ func (g *jsiiProxy_GitHubSourceAction) Bound(scope constructs.Construct, stage a
 	_jsii_.Invoke(
 		g,
 		"bound",
-		[]interface{}{scope, stage, _options},
+		[]interface{}{scope, stage, options},
 		&returns,
 	)
 

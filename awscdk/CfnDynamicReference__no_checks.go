@@ -8,7 +8,7 @@ func (c *jsiiProxy_CfnDynamicReference) validateNewErrorParameters(message *stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnDynamicReference) validateResolveParameters(_context IResolveContext) error {
+func (c *jsiiProxy_CfnDynamicReference) validateResolveParameters(context IResolveContext) error {
 	return nil
 }
 

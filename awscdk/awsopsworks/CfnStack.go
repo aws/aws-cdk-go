@@ -150,6 +150,7 @@ type CfnStack interface {
 	// A list of Elastic IP addresses to register with the OpsWorks stack.
 	ElasticIps() interface{}
 	SetElasticIps(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The stack's host name theme, with spaces replaced by underscores.
 	HostnameTheme() *string
 	SetHostnameTheme(val *string)
@@ -555,6 +556,16 @@ func (j *jsiiProxy_CfnStack) ElasticIps() interface{} {
 	_jsii_.Get(
 		j,
 		"elasticIps",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

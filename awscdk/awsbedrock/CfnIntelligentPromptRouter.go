@@ -71,6 +71,7 @@ type CfnIntelligentPromptRouter interface {
 	// An optional description of the prompt router to help identify its purpose.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The default model to use when the routing criteria is not met.
 	FallbackModel() interface{}
 	SetFallbackModel(val interface{})
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnIntelligentPromptRouter) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntelligentPromptRouter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

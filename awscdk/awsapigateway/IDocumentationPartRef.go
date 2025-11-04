@@ -3,6 +3,7 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDocumentationPartRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a DocumentationPart resource.
 	// Experimental.
 	DocumentationPartRef() *DocumentationPartReference
@@ -19,6 +21,7 @@ type IDocumentationPartRef interface {
 // The jsii proxy for IDocumentationPartRef
 type jsiiProxy_IDocumentationPartRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDocumentationPartRef) DocumentationPartRef() *DocumentationPartReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDocumentationPartRef) DocumentationPartRef() *DocumentationP
 	_jsii_.Get(
 		j,
 		"documentationPartRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDocumentationPartRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDocumentationPartRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

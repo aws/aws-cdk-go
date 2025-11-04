@@ -175,6 +175,7 @@ type CfnMemory interface {
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The event expiry configuration.
 	EventExpiryDuration() *float64
 	SetEventExpiryDuration(val *float64)
@@ -486,6 +487,16 @@ func (j *jsiiProxy_CfnMemory) EncryptionKeyArn() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMemory) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -36,7 +36,7 @@ import (
 type ClusterInstance interface {
 	IClusterInstance
 	// Add the ClusterInstance to the cluster.
-	Bind(scope constructs.Construct, cluster IDatabaseCluster, props *ClusterInstanceBindOptions) IAuroraClusterInstance
+	Bind(scope constructs.Construct, cluster IDatabaseCluster, options *ClusterInstanceBindOptions) IAuroraClusterInstance
 }
 
 // The jsii proxy struct for ClusterInstance
@@ -94,8 +94,8 @@ func ClusterInstance_ServerlessV2(id *string, props *ServerlessV2ClusterInstance
 	return returns
 }
 
-func (c *jsiiProxy_ClusterInstance) Bind(scope constructs.Construct, cluster IDatabaseCluster, props *ClusterInstanceBindOptions) IAuroraClusterInstance {
-	if err := c.validateBindParameters(scope, cluster, props); err != nil {
+func (c *jsiiProxy_ClusterInstance) Bind(scope constructs.Construct, cluster IDatabaseCluster, options *ClusterInstanceBindOptions) IAuroraClusterInstance {
+	if err := c.validateBindParameters(scope, cluster, options); err != nil {
 		panic(err)
 	}
 	var returns IAuroraClusterInstance
@@ -103,7 +103,7 @@ func (c *jsiiProxy_ClusterInstance) Bind(scope constructs.Construct, cluster IDa
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{scope, cluster, props},
+		[]interface{}{scope, cluster, options},
 		&returns,
 	)
 

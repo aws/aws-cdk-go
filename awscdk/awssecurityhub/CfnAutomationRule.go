@@ -347,6 +347,7 @@ type CfnAutomationRule interface {
 	// A description of the rule.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria.
 	IsTerminal() interface{}
 	SetIsTerminal(val interface{})
@@ -656,6 +657,16 @@ func (j *jsiiProxy_CfnAutomationRule) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutomationRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

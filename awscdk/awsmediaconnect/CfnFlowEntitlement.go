@@ -73,6 +73,7 @@ type CfnFlowEntitlement interface {
 	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.
 	EntitlementStatus() *string
 	SetEntitlementStatus(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow.
 	FlowArn() *string
 	SetFlowArn(val *string)
@@ -337,6 +338,16 @@ func (j *jsiiProxy_CfnFlowEntitlement) EntitlementStatus() *string {
 	_jsii_.Get(
 		j,
 		"entitlementStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowEntitlement) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

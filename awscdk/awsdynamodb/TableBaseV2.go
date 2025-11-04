@@ -21,12 +21,13 @@ type TableBaseV2 interface {
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	HasIndex() *bool
 	// The tree node.
@@ -53,11 +54,11 @@ type TableBaseV2 interface {
 	TableName() *string
 	// The stream ARN of the table.
 	TableStreamArn() *string
-	// Adds a statement to the resource policy associated with this file system.
+	// Adds a statement to the resource policy associated with this table.
 	//
 	// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
 	//
-	// Note that this does not work with imported file systems.
+	// Note that this does not work with imported tables.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//

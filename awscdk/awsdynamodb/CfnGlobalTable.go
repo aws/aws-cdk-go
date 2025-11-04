@@ -328,6 +328,7 @@ type CfnGlobalTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Global secondary indexes to be created on the global table.
 	GlobalSecondaryIndexes() interface{}
 	SetGlobalSecondaryIndexes(val interface{})
@@ -626,6 +627,16 @@ func (j *jsiiProxy_CfnGlobalTable) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalTable) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -21,7 +21,7 @@ import (
 type SsmIncidentAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an SSM Incident as an alarm action based on an Incident Manager Response Plan.
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for SsmIncidentAction
@@ -56,8 +56,8 @@ func NewSsmIncidentAction_Override(s SsmIncidentAction, responsePlanName *string
 	)
 }
 
-func (s *jsiiProxy_SsmIncidentAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
-	if err := s.validateBindParameters(_scope, _alarm); err != nil {
+func (s *jsiiProxy_SsmIncidentAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := s.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}
 	var returns *awscloudwatch.AlarmActionConfig
@@ -65,7 +65,7 @@ func (s *jsiiProxy_SsmIncidentAction) Bind(_scope constructs.Construct, _alarm a
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, _alarm},
+		[]interface{}{scope, alarm},
 		&returns,
 	)
 

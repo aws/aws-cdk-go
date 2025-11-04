@@ -192,9 +192,9 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) validateMetricTimedOutParameters(pro
 	return nil
 }
 
-func (g *jsiiProxy_GlueDataBrewStartJobRun) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (g *jsiiProxy_GlueDataBrewStartJobRun) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

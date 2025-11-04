@@ -45,12 +45,13 @@ type Pipeline interface {
 	CrossRegionSupport() *map[string]*CrossRegionSupport
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
@@ -106,7 +107,7 @@ type Pipeline interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns a source configuration for notification rule.
-	BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig
+	BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -472,8 +473,8 @@ func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-func (p *jsiiProxy_Pipeline) BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
-	if err := p.validateBindAsNotificationRuleSourceParameters(_scope); err != nil {
+func (p *jsiiProxy_Pipeline) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
+	if err := p.validateBindAsNotificationRuleSourceParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
@@ -481,7 +482,7 @@ func (p *jsiiProxy_Pipeline) BindAsNotificationRuleSource(_scope constructs.Cons
 	_jsii_.Invoke(
 		p,
 		"bindAsNotificationRuleSource",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

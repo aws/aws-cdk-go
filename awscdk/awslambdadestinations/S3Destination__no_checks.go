@@ -4,7 +4,7 @@ package awslambdadestinations
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3Destination) validateBindParameters(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) error {
+func (s *jsiiProxy_S3Destination) validateBindParameters(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) error {
 	return nil
 }
 

@@ -58,6 +58,7 @@ type CfnRefreshSchedule interface {
 	// The ID of the dataset that you are creating a refresh schedule for.
 	DataSetId() *string
 	SetDataSetId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -296,6 +297,16 @@ func (j *jsiiProxy_CfnRefreshSchedule) DataSetId() *string {
 	_jsii_.Get(
 		j,
 		"dataSetId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRefreshSchedule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

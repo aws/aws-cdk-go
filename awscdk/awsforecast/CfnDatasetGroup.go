@@ -71,6 +71,7 @@ type CfnDatasetGroup interface {
 	// The domain associated with the dataset group.
 	Domain() *string
 	SetDomain(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -330,6 +331,16 @@ func (j *jsiiProxy_CfnDatasetGroup) Domain() *string {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatasetGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

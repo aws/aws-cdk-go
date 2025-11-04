@@ -105,6 +105,7 @@ type CfnNetworkInterface interface {
 	// If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address.
 	EnablePrimaryIpv6() interface{}
 	SetEnablePrimaryIpv6(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The IDs of the security groups associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
@@ -435,6 +436,16 @@ func (j *jsiiProxy_CfnNetworkInterface) EnablePrimaryIpv6() interface{} {
 	_jsii_.Get(
 		j,
 		"enablePrimaryIpv6",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

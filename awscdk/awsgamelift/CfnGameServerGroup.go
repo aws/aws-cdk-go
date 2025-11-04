@@ -102,6 +102,7 @@ type CfnGameServerGroup interface {
 	// The type of delete to perform.
 	DeleteOption() *string
 	SetDeleteOption(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A developer-defined identifier for the game server group.
 	GameServerGroupName() *string
 	SetGameServerGroupName(val *string)
@@ -387,6 +388,16 @@ func (j *jsiiProxy_CfnGameServerGroup) DeleteOption() *string {
 	_jsii_.Get(
 		j,
 		"deleteOption",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGameServerGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

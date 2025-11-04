@@ -160,6 +160,7 @@ type CfnEntity interface {
 	SetEntityName(val *string)
 	// A reference to a Entity resource.
 	EntityRef() *EntityReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -525,6 +526,16 @@ func (j *jsiiProxy_CfnEntity) EntityRef() *EntityReference {
 	_jsii_.Get(
 		j,
 		"entityRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEntity) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

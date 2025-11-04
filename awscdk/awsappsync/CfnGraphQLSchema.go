@@ -56,6 +56,7 @@ type CfnGraphQLSchema interface {
 	// The location of a GraphQL schema file in an Amazon S3 bucket.
 	DefinitionS3Location() *string
 	SetDefinitionS3Location(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a GraphQLSchema resource.
 	GraphQlSchemaRef() *GraphQLSchemaReference
 	// The logical ID for this CloudFormation stack element.
@@ -301,6 +302,16 @@ func (j *jsiiProxy_CfnGraphQLSchema) DefinitionS3Location() *string {
 	_jsii_.Get(
 		j,
 		"definitionS3Location",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLSchema) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

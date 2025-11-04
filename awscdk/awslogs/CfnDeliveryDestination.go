@@ -79,6 +79,7 @@ type CfnDeliveryDestination interface {
 	// The ARN of the AWS destination that this delivery destination represents.
 	DestinationResourceArn() *string
 	SetDestinationResourceArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -352,6 +353,16 @@ func (j *jsiiProxy_CfnDeliveryDestination) DestinationResourceArn() *string {
 	_jsii_.Get(
 		j,
 		"destinationResourceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeliveryDestination) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

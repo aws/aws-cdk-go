@@ -4,7 +4,7 @@ package awscdkpipesalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DynamicInput) validateResolveParameters(_context awscdk.IResolveContext) error {
+func (d *jsiiProxy_DynamicInput) validateResolveParameters(context awscdk.IResolveContext) error {
 	return nil
 }
 

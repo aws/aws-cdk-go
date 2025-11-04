@@ -16,7 +16,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) validateApplyRemovalPolicyParamete
 	return nil
 }
 
-func (s *jsiiProxy_SlackChannelConfiguration) validateBindAsNotificationRuleTargetParameters(_scope constructs.Construct) error {
+func (s *jsiiProxy_SlackChannelConfiguration) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {
 	return nil
 }
 

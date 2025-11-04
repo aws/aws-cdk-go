@@ -40,7 +40,7 @@ type StepFunctionsEnrichment interface {
 	Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.EnrichmentParametersConfig
 	// Grant the pipes role to invoke the enrichment.
 	// Experimental.
-	GrantInvoke(pipeRole awsiam.IRole)
+	GrantInvoke(grantee awsiam.IRole)
 }
 
 // The jsii proxy struct for StepFunctionsEnrichment
@@ -104,14 +104,14 @@ func (s *jsiiProxy_StepFunctionsEnrichment) Bind(pipe awscdkpipesalpha.IPipe) *a
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsEnrichment) GrantInvoke(pipeRole awsiam.IRole) {
-	if err := s.validateGrantInvokeParameters(pipeRole); err != nil {
+func (s *jsiiProxy_StepFunctionsEnrichment) GrantInvoke(grantee awsiam.IRole) {
+	if err := s.validateGrantInvokeParameters(grantee); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"grantInvoke",
-		[]interface{}{pipeRole},
+		[]interface{}{grantee},
 	)
 }
 

@@ -297,6 +297,7 @@ type CfnDataSource interface {
 	// The description of the data source.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the knowledge base to which the data source belongs.
 	KnowledgeBaseId() *string
 	SetKnowledgeBaseId(val *string)
@@ -612,6 +613,16 @@ func (j *jsiiProxy_CfnDataSource) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

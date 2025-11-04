@@ -77,6 +77,7 @@ type CfnService interface {
 	// The endpoint type of the service.
 	EndpointType() *string
 	SetEndpointType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the environment.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -353,6 +354,16 @@ func (j *jsiiProxy_CfnService) EndpointType() *string {
 	_jsii_.Get(
 		j,
 		"endpointType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

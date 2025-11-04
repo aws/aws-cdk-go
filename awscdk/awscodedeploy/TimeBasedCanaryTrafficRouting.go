@@ -26,7 +26,7 @@ type TimeBasedCanaryTrafficRouting interface {
 	// The percentage to increase traffic on each traffic shift.
 	Percentage() *float64
 	// Return a TrafficRoutingConfig of type `TimeBasedCanary`.
-	Bind(_scope constructs.Construct) *TrafficRoutingConfig
+	Bind(scope constructs.Construct) *TrafficRoutingConfig
 }
 
 // The jsii proxy struct for TimeBasedCanaryTrafficRouting
@@ -136,8 +136,8 @@ func TimeBasedCanaryTrafficRouting_TimeBasedLinear(props *TimeBasedLinearTraffic
 	return returns
 }
 
-func (t *jsiiProxy_TimeBasedCanaryTrafficRouting) Bind(_scope constructs.Construct) *TrafficRoutingConfig {
-	if err := t.validateBindParameters(_scope); err != nil {
+func (t *jsiiProxy_TimeBasedCanaryTrafficRouting) Bind(scope constructs.Construct) *TrafficRoutingConfig {
+	if err := t.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *TrafficRoutingConfig
@@ -145,7 +145,7 @@ func (t *jsiiProxy_TimeBasedCanaryTrafficRouting) Bind(_scope constructs.Constru
 	_jsii_.Invoke(
 		t,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

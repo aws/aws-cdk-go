@@ -21,7 +21,7 @@ import (
 type EmailSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for an email address to subscribe to an SNS topic.
-	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
+	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
 // The jsii proxy struct for EmailSubscription
@@ -56,8 +56,8 @@ func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, pr
 	)
 }
 
-func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
-	if err := e.validateBindParameters(_topic); err != nil {
+func (e *jsiiProxy_EmailSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := e.validateBindParameters(topic); err != nil {
 		panic(err)
 	}
 	var returns *awssns.TopicSubscriptionConfig
@@ -65,7 +65,7 @@ func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSu
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{_topic},
+		[]interface{}{topic},
 		&returns,
 	)
 

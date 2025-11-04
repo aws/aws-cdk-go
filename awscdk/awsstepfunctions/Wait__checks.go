@@ -86,9 +86,9 @@ func (w *jsiiProxy_Wait) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (w *jsiiProxy_Wait) validateNextParameters(next IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (w *jsiiProxy_Wait) validateNextParameters(state IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

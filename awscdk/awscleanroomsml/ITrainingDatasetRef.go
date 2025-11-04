@@ -3,6 +3,7 @@ package awscleanroomsml
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscleanroomsml/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ITrainingDatasetRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a TrainingDataset resource.
 	// Experimental.
 	TrainingDatasetRef() *TrainingDatasetReference
@@ -19,6 +21,7 @@ type ITrainingDatasetRef interface {
 // The jsii proxy for ITrainingDatasetRef
 type jsiiProxy_ITrainingDatasetRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ITrainingDatasetRef) TrainingDatasetRef() *TrainingDatasetReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ITrainingDatasetRef) TrainingDatasetRef() *TrainingDatasetRef
 	_jsii_.Get(
 		j,
 		"trainingDatasetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITrainingDatasetRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITrainingDatasetRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

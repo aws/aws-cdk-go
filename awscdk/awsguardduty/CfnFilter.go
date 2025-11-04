@@ -84,6 +84,7 @@ type CfnFilter interface {
 	// The detector ID associated with the GuardDuty account for which you want to create a filter.
 	DetectorId() *string
 	SetDetectorId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Filter resource.
 	FilterRef() *FilterReference
 	// Represents the criteria to be used in the filter for querying findings.
@@ -334,6 +335,16 @@ func (j *jsiiProxy_CfnFilter) DetectorId() *string {
 	_jsii_.Get(
 		j,
 		"detectorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFilter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

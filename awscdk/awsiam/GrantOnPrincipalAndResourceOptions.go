@@ -11,14 +11,14 @@ package awsiam
 //   var conditions interface{}
 //   var grantable IGrantable
 //   var principal IPrincipal
-//   var resourceWithPolicy IResourceWithPolicy
+//   var resourceWithPolicyV2 IResourceWithPolicyV2
 //
 //   grantOnPrincipalAndResourceOptions := &GrantOnPrincipalAndResourceOptions{
 //   	Actions: []*string{
 //   		jsii.String("actions"),
 //   	},
 //   	Grantee: grantable,
-//   	Resource: resourceWithPolicy,
+//   	Resource: resourceWithPolicyV2,
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
@@ -51,7 +51,7 @@ type GrantOnPrincipalAndResourceOptions struct {
 	// The resource with a resource policy.
 	//
 	// The statement will always be added to the resource policy.
-	Resource IResourceWithPolicy `field:"required" json:"resource" yaml:"resource"`
+	Resource IResourceWithPolicyV2 `field:"required" json:"resource" yaml:"resource"`
 	// The principal to use in the statement for the resource policy.
 	// Default: - the principal of the grantee will be used.
 	//

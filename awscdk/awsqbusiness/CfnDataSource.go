@@ -177,6 +177,7 @@ type CfnDataSource interface {
 	// Provides the configuration information for altering document metadata and content during the document ingestion process.
 	DocumentEnrichmentConfiguration() interface{}
 	SetDocumentEnrichmentConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the index the data source is attached to.
 	IndexId() *string
 	SetIndexId(val *string)
@@ -529,6 +530,16 @@ func (j *jsiiProxy_CfnDataSource) DocumentEnrichmentConfiguration() interface{} 
 	_jsii_.Get(
 		j,
 		"documentEnrichmentConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

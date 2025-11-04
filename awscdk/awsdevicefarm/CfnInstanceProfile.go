@@ -57,6 +57,7 @@ type CfnInstanceProfile interface {
 	// The description of the instance profile.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
 	ExcludeAppPackagesFromCleanup() *[]*string
 	SetExcludeAppPackagesFromCleanup(val *[]*string)
@@ -300,6 +301,16 @@ func (j *jsiiProxy_CfnInstanceProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

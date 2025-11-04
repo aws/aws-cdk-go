@@ -8,11 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (w *jsiiProxy_WebSocketNoneAuthorizer) validateBindParameters(_options *WebSocketRouteAuthorizerBindOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (w *jsiiProxy_WebSocketNoneAuthorizer) validateBindParameters(options *WebSocketRouteAuthorizerBindOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

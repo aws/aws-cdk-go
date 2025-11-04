@@ -44,7 +44,7 @@ type DynamoDBSource interface {
 	SourceParameters() *StreamSourceParameters
 	// Bind the source to a pipe.
 	// Experimental.
-	Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig
+	Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig
 	// Retrieves the ARN from the dead-letter SQS queue or SNS topic.
 	// Experimental.
 	GetDeadLetterTargetArn(deadLetterTarget interface{}) *string
@@ -141,8 +141,8 @@ func DynamoDBSource_IsSourceWithDeadLetterTarget(source awscdkpipesalpha.ISource
 	return returns
 }
 
-func (d *jsiiProxy_DynamoDBSource) Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig {
-	if err := d.validateBindParameters(_pipe); err != nil {
+func (d *jsiiProxy_DynamoDBSource) Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig {
+	if err := d.validateBindParameters(pipe); err != nil {
 		panic(err)
 	}
 	var returns *awscdkpipesalpha.SourceConfig
@@ -150,7 +150,7 @@ func (d *jsiiProxy_DynamoDBSource) Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpip
 	_jsii_.Invoke(
 		d,
 		"bind",
-		[]interface{}{_pipe},
+		[]interface{}{pipe},
 		&returns,
 	)
 

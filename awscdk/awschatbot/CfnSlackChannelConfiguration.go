@@ -72,6 +72,7 @@ type CfnSlackChannelConfiguration interface {
 	// Links a list of resource ARNs (for example, custom action ARNs) to a Slack channel configuration for  .
 	CustomizationResourceArns() *[]*string
 	SetCustomizationResourceArns(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
@@ -344,6 +345,16 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) CustomizationResourceArns() *[]
 	_jsii_.Get(
 		j,
 		"customizationResourceArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSlackChannelConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

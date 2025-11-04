@@ -31,22 +31,22 @@ func (p *jsiiProxy_ParameterGroup) validateApplyRemovalPolicyParameters(policy a
 	return nil
 }
 
-func (p *jsiiProxy_ParameterGroup) validateBindToClusterParameters(_options *ParameterGroupClusterBindOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (p *jsiiProxy_ParameterGroup) validateBindToClusterParameters(options *ParameterGroupClusterBindOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (p *jsiiProxy_ParameterGroup) validateBindToInstanceParameters(_options *ParameterGroupInstanceBindOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (p *jsiiProxy_ParameterGroup) validateBindToInstanceParameters(options *ParameterGroupInstanceBindOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

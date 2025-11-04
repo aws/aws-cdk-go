@@ -44,7 +44,7 @@ type JavaInjector interface {
 	SetSharedVolumeName(val *string)
 	// Inject additional environment variables to the application container other than the DEFAULT_ENVS.
 	// Experimental.
-	InjectAdditionalEnvironments(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string)
+	InjectAdditionalEnvironments(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string)
 	// Inject ADOT SDK agent init container.
 	//
 	// Returns: The created ContainerDefinition.
@@ -52,7 +52,7 @@ type JavaInjector interface {
 	InjectInitContainer(taskDefinition awsecs.TaskDefinition) awsecs.ContainerDefinition
 	// Override environment variables in the application container.
 	// Experimental.
-	OverrideAdditionalEnvironments(_envsToOverride *map[string]*string, _overrideEnvironments *map[string]*string)
+	OverrideAdditionalEnvironments(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string)
 	// Render the application container for SDK instrumentation.
 	// Experimental.
 	RenderDefaultContainer(taskDefinition awsecs.TaskDefinition)
@@ -166,14 +166,14 @@ func JavaInjector_DEFAULT_ENVS() *[]*EnvironmentExtension {
 	return returns
 }
 
-func (j *jsiiProxy_JavaInjector) InjectAdditionalEnvironments(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string) {
-	if err := j.validateInjectAdditionalEnvironmentsParameters(envsToInject, _envsFromTaskDef); err != nil {
+func (j *jsiiProxy_JavaInjector) InjectAdditionalEnvironments(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string) {
+	if err := j.validateInjectAdditionalEnvironmentsParameters(envsToInject, envsFromTaskDef); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		j,
 		"injectAdditionalEnvironments",
-		[]interface{}{envsToInject, _envsFromTaskDef},
+		[]interface{}{envsToInject, envsFromTaskDef},
 	)
 }
 
@@ -193,14 +193,14 @@ func (j *jsiiProxy_JavaInjector) InjectInitContainer(taskDefinition awsecs.TaskD
 	return returns
 }
 
-func (j *jsiiProxy_JavaInjector) OverrideAdditionalEnvironments(_envsToOverride *map[string]*string, _overrideEnvironments *map[string]*string) {
-	if err := j.validateOverrideAdditionalEnvironmentsParameters(_envsToOverride, _overrideEnvironments); err != nil {
+func (j *jsiiProxy_JavaInjector) OverrideAdditionalEnvironments(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string) {
+	if err := j.validateOverrideAdditionalEnvironmentsParameters(envsToOverride, envsFromTaskDef); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		j,
 		"overrideAdditionalEnvironments",
-		[]interface{}{_envsToOverride, _overrideEnvironments},
+		[]interface{}{envsToOverride, envsFromTaskDef},
 	)
 }
 

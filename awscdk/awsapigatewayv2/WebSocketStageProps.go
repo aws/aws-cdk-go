@@ -4,19 +4,26 @@ package awsapigatewayv2
 // Properties to initialize an instance of `WebSocketStage`.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var messageHandler Function
+//   var httpApi HttpApi
+//   var webSocketApi WebSocketApi
+//   var logGroup LogGroup
 //
 //
-//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
-//   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+//   apigwv2.NewHttpStage(this, jsii.String("HttpStage"), &HttpStageProps{
+//   	HttpApi: HttpApi,
+//   	AccessLogSettings: map[string]IAccessLogDestination{
+//   		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+//   	},
+//   })
+//
+//   apigwv2.NewWebSocketStage(this, jsii.String("WebSocketStage"), &WebSocketStageProps{
 //   	WebSocketApi: WebSocketApi,
 //   	StageName: jsii.String("dev"),
-//   	AutoDeploy: jsii.Boolean(true),
-//   })
-//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
-//   	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	AccessLogSettings: map[string]IAccessLogDestination{
+//   		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+//   	},
 //   })
 //
 type WebSocketStageProps struct {

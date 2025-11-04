@@ -101,6 +101,7 @@ type CfnLaunchConfiguration interface {
 	// Specifies whether the launch configuration is optimized for EBS I/O ( `true` ) or not ( `false` ).
 	EbsOptimized() interface{}
 	SetEbsOptimized(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.
 	IamInstanceProfile() *string
 	SetIamInstanceProfile(val *string)
@@ -398,6 +399,16 @@ func (j *jsiiProxy_CfnLaunchConfiguration) EbsOptimized() interface{} {
 	_jsii_.Get(
 		j,
 		"ebsOptimized",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLaunchConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

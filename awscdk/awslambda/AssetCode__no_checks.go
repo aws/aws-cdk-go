@@ -8,7 +8,7 @@ func (a *jsiiProxy_AssetCode) validateBindParameters(scope constructs.Construct)
 	return nil
 }
 
-func (a *jsiiProxy_AssetCode) validateBindToResourceParameters(resource awscdk.CfnResource, options *ResourceBindOptions) error {
+func (a *jsiiProxy_AssetCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *ResourceBindOptions) error {
 	return nil
 }
 

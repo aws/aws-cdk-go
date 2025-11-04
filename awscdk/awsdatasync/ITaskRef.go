@@ -3,6 +3,7 @@ package awsdatasync
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ITaskRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Task resource.
 	// Experimental.
 	TaskRef() *TaskReference
@@ -19,6 +21,7 @@ type ITaskRef interface {
 // The jsii proxy for ITaskRef
 type jsiiProxy_ITaskRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ITaskRef) TaskRef() *TaskReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ITaskRef) TaskRef() *TaskReference {
 	_jsii_.Get(
 		j,
 		"taskRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

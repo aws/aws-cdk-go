@@ -115,6 +115,7 @@ type CfnApplication interface {
 	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
 	IamIdentityProviderArn() *string
 	SetIamIdentityProviderArn(val *string)
@@ -483,6 +484,16 @@ func (j *jsiiProxy_CfnApplication) EncryptionConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

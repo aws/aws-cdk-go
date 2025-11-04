@@ -151,6 +151,7 @@ type CfnInput interface {
 	// Settings that apply only if the input is a push type of input.
 	Destinations() interface{}
 	SetDestinations(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Settings that apply only if the input is an Elemental Link input.
 	InputDevices() interface{}
 	SetInputDevices(val interface{})
@@ -446,6 +447,16 @@ func (j *jsiiProxy_CfnInput) Destinations() interface{} {
 	_jsii_.Get(
 		j,
 		"destinations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

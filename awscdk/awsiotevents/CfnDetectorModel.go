@@ -51,6 +51,7 @@ type CfnDetectorModel interface {
 	SetDetectorModelName(val *string)
 	// A reference to a DetectorModel resource.
 	DetectorModelRef() *DetectorModelReference
+	Env() *awscdk.ResourceEnvironment
 	// Information about the order in which events are evaluated and how actions are executed.
 	EvaluationMethod() *string
 	SetEvaluationMethod(val *string)
@@ -309,6 +310,16 @@ func (j *jsiiProxy_CfnDetectorModel) DetectorModelRef() *DetectorModelReference 
 	_jsii_.Get(
 		j,
 		"detectorModelRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDetectorModel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

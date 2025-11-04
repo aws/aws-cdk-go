@@ -26,9 +26,9 @@ func (t *jsiiProxy_Tag) validateApplyTagV2Parameters(resource ITaggableV2) error
 	return nil
 }
 
-func (t *jsiiProxy_Tag) validateVisitParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func (t *jsiiProxy_Tag) validateVisitParameters(node constructs.IConstruct) error {
+	if node == nil {
+		return fmt.Errorf("parameter node is required, but nil was provided")
 	}
 
 	return nil

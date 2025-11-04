@@ -79,6 +79,7 @@ type CfnChannel interface {
 	// The description of the channel.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
 	InputSwitchConfiguration() interface{}
 	SetInputSwitchConfiguration(val interface{})
@@ -394,6 +395,16 @@ func (j *jsiiProxy_CfnChannel) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

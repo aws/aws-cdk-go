@@ -24,7 +24,7 @@ func (p *jsiiProxy_Pipeline) validateApplyRemovalPolicyParameters(policy awscdk.
 	return nil
 }
 
-func (p *jsiiProxy_Pipeline) validateBindAsNotificationRuleSourceParameters(_scope constructs.Construct) error {
+func (p *jsiiProxy_Pipeline) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {
 	return nil
 }
 

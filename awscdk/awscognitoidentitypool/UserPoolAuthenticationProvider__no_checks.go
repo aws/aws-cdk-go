@@ -4,7 +4,7 @@ package awscognitoidentitypool
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (u *jsiiProxy_UserPoolAuthenticationProvider) validateBindParameters(scope constructs.Construct, identityPool IIdentityPool, _options *UserPoolAuthenticationProviderBindOptions) error {
+func (u *jsiiProxy_UserPoolAuthenticationProvider) validateBindParameters(scope constructs.Construct, identityPool IIdentityPool, options *UserPoolAuthenticationProviderBindOptions) error {
 	return nil
 }
 

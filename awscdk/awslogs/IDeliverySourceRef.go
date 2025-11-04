@@ -3,6 +3,7 @@ package awslogs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDeliverySourceRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a DeliverySource resource.
 	// Experimental.
 	DeliverySourceRef() *DeliverySourceReference
@@ -19,6 +21,7 @@ type IDeliverySourceRef interface {
 // The jsii proxy for IDeliverySourceRef
 type jsiiProxy_IDeliverySourceRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDeliverySourceRef) DeliverySourceRef() *DeliverySourceReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDeliverySourceRef) DeliverySourceRef() *DeliverySourceRefere
 	_jsii_.Get(
 		j,
 		"deliverySourceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeliverySourceRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDeliverySourceRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

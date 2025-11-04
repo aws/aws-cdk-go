@@ -88,6 +88,7 @@ type CfnVerifiedAccessInstance interface {
 	// A description for the AWS Verified Access instance.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Indicates whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.
 	FipsEnabled() interface{}
 	SetFipsEnabled(val interface{})
@@ -371,6 +372,16 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

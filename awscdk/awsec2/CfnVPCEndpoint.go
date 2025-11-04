@@ -100,6 +100,7 @@ type CfnVPCEndpoint interface {
 	// Describes the DNS options for an endpoint.
 	DnsOptions() interface{}
 	SetDnsOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The supported IP address types.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -405,6 +406,16 @@ func (j *jsiiProxy_CfnVPCEndpoint) DnsOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"dnsOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

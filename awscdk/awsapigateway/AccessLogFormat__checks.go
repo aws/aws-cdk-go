@@ -24,3 +24,11 @@ func validateAccessLogFormat_JsonWithStandardFieldsParameters(fields *JsonWithSt
 	return nil
 }
 
+func validateNewAccessLogFormatParameters(format *string) error {
+	if format == nil {
+		return fmt.Errorf("parameter format is required, but nil was provided")
+	}
+
+	return nil
+}
+

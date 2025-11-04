@@ -62,6 +62,7 @@ type CfnHub interface {
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 	EnableDefaultStandards() interface{}
 	SetEnableDefaultStandards(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Hub resource.
 	HubRef() *HubReference
 	// The logical ID for this CloudFormation stack element.
@@ -323,6 +324,16 @@ func (j *jsiiProxy_CfnHub) EnableDefaultStandards() interface{} {
 	_jsii_.Get(
 		j,
 		"enableDefaultStandards",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHub) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

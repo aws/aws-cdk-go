@@ -70,6 +70,7 @@ type CfnEventBridgeRuleTemplate interface {
 	// A resource's optional description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EventBridgeRuleTemplate resource.
 	EventBridgeRuleTemplateRef() *EventBridgeRuleTemplateReference
 	// The destinations that will receive the event notifications.
@@ -371,6 +372,16 @@ func (j *jsiiProxy_CfnEventBridgeRuleTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventBridgeRuleTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

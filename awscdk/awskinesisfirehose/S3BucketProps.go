@@ -9,24 +9,24 @@ import (
 // Props for defining an S3 destination of an Amazon Data Firehose delivery stream.
 //
 // Example:
+//   // Specify the roles created above when defining the destination and delivery stream.
 //   var bucket Bucket
-//   // Provide a Lambda function that will transform records before delivery, with custom
-//   // buffering and retry configuration
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
+//   // Create service roles for the delivery stream and destination.
+//   // These can be used for other purposes and granted access to different resources.
+//   // They must include the Amazon Data Firehose service principal in their trust policies.
+//   // Two separate roles are shown below, but the same role can be used for both purposes.
+//   deliveryStreamRole := iam.NewRole(this, jsii.String("Delivery Stream Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
 //   })
-//   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &DataProcessorProps{
-//   	BufferInterval: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	BufferSize: awscdk.Size_Mebibytes(jsii.Number(5)),
-//   	Retries: jsii.Number(5),
+//   destinationRole := iam.NewRole(this, jsii.String("Destination Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
 //   })
-//   s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
-//   	Processor: lambdaProcessor,
+//   destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+//   	Role: destinationRole,
 //   })
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destination: s3Destination,
+//   	Destination: destination,
+//   	Role: deliveryStreamRole,
 //   })
 //
 type S3BucketProps struct {
@@ -79,7 +79,12 @@ type S3BucketProps struct {
 	// The data transformation that should be performed on the data before writing to the destination.
 	// Default: - no data transformation will occur.
 	//
+	// Deprecated: Use `processors` instead.
 	Processor IDataProcessor `field:"optional" json:"processor" yaml:"processor"`
+	// The data transformation that should be performed on the data before writing to the destination.
+	// Default: - no data transformation will occur.
+	//
+	Processors *[]IDataProcessor `field:"optional" json:"processors" yaml:"processors"`
 	// The IAM role associated with this destination.
 	//
 	// Assumed by Amazon Data Firehose to invoke processors and write to destinations.

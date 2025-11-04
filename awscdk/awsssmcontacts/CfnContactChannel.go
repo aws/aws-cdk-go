@@ -64,6 +64,7 @@ type CfnContactChannel interface {
 	// If you want to activate the channel at a later time, you can choose to defer activation.
 	DeferActivation() interface{}
 	SetDeferActivation(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -337,6 +338,16 @@ func (j *jsiiProxy_CfnContactChannel) DeferActivation() interface{} {
 	_jsii_.Get(
 		j,
 		"deferActivation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContactChannel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

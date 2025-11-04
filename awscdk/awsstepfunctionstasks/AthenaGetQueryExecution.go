@@ -126,7 +126,7 @@ type AthenaGetQueryExecution interface {
 	//
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	Next(state awsstepfunctions.IChainable) awsstepfunctions.Chain
 	// Render the assign in ASL JSON format.
 	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
@@ -148,7 +148,7 @@ type AthenaGetQueryExecution interface {
 	// Render error recovery options in ASL JSON format.
 	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
+	ToStateJson(stateMachineQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -905,8 +905,8 @@ func (a *jsiiProxy_AthenaGetQueryExecution) MetricTimedOut(props *awscloudwatch.
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryExecution) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
-	if err := a.validateNextParameters(next); err != nil {
+func (a *jsiiProxy_AthenaGetQueryExecution) Next(state awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := a.validateNextParameters(state); err != nil {
 		panic(err)
 	}
 	var returns awsstepfunctions.Chain
@@ -914,7 +914,7 @@ func (a *jsiiProxy_AthenaGetQueryExecution) Next(next awsstepfunctions.IChainabl
 	_jsii_.Invoke(
 		a,
 		"next",
-		[]interface{}{next},
+		[]interface{}{state},
 		&returns,
 	)
 
@@ -1051,13 +1051,13 @@ func (a *jsiiProxy_AthenaGetQueryExecution) RenderRetryCatch(topLevelQueryLangua
 	return returns
 }
 
-func (a *jsiiProxy_AthenaGetQueryExecution) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
+func (a *jsiiProxy_AthenaGetQueryExecution) ToStateJson(stateMachineQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		a,
 		"toStateJson",
-		[]interface{}{topLevelQueryLanguage},
+		[]interface{}{stateMachineQueryLanguage},
 		&returns,
 	)
 

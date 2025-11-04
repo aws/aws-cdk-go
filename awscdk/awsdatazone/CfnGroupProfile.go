@@ -48,6 +48,7 @@ type CfnGroupProfile interface {
 	// The identifier of the Amazon DataZone domain in which a group profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the group of a project member.
 	GroupIdentifier() *string
 	SetGroupIdentifier(val *string)
@@ -299,6 +300,16 @@ func (j *jsiiProxy_CfnGroupProfile) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGroupProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

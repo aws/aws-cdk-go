@@ -189,6 +189,17 @@ func FoundationModelIdentifier_AI21_LABS_JURASSIC_2_ULTRA_V1_0_8K() FoundationMo
 	return returns
 }
 
+func FoundationModelIdentifier_AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_NOVA_CANVAS_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1537,6 +1548,17 @@ func FoundationModelIdentifier_TWELVELABS_MARENGO_EMBED_2_7_V1_0() FoundationMod
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"TWELVELABS_MARENGO_EMBED_2_7_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_TWELVELABS_MARENGO_EMBED_3_0_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"TWELVELABS_MARENGO_EMBED_3_0_V1_0",
 		&returns,
 	)
 	return returns

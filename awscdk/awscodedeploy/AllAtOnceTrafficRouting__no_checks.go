@@ -4,7 +4,7 @@ package awscodedeploy
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AllAtOnceTrafficRouting) validateBindParameters(_scope constructs.Construct) error {
+func (a *jsiiProxy_AllAtOnceTrafficRouting) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 

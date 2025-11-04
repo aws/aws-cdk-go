@@ -45,6 +45,7 @@ type CfnDefaultViewAssociation interface {
 	CreationStack() *[]*string
 	// A reference to a DefaultViewAssociation resource.
 	DefaultViewAssociationRef() *DefaultViewAssociationReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -271,6 +272,16 @@ func (j *jsiiProxy_CfnDefaultViewAssociation) DefaultViewAssociationRef() *Defau
 	_jsii_.Get(
 		j,
 		"defaultViewAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDefaultViewAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

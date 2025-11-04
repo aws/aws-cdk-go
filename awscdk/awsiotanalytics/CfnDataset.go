@@ -157,6 +157,7 @@ type CfnDataset interface {
 	SetDatasetName(val *string)
 	// A reference to a Dataset resource.
 	DatasetRef() *DatasetReference
+	Env() *awscdk.ResourceEnvironment
 	// A list of data rules that send notifications to CloudWatch, when data arrives late.
 	LateDataRules() interface{}
 	SetLateDataRules(val interface{})
@@ -428,6 +429,16 @@ func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
 	_jsii_.Get(
 		j,
 		"datasetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

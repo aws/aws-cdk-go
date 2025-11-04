@@ -68,6 +68,7 @@ type CfnHostedConfigurationVersion interface {
 	// A description of the configuration.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a HostedConfigurationVersion resource.
 	HostedConfigurationVersionRef() *HostedConfigurationVersionReference
 	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version.
@@ -339,6 +340,16 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHostedConfigurationVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

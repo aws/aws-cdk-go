@@ -50,6 +50,7 @@ type CfnUserPoolDomain interface {
 	// The name of the domain that you want to update.
 	Domain() *string
 	SetDomain(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -291,6 +292,16 @@ func (j *jsiiProxy_CfnUserPoolDomain) Domain() *string {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPoolDomain) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

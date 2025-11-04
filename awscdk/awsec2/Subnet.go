@@ -39,12 +39,13 @@ type Subnet interface {
 	DependencyElements() *[]constructs.IDependable
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// Dependable that can be depended upon to force internet connectivity established on the VPC.
 	InternetConnectivityEstablished() constructs.IDependable
@@ -108,7 +109,7 @@ type Subnet interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Associate a Network ACL with this subnet.
-	AssociateNetworkAcl(id *string, networkAcl INetworkAcl)
+	AssociateNetworkAcl(id *string, acl INetworkAcl)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -547,14 +548,14 @@ func (s *jsiiProxy_Subnet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-func (s *jsiiProxy_Subnet) AssociateNetworkAcl(id *string, networkAcl INetworkAcl) {
-	if err := s.validateAssociateNetworkAclParameters(id, networkAcl); err != nil {
+func (s *jsiiProxy_Subnet) AssociateNetworkAcl(id *string, acl INetworkAcl) {
+	if err := s.validateAssociateNetworkAclParameters(id, acl); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"associateNetworkAcl",
-		[]interface{}{id, networkAcl},
+		[]interface{}{id, acl},
 	)
 }
 

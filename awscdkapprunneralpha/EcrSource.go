@@ -44,7 +44,7 @@ type EcrSource interface {
 	Source
 	// Called when the Job is initialized to allow this object to bind.
 	// Experimental.
-	Bind(_scope constructs.Construct) *SourceConfig
+	Bind(scope constructs.Construct) *SourceConfig
 }
 
 // The jsii proxy struct for EcrSource
@@ -161,8 +161,8 @@ func EcrSource_FromGitHub(props *GithubRepositoryProps) GithubSource {
 	return returns
 }
 
-func (e *jsiiProxy_EcrSource) Bind(_scope constructs.Construct) *SourceConfig {
-	if err := e.validateBindParameters(_scope); err != nil {
+func (e *jsiiProxy_EcrSource) Bind(scope constructs.Construct) *SourceConfig {
+	if err := e.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *SourceConfig
@@ -170,7 +170,7 @@ func (e *jsiiProxy_EcrSource) Bind(_scope constructs.Construct) *SourceConfig {
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

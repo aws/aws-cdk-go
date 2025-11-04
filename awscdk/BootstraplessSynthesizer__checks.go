@@ -22,22 +22,22 @@ func (b *jsiiProxy_BootstraplessSynthesizer) validateAddBootstrapVersionRulePara
 	return nil
 }
 
-func (b *jsiiProxy_BootstraplessSynthesizer) validateAddDockerImageAssetParameters(_asset *DockerImageAssetSource) error {
-	if _asset == nil {
-		return fmt.Errorf("parameter _asset is required, but nil was provided")
+func (b *jsiiProxy_BootstraplessSynthesizer) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
+	if asset == nil {
+		return fmt.Errorf("parameter asset is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_asset, func() string { return "parameter _asset" }); err != nil {
+	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (b *jsiiProxy_BootstraplessSynthesizer) validateAddFileAssetParameters(_asset *FileAssetSource) error {
-	if _asset == nil {
-		return fmt.Errorf("parameter _asset is required, but nil was provided")
+func (b *jsiiProxy_BootstraplessSynthesizer) validateAddFileAssetParameters(asset *FileAssetSource) error {
+	if asset == nil {
+		return fmt.Errorf("parameter asset is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_asset, func() string { return "parameter _asset" }); err != nil {
+	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
 		return err
 	}
 

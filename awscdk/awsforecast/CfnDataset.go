@@ -88,6 +88,7 @@ type CfnDataset interface {
 	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -367,6 +368,16 @@ func (j *jsiiProxy_CfnDataset) EncryptionConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

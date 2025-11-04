@@ -4,6 +4,7 @@ package awsapigatewayv2
 // Properties to initialize an instance of `HttpStage`.
 //
 // Example:
+//   import apigw "github.com/aws/aws-cdk-go/awscdk"
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var api HttpApi
@@ -12,8 +13,9 @@ package awsapigatewayv2
 //
 //   stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
 //   	HttpApi: api,
-//   	AccessLogSettings: map[string]IAccessLogDestination{
+//   	AccessLogSettings: map[string]interface{}{
 //   		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+//   		"format": apigw.AccessLogFormat_clf(),
 //   	},
 //   })
 //

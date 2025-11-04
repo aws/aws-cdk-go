@@ -3,6 +3,7 @@ package awspinpointemail
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awspinpointemail/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDedicatedIpPoolRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a DedicatedIpPool resource.
 	// Experimental.
 	DedicatedIpPoolRef() *DedicatedIpPoolReference
@@ -19,6 +21,7 @@ type IDedicatedIpPoolRef interface {
 // The jsii proxy for IDedicatedIpPoolRef
 type jsiiProxy_IDedicatedIpPoolRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDedicatedIpPoolRef) DedicatedIpPoolRef() *DedicatedIpPoolReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDedicatedIpPoolRef) DedicatedIpPoolRef() *DedicatedIpPoolRef
 	_jsii_.Get(
 		j,
 		"dedicatedIpPoolRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDedicatedIpPoolRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDedicatedIpPoolRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

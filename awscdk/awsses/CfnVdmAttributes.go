@@ -45,6 +45,7 @@ type CfnVdmAttributes interface {
 	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes() interface{}
 	SetDashboardAttributes(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianAttributes() interface{}
 	SetGuardianAttributes(val interface{})
@@ -273,6 +274,16 @@ func (j *jsiiProxy_CfnVdmAttributes) DashboardAttributes() interface{} {
 	_jsii_.Get(
 		j,
 		"dashboardAttributes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVdmAttributes) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

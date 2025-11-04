@@ -36,11 +36,11 @@ func (r *jsiiProxy_Role) validateGrantParameters(grantee IPrincipal) error {
 	return nil
 }
 
-func (r *jsiiProxy_Role) validateGrantAssumeRoleParameters(identity IPrincipal) error {
+func (r *jsiiProxy_Role) validateGrantAssumeRoleParameters(grantee IPrincipal) error {
 	return nil
 }
 
-func (r *jsiiProxy_Role) validateGrantPassRoleParameters(identity IPrincipal) error {
+func (r *jsiiProxy_Role) validateGrantPassRoleParameters(grantee IPrincipal) error {
 	return nil
 }
 

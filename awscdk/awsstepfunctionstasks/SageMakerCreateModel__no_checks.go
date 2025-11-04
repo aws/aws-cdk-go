@@ -88,7 +88,7 @@ func (s *jsiiProxy_SageMakerCreateModel) validateMetricTimedOutParameters(props 
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerCreateModel) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (s *jsiiProxy_SageMakerCreateModel) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

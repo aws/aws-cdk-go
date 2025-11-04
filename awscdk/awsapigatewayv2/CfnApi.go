@@ -114,6 +114,7 @@ type CfnApi interface {
 	// Avoid validating models when creating a deployment.
 	DisableSchemaValidation() interface{}
 	SetDisableSchemaValidation(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether to rollback the API creation when a warning is encountered.
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
@@ -467,6 +468,16 @@ func (j *jsiiProxy_CfnApi) DisableSchemaValidation() interface{} {
 	_jsii_.Get(
 		j,
 		"disableSchemaValidation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApi) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

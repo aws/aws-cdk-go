@@ -63,6 +63,7 @@ type CfnCertificateAuthority interface {
 	// Specifies information to be added to the extension section of the certificate signing request (CSR).
 	CsrExtensions() interface{}
 	SetCsrExtensions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
@@ -333,6 +334,16 @@ func (j *jsiiProxy_CfnCertificateAuthority) CsrExtensions() interface{} {
 	_jsii_.Get(
 		j,
 		"csrExtensions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCertificateAuthority) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

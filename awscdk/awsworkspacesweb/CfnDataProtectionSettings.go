@@ -108,6 +108,7 @@ type CfnDataProtectionSettings interface {
 	// The display name of the data protection settings.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The inline redaction configuration for the data protection settings.
 	InlineRedactionConfiguration() interface{}
 	SetInlineRedactionConfiguration(val interface{})
@@ -408,6 +409,16 @@ func (j *jsiiProxy_CfnDataProtectionSettings) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataProtectionSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

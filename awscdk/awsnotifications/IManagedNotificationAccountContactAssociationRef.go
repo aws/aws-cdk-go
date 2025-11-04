@@ -3,6 +3,7 @@ package awsnotifications
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IManagedNotificationAccountContactAssociationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ManagedNotificationAccountContactAssociation resource.
 	// Experimental.
 	ManagedNotificationAccountContactAssociationRef() *ManagedNotificationAccountContactAssociationReference
@@ -19,6 +21,7 @@ type IManagedNotificationAccountContactAssociationRef interface {
 // The jsii proxy for IManagedNotificationAccountContactAssociationRef
 type jsiiProxy_IManagedNotificationAccountContactAssociationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IManagedNotificationAccountContactAssociationRef) ManagedNotificationAccountContactAssociationRef() *ManagedNotificationAccountContactAssociationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IManagedNotificationAccountContactAssociationRef) ManagedNoti
 	_jsii_.Get(
 		j,
 		"managedNotificationAccountContactAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IManagedNotificationAccountContactAssociationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IManagedNotificationAccountContactAssociationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

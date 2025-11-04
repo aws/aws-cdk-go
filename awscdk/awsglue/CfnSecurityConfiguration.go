@@ -57,6 +57,7 @@ type CfnSecurityConfiguration interface {
 	// The encryption configuration associated with this security configuration.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -285,6 +286,16 @@ func (j *jsiiProxy_CfnSecurityConfiguration) EncryptionConfiguration() interface
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

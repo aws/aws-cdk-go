@@ -59,6 +59,7 @@ type CfnFleet interface {
 	// A brief description of the fleet.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Fleet resource.
 	FleetRef() *FleetReference
 	// The unique ID of the fleet.
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnFleet) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -32,7 +32,7 @@ func (p *jsiiProxy_PublicSubnet) validateApplyRemovalPolicyParameters(policy aws
 	return nil
 }
 
-func (p *jsiiProxy_PublicSubnet) validateAssociateNetworkAclParameters(id *string, networkAcl INetworkAcl) error {
+func (p *jsiiProxy_PublicSubnet) validateAssociateNetworkAclParameters(id *string, acl INetworkAcl) error {
 	return nil
 }
 

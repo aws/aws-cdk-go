@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrContainersStartJobRun) validateMetricTimedOutParameters(pr
 	return nil
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrContainersStartJobRun) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

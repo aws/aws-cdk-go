@@ -141,6 +141,7 @@ type CfnInstanceGroupConfig interface {
 	// `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
 	EbsConfiguration() interface{}
 	SetEbsConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Target number of instances for the instance group.
 	InstanceCount() *float64
 	SetInstanceCount(val *float64)
@@ -424,6 +425,16 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) EbsConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"ebsConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceGroupConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

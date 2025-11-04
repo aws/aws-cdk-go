@@ -213,6 +213,7 @@ type CfnTable interface {
 	// Determines if a table is protected from deletion.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Global secondary indexes to be created on the table.
 	//
 	// You can create up to 20 global secondary indexes.
@@ -533,6 +534,16 @@ func (j *jsiiProxy_CfnTable) DeletionProtectionEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

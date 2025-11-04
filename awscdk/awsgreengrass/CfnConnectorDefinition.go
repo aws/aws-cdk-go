@@ -71,6 +71,7 @@ type CfnConnectorDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The connector definition version to include when the connector definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnConnectorDefinition) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectorDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

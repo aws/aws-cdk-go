@@ -72,6 +72,7 @@ type CfnGeofenceCollection interface {
 	// An optional description for the geofence collection.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a GeofenceCollection resource.
 	GeofenceCollectionRef() *GeofenceCollectionReference
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
@@ -363,6 +364,16 @@ func (j *jsiiProxy_CfnGeofenceCollection) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

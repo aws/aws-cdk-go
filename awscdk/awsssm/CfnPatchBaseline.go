@@ -126,6 +126,7 @@ type CfnPatchBaseline interface {
 	// A description of the patch baseline.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A set of global filters used to include patches in the baseline.
 	GlobalFilters() interface{}
 	SetGlobalFilters(val interface{})
@@ -438,6 +439,16 @@ func (j *jsiiProxy_CfnPatchBaseline) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPatchBaseline) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

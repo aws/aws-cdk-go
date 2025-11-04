@@ -49,7 +49,7 @@ type Source interface {
 	//
 	// For example, it can grant permissions to the
 	// code build project to read from the S3 bucket.
-	Bind(_scope constructs.Construct, _project IProject) *SourceConfig
+	Bind(scope constructs.Construct, project IProject) *SourceConfig
 }
 
 // The jsii proxy struct for Source
@@ -188,8 +188,8 @@ func Source_S3(props *S3SourceProps) ISource {
 	return returns
 }
 
-func (s *jsiiProxy_Source) Bind(_scope constructs.Construct, _project IProject) *SourceConfig {
-	if err := s.validateBindParameters(_scope, _project); err != nil {
+func (s *jsiiProxy_Source) Bind(scope constructs.Construct, project IProject) *SourceConfig {
+	if err := s.validateBindParameters(scope, project); err != nil {
 		panic(err)
 	}
 	var returns *SourceConfig
@@ -197,7 +197,7 @@ func (s *jsiiProxy_Source) Bind(_scope constructs.Construct, _project IProject) 
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, _project},
+		[]interface{}{scope, project},
 		&returns,
 	)
 

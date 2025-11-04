@@ -86,6 +86,7 @@ type CfnReplicationInstance interface {
 	// The engine version number of the replication instance.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An AWS KMS key identifier that is used to encrypt the data on the replication instance.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -419,6 +420,16 @@ func (j *jsiiProxy_CfnReplicationInstance) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

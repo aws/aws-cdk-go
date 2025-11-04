@@ -192,9 +192,9 @@ func (e *jsiiProxy_EventBridgeSchedulerCreateScheduleTask) validateMetricTimedOu
 	return nil
 }
 
-func (e *jsiiProxy_EventBridgeSchedulerCreateScheduleTask) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (e *jsiiProxy_EventBridgeSchedulerCreateScheduleTask) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

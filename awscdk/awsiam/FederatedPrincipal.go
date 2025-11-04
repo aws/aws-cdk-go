@@ -52,7 +52,7 @@ type FederatedPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -194,8 +194,8 @@ func (f *jsiiProxy_FederatedPrincipal) AddToPolicy(statement PolicyStatement) *b
 	return returns
 }
 
-func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := f.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := f.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -203,7 +203,7 @@ func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(_statement PolicySta
 	_jsii_.Invoke(
 		f,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

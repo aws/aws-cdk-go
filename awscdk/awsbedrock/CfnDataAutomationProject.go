@@ -211,6 +211,7 @@ type CfnDataAutomationProject interface {
 	SetCustomOutputConfiguration(val interface{})
 	// A reference to a DataAutomationProject resource.
 	DataAutomationProjectRef() *DataAutomationProjectReference
+	Env() *awscdk.ResourceEnvironment
 	// The AWS KMS encryption context to use for encryption.
 	KmsEncryptionContext() interface{}
 	SetKmsEncryptionContext(val interface{})
@@ -516,6 +517,16 @@ func (j *jsiiProxy_CfnDataAutomationProject) DataAutomationProjectRef() *DataAut
 	_jsii_.Get(
 		j,
 		"dataAutomationProjectRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataAutomationProject) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

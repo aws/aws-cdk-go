@@ -10,13 +10,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 )
 
-func (j *jsiiProxy_JavaInjector) validateInjectAdditionalEnvironmentsParameters(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string) error {
+func (j *jsiiProxy_JavaInjector) validateInjectAdditionalEnvironmentsParameters(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string) error {
 	if envsToInject == nil {
 		return fmt.Errorf("parameter envsToInject is required, but nil was provided")
 	}
 
-	if _envsFromTaskDef == nil {
-		return fmt.Errorf("parameter _envsFromTaskDef is required, but nil was provided")
+	if envsFromTaskDef == nil {
+		return fmt.Errorf("parameter envsFromTaskDef is required, but nil was provided")
 	}
 
 	return nil
@@ -30,13 +30,13 @@ func (j *jsiiProxy_JavaInjector) validateInjectInitContainerParameters(taskDefin
 	return nil
 }
 
-func (j *jsiiProxy_JavaInjector) validateOverrideAdditionalEnvironmentsParameters(_envsToOverride *map[string]*string, _overrideEnvironments *map[string]*string) error {
-	if _envsToOverride == nil {
-		return fmt.Errorf("parameter _envsToOverride is required, but nil was provided")
+func (j *jsiiProxy_JavaInjector) validateOverrideAdditionalEnvironmentsParameters(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string) error {
+	if envsToOverride == nil {
+		return fmt.Errorf("parameter envsToOverride is required, but nil was provided")
 	}
 
-	if _overrideEnvironments == nil {
-		return fmt.Errorf("parameter _overrideEnvironments is required, but nil was provided")
+	if envsFromTaskDef == nil {
+		return fmt.Errorf("parameter envsFromTaskDef is required, but nil was provided")
 	}
 
 	return nil

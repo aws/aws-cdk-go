@@ -63,6 +63,16 @@ type NetworkLoadBalancerProps struct {
 	// Default: - AZ affinity is disabled.
 	//
 	ClientRoutingPolicy ClientRoutingPolicy `field:"optional" json:"clientRoutingPolicy" yaml:"clientRoutingPolicy"`
+	// Create a Network Load Balancer without security groups.
+	//
+	// When true, creates an NLB that cannot have security groups attached.
+	// This is useful when you need to create a traditional NLB without security group associations.
+	//
+	// This property only takes effect when the feature flag
+	// `@aws-cdk/aws-elasticloadbalancingv2:networkLoadBalancerWithSecurityGroupByDefault` is enabled.
+	// Default: false.
+	//
+	DisableSecurityGroups *bool `field:"optional" json:"disableSecurityGroups" yaml:"disableSecurityGroups"`
 	// Indicates whether to use an IPv6 prefix from each subnet for source NAT.
 	//
 	// The IP address type must be IpAddressType.DUALSTACK.

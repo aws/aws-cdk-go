@@ -465,6 +465,7 @@ type CfnModelPackage interface {
 	// Represents the drift check baselines that can be used when the model monitor is set using the model package.
 	DriftCheckBaselines() interface{}
 	SetDriftCheckBaselines(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification() interface{}
 	SetInferenceSpecification(val interface{})
@@ -844,6 +845,16 @@ func (j *jsiiProxy_CfnModelPackage) DriftCheckBaselines() interface{} {
 	_jsii_.Get(
 		j,
 		"driftCheckBaselines",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModelPackage) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

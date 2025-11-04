@@ -74,6 +74,7 @@ type CfnMulticastGroup interface {
 	// The ID of the wireless device to disassociate from a multicast group.
 	DisassociateWirelessDevice() *string
 	SetDisassociateWirelessDevice(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -371,6 +372,16 @@ func (j *jsiiProxy_CfnMulticastGroup) DisassociateWirelessDevice() *string {
 	_jsii_.Get(
 		j,
 		"disassociateWirelessDevice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMulticastGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

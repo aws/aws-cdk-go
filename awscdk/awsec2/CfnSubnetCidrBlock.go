@@ -52,6 +52,7 @@ type CfnSubnetCidrBlock interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The IPv6 network range for the subnet, in CIDR notation.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
@@ -299,6 +300,16 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnetCidrBlock) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

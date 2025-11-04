@@ -46,6 +46,7 @@ type CfnFlowTemplate interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FlowTemplate resource.
 	FlowTemplateRef() *FlowTemplateReference
 	// The logical ID for this CloudFormation stack element.
@@ -281,6 +282,16 @@ func (j *jsiiProxy_CfnFlowTemplate) Definition() interface{} {
 	_jsii_.Get(
 		j,
 		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

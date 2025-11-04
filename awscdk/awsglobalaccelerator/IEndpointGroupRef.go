@@ -3,6 +3,7 @@ package awsglobalaccelerator
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IEndpointGroupRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a EndpointGroup resource.
 	// Experimental.
 	EndpointGroupRef() *EndpointGroupReference
@@ -19,6 +21,7 @@ type IEndpointGroupRef interface {
 // The jsii proxy for IEndpointGroupRef
 type jsiiProxy_IEndpointGroupRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IEndpointGroupRef) EndpointGroupRef() *EndpointGroupReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IEndpointGroupRef) EndpointGroupRef() *EndpointGroupReference
 	_jsii_.Get(
 		j,
 		"endpointGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEndpointGroupRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEndpointGroupRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

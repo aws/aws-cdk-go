@@ -99,6 +99,7 @@ type CfnPortal interface {
 	// The name of the web portal.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The type and resources of the underlying instance.
 	InstanceType() *string
 	SetInstanceType(val *string)
@@ -482,6 +483,16 @@ func (j *jsiiProxy_CfnPortal) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPortal) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

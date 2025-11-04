@@ -76,6 +76,7 @@ type CfnFirewallDomainList interface {
 	// A list of the domain lists that you have defined.
 	Domains() *[]*string
 	SetDomains(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FirewallDomainList resource.
 	FirewallDomainListRef() *FirewallDomainListReference
 	// The logical ID for this CloudFormation stack element.
@@ -400,6 +401,16 @@ func (j *jsiiProxy_CfnFirewallDomainList) Domains() *[]*string {
 	_jsii_.Get(
 		j,
 		"domains",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewallDomainList) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

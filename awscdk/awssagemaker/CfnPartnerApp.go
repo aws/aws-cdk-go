@@ -84,6 +84,7 @@ type CfnPartnerApp interface {
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity() interface{}
 	SetEnableIamSessionBasedIdentity(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role of the user.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -381,6 +382,16 @@ func (j *jsiiProxy_CfnPartnerApp) EnableIamSessionBasedIdentity() interface{} {
 	_jsii_.Get(
 		j,
 		"enableIamSessionBasedIdentity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPartnerApp) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

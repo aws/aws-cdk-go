@@ -111,6 +111,7 @@ type CfnAssessment interface {
 	// The description of the assessment.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier for the framework.
 	FrameworkId() *string
 	SetFrameworkId(val *string)
@@ -415,6 +416,16 @@ func (j *jsiiProxy_CfnAssessment) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssessment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

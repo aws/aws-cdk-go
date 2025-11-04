@@ -90,6 +90,7 @@ type CfnAppBlockBuilder interface {
 	// Indicates whether default internet access is enabled for the app block builder.
 	EnableDefaultInternetAccess() interface{}
 	SetEnableDefaultInternetAccess(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the IAM role that is applied to the app block builder.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
@@ -402,6 +403,16 @@ func (j *jsiiProxy_CfnAppBlockBuilder) EnableDefaultInternetAccess() interface{}
 	_jsii_.Get(
 		j,
 		"enableDefaultInternetAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAppBlockBuilder) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

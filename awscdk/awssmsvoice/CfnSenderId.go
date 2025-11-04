@@ -53,6 +53,7 @@ type CfnSenderId interface {
 	// By default this is set to false.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
 	IsoCountryCode() *string
 	SetIsoCountryCode(val *string)
@@ -298,6 +299,16 @@ func (j *jsiiProxy_CfnSenderId) DeletionProtectionEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSenderId) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

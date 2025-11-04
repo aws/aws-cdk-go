@@ -15,7 +15,7 @@ import (
 	awscdkcloudassemblyschema "github.com/cdklabs/cloud-assembly-schema-go/awscdkcloudassemblyschema/v48/jsii"
 )
 
-//go:embed aws-cdk-lib-2.221.1.tgz
+//go:embed aws-cdk-lib-2.222.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -28,5 +28,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("aws-cdk-lib", "2.221.1", tarball)
+	_jsii_.Load("aws-cdk-lib", "2.222.0", tarball)
 }

@@ -4,7 +4,7 @@ package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3ApiDefinition) validateBindParameters(_scope constructs.Construct) error {
+func (s *jsiiProxy_S3ApiDefinition) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 

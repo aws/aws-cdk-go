@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IStackSetRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a StackSet resource.
 	// Experimental.
 	StackSetRef() *StackSetReference
@@ -19,6 +20,7 @@ type IStackSetRef interface {
 // The jsii proxy for IStackSetRef
 type jsiiProxy_IStackSetRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IStackSetRef) StackSetRef() *StackSetReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IStackSetRef) StackSetRef() *StackSetReference {
 	_jsii_.Get(
 		j,
 		"stackSetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStackSetRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStackSetRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

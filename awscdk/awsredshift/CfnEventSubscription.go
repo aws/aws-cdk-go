@@ -76,6 +76,7 @@ type CfnEventSubscription interface {
 	// A boolean value;.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the Amazon Redshift event categories to be published by the event notification subscription.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
@@ -375,6 +376,16 @@ func (j *jsiiProxy_CfnEventSubscription) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

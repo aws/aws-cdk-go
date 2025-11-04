@@ -139,6 +139,7 @@ type CfnDBCluster interface {
 	// Indicates the database engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled() interface{}
 	SetIamAuthEnabled(val interface{})
@@ -556,6 +557,16 @@ func (j *jsiiProxy_CfnDBCluster) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -76,6 +76,7 @@ type CfnResolverQueryLoggingConfig interface {
 	// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
 	DestinationArn() *string
 	SetDestinationArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -388,6 +389,16 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) DestinationArn() *string {
 	_jsii_.Get(
 		j,
 		"destinationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

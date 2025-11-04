@@ -103,6 +103,7 @@ type CfnWirelessDevice interface {
 	// The name of the destination to assign to the new wireless device.
 	DestinationName() *string
 	SetDestinationName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt() *string
 	SetLastUplinkReceivedAt(val *string)
@@ -382,6 +383,16 @@ func (j *jsiiProxy_CfnWirelessDevice) DestinationName() *string {
 	_jsii_.Get(
 		j,
 		"destinationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWirelessDevice) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

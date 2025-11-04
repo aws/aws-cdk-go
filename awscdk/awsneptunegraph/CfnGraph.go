@@ -72,6 +72,7 @@ type CfnGraph interface {
 	// A value that indicates whether the graph has deletion protection enabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The graph name.
 	//
 	// For example: `my-graph-1` .
@@ -350,6 +351,16 @@ func (j *jsiiProxy_CfnGraph) DeletionProtection() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraph) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

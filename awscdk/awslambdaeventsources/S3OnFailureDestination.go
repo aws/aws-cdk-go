@@ -37,7 +37,7 @@ import (
 type S3OnFailureDestination interface {
 	awslambda.IEventSourceDlq
 	// Returns a destination configuration for the DLQ.
-	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
+	Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
 }
 
 // The jsii proxy struct for S3OnFailureDestination
@@ -72,8 +72,8 @@ func NewS3OnFailureDestination_Override(s S3OnFailureDestination, bucket awss3.I
 	)
 }
 
-func (s *jsiiProxy_S3OnFailureDestination) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
-	if err := s.validateBindParameters(_target, targetHandler); err != nil {
+func (s *jsiiProxy_S3OnFailureDestination) Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
+	if err := s.validateBindParameters(target, targetHandler); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.DlqDestinationConfig
@@ -81,7 +81,7 @@ func (s *jsiiProxy_S3OnFailureDestination) Bind(_target awslambda.IEventSourceMa
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_target, targetHandler},
+		[]interface{}{target, targetHandler},
 		&returns,
 	)
 

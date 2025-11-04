@@ -90,6 +90,7 @@ type CfnEnvironment interface {
 	// The description of the FinSpace environment.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Environment resource.
 	EnvironmentRef() *EnvironmentReference
 	// The authentication mode for the environment.
@@ -406,6 +407,16 @@ func (j *jsiiProxy_CfnEnvironment) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

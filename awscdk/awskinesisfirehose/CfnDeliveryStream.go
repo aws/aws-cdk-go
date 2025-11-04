@@ -80,6 +80,7 @@ type CfnDeliveryStream interface {
 	// An Amazon ES destination for the delivery stream.
 	ElasticsearchDestinationConfiguration() interface{}
 	SetElasticsearchDestinationConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// An Amazon S3 destination for the delivery stream.
 	ExtendedS3DestinationConfiguration() interface{}
 	SetExtendedS3DestinationConfiguration(val interface{})
@@ -416,6 +417,16 @@ func (j *jsiiProxy_CfnDeliveryStream) ElasticsearchDestinationConfiguration() in
 	_jsii_.Get(
 		j,
 		"elasticsearchDestinationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeliveryStream) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

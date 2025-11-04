@@ -58,6 +58,7 @@ type CfnEIP interface {
 	SetDomain(val *string)
 	// A reference to a EIP resource.
 	EipRef() *EIPReference
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -332,6 +333,16 @@ func (j *jsiiProxy_CfnEIP) EipRef() *EIPReference {
 	_jsii_.Get(
 		j,
 		"eipRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEIP) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

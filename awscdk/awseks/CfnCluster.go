@@ -197,6 +197,7 @@ type CfnCluster interface {
 	// The encryption configuration for the cluster.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Set this value to `true` to override upgrade-blocking readiness checks when updating a cluster.
 	Force() interface{}
 	SetForce(val interface{})
@@ -582,6 +583,16 @@ func (j *jsiiProxy_CfnCluster) EncryptionConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

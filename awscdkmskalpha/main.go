@@ -12,6 +12,14 @@ func init() {
 		"@aws-cdk/aws-msk-alpha.BrokerLogging",
 		reflect.TypeOf((*BrokerLogging)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-msk-alpha.BrokerType",
+		reflect.TypeOf((*BrokerType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": BrokerType_STANDARD,
+			"EXPRESS": BrokerType_EXPRESS,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-msk-alpha.ClientAuthentication",
 		reflect.TypeOf((*ClientAuthentication)(nil)).Elem(),

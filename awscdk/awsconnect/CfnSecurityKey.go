@@ -40,6 +40,7 @@ type CfnSecurityKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -263,6 +264,16 @@ func (j *jsiiProxy_CfnSecurityKey) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

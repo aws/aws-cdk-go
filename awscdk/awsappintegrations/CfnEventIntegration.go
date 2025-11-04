@@ -56,6 +56,7 @@ type CfnEventIntegration interface {
 	// The event integration description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon EventBridge bus for the event integration.
 	EventBridgeBus() *string
 	SetEventBridgeBus(val *string)
@@ -296,6 +297,16 @@ func (j *jsiiProxy_CfnEventIntegration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventIntegration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -22,9 +22,9 @@ func (f *jsiiProxy_FederatedPrincipal) validateAddToPolicyParameters(statement P
 	return nil
 }
 
-func (f *jsiiProxy_FederatedPrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
-	if _statement == nil {
-		return fmt.Errorf("parameter _statement is required, but nil was provided")
+func (f *jsiiProxy_FederatedPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
 	}
 
 	return nil

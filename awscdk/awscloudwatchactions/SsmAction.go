@@ -21,7 +21,7 @@ import (
 type SsmAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an SSM OpsItem action as an alarm action.
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for SsmAction
@@ -56,8 +56,8 @@ func NewSsmAction_Override(s SsmAction, severity OpsItemSeverity, category OpsIt
 	)
 }
 
-func (s *jsiiProxy_SsmAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
-	if err := s.validateBindParameters(_scope, _alarm); err != nil {
+func (s *jsiiProxy_SsmAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := s.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}
 	var returns *awscloudwatch.AlarmActionConfig
@@ -65,7 +65,7 @@ func (s *jsiiProxy_SsmAction) Bind(_scope constructs.Construct, _alarm awscloudw
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, _alarm},
+		[]interface{}{scope, alarm},
 		&returns,
 	)
 

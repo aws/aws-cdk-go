@@ -111,6 +111,7 @@ type CfnAccount interface {
 	// The email address associated with the AWS account.
 	Email() *string
 	SetEmail(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -406,6 +407,16 @@ func (j *jsiiProxy_CfnAccount) Email() *string {
 	_jsii_.Get(
 		j,
 		"email",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccount) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

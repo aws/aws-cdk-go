@@ -79,6 +79,7 @@ type CfnDataLake interface {
 	// Provides encryption details of the Amazon Security Lake object.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time.
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
@@ -345,6 +346,16 @@ func (j *jsiiProxy_CfnDataLake) EncryptionConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataLake) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

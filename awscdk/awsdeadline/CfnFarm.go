@@ -60,6 +60,7 @@ type CfnFarm interface {
 	// The display name of the farm.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Farm resource.
 	FarmRef() *FarmReference
 	// The ARN for the KMS key.
@@ -322,6 +323,16 @@ func (j *jsiiProxy_CfnFarm) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFarm) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -55,6 +55,7 @@ type CfnRealtimeLogConfig interface {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints() interface{}
 	SetEndPoints(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A list of fields that are included in each real-time log record.
 	Fields() *[]*string
 	SetFields(val *[]*string)
@@ -289,6 +290,16 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) EndPoints() interface{} {
 	_jsii_.Get(
 		j,
 		"endPoints",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRealtimeLogConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

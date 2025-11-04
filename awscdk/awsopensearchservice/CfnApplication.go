@@ -85,6 +85,7 @@ type CfnApplication interface {
 	// The endpoint URL of an OpenSearch application.
 	Endpoint() *string
 	SetEndpoint(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Settings container for integrating IAM Identity Center with OpenSearch UI applications, which enables enabling secure user authentication and access control across multiple data sources.
 	IamIdentityCenterOptions() interface{}
 	SetIamIdentityCenterOptions(val interface{})
@@ -368,6 +369,16 @@ func (j *jsiiProxy_CfnApplication) Endpoint() *string {
 	_jsii_.Get(
 		j,
 		"endpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

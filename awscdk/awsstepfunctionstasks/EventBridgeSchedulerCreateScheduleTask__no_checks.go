@@ -84,7 +84,7 @@ func (e *jsiiProxy_EventBridgeSchedulerCreateScheduleTask) validateMetricTimedOu
 	return nil
 }
 
-func (e *jsiiProxy_EventBridgeSchedulerCreateScheduleTask) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EventBridgeSchedulerCreateScheduleTask) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

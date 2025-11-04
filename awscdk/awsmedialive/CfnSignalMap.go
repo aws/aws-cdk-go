@@ -90,6 +90,7 @@ type CfnSignalMap interface {
 	// A top-level supported Amazon Web Services resource ARN to discover a signal map from.
 	DiscoveryEntryPointArn() *string
 	SetDiscoveryEntryPointArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An eventbridge rule template group's identifier.
 	EventBridgeRuleTemplateGroupIdentifiers() *[]*string
 	SetEventBridgeRuleTemplateGroupIdentifiers(val *[]*string)
@@ -498,6 +499,16 @@ func (j *jsiiProxy_CfnSignalMap) DiscoveryEntryPointArn() *string {
 	_jsii_.Get(
 		j,
 		"discoveryEntryPointArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSignalMap) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

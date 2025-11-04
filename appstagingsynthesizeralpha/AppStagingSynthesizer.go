@@ -52,17 +52,17 @@ type AppStagingSynthesizer interface {
 	//
 	// this will never be called.
 	// Experimental.
-	AddDockerImageAsset(_asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation
+	AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation
 	// Implemented for legacy purposes;
 	//
 	// this will never be called.
 	// Experimental.
-	AddFileAsset(_asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation
+	AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation
 	// Implemented for legacy purposes;
 	//
 	// this will never be called.
 	// Experimental.
-	Bind(_stack awscdk.Stack)
+	Bind(stack awscdk.Stack)
 	// Turn a docker asset location into a CloudFormation representation of that location.
 	//
 	// If any of the fields contain placeholders, the result will be wrapped in a `Fn.sub`.
@@ -93,7 +93,7 @@ type AppStagingSynthesizer interface {
 	//
 	// this will never be called.
 	// Experimental.
-	Synthesize(_session awscdk.ISynthesisSession)
+	Synthesize(session awscdk.ISynthesisSession)
 	// Have the stack write out its template.
 	// Deprecated: Use `synthesizeTemplate` instead.
 	SynthesizeStackTemplate(stack awscdk.Stack, session awscdk.ISynthesisSession)
@@ -271,8 +271,8 @@ func (a *jsiiProxy_AppStagingSynthesizer) AddBootstrapVersionRule(requiredVersio
 	)
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) AddDockerImageAsset(_asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
-	if err := a.validateAddDockerImageAssetParameters(_asset); err != nil {
+func (a *jsiiProxy_AppStagingSynthesizer) AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
+	if err := a.validateAddDockerImageAssetParameters(asset); err != nil {
 		panic(err)
 	}
 	var returns *awscdk.DockerImageAssetLocation
@@ -280,15 +280,15 @@ func (a *jsiiProxy_AppStagingSynthesizer) AddDockerImageAsset(_asset *awscdk.Doc
 	_jsii_.Invoke(
 		a,
 		"addDockerImageAsset",
-		[]interface{}{_asset},
+		[]interface{}{asset},
 		&returns,
 	)
 
 	return returns
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) AddFileAsset(_asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
-	if err := a.validateAddFileAssetParameters(_asset); err != nil {
+func (a *jsiiProxy_AppStagingSynthesizer) AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
+	if err := a.validateAddFileAssetParameters(asset); err != nil {
 		panic(err)
 	}
 	var returns *awscdk.FileAssetLocation
@@ -296,21 +296,21 @@ func (a *jsiiProxy_AppStagingSynthesizer) AddFileAsset(_asset *awscdk.FileAssetS
 	_jsii_.Invoke(
 		a,
 		"addFileAsset",
-		[]interface{}{_asset},
+		[]interface{}{asset},
 		&returns,
 	)
 
 	return returns
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) Bind(_stack awscdk.Stack) {
-	if err := a.validateBindParameters(_stack); err != nil {
+func (a *jsiiProxy_AppStagingSynthesizer) Bind(stack awscdk.Stack) {
+	if err := a.validateBindParameters(stack); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"bind",
-		[]interface{}{_stack},
+		[]interface{}{stack},
 	)
 }
 
@@ -384,14 +384,14 @@ func (a *jsiiProxy_AppStagingSynthesizer) ReusableBind(stack awscdk.Stack) awscd
 	return returns
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) Synthesize(_session awscdk.ISynthesisSession) {
-	if err := a.validateSynthesizeParameters(_session); err != nil {
+func (a *jsiiProxy_AppStagingSynthesizer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",
-		[]interface{}{_session},
+		[]interface{}{session},
 	)
 }
 

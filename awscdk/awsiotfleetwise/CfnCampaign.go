@@ -189,6 +189,7 @@ type CfnCampaign interface {
 	// Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
 	DiagnosticsMode() *string
 	SetDiagnosticsMode(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	ExpiryTime() *string
 	SetExpiryTime(val *string)
@@ -560,6 +561,16 @@ func (j *jsiiProxy_CfnCampaign) DiagnosticsMode() *string {
 	_jsii_.Get(
 		j,
 		"diagnosticsMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCampaign) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

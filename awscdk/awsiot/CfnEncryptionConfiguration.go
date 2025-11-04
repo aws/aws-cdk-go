@@ -51,6 +51,7 @@ type CfnEncryptionConfiguration interface {
 	// The type of the KMS key.
 	EncryptionType() *string
 	SetEncryptionType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
 	KmsAccessRoleArn() *string
 	SetKmsAccessRoleArn(val *string)
@@ -310,6 +311,16 @@ func (j *jsiiProxy_CfnEncryptionConfiguration) EncryptionType() *string {
 	_jsii_.Get(
 		j,
 		"encryptionType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEncryptionConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

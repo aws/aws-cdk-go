@@ -24,7 +24,7 @@ type SqsQueue interface {
 	// Returns a RuleTarget that can be used to trigger this SQS queue as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 	//
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for SqsQueue
@@ -70,7 +70,7 @@ func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps)
 	)
 }
 
-func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := s.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -79,7 +79,7 @@ func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, _id *string) *awsevents.
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

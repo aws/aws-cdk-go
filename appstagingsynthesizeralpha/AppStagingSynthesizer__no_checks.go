@@ -8,15 +8,15 @@ func (a *jsiiProxy_AppStagingSynthesizer) validateAddBootstrapVersionRuleParamet
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateAddDockerImageAssetParameters(_asset *awscdk.DockerImageAssetSource) error {
+func (a *jsiiProxy_AppStagingSynthesizer) validateAddDockerImageAssetParameters(asset *awscdk.DockerImageAssetSource) error {
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateAddFileAssetParameters(_asset *awscdk.FileAssetSource) error {
+func (a *jsiiProxy_AppStagingSynthesizer) validateAddFileAssetParameters(asset *awscdk.FileAssetSource) error {
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateBindParameters(_stack awscdk.Stack) error {
+func (a *jsiiProxy_AppStagingSynthesizer) validateBindParameters(stack awscdk.Stack) error {
 	return nil
 }
 
@@ -40,7 +40,7 @@ func (a *jsiiProxy_AppStagingSynthesizer) validateReusableBindParameters(stack a
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateSynthesizeParameters(_session awscdk.ISynthesisSession) error {
+func (a *jsiiProxy_AppStagingSynthesizer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

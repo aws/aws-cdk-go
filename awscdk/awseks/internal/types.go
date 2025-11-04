@@ -14,6 +14,7 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awsec2IMachineImage = awsec2.IMachineImage
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awscdkNestedStack = awscdk.NestedStack
 type Type__awsiamOpenIdConnectProvider = awsiam.OpenIdConnectProvider

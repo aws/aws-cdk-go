@@ -23,7 +23,7 @@ import (
 type InlineApiDefinition interface {
 	ApiDefinition
 	// Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct) *ApiDefinitionConfig
+	Bind(scope constructs.Construct) *ApiDefinitionConfig
 	// Called after the CFN RestApi resource has been created to allow the Api Definition to bind to it.
 	//
 	// Specifically it's required to allow assets to add
@@ -166,8 +166,8 @@ func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition 
 	return returns
 }
 
-func (i *jsiiProxy_InlineApiDefinition) Bind(_scope constructs.Construct) *ApiDefinitionConfig {
-	if err := i.validateBindParameters(_scope); err != nil {
+func (i *jsiiProxy_InlineApiDefinition) Bind(scope constructs.Construct) *ApiDefinitionConfig {
+	if err := i.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *ApiDefinitionConfig
@@ -175,7 +175,7 @@ func (i *jsiiProxy_InlineApiDefinition) Bind(_scope constructs.Construct) *ApiDe
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

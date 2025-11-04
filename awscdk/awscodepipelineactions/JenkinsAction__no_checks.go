@@ -8,7 +8,7 @@ func (j *jsiiProxy_JenkinsAction) validateBindParameters(scope constructs.Constr
 	return nil
 }
 
-func (j *jsiiProxy_JenkinsAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) error {
+func (j *jsiiProxy_JenkinsAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

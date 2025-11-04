@@ -83,6 +83,7 @@ type CfnTable interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Contains details about the metadata for an Iceberg table.
 	IcebergMetadata() interface{}
 	SetIcebergMetadata(val interface{})
@@ -349,6 +350,16 @@ func (j *jsiiProxy_CfnTable) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

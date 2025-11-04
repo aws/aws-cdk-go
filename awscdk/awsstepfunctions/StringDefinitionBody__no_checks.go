@@ -4,7 +4,7 @@ package awsstepfunctions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_StringDefinitionBody) validateBindParameters(_scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps) error {
+func (s *jsiiProxy_StringDefinitionBody) validateBindParameters(scope constructs.Construct, sfnPrincipal awsiam.IPrincipal, sfnProps *StateMachineProps) error {
 	return nil
 }
 

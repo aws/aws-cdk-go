@@ -69,6 +69,7 @@ type CfnPodIdentityAssociation interface {
 	// The value of *true* disables these tags.
 	DisableSessionTags() interface{}
 	SetDisableSessionTags(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -350,6 +351,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) DisableSessionTags() interface{} {
 	_jsii_.Get(
 		j,
 		"disableSessionTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

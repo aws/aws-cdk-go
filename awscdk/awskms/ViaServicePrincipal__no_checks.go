@@ -12,7 +12,7 @@ func (v *jsiiProxy_ViaServicePrincipal) validateAddToPolicyParameters(statement 
 	return nil
 }
 
-func (v *jsiiProxy_ViaServicePrincipal) validateAddToPrincipalPolicyParameters(_statement awsiam.PolicyStatement) error {
+func (v *jsiiProxy_ViaServicePrincipal) validateAddToPrincipalPolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }
 

@@ -8,3 +8,7 @@ func (i *jsiiProxy_IResourceWithPolicy) validateAddToResourcePolicyParameters(st
 	return nil
 }
 
+func (i *jsiiProxy_IResourceWithPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

@@ -168,6 +168,7 @@ type CfnFunction interface {
 	SetDeploymentPreference(val interface{})
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	Environment() interface{}
 	SetEnvironment(val interface{})
 	EphemeralStorage() interface{}
@@ -518,6 +519,16 @@ func (j *jsiiProxy_CfnFunction) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

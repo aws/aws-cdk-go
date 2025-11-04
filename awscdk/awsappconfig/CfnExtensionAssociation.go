@@ -57,6 +57,7 @@ type CfnExtensionAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a ExtensionAssociation resource.
 	ExtensionAssociationRef() *ExtensionAssociationReference
 	// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
@@ -320,6 +321,16 @@ func (j *jsiiProxy_CfnExtensionAssociation) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExtensionAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

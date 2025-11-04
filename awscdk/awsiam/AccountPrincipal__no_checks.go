@@ -12,7 +12,7 @@ func (a *jsiiProxy_AccountPrincipal) validateAddToPolicyParameters(statement Pol
 	return nil
 }
 
-func (a *jsiiProxy_AccountPrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
+func (a *jsiiProxy_AccountPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }
 

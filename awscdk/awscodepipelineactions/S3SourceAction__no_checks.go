@@ -8,7 +8,7 @@ func (s *jsiiProxy_S3SourceAction) validateBindParameters(scope constructs.Const
 	return nil
 }
 
-func (s *jsiiProxy_S3SourceAction) validateBoundParameters(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (s *jsiiProxy_S3SourceAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

@@ -84,7 +84,7 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateMetricTimedOutParamete
 	return nil
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

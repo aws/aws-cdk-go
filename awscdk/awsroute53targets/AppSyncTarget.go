@@ -29,7 +29,7 @@ import (
 type AppSyncTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for AppSyncTarget
@@ -64,8 +64,8 @@ func NewAppSyncTarget_Override(a AppSyncTarget, graphqlApi awsappsync.GraphqlApi
 	)
 }
 
-func (a *jsiiProxy_AppSyncTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := a.validateBindParameters(_record); err != nil {
+func (a *jsiiProxy_AppSyncTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := a.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -73,7 +73,7 @@ func (a *jsiiProxy_AppSyncTarget) Bind(_record awsroute53.IRecordSet, _zone awsr
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

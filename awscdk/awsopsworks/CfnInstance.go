@@ -137,6 +137,7 @@ type CfnInstance interface {
 	// A list of Elastic IP addresses to associate with the instance.
 	ElasticIps() *[]*string
 	SetElasticIps(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The instance host name.
 	//
 	// The following are character limits for instance host names.
@@ -523,6 +524,16 @@ func (j *jsiiProxy_CfnInstance) ElasticIps() *[]*string {
 	_jsii_.Get(
 		j,
 		"elasticIps",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

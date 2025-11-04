@@ -433,6 +433,7 @@ type CfnDomain interface {
 	// A collection of settings that apply to the `SageMaker Domain` .
 	DomainSettings() interface{}
 	SetDomainSettings(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -804,6 +805,16 @@ func (j *jsiiProxy_CfnDomain) DomainSettings() interface{} {
 	_jsii_.Get(
 		j,
 		"domainSettings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

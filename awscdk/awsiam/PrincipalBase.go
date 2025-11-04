@@ -48,7 +48,7 @@ type PrincipalBase interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -154,8 +154,8 @@ func (p *jsiiProxy_PrincipalBase) AddToPolicy(statement PolicyStatement) *bool {
 	return returns
 }
 
-func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := p.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := p.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -163,7 +163,7 @@ func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(_statement PolicyStatemen
 	_jsii_.Invoke(
 		p,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

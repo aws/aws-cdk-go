@@ -75,6 +75,7 @@ type CfnListener interface {
 	// The action for the default rule.
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Listener resource.
 	ListenerRef() *ListenerReference
 	// The logical ID for this CloudFormation stack element.
@@ -348,6 +349,16 @@ func (j *jsiiProxy_CfnListener) DefaultAction() interface{} {
 	_jsii_.Get(
 		j,
 		"defaultAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

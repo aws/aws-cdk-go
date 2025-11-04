@@ -78,6 +78,7 @@ type CfnLocationHDFS interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	KerberosKeytab() *string
 	SetKerberosKeytab(val *string)
@@ -366,6 +367,16 @@ func (j *jsiiProxy_CfnLocationHDFS) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

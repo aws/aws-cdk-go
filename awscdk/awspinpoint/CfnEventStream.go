@@ -44,6 +44,7 @@ type CfnEventStream interface {
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Stream or Amazon Data Firehose delivery stream that you want to publish event data to.
 	DestinationStreamArn() *string
 	SetDestinationStreamArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EventStream resource.
 	EventStreamRef() *EventStreamReference
 	// The logical ID for this CloudFormation stack element.
@@ -282,6 +283,16 @@ func (j *jsiiProxy_CfnEventStream) DestinationStreamArn() *string {
 	_jsii_.Get(
 		j,
 		"destinationStreamArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventStream) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

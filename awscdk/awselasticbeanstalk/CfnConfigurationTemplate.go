@@ -71,6 +71,7 @@ type CfnConfigurationTemplate interface {
 	// An optional description for this configuration.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of an environment whose settings you want to use to create the configuration template.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -329,6 +330,16 @@ func (j *jsiiProxy_CfnConfigurationTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

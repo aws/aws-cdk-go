@@ -31,19 +31,19 @@ func (j *jsiiProxy_JenkinsAction) validateBindParameters(scope constructs.Constr
 	return nil
 }
 
-func (j *jsiiProxy_JenkinsAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (j *jsiiProxy_JenkinsAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _stage == nil {
-		return fmt.Errorf("parameter _stage is required, but nil was provided")
+	if stage == nil {
+		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
 
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

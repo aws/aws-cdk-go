@@ -26,6 +26,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "createdBy", GoGetter: "CreatedBy"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "detailType", GoGetter: "DetailType"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "eventTypeId", GoGetter: "EventTypeId"},
 			_jsii_.MemberProperty{JsiiProperty: "eventTypeIds", GoGetter: "EventTypeIds"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -101,12 +102,14 @@ func init() {
 		"aws-cdk-lib.aws_codestarnotifications.INotificationRuleRef",
 		reflect.TypeOf((*INotificationRuleRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationRuleRef", GoGetter: "NotificationRuleRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INotificationRuleRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

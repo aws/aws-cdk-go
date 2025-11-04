@@ -25,7 +25,9 @@ import (
 //   	Retries: jsii.Number(5),
 //   })
 //   s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
-//   	Processor: lambdaProcessor,
+//   	Processors: []IDataProcessor{
+//   		lambdaProcessor,
+//   	},
 //   })
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
 //   	Destination: s3Destination,
@@ -39,7 +41,7 @@ type LambdaFunctionProcessor interface {
 	//
 	// Implementers should use this method to grant processor invocation permissions to the provided stream and return the
 	// necessary configuration to register as a processor.
-	Bind(_scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig
+	Bind(scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig
 }
 
 // The jsii proxy struct for LambdaFunctionProcessor
@@ -85,8 +87,8 @@ func NewLambdaFunctionProcessor_Override(l LambdaFunctionProcessor, lambdaFuncti
 	)
 }
 
-func (l *jsiiProxy_LambdaFunctionProcessor) Bind(_scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig {
-	if err := l.validateBindParameters(_scope, options); err != nil {
+func (l *jsiiProxy_LambdaFunctionProcessor) Bind(scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig {
+	if err := l.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *DataProcessorConfig
@@ -94,7 +96,7 @@ func (l *jsiiProxy_LambdaFunctionProcessor) Bind(_scope constructs.Construct, op
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

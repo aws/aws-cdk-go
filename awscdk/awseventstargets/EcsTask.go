@@ -41,7 +41,7 @@ type EcsTask interface {
 	//
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// Allows using tasks as target of EventBridge events.
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for EcsTask
@@ -87,7 +87,7 @@ func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 	)
 }
 
-func (e *jsiiProxy_EcsTask) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (e *jsiiProxy_EcsTask) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := e.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -96,7 +96,7 @@ func (e *jsiiProxy_EcsTask) Bind(rule awsevents.IRule, _id *string) *awsevents.R
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

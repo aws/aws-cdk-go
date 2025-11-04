@@ -129,6 +129,7 @@ type CfnKnowledgeBase interface {
 	// The description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a KnowledgeBase resource.
 	KnowledgeBaseRef() *KnowledgeBaseReference
 	// The type of knowledge base.
@@ -388,6 +389,16 @@ func (j *jsiiProxy_CfnKnowledgeBase) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnKnowledgeBase) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

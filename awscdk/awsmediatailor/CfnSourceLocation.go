@@ -76,6 +76,7 @@ type CfnSourceLocation interface {
 	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration() interface{}
 	SetDefaultSegmentDeliveryConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The HTTP configuration for the source location.
 	HttpConfiguration() interface{}
 	SetHttpConfiguration(val interface{})
@@ -334,6 +335,16 @@ func (j *jsiiProxy_CfnSourceLocation) DefaultSegmentDeliveryConfiguration() inte
 	_jsii_.Get(
 		j,
 		"defaultSegmentDeliveryConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSourceLocation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

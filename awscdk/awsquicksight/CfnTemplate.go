@@ -56,6 +56,7 @@ type CfnTemplate interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -435,6 +436,16 @@ func (j *jsiiProxy_CfnTemplate) Definition() interface{} {
 	_jsii_.Get(
 		j,
 		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -84,7 +84,7 @@ func (s *jsiiProxy_SqsSendMessage) validateMetricTimedOutParameters(props *awscl
 	return nil
 }
 
-func (s *jsiiProxy_SqsSendMessage) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (s *jsiiProxy_SqsSendMessage) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

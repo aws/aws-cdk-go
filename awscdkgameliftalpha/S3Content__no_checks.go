@@ -4,7 +4,7 @@ package awscdkgameliftalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3Content) validateBindParameters(_scope constructs.Construct, role awsiam.IRole) error {
+func (s *jsiiProxy_S3Content) validateBindParameters(scope constructs.Construct, role awsiam.IRole) error {
 	return nil
 }
 

@@ -137,6 +137,7 @@ type CfnDirectoryBucket interface {
 	SetDataRedundancy(val *string)
 	// A reference to a DirectoryBucket resource.
 	DirectoryBucketRef() *DirectoryBucketReference
+	Env() *awscdk.ResourceEnvironment
 	// Container for lifecycle rules.
 	//
 	// You can add as many as 1000 rules.
@@ -422,6 +423,16 @@ func (j *jsiiProxy_CfnDirectoryBucket) DirectoryBucketRef() *DirectoryBucketRefe
 	_jsii_.Get(
 		j,
 		"directoryBucketRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectoryBucket) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

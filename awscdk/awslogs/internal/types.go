@@ -10,6 +10,7 @@ type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkResource = awscdk.Resource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awsiamIResourceWithPolicy = awsiam.IResourceWithPolicy
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsConstruct = constructs.Construct

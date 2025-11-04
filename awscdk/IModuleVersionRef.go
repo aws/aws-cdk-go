@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IModuleVersionRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a ModuleVersion resource.
 	// Experimental.
 	ModuleVersionRef() *ModuleVersionReference
@@ -19,6 +20,7 @@ type IModuleVersionRef interface {
 // The jsii proxy for IModuleVersionRef
 type jsiiProxy_IModuleVersionRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IModuleVersionRef) ModuleVersionRef() *ModuleVersionReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IModuleVersionRef) ModuleVersionRef() *ModuleVersionReference
 	_jsii_.Get(
 		j,
 		"moduleVersionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IModuleVersionRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IModuleVersionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

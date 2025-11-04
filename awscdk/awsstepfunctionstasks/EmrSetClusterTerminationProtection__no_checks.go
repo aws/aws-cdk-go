@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateMetricTimedOutPar
 	return nil
 }
 
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

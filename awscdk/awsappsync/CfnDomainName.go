@@ -67,6 +67,7 @@ type CfnDomainName interface {
 	SetDomainName(val *string)
 	// A reference to a DomainName resource.
 	DomainNameRef() *DomainNameReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -364,6 +365,16 @@ func (j *jsiiProxy_CfnDomainName) DomainNameRef() *DomainNameReference {
 	_jsii_.Get(
 		j,
 		"domainNameRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainName) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

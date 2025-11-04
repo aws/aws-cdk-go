@@ -77,6 +77,7 @@ type CfnRecordingConfiguration interface {
 	// A destination configuration describes an S3 bucket where recorded video will be stored.
 	DestinationConfiguration() interface{}
 	SetDestinationConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -330,6 +331,16 @@ func (j *jsiiProxy_CfnRecordingConfiguration) DestinationConfiguration() interfa
 	_jsii_.Get(
 		j,
 		"destinationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

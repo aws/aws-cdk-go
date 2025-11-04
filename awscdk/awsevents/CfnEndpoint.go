@@ -74,6 +74,7 @@ type CfnEndpoint interface {
 	SetDescription(val *string)
 	// A reference to a Endpoint resource.
 	EndpointRef() *EndpointReference
+	Env() *awscdk.ResourceEnvironment
 	// The event buses being used by the endpoint.
 	EventBuses() interface{}
 	SetEventBuses(val interface{})
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnEndpoint) EndpointRef() *EndpointReference {
 	_jsii_.Get(
 		j,
 		"endpointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -58,6 +58,7 @@ type CfnVersion interface {
 	// A description for the version to override the description in the function configuration.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
@@ -312,6 +313,16 @@ func (j *jsiiProxy_CfnVersion) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -23,31 +23,31 @@ func (a *jsiiProxy_AppStagingSynthesizer) validateAddBootstrapVersionRuleParamet
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateAddDockerImageAssetParameters(_asset *awscdk.DockerImageAssetSource) error {
-	if _asset == nil {
-		return fmt.Errorf("parameter _asset is required, but nil was provided")
+func (a *jsiiProxy_AppStagingSynthesizer) validateAddDockerImageAssetParameters(asset *awscdk.DockerImageAssetSource) error {
+	if asset == nil {
+		return fmt.Errorf("parameter asset is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_asset, func() string { return "parameter _asset" }); err != nil {
+	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateAddFileAssetParameters(_asset *awscdk.FileAssetSource) error {
-	if _asset == nil {
-		return fmt.Errorf("parameter _asset is required, but nil was provided")
+func (a *jsiiProxy_AppStagingSynthesizer) validateAddFileAssetParameters(asset *awscdk.FileAssetSource) error {
+	if asset == nil {
+		return fmt.Errorf("parameter asset is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_asset, func() string { return "parameter _asset" }); err != nil {
+	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateBindParameters(_stack awscdk.Stack) error {
-	if _stack == nil {
-		return fmt.Errorf("parameter _stack is required, but nil was provided")
+func (a *jsiiProxy_AppStagingSynthesizer) validateBindParameters(stack awscdk.Stack) error {
+	if stack == nil {
+		return fmt.Errorf("parameter stack is required, but nil was provided")
 	}
 
 	return nil
@@ -111,9 +111,9 @@ func (a *jsiiProxy_AppStagingSynthesizer) validateReusableBindParameters(stack a
 	return nil
 }
 
-func (a *jsiiProxy_AppStagingSynthesizer) validateSynthesizeParameters(_session awscdk.ISynthesisSession) error {
-	if _session == nil {
-		return fmt.Errorf("parameter _session is required, but nil was provided")
+func (a *jsiiProxy_AppStagingSynthesizer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

@@ -56,6 +56,7 @@ type CfnDBClusterParameterGroup interface {
 	// Provides the customer-specified description for this DB cluster parameter group.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Must be `neptune1` for engine versions prior to [1.2.0.0](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.2.0.0.html) , or `neptune1.2` for engine version `1.2.0.0` and higher.
 	Family() *string
 	SetFamily(val *string)
@@ -294,6 +295,16 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

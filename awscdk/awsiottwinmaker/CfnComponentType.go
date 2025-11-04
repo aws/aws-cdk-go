@@ -158,6 +158,7 @@ type CfnComponentType interface {
 	// The description of the component type.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the parent component type that this component type extends.
 	ExtendsFrom() *[]*string
 	SetExtendsFrom(val *[]*string)
@@ -525,6 +526,16 @@ func (j *jsiiProxy_CfnComponentType) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponentType) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

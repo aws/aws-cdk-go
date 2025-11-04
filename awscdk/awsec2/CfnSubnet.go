@@ -111,6 +111,7 @@ type CfnSubnet interface {
 	// Indicates the device position for local network interfaces in this subnet.
 	EnableLniAtDeviceIndex() *float64
 	SetEnableLniAtDeviceIndex(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId() *string
 	SetIpv4IpamPoolId(val *string)
@@ -504,6 +505,16 @@ func (j *jsiiProxy_CfnSubnet) EnableLniAtDeviceIndex() *float64 {
 	_jsii_.Get(
 		j,
 		"enableLniAtDeviceIndex",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

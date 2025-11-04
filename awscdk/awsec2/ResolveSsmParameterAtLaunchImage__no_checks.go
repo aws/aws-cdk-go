@@ -4,7 +4,7 @@ package awsec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (r *jsiiProxy_ResolveSsmParameterAtLaunchImage) validateGetImageParameters(_scope constructs.Construct) error {
+func (r *jsiiProxy_ResolveSsmParameterAtLaunchImage) validateGetImageParameters(scope constructs.Construct) error {
 	return nil
 }
 

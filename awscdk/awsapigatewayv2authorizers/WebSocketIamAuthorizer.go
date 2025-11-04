@@ -51,7 +51,7 @@ import (
 type WebSocketIamAuthorizer interface {
 	awsapigatewayv2.IWebSocketRouteAuthorizer
 	// Bind this authorizer to a specified WebSocket route.
-	Bind(_options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig
+	Bind(options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig
 }
 
 // The jsii proxy struct for WebSocketIamAuthorizer
@@ -83,8 +83,8 @@ func NewWebSocketIamAuthorizer_Override(w WebSocketIamAuthorizer) {
 	)
 }
 
-func (w *jsiiProxy_WebSocketIamAuthorizer) Bind(_options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig {
-	if err := w.validateBindParameters(_options); err != nil {
+func (w *jsiiProxy_WebSocketIamAuthorizer) Bind(options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig {
+	if err := w.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsapigatewayv2.WebSocketRouteAuthorizerConfig
@@ -92,7 +92,7 @@ func (w *jsiiProxy_WebSocketIamAuthorizer) Bind(_options *awsapigatewayv2.WebSoc
 	_jsii_.Invoke(
 		w,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

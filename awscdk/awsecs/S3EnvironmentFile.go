@@ -24,7 +24,7 @@ import (
 type S3EnvironmentFile interface {
 	EnvironmentFile
 	// Called when the container is initialized to allow this object to bind to the stack.
-	Bind(_scope constructs.Construct) *EnvironmentFileConfig
+	Bind(scope constructs.Construct) *EnvironmentFileConfig
 }
 
 // The jsii proxy struct for S3EnvironmentFile
@@ -99,8 +99,8 @@ func S3EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 	return returns
 }
 
-func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope constructs.Construct) *EnvironmentFileConfig {
-	if err := s.validateBindParameters(_scope); err != nil {
+func (s *jsiiProxy_S3EnvironmentFile) Bind(scope constructs.Construct) *EnvironmentFileConfig {
+	if err := s.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *EnvironmentFileConfig
@@ -108,7 +108,7 @@ func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope constructs.Construct) *Environ
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

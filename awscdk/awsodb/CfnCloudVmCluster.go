@@ -164,6 +164,7 @@ type CfnCloudVmCluster interface {
 	// The user-friendly name for the VM cluster.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
 	GiVersion() *string
 	SetGiVersion(val *string)
@@ -664,6 +665,16 @@ func (j *jsiiProxy_CfnCloudVmCluster) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCloudVmCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

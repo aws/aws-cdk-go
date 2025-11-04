@@ -46,7 +46,7 @@ import (
 type WebSocketAwsIntegration interface {
 	awsapigatewayv2.WebSocketRouteIntegration
 	// Bind this integration to the route.
-	Bind(_options *awsapigatewayv2.WebSocketRouteIntegrationBindOptions) *awsapigatewayv2.WebSocketRouteIntegrationConfig
+	Bind(options *awsapigatewayv2.WebSocketRouteIntegrationBindOptions) *awsapigatewayv2.WebSocketRouteIntegrationConfig
 }
 
 // The jsii proxy struct for WebSocketAwsIntegration
@@ -81,8 +81,8 @@ func NewWebSocketAwsIntegration_Override(w WebSocketAwsIntegration, id *string, 
 	)
 }
 
-func (w *jsiiProxy_WebSocketAwsIntegration) Bind(_options *awsapigatewayv2.WebSocketRouteIntegrationBindOptions) *awsapigatewayv2.WebSocketRouteIntegrationConfig {
-	if err := w.validateBindParameters(_options); err != nil {
+func (w *jsiiProxy_WebSocketAwsIntegration) Bind(options *awsapigatewayv2.WebSocketRouteIntegrationBindOptions) *awsapigatewayv2.WebSocketRouteIntegrationConfig {
+	if err := w.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsapigatewayv2.WebSocketRouteIntegrationConfig
@@ -90,7 +90,7 @@ func (w *jsiiProxy_WebSocketAwsIntegration) Bind(_options *awsapigatewayv2.WebSo
 	_jsii_.Invoke(
 		w,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

@@ -30,7 +30,7 @@ import (
 type ElasticBeanstalkEnvironmentEndpointTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for ElasticBeanstalkEnvironmentEndpointTarget
@@ -65,7 +65,7 @@ func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnv
 	)
 }
 
-func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	if err := e.validateBindParameters(record); err != nil {
 		panic(err)
 	}
@@ -74,7 +74,7 @@ func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(record awsrou
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

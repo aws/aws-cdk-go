@@ -73,7 +73,7 @@ type CfnCodeDeployBlueGreenHook interface {
 	Type() *string
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
-	RenderProperties(_props *map[string]interface{}) *map[string]interface{}
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -338,13 +338,13 @@ func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) OverrideLogicalId(newLogicalId *s
 	)
 }
 
-func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) RenderProperties(_props *map[string]interface{}) *map[string]interface{} {
+func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderProperties",
-		[]interface{}{_props},
+		[]interface{}{props},
 		&returns,
 	)
 

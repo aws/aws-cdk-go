@@ -117,6 +117,7 @@ type CfnDistribution interface {
 	SetDistributionName(val *string)
 	// A reference to a Distribution resource.
 	DistributionRef() *DistributionReference
+	Env() *awscdk.ResourceEnvironment
 	// The IP address type of the distribution.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -435,6 +436,16 @@ func (j *jsiiProxy_CfnDistribution) DistributionRef() *DistributionReference {
 	_jsii_.Get(
 		j,
 		"distributionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDistribution) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

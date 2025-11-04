@@ -59,6 +59,7 @@ type CfnContactFlow interface {
 	// The description of the flow.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -320,6 +321,16 @@ func (j *jsiiProxy_CfnContactFlow) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContactFlow) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

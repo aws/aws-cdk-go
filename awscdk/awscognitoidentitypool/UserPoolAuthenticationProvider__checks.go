@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (u *jsiiProxy_UserPoolAuthenticationProvider) validateBindParameters(scope constructs.Construct, identityPool IIdentityPool, _options *UserPoolAuthenticationProviderBindOptions) error {
+func (u *jsiiProxy_UserPoolAuthenticationProvider) validateBindParameters(scope constructs.Construct, identityPool IIdentityPool, options *UserPoolAuthenticationProviderBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -19,7 +19,7 @@ func (u *jsiiProxy_UserPoolAuthenticationProvider) validateBindParameters(scope 
 		return fmt.Errorf("parameter identityPool is required, but nil was provided")
 	}
 
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 

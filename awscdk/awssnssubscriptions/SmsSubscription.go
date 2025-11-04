@@ -18,7 +18,7 @@ import (
 type SmsSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration used to subscribe to an SNS topic.
-	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
+	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
 // The jsii proxy struct for SmsSubscription
@@ -53,8 +53,8 @@ func NewSmsSubscription_Override(s SmsSubscription, phoneNumber *string, props *
 	)
 }
 
-func (s *jsiiProxy_SmsSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
-	if err := s.validateBindParameters(_topic); err != nil {
+func (s *jsiiProxy_SmsSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := s.validateBindParameters(topic); err != nil {
 		panic(err)
 	}
 	var returns *awssns.TopicSubscriptionConfig
@@ -62,7 +62,7 @@ func (s *jsiiProxy_SmsSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_topic},
+		[]interface{}{topic},
 		&returns,
 	)
 

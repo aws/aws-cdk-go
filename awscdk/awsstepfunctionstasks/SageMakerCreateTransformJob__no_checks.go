@@ -84,7 +84,7 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) validateMetricTimedOutParameters
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (s *jsiiProxy_SageMakerCreateTransformJob) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

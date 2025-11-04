@@ -51,6 +51,7 @@ type CfnPullThroughCacheRule interface {
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix() *string
 	SetEcrRepositoryPrefix(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,6 +296,16 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) EcrRepositoryPrefix() *string {
 	_jsii_.Get(
 		j,
 		"ecrRepositoryPrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPullThroughCacheRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

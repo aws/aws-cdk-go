@@ -16,11 +16,11 @@ func (e *jsiiProxy_ExternalService) validateApplyRemovalPolicyParameters(policy 
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateAssociateCloudMapServiceParameters(_options *AssociateCloudMapServiceOptions) error {
+func (e *jsiiProxy_ExternalService) validateAssociateCloudMapServiceParameters(options *AssociateCloudMapServiceOptions) error {
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateAttachToApplicationTargetGroupParameters(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {
+func (e *jsiiProxy_ExternalService) validateAttachToApplicationTargetGroupParameters(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {
 	return nil
 }
 
@@ -32,15 +32,15 @@ func (e *jsiiProxy_ExternalService) validateAttachToNetworkTargetGroupParameters
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateAutoScaleTaskCountParameters(_props *awsapplicationautoscaling.EnableScalingProps) error {
+func (e *jsiiProxy_ExternalService) validateAutoScaleTaskCountParameters(props *awsapplicationautoscaling.EnableScalingProps) error {
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(_vpc awsec2.IVpc, _vpcSubnets *awsec2.SubnetSelection) error {
+func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(_options *CloudMapOptions) error {
+func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(options *CloudMapOptions) error {
 	return nil
 }
 
@@ -60,7 +60,7 @@ func (e *jsiiProxy_ExternalService) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateLoadBalancerTargetParameters(_options *LoadBalancerTargetOptions) error {
+func (e *jsiiProxy_ExternalService) validateLoadBalancerTargetParameters(options *LoadBalancerTargetOptions) error {
 	return nil
 }
 
@@ -76,7 +76,7 @@ func (e *jsiiProxy_ExternalService) validateMetricMemoryUtilizationParameters(pr
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateRegisterLoadBalancerTargetsParameters(_targets *[]*EcsTarget) error {
+func (e *jsiiProxy_ExternalService) validateRegisterLoadBalancerTargetsParameters(targets *[]*EcsTarget) error {
 	return nil
 }
 

@@ -84,6 +84,7 @@ type CfnSessionLogger interface {
 	// The human-readable display name.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The filter that specifies which events to monitor.
 	EventFilter() interface{}
 	SetEventFilter(val interface{})
@@ -368,6 +369,16 @@ func (j *jsiiProxy_CfnSessionLogger) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSessionLogger) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

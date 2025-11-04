@@ -69,6 +69,7 @@ type CfnLink interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate() *string
 	SetLabelTemplate(val *string)
@@ -312,6 +313,16 @@ func (j *jsiiProxy_CfnLink) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLink) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

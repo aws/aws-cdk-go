@@ -87,6 +87,7 @@ type CfnPool interface {
 	// When set to true the pool can't be deleted.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -357,6 +358,16 @@ func (j *jsiiProxy_CfnPool) DeletionProtectionEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

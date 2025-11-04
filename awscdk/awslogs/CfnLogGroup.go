@@ -67,6 +67,7 @@ type CfnLogGroup interface {
 	// Creates a data protection policy and assigns it to the log group.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Creates or updates a *field index policy* for the specified log group.
 	FieldIndexPolicies() interface{}
 	SetFieldIndexPolicies(val interface{})
@@ -318,6 +319,16 @@ func (j *jsiiProxy_CfnLogGroup) DataProtectionPolicy() interface{} {
 	_jsii_.Get(
 		j,
 		"dataProtectionPolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

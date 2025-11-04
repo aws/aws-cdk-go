@@ -8,7 +8,7 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) validateBindParameters(scope
 	return nil
 }
 
-func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

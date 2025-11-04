@@ -79,6 +79,7 @@ type CfnSequenceStore interface {
 	// A description for the store.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The algorithm family of the ETag.
 	ETagAlgorithmFamily() *string
 	SetETagAlgorithmFamily(val *string)
@@ -408,6 +409,16 @@ func (j *jsiiProxy_CfnSequenceStore) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSequenceStore) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

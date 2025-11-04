@@ -193,6 +193,7 @@ type CfnMessageTemplate interface {
 	// The description of the message template.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The configuration information of the external data source.
 	GroupingConfiguration() interface{}
 	SetGroupingConfiguration(val interface{})
@@ -497,6 +498,16 @@ func (j *jsiiProxy_CfnMessageTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMessageTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

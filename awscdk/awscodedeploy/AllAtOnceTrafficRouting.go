@@ -19,7 +19,7 @@ import (
 type AllAtOnceTrafficRouting interface {
 	TrafficRouting
 	// Return a TrafficRoutingConfig of type `AllAtOnce`.
-	Bind(_scope constructs.Construct) *TrafficRoutingConfig
+	Bind(scope constructs.Construct) *TrafficRoutingConfig
 }
 
 // The jsii proxy struct for AllAtOnceTrafficRouting
@@ -105,8 +105,8 @@ func AllAtOnceTrafficRouting_TimeBasedLinear(props *TimeBasedLinearTrafficRoutin
 	return returns
 }
 
-func (a *jsiiProxy_AllAtOnceTrafficRouting) Bind(_scope constructs.Construct) *TrafficRoutingConfig {
-	if err := a.validateBindParameters(_scope); err != nil {
+func (a *jsiiProxy_AllAtOnceTrafficRouting) Bind(scope constructs.Construct) *TrafficRoutingConfig {
+	if err := a.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *TrafficRoutingConfig
@@ -114,7 +114,7 @@ func (a *jsiiProxy_AllAtOnceTrafficRouting) Bind(_scope constructs.Construct) *T
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

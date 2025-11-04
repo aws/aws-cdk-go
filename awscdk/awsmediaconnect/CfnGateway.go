@@ -55,6 +55,7 @@ type CfnGateway interface {
 	// The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway.
 	EgressCidrBlocks() *[]*string
 	SetEgressCidrBlocks(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Gateway resource.
 	GatewayRef() *GatewayReference
 	// The logical ID for this CloudFormation stack element.
@@ -296,6 +297,16 @@ func (j *jsiiProxy_CfnGateway) EgressCidrBlocks() *[]*string {
 	_jsii_.Get(
 		j,
 		"egressCidrBlocks",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGateway) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

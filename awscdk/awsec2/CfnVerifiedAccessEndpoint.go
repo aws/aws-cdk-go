@@ -145,6 +145,7 @@ type CfnVerifiedAccessEndpoint interface {
 	// The type of AWS Verified Access endpoint.
 	EndpointType() *string
 	SetEndpointType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The load balancer details if creating the AWS Verified Access endpoint as `load-balancer` type.
 	LoadBalancerOptions() interface{}
 	SetLoadBalancerOptions(val interface{})
@@ -520,6 +521,16 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) EndpointType() *string {
 	_jsii_.Get(
 		j,
 		"endpointType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

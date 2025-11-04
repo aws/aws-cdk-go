@@ -40,7 +40,7 @@ type ApiGatewayEnrichment interface {
 	Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.EnrichmentParametersConfig
 	// Grant the pipes role to invoke the enrichment.
 	// Experimental.
-	GrantInvoke(pipeRole awsiam.IRole)
+	GrantInvoke(grantee awsiam.IRole)
 }
 
 // The jsii proxy struct for ApiGatewayEnrichment
@@ -104,14 +104,14 @@ func (a *jsiiProxy_ApiGatewayEnrichment) Bind(pipe awscdkpipesalpha.IPipe) *awsc
 	return returns
 }
 
-func (a *jsiiProxy_ApiGatewayEnrichment) GrantInvoke(pipeRole awsiam.IRole) {
-	if err := a.validateGrantInvokeParameters(pipeRole); err != nil {
+func (a *jsiiProxy_ApiGatewayEnrichment) GrantInvoke(grantee awsiam.IRole) {
+	if err := a.validateGrantInvokeParameters(grantee); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"grantInvoke",
-		[]interface{}{pipeRole},
+		[]interface{}{grantee},
 	)
 }
 

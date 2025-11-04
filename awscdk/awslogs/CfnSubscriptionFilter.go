@@ -68,6 +68,7 @@ type CfnSubscriptionFilter interface {
 	// The list of system fields that are included in the log events sent to the subscription destination.
 	EmitSystemFields() *[]*string
 	SetEmitSystemFields(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The filter expression that specifies which log events are processed by this subscription filter based on system fields.
 	FieldSelectionCriteria() *string
 	SetFieldSelectionCriteria(val *string)
@@ -328,6 +329,16 @@ func (j *jsiiProxy_CfnSubscriptionFilter) EmitSystemFields() *[]*string {
 	_jsii_.Get(
 		j,
 		"emitSystemFields",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscriptionFilter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

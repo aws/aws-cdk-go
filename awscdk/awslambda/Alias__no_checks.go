@@ -36,7 +36,7 @@ func (a *jsiiProxy_Alias) validateConfigureAsyncInvokeParameters(options *EventI
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope constructs.Construct, _action *string) error {
+func (a *jsiiProxy_Alias) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
 	return nil
 }
 
@@ -48,7 +48,7 @@ func (a *jsiiProxy_Alias) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
+func (a *jsiiProxy_Alias) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
@@ -56,15 +56,15 @@ func (a *jsiiProxy_Alias) validateGrantInvokeCompositePrincipalParameters(compos
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+func (a *jsiiProxy_Alias) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+func (a *jsiiProxy_Alias) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (a *jsiiProxy_Alias) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
+func (a *jsiiProxy_Alias) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

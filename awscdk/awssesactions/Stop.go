@@ -25,7 +25,7 @@ import (
 type Stop interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Stop
@@ -60,8 +60,8 @@ func NewStop_Override(s Stop, props *StopProps) {
 	)
 }
 
-func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := s.validateBindParameters(_rule); err != nil {
+func (s *jsiiProxy_Stop) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := s.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -69,7 +69,7 @@ func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActi
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

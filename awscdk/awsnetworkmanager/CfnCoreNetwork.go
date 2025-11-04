@@ -71,6 +71,7 @@ type CfnCoreNetwork interface {
 	// The description of a core network.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -388,6 +389,16 @@ func (j *jsiiProxy_CfnCoreNetwork) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCoreNetwork) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

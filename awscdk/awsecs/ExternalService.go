@@ -50,12 +50,13 @@ type ExternalService interface {
 	SetDeploymentAlarms(val *CfnService_DeploymentAlarmsProperty)
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
@@ -101,9 +102,9 @@ type ExternalService interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Overridden method to throw error as `associateCloudMapService` is not supported for external service.
-	AssociateCloudMapService(_options *AssociateCloudMapServiceOptions)
+	AssociateCloudMapService(options *AssociateCloudMapServiceOptions)
 	// Overridden method to throw error as `attachToApplicationTargetGroup` is not supported for external service.
-	AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	// Registers the service as a target of a Classic Load Balancer (CLB).
 	//
 	// Don't call this. Call `loadBalancer.addTarget()` instead.
@@ -114,11 +115,11 @@ type ExternalService interface {
 	// to add this service to a load balancer.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	// Overridden method to throw error as `autoScaleTaskCount` is not supported for external service.
-	AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
+	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
 	// Overridden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
-	ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup)
+	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
 	// Overridden method to throw error as `enableCloudMap` is not supported for external service.
-	EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service
+	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
 	// Enable Deployment Alarms which take advantage of arbitrary alarms and configure them after service initialization.
 	//
 	// If you have already enabled deployment alarms, this function can be used to tell ECS about additional alarms that
@@ -155,7 +156,7 @@ type ExternalService interface {
 	// Returns: true if the service is using the ECS deployment controller or if no deployment controller is specified (defaults to ECS).
 	IsUsingECSDeploymentController() *bool
 	// Overridden method to throw error as `loadBalancerTarget` is not supported for external service.
-	LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this service's CPU utilization.
@@ -167,7 +168,7 @@ type ExternalService interface {
 	//
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Overridden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
-	RegisterLoadBalancerTargets(_targets ...*EcsTarget)
+	RegisterLoadBalancerTargets(targets ...*EcsTarget)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -588,19 +589,19 @@ func (e *jsiiProxy_ExternalService) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-func (e *jsiiProxy_ExternalService) AssociateCloudMapService(_options *AssociateCloudMapServiceOptions) {
-	if err := e.validateAssociateCloudMapServiceParameters(_options); err != nil {
+func (e *jsiiProxy_ExternalService) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
+	if err := e.validateAssociateCloudMapServiceParameters(options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		e,
 		"associateCloudMapService",
-		[]interface{}{_options},
+		[]interface{}{options},
 	)
 }
 
-func (e *jsiiProxy_ExternalService) AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
-	if err := e.validateAttachToApplicationTargetGroupParameters(_targetGroup); err != nil {
+func (e *jsiiProxy_ExternalService) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := e.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
 		panic(err)
 	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
@@ -608,7 +609,7 @@ func (e *jsiiProxy_ExternalService) AttachToApplicationTargetGroup(_targetGroup 
 	_jsii_.Invoke(
 		e,
 		"attachToApplicationTargetGroup",
-		[]interface{}{_targetGroup},
+		[]interface{}{targetGroup},
 		&returns,
 	)
 
@@ -642,8 +643,8 @@ func (e *jsiiProxy_ExternalService) AttachToNetworkTargetGroup(targetGroup awsel
 	return returns
 }
 
-func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
-	if err := e.validateAutoScaleTaskCountParameters(_props); err != nil {
+func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
+	if err := e.validateAutoScaleTaskCountParameters(props); err != nil {
 		panic(err)
 	}
 	var returns ScalableTaskCount
@@ -651,26 +652,26 @@ func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(_props *awsapplicationaut
 	_jsii_.Invoke(
 		e,
 		"autoScaleTaskCount",
-		[]interface{}{_props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup) {
-	if err := e.validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(_vpc, _vpcSubnets); err != nil {
+func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
+	if err := e.validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc, vpcSubnets); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		e,
 		"configureAwsVpcNetworkingWithSecurityGroups",
-		[]interface{}{_vpc, _assignPublicIp, _vpcSubnets, _securityGroups},
+		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroups},
 	)
 }
 
-func (e *jsiiProxy_ExternalService) EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service {
-	if err := e.validateEnableCloudMapParameters(_options); err != nil {
+func (e *jsiiProxy_ExternalService) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
+	if err := e.validateEnableCloudMapParameters(options); err != nil {
 		panic(err)
 	}
 	var returns awsservicediscovery.Service
@@ -678,7 +679,7 @@ func (e *jsiiProxy_ExternalService) EnableCloudMap(_options *CloudMapOptions) aw
 	_jsii_.Invoke(
 		e,
 		"enableCloudMap",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 
@@ -765,8 +766,8 @@ func (e *jsiiProxy_ExternalService) IsUsingECSDeploymentController() *bool {
 	return returns
 }
 
-func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
-	if err := e.validateLoadBalancerTargetParameters(_options); err != nil {
+func (e *jsiiProxy_ExternalService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+	if err := e.validateLoadBalancerTargetParameters(options); err != nil {
 		panic(err)
 	}
 	var returns IEcsLoadBalancerTarget
@@ -774,7 +775,7 @@ func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTar
 	_jsii_.Invoke(
 		e,
 		"loadBalancerTarget",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 
@@ -829,12 +830,12 @@ func (e *jsiiProxy_ExternalService) MetricMemoryUtilization(props *awscloudwatch
 	return returns
 }
 
-func (e *jsiiProxy_ExternalService) RegisterLoadBalancerTargets(_targets ...*EcsTarget) {
-	if err := e.validateRegisterLoadBalancerTargetsParameters(&_targets); err != nil {
+func (e *jsiiProxy_ExternalService) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
+	if err := e.validateRegisterLoadBalancerTargetsParameters(&targets); err != nil {
 		panic(err)
 	}
 	args := []interface{}{}
-	for _, a := range _targets {
+	for _, a := range targets {
 		args = append(args, a)
 	}
 

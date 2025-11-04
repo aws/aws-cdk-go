@@ -11,3 +11,4 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

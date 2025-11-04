@@ -35,12 +35,13 @@ type Application interface {
 	ApplicationName() *string
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
@@ -60,7 +61,7 @@ type Application interface {
 	Stack() awscdk.Stack
 	// Create an attribute group and associate this application with the created attribute group.
 	// Experimental.
-	AddAttributeGroup(id *string, props *AttributeGroupAssociationProps) IAttributeGroup
+	AddAttributeGroup(id *string, attributeGroupProps *AttributeGroupAssociationProps) IAttributeGroup
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -77,7 +78,7 @@ type Application interface {
 	// NOTE: This method won't automatically register stacks under pipeline stages,
 	// and requires association of each pipeline stage by calling this method with stage Construct.
 	// Experimental.
-	AssociateAllStacksInScope(scope constructs.Construct)
+	AssociateAllStacksInScope(construct constructs.Construct)
 	// Associate stack with the application in the stack passed as parameter.
 	//
 	// A stack can only be associated with one application.
@@ -344,8 +345,8 @@ func Application_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (a *jsiiProxy_Application) AddAttributeGroup(id *string, props *AttributeGroupAssociationProps) IAttributeGroup {
-	if err := a.validateAddAttributeGroupParameters(id, props); err != nil {
+func (a *jsiiProxy_Application) AddAttributeGroup(id *string, attributeGroupProps *AttributeGroupAssociationProps) IAttributeGroup {
+	if err := a.validateAddAttributeGroupParameters(id, attributeGroupProps); err != nil {
 		panic(err)
 	}
 	var returns IAttributeGroup
@@ -353,7 +354,7 @@ func (a *jsiiProxy_Application) AddAttributeGroup(id *string, props *AttributeGr
 	_jsii_.Invoke(
 		a,
 		"addAttributeGroup",
-		[]interface{}{id, props},
+		[]interface{}{id, attributeGroupProps},
 		&returns,
 	)
 
@@ -371,14 +372,14 @@ func (a *jsiiProxy_Application) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-func (a *jsiiProxy_Application) AssociateAllStacksInScope(scope constructs.Construct) {
-	if err := a.validateAssociateAllStacksInScopeParameters(scope); err != nil {
+func (a *jsiiProxy_Application) AssociateAllStacksInScope(construct constructs.Construct) {
+	if err := a.validateAssociateAllStacksInScopeParameters(construct); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"associateAllStacksInScope",
-		[]interface{}{scope},
+		[]interface{}{construct},
 	)
 }
 

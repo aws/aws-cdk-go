@@ -150,6 +150,7 @@ type CfnDataset interface {
 	CreationStack() *[]*string
 	// A reference to a Dataset resource.
 	DatasetRef() *DatasetReference
+	Env() *awscdk.ResourceEnvironment
 	// The file format of a dataset that is created from an Amazon S3 file or folder.
 	Format() *string
 	SetFormat(val *string)
@@ -387,6 +388,16 @@ func (j *jsiiProxy_CfnDataset) DatasetRef() *DatasetReference {
 	_jsii_.Get(
 		j,
 		"datasetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

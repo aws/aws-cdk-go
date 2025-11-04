@@ -72,6 +72,7 @@ type CfnInferenceScheduler interface {
 	// How often data is uploaded to the source S3 bucket for the input data.
 	DataUploadFrequency() *string
 	SetDataUploadFrequency(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the inference scheduler.
 	InferenceSchedulerName() *string
 	SetInferenceSchedulerName(val *string)
@@ -345,6 +346,16 @@ func (j *jsiiProxy_CfnInferenceScheduler) DataUploadFrequency() *string {
 	_jsii_.Get(
 		j,
 		"dataUploadFrequency",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInferenceScheduler) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

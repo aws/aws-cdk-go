@@ -20,9 +20,9 @@ func (a *jsiiProxy_ApiGatewayEnrichment) validateBindParameters(pipe awscdkpipes
 	return nil
 }
 
-func (a *jsiiProxy_ApiGatewayEnrichment) validateGrantInvokeParameters(pipeRole awsiam.IRole) error {
-	if pipeRole == nil {
-		return fmt.Errorf("parameter pipeRole is required, but nil was provided")
+func (a *jsiiProxy_ApiGatewayEnrichment) validateGrantInvokeParameters(grantee awsiam.IRole) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

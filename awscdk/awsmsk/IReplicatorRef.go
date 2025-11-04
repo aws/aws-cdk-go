@@ -3,6 +3,7 @@ package awsmsk
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmsk/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IReplicatorRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Replicator resource.
 	// Experimental.
 	ReplicatorRef() *ReplicatorReference
@@ -19,6 +21,7 @@ type IReplicatorRef interface {
 // The jsii proxy for IReplicatorRef
 type jsiiProxy_IReplicatorRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IReplicatorRef) ReplicatorRef() *ReplicatorReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IReplicatorRef) ReplicatorRef() *ReplicatorReference {
 	_jsii_.Get(
 		j,
 		"replicatorRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IReplicatorRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IReplicatorRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

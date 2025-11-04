@@ -4,7 +4,7 @@ package awscloudwatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_Spacer) validatePositionParameters(_x *float64, _y *float64) error {
+func (s *jsiiProxy_Spacer) validatePositionParameters(x *float64, y *float64) error {
 	return nil
 }
 

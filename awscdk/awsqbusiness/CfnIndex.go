@@ -91,6 +91,7 @@ type CfnIndex interface {
 	// Configuration information for document attributes.
 	DocumentAttributeConfigurations() interface{}
 	SetDocumentAttributeConfigurations(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Index resource.
 	IndexRef() *IndexReference
 	// The logical ID for this CloudFormation stack element.
@@ -423,6 +424,16 @@ func (j *jsiiProxy_CfnIndex) DocumentAttributeConfigurations() interface{} {
 	_jsii_.Get(
 		j,
 		"documentAttributeConfigurations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIndex) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

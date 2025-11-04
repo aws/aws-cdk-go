@@ -87,6 +87,7 @@ type CfnRule interface {
 	// The retention rule description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// [Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule.
 	ExcludeResourceTags() interface{}
 	SetExcludeResourceTags(val interface{})
@@ -364,6 +365,16 @@ func (j *jsiiProxy_CfnRule) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

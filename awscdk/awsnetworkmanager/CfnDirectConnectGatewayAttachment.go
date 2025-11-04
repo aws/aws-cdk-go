@@ -105,6 +105,7 @@ type CfnDirectConnectGatewayAttachment interface {
 	// The Regions where the edges are located.
 	EdgeLocations() *[]*string
 	SetEdgeLocations(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -488,6 +489,16 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) EdgeLocations() *[]*string
 	_jsii_.Get(
 		j,
 		"edgeLocations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

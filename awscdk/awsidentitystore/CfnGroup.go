@@ -47,6 +47,7 @@ type CfnGroup interface {
 	// The display name value for the group.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Group resource.
 	GroupRef() *GroupReference
 	// The globally unique identifier for the identity store.
@@ -285,6 +286,16 @@ func (j *jsiiProxy_CfnGroup) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

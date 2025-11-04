@@ -53,6 +53,7 @@ type CfnSecurityGroupIngress interface {
 	// Specifies the Amazon Account ID of the owner of the EC2 security group specified in the EC2SecurityGroupName property.
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -298,6 +299,16 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) Ec2SecurityGroupOwnerId() *string {
 	_jsii_.Get(
 		j,
 		"ec2SecurityGroupOwnerId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityGroupIngress) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

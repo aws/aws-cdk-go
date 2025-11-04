@@ -12,7 +12,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) validateAddToPolicyParameters(stateme
 	return nil
 }
 
-func (o *jsiiProxy_OpenIdConnectPrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
+func (o *jsiiProxy_OpenIdConnectPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }
 

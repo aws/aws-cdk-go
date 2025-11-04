@@ -69,6 +69,7 @@ type CfnLocationEFS interface {
 	// Specifies the ARN for your Amazon EFS file system.
 	EfsFilesystemArn() *string
 	SetEfsFilesystemArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies an AWS Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.
 	FileSystemAccessRoleArn() *string
 	SetFileSystemAccessRoleArn(val *string)
@@ -339,6 +340,16 @@ func (j *jsiiProxy_CfnLocationEFS) EfsFilesystemArn() *string {
 	_jsii_.Get(
 		j,
 		"efsFilesystemArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationEFS) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

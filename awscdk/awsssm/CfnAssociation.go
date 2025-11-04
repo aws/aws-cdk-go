@@ -94,6 +94,7 @@ type CfnAssociation interface {
 	// The version of the SSM document to associate with the target.
 	DocumentVersion() *string
 	SetDocumentVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// > `InstanceId` has been deprecated.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -410,6 +411,16 @@ func (j *jsiiProxy_CfnAssociation) DocumentVersion() *string {
 	_jsii_.Get(
 		j,
 		"documentVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

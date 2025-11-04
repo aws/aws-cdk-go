@@ -46,6 +46,7 @@ type CfnMemberInvitation interface {
 	// Whether to send an invitation email to the member account.
 	DisableEmailNotification() interface{}
 	SetDisableEmailNotification(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the behavior graph to invite the account to contribute data to.
 	GraphArn() *string
 	SetGraphArn(val *string)
@@ -273,6 +274,16 @@ func (j *jsiiProxy_CfnMemberInvitation) DisableEmailNotification() interface{} {
 	_jsii_.Get(
 		j,
 		"disableEmailNotification",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMemberInvitation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

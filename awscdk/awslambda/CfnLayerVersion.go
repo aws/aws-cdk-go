@@ -66,6 +66,7 @@ type CfnLayerVersion interface {
 	// The description of the version.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) of the layer.
 	LayerName() *string
 	SetLayerName(val *string)
@@ -329,6 +330,16 @@ func (j *jsiiProxy_CfnLayerVersion) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLayerVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

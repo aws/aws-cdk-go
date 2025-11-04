@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IWaitConditionHandleRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a WaitConditionHandle resource.
 	// Experimental.
 	WaitConditionHandleRef() *WaitConditionHandleReference
@@ -19,6 +20,7 @@ type IWaitConditionHandleRef interface {
 // The jsii proxy for IWaitConditionHandleRef
 type jsiiProxy_IWaitConditionHandleRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IWaitConditionHandleRef) WaitConditionHandleRef() *WaitConditionHandleReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IWaitConditionHandleRef) WaitConditionHandleRef() *WaitCondit
 	_jsii_.Get(
 		j,
 		"waitConditionHandleRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWaitConditionHandleRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IWaitConditionHandleRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

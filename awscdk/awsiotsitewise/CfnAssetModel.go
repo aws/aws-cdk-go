@@ -268,6 +268,7 @@ type CfnAssetModel interface {
 	// a list of asset model and interface relationships.
 	EnforcedAssetModelInterfaceRelationships() interface{}
 	SetEnforcedAssetModelInterfaceRelationships(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -587,6 +588,16 @@ func (j *jsiiProxy_CfnAssetModel) EnforcedAssetModelInterfaceRelationships() int
 	_jsii_.Get(
 		j,
 		"enforcedAssetModelInterfaceRelationships",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssetModel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

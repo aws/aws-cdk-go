@@ -54,6 +54,7 @@ type CfnEgressOnlyInternetGateway interface {
 	CreationStack() *[]*string
 	// A reference to a EgressOnlyInternetGateway resource.
 	EgressOnlyInternetGatewayRef() *EgressOnlyInternetGatewayReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -294,6 +295,16 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) EgressOnlyInternetGatewayRef() 
 	_jsii_.Get(
 		j,
 		"egressOnlyInternetGatewayRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEgressOnlyInternetGateway) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

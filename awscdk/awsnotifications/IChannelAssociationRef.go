@@ -3,6 +3,7 @@ package awsnotifications
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsnotifications/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IChannelAssociationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ChannelAssociation resource.
 	// Experimental.
 	ChannelAssociationRef() *ChannelAssociationReference
@@ -19,6 +21,7 @@ type IChannelAssociationRef interface {
 // The jsii proxy for IChannelAssociationRef
 type jsiiProxy_IChannelAssociationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IChannelAssociationRef) ChannelAssociationRef() *ChannelAssociationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IChannelAssociationRef) ChannelAssociationRef() *ChannelAssoc
 	_jsii_.Get(
 		j,
 		"channelAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IChannelAssociationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IChannelAssociationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

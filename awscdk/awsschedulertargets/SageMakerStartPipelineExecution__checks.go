@@ -28,9 +28,9 @@ func (s *jsiiProxy_SageMakerStartPipelineExecution) validateBindParameters(sched
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerStartPipelineExecution) validateBindBaseTargetConfigParameters(schedule awsscheduler.ISchedule) error {
-	if schedule == nil {
-		return fmt.Errorf("parameter schedule is required, but nil was provided")
+func (s *jsiiProxy_SageMakerStartPipelineExecution) validateBindBaseTargetConfigParameters(_schedule awsscheduler.ISchedule) error {
+	if _schedule == nil {
+		return fmt.Errorf("parameter _schedule is required, but nil was provided")
 	}
 
 	return nil

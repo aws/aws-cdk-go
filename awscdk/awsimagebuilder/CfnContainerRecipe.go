@@ -113,6 +113,7 @@ type CfnContainerRecipe interface {
 	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri() *string
 	SetDockerfileTemplateUri(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the operating system version for the base image.
 	ImageOsVersionOverride() *string
 	SetImageOsVersionOverride(val *string)
@@ -429,6 +430,16 @@ func (j *jsiiProxy_CfnContainerRecipe) DockerfileTemplateUri() *string {
 	_jsii_.Get(
 		j,
 		"dockerfileTemplateUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerRecipe) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

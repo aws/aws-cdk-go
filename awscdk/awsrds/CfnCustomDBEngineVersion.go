@@ -75,6 +75,7 @@ type CfnCustomDBEngineVersion interface {
 	// The name of your CEV.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A value that indicates the ID of the AMI.
 	ImageId() *string
 	SetImageId(val *string)
@@ -380,6 +381,16 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

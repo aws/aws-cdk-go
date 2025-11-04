@@ -3,6 +3,7 @@ package awskinesisanalytics
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IApplicationOutputRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ApplicationOutput resource.
 	// Experimental.
 	ApplicationOutputRef() *ApplicationOutputReference
@@ -19,6 +21,7 @@ type IApplicationOutputRef interface {
 // The jsii proxy for IApplicationOutputRef
 type jsiiProxy_IApplicationOutputRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IApplicationOutputRef) ApplicationOutputRef() *ApplicationOutputReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IApplicationOutputRef) ApplicationOutputRef() *ApplicationOut
 	_jsii_.Get(
 		j,
 		"applicationOutputRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplicationOutputRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplicationOutputRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -36,7 +36,7 @@ func (s *jsiiProxy_SecretTargetAttachment) validateGrantWriteParameters(grantee 
 	return nil
 }
 
-func (s *jsiiProxy_SecretTargetAttachment) validateSecretValueFromJsonParameters(jsonField *string) error {
+func (s *jsiiProxy_SecretTargetAttachment) validateSecretValueFromJsonParameters(key *string) error {
 	return nil
 }
 

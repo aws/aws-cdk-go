@@ -23,7 +23,7 @@ import (
 type UrlSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for a URL to subscribe to an SNS topic.
-	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
+	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
 // The jsii proxy struct for UrlSubscription
@@ -69,8 +69,8 @@ func UrlSubscription_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UrlSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
-	if err := u.validateBindParameters(_topic); err != nil {
+func (u *jsiiProxy_UrlSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := u.validateBindParameters(topic); err != nil {
 		panic(err)
 	}
 	var returns *awssns.TopicSubscriptionConfig
@@ -78,7 +78,7 @@ func (u *jsiiProxy_UrlSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 	_jsii_.Invoke(
 		u,
 		"bind",
-		[]interface{}{_topic},
+		[]interface{}{topic},
 		&returns,
 	)
 

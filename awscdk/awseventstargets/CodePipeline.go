@@ -30,7 +30,7 @@ type CodePipeline interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for CodePipeline
@@ -65,8 +65,8 @@ func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline
 	)
 }
 
-func (c *jsiiProxy_CodePipeline) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := c.validateBindParameters(_rule); err != nil {
+func (c *jsiiProxy_CodePipeline) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := c.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -74,7 +74,7 @@ func (c *jsiiProxy_CodePipeline) Bind(_rule awsevents.IRule, _id *string) *awsev
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

@@ -76,6 +76,7 @@ type CfnDataset interface {
 	// The data source for the dataset.
 	DatasetSource() interface{}
 	SetDatasetSource(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -353,6 +354,16 @@ func (j *jsiiProxy_CfnDataset) DatasetSource() interface{} {
 	_jsii_.Get(
 		j,
 		"datasetSource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataset) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

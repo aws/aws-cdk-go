@@ -94,6 +94,7 @@ type CfnLambdaHook interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *ResourceEnvironment
 	// The IAM role that the Hook assumes to invoke your Lambda function.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -342,6 +343,16 @@ func (j *jsiiProxy_CfnLambdaHook) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLambdaHook) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

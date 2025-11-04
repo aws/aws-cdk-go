@@ -44,6 +44,7 @@ type CfnServicePrincipalName interface {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn() *string
 	SetDirectoryRegistrationArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -269,6 +270,16 @@ func (j *jsiiProxy_CfnServicePrincipalName) DirectoryRegistrationArn() *string {
 	_jsii_.Get(
 		j,
 		"directoryRegistrationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServicePrincipalName) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

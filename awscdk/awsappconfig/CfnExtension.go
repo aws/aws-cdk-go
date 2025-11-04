@@ -80,6 +80,7 @@ type CfnExtension interface {
 	// Information about the extension.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Extension resource.
 	ExtensionRef() *ExtensionReference
 	// You can omit this field when you create an extension.
@@ -350,6 +351,16 @@ func (j *jsiiProxy_CfnExtension) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExtension) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

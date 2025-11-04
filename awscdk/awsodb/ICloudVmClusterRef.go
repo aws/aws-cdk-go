@@ -3,6 +3,7 @@ package awsodb
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ICloudVmClusterRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a CloudVmCluster resource.
 	// Experimental.
 	CloudVmClusterRef() *CloudVmClusterReference
@@ -19,6 +21,7 @@ type ICloudVmClusterRef interface {
 // The jsii proxy for ICloudVmClusterRef
 type jsiiProxy_ICloudVmClusterRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ICloudVmClusterRef) CloudVmClusterRef() *CloudVmClusterReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ICloudVmClusterRef) CloudVmClusterRef() *CloudVmClusterRefere
 	_jsii_.Get(
 		j,
 		"cloudVmClusterRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICloudVmClusterRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICloudVmClusterRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

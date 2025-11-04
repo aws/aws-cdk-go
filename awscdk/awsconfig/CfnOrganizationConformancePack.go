@@ -61,6 +61,7 @@ type CfnOrganizationConformancePack interface {
 	// Any folder structure you want to add to an Amazon S3 bucket.
 	DeliveryS3KeyPrefix() *string
 	SetDeliveryS3KeyPrefix(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A comma-separated list of accounts excluded from organization conformance pack.
 	ExcludedAccounts() *[]*string
 	SetExcludedAccounts(val *[]*string)
@@ -308,6 +309,16 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) DeliveryS3KeyPrefix() *string
 	_jsii_.Get(
 		j,
 		"deliveryS3KeyPrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOrganizationConformancePack) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

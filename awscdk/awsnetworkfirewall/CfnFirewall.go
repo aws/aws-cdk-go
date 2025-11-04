@@ -93,6 +93,7 @@ type CfnFirewall interface {
 	// An optional setting indicating the specific traffic analysis types to enable on the firewall.
 	EnabledAnalysisTypes() *[]*string
 	SetEnabledAnalysisTypes(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The descriptive name of the firewall.
 	FirewallName() *string
 	SetFirewallName(val *string)
@@ -405,6 +406,16 @@ func (j *jsiiProxy_CfnFirewall) EnabledAnalysisTypes() *[]*string {
 	_jsii_.Get(
 		j,
 		"enabledAnalysisTypes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

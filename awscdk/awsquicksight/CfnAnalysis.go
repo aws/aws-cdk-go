@@ -50,6 +50,7 @@ type CfnAnalysis interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Errors associated with the analysis.
 	Errors() interface{}
 	SetErrors(val interface{})
@@ -388,6 +389,16 @@ func (j *jsiiProxy_CfnAnalysis) Definition() interface{} {
 	_jsii_.Get(
 		j,
 		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAnalysis) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

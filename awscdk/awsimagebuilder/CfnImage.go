@@ -116,6 +116,7 @@ type CfnImage interface {
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
@@ -468,6 +469,16 @@ func (j *jsiiProxy_CfnImage) EnhancedImageMetadataEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enhancedImageMetadataEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

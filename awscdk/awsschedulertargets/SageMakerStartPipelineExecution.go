@@ -39,7 +39,7 @@ type SageMakerStartPipelineExecution interface {
 	//
 	// Returns: a Schedule Target Configuration.
 	Bind(schedule awsscheduler.ISchedule) *awsscheduler.ScheduleTargetConfig
-	BindBaseTargetConfig(schedule awsscheduler.ISchedule) *awsscheduler.ScheduleTargetConfig
+	BindBaseTargetConfig(_schedule awsscheduler.ISchedule) *awsscheduler.ScheduleTargetConfig
 }
 
 // The jsii proxy struct for SageMakerStartPipelineExecution
@@ -113,8 +113,8 @@ func (s *jsiiProxy_SageMakerStartPipelineExecution) Bind(schedule awsscheduler.I
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerStartPipelineExecution) BindBaseTargetConfig(schedule awsscheduler.ISchedule) *awsscheduler.ScheduleTargetConfig {
-	if err := s.validateBindBaseTargetConfigParameters(schedule); err != nil {
+func (s *jsiiProxy_SageMakerStartPipelineExecution) BindBaseTargetConfig(_schedule awsscheduler.ISchedule) *awsscheduler.ScheduleTargetConfig {
+	if err := s.validateBindBaseTargetConfigParameters(_schedule); err != nil {
 		panic(err)
 	}
 	var returns *awsscheduler.ScheduleTargetConfig
@@ -122,7 +122,7 @@ func (s *jsiiProxy_SageMakerStartPipelineExecution) BindBaseTargetConfig(schedul
 	_jsii_.Invoke(
 		s,
 		"bindBaseTargetConfig",
-		[]interface{}{schedule},
+		[]interface{}{_schedule},
 		&returns,
 	)
 

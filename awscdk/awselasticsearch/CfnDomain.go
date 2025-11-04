@@ -163,6 +163,7 @@ type CfnDomain interface {
 	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -534,6 +535,16 @@ func (j *jsiiProxy_CfnDomain) EncryptionAtRestOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionAtRestOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

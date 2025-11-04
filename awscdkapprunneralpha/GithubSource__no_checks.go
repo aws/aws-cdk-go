@@ -4,7 +4,7 @@ package awscdkapprunneralpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_GithubSource) validateBindParameters(_scope constructs.Construct) error {
+func (g *jsiiProxy_GithubSource) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 

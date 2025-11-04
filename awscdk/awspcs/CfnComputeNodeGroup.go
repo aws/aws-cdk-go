@@ -99,6 +99,7 @@ type CfnComputeNodeGroup interface {
 	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 	CustomLaunchTemplate() interface{}
 	SetCustomLaunchTemplate(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances.
 	IamInstanceProfileArn() *string
 	SetIamInstanceProfileArn(val *string)
@@ -420,6 +421,16 @@ func (j *jsiiProxy_CfnComputeNodeGroup) CustomLaunchTemplate() interface{} {
 	_jsii_.Get(
 		j,
 		"customLaunchTemplate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComputeNodeGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

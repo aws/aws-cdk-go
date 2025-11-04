@@ -169,6 +169,7 @@ type CfnFleet interface {
 	// The Amazon GameLift Servers-supported Amazon EC2 instance type to use with managed EC2 fleets.
 	Ec2InstanceType() *string
 	SetEc2InstanceType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Fleet resource.
 	FleetRef() *FleetReference
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
@@ -562,6 +563,16 @@ func (j *jsiiProxy_CfnFleet) Ec2InstanceType() *string {
 	_jsii_.Get(
 		j,
 		"ec2InstanceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

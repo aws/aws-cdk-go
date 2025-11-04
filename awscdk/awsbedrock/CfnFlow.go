@@ -336,6 +336,7 @@ type CfnFlow interface {
 	// A description of the flow.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the service role with permissions to create a flow.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -696,6 +697,16 @@ func (j *jsiiProxy_CfnFlow) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -94,6 +94,7 @@ type CfnNetworkInsightsPath interface {
 	// The destination port.
 	DestinationPort() *float64
 	SetDestinationPort(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// Scopes the analysis to network paths that match specific filters at the destination.
 	FilterAtDestination() interface{}
 	SetFilterAtDestination(val interface{})
@@ -400,6 +401,16 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) DestinationPort() *float64 {
 	_jsii_.Get(
 		j,
 		"destinationPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsPath) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

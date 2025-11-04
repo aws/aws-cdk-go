@@ -125,6 +125,7 @@ type CfnResponsePlan interface {
 	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements() *[]*string
 	SetEngagements(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// Details used to create an incident when using this response plan.
 	IncidentTemplate() interface{}
 	SetIncidentTemplate(val interface{})
@@ -395,6 +396,16 @@ func (j *jsiiProxy_CfnResponsePlan) Engagements() *[]*string {
 	_jsii_.Get(
 		j,
 		"engagements",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResponsePlan) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

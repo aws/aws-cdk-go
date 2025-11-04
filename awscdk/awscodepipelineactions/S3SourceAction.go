@@ -52,7 +52,7 @@ type S3SourceAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the `IAction.bind` method.
-	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	VariableExpression(variableName *string) *string
@@ -137,8 +137,8 @@ func (s *jsiiProxy_S3SourceAction) Bind(scope constructs.Construct, stage awscod
 	return returns
 }
 
-func (s *jsiiProxy_S3SourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	if err := s.validateBoundParameters(_scope, stage, options); err != nil {
+func (s *jsiiProxy_S3SourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
 	var returns *awscodepipeline.ActionConfig
@@ -146,7 +146,7 @@ func (s *jsiiProxy_S3SourceAction) Bound(_scope constructs.Construct, stage awsc
 	_jsii_.Invoke(
 		s,
 		"bound",
-		[]interface{}{_scope, stage, options},
+		[]interface{}{scope, stage, options},
 		&returns,
 	)
 

@@ -48,6 +48,7 @@ type CfnTargetAccountConfiguration interface {
 	// The description of the target account.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the experiment template.
 	ExperimentTemplateId() *string
 	SetExperimentTemplateId(val *string)
@@ -279,6 +280,16 @@ func (j *jsiiProxy_CfnTargetAccountConfiguration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTargetAccountConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

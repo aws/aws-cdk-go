@@ -92,6 +92,7 @@ type CfnHoursOfOperation interface {
 	// The description for the hours of operation.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// One or more hours of operation overrides assigned to an hour of operation.
 	HoursOfOperationOverrides() interface{}
 	SetHoursOfOperationOverrides(val interface{})
@@ -345,6 +346,16 @@ func (j *jsiiProxy_CfnHoursOfOperation) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHoursOfOperation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

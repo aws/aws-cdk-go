@@ -25,12 +25,12 @@ import (
 //   	Message: ruleTargetInput,
 //   })
 //
-// Deprecated: Use KinesisFirehoseStreamV2.
+// Deprecated: Use FirehoseDeliveryStream.
 type KinesisFirehoseStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
-	// Deprecated: Use KinesisFirehoseStreamV2.
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	// Deprecated: Use FirehoseDeliveryStream.
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for KinesisFirehoseStream
@@ -38,7 +38,7 @@ type jsiiProxy_KinesisFirehoseStream struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Deprecated: Use KinesisFirehoseStreamV2.
+// Deprecated: Use FirehoseDeliveryStream.
 func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) KinesisFirehoseStream {
 	_init_.Initialize()
 
@@ -56,7 +56,7 @@ func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props
 	return &j
 }
 
-// Deprecated: Use KinesisFirehoseStreamV2.
+// Deprecated: Use FirehoseDeliveryStream.
 func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) {
 	_init_.Initialize()
 
@@ -67,8 +67,8 @@ func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesi
 	)
 }
 
-func (k *jsiiProxy_KinesisFirehoseStream) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := k.validateBindParameters(_rule); err != nil {
+func (k *jsiiProxy_KinesisFirehoseStream) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := k.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -76,7 +76,7 @@ func (k *jsiiProxy_KinesisFirehoseStream) Bind(_rule awsevents.IRule, _id *strin
 	_jsii_.Invoke(
 		k,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

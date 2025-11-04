@@ -39,6 +39,7 @@ type CfnQueueLimitAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the farm that contains the queue-limit association.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -253,6 +254,16 @@ func (j *jsiiProxy_CfnQueueLimitAssociation) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueueLimitAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

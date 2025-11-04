@@ -59,6 +59,7 @@ type CfnWirelessGateway interface {
 	// The description of the new resource.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt() *string
 	SetLastUplinkReceivedAt(val *string)
@@ -315,6 +316,16 @@ func (j *jsiiProxy_CfnWirelessGateway) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWirelessGateway) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

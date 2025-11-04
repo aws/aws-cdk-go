@@ -12,9 +12,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (e *jsiiProxy_EcrImage) validateBindParameters(_scope constructs.Construct, containerDefinition ContainerDefinition) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (e *jsiiProxy_EcrImage) validateBindParameters(scope constructs.Construct, containerDefinition ContainerDefinition) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if containerDefinition == nil {

@@ -20,6 +20,7 @@ Currently supported are:
   * [Invoke an API Destination](#invoke-an-api-destination)
   * [Invoke an AppSync GraphQL API](#invoke-an-appsync-graphql-api)
   * [Put an event on an EventBridge bus](#put-an-event-on-an-eventbridge-bus)
+  * [Put an event on a Firehose delivery stream](#put-an-event-on-a-firehose-delivery-stream)
   * [Run an ECS Task](#run-an-ecs-task)
 
     * [Tagging Tasks](#tagging-tasks)
@@ -556,6 +557,28 @@ rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 })
 
 rule.AddTarget(targets.NewEventBus(events.EventBus_FromEventBusArn(this, jsii.String("External"), jsii.String("arn:aws:events:eu-west-1:999999999999:event-bus/test-bus"))))
+```
+
+## Put an event on a Firehose delivery stream
+
+Use the `FirehoseDeliveryStream` target to put event to an Amazon Data Firehose delivery stream.
+
+The code snippet below creates the scheduled event rule that put events to an Amazon Data Firehose delivery stream.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+var bucket Bucket
+
+stream := firehose.NewDeliveryStream(this, jsii.String("DeliveryStream"), &DeliveryStreamProps{
+	Destination: firehose.NewS3Bucket(bucket),
+})
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Expression(jsii.String("rate(1 minute)")),
+})
+rule.AddTarget(targets.NewFirehoseDeliveryStream(stream))
 ```
 
 ## Run an ECS Task

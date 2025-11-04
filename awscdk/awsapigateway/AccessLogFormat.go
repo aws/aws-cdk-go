@@ -38,6 +38,33 @@ type jsiiProxy_AccessLogFormat struct {
 	_ byte // padding
 }
 
+func NewAccessLogFormat(format *string) AccessLogFormat {
+	_init_.Initialize()
+
+	if err := validateNewAccessLogFormatParameters(format); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_AccessLogFormat{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
+		[]interface{}{format},
+		&j,
+	)
+
+	return &j
+}
+
+func NewAccessLogFormat_Override(a AccessLogFormat, format *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
+		[]interface{}{format},
+		a,
+	)
+}
+
 // Generate Common Log Format.
 func AccessLogFormat_Clf() AccessLogFormat {
 	_init_.Initialize()

@@ -65,6 +65,7 @@ type CfnCustomerGateway interface {
 	// The name of customer gateway device.
 	DeviceName() *string
 	SetDeviceName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The IP address for the customer gateway device's outside interface.
 	IpAddress() *string
 	SetIpAddress(val *string)
@@ -340,6 +341,16 @@ func (j *jsiiProxy_CfnCustomerGateway) DeviceName() *string {
 	_jsii_.Get(
 		j,
 		"deviceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomerGateway) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -79,9 +79,9 @@ func (e *jsiiProxy_Environment) validateGrantParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
-func (e *jsiiProxy_Environment) validateGrantReadConfigParameters(identity awsiam.IGrantable) error {
-	if identity == nil {
-		return fmt.Errorf("parameter identity is required, but nil was provided")
+func (e *jsiiProxy_Environment) validateGrantReadConfigParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

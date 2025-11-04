@@ -69,6 +69,7 @@ type CfnMicrosoftAD interface {
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	EnableSso() interface{}
 	SetEnableSso(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -346,6 +347,16 @@ func (j *jsiiProxy_CfnMicrosoftAD) EnableSso() interface{} {
 	_jsii_.Get(
 		j,
 		"enableSso",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMicrosoftAD) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

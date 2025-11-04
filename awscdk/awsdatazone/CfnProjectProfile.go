@@ -99,6 +99,7 @@ type CfnProjectProfile interface {
 	// A domain unit ID of the project profile.
 	DomainUnitIdentifier() *string
 	SetDomainUnitIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Environment configurations of a project profile.
 	EnvironmentConfigurations() interface{}
 	SetEnvironmentConfigurations(val interface{})
@@ -413,6 +414,16 @@ func (j *jsiiProxy_CfnProjectProfile) DomainUnitIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainUnitIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProjectProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

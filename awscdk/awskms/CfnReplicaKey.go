@@ -80,6 +80,7 @@ type CfnReplicaKey interface {
 	// Disabled KMS keys cannot be used in cryptographic operations.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The key policy that authorizes use of the replica key.
 	KeyPolicy() interface{}
 	SetKeyPolicy(val interface{})
@@ -340,6 +341,16 @@ func (j *jsiiProxy_CfnReplicaKey) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicaKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

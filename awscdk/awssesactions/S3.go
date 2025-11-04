@@ -52,7 +52,7 @@ import (
 type S3 interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for S3
@@ -87,8 +87,8 @@ func NewS3_Override(s S3, props *S3Props) {
 	)
 }
 
-func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := s.validateBindParameters(rule); err != nil {
+func (s *jsiiProxy_S3) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := s.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -96,7 +96,7 @@ func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionC
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

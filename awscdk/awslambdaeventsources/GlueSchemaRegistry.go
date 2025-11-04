@@ -50,7 +50,7 @@ import (
 type GlueSchemaRegistry interface {
 	awslambda.ISchemaRegistry
 	// Returns a schema registry configuration.
-	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig
+	Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig
 }
 
 // The jsii proxy struct for GlueSchemaRegistry
@@ -85,8 +85,8 @@ func NewGlueSchemaRegistry_Override(g GlueSchemaRegistry, props *GlueSchemaRegis
 	)
 }
 
-func (g *jsiiProxy_GlueSchemaRegistry) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig {
-	if err := g.validateBindParameters(_target, targetHandler); err != nil {
+func (g *jsiiProxy_GlueSchemaRegistry) Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.KafkaSchemaRegistryConfig {
+	if err := g.validateBindParameters(target, targetHandler); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.KafkaSchemaRegistryConfig
@@ -94,7 +94,7 @@ func (g *jsiiProxy_GlueSchemaRegistry) Bind(_target awslambda.IEventSourceMappin
 	_jsii_.Invoke(
 		g,
 		"bind",
-		[]interface{}{_target, targetHandler},
+		[]interface{}{target, targetHandler},
 		&returns,
 	)
 

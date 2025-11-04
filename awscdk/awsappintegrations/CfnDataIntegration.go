@@ -75,6 +75,7 @@ type CfnDataIntegration interface {
 	// A description of the DataIntegration.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The configuration for what files should be pulled from the source.
 	FileConfiguration() interface{}
 	SetFileConfiguration(val interface{})
@@ -342,6 +343,16 @@ func (j *jsiiProxy_CfnDataIntegration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataIntegration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

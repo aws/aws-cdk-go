@@ -35,10 +35,10 @@ type CloudwatchLogsLogDestination interface {
 	ILogDestination
 	// Bind the log destination to the pipe.
 	// Experimental.
-	Bind(_pipe IPipe) *LogDestinationConfig
+	Bind(pipe IPipe) *LogDestinationConfig
 	// Grant the pipe role to push to the log destination.
 	// Experimental.
-	GrantPush(pipeRole awsiam.IRole)
+	GrantPush(grantee awsiam.IRole)
 }
 
 // The jsii proxy struct for CloudwatchLogsLogDestination
@@ -75,8 +75,8 @@ func NewCloudwatchLogsLogDestination_Override(c CloudwatchLogsLogDestination, lo
 	)
 }
 
-func (c *jsiiProxy_CloudwatchLogsLogDestination) Bind(_pipe IPipe) *LogDestinationConfig {
-	if err := c.validateBindParameters(_pipe); err != nil {
+func (c *jsiiProxy_CloudwatchLogsLogDestination) Bind(pipe IPipe) *LogDestinationConfig {
+	if err := c.validateBindParameters(pipe); err != nil {
 		panic(err)
 	}
 	var returns *LogDestinationConfig
@@ -84,21 +84,21 @@ func (c *jsiiProxy_CloudwatchLogsLogDestination) Bind(_pipe IPipe) *LogDestinati
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{_pipe},
+		[]interface{}{pipe},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CloudwatchLogsLogDestination) GrantPush(pipeRole awsiam.IRole) {
-	if err := c.validateGrantPushParameters(pipeRole); err != nil {
+func (c *jsiiProxy_CloudwatchLogsLogDestination) GrantPush(grantee awsiam.IRole) {
+	if err := c.validateGrantPushParameters(grantee); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"grantPush",
-		[]interface{}{pipeRole},
+		[]interface{}{grantee},
 	)
 }
 

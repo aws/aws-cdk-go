@@ -56,6 +56,7 @@ type CfnLifecycleHook interface {
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	DefaultResult() *string
 	SetDefaultResult(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times out.
 	HeartbeatTimeout() *float64
 	SetHeartbeatTimeout(val *float64)
@@ -301,6 +302,16 @@ func (j *jsiiProxy_CfnLifecycleHook) DefaultResult() *string {
 	_jsii_.Get(
 		j,
 		"defaultResult",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecycleHook) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

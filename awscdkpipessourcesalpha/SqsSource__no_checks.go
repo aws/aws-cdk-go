@@ -4,7 +4,7 @@ package awscdkpipessourcesalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_SqsSource) validateBindParameters(_pipe awscdkpipesalpha.IPipe) error {
+func (s *jsiiProxy_SqsSource) validateBindParameters(pipe awscdkpipesalpha.IPipe) error {
 	return nil
 }
 

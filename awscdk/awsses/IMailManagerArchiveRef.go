@@ -3,6 +3,7 @@ package awsses
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IMailManagerArchiveRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a MailManagerArchive resource.
 	// Experimental.
 	MailManagerArchiveRef() *MailManagerArchiveReference
@@ -19,6 +21,7 @@ type IMailManagerArchiveRef interface {
 // The jsii proxy for IMailManagerArchiveRef
 type jsiiProxy_IMailManagerArchiveRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IMailManagerArchiveRef) MailManagerArchiveRef() *MailManagerArchiveReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IMailManagerArchiveRef) MailManagerArchiveRef() *MailManagerA
 	_jsii_.Get(
 		j,
 		"mailManagerArchiveRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMailManagerArchiveRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMailManagerArchiveRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

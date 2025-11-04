@@ -74,6 +74,7 @@ type CfnEventBus interface {
 	// The event bus description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EventBus resource.
 	EventBusRef() *EventBusReference
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
@@ -358,6 +359,16 @@ func (j *jsiiProxy_CfnEventBus) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventBus) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

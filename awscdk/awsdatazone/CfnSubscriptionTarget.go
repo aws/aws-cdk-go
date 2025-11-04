@@ -81,6 +81,7 @@ type CfnSubscriptionTarget interface {
 	// The ID of the Amazon DataZone domain in which subscription target is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the environment in which subscription target is created.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -414,6 +415,16 @@ func (j *jsiiProxy_CfnSubscriptionTarget) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscriptionTarget) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

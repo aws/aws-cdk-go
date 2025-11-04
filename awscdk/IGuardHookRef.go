@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IGuardHookRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a GuardHook resource.
 	// Experimental.
 	GuardHookRef() *GuardHookReference
@@ -19,6 +20,7 @@ type IGuardHookRef interface {
 // The jsii proxy for IGuardHookRef
 type jsiiProxy_IGuardHookRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IGuardHookRef) GuardHookRef() *GuardHookReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IGuardHookRef) GuardHookRef() *GuardHookReference {
 	_jsii_.Get(
 		j,
 		"guardHookRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGuardHookRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGuardHookRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

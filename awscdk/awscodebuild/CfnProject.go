@@ -293,6 +293,7 @@ type CfnProject interface {
 	// The AWS Key Management Service customer master key (CMK) to be used for encrypting the build output artifacts.
 	EncryptionKey() *string
 	SetEncryptionKey(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The build environment settings for the project, such as the environment type or the environment variables to use for the build environment.
 	Environment() interface{}
 	SetEnvironment(val interface{})
@@ -654,6 +655,16 @@ func (j *jsiiProxy_CfnProject) EncryptionKey() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

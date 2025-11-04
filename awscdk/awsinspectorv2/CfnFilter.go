@@ -337,6 +337,7 @@ type CfnFilter interface {
 	// A description of the filter.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The action that is to be applied to the findings that match the filter.
 	FilterAction() *string
 	SetFilterAction(val *string)
@@ -585,6 +586,16 @@ func (j *jsiiProxy_CfnFilter) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFilter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

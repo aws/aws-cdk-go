@@ -60,6 +60,7 @@ type CfnDomainUnit interface {
 	SetDomainIdentifier(val *string)
 	// A reference to a DomainUnit resource.
 	DomainUnitRef() *DomainUnitReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -359,6 +360,16 @@ func (j *jsiiProxy_CfnDomainUnit) DomainUnitRef() *DomainUnitReference {
 	_jsii_.Get(
 		j,
 		"domainUnitRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainUnit) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

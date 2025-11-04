@@ -104,6 +104,7 @@ type CfnTaskSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// An optional non-unique tag that identifies this task set in external systems.
 	ExternalId() *string
 	SetExternalId(val *string)
@@ -380,6 +381,16 @@ func (j *jsiiProxy_CfnTaskSet) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTaskSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

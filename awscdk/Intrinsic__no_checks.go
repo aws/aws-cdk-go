@@ -8,7 +8,7 @@ func (i *jsiiProxy_Intrinsic) validateNewErrorParameters(message *string) error 
 	return nil
 }
 
-func (i *jsiiProxy_Intrinsic) validateResolveParameters(_context IResolveContext) error {
+func (i *jsiiProxy_Intrinsic) validateResolveParameters(context IResolveContext) error {
 	return nil
 }
 

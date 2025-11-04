@@ -60,6 +60,7 @@ type CfnScheduledAudit interface {
 	// The day of the week on which the scheduled audit is run (if the `frequency` is "WEEKLY" or "BIWEEKLY").
 	DayOfWeek() *string
 	SetDayOfWeek(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// How often the scheduled audit occurs.
 	Frequency() *string
 	SetFrequency(val *string)
@@ -310,6 +311,16 @@ func (j *jsiiProxy_CfnScheduledAudit) DayOfWeek() *string {
 	_jsii_.Get(
 		j,
 		"dayOfWeek",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAudit) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

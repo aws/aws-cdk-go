@@ -55,6 +55,7 @@ type CfnTrafficMirrorTarget interface {
 	// The description of the Traffic Mirror target.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the Gateway Load Balancer endpoint.
 	GatewayLoadBalancerEndpointId() *string
 	SetGatewayLoadBalancerEndpointId(val *string)
@@ -295,6 +296,16 @@ func (j *jsiiProxy_CfnTrafficMirrorTarget) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorTarget) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

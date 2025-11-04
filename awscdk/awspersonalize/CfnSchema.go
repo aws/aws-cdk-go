@@ -54,6 +54,7 @@ type CfnSchema interface {
 	// The domain of a schema that you created for a dataset in a Domain dataset group.
 	Domain() *string
 	SetDomain(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -285,6 +286,16 @@ func (j *jsiiProxy_CfnSchema) Domain() *string {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSchema) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

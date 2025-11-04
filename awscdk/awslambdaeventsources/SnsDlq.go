@@ -24,7 +24,7 @@ import (
 type SnsDlq interface {
 	awslambda.IEventSourceDlq
 	// Returns a destination configuration for the DLQ.
-	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
+	Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
 }
 
 // The jsii proxy struct for SnsDlq
@@ -59,8 +59,8 @@ func NewSnsDlq_Override(s SnsDlq, topic awssns.ITopic) {
 	)
 }
 
-func (s *jsiiProxy_SnsDlq) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
-	if err := s.validateBindParameters(_target, targetHandler); err != nil {
+func (s *jsiiProxy_SnsDlq) Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
+	if err := s.validateBindParameters(target, targetHandler); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.DlqDestinationConfig
@@ -68,7 +68,7 @@ func (s *jsiiProxy_SnsDlq) Bind(_target awslambda.IEventSourceMapping, targetHan
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_target, targetHandler},
+		[]interface{}{target, targetHandler},
 		&returns,
 	)
 

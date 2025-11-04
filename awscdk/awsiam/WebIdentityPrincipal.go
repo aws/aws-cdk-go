@@ -46,7 +46,7 @@ type WebIdentityPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -188,8 +188,8 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToPolicy(statement PolicyStatement) 
 	return returns
 }
 
-func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := w.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := w.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -197,7 +197,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(_statement PolicyS
 	_jsii_.Invoke(
 		w,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

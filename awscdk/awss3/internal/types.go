@@ -9,4 +9,5 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscdkIResource = awscdk.IResource

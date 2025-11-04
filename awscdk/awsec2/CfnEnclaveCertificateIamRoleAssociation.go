@@ -55,6 +55,7 @@ type CfnEnclaveCertificateIamRoleAssociation interface {
 	CreationStack() *[]*string
 	// A reference to a EnclaveCertificateIamRoleAssociation resource.
 	EnclaveCertificateIamRoleAssociationRef() *EnclaveCertificateIamRoleAssociationReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -311,6 +312,16 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) EnclaveCertificateIa
 	_jsii_.Get(
 		j,
 		"enclaveCertificateIamRoleAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

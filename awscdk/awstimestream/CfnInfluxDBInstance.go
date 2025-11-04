@@ -108,6 +108,7 @@ type CfnInfluxDBInstance interface {
 	// Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
 	DeploymentType() *string
 	SetDeploymentType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a InfluxDBInstance resource.
 	InfluxDbInstanceRef() *InfluxDBInstanceReference
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
@@ -487,6 +488,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) DeploymentType() *string {
 	_jsii_.Get(
 		j,
 		"deploymentType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

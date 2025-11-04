@@ -3,6 +3,7 @@ package awsconfig
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IOrganizationConfigRuleRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a OrganizationConfigRule resource.
 	// Experimental.
 	OrganizationConfigRuleRef() *OrganizationConfigRuleReference
@@ -19,6 +21,7 @@ type IOrganizationConfigRuleRef interface {
 // The jsii proxy for IOrganizationConfigRuleRef
 type jsiiProxy_IOrganizationConfigRuleRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IOrganizationConfigRuleRef) OrganizationConfigRuleRef() *OrganizationConfigRuleReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IOrganizationConfigRuleRef) OrganizationConfigRuleRef() *Orga
 	_jsii_.Get(
 		j,
 		"organizationConfigRuleRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IOrganizationConfigRuleRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IOrganizationConfigRuleRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

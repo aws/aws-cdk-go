@@ -50,11 +50,11 @@ func (e *jsiiProxy_ExternalTaskDefinition) validateAddFirelensLogRouterParameter
 	return nil
 }
 
-func (e *jsiiProxy_ExternalTaskDefinition) validateAddInferenceAcceleratorParameters(_inferenceAccelerator *InferenceAccelerator) error {
-	if _inferenceAccelerator == nil {
-		return fmt.Errorf("parameter _inferenceAccelerator is required, but nil was provided")
+func (e *jsiiProxy_ExternalTaskDefinition) validateAddInferenceAcceleratorParameters(inferenceAccelerator *InferenceAccelerator) error {
+	if inferenceAccelerator == nil {
+		return fmt.Errorf("parameter inferenceAccelerator is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_inferenceAccelerator, func() string { return "parameter _inferenceAccelerator" }); err != nil {
+	if err := _jsii_.ValidateStruct(inferenceAccelerator, func() string { return "parameter inferenceAccelerator" }); err != nil {
 		return err
 	}
 

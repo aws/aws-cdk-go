@@ -57,11 +57,11 @@ type CompositePrincipal interface {
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
-	AddToAssumeRolePolicy(doc PolicyDocument)
+	AddToAssumeRolePolicy(document PolicyDocument)
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -191,14 +191,14 @@ func (c *jsiiProxy_CompositePrincipal) AddPrincipals(principals ...IPrincipal) C
 	return returns
 }
 
-func (c *jsiiProxy_CompositePrincipal) AddToAssumeRolePolicy(doc PolicyDocument) {
-	if err := c.validateAddToAssumeRolePolicyParameters(doc); err != nil {
+func (c *jsiiProxy_CompositePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := c.validateAddToAssumeRolePolicyParameters(document); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"addToAssumeRolePolicy",
-		[]interface{}{doc},
+		[]interface{}{document},
 	)
 }
 
@@ -218,8 +218,8 @@ func (c *jsiiProxy_CompositePrincipal) AddToPolicy(statement PolicyStatement) *b
 	return returns
 }
 
-func (c *jsiiProxy_CompositePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := c.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (c *jsiiProxy_CompositePrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := c.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -227,7 +227,7 @@ func (c *jsiiProxy_CompositePrincipal) AddToPrincipalPolicy(_statement PolicySta
 	_jsii_.Invoke(
 		c,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

@@ -61,6 +61,7 @@ type CfnRepositoryLink interface {
 	// The Amazon Resource Name (ARN) of the encryption key for the repository associated with the repository link.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnRepositoryLink) EncryptionKeyArn() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepositoryLink) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

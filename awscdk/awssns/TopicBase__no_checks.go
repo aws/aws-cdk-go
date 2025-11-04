@@ -4,7 +4,7 @@ package awssns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (t *jsiiProxy_TopicBase) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
+func (t *jsiiProxy_TopicBase) validateAddSubscriptionParameters(subscription ITopicSubscription) error {
 	return nil
 }
 
@@ -16,7 +16,7 @@ func (t *jsiiProxy_TopicBase) validateApplyRemovalPolicyParameters(policy awscdk
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateBindAsNotificationRuleTargetParameters(_scope constructs.Construct) error {
+func (t *jsiiProxy_TopicBase) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {
 	return nil
 }
 
@@ -28,11 +28,11 @@ func (t *jsiiProxy_TopicBase) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateGrantPublishParameters(grantee awsiam.IGrantable) error {
+func (t *jsiiProxy_TopicBase) validateGrantPublishParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateGrantSubscribeParameters(grantee awsiam.IGrantable) error {
+func (t *jsiiProxy_TopicBase) validateGrantSubscribeParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 

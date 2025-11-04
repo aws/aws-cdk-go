@@ -62,6 +62,7 @@ type CfnDataCatalog interface {
 	// A description of the data catalog.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Text of the error that occurred during data catalog creation or deletion.
 	Error() *string
 	SetError(val *string)
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnDataCatalog) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCatalog) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

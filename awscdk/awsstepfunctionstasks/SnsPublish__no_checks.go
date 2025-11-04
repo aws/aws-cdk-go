@@ -84,7 +84,7 @@ func (s *jsiiProxy_SnsPublish) validateMetricTimedOutParameters(props *awscloudw
 	return nil
 }
 
-func (s *jsiiProxy_SnsPublish) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (s *jsiiProxy_SnsPublish) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

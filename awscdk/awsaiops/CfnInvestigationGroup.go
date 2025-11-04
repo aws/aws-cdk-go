@@ -105,6 +105,7 @@ type CfnInvestigationGroup interface {
 	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Returns the JSON of the IAM resource policy associated with the specified investigation group in a string.
 	InvestigationGroupPolicy() *string
 	SetInvestigationGroupPolicy(val *string)
@@ -422,6 +423,16 @@ func (j *jsiiProxy_CfnInvestigationGroup) EncryptionConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInvestigationGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

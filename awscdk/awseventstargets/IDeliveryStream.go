@@ -8,11 +8,14 @@ import (
 )
 
 // Represents an Amazon Data Firehose delivery stream.
+// Deprecated: Use aws_kinesisfirehose.IDeliveryStream
 type IDeliveryStream interface {
 	awscdk.IResource
 	// The ARN of the delivery stream.
+	// Deprecated: Use aws_kinesisfirehose.IDeliveryStream
 	DeliveryStreamArn() *string
 	// The name of the delivery stream.
+	// Deprecated: Use aws_kinesisfirehose.IDeliveryStream
 	DeliveryStreamName() *string
 }
 

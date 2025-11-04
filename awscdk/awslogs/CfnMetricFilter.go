@@ -71,6 +71,7 @@ type CfnMetricFilter interface {
 	// The list of system fields that are emitted as additional dimensions in the generated metrics.
 	EmitSystemFieldDimensions() *[]*string
 	SetEmitSystemFieldDimensions(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The filter expression that specifies which log events are processed by this metric filter based on system fields.
 	FieldSelectionCriteria() *string
 	SetFieldSelectionCriteria(val *string)
@@ -311,6 +312,16 @@ func (j *jsiiProxy_CfnMetricFilter) EmitSystemFieldDimensions() *[]*string {
 	_jsii_.Get(
 		j,
 		"emitSystemFieldDimensions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMetricFilter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -58,6 +58,7 @@ type CfnEventBridgeRuleTemplateGroup interface {
 	// A resource's optional description.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EventBridgeRuleTemplateGroup resource.
 	EventBridgeRuleTemplateGroupRef() *EventBridgeRuleTemplateGroupReference
 	// The logical ID for this CloudFormation stack element.
@@ -340,6 +341,16 @@ func (j *jsiiProxy_CfnEventBridgeRuleTemplateGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventBridgeRuleTemplateGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

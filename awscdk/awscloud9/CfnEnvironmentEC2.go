@@ -73,6 +73,7 @@ type CfnEnvironmentEC2 interface {
 	// The description of the environment to create.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EnvironmentEC2 resource.
 	EnvironmentEc2Ref() *EnvironmentEC2Reference
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnEnvironmentEC2) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentEC2) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

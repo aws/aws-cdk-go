@@ -48,7 +48,7 @@ func (d *jsiiProxy_DistributedMap) validateMakeNextParameters(next State) error 
 	return nil
 }
 
-func (d *jsiiProxy_DistributedMap) validateNextParameters(next IChainable) error {
+func (d *jsiiProxy_DistributedMap) validateNextParameters(state IChainable) error {
 	return nil
 }
 

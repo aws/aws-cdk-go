@@ -29,7 +29,7 @@ type TopicHook interface {
 	// Otherwise, create a new `IRole` and grant it topic publishing permissions.
 	//
 	// Returns: the `IRole` with topic publishing permissions and the ARN of the topic it has publishing permission to.
-	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for TopicHook
@@ -64,8 +64,8 @@ func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 	)
 }
 
-func (t *jsiiProxy_TopicHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
-	if err := t.validateBindParameters(_scope, options); err != nil {
+func (t *jsiiProxy_TopicHook) Bind(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
+	if err := t.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awsautoscaling.LifecycleHookTargetConfig
@@ -73,7 +73,7 @@ func (t *jsiiProxy_TopicHook) Bind(_scope constructs.Construct, options *awsauto
 	_jsii_.Invoke(
 		t,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

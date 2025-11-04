@@ -76,6 +76,7 @@ type CfnTrafficMirrorFilterRule interface {
 	// The destination port range.
 	DestinationPortRange() interface{}
 	SetDestinationPortRange(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -356,6 +357,16 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) DestinationPortRange() interface{
 	_jsii_.Get(
 		j,
 		"destinationPortRange",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

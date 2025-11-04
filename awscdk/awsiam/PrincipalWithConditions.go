@@ -52,7 +52,7 @@ type PrincipalWithConditions interface {
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
-	AddToAssumeRolePolicy(doc PolicyDocument)
+	AddToAssumeRolePolicy(document PolicyDocument)
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
@@ -185,14 +185,14 @@ func (p *jsiiProxy_PrincipalWithConditions) AddConditions(conditions *map[string
 	)
 }
 
-func (p *jsiiProxy_PrincipalWithConditions) AddToAssumeRolePolicy(doc PolicyDocument) {
-	if err := p.validateAddToAssumeRolePolicyParameters(doc); err != nil {
+func (p *jsiiProxy_PrincipalWithConditions) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := p.validateAddToAssumeRolePolicyParameters(document); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		p,
 		"addToAssumeRolePolicy",
-		[]interface{}{doc},
+		[]interface{}{document},
 	)
 }
 

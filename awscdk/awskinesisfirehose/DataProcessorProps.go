@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-// Configure the data processor.
+// Configure the LambdaFunctionProcessor.
 //
 // Example:
 //   var bucket Bucket
@@ -21,7 +21,9 @@ import (
 //   	Retries: jsii.Number(5),
 //   })
 //   s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
-//   	Processor: lambdaProcessor,
+//   	Processors: []IDataProcessor{
+//   		lambdaProcessor,
+//   	},
 //   })
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
 //   	Destination: s3Destination,

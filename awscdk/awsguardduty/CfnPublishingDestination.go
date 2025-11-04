@@ -70,6 +70,7 @@ type CfnPublishingDestination interface {
 	// The ID of the GuardDuty detector where the publishing destination exists.
 	DetectorId() *string
 	SetDetectorId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -349,6 +350,16 @@ func (j *jsiiProxy_CfnPublishingDestination) DetectorId() *string {
 	_jsii_.Get(
 		j,
 		"detectorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPublishingDestination) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

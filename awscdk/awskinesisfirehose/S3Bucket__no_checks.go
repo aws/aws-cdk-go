@@ -4,7 +4,7 @@ package awskinesisfirehose
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3Bucket) validateBindParameters(scope constructs.Construct, _options *DestinationBindOptions) error {
+func (s *jsiiProxy_S3Bucket) validateBindParameters(scope constructs.Construct, options *DestinationBindOptions) error {
 	return nil
 }
 

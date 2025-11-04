@@ -65,7 +65,7 @@ type BootstraplessSynthesizer interface {
 	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
-	AddDockerImageAsset(_asset *DockerImageAssetSource) *DockerImageAssetLocation
+	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
@@ -75,7 +75,7 @@ type BootstraplessSynthesizer interface {
 	// be by writing the instructions to the asset manifest (for use by the `cdk-assets` tool),
 	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
 	// mechanism.
-	AddFileAsset(_asset *FileAssetSource) *FileAssetLocation
+	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
 	// Must be called before any of the other methods are called.
@@ -362,8 +362,8 @@ func (b *jsiiProxy_BootstraplessSynthesizer) AddBootstrapVersionRule(requiredVer
 	)
 }
 
-func (b *jsiiProxy_BootstraplessSynthesizer) AddDockerImageAsset(_asset *DockerImageAssetSource) *DockerImageAssetLocation {
-	if err := b.validateAddDockerImageAssetParameters(_asset); err != nil {
+func (b *jsiiProxy_BootstraplessSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := b.validateAddDockerImageAssetParameters(asset); err != nil {
 		panic(err)
 	}
 	var returns *DockerImageAssetLocation
@@ -371,15 +371,15 @@ func (b *jsiiProxy_BootstraplessSynthesizer) AddDockerImageAsset(_asset *DockerI
 	_jsii_.Invoke(
 		b,
 		"addDockerImageAsset",
-		[]interface{}{_asset},
+		[]interface{}{asset},
 		&returns,
 	)
 
 	return returns
 }
 
-func (b *jsiiProxy_BootstraplessSynthesizer) AddFileAsset(_asset *FileAssetSource) *FileAssetLocation {
-	if err := b.validateAddFileAssetParameters(_asset); err != nil {
+func (b *jsiiProxy_BootstraplessSynthesizer) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := b.validateAddFileAssetParameters(asset); err != nil {
 		panic(err)
 	}
 	var returns *FileAssetLocation
@@ -387,7 +387,7 @@ func (b *jsiiProxy_BootstraplessSynthesizer) AddFileAsset(_asset *FileAssetSourc
 	_jsii_.Invoke(
 		b,
 		"addFileAsset",
-		[]interface{}{_asset},
+		[]interface{}{asset},
 		&returns,
 	)
 

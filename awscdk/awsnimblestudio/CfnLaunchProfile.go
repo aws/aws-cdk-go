@@ -92,6 +92,7 @@ type CfnLaunchProfile interface {
 	SetDescription(val *string)
 	Ec2SubnetIds() *[]*string
 	SetEc2SubnetIds(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	LaunchProfileProtocolVersions() *[]*string
 	SetLaunchProfileProtocolVersions(val *[]*string)
 	// A reference to a LaunchProfile resource.
@@ -342,6 +343,16 @@ func (j *jsiiProxy_CfnLaunchProfile) Ec2SubnetIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"ec2SubnetIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLaunchProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

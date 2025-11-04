@@ -24,7 +24,7 @@ type Spacer interface {
 	// The amount of horizontal grid units the widget will take up.
 	Width() *float64
 	// Place the widget at a given position.
-	Position(_x *float64, _y *float64)
+	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
 	ToJson() *[]interface{}
 }
@@ -82,14 +82,14 @@ func NewSpacer_Override(s Spacer, props *SpacerProps) {
 	)
 }
 
-func (s *jsiiProxy_Spacer) Position(_x *float64, _y *float64) {
-	if err := s.validatePositionParameters(_x, _y); err != nil {
+func (s *jsiiProxy_Spacer) Position(x *float64, y *float64) {
+	if err := s.validatePositionParameters(x, y); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"position",
-		[]interface{}{_x, _y},
+		[]interface{}{x, y},
 	)
 }
 

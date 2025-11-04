@@ -51,7 +51,7 @@ type GrantPolicyWithResourceOptions struct {
 	//
 	// The statement will be added to the resource policy if it couldn't be
 	// added to the principal policy.
-	Resource IResourceWithPolicy `field:"required" json:"resource" yaml:"resource"`
+	Resource IResourceWithPolicyV2 `field:"required" json:"resource" yaml:"resource"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
@@ -61,7 +61,7 @@ type GrantPolicyWithResourceOptions struct {
 	// The policy statement to add to the resource's policy.
 	//
 	// This statement will be passed to the resource's addToResourcePolicy method.
-	// The actual handling of the statement depends on the specific IResourceWithPolicy
+	// The actual handling of the statement depends on the specific IResourceWithPolicyV2
 	// implementation.
 	Statement PolicyStatement `field:"required" json:"statement" yaml:"statement"`
 }

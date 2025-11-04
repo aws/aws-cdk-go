@@ -8,7 +8,7 @@ func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope constructs.Construct, restApi IRestApiRef) error {
+func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApiRef) error {
 	return nil
 }
 

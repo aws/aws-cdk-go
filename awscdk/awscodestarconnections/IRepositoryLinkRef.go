@@ -3,6 +3,7 @@ package awscodestarconnections
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarconnections/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IRepositoryLinkRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a RepositoryLink resource.
 	// Experimental.
 	RepositoryLinkRef() *RepositoryLinkReference
@@ -19,6 +21,7 @@ type IRepositoryLinkRef interface {
 // The jsii proxy for IRepositoryLinkRef
 type jsiiProxy_IRepositoryLinkRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IRepositoryLinkRef) RepositoryLinkRef() *RepositoryLinkReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IRepositoryLinkRef) RepositoryLinkRef() *RepositoryLinkRefere
 	_jsii_.Get(
 		j,
 		"repositoryLinkRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepositoryLinkRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepositoryLinkRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

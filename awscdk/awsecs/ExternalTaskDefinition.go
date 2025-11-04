@@ -36,12 +36,13 @@ type ExternalTaskDefinition interface {
 	SetDefaultContainer(val ContainerDefinition)
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
@@ -101,7 +102,7 @@ type ExternalTaskDefinition interface {
 	// Adds a firelens log router to the task definition.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
 	// Overridden method to throw error as interface accelerators are not supported for external tasks.
-	AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator)
+	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
 	// Adds the specified placement constraint to the task definition.
 	AddPlacementConstraint(constraint PlacementConstraint)
 	// Adds a policy statement to the task execution IAM role.
@@ -602,14 +603,14 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddFirelensLogRouter(id *string, prop
 	return returns
 }
 
-func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator) {
-	if err := e.validateAddInferenceAcceleratorParameters(_inferenceAccelerator); err != nil {
+func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator) {
+	if err := e.validateAddInferenceAcceleratorParameters(inferenceAccelerator); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		e,
 		"addInferenceAccelerator",
-		[]interface{}{_inferenceAccelerator},
+		[]interface{}{inferenceAccelerator},
 	)
 }
 

@@ -57,6 +57,7 @@ type CfnPermission interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// For Alexa Smart Home functions, a token that the invoker must supply.
 	EventSourceToken() *string
 	SetEventSourceToken(val *string)
@@ -306,6 +307,16 @@ func (j *jsiiProxy_CfnPermission) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPermission) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

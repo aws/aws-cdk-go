@@ -52,6 +52,7 @@ type CfnDatabase interface {
 	SetDatabaseName(val *string)
 	// A reference to a Database resource.
 	DatabaseRef() *DatabaseReference
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the AWS KMS key used to encrypt the data stored in the database.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -294,6 +295,16 @@ func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
 	_jsii_.Get(
 		j,
 		"databaseRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatabase) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

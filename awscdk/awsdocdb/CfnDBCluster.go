@@ -129,6 +129,7 @@ type CfnDBCluster interface {
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The cluster identifier of the new global cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
@@ -550,6 +551,16 @@ func (j *jsiiProxy_CfnDBCluster) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

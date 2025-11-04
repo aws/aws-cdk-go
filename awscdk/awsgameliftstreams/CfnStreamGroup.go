@@ -80,6 +80,7 @@ type CfnStreamGroup interface {
 	// A descriptive label for the stream group.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A set of one or more locations and the streaming capacity for each location.
 	LocationConfigurations() interface{}
 	SetLocationConfigurations(val interface{})
@@ -345,6 +346,16 @@ func (j *jsiiProxy_CfnStreamGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStreamGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

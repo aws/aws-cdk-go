@@ -97,6 +97,7 @@ type CfnDeployment interface {
 	// A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
 	DynamicExtensionParameters() interface{}
 	SetDynamicExtensionParameters(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The environment ID.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -410,6 +411,16 @@ func (j *jsiiProxy_CfnDeployment) DynamicExtensionParameters() interface{} {
 	_jsii_.Get(
 		j,
 		"dynamicExtensionParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeployment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

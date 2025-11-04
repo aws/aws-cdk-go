@@ -98,6 +98,7 @@ type CfnEmailIdentity interface {
 	SetEmailIdentity(val *string)
 	// A reference to a EmailIdentity resource.
 	EmailIdentityRef() *EmailIdentityReference
+	Env() *awscdk.ResourceEnvironment
 	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes() interface{}
 	SetFeedbackAttributes(val interface{})
@@ -431,6 +432,16 @@ func (j *jsiiProxy_CfnEmailIdentity) EmailIdentityRef() *EmailIdentityReference 
 	_jsii_.Get(
 		j,
 		"emailIdentityRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailIdentity) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

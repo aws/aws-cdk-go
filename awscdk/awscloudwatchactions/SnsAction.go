@@ -23,7 +23,7 @@ import (
 type SnsAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an SNS topic as an alarm action.
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for SnsAction
@@ -58,8 +58,8 @@ func NewSnsAction_Override(s SnsAction, topic awssns.ITopic) {
 	)
 }
 
-func (s *jsiiProxy_SnsAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
-	if err := s.validateBindParameters(_scope, _alarm); err != nil {
+func (s *jsiiProxy_SnsAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := s.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}
 	var returns *awscloudwatch.AlarmActionConfig
@@ -67,7 +67,7 @@ func (s *jsiiProxy_SnsAction) Bind(_scope constructs.Construct, _alarm awscloudw
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, _alarm},
+		[]interface{}{scope, alarm},
 		&returns,
 	)
 

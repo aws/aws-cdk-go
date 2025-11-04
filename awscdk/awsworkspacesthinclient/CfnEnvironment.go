@@ -103,6 +103,7 @@ type CfnEnvironment interface {
 	// An array of key-value pairs to apply to the newly created devices for this environment.
 	DeviceCreationTags() interface{}
 	SetDeviceCreationTags(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Environment resource.
 	EnvironmentRef() *EnvironmentReference
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
@@ -477,6 +478,16 @@ func (j *jsiiProxy_CfnEnvironment) DeviceCreationTags() interface{} {
 	_jsii_.Get(
 		j,
 		"deviceCreationTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

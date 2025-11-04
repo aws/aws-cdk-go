@@ -189,6 +189,7 @@ type CfnReplicationGroup interface {
 	// The version number of the cache engine to be used for the clusters in this replication group.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the Global datastore.
 	GlobalReplicationGroupId() *string
 	SetGlobalReplicationGroupId(val *string)
@@ -700,6 +701,16 @@ func (j *jsiiProxy_CfnReplicationGroup) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

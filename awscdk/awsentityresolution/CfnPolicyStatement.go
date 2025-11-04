@@ -60,6 +60,7 @@ type CfnPolicyStatement interface {
 	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
 	Effect() *string
 	SetEffect(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -311,6 +312,16 @@ func (j *jsiiProxy_CfnPolicyStatement) Effect() *string {
 	_jsii_.Get(
 		j,
 		"effect",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicyStatement) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

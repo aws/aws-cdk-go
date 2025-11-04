@@ -45,6 +45,7 @@ type CfnApplicationEntitlementAssociation interface {
 	// The name of the entitlement.
 	EntitlementName() *string
 	SetEntitlementName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -281,6 +282,16 @@ func (j *jsiiProxy_CfnApplicationEntitlementAssociation) EntitlementName() *stri
 	_jsii_.Get(
 		j,
 		"entitlementName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationEntitlementAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

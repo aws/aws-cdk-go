@@ -29,7 +29,7 @@ type EcrImage interface {
 	// 012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE.
 	ImageName() *string
 	// Called when the image is used by a ContainerDefinition.
-	Bind(_scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for EcrImage
@@ -178,8 +178,8 @@ func EcrImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-func (e *jsiiProxy_EcrImage) Bind(_scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
-	if err := e.validateBindParameters(_scope, containerDefinition); err != nil {
+func (e *jsiiProxy_EcrImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+	if err := e.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}
 	var returns *ContainerImageConfig
@@ -187,7 +187,7 @@ func (e *jsiiProxy_EcrImage) Bind(_scope constructs.Construct, containerDefiniti
 	_jsii_.Invoke(
 		e,
 		"bind",
-		[]interface{}{_scope, containerDefinition},
+		[]interface{}{scope, containerDefinition},
 		&returns,
 	)
 

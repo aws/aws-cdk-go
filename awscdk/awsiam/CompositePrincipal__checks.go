@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-func (c *jsiiProxy_CompositePrincipal) validateAddToAssumeRolePolicyParameters(doc PolicyDocument) error {
-	if doc == nil {
-		return fmt.Errorf("parameter doc is required, but nil was provided")
+func (c *jsiiProxy_CompositePrincipal) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
+	if document == nil {
+		return fmt.Errorf("parameter document is required, but nil was provided")
 	}
 
 	return nil
@@ -22,9 +22,9 @@ func (c *jsiiProxy_CompositePrincipal) validateAddToPolicyParameters(statement P
 	return nil
 }
 
-func (c *jsiiProxy_CompositePrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
-	if _statement == nil {
-		return fmt.Errorf("parameter _statement is required, but nil was provided")
+func (c *jsiiProxy_CompositePrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
 	}
 
 	return nil

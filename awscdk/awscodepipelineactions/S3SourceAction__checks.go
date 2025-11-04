@@ -31,9 +31,9 @@ func (s *jsiiProxy_S3SourceAction) validateBindParameters(scope constructs.Const
 	return nil
 }
 
-func (s *jsiiProxy_S3SourceAction) validateBoundParameters(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (s *jsiiProxy_S3SourceAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if stage == nil {

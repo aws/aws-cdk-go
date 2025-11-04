@@ -27,7 +27,7 @@ type S3Code interface {
 	Code
 	// Called when the Job is initialized to allow this object to bind.
 	// Experimental.
-	Bind(_scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig
+	Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig
 }
 
 // The jsii proxy struct for S3Code
@@ -104,8 +104,8 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string) S3Code {
 	return returns
 }
 
-func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
-	if err := s.validateBindParameters(_scope, grantable); err != nil {
+func (s *jsiiProxy_S3Code) Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
+	if err := s.validateBindParameters(scope, grantable); err != nil {
 		panic(err)
 	}
 	var returns *CodeConfig
@@ -113,7 +113,7 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, grantable awsiam.IG
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, grantable},
+		[]interface{}{scope, grantable},
 		&returns,
 	)
 

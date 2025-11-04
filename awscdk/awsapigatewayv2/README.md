@@ -15,12 +15,15 @@
   * [VPC Link](#vpc-link)
   * [Private Integration](#private-integration)
   * [Generating ARN for Execute API](#generating-arn-for-execute-api)
-  * [Access Logging](#access-logging)
 * [WebSocket API](#websocket-api)
 
   * [Manage Connections Permission](#manage-connections-permission)
   * [Managing access to WebSocket APIs](#managing-access-to-websocket-apis)
   * [Usage Plan and API Keys](#usage-plan-and-api-keys)
+* [Common Config](#common-config)
+
+  * [Route Settings](#route-settings)
+  * [Access Logging](#access-logging)
 
 ## Introduction
 
@@ -401,66 +404,6 @@ arn := api.arnForExecuteApi(jsii.String("GET"), jsii.String("/myApiPath"), jsii.
 * The 'ANY' method can be used for matching any HTTP methods not explicitly defined.
 * The function gracefully handles undefined parameters by using wildcards, making it flexible for various API configurations.
 
-## Access Logging
-
-You can turn on logging to write logs to CloudWatch Logs.
-Read more at [Configure logging for HTTP APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging.html)
-
-```go
-import logs "github.com/aws/aws-cdk-go/awscdk"
-
-var api HttpApi
-var logGroup LogGroup
-
-
-stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
-	HttpApi: api,
-	AccessLogSettings: map[string]IAccessLogDestination{
-		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
-	},
-})
-```
-
-The following code will generate the access log in the [CLF format](https://en.wikipedia.org/wiki/Common_Log_Format).
-
-```go
-import apigw "github.com/aws/aws-cdk-go/awscdk"
-import logs "github.com/aws/aws-cdk-go/awscdk"
-
-var api HttpApi
-var logGroup LogGroup
-
-
-stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
-	HttpApi: api,
-	AccessLogSettings: map[string]interface{}{
-		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
-		"format": apigw.AccessLogFormat_clf(),
-	},
-})
-```
-
-You can also configure your own access log format by using the `AccessLogFormat.custom()` API.
-`AccessLogField` provides commonly used fields. The following code configures access log to contain.
-
-```go
-import "github.com/aws/aws-cdk-go/awscdk"
-import logs "github.com/aws/aws-cdk-go/awscdk"
-
-var api HttpApi
-var logGroup LogGroup
-
-
-stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
-	HttpApi: api,
-	AccessLogSettings: map[string]interface{}{
-		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
-		"format": apigw.AccessLogFormat_custom(
-		fmt.Sprintf("%v %v %v\n      %v %v", apigw.AccessLogField_contextRequestId(), apigw.AccessLogField_contextErrorMessage(), apigw.AccessLogField_contextErrorMessageString(), apigw.AccessLogField_contextAuthorizerError(), apigw.AccessLogField_contextAuthorizerIntegrationStatus())),
-	},
-})
-```
-
 ## WebSocket API
 
 A WebSocket API in API Gateway is a collection of WebSocket routes that are integrated with backend HTTP endpoints,
@@ -617,28 +560,6 @@ webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocket
 })
 ```
 
-## Common Config
-
-Common config for both HTTP API and WebSocket API
-
-### Route Settings
-
-Represents a collection of route settings.
-
-```go
-var api HttpApi
-
-
-apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
-	HttpApi: api,
-	Throttle: &ThrottleSettings{
-		RateLimit: jsii.Number(1000),
-		BurstLimit: jsii.Number(1000),
-	},
-	DetailedMetricsEnabled: jsii.Boolean(true),
-})
-```
-
 ## Usage Plan and API Keys
 
 A usage plan specifies who can access one or more deployed WebSocket API stages, and the rate at which they can be accessed. The plan uses API keys to
@@ -791,6 +712,97 @@ key := apigwv2.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &
 	Throttle: &ThrottleSettings{
 		RateLimit: jsii.Number(100),
 		BurstLimit: jsii.Number(200),
+	},
+})
+```
+
+## Common Config
+
+Common config for both HTTP API and WebSocket API
+
+### Route Settings
+
+Represents a collection of route settings.
+
+```go
+var api HttpApi
+
+
+apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+	HttpApi: api,
+	Throttle: &ThrottleSettings{
+		RateLimit: jsii.Number(1000),
+		BurstLimit: jsii.Number(1000),
+	},
+	DetailedMetricsEnabled: jsii.Boolean(true),
+})
+```
+
+### Access Logging
+
+You can turn on logging to write logs to CloudWatch Logs.
+Read more at Configure logging for [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging.html) or [WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html)
+
+```go
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+var httpApi HttpApi
+var webSocketApi WebSocketApi
+var logGroup LogGroup
+
+
+apigwv2.NewHttpStage(this, jsii.String("HttpStage"), &HttpStageProps{
+	HttpApi: HttpApi,
+	AccessLogSettings: map[string]IAccessLogDestination{
+		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+	},
+})
+
+apigwv2.NewWebSocketStage(this, jsii.String("WebSocketStage"), &WebSocketStageProps{
+	WebSocketApi: WebSocketApi,
+	StageName: jsii.String("dev"),
+	AccessLogSettings: map[string]IAccessLogDestination{
+		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+	},
+})
+```
+
+The following code will generate the access log in the [CLF format](https://en.wikipedia.org/wiki/Common_Log_Format).
+
+```go
+import apigw "github.com/aws/aws-cdk-go/awscdk"
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+var api HttpApi
+var logGroup LogGroup
+
+
+stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+	HttpApi: api,
+	AccessLogSettings: map[string]interface{}{
+		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+		"format": apigw.AccessLogFormat_clf(),
+	},
+})
+```
+
+You can also configure your own access log format by using the `AccessLogFormat.custom()` API.
+`AccessLogField` provides commonly used fields. The following code configures access log to contain.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+var api HttpApi
+var logGroup LogGroup
+
+
+stage := apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+	HttpApi: api,
+	AccessLogSettings: map[string]interface{}{
+		"destination": apigwv2.NewLogGroupLogDestination(logGroup),
+		"format": apigw.AccessLogFormat_custom(
+		fmt.Sprintf("%v %v %v\n      %v %v", apigw.AccessLogField_contextRequestId(), apigw.AccessLogField_contextErrorMessage(), apigw.AccessLogField_contextErrorMessageString(), apigw.AccessLogField_contextAuthorizerError(), apigw.AccessLogField_contextAuthorizerIntegrationStatus())),
 	},
 })
 ```

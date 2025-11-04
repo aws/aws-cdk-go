@@ -4,7 +4,7 @@ package awskms
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (k *jsiiProxy_Key) validateAddAliasParameters(aliasName *string) error {
+func (k *jsiiProxy_Key) validateAddAliasParameters(alias *string) error {
 	return nil
 }
 

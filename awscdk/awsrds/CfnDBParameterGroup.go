@@ -67,6 +67,7 @@ type CfnDBParameterGroup interface {
 	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The DB parameter group family name.
 	Family() *string
 	SetFamily(val *string)
@@ -322,6 +323,16 @@ func (j *jsiiProxy_CfnDBParameterGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -3,6 +3,7 @@ package awssmsvoice
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssmsvoice/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IProtectConfigurationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ProtectConfiguration resource.
 	// Experimental.
 	ProtectConfigurationRef() *ProtectConfigurationReference
@@ -19,6 +21,7 @@ type IProtectConfigurationRef interface {
 // The jsii proxy for IProtectConfigurationRef
 type jsiiProxy_IProtectConfigurationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IProtectConfigurationRef) ProtectConfigurationRef() *ProtectConfigurationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IProtectConfigurationRef) ProtectConfigurationRef() *ProtectC
 	_jsii_.Get(
 		j,
 		"protectConfigurationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProtectConfigurationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProtectConfigurationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

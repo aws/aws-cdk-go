@@ -31,13 +31,13 @@ func (e *jsiiProxy_ElasticBeanstalkDeployAction) validateBindParameters(scope co
 	return nil
 }
 
-func (e *jsiiProxy_ElasticBeanstalkDeployAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (e *jsiiProxy_ElasticBeanstalkDeployAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if _stage == nil {
-		return fmt.Errorf("parameter _stage is required, but nil was provided")
+	if stage == nil {
+		return fmt.Errorf("parameter stage is required, but nil was provided")
 	}
 
 	if options == nil {

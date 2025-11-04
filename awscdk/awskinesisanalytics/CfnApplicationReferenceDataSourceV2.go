@@ -89,6 +89,8 @@ type CfnApplicationReferenceDataSourceV2 interface {
 	// node +internal+ entries filtered.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CreationStack() *[]*string
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -351,6 +353,16 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) CreationStack() *[]*stri
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -53,6 +53,7 @@ type CfnEventInvokeConfig interface {
 	// A destination for events after they have been sent to a function for processing.
 	DestinationConfig() interface{}
 	SetDestinationConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EventInvokeConfig resource.
 	EventInvokeConfigRef() *EventInvokeConfigReference
 	// The name of the Lambda function.
@@ -280,6 +281,16 @@ func (j *jsiiProxy_CfnEventInvokeConfig) DestinationConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"destinationConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventInvokeConfig) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

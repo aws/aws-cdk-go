@@ -60,6 +60,7 @@ type CfnLoadBalancer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The path on the attached instance where the health check will be performed.
 	HealthCheckPath() *string
 	SetHealthCheckPath(val *string)
@@ -312,6 +313,16 @@ func (j *jsiiProxy_CfnLoadBalancer) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -70,6 +70,7 @@ type CfnCrossAccountAttachment interface {
 	CreationStack() *[]*string
 	// A reference to a CrossAccountAttachment resource.
 	CrossAccountAttachmentRef() *CrossAccountAttachmentReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnCrossAccountAttachment) CrossAccountAttachmentRef() *Cross
 	_jsii_.Get(
 		j,
 		"crossAccountAttachmentRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCrossAccountAttachment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

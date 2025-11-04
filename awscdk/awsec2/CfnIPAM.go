@@ -84,6 +84,7 @@ type CfnIPAM interface {
 	// Enable this option to use your own GUA ranges as private IPv6 addresses.
 	EnablePrivateGua() interface{}
 	SetEnablePrivateGua(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a IPAM resource.
 	IpamRef() *IPAMReference
 	// The logical ID for this CloudFormation stack element.
@@ -414,6 +415,16 @@ func (j *jsiiProxy_CfnIPAM) EnablePrivateGua() interface{} {
 	_jsii_.Get(
 		j,
 		"enablePrivateGua",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAM) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

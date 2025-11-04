@@ -84,7 +84,7 @@ func (c *jsiiProxy_CodeBuildStartBuildBatch) validateMetricTimedOutParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CodeBuildStartBuildBatch) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (c *jsiiProxy_CodeBuildStartBuildBatch) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

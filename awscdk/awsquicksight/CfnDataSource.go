@@ -560,6 +560,7 @@ type CfnDataSource interface {
 	SetDataSourceParameters(val interface{})
 	// A reference to a DataSource resource.
 	DataSourceRef() *DataSourceReference
+	Env() *awscdk.ResourceEnvironment
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo() interface{}
 	SetErrorInfo(val interface{})
@@ -891,6 +892,16 @@ func (j *jsiiProxy_CfnDataSource) DataSourceRef() *DataSourceReference {
 	_jsii_.Get(
 		j,
 		"dataSourceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

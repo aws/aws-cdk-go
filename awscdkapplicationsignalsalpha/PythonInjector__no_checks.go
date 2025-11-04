@@ -4,7 +4,7 @@ package awscdkapplicationsignalsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (p *jsiiProxy_PythonInjector) validateInjectAdditionalEnvironmentsParameters(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string) error {
+func (p *jsiiProxy_PythonInjector) validateInjectAdditionalEnvironmentsParameters(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string) error {
 	return nil
 }
 

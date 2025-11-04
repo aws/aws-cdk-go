@@ -85,6 +85,7 @@ type CfnVolume interface {
 	// Indicates whether the volume should be encrypted.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	Iops() *float64
 	SetIops(val *float64)
@@ -365,6 +366,16 @@ func (j *jsiiProxy_CfnVolume) Encrypted() interface{} {
 	_jsii_.Get(
 		j,
 		"encrypted",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVolume) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

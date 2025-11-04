@@ -65,6 +65,7 @@ type CfnNetworkAclEntry interface {
 	// Whether this rule applies to egress traffic from the subnet ( `true` ) or ingress traffic to the subnet ( `false` ).
 	Egress() interface{}
 	SetEgress(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Internet Control Message Protocol (ICMP) code and type.
 	Icmp() interface{}
 	SetIcmp(val interface{})
@@ -321,6 +322,16 @@ func (j *jsiiProxy_CfnNetworkAclEntry) Egress() interface{} {
 	_jsii_.Get(
 		j,
 		"egress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkAclEntry) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

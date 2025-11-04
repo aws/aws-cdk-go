@@ -15,24 +15,22 @@ import (
 // Create a Amazon Data Firehose delivery stream.
 //
 // Example:
-//   var bucket Bucket
-//   // Provide a Lambda function that will transform records before delivery, with custom
-//   // buffering and retry configuration
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &DeliveryStreamProps{
+//   	Destination: firehose.NewS3Bucket(bucket),
 //   })
-//   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &DataProcessorProps{
-//   	BufferInterval: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	BufferSize: awscdk.Size_Mebibytes(jsii.Number(5)),
-//   	Retries: jsii.Number(5),
-//   })
-//   s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
-//   	Processor: lambdaProcessor,
-//   })
-//   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destination: s3Destination,
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	Actions: []IAction{
+//   		actions.NewFirehosePutRecordAction(stream, &FirehosePutRecordActionProps{
+//   			BatchMode: jsii.Boolean(true),
+//   			RecordSeparator: actions.FirehoseRecordSeparator_NEWLINE,
+//   		}),
+//   	},
 //   })
 //
 type DeliveryStream interface {
@@ -46,12 +44,13 @@ type DeliveryStream interface {
 	DeliveryStreamName() *string
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal

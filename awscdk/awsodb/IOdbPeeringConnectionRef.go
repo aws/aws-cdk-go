@@ -3,6 +3,7 @@ package awsodb
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsodb/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IOdbPeeringConnectionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a OdbPeeringConnection resource.
 	// Experimental.
 	OdbPeeringConnectionRef() *OdbPeeringConnectionReference
@@ -19,6 +21,7 @@ type IOdbPeeringConnectionRef interface {
 // The jsii proxy for IOdbPeeringConnectionRef
 type jsiiProxy_IOdbPeeringConnectionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IOdbPeeringConnectionRef) OdbPeeringConnectionRef() *OdbPeeringConnectionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IOdbPeeringConnectionRef) OdbPeeringConnectionRef() *OdbPeeri
 	_jsii_.Get(
 		j,
 		"odbPeeringConnectionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IOdbPeeringConnectionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IOdbPeeringConnectionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

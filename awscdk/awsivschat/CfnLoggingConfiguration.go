@@ -72,6 +72,7 @@ type CfnLoggingConfiguration interface {
 	// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
 	DestinationConfiguration() interface{}
 	SetDestinationConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a LoggingConfiguration resource.
 	LoggingConfigurationRef() *LoggingConfigurationReference
 	// The logical ID for this CloudFormation stack element.
@@ -326,6 +327,16 @@ func (j *jsiiProxy_CfnLoggingConfiguration) DestinationConfiguration() interface
 	_jsii_.Get(
 		j,
 		"destinationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoggingConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

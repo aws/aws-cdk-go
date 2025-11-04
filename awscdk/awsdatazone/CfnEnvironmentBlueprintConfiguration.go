@@ -78,6 +78,7 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// The enabled AWS Regions specified in a blueprint configuration.
 	EnabledRegions() *[]*string
 	SetEnabledRegions(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EnvironmentBlueprintConfiguration resource.
 	EnvironmentBlueprintConfigurationRef() *EnvironmentBlueprintConfigurationReference
 	// The identifier of the environment blueprint.
@@ -361,6 +362,16 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnabledRegions() *[]*st
 	_jsii_.Get(
 		j,
 		"enabledRegions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

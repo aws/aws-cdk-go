@@ -85,6 +85,7 @@ type CfnConfigurationSet interface {
 	// The default sender ID used by the ConfigurationSet.
 	DefaultSenderId() *string
 	SetDefaultSenderId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An array of EventDestination objects that describe any events to log and where to log them.
 	EventDestinations() interface{}
 	SetEventDestinations(val interface{})
@@ -351,6 +352,16 @@ func (j *jsiiProxy_CfnConfigurationSet) DefaultSenderId() *string {
 	_jsii_.Get(
 		j,
 		"defaultSenderId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

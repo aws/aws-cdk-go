@@ -49,6 +49,7 @@ type CfnLaunchTemplateConstraint interface {
 	// The description of the constraint.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a LaunchTemplateConstraint resource.
 	LaunchTemplateConstraintRef() *LaunchTemplateConstraintReference
 	// The logical ID for this CloudFormation stack element.
@@ -293,6 +294,16 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLaunchTemplateConstraint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -26,6 +26,9 @@ import (
 //   commonDestinationProps := &CommonDestinationProps{
 //   	LoggingConfig: loggingConfig,
 //   	Processor: dataProcessor,
+//   	Processors: []IDataProcessor{
+//   		dataProcessor,
+//   	},
 //   	Role: role,
 //   	S3Backup: &DestinationS3BackupProps{
 //   		Bucket: bucket,
@@ -48,7 +51,12 @@ type CommonDestinationProps struct {
 	// The data transformation that should be performed on the data before writing to the destination.
 	// Default: - no data transformation will occur.
 	//
+	// Deprecated: Use `processors` instead.
 	Processor IDataProcessor `field:"optional" json:"processor" yaml:"processor"`
+	// The data transformation that should be performed on the data before writing to the destination.
+	// Default: - no data transformation will occur.
+	//
+	Processors *[]IDataProcessor `field:"optional" json:"processors" yaml:"processors"`
 	// The IAM role associated with this destination.
 	//
 	// Assumed by Amazon Data Firehose to invoke processors and write to destinations.

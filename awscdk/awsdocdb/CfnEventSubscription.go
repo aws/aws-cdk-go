@@ -56,6 +56,7 @@ type CfnEventSubscription interface {
 	// A Boolean value;.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A list of event categories for a `SourceType` that you want to subscribe to.
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
@@ -296,6 +297,16 @@ func (j *jsiiProxy_CfnEventSubscription) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

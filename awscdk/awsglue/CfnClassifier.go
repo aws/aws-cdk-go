@@ -78,6 +78,7 @@ type CfnClassifier interface {
 	// A classifier for comma-separated values (CSV).
 	CsvClassifier() interface{}
 	SetCsvClassifier(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A classifier that uses `grok` .
 	GrokClassifier() interface{}
 	SetGrokClassifier(val interface{})
@@ -320,6 +321,16 @@ func (j *jsiiProxy_CfnClassifier) CsvClassifier() interface{} {
 	_jsii_.Get(
 		j,
 		"csvClassifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClassifier) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

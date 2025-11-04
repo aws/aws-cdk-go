@@ -115,6 +115,7 @@ type CfnInAppTemplate interface {
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	CustomConfig() interface{}
 	SetCustomConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a InAppTemplate resource.
 	InAppTemplateRef() *InAppTemplateReference
 	// A string that determines the appearance of the in-app message.
@@ -367,6 +368,16 @@ func (j *jsiiProxy_CfnInAppTemplate) CustomConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"customConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInAppTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

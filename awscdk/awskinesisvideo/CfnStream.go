@@ -62,6 +62,7 @@ type CfnStream interface {
 	// The name of the device that is associated with the stream.
 	DeviceName() *string
 	SetDeviceName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the AWS Key Management Service ( AWS KMS ) key that Kinesis Video Streams uses to encrypt data on the stream.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -312,6 +313,16 @@ func (j *jsiiProxy_CfnStream) DeviceName() *string {
 	_jsii_.Get(
 		j,
 		"deviceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStream) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

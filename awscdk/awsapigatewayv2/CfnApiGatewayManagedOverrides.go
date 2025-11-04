@@ -81,6 +81,7 @@ type CfnApiGatewayManagedOverrides interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Overrides the integration configuration for an API Gateway-managed integration.
 	Integration() interface{}
 	SetIntegration(val interface{})
@@ -323,6 +324,16 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApiGatewayManagedOverrides) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -84,7 +84,7 @@ func (s *jsiiProxy_StepFunctionsStartExecution) validateMetricTimedOutParameters
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionsStartExecution) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (s *jsiiProxy_StepFunctionsStartExecution) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

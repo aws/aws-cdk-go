@@ -86,9 +86,9 @@ func (p *jsiiProxy_Pass) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (p *jsiiProxy_Pass) validateNextParameters(next IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (p *jsiiProxy_Pass) validateNextParameters(state IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

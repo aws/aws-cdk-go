@@ -4,7 +4,7 @@ package awsapigatewayv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (w *jsiiProxy_WebSocketNoneAuthorizer) validateBindParameters(_options *WebSocketRouteAuthorizerBindOptions) error {
+func (w *jsiiProxy_WebSocketNoneAuthorizer) validateBindParameters(options *WebSocketRouteAuthorizerBindOptions) error {
 	return nil
 }
 

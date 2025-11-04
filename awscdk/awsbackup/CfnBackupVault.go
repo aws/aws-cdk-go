@@ -88,6 +88,7 @@ type CfnBackupVault interface {
 	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration() interface{}
 	SetLockConfiguration(val interface{})
@@ -378,6 +379,16 @@ func (j *jsiiProxy_CfnBackupVault) EncryptionKeyArn() *string {
 	_jsii_.Get(
 		j,
 		"encryptionKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupVault) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -49,7 +49,7 @@ type GithubSource interface {
 	Source
 	// Called when the Job is initialized to allow this object to bind.
 	// Experimental.
-	Bind(_scope constructs.Construct) *SourceConfig
+	Bind(scope constructs.Construct) *SourceConfig
 }
 
 // The jsii proxy struct for GithubSource
@@ -166,8 +166,8 @@ func GithubSource_FromGitHub(props *GithubRepositoryProps) GithubSource {
 	return returns
 }
 
-func (g *jsiiProxy_GithubSource) Bind(_scope constructs.Construct) *SourceConfig {
-	if err := g.validateBindParameters(_scope); err != nil {
+func (g *jsiiProxy_GithubSource) Bind(scope constructs.Construct) *SourceConfig {
+	if err := g.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *SourceConfig
@@ -175,7 +175,7 @@ func (g *jsiiProxy_GithubSource) Bind(_scope constructs.Construct) *SourceConfig
 	_jsii_.Invoke(
 		g,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

@@ -3,6 +3,7 @@ package awscognito
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IUserPoolUserToGroupAttachmentRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a UserPoolUserToGroupAttachment resource.
 	// Experimental.
 	UserPoolUserToGroupAttachmentRef() *UserPoolUserToGroupAttachmentReference
@@ -19,6 +21,7 @@ type IUserPoolUserToGroupAttachmentRef interface {
 // The jsii proxy for IUserPoolUserToGroupAttachmentRef
 type jsiiProxy_IUserPoolUserToGroupAttachmentRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IUserPoolUserToGroupAttachmentRef) UserPoolUserToGroupAttachmentRef() *UserPoolUserToGroupAttachmentReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IUserPoolUserToGroupAttachmentRef) UserPoolUserToGroupAttachm
 	_jsii_.Get(
 		j,
 		"userPoolUserToGroupAttachmentRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolUserToGroupAttachmentRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolUserToGroupAttachmentRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

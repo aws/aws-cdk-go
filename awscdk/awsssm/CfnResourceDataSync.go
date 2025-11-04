@@ -93,6 +93,7 @@ type CfnResourceDataSync interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 .
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -356,6 +357,16 @@ func (j *jsiiProxy_CfnResourceDataSync) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceDataSync) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

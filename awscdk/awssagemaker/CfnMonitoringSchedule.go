@@ -180,6 +180,7 @@ type CfnMonitoringSchedule interface {
 	// The name of the endpoint using the monitoring schedule.
 	EndpointName() *string
 	SetEndpointName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason() *string
 	SetFailureReason(val *string)
@@ -446,6 +447,16 @@ func (j *jsiiProxy_CfnMonitoringSchedule) EndpointName() *string {
 	_jsii_.Get(
 		j,
 		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMonitoringSchedule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

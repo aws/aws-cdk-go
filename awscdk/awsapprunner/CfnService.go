@@ -166,6 +166,7 @@ type CfnService interface {
 	// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
 	HealthCheckConfiguration() interface{}
 	SetHealthCheckConfiguration(val interface{})
@@ -455,6 +456,16 @@ func (j *jsiiProxy_CfnService) EncryptionConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

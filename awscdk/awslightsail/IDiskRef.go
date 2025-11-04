@@ -3,6 +3,7 @@ package awslightsail
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslightsail/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDiskRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Disk resource.
 	// Experimental.
 	DiskRef() *DiskReference
@@ -19,6 +21,7 @@ type IDiskRef interface {
 // The jsii proxy for IDiskRef
 type jsiiProxy_IDiskRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDiskRef) DiskRef() *DiskReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDiskRef) DiskRef() *DiskReference {
 	_jsii_.Get(
 		j,
 		"diskRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDiskRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDiskRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

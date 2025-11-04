@@ -79,6 +79,7 @@ type CfnPermissionSet interface {
 	// The description of the `PermissionSet` .
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The inline policy that is attached to the permission set.
 	InlinePolicy() interface{}
 	SetInlinePolicy(val interface{})
@@ -341,6 +342,16 @@ func (j *jsiiProxy_CfnPermissionSet) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPermissionSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

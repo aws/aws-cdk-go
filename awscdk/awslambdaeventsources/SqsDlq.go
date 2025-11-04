@@ -32,7 +32,7 @@ import (
 type SqsDlq interface {
 	awslambda.IEventSourceDlq
 	// Returns a destination configuration for the DLQ.
-	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
+	Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
 }
 
 // The jsii proxy struct for SqsDlq
@@ -67,8 +67,8 @@ func NewSqsDlq_Override(s SqsDlq, queue awssqs.IQueue) {
 	)
 }
 
-func (s *jsiiProxy_SqsDlq) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
-	if err := s.validateBindParameters(_target, targetHandler); err != nil {
+func (s *jsiiProxy_SqsDlq) Bind(target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
+	if err := s.validateBindParameters(target, targetHandler); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.DlqDestinationConfig
@@ -76,7 +76,7 @@ func (s *jsiiProxy_SqsDlq) Bind(_target awslambda.IEventSourceMapping, targetHan
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_target, targetHandler},
+		[]interface{}{target, targetHandler},
 		&returns,
 	)
 

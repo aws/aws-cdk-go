@@ -95,6 +95,7 @@ type CfnLicense interface {
 	// License entitlements.
 	Entitlements() interface{}
 	SetEntitlements(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Home Region of the license.
 	HomeRegion() *string
 	SetHomeRegion(val *string)
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnLicense) Entitlements() interface{} {
 	_jsii_.Get(
 		j,
 		"entitlements",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLicense) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -23,10 +23,12 @@ import (
 //   	Message: ruleTargetInput,
 //   })
 //
+// Deprecated: Use FirehoseDeliveryStream.
 type KinesisFirehoseStreamV2 interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	// Deprecated: Use FirehoseDeliveryStream.
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for KinesisFirehoseStreamV2
@@ -34,6 +36,7 @@ type jsiiProxy_KinesisFirehoseStreamV2 struct {
 	internal.Type__awseventsIRuleTarget
 }
 
+// Deprecated: Use FirehoseDeliveryStream.
 func NewKinesisFirehoseStreamV2(stream IDeliveryStream, props *KinesisFirehoseStreamProps) KinesisFirehoseStreamV2 {
 	_init_.Initialize()
 
@@ -51,6 +54,7 @@ func NewKinesisFirehoseStreamV2(stream IDeliveryStream, props *KinesisFirehoseSt
 	return &j
 }
 
+// Deprecated: Use FirehoseDeliveryStream.
 func NewKinesisFirehoseStreamV2_Override(k KinesisFirehoseStreamV2, stream IDeliveryStream, props *KinesisFirehoseStreamProps) {
 	_init_.Initialize()
 
@@ -61,8 +65,8 @@ func NewKinesisFirehoseStreamV2_Override(k KinesisFirehoseStreamV2, stream IDeli
 	)
 }
 
-func (k *jsiiProxy_KinesisFirehoseStreamV2) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := k.validateBindParameters(_rule); err != nil {
+func (k *jsiiProxy_KinesisFirehoseStreamV2) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := k.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -70,7 +74,7 @@ func (k *jsiiProxy_KinesisFirehoseStreamV2) Bind(_rule awsevents.IRule, _id *str
 	_jsii_.Invoke(
 		k,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

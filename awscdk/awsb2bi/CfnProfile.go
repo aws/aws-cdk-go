@@ -66,6 +66,7 @@ type CfnProfile interface {
 	CreationStack() *[]*string
 	Email() *string
 	SetEmail(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether or not logging is enabled for this profile.
 	Logging() *string
 	SetLogging(val *string)
@@ -364,6 +365,16 @@ func (j *jsiiProxy_CfnProfile) Email() *string {
 	_jsii_.Get(
 		j,
 		"email",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

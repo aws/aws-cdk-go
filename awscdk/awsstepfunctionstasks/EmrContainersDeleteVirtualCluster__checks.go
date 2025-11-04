@@ -192,9 +192,9 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateMetricTimedOutPara
 	return nil
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

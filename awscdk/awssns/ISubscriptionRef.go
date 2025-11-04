@@ -3,6 +3,7 @@ package awssns
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ISubscriptionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Subscription resource.
 	// Experimental.
 	SubscriptionRef() *SubscriptionReference
@@ -19,6 +21,7 @@ type ISubscriptionRef interface {
 // The jsii proxy for ISubscriptionRef
 type jsiiProxy_ISubscriptionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ISubscriptionRef) SubscriptionRef() *SubscriptionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ISubscriptionRef) SubscriptionRef() *SubscriptionReference {
 	_jsii_.Get(
 		j,
 		"subscriptionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubscriptionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubscriptionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

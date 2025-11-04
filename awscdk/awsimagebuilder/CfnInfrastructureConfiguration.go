@@ -83,6 +83,7 @@ type CfnInfrastructureConfiguration interface {
 	// The description of the infrastructure configuration.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a InfrastructureConfiguration resource.
 	InfrastructureConfigurationRef() *InfrastructureConfigurationReference
 	// The instance metadata options that you can set for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
@@ -360,6 +361,16 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

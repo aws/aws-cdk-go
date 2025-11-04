@@ -26,7 +26,7 @@ import (
 type CloudFrontTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for CloudFrontTarget
@@ -91,8 +91,8 @@ func CloudFrontTarget_CLOUDFRONT_ZONE_ID() *string {
 	return returns
 }
 
-func (c *jsiiProxy_CloudFrontTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := c.validateBindParameters(_record); err != nil {
+func (c *jsiiProxy_CloudFrontTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := c.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -100,7 +100,7 @@ func (c *jsiiProxy_CloudFrontTarget) Bind(_record awsroute53.IRecordSet, _zone a
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{_record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

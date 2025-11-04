@@ -83,6 +83,7 @@ type CfnApplication interface {
 	// The display name of the application.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The icon S3 location of the application.
 	IconS3Location() interface{}
 	SetIconS3Location(val interface{})
@@ -383,6 +384,16 @@ func (j *jsiiProxy_CfnApplication) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

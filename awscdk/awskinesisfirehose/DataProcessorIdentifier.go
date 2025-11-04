@@ -17,8 +17,6 @@ package awskinesisfirehose
 //
 type DataProcessorIdentifier struct {
 	// The parameter name that corresponds to the processor resource's identifier.
-	//
-	// Must be an accepted value in `CfnDeliveryStream.ProcessoryParameterProperty.ParameterName`.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The identifier of the underlying processor resource.
 	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`

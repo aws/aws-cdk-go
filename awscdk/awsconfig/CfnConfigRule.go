@@ -113,6 +113,7 @@ type CfnConfigRule interface {
 	// The description that you provide for the AWS Config rule.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The modes the AWS Config rule can be evaluated in.
 	EvaluationModes() interface{}
 	SetEvaluationModes(val interface{})
@@ -401,6 +402,16 @@ func (j *jsiiProxy_CfnConfigRule) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -88,6 +88,7 @@ type CfnDetector interface {
 	// Specifies whether the detector is to be enabled on creation.
 	Enable() interface{}
 	SetEnable(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A list of features that will be configured for the detector.
 	Features() interface{}
 	SetFeatures(val interface{})
@@ -343,6 +344,16 @@ func (j *jsiiProxy_CfnDetector) Enable() interface{} {
 	_jsii_.Get(
 		j,
 		"enable",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDetector) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

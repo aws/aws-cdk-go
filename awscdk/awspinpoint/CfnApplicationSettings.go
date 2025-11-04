@@ -66,6 +66,7 @@ type CfnApplicationSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The default sending limits for campaigns in the application.
 	Limits() interface{}
 	SetLimits(val interface{})
@@ -325,6 +326,16 @@ func (j *jsiiProxy_CfnApplicationSettings) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

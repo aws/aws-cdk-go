@@ -58,6 +58,7 @@ type CfnGroupVersion interface {
 	// The ARN of the device definition version that contains the devices you want to deploy with the group version.
 	DeviceDefinitionVersionArn() *string
 	SetDeviceDefinitionVersionArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the function definition version that contains the functions you want to deploy with the group version.
 	FunctionDefinitionVersionArn() *string
 	SetFunctionDefinitionVersionArn(val *string)
@@ -318,6 +319,16 @@ func (j *jsiiProxy_CfnGroupVersion) DeviceDefinitionVersionArn() *string {
 	_jsii_.Get(
 		j,
 		"deviceDefinitionVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGroupVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

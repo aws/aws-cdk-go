@@ -147,6 +147,7 @@ type CfnApp interface {
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion() interface{}
 	SetEnableBranchAutoDeletion(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The environment variables for the Amplify app.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
@@ -527,6 +528,16 @@ func (j *jsiiProxy_CfnApp) EnableBranchAutoDeletion() interface{} {
 	_jsii_.Get(
 		j,
 		"enableBranchAutoDeletion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApp) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -52,7 +52,7 @@ import (
 type Sns interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Sns
@@ -87,8 +87,8 @@ func NewSns_Override(s Sns, props *SnsProps) {
 	)
 }
 
-func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := s.validateBindParameters(_rule); err != nil {
+func (s *jsiiProxy_Sns) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := s.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -96,7 +96,7 @@ func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActio
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

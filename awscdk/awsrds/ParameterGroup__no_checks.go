@@ -12,11 +12,11 @@ func (p *jsiiProxy_ParameterGroup) validateApplyRemovalPolicyParameters(policy a
 	return nil
 }
 
-func (p *jsiiProxy_ParameterGroup) validateBindToClusterParameters(_options *ParameterGroupClusterBindOptions) error {
+func (p *jsiiProxy_ParameterGroup) validateBindToClusterParameters(options *ParameterGroupClusterBindOptions) error {
 	return nil
 }
 
-func (p *jsiiProxy_ParameterGroup) validateBindToInstanceParameters(_options *ParameterGroupInstanceBindOptions) error {
+func (p *jsiiProxy_ParameterGroup) validateBindToInstanceParameters(options *ParameterGroupInstanceBindOptions) error {
 	return nil
 }
 

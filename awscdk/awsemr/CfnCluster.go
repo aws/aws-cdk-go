@@ -70,6 +70,7 @@ type CfnCluster interface {
 	// The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	EbsRootVolumeThroughput() *float64
 	SetEbsRootVolumeThroughput(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// A specification of the number and type of Amazon EC2 instances.
 	Instances() interface{}
 	SetInstances(val interface{})
@@ -456,6 +457,16 @@ func (j *jsiiProxy_CfnCluster) EbsRootVolumeThroughput() *float64 {
 	_jsii_.Get(
 		j,
 		"ebsRootVolumeThroughput",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

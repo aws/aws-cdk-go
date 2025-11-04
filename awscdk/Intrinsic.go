@@ -33,7 +33,7 @@ type Intrinsic interface {
 	// Creates a throwable Error object that contains the token creation stack trace.
 	NewError(message *string) interface{}
 	// Produce the Token's value at resolution time.
-	Resolve(_context IResolveContext) interface{}
+	Resolve(context IResolveContext) interface{}
 	// Turn this Token into JSON.
 	//
 	// Called automatically when JSON.stringify() is called on a Token.
@@ -121,8 +121,8 @@ func (i *jsiiProxy_Intrinsic) NewError(message *string) interface{} {
 	return returns
 }
 
-func (i *jsiiProxy_Intrinsic) Resolve(_context IResolveContext) interface{} {
-	if err := i.validateResolveParameters(_context); err != nil {
+func (i *jsiiProxy_Intrinsic) Resolve(context IResolveContext) interface{} {
+	if err := i.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -130,7 +130,7 @@ func (i *jsiiProxy_Intrinsic) Resolve(_context IResolveContext) interface{} {
 	_jsii_.Invoke(
 		i,
 		"resolve",
-		[]interface{}{_context},
+		[]interface{}{context},
 		&returns,
 	)
 

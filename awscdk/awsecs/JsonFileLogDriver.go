@@ -31,7 +31,7 @@ import (
 type JsonFileLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for JsonFileLogDriver
@@ -87,8 +87,8 @@ func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
-	if err := j.validateBindParameters(_scope, _containerDefinition); err != nil {
+func (j *jsiiProxy_JsonFileLogDriver) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := j.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}
 	var returns *LogDriverConfig
@@ -96,7 +96,7 @@ func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope constructs.Construct, _contain
 	_jsii_.Invoke(
 		j,
 		"bind",
-		[]interface{}{_scope, _containerDefinition},
+		[]interface{}{scope, containerDefinition},
 		&returns,
 	)
 

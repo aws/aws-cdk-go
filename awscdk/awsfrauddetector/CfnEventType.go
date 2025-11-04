@@ -111,6 +111,7 @@ type CfnEventType interface {
 	// The event type entity types.
 	EntityTypes() interface{}
 	SetEntityTypes(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a EventType resource.
 	EventTypeRef() *EventTypeReference
 	// The event type event variables.
@@ -381,6 +382,16 @@ func (j *jsiiProxy_CfnEventType) EntityTypes() interface{} {
 	_jsii_.Get(
 		j,
 		"entityTypes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventType) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

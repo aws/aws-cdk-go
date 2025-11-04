@@ -32,7 +32,7 @@ type FunctionHook interface {
 	// If the `IRole` does not exist in `options`, will create an `IRole` and an SNS Topic and attach both to the lifecycle hook.
 	//
 	// If the `IRole` does exist in `options`, will only create an SNS Topic and attach it to the lifecycle hook.
-	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for FunctionHook
@@ -67,8 +67,8 @@ func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryption
 	)
 }
 
-func (f *jsiiProxy_FunctionHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
-	if err := f.validateBindParameters(_scope, options); err != nil {
+func (f *jsiiProxy_FunctionHook) Bind(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
+	if err := f.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awsautoscaling.LifecycleHookTargetConfig
@@ -76,7 +76,7 @@ func (f *jsiiProxy_FunctionHook) Bind(_scope constructs.Construct, options *awsa
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

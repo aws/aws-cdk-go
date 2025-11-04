@@ -63,6 +63,7 @@ type CfnList interface {
 	// The elements in the list.
 	Elements() *[]*string
 	SetElements(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a List resource.
 	ListRef() *ListReference
 	// The logical ID for this CloudFormation stack element.
@@ -330,6 +331,16 @@ func (j *jsiiProxy_CfnList) Elements() *[]*string {
 	_jsii_.Get(
 		j,
 		"elements",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnList) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

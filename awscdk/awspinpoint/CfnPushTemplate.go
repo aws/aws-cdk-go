@@ -108,6 +108,7 @@ type CfnPushTemplate interface {
 	// A JSON object that specifies the default values to use for message variables in the message template.
 	DefaultSubstitutions() *string
 	SetDefaultSubstitutions(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 	Gcm() interface{}
 	SetGcm(val interface{})
@@ -398,6 +399,16 @@ func (j *jsiiProxy_CfnPushTemplate) DefaultSubstitutions() *string {
 	_jsii_.Get(
 		j,
 		"defaultSubstitutions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPushTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -43,7 +43,7 @@ type DynamicInput interface {
 	DisplayHint() *string
 	// Produce the Token's value at resolution time.
 	// Experimental.
-	Resolve(_context awscdk.IResolveContext) interface{}
+	Resolve(context awscdk.IResolveContext) interface{}
 	// Return a JSON representation of a dynamic input.
 	// Experimental.
 	ToJSON() *string
@@ -186,8 +186,8 @@ func DynamicInput_TargetArn() DynamicInput {
 	return returns
 }
 
-func (d *jsiiProxy_DynamicInput) Resolve(_context awscdk.IResolveContext) interface{} {
-	if err := d.validateResolveParameters(_context); err != nil {
+func (d *jsiiProxy_DynamicInput) Resolve(context awscdk.IResolveContext) interface{} {
+	if err := d.validateResolveParameters(context); err != nil {
 		panic(err)
 	}
 	var returns interface{}
@@ -195,7 +195,7 @@ func (d *jsiiProxy_DynamicInput) Resolve(_context awscdk.IResolveContext) interf
 	_jsii_.Invoke(
 		d,
 		"resolve",
-		[]interface{}{_context},
+		[]interface{}{context},
 		&returns,
 	)
 

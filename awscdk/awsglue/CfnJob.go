@@ -96,6 +96,7 @@ type CfnJob interface {
 	// A description of the job.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Indicates whether the job is run with a standard or flexible execution class.
 	ExecutionClass() *string
 	SetExecutionClass(val *string)
@@ -410,6 +411,16 @@ func (j *jsiiProxy_CfnJob) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJob) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

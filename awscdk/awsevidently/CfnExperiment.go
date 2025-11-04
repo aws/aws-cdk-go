@@ -100,6 +100,7 @@ type CfnExperiment interface {
 	// An optional description of the experiment.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Experiment resource.
 	ExperimentRef() *ExperimentReference
 	// The logical ID for this CloudFormation stack element.
@@ -361,6 +362,16 @@ func (j *jsiiProxy_CfnExperiment) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExperiment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

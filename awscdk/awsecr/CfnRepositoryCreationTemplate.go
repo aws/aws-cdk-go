@@ -79,6 +79,7 @@ type CfnRepositoryCreationTemplate interface {
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
@@ -362,6 +363,16 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) EncryptionConfiguration() inte
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepositoryCreationTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

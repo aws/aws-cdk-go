@@ -129,6 +129,7 @@ type CfnDataLakeSettings interface {
 	CreationStack() *[]*string
 	// A reference to a DataLakeSettings resource.
 	DataLakeSettingsRef() *DataLakeSettingsReference
+	Env() *awscdk.ResourceEnvironment
 	// A list of the account IDs of AWS accounts with Amazon EMR clusters or third-party engines that are allwed to perform data filtering.
 	ExternalDataFilteringAllowList() interface{}
 	SetExternalDataFilteringAllowList(val interface{})
@@ -424,6 +425,16 @@ func (j *jsiiProxy_CfnDataLakeSettings) DataLakeSettingsRef() *DataLakeSettingsR
 	_jsii_.Get(
 		j,
 		"dataLakeSettingsRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataLakeSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

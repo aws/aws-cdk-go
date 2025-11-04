@@ -32,7 +32,7 @@ func (e *jsiiProxy_Environment) validateGrantParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
-func (e *jsiiProxy_Environment) validateGrantReadConfigParameters(identity awsiam.IGrantable) error {
+func (e *jsiiProxy_Environment) validateGrantReadConfigParameters(grantee awsiam.IGrantable) error {
 	return nil
 }
 

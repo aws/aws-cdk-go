@@ -4,11 +4,11 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DefaultTokenResolver) validateResolveListParameters(xs *[]*string, context IResolveContext) error {
+func (d *jsiiProxy_DefaultTokenResolver) validateResolveListParameters(l *[]*string, context IResolveContext) error {
 	return nil
 }
 
-func (d *jsiiProxy_DefaultTokenResolver) validateResolveStringParameters(fragments TokenizedStringFragments, context IResolveContext) error {
+func (d *jsiiProxy_DefaultTokenResolver) validateResolveStringParameters(s TokenizedStringFragments, context IResolveContext) error {
 	return nil
 }
 

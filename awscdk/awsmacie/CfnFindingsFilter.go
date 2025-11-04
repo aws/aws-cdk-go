@@ -84,6 +84,7 @@ type CfnFindingsFilter interface {
 	// The description can contain 1-512 characters.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The criteria to use to filter findings.
 	FindingCriteria() interface{}
 	SetFindingCriteria(val interface{})
@@ -364,6 +365,16 @@ func (j *jsiiProxy_CfnFindingsFilter) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFindingsFilter) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -37,6 +37,7 @@ type CfnQueueFleetAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the farm that contains the queue and the fleet.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -251,6 +252,16 @@ func (j *jsiiProxy_CfnQueueFleetAssociation) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueueFleetAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (b *jsiiProxy_BucketPolicy) validateApplyRemovalPolicyParameters(removalPolicy awscdk.RemovalPolicy) error {
-	if removalPolicy == "" {
-		return fmt.Errorf("parameter removalPolicy is required, but nil was provided")
+func (b *jsiiProxy_BucketPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil

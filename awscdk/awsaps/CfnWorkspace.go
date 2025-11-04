@@ -93,6 +93,7 @@ type CfnWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// (optional) The ARN for a customer managed AWS KMS key to use for encrypting data within your workspace.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -366,6 +367,16 @@ func (j *jsiiProxy_CfnWorkspace) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkspace) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

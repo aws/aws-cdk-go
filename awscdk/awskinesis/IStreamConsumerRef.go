@@ -3,6 +3,7 @@ package awskinesis
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IStreamConsumerRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a StreamConsumer resource.
 	// Experimental.
 	StreamConsumerRef() *StreamConsumerReference
@@ -19,6 +21,7 @@ type IStreamConsumerRef interface {
 // The jsii proxy for IStreamConsumerRef
 type jsiiProxy_IStreamConsumerRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IStreamConsumerRef) StreamConsumerRef() *StreamConsumerReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IStreamConsumerRef) StreamConsumerRef() *StreamConsumerRefere
 	_jsii_.Get(
 		j,
 		"streamConsumerRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStreamConsumerRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStreamConsumerRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

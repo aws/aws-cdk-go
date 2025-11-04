@@ -58,6 +58,7 @@ type CfnDBSubnetGroup interface {
 	SetDbSubnetGroupName(val *string)
 	// A reference to a DBSubnetGroup resource.
 	DbSubnetGroupRef() *DBSubnetGroupReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -300,6 +301,16 @@ func (j *jsiiProxy_CfnDBSubnetGroup) DbSubnetGroupRef() *DBSubnetGroupReference 
 	_jsii_.Get(
 		j,
 		"dbSubnetGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBSubnetGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

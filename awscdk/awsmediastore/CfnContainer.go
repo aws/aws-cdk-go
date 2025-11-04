@@ -95,6 +95,7 @@ type CfnContainer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	LifecyclePolicy() *string
 	SetLifecyclePolicy(val *string)
@@ -372,6 +373,16 @@ func (j *jsiiProxy_CfnContainer) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

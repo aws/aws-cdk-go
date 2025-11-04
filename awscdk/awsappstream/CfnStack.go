@@ -110,6 +110,7 @@ type CfnStack interface {
 	// The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
 	EmbedHostDomains() *[]*string
 	SetEmbedHostDomains(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The URL that users are redirected to after they click the Send Feedback link.
 	FeedbackUrl() *string
 	SetFeedbackUrl(val *string)
@@ -419,6 +420,16 @@ func (j *jsiiProxy_CfnStack) EmbedHostDomains() *[]*string {
 	_jsii_.Get(
 		j,
 		"embedHostDomains",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStack) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

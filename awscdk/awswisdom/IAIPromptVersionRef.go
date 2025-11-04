@@ -3,6 +3,7 @@ package awswisdom
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IAIPromptVersionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a AIPromptVersion resource.
 	// Experimental.
 	AiPromptVersionRef() *AIPromptVersionReference
@@ -19,6 +21,7 @@ type IAIPromptVersionRef interface {
 // The jsii proxy for IAIPromptVersionRef
 type jsiiProxy_IAIPromptVersionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IAIPromptVersionRef) AiPromptVersionRef() *AIPromptVersionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IAIPromptVersionRef) AiPromptVersionRef() *AIPromptVersionRef
 	_jsii_.Get(
 		j,
 		"aiPromptVersionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAIPromptVersionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAIPromptVersionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

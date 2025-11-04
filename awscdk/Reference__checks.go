@@ -16,9 +16,9 @@ func (r *jsiiProxy_Reference) validateNewErrorParameters(message *string) error 
 	return nil
 }
 
-func (r *jsiiProxy_Reference) validateResolveParameters(_context IResolveContext) error {
-	if _context == nil {
-		return fmt.Errorf("parameter _context is required, but nil was provided")
+func (r *jsiiProxy_Reference) validateResolveParameters(context IResolveContext) error {
+	if context == nil {
+		return fmt.Errorf("parameter context is required, but nil was provided")
 	}
 
 	return nil

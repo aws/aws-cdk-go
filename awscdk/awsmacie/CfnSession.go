@@ -48,6 +48,7 @@ type CfnSession interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
 	FindingPublishingFrequency() *string
 	SetFindingPublishingFrequency(val *string)
@@ -289,6 +290,16 @@ func (j *jsiiProxy_CfnSession) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSession) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

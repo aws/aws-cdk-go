@@ -363,6 +363,7 @@ type CfnSegmentDefinition interface {
 	// The name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -638,6 +639,16 @@ func (j *jsiiProxy_CfnSegmentDefinition) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSegmentDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

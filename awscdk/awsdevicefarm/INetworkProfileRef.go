@@ -3,6 +3,7 @@ package awsdevicefarm
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevicefarm/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type INetworkProfileRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a NetworkProfile resource.
 	// Experimental.
 	NetworkProfileRef() *NetworkProfileReference
@@ -19,6 +21,7 @@ type INetworkProfileRef interface {
 // The jsii proxy for INetworkProfileRef
 type jsiiProxy_INetworkProfileRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_INetworkProfileRef) NetworkProfileRef() *NetworkProfileReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_INetworkProfileRef) NetworkProfileRef() *NetworkProfileRefere
 	_jsii_.Get(
 		j,
 		"networkProfileRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkProfileRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkProfileRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

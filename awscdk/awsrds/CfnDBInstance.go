@@ -307,6 +307,7 @@ type CfnDBInstance interface {
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	Iops() *float64
 	SetIops(val *float64)
@@ -1329,6 +1330,16 @@ func (j *jsiiProxy_CfnDBInstance) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

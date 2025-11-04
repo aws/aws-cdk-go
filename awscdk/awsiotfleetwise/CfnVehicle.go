@@ -87,6 +87,7 @@ type CfnVehicle interface {
 	// The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.
 	DecoderManifestArn() *string
 	SetDecoderManifestArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -367,6 +368,16 @@ func (j *jsiiProxy_CfnVehicle) DecoderManifestArn() *string {
 	_jsii_.Get(
 		j,
 		"decoderManifestArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVehicle) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

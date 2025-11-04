@@ -71,6 +71,7 @@ type CfnDeviceDefinition interface {
 	CreationStack() *[]*string
 	// A reference to a DeviceDefinition resource.
 	DeviceDefinitionRef() *DeviceDefinitionReference
+	Env() *awscdk.ResourceEnvironment
 	// The device definition version to include when the device definition is created.
 	InitialVersion() interface{}
 	SetInitialVersion(val interface{})
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnDeviceDefinition) DeviceDefinitionRef() *DeviceDefinitionR
 	_jsii_.Get(
 		j,
 		"deviceDefinitionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeviceDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

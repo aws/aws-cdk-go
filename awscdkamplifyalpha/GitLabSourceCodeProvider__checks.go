@@ -8,9 +8,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (g *jsiiProxy_GitLabSourceCodeProvider) validateBindParameters(_app App) error {
-	if _app == nil {
-		return fmt.Errorf("parameter _app is required, but nil was provided")
+func (g *jsiiProxy_GitLabSourceCodeProvider) validateBindParameters(app App) error {
+	if app == nil {
+		return fmt.Errorf("parameter app is required, but nil was provided")
 	}
 
 	return nil

@@ -111,6 +111,7 @@ type CfnIdMappingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	IdMappingIncrementalRunConfig() interface{}
 	SetIdMappingIncrementalRunConfig(val interface{})
 	// An object which defines the ID mapping technique and any additional configurations.
@@ -387,6 +388,16 @@ func (j *jsiiProxy_CfnIdMappingWorkflow) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdMappingWorkflow) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

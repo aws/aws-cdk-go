@@ -52,6 +52,7 @@ type CfnTypeActivation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *ResourceEnvironment
 	// The name of the IAM execution role to use to activate the extension.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
@@ -304,6 +305,16 @@ func (j *jsiiProxy_CfnTypeActivation) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTypeActivation) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

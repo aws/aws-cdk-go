@@ -25,7 +25,7 @@ import (
 type UserPoolDomainTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for UserPoolDomainTarget
@@ -60,7 +60,7 @@ func NewUserPoolDomainTarget_Override(u UserPoolDomainTarget, domain awscognito.
 	)
 }
 
-func (u *jsiiProxy_UserPoolDomainTarget) Bind(record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+func (u *jsiiProxy_UserPoolDomainTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	if err := u.validateBindParameters(record); err != nil {
 		panic(err)
 	}
@@ -69,7 +69,7 @@ func (u *jsiiProxy_UserPoolDomainTarget) Bind(record awsroute53.IRecordSet, _zon
 	_jsii_.Invoke(
 		u,
 		"bind",
-		[]interface{}{record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

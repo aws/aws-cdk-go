@@ -75,6 +75,7 @@ type CfnAlarm interface {
 	// The number of data points within the evaluation periods that must be breaching to cause the alarm to go to the `ALARM` state.
 	DatapointsToAlarm() *float64
 	SetDatapointsToAlarm(val *float64)
+	Env() *awscdk.ResourceEnvironment
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
@@ -369,6 +370,16 @@ func (j *jsiiProxy_CfnAlarm) DatapointsToAlarm() *float64 {
 	_jsii_.Get(
 		j,
 		"datapointsToAlarm",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlarm) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

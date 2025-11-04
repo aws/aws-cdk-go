@@ -10,9 +10,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
-func (u *jsiiProxy_UrlSubscription) validateBindParameters(_topic awssns.ITopic) error {
-	if _topic == nil {
-		return fmt.Errorf("parameter _topic is required, but nil was provided")
+func (u *jsiiProxy_UrlSubscription) validateBindParameters(topic awssns.ITopic) error {
+	if topic == nil {
+		return fmt.Errorf("parameter topic is required, but nil was provided")
 	}
 
 	return nil

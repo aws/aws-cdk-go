@@ -24,9 +24,9 @@ func (v *jsiiProxy_ViaServicePrincipal) validateAddToPolicyParameters(statement 
 	return nil
 }
 
-func (v *jsiiProxy_ViaServicePrincipal) validateAddToPrincipalPolicyParameters(_statement awsiam.PolicyStatement) error {
-	if _statement == nil {
-		return fmt.Errorf("parameter _statement is required, but nil was provided")
+func (v *jsiiProxy_ViaServicePrincipal) validateAddToPrincipalPolicyParameters(statement awsiam.PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
 	}
 
 	return nil

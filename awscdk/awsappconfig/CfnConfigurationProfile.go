@@ -92,6 +92,7 @@ type CfnConfigurationProfile interface {
 	// A description of the configuration profile.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -389,6 +390,16 @@ func (j *jsiiProxy_CfnConfigurationProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

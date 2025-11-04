@@ -86,6 +86,7 @@ type CfnManagedPolicy interface {
 	// A friendly description of the policy.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name (friendly name, not ARN) of the group to attach the policy to.
 	Groups() *[]*string
 	SetGroups(val *[]*string)
@@ -399,6 +400,16 @@ func (j *jsiiProxy_CfnManagedPolicy) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnManagedPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

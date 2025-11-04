@@ -25,7 +25,7 @@ import (
 type S3Destination interface {
 	awslambda.IDestination
 	// Returns a destination configuration.
-	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for S3Destination
@@ -60,8 +60,8 @@ func NewS3Destination_Override(s S3Destination, bucket awss3.IBucket) {
 	)
 }
 
-func (s *jsiiProxy_S3Destination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
-	if err := s.validateBindParameters(_scope, fn, _options); err != nil {
+func (s *jsiiProxy_S3Destination) Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+	if err := s.validateBindParameters(scope, fn, options); err != nil {
 		panic(err)
 	}
 	var returns *awslambda.DestinationConfig
@@ -69,7 +69,7 @@ func (s *jsiiProxy_S3Destination) Bind(_scope constructs.Construct, fn awslambda
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, fn, _options},
+		[]interface{}{scope, fn, options},
 		&returns,
 	)
 

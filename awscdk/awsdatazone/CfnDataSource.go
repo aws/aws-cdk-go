@@ -164,6 +164,7 @@ type CfnDataSource interface {
 	// Specifies whether the data source is enabled.
 	EnableSetting() *string
 	SetEnableSetting(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -568,6 +569,16 @@ func (j *jsiiProxy_CfnDataSource) EnableSetting() *string {
 	_jsii_.Get(
 		j,
 		"enableSetting",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

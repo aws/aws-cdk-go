@@ -192,9 +192,9 @@ func (a *jsiiProxy_AthenaStopQueryExecution) validateMetricTimedOutParameters(pr
 	return nil
 }
 
-func (a *jsiiProxy_AthenaStopQueryExecution) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (a *jsiiProxy_AthenaStopQueryExecution) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

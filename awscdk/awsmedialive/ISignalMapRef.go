@@ -3,6 +3,7 @@ package awsmedialive
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ISignalMapRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a SignalMap resource.
 	// Experimental.
 	SignalMapRef() *SignalMapReference
@@ -19,6 +21,7 @@ type ISignalMapRef interface {
 // The jsii proxy for ISignalMapRef
 type jsiiProxy_ISignalMapRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ISignalMapRef) SignalMapRef() *SignalMapReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ISignalMapRef) SignalMapRef() *SignalMapReference {
 	_jsii_.Get(
 		j,
 		"signalMapRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISignalMapRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISignalMapRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

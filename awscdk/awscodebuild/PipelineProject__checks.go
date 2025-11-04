@@ -39,9 +39,9 @@ func (p *jsiiProxy_PipelineProject) validateAddSecondarySourceParameters(seconda
 	return nil
 }
 
-func (p *jsiiProxy_PipelineProject) validateAddToRolePolicyParameters(statement awsiam.PolicyStatement) error {
-	if statement == nil {
-		return fmt.Errorf("parameter statement is required, but nil was provided")
+func (p *jsiiProxy_PipelineProject) validateAddToRolePolicyParameters(policyStatement awsiam.PolicyStatement) error {
+	if policyStatement == nil {
+		return fmt.Errorf("parameter policyStatement is required, but nil was provided")
 	}
 
 	return nil
@@ -55,9 +55,9 @@ func (p *jsiiProxy_PipelineProject) validateApplyRemovalPolicyParameters(policy 
 	return nil
 }
 
-func (p *jsiiProxy_PipelineProject) validateBindAsNotificationRuleSourceParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (p *jsiiProxy_PipelineProject) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

@@ -45,12 +45,13 @@ type CrossAccountDestination interface {
 	DestinationName() *string
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
@@ -85,7 +86,7 @@ type CrossAccountDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(_scope constructs.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -314,8 +315,8 @@ func (c *jsiiProxy_CrossAccountDestination) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-func (c *jsiiProxy_CrossAccountDestination) Bind(_scope constructs.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
-	if err := c.validateBindParameters(_scope, _sourceLogGroup); err != nil {
+func (c *jsiiProxy_CrossAccountDestination) Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+	if err := c.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}
 	var returns *LogSubscriptionDestinationConfig
@@ -323,7 +324,7 @@ func (c *jsiiProxy_CrossAccountDestination) Bind(_scope constructs.Construct, _s
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{_scope, _sourceLogGroup},
+		[]interface{}{scope, sourceLogGroup},
 		&returns,
 	)
 

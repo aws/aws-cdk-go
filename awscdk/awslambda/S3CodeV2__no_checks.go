@@ -4,7 +4,7 @@ package awslambda
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3CodeV2) validateBindParameters(_scope constructs.Construct) error {
+func (s *jsiiProxy_S3CodeV2) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 

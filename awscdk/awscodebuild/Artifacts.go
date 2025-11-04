@@ -35,7 +35,7 @@ type Artifacts interface {
 	// The CodeBuild type of this artifact.
 	Type() *string
 	// Callback when an Artifacts class is used in a CodeBuild Project.
-	Bind(_scope constructs.Construct, _project IProject) *ArtifactsConfig
+	Bind(scope constructs.Construct, project IProject) *ArtifactsConfig
 }
 
 // The jsii proxy struct for Artifacts
@@ -92,8 +92,8 @@ func Artifacts_S3(props *S3ArtifactsProps) IArtifacts {
 	return returns
 }
 
-func (a *jsiiProxy_Artifacts) Bind(_scope constructs.Construct, _project IProject) *ArtifactsConfig {
-	if err := a.validateBindParameters(_scope, _project); err != nil {
+func (a *jsiiProxy_Artifacts) Bind(scope constructs.Construct, project IProject) *ArtifactsConfig {
+	if err := a.validateBindParameters(scope, project); err != nil {
 		panic(err)
 	}
 	var returns *ArtifactsConfig
@@ -101,7 +101,7 @@ func (a *jsiiProxy_Artifacts) Bind(_scope constructs.Construct, _project IProjec
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_scope, _project},
+		[]interface{}{scope, project},
 		&returns,
 	)
 

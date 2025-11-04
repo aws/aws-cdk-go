@@ -107,6 +107,7 @@ type CfnDBProxy interface {
 	// The kinds of databases that the proxy can connect to.
 	EngineFamily() *string
 	SetEngineFamily(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout() *float64
 	SetIdleClientTimeout(val *float64)
@@ -442,6 +443,16 @@ func (j *jsiiProxy_CfnDBProxy) EngineFamily() *string {
 	_jsii_.Get(
 		j,
 		"engineFamily",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

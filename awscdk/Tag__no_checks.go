@@ -12,7 +12,7 @@ func (t *jsiiProxy_Tag) validateApplyTagV2Parameters(resource ITaggableV2) error
 	return nil
 }
 
-func (t *jsiiProxy_Tag) validateVisitParameters(construct constructs.IConstruct) error {
+func (t *jsiiProxy_Tag) validateVisitParameters(node constructs.IConstruct) error {
 	return nil
 }
 

@@ -110,6 +110,7 @@ type CfnReplicator interface {
 	// A summary description of the replicator.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Kafka Clusters to use in setting up sources / targets for replication.
 	KafkaClusters() interface{}
 	SetKafkaClusters(val interface{})
@@ -371,6 +372,16 @@ func (j *jsiiProxy_CfnReplicator) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicator) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

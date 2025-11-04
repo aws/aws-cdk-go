@@ -67,6 +67,7 @@ type CfnBlueprint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Name-value pairs to include as an encryption context.
 	KmsEncryptionContext() interface{}
 	SetKmsEncryptionContext(val interface{})
@@ -356,6 +357,16 @@ func (j *jsiiProxy_CfnBlueprint) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBlueprint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

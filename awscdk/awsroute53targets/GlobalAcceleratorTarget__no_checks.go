@@ -4,7 +4,7 @@ package awsroute53targets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_GlobalAcceleratorTarget) validateBindParameters(_record awsroute53.IRecordSet) error {
+func (g *jsiiProxy_GlobalAcceleratorTarget) validateBindParameters(record awsroute53.IRecordSet) error {
 	return nil
 }
 

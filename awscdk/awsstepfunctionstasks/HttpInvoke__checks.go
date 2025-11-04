@@ -192,9 +192,9 @@ func (h *jsiiProxy_HttpInvoke) validateMetricTimedOutParameters(props *awscloudw
 	return nil
 }
 
-func (h *jsiiProxy_HttpInvoke) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (h *jsiiProxy_HttpInvoke) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

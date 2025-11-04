@@ -3,6 +3,7 @@ package awsssm
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IPatchBaselineRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a PatchBaseline resource.
 	// Experimental.
 	PatchBaselineRef() *PatchBaselineReference
@@ -19,6 +21,7 @@ type IPatchBaselineRef interface {
 // The jsii proxy for IPatchBaselineRef
 type jsiiProxy_IPatchBaselineRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IPatchBaselineRef) PatchBaselineRef() *PatchBaselineReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IPatchBaselineRef) PatchBaselineRef() *PatchBaselineReference
 	_jsii_.Get(
 		j,
 		"patchBaselineRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPatchBaselineRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPatchBaselineRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -103,6 +103,7 @@ type CfnCommand interface {
 	// The display name of the command.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The timestamp, when the command was last updated.
 	LastUpdatedAt() *string
 	SetLastUpdatedAt(val *string)
@@ -406,6 +407,16 @@ func (j *jsiiProxy_CfnCommand) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCommand) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

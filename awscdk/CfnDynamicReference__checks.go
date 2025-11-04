@@ -14,9 +14,9 @@ func (c *jsiiProxy_CfnDynamicReference) validateNewErrorParameters(message *stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnDynamicReference) validateResolveParameters(_context IResolveContext) error {
-	if _context == nil {
-		return fmt.Errorf("parameter _context is required, but nil was provided")
+func (c *jsiiProxy_CfnDynamicReference) validateResolveParameters(context IResolveContext) error {
+	if context == nil {
+		return fmt.Errorf("parameter context is required, but nil was provided")
 	}
 
 	return nil

@@ -3,6 +3,7 @@ package awswafregional
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awswafregional/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IRegexPatternSetRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a RegexPatternSet resource.
 	// Experimental.
 	RegexPatternSetRef() *RegexPatternSetReference
@@ -19,6 +21,7 @@ type IRegexPatternSetRef interface {
 // The jsii proxy for IRegexPatternSetRef
 type jsiiProxy_IRegexPatternSetRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IRegexPatternSetRef) RegexPatternSetRef() *RegexPatternSetReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IRegexPatternSetRef) RegexPatternSetRef() *RegexPatternSetRef
 	_jsii_.Get(
 		j,
 		"regexPatternSetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRegexPatternSetRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRegexPatternSetRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -143,6 +143,7 @@ type CfnListener interface {
 	// You cannot define a condition for a default rule.
 	DefaultActions() interface{}
 	SetDefaultActions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The listener attributes.
 	ListenerAttributes() interface{}
 	SetListenerAttributes(val interface{})
@@ -406,6 +407,16 @@ func (j *jsiiProxy_CfnListener) DefaultActions() interface{} {
 	_jsii_.Get(
 		j,
 		"defaultActions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnListener) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -131,6 +131,7 @@ type CfnUserPoolClient interface {
 	// Activates or deactivates token revocation.
 	EnableTokenRevocation() interface{}
 	SetEnableTokenRevocation(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
 	ExplicitAuthFlows() *[]*string
 	SetExplicitAuthFlows(val *[]*string)
@@ -512,6 +513,16 @@ func (j *jsiiProxy_CfnUserPoolClient) EnableTokenRevocation() interface{} {
 	_jsii_.Get(
 		j,
 		"enableTokenRevocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPoolClient) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

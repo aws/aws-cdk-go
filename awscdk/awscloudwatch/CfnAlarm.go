@@ -134,6 +134,7 @@ type CfnAlarm interface {
 	// The dimensions for the metric associated with the alarm.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Used only for alarms based on percentiles.
 	EvaluateLowSampleCountPercentile() *string
 	SetEvaluateLowSampleCountPercentile(val *string)
@@ -487,6 +488,16 @@ func (j *jsiiProxy_CfnAlarm) Dimensions() interface{} {
 	_jsii_.Get(
 		j,
 		"dimensions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlarm) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

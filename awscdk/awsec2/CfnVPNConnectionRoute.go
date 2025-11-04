@@ -43,6 +43,7 @@ type CfnVPNConnectionRoute interface {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock() *string
 	SetDestinationCidrBlock(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -261,6 +262,16 @@ func (j *jsiiProxy_CfnVPNConnectionRoute) DestinationCidrBlock() *string {
 	_jsii_.Get(
 		j,
 		"destinationCidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnectionRoute) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

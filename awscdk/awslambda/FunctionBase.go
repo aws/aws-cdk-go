@@ -29,12 +29,13 @@ type FunctionBase interface {
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN fo the function.
 	FunctionArn() *string
@@ -131,15 +132,15 @@ type FunctionBase interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
+	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
-	GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant
+	GrantInvokeLatestVersion(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke the given version of this Lambda.
-	GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant
+	GrantInvokeVersion(identity awsiam.IGrantable, version IVersion) awsiam.Grant
 	// Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
@@ -557,8 +558,8 @@ func (f *jsiiProxy_FunctionBase) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
-func (f *jsiiProxy_FunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := f.validateGrantInvokeParameters(grantee); err != nil {
+func (f *jsiiProxy_FunctionBase) GrantInvoke(identity awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeParameters(identity); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -566,7 +567,7 @@ func (f *jsiiProxy_FunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.G
 	_jsii_.Invoke(
 		f,
 		"grantInvoke",
-		[]interface{}{grantee},
+		[]interface{}{identity},
 		&returns,
 	)
 
@@ -589,8 +590,8 @@ func (f *jsiiProxy_FunctionBase) GrantInvokeCompositePrincipal(compositePrincipa
 	return returns
 }
 
-func (f *jsiiProxy_FunctionBase) GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := f.validateGrantInvokeLatestVersionParameters(grantee); err != nil {
+func (f *jsiiProxy_FunctionBase) GrantInvokeLatestVersion(identity awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeLatestVersionParameters(identity); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -598,15 +599,15 @@ func (f *jsiiProxy_FunctionBase) GrantInvokeLatestVersion(grantee awsiam.IGranta
 	_jsii_.Invoke(
 		f,
 		"grantInvokeLatestVersion",
-		[]interface{}{grantee},
+		[]interface{}{identity},
 		&returns,
 	)
 
 	return returns
 }
 
-func (f *jsiiProxy_FunctionBase) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := f.validateGrantInvokeUrlParameters(grantee); err != nil {
+func (f *jsiiProxy_FunctionBase) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeUrlParameters(identity); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -614,15 +615,15 @@ func (f *jsiiProxy_FunctionBase) GrantInvokeUrl(grantee awsiam.IGrantable) awsia
 	_jsii_.Invoke(
 		f,
 		"grantInvokeUrl",
-		[]interface{}{grantee},
+		[]interface{}{identity},
 		&returns,
 	)
 
 	return returns
 }
 
-func (f *jsiiProxy_FunctionBase) GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant {
-	if err := f.validateGrantInvokeVersionParameters(grantee, version); err != nil {
+func (f *jsiiProxy_FunctionBase) GrantInvokeVersion(identity awsiam.IGrantable, version IVersion) awsiam.Grant {
+	if err := f.validateGrantInvokeVersionParameters(identity, version); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -630,7 +631,7 @@ func (f *jsiiProxy_FunctionBase) GrantInvokeVersion(grantee awsiam.IGrantable, v
 	_jsii_.Invoke(
 		f,
 		"grantInvokeVersion",
-		[]interface{}{grantee, version},
+		[]interface{}{identity, version},
 		&returns,
 	)
 

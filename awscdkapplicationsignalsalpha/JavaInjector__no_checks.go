@@ -4,7 +4,7 @@ package awscdkapplicationsignalsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (j *jsiiProxy_JavaInjector) validateInjectAdditionalEnvironmentsParameters(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string) error {
+func (j *jsiiProxy_JavaInjector) validateInjectAdditionalEnvironmentsParameters(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string) error {
 	return nil
 }
 
@@ -12,7 +12,7 @@ func (j *jsiiProxy_JavaInjector) validateInjectInitContainerParameters(taskDefin
 	return nil
 }
 
-func (j *jsiiProxy_JavaInjector) validateOverrideAdditionalEnvironmentsParameters(_envsToOverride *map[string]*string, _overrideEnvironments *map[string]*string) error {
+func (j *jsiiProxy_JavaInjector) validateOverrideAdditionalEnvironmentsParameters(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string) error {
 	return nil
 }
 

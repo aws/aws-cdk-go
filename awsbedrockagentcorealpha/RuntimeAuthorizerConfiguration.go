@@ -3,6 +3,8 @@ package awsbedrockagentcorealpha
 import (
 	_init_ "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
 )
 
 // Abstract base class for runtime authorizer configurations.
@@ -18,7 +20,7 @@ import (
 //   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 //   	RuntimeName: jsii.String("myAgent"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingCognito(jsii.String("us-west-2_ABC123"), jsii.String("client123"), jsii.String("us-west-2")),
+//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
 //   })
 //
 // Experimental.
@@ -47,10 +49,10 @@ func NewRuntimeAuthorizerConfiguration_Override(r RuntimeAuthorizerConfiguration
 //
 // Returns: RuntimeAuthorizerConfiguration for Cognito authentication.
 // Experimental.
-func RuntimeAuthorizerConfiguration_UsingCognito(userPoolId *string, clientId *string, region *string, allowedAudience *[]*string) RuntimeAuthorizerConfiguration {
+func RuntimeAuthorizerConfiguration_UsingCognito(userPool awscognito.IUserPool, userPoolClients *[]awscognito.IUserPoolClient, allowedAudience *[]*string) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
-	if err := validateRuntimeAuthorizerConfiguration_UsingCognitoParameters(userPoolId, clientId); err != nil {
+	if err := validateRuntimeAuthorizerConfiguration_UsingCognitoParameters(userPool, userPoolClients); err != nil {
 		panic(err)
 	}
 	var returns RuntimeAuthorizerConfiguration
@@ -58,7 +60,7 @@ func RuntimeAuthorizerConfiguration_UsingCognito(userPoolId *string, clientId *s
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeAuthorizerConfiguration",
 		"usingCognito",
-		[]interface{}{userPoolId, clientId, region, allowedAudience},
+		[]interface{}{userPool, userPoolClients, allowedAudience},
 		&returns,
 	)
 

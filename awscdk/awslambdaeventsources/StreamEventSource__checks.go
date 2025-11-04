@@ -10,9 +10,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
-func (s *jsiiProxy_StreamEventSource) validateBindParameters(_target awslambda.IFunction) error {
-	if _target == nil {
-		return fmt.Errorf("parameter _target is required, but nil was provided")
+func (s *jsiiProxy_StreamEventSource) validateBindParameters(target awslambda.IFunction) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil

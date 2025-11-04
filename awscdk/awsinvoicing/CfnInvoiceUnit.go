@@ -67,6 +67,7 @@ type CfnInvoiceUnit interface {
 	// The assigned description for an invoice unit.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The account that receives invoices related to the invoice unit.
 	InvoiceReceiver() *string
 	SetInvoiceReceiver(val *string)
@@ -328,6 +329,16 @@ func (j *jsiiProxy_CfnInvoiceUnit) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInvoiceUnit) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

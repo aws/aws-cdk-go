@@ -85,6 +85,7 @@ type CfnCampaign interface {
 	// Contains information about the dialer configuration.
 	DialerConfig() interface{}
 	SetDialerConfig(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -340,6 +341,16 @@ func (j *jsiiProxy_CfnCampaign) DialerConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"dialerConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCampaign) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

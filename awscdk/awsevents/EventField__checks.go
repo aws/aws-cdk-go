@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-func (e *jsiiProxy_EventField) validateResolveParameters(_ctx awscdk.IResolveContext) error {
-	if _ctx == nil {
-		return fmt.Errorf("parameter _ctx is required, but nil was provided")
+func (e *jsiiProxy_EventField) validateResolveParameters(context awscdk.IResolveContext) error {
+	if context == nil {
+		return fmt.Errorf("parameter context is required, but nil was provided")
 	}
 
 	return nil

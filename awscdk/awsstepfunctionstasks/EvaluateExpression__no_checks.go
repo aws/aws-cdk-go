@@ -84,7 +84,7 @@ func (e *jsiiProxy_EvaluateExpression) validateMetricTimedOutParameters(props *a
 	return nil
 }
 
-func (e *jsiiProxy_EvaluateExpression) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EvaluateExpression) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

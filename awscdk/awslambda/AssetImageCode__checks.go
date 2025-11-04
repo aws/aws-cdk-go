@@ -22,12 +22,12 @@ func (a *jsiiProxy_AssetImageCode) validateBindParameters(scope constructs.Const
 	return nil
 }
 
-func (a *jsiiProxy_AssetImageCode) validateBindToResourceParameters(resource awscdk.CfnResource, options *ResourceBindOptions) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
+func (a *jsiiProxy_AssetImageCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *ResourceBindOptions) error {
+	if _resource == nil {
+		return fmt.Errorf("parameter _resource is required, but nil was provided")
 	}
 
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
 		return err
 	}
 

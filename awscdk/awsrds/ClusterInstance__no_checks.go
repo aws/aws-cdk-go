@@ -4,7 +4,7 @@ package awsrds
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_ClusterInstance) validateBindParameters(scope constructs.Construct, cluster IDatabaseCluster, props *ClusterInstanceBindOptions) error {
+func (c *jsiiProxy_ClusterInstance) validateBindParameters(scope constructs.Construct, cluster IDatabaseCluster, options *ClusterInstanceBindOptions) error {
 	return nil
 }
 

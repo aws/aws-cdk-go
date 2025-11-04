@@ -218,6 +218,7 @@ type CfnForm interface {
 	// The type of data source to use to create the form.
 	DataType() interface{}
 	SetDataType(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
@@ -493,6 +494,16 @@ func (j *jsiiProxy_CfnForm) DataType() interface{} {
 	_jsii_.Get(
 		j,
 		"dataType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnForm) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -24,9 +24,9 @@ func (t *jsiiProxy_Topic) validateAddLoggingConfigParameters(config *LoggingConf
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
-	if topicSubscription == nil {
-		return fmt.Errorf("parameter topicSubscription is required, but nil was provided")
+func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(subscription ITopicSubscription) error {
+	if subscription == nil {
+		return fmt.Errorf("parameter subscription is required, but nil was provided")
 	}
 
 	return nil
@@ -48,9 +48,9 @@ func (t *jsiiProxy_Topic) validateApplyRemovalPolicyParameters(policy awscdk.Rem
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateBindAsNotificationRuleTargetParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (t *jsiiProxy_Topic) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil
@@ -79,17 +79,17 @@ func (t *jsiiProxy_Topic) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateGrantPublishParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_Topic) validateGrantPublishParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (t *jsiiProxy_Topic) validateGrantSubscribeParameters(grantee awsiam.IGrantable) error {
-	if grantee == nil {
-		return fmt.Errorf("parameter grantee is required, but nil was provided")
+func (t *jsiiProxy_Topic) validateGrantSubscribeParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil

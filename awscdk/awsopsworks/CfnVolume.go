@@ -44,6 +44,7 @@ type CfnVolume interface {
 	// The Amazon EC2 volume ID.
 	Ec2VolumeId() *string
 	SetEc2VolumeId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -278,6 +279,16 @@ func (j *jsiiProxy_CfnVolume) Ec2VolumeId() *string {
 	_jsii_.Get(
 		j,
 		"ec2VolumeId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVolume) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

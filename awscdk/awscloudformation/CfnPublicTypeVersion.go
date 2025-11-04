@@ -63,6 +63,7 @@ type CfnPublicTypeVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
 	LogDeliveryBucket() *string
 	SetLogDeliveryBucket(val *string)
@@ -320,6 +321,16 @@ func (j *jsiiProxy_CfnPublicTypeVersion) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPublicTypeVersion) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

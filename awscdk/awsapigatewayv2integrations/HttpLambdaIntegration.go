@@ -31,7 +31,7 @@ import (
 type HttpLambdaIntegration interface {
 	awsapigatewayv2.HttpRouteIntegration
 	// Bind this integration to the route.
-	Bind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
+	Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
 	// In some cases, there is
@@ -40,7 +40,7 @@ type HttpLambdaIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	CompleteBind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions)
+	CompleteBind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions)
 }
 
 // The jsii proxy struct for HttpLambdaIntegration
@@ -75,8 +75,8 @@ func NewHttpLambdaIntegration_Override(h HttpLambdaIntegration, id *string, hand
 	)
 }
 
-func (h *jsiiProxy_HttpLambdaIntegration) Bind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
-	if err := h.validateBindParameters(_options); err != nil {
+func (h *jsiiProxy_HttpLambdaIntegration) Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
@@ -84,21 +84,21 @@ func (h *jsiiProxy_HttpLambdaIntegration) Bind(_options *awsapigatewayv2.HttpRou
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 
 	return returns
 }
 
-func (h *jsiiProxy_HttpLambdaIntegration) CompleteBind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) {
-	if err := h.validateCompleteBindParameters(options); err != nil {
+func (h *jsiiProxy_HttpLambdaIntegration) CompleteBind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) {
+	if err := h.validateCompleteBindParameters(_options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		h,
 		"completeBind",
-		[]interface{}{options},
+		[]interface{}{_options},
 	)
 }
 

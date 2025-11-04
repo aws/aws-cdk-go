@@ -47,6 +47,12 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
   * [Code Interpreter Network Modes](#code-interpreter-network-modes)
   * [Basic Code Interpreter Creation](#basic-code-interpreter-creation)
   * [Code Interpreter IAM permissions](#code-interpreter-iam-permissions)
+* [Memory](#memory)
+
+  * [Memory properties](#memory-properties)
+  * [Basic Memory Creation](#basic-memory-creation)
+  * [LTM Memory Extraction Stategies](#ltm-memory-extraction-stategies)
+  * [Memory Strategy Methods](#memory-strategy-methods)
 
 ## AgentCore Runtime
 
@@ -116,18 +122,19 @@ runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimePro
 
 To grant the runtime permission to invoke a Bedrock model or inference profile:
 
-```text
+```go
 // Note: This example uses @aws-cdk/aws-bedrock-alpha which must be installed separately
-import * as bedrock from '@aws-cdk/aws-bedrock-alpha';
+var runtime Runtime
+
 
 // Create a cross-region inference profile for Claude 3.7 Sonnet
-const inferenceProfile = bedrock.CrossRegionInferenceProfile.fromConfig({
-  geoRegion: bedrock.CrossRegionInferenceProfileRegion.US,
-  model: bedrock.BedrockFoundationModel.ANTHROPIC_CLAUDE_3_7_SONNET_V1_0
-});
+inferenceProfile := bedrock.CrossRegionInferenceProfile_FromConfig(&CrossRegionInferenceProfileProps{
+	GeoRegion: bedrock.CrossRegionInferenceProfileRegion_US,
+	Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_7_SONNET_V1_0(),
+})
 
 // Grant the runtime permission to invoke the inference profile
-inferenceProfile.grantInvoke(runtime);
+inferenceProfile.GrantInvoke(runtime)
 ```
 
 #### Option 2: Use a local asset
@@ -299,6 +306,11 @@ IAM authentication is the default mode, when no authorizerConfiguration is set t
 To configure AWS Cognito User Pool authentication:
 
 ```go
+var userPool UserPool
+var userPoolClient UserPoolClient
+var anotherUserPoolClient UserPoolClient
+
+
 repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
 	RepositoryName: jsii.String("test-agent-runtime"),
 })
@@ -307,7 +319,10 @@ agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(reposit
 runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 	RuntimeName: jsii.String("myAgent"),
 	AgentRuntimeArtifact: agentRuntimeArtifact,
-	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingCognito(jsii.String("us-west-2_ABC123"), jsii.String("client123"), jsii.String("us-west-2")),
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingCognito(userPool, []IUserPoolClient{
+		userPoolClient,
+		anotherUserPoolClient,
+	}),
 })
 ```
 
@@ -799,4 +814,322 @@ codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeI
 		"Project": jsii.String("AgentCore"),
 	},
 })
+```
+
+## Memory
+
+Memory is a critical component of intelligence. While Large Language Models (LLMs) have impressive capabilities, they lack persistent memory across conversations. Amazon Bedrock AgentCore Memory addresses this limitation by providing a managed service that enables AI agents to maintain context over time, remember important facts, and deliver consistent, personalized experiences.
+
+AgentCore Memory operates on two levels:
+
+* **Short-Term Memory**: Immediate conversation context and session-based information that provides continuity within a single interaction or closely related sessions.
+* **Long-Term Memory**: Persistent information extracted and stored across multiple conversations, including facts, preferences, and summaries that enable personalized experiences over time.
+
+When you interact with the memory via the `CreateEvent` API, you store interactions in Short-Term Memory (STM) instantly. These interactions can include everything from user messages, assistant responses, to tool actions.
+
+To write to long-term memory, you need to configure extraction strategies which define how and where to store information from conversations for future use. These strategies are asynchronously processed from raw events after every few turns based on the strategy that was selected. You can't create long term memory records directly, as they are extracted asynchronously by AgentCore Memory.
+
+### Memory Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `memoryName` | `string` | Yes | The name of the memory |
+| `expirationDuration` | `Duration` | No | Short-term memory expiration in days (between 7 and 365). Default: 90 days |
+| `description` | `string` | No | Optional description for the memory. Default: no description. |
+| `kmsKey` | `IKey` | No | Custom KMS key to use for encryption. Default: Your data is encrypted with a key that AWS owns and manages for you |
+| `memoryStrategies` | `MemoryStrategyBase[]` | No | Built-in extraction strategies to use for this memory. Default: No extraction strategies (short term memory only) |
+| `executionRole` | `iam.IRole` | No | The IAM role that provides permissions for the memory to access AWS services. Default: A new role will be created. |
+| `tags` | `{ [key: string]: string }` | No | Tags for memory. Default: no tags. |
+
+### Basic Memory Creation
+
+Below you can find how to configure a simple short-term memory (STM) with no long-term memory extraction strategies.
+Note how you set `expirationDuration`, which defines the time the events will be stored in the short-term memory before they expire.
+
+```go
+// Create a basic memory with default settings, no LTM strategies
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("A memory for storing user interactions for a period of 90 days"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+})
+```
+
+Basic Memory with Custom KMS Encryption
+
+```go
+// Create a custom KMS key for encryption
+encryptionKey := kms.NewKey(this, jsii.String("MemoryEncryptionKey"), &KeyProps{
+	EnableKeyRotation: jsii.Boolean(true),
+	Description: jsii.String("KMS key for memory encryption"),
+})
+
+// Create memory with custom encryption
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_encrypted_memory"),
+	Description: jsii.String("Memory with custom KMS encryption"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	KmsKey: encryptionKey,
+})
+```
+
+### LTM Memory Extraction Stategies
+
+If you need long-term memory for context recall across sessions, you can setup memory extraction strategies
+to extract the relevant memory from the raw events.
+
+Amazon Bedrock AgentCore Memory has different memory strategies for extracting and organizing information:
+
+* **Summarization**: to summarize interactions to preserve critical context and key insights.
+* **Semantic Memory**: to extract general factual knowledge, concepts and meanings from raw conversations using vector embeddings.
+  This enables similarity-based retrieval of relevant facts and context.
+* **User Preferences**: to extract user behavior patterns from raw conversations.
+
+You can use built-in extraction strategies for quick setup, or create custom extraction strategies with specific models and prompt templates.
+
+### Memory with Built-in Strategies
+
+The library provides three built-in LTM strategies. These are default strategies for organizing and extracting memory data,
+each optimized for specific use cases.
+
+For example: An agent helps multiple users with cloud storage setup. From these conversations,
+see how each strategy processes users expressing confusion about account connection:
+
+1. **Summarization Strategy** (`MemoryStrategy.usingBuiltInSummarization()`)
+   This strategy compresses conversations into concise overviews, preserving essential context and key insights for quick recall.
+   Extracted memory example: Users confused by cloud setup during onboarding.
+
+   * Extracts concise summaries to preserve critical context and key insights
+   * Namespace: `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`
+2. **Semantic Memory Strategy** (`MemoryStrategy.usingBuiltInSemantic()`)
+   Distills general facts, concepts, and underlying meanings from raw conversational data, presenting the information in a context-independent format.
+   Extracted memory example: In-context learning = task-solving via examples, no training needed.
+
+   * Extracts general factual knowledge, concepts and meanings from raw conversations
+   * Namespace: `/strategies/{memoryStrategyId}/actors/{actorId}`
+3. **User Preference Strategy** (`MemoryStrategy.usingBuiltInUserPreference()`)
+   Captures individual preferences, interaction patterns, and personalized settings to enhance future experiences.
+   Extracted memory example: User needs clear guidance on cloud storage account connection during onboarding.
+
+   * Extracts user behavior patterns from raw conversations
+   * Namespace: `/strategies/{memoryStrategyId}/actors/{actorId}`
+
+```go
+// Create memory with built-in strategies
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("Memory with built-in strategies"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		agentcore.MemoryStrategy_UsingBuiltInSummarization(),
+		agentcore.MemoryStrategy_UsingBuiltInSemantic(),
+		agentcore.MemoryStrategy_UsingBuiltInUserPreference(),
+	},
+})
+```
+
+The name generated for each built in memory strategy is as follows:
+
+* For Summarization: `summary_builtin_cdk001`
+* For Semantic:`semantic_builtin_cdk001>`
+* For User Preferences: `preference_builtin_cdk001`
+
+### Memory with custom Strategies
+
+With Long-Term Memory, organization is managed through Namespaces.
+
+An `actor` refers to entity such as end users or agent/user combinations. For example, in a coding support chatbot,
+the actor is usually the developer asking questions. Using the actor ID helps the system know which user the memory belongs to,
+keeping each user's data separate and organized.
+
+A `session` is usually a single conversation or interaction period between the user and the AI agent.
+It groups all related messages and events that happen during that conversation.
+
+A `namespace` is used to logically group and organize long-term memories. It ensures data stays neat, separate, and secure.
+
+With AgentCore Memory, you need to add a namespace when you define a memory strategy. This namespace helps define where the long-term memory
+will be logically grouped. Every time a new long-term memory is extracted using this memory strategy, it is saved under the namespace you set.
+This means that all long-term memories are scoped to their specific namespace, keeping them organized and preventing any mix-ups with other
+users or sessions. You should use a hierarchical format separated by forward slashes /. This helps keep memories organized clearly. As needed,
+you can choose to use the below pre-defined variables within braces in the namespace based on your applications' organization needs:
+
+* `actorId` – Identifies who the long-term memory belongs to, such as a user
+* `memoryStrategyId` – Shows which memory strategy is being used. This strategy identifier is auto-generated when you create a memory using CreateMemory operation.
+* `sessionId` – Identifies which session or conversation the memory is from.
+
+For example, if you define the following namespace as the input to your strategy in CreateMemory operation:
+
+```shell
+/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}
+```
+
+After memory creation, this namespace might look like:
+
+```shell
+/strategy/summarization-93483043//actor/actor-9830m2w3/session/session-9330sds8
+```
+
+You can customise the namespace, i.e. where the memories are stored by using the following methods:
+
+1. **Summarization Strategy** (`MemoryStrategy.usingSummarization(props)`)
+2. **Semantic Memory Strategy** (`MemoryStrategy.usingSemantic(props)`)
+3. **User Preference Strategy** (`MemoryStrategy.usingUserPreference(props)`)
+
+```go
+// Create memory with built-in strategies
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("Memory with built-in strategies"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		agentcore.MemoryStrategy_UsingUserPreference(&ManagedStrategyProps{
+			Name: jsii.String("CustomerPreferences"),
+			Namespaces: []*string{
+				jsii.String("support/customer/{actorId}/preferences"),
+			},
+		}),
+		agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
+			Name: jsii.String("CustomerSupportSemantic"),
+			Namespaces: []*string{
+				jsii.String("support/customer/{actorId}/semantic"),
+			},
+		}),
+	},
+})
+```
+
+Custom memory strategies let you tailor memory extraction and consolidation to your specific domain or use case.
+You can override the prompts for extracting and consolidating semantic, summary, or user preferences.
+You can also choose the model that you want to use for extraction and consolidation.
+
+The custom prompts you create are appended to a non-editable system prompt.
+
+Since a custom strategy requires you to invoke certain FMs, you need a role with appropriate permissions. For that, you can:
+
+* Let the L2 construct create a minimum permission role for you when use L2 Bedrock Foundation Models.
+* Use a custom role with the overly permissive `AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy` managed policy.
+* Use a custom role with your own custom policies.
+
+#### Memory with Custom Execution Role
+
+Keep in mind that memories that **do not** use custom strategies do not require a service role.
+So even if you provide it, it will be ignored as it will never be used.
+
+```go
+// Create a custom execution role
+executionRole := iam.NewRole(this, jsii.String("MemoryExecutionRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+	ManagedPolicies: []IManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")),
+	},
+})
+
+// Create memory with custom execution role
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("Memory with custom execution role"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	ExecutionRole: executionRole,
+})
+```
+
+In customConsolidation and customExtraction, the model property uses the [@aws-cdk/aws-bedrock-alph](https://www.npmjs.com/package/@aws-cdk/aws-bedrock-alpha) library which must be installed separately.
+
+```go
+// Create a custom semantic memory strategy
+customSemanticStrategy := agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
+	Name: jsii.String("customSemanticStrategy"),
+	Description: jsii.String("Custom semantic memory strategy"),
+	Namespaces: []*string{
+		jsii.String("/custom/strategies/{memoryStrategyId}/actors/{actorId}"),
+	},
+	CustomConsolidation: &OverrideConfig{
+		Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+		AppendToPrompt: jsii.String("Custom consolidation prompt for semantic memory"),
+	},
+	CustomExtraction: &OverrideConfig{
+		Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
+		AppendToPrompt: jsii.String("Custom extraction prompt for semantic memory"),
+	},
+})
+
+// Create memory with custom strategy
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my-custom-memory"),
+	Description: jsii.String("Memory with custom strategy"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		customSemanticStrategy,
+	},
+})
+```
+
+### Memory with self-managed Strategies
+
+A self-managed strategy in Amazon Bedrock AgentCore Memory gives you complete control over your memory extraction and consolidation pipelines.
+With a self-managed strategy, you can build custom memory processing workflows while leveraging Amazon Bedrock AgentCore for storage and retrieval.
+
+For additional information, you can refer to the [developer guide for self managed strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-self-managed-strategies.html).
+
+Create the required AWS resources including:
+
+* an S3 bucket in your account where Amazon Bedrock AgentCore will deliver batched event payloads.
+* an SNS topic for job notifications. Use FIFO topics if processing order within sessions is important for your use case.
+
+The construct will apply the correct permissions to the memory execution role to access these resources.
+
+```go
+bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
+	BucketName: jsii.String("test-memory"),
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	AutoDeleteObjects: jsii.Boolean(true),
+})
+
+topic := sns.NewTopic(this, jsii.String("topic"))
+
+// Create a custom semantic memory strategy
+selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
+	Name: jsii.String("selfManagedStrategy"),
+	Description: jsii.String("self managed memory strategy"),
+	HistoricalContextWindowSize: jsii.Number(5),
+	InvocationConfiguration: &InvocationConfiguration{
+		Topic: topic,
+		S3Location: &Location{
+			BucketName: bucket.BucketName,
+			ObjectKey: jsii.String("memory/"),
+		},
+	},
+	TriggerConditions: &TriggerConditions{
+		MessageBasedTrigger: jsii.Number(1),
+		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
+		TokenBasedTrigger: jsii.Number(100),
+	},
+})
+
+// Create memory with custom strategy
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my-custom-memory"),
+	Description: jsii.String("Memory with custom strategy"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		selfManagedStrategy,
+	},
+})
+```
+
+### Memory Strategy Methods
+
+You can add new memory strategies to the memory construct using the `addMemoryStrategy()` method, for instance:
+
+```go
+// Create memory without initial strategies
+memory := agentcore.NewMemory(this, jsii.String("test-memory"), &MemoryProps{
+	MemoryName: jsii.String("test_memory_add_strategy"),
+	Description: jsii.String("A test memory for testing addMemoryStrategy method"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+})
+
+// Add strategies after instantiation
+memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSummarization())
+memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSemantic())
 ```

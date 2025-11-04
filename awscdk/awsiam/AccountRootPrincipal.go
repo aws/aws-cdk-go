@@ -8,19 +8,30 @@ import (
 // Use the AWS account into which a stack is deployed as the principal entity in a policy.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-//   result := bucket.AddToResourcePolicy(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("s3:GetObject"),
+//   myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
+//   // Creates a limited admin policy and assigns to the account root.
+//   myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   	Statements: []PolicyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
+//   				jsii.String("kms:Create*"),
+//   				jsii.String("kms:Describe*"),
+//   				jsii.String("kms:Enable*"),
+//   				jsii.String("kms:List*"),
+//   				jsii.String("kms:Put*"),
+//   			},
+//   			Principals: []IPrincipal{
+//   				iam.NewAccountRootPrincipal(),
+//   			},
+//   			Resources: []*string{
+//   				jsii.String("*"),
+//   			},
+//   		}),
 //   	},
-//   	Resources: []*string{
-//   		bucket.ArnForObjects(jsii.String("file.txt")),
-//   	},
-//   	Principals: []IPrincipal{
-//   		iam.NewAccountRootPrincipal(),
-//   	},
-//   }))
+//   })
+//   key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+//   	Policy: myCustomPolicy,
+//   })
 //
 type AccountRootPrincipal interface {
 	AccountPrincipal
@@ -49,7 +60,7 @@ type AccountRootPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
@@ -190,8 +201,8 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPolicy(statement PolicyStatement) 
 	return returns
 }
 
-func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := a.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := a.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -199,7 +210,7 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyS
 	_jsii_.Invoke(
 		a,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

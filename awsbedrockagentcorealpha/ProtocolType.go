@@ -12,5 +12,8 @@ const (
 	// HTTP protocol.
 	// Experimental.
 	ProtocolType_HTTP ProtocolType = "HTTP"
+	// A2A protocol.
+	// Experimental.
+	ProtocolType_A2A ProtocolType = "A2A"
 )
 

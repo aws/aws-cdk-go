@@ -79,6 +79,7 @@ type CfnApplication interface {
 	// A human-readable label for the application.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The relative path and file name of the executable file that Amazon GameLift Streams will stream.
 	ExecutablePath() *string
 	SetExecutablePath(val *string)
@@ -372,6 +373,16 @@ func (j *jsiiProxy_CfnApplication) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

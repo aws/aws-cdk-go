@@ -127,6 +127,7 @@ type CfnInferenceComponent interface {
 	// The name of the endpoint that hosts the inference component.
 	EndpointName() *string
 	SetEndpointName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the inference component.
 	InferenceComponentName() *string
 	SetInferenceComponentName(val *string)
@@ -468,6 +469,16 @@ func (j *jsiiProxy_CfnInferenceComponent) EndpointName() *string {
 	_jsii_.Get(
 		j,
 		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInferenceComponent) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IPublisherRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a Publisher resource.
 	// Experimental.
 	PublisherRef() *PublisherReference
@@ -19,6 +20,7 @@ type IPublisherRef interface {
 // The jsii proxy for IPublisherRef
 type jsiiProxy_IPublisherRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IPublisherRef) PublisherRef() *PublisherReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IPublisherRef) PublisherRef() *PublisherReference {
 	_jsii_.Get(
 		j,
 		"publisherRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPublisherRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPublisherRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

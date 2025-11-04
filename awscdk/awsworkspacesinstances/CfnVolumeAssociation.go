@@ -46,6 +46,7 @@ type CfnVolumeAssociation interface {
 	// Mode to use when disassociating the volume.
 	DisassociateMode() *string
 	SetDisassociateMode(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -277,6 +278,16 @@ func (j *jsiiProxy_CfnVolumeAssociation) DisassociateMode() *string {
 	_jsii_.Get(
 		j,
 		"disassociateMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVolumeAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

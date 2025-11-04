@@ -440,6 +440,7 @@ type CfnPipe interface {
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -765,6 +766,16 @@ func (j *jsiiProxy_CfnPipe) EnrichmentParameters() interface{} {
 	_jsii_.Get(
 		j,
 		"enrichmentParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipe) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

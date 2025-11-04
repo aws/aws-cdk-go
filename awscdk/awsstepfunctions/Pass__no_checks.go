@@ -36,7 +36,7 @@ func (p *jsiiProxy_Pass) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (p *jsiiProxy_Pass) validateNextParameters(next IChainable) error {
+func (p *jsiiProxy_Pass) validateNextParameters(state IChainable) error {
 	return nil
 }
 

@@ -64,6 +64,7 @@ type CfnDBSecurityGroup interface {
 	// The identifier of an Amazon virtual private cloud (VPC).
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Provides the description of the DB security group.
 	GroupDescription() *string
 	SetGroupDescription(val *string)
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnDBSecurityGroup) Ec2VpcId() *string {
 	_jsii_.Get(
 		j,
 		"ec2VpcId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBSecurityGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

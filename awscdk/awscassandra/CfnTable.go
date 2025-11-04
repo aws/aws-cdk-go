@@ -176,6 +176,7 @@ type CfnTable interface {
 	// The encryption at rest options for the table.
 	EncryptionSpecification() interface{}
 	SetEncryptionSpecification(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The name of the keyspace to create the table in.
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
@@ -475,6 +476,16 @@ func (j *jsiiProxy_CfnTable) EncryptionSpecification() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionSpecification",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

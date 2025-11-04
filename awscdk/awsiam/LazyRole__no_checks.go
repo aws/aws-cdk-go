@@ -32,15 +32,15 @@ func (l *jsiiProxy_LazyRole) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateGrantParameters(identity IPrincipal) error {
+func (l *jsiiProxy_LazyRole) validateGrantParameters(grantee IPrincipal) error {
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateGrantAssumeRoleParameters(identity IPrincipal) error {
+func (l *jsiiProxy_LazyRole) validateGrantAssumeRoleParameters(grantee IPrincipal) error {
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateGrantPassRoleParameters(identity IPrincipal) error {
+func (l *jsiiProxy_LazyRole) validateGrantPassRoleParameters(grantee IPrincipal) error {
 	return nil
 }
 

@@ -56,6 +56,7 @@ type CfnProject interface {
 	// The dataset that the project is to act upon.
 	DatasetName() *string
 	SetDatasetName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -289,6 +290,16 @@ func (j *jsiiProxy_CfnProject) DatasetName() *string {
 	_jsii_.Get(
 		j,
 		"datasetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

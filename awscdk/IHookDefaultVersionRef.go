@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IHookDefaultVersionRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a HookDefaultVersion resource.
 	// Experimental.
 	HookDefaultVersionRef() *HookDefaultVersionReference
@@ -19,6 +20,7 @@ type IHookDefaultVersionRef interface {
 // The jsii proxy for IHookDefaultVersionRef
 type jsiiProxy_IHookDefaultVersionRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IHookDefaultVersionRef) HookDefaultVersionRef() *HookDefaultVersionReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IHookDefaultVersionRef) HookDefaultVersionRef() *HookDefaultV
 	_jsii_.Get(
 		j,
 		"hookDefaultVersionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHookDefaultVersionRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHookDefaultVersionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

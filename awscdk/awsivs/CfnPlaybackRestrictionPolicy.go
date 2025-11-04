@@ -66,6 +66,7 @@ type CfnPlaybackRestrictionPolicy interface {
 	// Whether channel playback is constrained by the origin site.
 	EnableStrictOriginEnforcement() interface{}
 	SetEnableStrictOriginEnforcement(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -328,6 +329,16 @@ func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) EnableStrictOriginEnforcement()
 	_jsii_.Get(
 		j,
 		"enableStrictOriginEnforcement",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackRestrictionPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

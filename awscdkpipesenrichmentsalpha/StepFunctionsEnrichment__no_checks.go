@@ -8,7 +8,7 @@ func (s *jsiiProxy_StepFunctionsEnrichment) validateBindParameters(pipe awscdkpi
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionsEnrichment) validateGrantInvokeParameters(pipeRole awsiam.IRole) error {
+func (s *jsiiProxy_StepFunctionsEnrichment) validateGrantInvokeParameters(grantee awsiam.IRole) error {
 	return nil
 }
 

@@ -114,6 +114,7 @@ type CfnUserSettings interface {
 	// Specifies whether the user can download files from the streaming session to the local device.
 	DownloadAllowed() *string
 	SetDownloadAllowed(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
 	IdleDisconnectTimeoutInMinutes() *float64
 	SetIdleDisconnectTimeoutInMinutes(val *float64)
@@ -438,6 +439,16 @@ func (j *jsiiProxy_CfnUserSettings) DownloadAllowed() *string {
 	_jsii_.Get(
 		j,
 		"downloadAllowed",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

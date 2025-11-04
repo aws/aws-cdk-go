@@ -31,10 +31,10 @@ type S3LogDestination interface {
 	ILogDestination
 	// Bind the log destination to the pipe.
 	// Experimental.
-	Bind(_pipe IPipe) *LogDestinationConfig
+	Bind(pipe IPipe) *LogDestinationConfig
 	// Grant the pipe role to push to the log destination.
 	// Experimental.
-	GrantPush(pipeRole awsiam.IRole)
+	GrantPush(grantee awsiam.IRole)
 }
 
 // The jsii proxy struct for S3LogDestination
@@ -71,8 +71,8 @@ func NewS3LogDestination_Override(s S3LogDestination, parameters *S3LogDestinati
 	)
 }
 
-func (s *jsiiProxy_S3LogDestination) Bind(_pipe IPipe) *LogDestinationConfig {
-	if err := s.validateBindParameters(_pipe); err != nil {
+func (s *jsiiProxy_S3LogDestination) Bind(pipe IPipe) *LogDestinationConfig {
+	if err := s.validateBindParameters(pipe); err != nil {
 		panic(err)
 	}
 	var returns *LogDestinationConfig
@@ -80,21 +80,21 @@ func (s *jsiiProxy_S3LogDestination) Bind(_pipe IPipe) *LogDestinationConfig {
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_pipe},
+		[]interface{}{pipe},
 		&returns,
 	)
 
 	return returns
 }
 
-func (s *jsiiProxy_S3LogDestination) GrantPush(pipeRole awsiam.IRole) {
-	if err := s.validateGrantPushParameters(pipeRole); err != nil {
+func (s *jsiiProxy_S3LogDestination) GrantPush(grantee awsiam.IRole) {
+	if err := s.validateGrantPushParameters(grantee); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"grantPush",
-		[]interface{}{pipeRole},
+		[]interface{}{grantee},
 	)
 }
 

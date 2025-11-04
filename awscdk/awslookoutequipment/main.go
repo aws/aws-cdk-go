@@ -28,6 +28,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataInputConfiguration", GoGetter: "DataInputConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "dataOutputConfiguration", GoGetter: "DataOutputConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "dataUploadFrequency", GoGetter: "DataUploadFrequency"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "inferenceSchedulerName", GoGetter: "InferenceSchedulerName"},
@@ -91,12 +92,14 @@ func init() {
 		"aws-cdk-lib.aws_lookoutequipment.IInferenceSchedulerRef",
 		reflect.TypeOf((*IInferenceSchedulerRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "inferenceSchedulerRef", GoGetter: "InferenceSchedulerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IInferenceSchedulerRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

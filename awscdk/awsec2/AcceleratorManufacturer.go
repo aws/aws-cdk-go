@@ -75,5 +75,7 @@ const (
 	AcceleratorManufacturer_NVIDIA AcceleratorManufacturer = "NVIDIA"
 	// Xilinx (e.g., VU9P FPGA).
 	AcceleratorManufacturer_XILINX AcceleratorManufacturer = "XILINX"
+	// Habana Labs(e.g, Gaudi accelerator).
+	AcceleratorManufacturer_HABANA AcceleratorManufacturer = "HABANA"
 )
 

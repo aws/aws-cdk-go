@@ -79,6 +79,7 @@ type CfnIpAccessSettings interface {
 	// The display name of the IP access settings.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a IpAccessSettings resource.
 	IpAccessSettingsRef() *IpAccessSettingsReference
 	// The IP rules of the IP access settings.
@@ -371,6 +372,16 @@ func (j *jsiiProxy_CfnIpAccessSettings) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIpAccessSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

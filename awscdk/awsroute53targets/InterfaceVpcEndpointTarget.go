@@ -26,7 +26,7 @@ import (
 type InterfaceVpcEndpointTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for InterfaceVpcEndpointTarget
@@ -61,8 +61,8 @@ func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEnd
 	)
 }
 
-func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := i.validateBindParameters(_record); err != nil {
+func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := i.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -70,7 +70,7 @@ func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(_record awsroute53.IRecordSe
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{_record, _zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

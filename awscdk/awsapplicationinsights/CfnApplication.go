@@ -350,6 +350,7 @@ type CfnApplication interface {
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled() interface{}
 	SetCweMonitorEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Application Insights can create applications based on a resource group or on an account.
 	GroupingType() *string
 	SetGroupingType(val *string)
@@ -647,6 +648,16 @@ func (j *jsiiProxy_CfnApplication) CweMonitorEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"cweMonitorEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

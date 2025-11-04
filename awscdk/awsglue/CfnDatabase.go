@@ -78,6 +78,7 @@ type CfnDatabase interface {
 	SetDatabaseName(val *string)
 	// A reference to a Database resource.
 	DatabaseRef() *DatabaseReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -321,6 +322,16 @@ func (j *jsiiProxy_CfnDatabase) DatabaseRef() *DatabaseReference {
 	_jsii_.Get(
 		j,
 		"databaseRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatabase) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

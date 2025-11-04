@@ -73,6 +73,7 @@ type CfnConfigurationSetEventDestination interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// An object that defines the event destination.
 	EventDestination() interface{}
 	SetEventDestination(val interface{})
@@ -309,6 +310,16 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) CreationStack() *[]*stri
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSetEventDestination) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -323,6 +323,7 @@ type CfnPipeline interface {
 	// Represents the input of a `DisableStageTransition` action.
 	DisableInboundStageTransitions() interface{}
 	SetDisableInboundStageTransitions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The method that the pipeline will use to handle multiple executions.
 	ExecutionMode() *string
 	SetExecutionMode(val *string)
@@ -598,6 +599,16 @@ func (j *jsiiProxy_CfnPipeline) DisableInboundStageTransitions() interface{} {
 	_jsii_.Get(
 		j,
 		"disableInboundStageTransitions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

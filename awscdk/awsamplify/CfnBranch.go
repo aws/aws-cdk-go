@@ -112,6 +112,7 @@ type CfnBranch interface {
 	// Specifies whether the skew protection feature is enabled for the branch.
 	EnableSkewProtection() interface{}
 	SetEnableSkewProtection(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The environment variables for the branch.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
@@ -473,6 +474,16 @@ func (j *jsiiProxy_CfnBranch) EnableSkewProtection() interface{} {
 	_jsii_.Get(
 		j,
 		"enableSkewProtection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBranch) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

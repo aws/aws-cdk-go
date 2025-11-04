@@ -51,6 +51,7 @@ type CfnBasePathMapping interface {
 	// The domain name of the BasePathMapping resource to be described.
 	DomainName() *string
 	SetDomainName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	Id() *string
 	SetId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -292,6 +293,16 @@ func (j *jsiiProxy_CfnBasePathMapping) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBasePathMapping) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

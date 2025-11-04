@@ -84,7 +84,7 @@ func (t *jsiiProxy_TaskStateBase) validateMetricTimedOutParameters(props *awsclo
 	return nil
 }
 
-func (t *jsiiProxy_TaskStateBase) validateNextParameters(next IChainable) error {
+func (t *jsiiProxy_TaskStateBase) validateNextParameters(state IChainable) error {
 	return nil
 }
 

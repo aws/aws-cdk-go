@@ -44,7 +44,7 @@ func (f *jsiiProxy_FunctionBase) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeParameters(grantee awsiam.IGrantable) error {
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
@@ -52,15 +52,15 @@ func (f *jsiiProxy_FunctionBase) validateGrantInvokeCompositePrincipalParameters
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

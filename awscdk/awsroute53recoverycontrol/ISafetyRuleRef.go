@@ -3,6 +3,7 @@ package awsroute53recoverycontrol
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoverycontrol/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ISafetyRuleRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a SafetyRule resource.
 	// Experimental.
 	SafetyRuleRef() *SafetyRuleReference
@@ -19,6 +21,7 @@ type ISafetyRuleRef interface {
 // The jsii proxy for ISafetyRuleRef
 type jsiiProxy_ISafetyRuleRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ISafetyRuleRef) SafetyRuleRef() *SafetyRuleReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ISafetyRuleRef) SafetyRuleRef() *SafetyRuleReference {
 	_jsii_.Get(
 		j,
 		"safetyRuleRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISafetyRuleRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISafetyRuleRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

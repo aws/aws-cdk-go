@@ -75,6 +75,7 @@ type CfnCustomDataIdentifier interface {
 	// The description can contain 1-512 characters.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// An array of character sequences ( *ignore words* ) to exclude from the results.
 	IgnoreWords() *[]*string
 	SetIgnoreWords(val *[]*string)
@@ -349,6 +350,16 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomDataIdentifier) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

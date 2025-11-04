@@ -98,6 +98,7 @@ type CfnDisk interface {
 	SetDiskName(val *string)
 	// A reference to a Disk resource.
 	DiskRef() *DiskReference
+	Env() *awscdk.ResourceEnvironment
 	// The AWS Region and Availability Zone where the disk is located.
 	Location() interface{}
 	SetLocation(val interface{})
@@ -463,6 +464,16 @@ func (j *jsiiProxy_CfnDisk) DiskRef() *DiskReference {
 	_jsii_.Get(
 		j,
 		"diskRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDisk) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

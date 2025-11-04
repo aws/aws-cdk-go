@@ -36,7 +36,7 @@ import (
 type CodeBuildProject interface {
 	awsevents.IRuleTarget
 	// Allows using build projects as event rule targets.
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for CodeBuildProject
@@ -71,8 +71,8 @@ func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProj
 	)
 }
 
-func (c *jsiiProxy_CodeBuildProject) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := c.validateBindParameters(_rule); err != nil {
+func (c *jsiiProxy_CodeBuildProject) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := c.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -80,7 +80,7 @@ func (c *jsiiProxy_CodeBuildProject) Bind(_rule awsevents.IRule, _id *string) *a
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

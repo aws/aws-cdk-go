@@ -29,7 +29,7 @@ type QueueHook interface {
 	// Otherwise, create a new `IRole` and grant it access to send messages.
 	//
 	// Returns: the `IRole` with access to send messages and the ARN of the queue it has access to send messages to.
-	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for QueueHook
@@ -64,8 +64,8 @@ func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 	)
 }
 
-func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
-	if err := q.validateBindParameters(_scope, options); err != nil {
+func (q *jsiiProxy_QueueHook) Bind(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
+	if err := q.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awsautoscaling.LifecycleHookTargetConfig
@@ -73,7 +73,7 @@ func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, options *awsauto
 	_jsii_.Invoke(
 		q,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

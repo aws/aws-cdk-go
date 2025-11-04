@@ -78,13 +78,13 @@ func (s *jsiiProxy_Subnet) validateApplyRemovalPolicyParameters(policy awscdk.Re
 	return nil
 }
 
-func (s *jsiiProxy_Subnet) validateAssociateNetworkAclParameters(id *string, networkAcl INetworkAcl) error {
+func (s *jsiiProxy_Subnet) validateAssociateNetworkAclParameters(id *string, acl INetworkAcl) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if networkAcl == nil {
-		return fmt.Errorf("parameter networkAcl is required, but nil was provided")
+	if acl == nil {
+		return fmt.Errorf("parameter acl is required, but nil was provided")
 	}
 
 	return nil

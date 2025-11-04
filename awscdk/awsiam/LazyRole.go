@@ -54,12 +54,13 @@ type LazyRole interface {
 	AssumeRoleAction() *string
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() IPrincipal
@@ -127,11 +128,11 @@ type LazyRole interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the actions defined in actions to the identity Principal on this resource.
-	Grant(identity IPrincipal, actions ...*string) Grant
+	Grant(grantee IPrincipal, actions ...*string) Grant
 	// Grant permissions to the given principal to assume this role.
-	GrantAssumeRole(identity IPrincipal) Grant
+	GrantAssumeRole(grantee IPrincipal) Grant
 	// Grant permissions to the given principal to pass this role.
-	GrantPassRole(identity IPrincipal) Grant
+	GrantPassRole(grantee IPrincipal) Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -484,11 +485,11 @@ func (l *jsiiProxy_LazyRole) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
-func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Grant {
-	if err := l.validateGrantParameters(identity); err != nil {
+func (l *jsiiProxy_LazyRole) Grant(grantee IPrincipal, actions ...*string) Grant {
+	if err := l.validateGrantParameters(grantee); err != nil {
 		panic(err)
 	}
-	args := []interface{}{identity}
+	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
 	}
@@ -505,8 +506,8 @@ func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Gran
 	return returns
 }
 
-func (l *jsiiProxy_LazyRole) GrantAssumeRole(identity IPrincipal) Grant {
-	if err := l.validateGrantAssumeRoleParameters(identity); err != nil {
+func (l *jsiiProxy_LazyRole) GrantAssumeRole(grantee IPrincipal) Grant {
+	if err := l.validateGrantAssumeRoleParameters(grantee); err != nil {
 		panic(err)
 	}
 	var returns Grant
@@ -514,15 +515,15 @@ func (l *jsiiProxy_LazyRole) GrantAssumeRole(identity IPrincipal) Grant {
 	_jsii_.Invoke(
 		l,
 		"grantAssumeRole",
-		[]interface{}{identity},
+		[]interface{}{grantee},
 		&returns,
 	)
 
 	return returns
 }
 
-func (l *jsiiProxy_LazyRole) GrantPassRole(identity IPrincipal) Grant {
-	if err := l.validateGrantPassRoleParameters(identity); err != nil {
+func (l *jsiiProxy_LazyRole) GrantPassRole(grantee IPrincipal) Grant {
+	if err := l.validateGrantPassRoleParameters(grantee); err != nil {
 		panic(err)
 	}
 	var returns Grant
@@ -530,7 +531,7 @@ func (l *jsiiProxy_LazyRole) GrantPassRole(identity IPrincipal) Grant {
 	_jsii_.Invoke(
 		l,
 		"grantPassRole",
-		[]interface{}{identity},
+		[]interface{}{grantee},
 		&returns,
 	)
 

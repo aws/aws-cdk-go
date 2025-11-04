@@ -42,7 +42,7 @@ type NodeInjector interface {
 	SetSharedVolumeName(val *string)
 	// Inject additional environment variables to the application container other than the DEFAULT_ENVS.
 	// Experimental.
-	InjectAdditionalEnvironments(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string)
+	InjectAdditionalEnvironments(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string)
 	// Inject ADOT SDK agent init container.
 	//
 	// Returns: The created ContainerDefinition.
@@ -164,14 +164,14 @@ func NodeInjector_DEFAULT_ENVS() *[]*EnvironmentExtension {
 	return returns
 }
 
-func (n *jsiiProxy_NodeInjector) InjectAdditionalEnvironments(envsToInject *map[string]*string, _envsFromTaskDef *map[string]*string) {
-	if err := n.validateInjectAdditionalEnvironmentsParameters(envsToInject, _envsFromTaskDef); err != nil {
+func (n *jsiiProxy_NodeInjector) InjectAdditionalEnvironments(envsToInject *map[string]*string, envsFromTaskDef *map[string]*string) {
+	if err := n.validateInjectAdditionalEnvironmentsParameters(envsToInject, envsFromTaskDef); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		n,
 		"injectAdditionalEnvironments",
-		[]interface{}{envsToInject, _envsFromTaskDef},
+		[]interface{}{envsToInject, envsFromTaskDef},
 	)
 }
 

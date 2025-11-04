@@ -130,6 +130,7 @@ type CfnPolicyGrant interface {
 	// The type of entity (resource) to which the grant is added.
 	EntityType() *string
 	SetEntityType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -411,6 +412,16 @@ func (j *jsiiProxy_CfnPolicyGrant) EntityType() *string {
 	_jsii_.Get(
 		j,
 		"entityType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicyGrant) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

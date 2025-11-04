@@ -84,7 +84,7 @@ func (g *jsiiProxy_GlueStartJobRun) validateMetricTimedOutParameters(props *awsc
 	return nil
 }
 
-func (g *jsiiProxy_GlueStartJobRun) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (g *jsiiProxy_GlueStartJobRun) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

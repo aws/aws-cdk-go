@@ -139,6 +139,7 @@ type CfnCapacityReservation interface {
 	// Indicates the way in which the Capacity Reservation ends.
 	EndDateType() *string
 	SetEndDateType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// *Deprecated.*.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
@@ -607,6 +608,16 @@ func (j *jsiiProxy_CfnCapacityReservation) EndDateType() *string {
 	_jsii_.Get(
 		j,
 		"endDateType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

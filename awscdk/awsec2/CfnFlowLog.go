@@ -71,6 +71,7 @@ type CfnFlowLog interface {
 	// The destination options.
 	DestinationOptions() interface{}
 	SetDestinationOptions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FlowLog resource.
 	FlowLogRef() *FlowLogReference
 	// The destination for the flow log data.
@@ -348,6 +349,16 @@ func (j *jsiiProxy_CfnFlowLog) DestinationOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"destinationOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowLog) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -36,7 +36,7 @@ type ResolveSsmParameterAtLaunchImage interface {
 	// Name of the SSM parameter we're looking up.
 	ParameterName() *string
 	// Return the image to use in the given context.
-	GetImage(_scope constructs.Construct) *MachineImageConfig
+	GetImage(scope constructs.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for ResolveSsmParameterAtLaunchImage
@@ -82,8 +82,8 @@ func NewResolveSsmParameterAtLaunchImage_Override(r ResolveSsmParameterAtLaunchI
 	)
 }
 
-func (r *jsiiProxy_ResolveSsmParameterAtLaunchImage) GetImage(_scope constructs.Construct) *MachineImageConfig {
-	if err := r.validateGetImageParameters(_scope); err != nil {
+func (r *jsiiProxy_ResolveSsmParameterAtLaunchImage) GetImage(scope constructs.Construct) *MachineImageConfig {
+	if err := r.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *MachineImageConfig
@@ -91,7 +91,7 @@ func (r *jsiiProxy_ResolveSsmParameterAtLaunchImage) GetImage(_scope constructs.
 	_jsii_.Invoke(
 		r,
 		"getImage",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

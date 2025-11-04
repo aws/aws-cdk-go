@@ -84,7 +84,7 @@ func (d *jsiiProxy_DynamoUpdateItem) validateMetricTimedOutParameters(props *aws
 	return nil
 }
 
-func (d *jsiiProxy_DynamoUpdateItem) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (d *jsiiProxy_DynamoUpdateItem) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

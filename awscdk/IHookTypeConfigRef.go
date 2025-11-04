@@ -11,6 +11,7 @@ import (
 // Experimental.
 type IHookTypeConfigRef interface {
 	constructs.IConstruct
+	IEnvironmentAware
 	// A reference to a HookTypeConfig resource.
 	// Experimental.
 	HookTypeConfigRef() *HookTypeConfigReference
@@ -19,6 +20,7 @@ type IHookTypeConfigRef interface {
 // The jsii proxy for IHookTypeConfigRef
 type jsiiProxy_IHookTypeConfigRef struct {
 	internal.Type__constructsIConstruct
+	jsiiProxy_IEnvironmentAware
 }
 
 func (j *jsiiProxy_IHookTypeConfigRef) HookTypeConfigRef() *HookTypeConfigReference {
@@ -26,6 +28,26 @@ func (j *jsiiProxy_IHookTypeConfigRef) HookTypeConfigRef() *HookTypeConfigRefere
 	_jsii_.Get(
 		j,
 		"hookTypeConfigRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHookTypeConfigRef) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHookTypeConfigRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

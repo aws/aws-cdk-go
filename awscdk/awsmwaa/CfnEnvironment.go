@@ -131,6 +131,7 @@ type CfnEnvironment interface {
 	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
 	EndpointManagement() *string
 	SetEndpointManagement(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The environment class type.
 	EnvironmentClass() *string
 	SetEnvironmentClass(val *string)
@@ -551,6 +552,16 @@ func (j *jsiiProxy_CfnEnvironment) EndpointManagement() *string {
 	_jsii_.Get(
 		j,
 		"endpointManagement",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

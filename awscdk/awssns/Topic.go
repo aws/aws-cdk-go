@@ -41,12 +41,13 @@ type Topic interface {
 	SetEnforceSSL(val *bool)
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
@@ -77,7 +78,7 @@ type Topic interface {
 	// Adds a SSL policy to the topic resource policy.
 	AddSSLPolicy()
 	// Subscribe some endpoint to this topic.
-	AddSubscription(topicSubscription ITopicSubscription) Subscription
+	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
@@ -98,7 +99,7 @@ type Topic interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Represents a notification target That allows SNS topic to associate with this rule target.
-	BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
+	BindAsNotificationRuleTarget(scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
 	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
 	//
 	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
@@ -120,9 +121,9 @@ type Topic interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant topic publishing permissions to the given identity.
-	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
+	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	// Grant topic subscribing permissions to the given identity.
-	GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant
+	GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
@@ -457,8 +458,8 @@ func (t *jsiiProxy_Topic) AddSSLPolicy() {
 	)
 }
 
-func (t *jsiiProxy_Topic) AddSubscription(topicSubscription ITopicSubscription) Subscription {
-	if err := t.validateAddSubscriptionParameters(topicSubscription); err != nil {
+func (t *jsiiProxy_Topic) AddSubscription(subscription ITopicSubscription) Subscription {
+	if err := t.validateAddSubscriptionParameters(subscription); err != nil {
 		panic(err)
 	}
 	var returns Subscription
@@ -466,7 +467,7 @@ func (t *jsiiProxy_Topic) AddSubscription(topicSubscription ITopicSubscription) 
 	_jsii_.Invoke(
 		t,
 		"addSubscription",
-		[]interface{}{topicSubscription},
+		[]interface{}{subscription},
 		&returns,
 	)
 
@@ -500,8 +501,8 @@ func (t *jsiiProxy_Topic) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-func (t *jsiiProxy_Topic) BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
-	if err := t.validateBindAsNotificationRuleTargetParameters(_scope); err != nil {
+func (t *jsiiProxy_Topic) BindAsNotificationRuleTarget(scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
+	if err := t.validateBindAsNotificationRuleTargetParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *awscodestarnotifications.NotificationRuleTargetConfig
@@ -509,7 +510,7 @@ func (t *jsiiProxy_Topic) BindAsNotificationRuleTarget(_scope constructs.Constru
 	_jsii_.Invoke(
 		t,
 		"bindAsNotificationRuleTarget",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 
@@ -582,8 +583,8 @@ func (t *jsiiProxy_Topic) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
-func (t *jsiiProxy_Topic) GrantPublish(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := t.validateGrantPublishParameters(grantee); err != nil {
+func (t *jsiiProxy_Topic) GrantPublish(identity awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantPublishParameters(identity); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -591,15 +592,15 @@ func (t *jsiiProxy_Topic) GrantPublish(grantee awsiam.IGrantable) awsiam.Grant {
 	_jsii_.Invoke(
 		t,
 		"grantPublish",
-		[]interface{}{grantee},
+		[]interface{}{identity},
 		&returns,
 	)
 
 	return returns
 }
 
-func (t *jsiiProxy_Topic) GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant {
-	if err := t.validateGrantSubscribeParameters(grantee); err != nil {
+func (t *jsiiProxy_Topic) GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantSubscribeParameters(identity); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -607,7 +608,7 @@ func (t *jsiiProxy_Topic) GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	_jsii_.Invoke(
 		t,
 		"grantSubscribe",
-		[]interface{}{grantee},
+		[]interface{}{identity},
 		&returns,
 	)
 

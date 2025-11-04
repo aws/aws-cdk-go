@@ -132,6 +132,7 @@ type CfnAnalysisTemplate interface {
 	// The description of the analysis template.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The configuration that specifies the level of detail in error messages returned by analyses using this template.
 	ErrorMessageConfiguration() interface{}
 	SetErrorMessageConfiguration(val interface{})
@@ -470,6 +471,16 @@ func (j *jsiiProxy_CfnAnalysisTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAnalysisTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

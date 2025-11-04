@@ -63,6 +63,7 @@ type CfnDiscoverer interface {
 	SetDescription(val *string)
 	// A reference to a Discoverer resource.
 	DiscovererRef() *DiscovererReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -345,6 +346,16 @@ func (j *jsiiProxy_CfnDiscoverer) DiscovererRef() *DiscovererReference {
 	_jsii_.Get(
 		j,
 		"discovererRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDiscoverer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

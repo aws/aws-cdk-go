@@ -8,13 +8,13 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (s *jsiiProxy_Spacer) validatePositionParameters(_x *float64, _y *float64) error {
-	if _x == nil {
-		return fmt.Errorf("parameter _x is required, but nil was provided")
+func (s *jsiiProxy_Spacer) validatePositionParameters(x *float64, y *float64) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
-	if _y == nil {
-		return fmt.Errorf("parameter _y is required, but nil was provided")
+	if y == nil {
+		return fmt.Errorf("parameter y is required, but nil was provided")
 	}
 
 	return nil

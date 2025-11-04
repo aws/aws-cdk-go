@@ -36,7 +36,7 @@ type SqsSource interface {
 	SourceArn() *string
 	// Bind the source to a pipe.
 	// Experimental.
-	Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig
+	Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig
 	// Grant the pipe role read access to the source.
 	// Experimental.
 	GrantRead(grantee awsiam.IRole)
@@ -87,8 +87,8 @@ func NewSqsSource_Override(s SqsSource, queue awssqs.IQueue, parameters *SqsSour
 	)
 }
 
-func (s *jsiiProxy_SqsSource) Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig {
-	if err := s.validateBindParameters(_pipe); err != nil {
+func (s *jsiiProxy_SqsSource) Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig {
+	if err := s.validateBindParameters(pipe); err != nil {
 		panic(err)
 	}
 	var returns *awscdkpipesalpha.SourceConfig
@@ -96,7 +96,7 @@ func (s *jsiiProxy_SqsSource) Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalp
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_pipe},
+		[]interface{}{pipe},
 		&returns,
 	)
 

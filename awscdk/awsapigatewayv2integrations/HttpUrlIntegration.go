@@ -35,7 +35,7 @@ import (
 type HttpUrlIntegration interface {
 	awsapigatewayv2.HttpRouteIntegration
 	// Bind this integration to the route.
-	Bind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
+	Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
 	// In some cases, there is
@@ -79,8 +79,8 @@ func NewHttpUrlIntegration_Override(h HttpUrlIntegration, id *string, url *strin
 	)
 }
 
-func (h *jsiiProxy_HttpUrlIntegration) Bind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
-	if err := h.validateBindParameters(_options); err != nil {
+func (h *jsiiProxy_HttpUrlIntegration) Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
@@ -88,7 +88,7 @@ func (h *jsiiProxy_HttpUrlIntegration) Bind(_options *awsapigatewayv2.HttpRouteI
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

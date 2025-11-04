@@ -3,6 +3,7 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IDBInstanceRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a DBInstance resource.
 	// Experimental.
 	DbInstanceRef() *DBInstanceReference
@@ -19,6 +21,7 @@ type IDBInstanceRef interface {
 // The jsii proxy for IDBInstanceRef
 type jsiiProxy_IDBInstanceRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IDBInstanceRef) DbInstanceRef() *DBInstanceReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IDBInstanceRef) DbInstanceRef() *DBInstanceReference {
 	_jsii_.Get(
 		j,
 		"dbInstanceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDBInstanceRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDBInstanceRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

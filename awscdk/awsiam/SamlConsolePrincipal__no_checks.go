@@ -12,7 +12,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) validateAddToPolicyParameters(statement
 	return nil
 }
 
-func (s *jsiiProxy_SamlConsolePrincipal) validateAddToPrincipalPolicyParameters(_statement PolicyStatement) error {
+func (s *jsiiProxy_SamlConsolePrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }
 

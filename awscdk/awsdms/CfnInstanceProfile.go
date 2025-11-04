@@ -64,6 +64,7 @@ type CfnInstanceProfile interface {
 	// A description of the instance profile.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the instance profile.
 	InstanceProfileIdentifier() *string
 	SetInstanceProfileIdentifier(val *string)
@@ -344,6 +345,16 @@ func (j *jsiiProxy_CfnInstanceProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceProfile) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

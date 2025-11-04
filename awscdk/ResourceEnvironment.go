@@ -3,7 +3,7 @@ package awscdk
 
 // Represents the environment a given resource lives in.
 //
-// Used as the return value for the `IResource.env` property.
+// Used as the return value for the `IEnvironmentAware.env` property.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,19 +16,18 @@ package awscdk
 //   }
 //
 type ResourceEnvironment struct {
-	// The AWS account ID that this resource belongs to.
+	// The AWS Account ID that this resource belongs to.
 	//
-	// Since this can be a Token
-	// (for example, when the account is CloudFormation's AWS::AccountId intrinsic),
-	// make sure to use Token.compareStrings()
-	// instead of just comparing the values for equality.
+	// Since this can be a Token (for example, when the account is
+	// CloudFormation's `AWS::AccountId` intrinsic), make sure to use
+	// `Token.compareStrings()` instead of comparing the values with direct
+	// string equality.
 	Account *string `field:"required" json:"account" yaml:"account"`
-	// The AWS region that this resource belongs to.
+	// The AWS Region that this resource belongs to.
 	//
-	// Since this can be a Token
-	// (for example, when the region is CloudFormation's AWS::Region intrinsic),
-	// make sure to use Token.compareStrings()
-	// instead of just comparing the values for equality.
+	// Since this can be a Token (for example, when the region is CloudFormation's
+	// `AWS::Region` intrinsic), make sure to use `Token.compareStrings()` instead
+	// of comparing the values with direct string equality.
 	Region *string `field:"required" json:"region" yaml:"region"`
 }
 

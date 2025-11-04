@@ -80,6 +80,7 @@ type CfnNetworkInsightsAnalysis interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
 	FilterInArns() *[]*string
 	SetFilterInArns(val *[]*string)
@@ -420,6 +421,16 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInsightsAnalysis) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

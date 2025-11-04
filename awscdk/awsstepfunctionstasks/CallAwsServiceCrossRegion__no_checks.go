@@ -84,7 +84,7 @@ func (c *jsiiProxy_CallAwsServiceCrossRegion) validateMetricTimedOutParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CallAwsServiceCrossRegion) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (c *jsiiProxy_CallAwsServiceCrossRegion) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

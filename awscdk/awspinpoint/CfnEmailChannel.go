@@ -62,6 +62,7 @@ type CfnEmailChannel interface {
 	// Specifies whether to enable the email channel for the application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The verified email address that you want to send email from when you send email through the channel.
 	FromAddress() *string
 	SetFromAddress(val *string)
@@ -327,6 +328,16 @@ func (j *jsiiProxy_CfnEmailChannel) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailChannel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

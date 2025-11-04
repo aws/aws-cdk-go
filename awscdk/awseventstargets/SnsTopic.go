@@ -26,7 +26,7 @@ type SnsTopic interface {
 	// Returns a RuleTarget that can be used to trigger this SNS topic as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sns-permissions
 	//
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for SnsTopic
@@ -72,8 +72,8 @@ func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps)
 	)
 }
 
-func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := s.validateBindParameters(_rule); err != nil {
+func (s *jsiiProxy_SnsTopic) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := s.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -81,7 +81,7 @@ func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

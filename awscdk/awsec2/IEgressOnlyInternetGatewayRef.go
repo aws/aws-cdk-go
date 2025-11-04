@@ -3,6 +3,7 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IEgressOnlyInternetGatewayRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a EgressOnlyInternetGateway resource.
 	// Experimental.
 	EgressOnlyInternetGatewayRef() *EgressOnlyInternetGatewayReference
@@ -19,6 +21,7 @@ type IEgressOnlyInternetGatewayRef interface {
 // The jsii proxy for IEgressOnlyInternetGatewayRef
 type jsiiProxy_IEgressOnlyInternetGatewayRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IEgressOnlyInternetGatewayRef) EgressOnlyInternetGatewayRef() *EgressOnlyInternetGatewayReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IEgressOnlyInternetGatewayRef) EgressOnlyInternetGatewayRef()
 	_jsii_.Get(
 		j,
 		"egressOnlyInternetGatewayRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEgressOnlyInternetGatewayRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEgressOnlyInternetGatewayRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

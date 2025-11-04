@@ -143,6 +143,7 @@ type CfnExperimentTemplate interface {
 	// The description for the experiment template.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The experiment options for an experiment template.
 	ExperimentOptions() interface{}
 	SetExperimentOptions(val interface{})
@@ -402,6 +403,16 @@ func (j *jsiiProxy_CfnExperimentTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExperimentTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

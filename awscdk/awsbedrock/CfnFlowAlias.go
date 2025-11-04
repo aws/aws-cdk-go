@@ -74,6 +74,7 @@ type CfnFlowAlias interface {
 	// A description of the alias.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a FlowAlias resource.
 	FlowAliasRef() *FlowAliasReference
 	// The Amazon Resource Name (ARN) of the alias.
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnFlowAlias) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowAlias) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

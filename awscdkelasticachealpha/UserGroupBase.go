@@ -19,12 +19,13 @@ type UserGroupBase interface {
 	Engine() UserEngine
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
@@ -53,7 +54,7 @@ type UserGroupBase interface {
 	Users() *[]IUser
 	// Add a user to this user group.
 	// Experimental.
-	AddUser(_user IUser)
+	AddUser(user IUser)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -261,14 +262,14 @@ func UserGroupBase_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (u *jsiiProxy_UserGroupBase) AddUser(_user IUser) {
-	if err := u.validateAddUserParameters(_user); err != nil {
+func (u *jsiiProxy_UserGroupBase) AddUser(user IUser) {
+	if err := u.validateAddUserParameters(user); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		u,
 		"addUser",
-		[]interface{}{_user},
+		[]interface{}{user},
 	)
 }
 

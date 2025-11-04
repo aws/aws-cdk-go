@@ -57,12 +57,13 @@ type ParameterGroup interface {
 	IParameterGroup
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
@@ -89,9 +90,9 @@ type ParameterGroup interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Method called when this Parameter Group is used when defining a database cluster.
-	BindToCluster(_options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig
+	BindToCluster(options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig
 	// Method called when this Parameter Group is used when defining a database instance.
-	BindToInstance(_options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig
+	BindToInstance(options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -314,8 +315,8 @@ func (p *jsiiProxy_ParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-func (p *jsiiProxy_ParameterGroup) BindToCluster(_options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig {
-	if err := p.validateBindToClusterParameters(_options); err != nil {
+func (p *jsiiProxy_ParameterGroup) BindToCluster(options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig {
+	if err := p.validateBindToClusterParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *ParameterGroupClusterConfig
@@ -323,15 +324,15 @@ func (p *jsiiProxy_ParameterGroup) BindToCluster(_options *ParameterGroupCluster
 	_jsii_.Invoke(
 		p,
 		"bindToCluster",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 
 	return returns
 }
 
-func (p *jsiiProxy_ParameterGroup) BindToInstance(_options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig {
-	if err := p.validateBindToInstanceParameters(_options); err != nil {
+func (p *jsiiProxy_ParameterGroup) BindToInstance(options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig {
+	if err := p.validateBindToInstanceParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *ParameterGroupInstanceConfig
@@ -339,7 +340,7 @@ func (p *jsiiProxy_ParameterGroup) BindToInstance(_options *ParameterGroupInstan
 	_jsii_.Invoke(
 		p,
 		"bindToInstance",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

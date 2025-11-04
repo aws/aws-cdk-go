@@ -116,6 +116,7 @@ type CfnIPAMPool interface {
 	// The description of the IPAM pool.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a IPAMPool resource.
 	IpamPoolRef() *IPAMPoolReference
 	// The ID of the scope in which you would like to create the IPAM pool.
@@ -508,6 +509,16 @@ func (j *jsiiProxy_CfnIPAMPool) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAMPool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -192,6 +192,7 @@ type CfnConnection interface {
 	// The ID of the domain where the connection is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the environment where the connection is created.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -514,6 +515,16 @@ func (j *jsiiProxy_CfnConnection) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -36,7 +36,7 @@ type FirehoseDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for FirehoseDestination
@@ -71,8 +71,8 @@ func NewFirehoseDestination_Override(f FirehoseDestination, stream awskinesisfir
 	)
 }
 
-func (f *jsiiProxy_FirehoseDestination) Bind(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
-	if err := f.validateBindParameters(scope, _sourceLogGroup); err != nil {
+func (f *jsiiProxy_FirehoseDestination) Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+	if err := f.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}
 	var returns *awslogs.LogSubscriptionDestinationConfig
@@ -80,7 +80,7 @@ func (f *jsiiProxy_FirehoseDestination) Bind(scope constructs.Construct, _source
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{scope, _sourceLogGroup},
+		[]interface{}{scope, sourceLogGroup},
 		&returns,
 	)
 

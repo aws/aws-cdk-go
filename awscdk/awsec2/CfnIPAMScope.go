@@ -64,6 +64,7 @@ type CfnIPAMScope interface {
 	// The description of the scope.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the IPAM for which you're creating this scope.
 	IpamId() *string
 	SetIpamId(val *string)
@@ -348,6 +349,16 @@ func (j *jsiiProxy_CfnIPAMScope) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAMScope) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

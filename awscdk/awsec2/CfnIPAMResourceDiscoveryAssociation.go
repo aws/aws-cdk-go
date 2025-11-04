@@ -78,6 +78,7 @@ type CfnIPAMResourceDiscoveryAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The IPAM ID.
 	IpamId() *string
 	SetIpamId(val *string)
@@ -375,6 +376,16 @@ func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) CreationStack() *[]*stri
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

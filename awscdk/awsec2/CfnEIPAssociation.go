@@ -54,6 +54,7 @@ type CfnEIPAssociation interface {
 	SetEip(val *string)
 	// A reference to a EIPAssociation resource.
 	EipAssociationRef() *EIPAssociationReference
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -306,6 +307,16 @@ func (j *jsiiProxy_CfnEIPAssociation) EipAssociationRef() *EIPAssociationReferen
 	_jsii_.Get(
 		j,
 		"eipAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEIPAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

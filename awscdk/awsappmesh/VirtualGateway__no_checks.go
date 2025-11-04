@@ -4,7 +4,7 @@ package awsappmesh
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (v *jsiiProxy_VirtualGateway) validateAddGatewayRouteParameters(id *string, props *GatewayRouteBaseProps) error {
+func (v *jsiiProxy_VirtualGateway) validateAddGatewayRouteParameters(id *string, route *GatewayRouteBaseProps) error {
 	return nil
 }
 

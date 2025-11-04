@@ -101,6 +101,7 @@ type CfnGuardrail interface {
 	// A description of the guardrail.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a Guardrail resource.
 	GuardrailRef() *GuardrailReference
 	// The ARN of the AWS KMS key that you use to encrypt the guardrail.
@@ -485,6 +486,16 @@ func (j *jsiiProxy_CfnGuardrail) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGuardrail) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

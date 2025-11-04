@@ -20,13 +20,13 @@ func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope constructs.Construct, restApi IRestApiRef) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
+func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApiRef) error {
+	if _scope == nil {
+		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
 
-	if restApi == nil {
-		return fmt.Errorf("parameter restApi is required, but nil was provided")
+	if _restApi == nil {
+		return fmt.Errorf("parameter _restApi is required, but nil was provided")
 	}
 
 	return nil

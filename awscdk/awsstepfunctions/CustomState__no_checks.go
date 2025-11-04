@@ -44,7 +44,7 @@ func (c *jsiiProxy_CustomState) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (c *jsiiProxy_CustomState) validateNextParameters(next IChainable) error {
+func (c *jsiiProxy_CustomState) validateNextParameters(state IChainable) error {
 	return nil
 }
 

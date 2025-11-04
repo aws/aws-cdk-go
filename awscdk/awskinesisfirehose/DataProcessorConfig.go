@@ -14,20 +14,28 @@ package awskinesisfirehose
 //   		ParameterValue: jsii.String("parameterValue"),
 //   	},
 //   	ProcessorType: jsii.String("processorType"),
+//
+//   	// the properties below are optional
+//   	Parameters: []ProcessorParameterProperty{
+//   		&ProcessorParameterProperty{
+//   			ParameterName: jsii.String("parameterName"),
+//   			ParameterValue: jsii.String("parameterValue"),
+//   		},
+//   	},
 //   }
+//
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-processor.html
 //
 type DataProcessorConfig struct {
 	// The key-value pair that identifies the underlying processor resource.
+	//
+	// Ignored when the `parameters` is specified.
 	ProcessorIdentifier *DataProcessorIdentifier `field:"required" json:"processorIdentifier" yaml:"processorIdentifier"`
-	// The type of the underlying processor resource.
-	//
-	// Must be an accepted value in `CfnDeliveryStream.ProcessorProperty.Type`.
-	//
-	// Example:
-	//   "Lambda"
-	//
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
-	//
+	// The type of processor.
 	ProcessorType *string `field:"required" json:"processorType" yaml:"processorType"`
+	// The processor parameters.
+	// Default: - No processor parameters.
+	//
+	Parameters *[]*CfnDeliveryStream_ProcessorParameterProperty `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

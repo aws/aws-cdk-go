@@ -15,5 +15,6 @@ type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awsiamIGrantable = awsiam.IGrantable
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscodestarnotificationsINotificationRuleSource = awscodestarnotifications.INotificationRuleSource
 type Type__awsiamManagedPolicy = awsiam.ManagedPolicy

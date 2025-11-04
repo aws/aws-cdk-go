@@ -12,9 +12,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (k *jsiiProxy_Key) validateAddAliasParameters(aliasName *string) error {
-	if aliasName == nil {
-		return fmt.Errorf("parameter aliasName is required, but nil was provided")
+func (k *jsiiProxy_Key) validateAddAliasParameters(alias *string) error {
+	if alias == nil {
+		return fmt.Errorf("parameter alias is required, but nil was provided")
 	}
 
 	return nil

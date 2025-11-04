@@ -105,6 +105,7 @@ type CfnStage interface {
 	// The version of the associated API documentation.
 	DocumentationVersion() *string
 	SetDocumentationVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -411,6 +412,16 @@ func (j *jsiiProxy_CfnStage) DocumentationVersion() *string {
 	_jsii_.Get(
 		j,
 		"documentationVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStage) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

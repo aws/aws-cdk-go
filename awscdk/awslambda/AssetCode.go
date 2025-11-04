@@ -51,7 +51,7 @@ type AssetCode interface {
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions)
+	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
 // The jsii proxy struct for AssetCode
@@ -307,14 +307,14 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct) *CodeConfig {
 	return returns
 }
 
-func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions) {
-	if err := a.validateBindToResourceParameters(resource, options); err != nil {
+func (a *jsiiProxy_AssetCode) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
+	if err := a.validateBindToResourceParameters(_resource, _options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"bindToResource",
-		[]interface{}{resource, options},
+		[]interface{}{_resource, _options},
 	)
 }
 

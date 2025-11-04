@@ -154,6 +154,7 @@ type CfnContainerFleet interface {
 	// A meaningful description of the container fleet.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The unique identifier for an AWS Identity and Access Management (IAM) role with permissions to run your containers on resources that are managed by Amazon GameLift Servers.
 	FleetRoleArn() *string
 	SetFleetRoleArn(val *string)
@@ -529,6 +530,16 @@ func (j *jsiiProxy_CfnContainerFleet) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

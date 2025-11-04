@@ -40,7 +40,7 @@ type OrganizationPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -176,8 +176,8 @@ func (o *jsiiProxy_OrganizationPrincipal) AddToPolicy(statement PolicyStatement)
 	return returns
 }
 
-func (o *jsiiProxy_OrganizationPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := o.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (o *jsiiProxy_OrganizationPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := o.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -185,7 +185,7 @@ func (o *jsiiProxy_OrganizationPrincipal) AddToPrincipalPolicy(_statement Policy
 	_jsii_.Invoke(
 		o,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

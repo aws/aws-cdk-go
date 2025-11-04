@@ -85,6 +85,7 @@ type CfnSubscriber interface {
 	// The Amazon Resource Name (ARN) used to create the data lake.
 	DataLakeArn() *string
 	SetDataLakeArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -386,6 +387,16 @@ func (j *jsiiProxy_CfnSubscriber) DataLakeArn() *string {
 	_jsii_.Get(
 		j,
 		"dataLakeArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscriber) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

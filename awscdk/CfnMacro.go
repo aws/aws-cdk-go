@@ -46,6 +46,7 @@ type CfnMacro interface {
 	// A description of the macro.
 	Description() *string
 	SetDescription(val *string)
+	Env() *ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the underlying Lambda function that you want CloudFormation to invoke when the macro is run.
 	FunctionName() *string
 	SetFunctionName(val *string)
@@ -283,6 +284,16 @@ func (j *jsiiProxy_CfnMacro) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMacro) Env() *ResourceEnvironment {
+	var returns *ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

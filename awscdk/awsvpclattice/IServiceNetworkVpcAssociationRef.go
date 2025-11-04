@@ -3,6 +3,7 @@ package awsvpclattice
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsvpclattice/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IServiceNetworkVpcAssociationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ServiceNetworkVpcAssociation resource.
 	// Experimental.
 	ServiceNetworkVpcAssociationRef() *ServiceNetworkVpcAssociationReference
@@ -19,6 +21,7 @@ type IServiceNetworkVpcAssociationRef interface {
 // The jsii proxy for IServiceNetworkVpcAssociationRef
 type jsiiProxy_IServiceNetworkVpcAssociationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IServiceNetworkVpcAssociationRef) ServiceNetworkVpcAssociationRef() *ServiceNetworkVpcAssociationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IServiceNetworkVpcAssociationRef) ServiceNetworkVpcAssociatio
 	_jsii_.Get(
 		j,
 		"serviceNetworkVpcAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IServiceNetworkVpcAssociationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IServiceNetworkVpcAssociationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

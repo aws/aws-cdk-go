@@ -61,6 +61,7 @@ type CfnEventStream interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the event stream.
 	EventStreamName() *string
 	SetEventStreamName(val *string)
@@ -356,6 +357,16 @@ func (j *jsiiProxy_CfnEventStream) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventStream) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

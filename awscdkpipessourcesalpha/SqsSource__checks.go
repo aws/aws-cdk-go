@@ -12,9 +12,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkpipesalpha/v2"
 )
 
-func (s *jsiiProxy_SqsSource) validateBindParameters(_pipe awscdkpipesalpha.IPipe) error {
-	if _pipe == nil {
-		return fmt.Errorf("parameter _pipe is required, but nil was provided")
+func (s *jsiiProxy_SqsSource) validateBindParameters(pipe awscdkpipesalpha.IPipe) error {
+	if pipe == nil {
+		return fmt.Errorf("parameter pipe is required, but nil was provided")
 	}
 
 	return nil

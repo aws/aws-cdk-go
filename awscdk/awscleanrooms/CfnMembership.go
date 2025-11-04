@@ -117,6 +117,7 @@ type CfnMembership interface {
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration() interface{}
 	SetDefaultResultConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	JobLogStatus() *string
 	SetJobLogStatus(val *string)
@@ -415,6 +416,16 @@ func (j *jsiiProxy_CfnMembership) DefaultResultConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"defaultResultConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMembership) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -3,6 +3,7 @@ package awsevents
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IEndpointRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a Endpoint resource.
 	// Experimental.
 	EndpointRef() *EndpointReference
@@ -19,6 +21,7 @@ type IEndpointRef interface {
 // The jsii proxy for IEndpointRef
 type jsiiProxy_IEndpointRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IEndpointRef) EndpointRef() *EndpointReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IEndpointRef) EndpointRef() *EndpointReference {
 	_jsii_.Get(
 		j,
 		"endpointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEndpointRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEndpointRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

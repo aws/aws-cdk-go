@@ -71,6 +71,7 @@ type CfnApplication interface {
 	// The description of the application.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the instance of IAM Identity Center that is configured with this application.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -340,6 +341,16 @@ func (j *jsiiProxy_CfnApplication) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

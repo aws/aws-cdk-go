@@ -3,6 +3,7 @@ package awsses
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IMailManagerIngressPointRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a MailManagerIngressPoint resource.
 	// Experimental.
 	MailManagerIngressPointRef() *MailManagerIngressPointReference
@@ -19,6 +21,7 @@ type IMailManagerIngressPointRef interface {
 // The jsii proxy for IMailManagerIngressPointRef
 type jsiiProxy_IMailManagerIngressPointRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IMailManagerIngressPointRef) MailManagerIngressPointRef() *MailManagerIngressPointReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IMailManagerIngressPointRef) MailManagerIngressPointRef() *Ma
 	_jsii_.Get(
 		j,
 		"mailManagerIngressPointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMailManagerIngressPointRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMailManagerIngressPointRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

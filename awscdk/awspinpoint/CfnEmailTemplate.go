@@ -56,6 +56,7 @@ type CfnEmailTemplate interface {
 	SetDefaultSubstitutions(val *string)
 	// A reference to a EmailTemplate resource.
 	EmailTemplateRef() *EmailTemplateReference
+	Env() *awscdk.ResourceEnvironment
 	// The message body, in HTML format, to use in email messages that are based on the message template.
 	HtmlPart() *string
 	SetHtmlPart(val *string)
@@ -320,6 +321,16 @@ func (j *jsiiProxy_CfnEmailTemplate) EmailTemplateRef() *EmailTemplateReference 
 	_jsii_.Get(
 		j,
 		"emailTemplateRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailTemplate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

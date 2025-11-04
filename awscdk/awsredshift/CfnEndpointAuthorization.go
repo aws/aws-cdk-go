@@ -66,6 +66,7 @@ type CfnEndpointAuthorization interface {
 	CreationStack() *[]*string
 	// A reference to a EndpointAuthorization resource.
 	EndpointAuthorizationRef() *EndpointAuthorizationReference
+	Env() *awscdk.ResourceEnvironment
 	// Indicates whether to force the revoke action.
 	Force() interface{}
 	SetForce(val interface{})
@@ -385,6 +386,16 @@ func (j *jsiiProxy_CfnEndpointAuthorization) EndpointAuthorizationRef() *Endpoin
 	_jsii_.Get(
 		j,
 		"endpointAuthorizationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

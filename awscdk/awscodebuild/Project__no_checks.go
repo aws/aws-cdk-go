@@ -16,7 +16,7 @@ func (p *jsiiProxy_Project) validateAddSecondarySourceParameters(secondarySource
 	return nil
 }
 
-func (p *jsiiProxy_Project) validateAddToRolePolicyParameters(statement awsiam.PolicyStatement) error {
+func (p *jsiiProxy_Project) validateAddToRolePolicyParameters(policyStatement awsiam.PolicyStatement) error {
 	return nil
 }
 
@@ -24,7 +24,7 @@ func (p *jsiiProxy_Project) validateApplyRemovalPolicyParameters(policy awscdk.R
 	return nil
 }
 
-func (p *jsiiProxy_Project) validateBindAsNotificationRuleSourceParameters(_scope constructs.Construct) error {
+func (p *jsiiProxy_Project) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {
 	return nil
 }
 

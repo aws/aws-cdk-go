@@ -36,7 +36,7 @@ import (
 type FluentdLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for FluentdLogDriver
@@ -92,8 +92,8 @@ func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (f *jsiiProxy_FluentdLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
-	if err := f.validateBindParameters(_scope, _containerDefinition); err != nil {
+func (f *jsiiProxy_FluentdLogDriver) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := f.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}
 	var returns *LogDriverConfig
@@ -101,7 +101,7 @@ func (f *jsiiProxy_FluentdLogDriver) Bind(_scope constructs.Construct, _containe
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{_scope, _containerDefinition},
+		[]interface{}{scope, containerDefinition},
 		&returns,
 	)
 

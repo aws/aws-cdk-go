@@ -1,0 +1,57 @@
+package awsbedrockagentcorealpha
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+)
+
+// Invocation configuration for self managed memory strategy.
+//
+// Example:
+//   bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
+//   	BucketName: jsii.String("test-memory"),
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	AutoDeleteObjects: jsii.Boolean(true),
+//   })
+//
+//   topic := sns.NewTopic(this, jsii.String("topic"))
+//
+//   // Create a custom semantic memory strategy
+//   selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
+//   	Name: jsii.String("selfManagedStrategy"),
+//   	Description: jsii.String("self managed memory strategy"),
+//   	HistoricalContextWindowSize: jsii.Number(5),
+//   	InvocationConfiguration: &InvocationConfiguration{
+//   		Topic: topic,
+//   		S3Location: &Location{
+//   			BucketName: bucket.BucketName,
+//   			ObjectKey: jsii.String("memory/"),
+//   		},
+//   	},
+//   	TriggerConditions: &TriggerConditions{
+//   		MessageBasedTrigger: jsii.Number(1),
+//   		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
+//   		TokenBasedTrigger: jsii.Number(100),
+//   	},
+//   })
+//
+//   // Create memory with custom strategy
+//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+//   	MemoryName: jsii.String("my-custom-memory"),
+//   	Description: jsii.String("Memory with custom strategy"),
+//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+//   	MemoryStrategies: []IMemoryStrategy{
+//   		selfManagedStrategy,
+//   	},
+//   })
+//
+// Experimental.
+type InvocationConfiguration struct {
+	// S3 Location Configuration.
+	// Experimental.
+	S3Location *awss3.Location `field:"required" json:"s3Location" yaml:"s3Location"`
+	// SNS Topic Configuration.
+	// Experimental.
+	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
+}
+

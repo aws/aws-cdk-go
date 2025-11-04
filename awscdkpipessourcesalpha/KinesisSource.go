@@ -39,7 +39,7 @@ type KinesisSource interface {
 	SourceParameters() *StreamSourceParameters
 	// Bind the source to a pipe.
 	// Experimental.
-	Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig
+	Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig
 	// Retrieves the ARN from the dead-letter SQS queue or SNS topic.
 	// Experimental.
 	GetDeadLetterTargetArn(deadLetterTarget interface{}) *string
@@ -136,8 +136,8 @@ func KinesisSource_IsSourceWithDeadLetterTarget(source awscdkpipesalpha.ISource)
 	return returns
 }
 
-func (k *jsiiProxy_KinesisSource) Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig {
-	if err := k.validateBindParameters(_pipe); err != nil {
+func (k *jsiiProxy_KinesisSource) Bind(pipe awscdkpipesalpha.IPipe) *awscdkpipesalpha.SourceConfig {
+	if err := k.validateBindParameters(pipe); err != nil {
 		panic(err)
 	}
 	var returns *awscdkpipesalpha.SourceConfig
@@ -145,7 +145,7 @@ func (k *jsiiProxy_KinesisSource) Bind(_pipe awscdkpipesalpha.IPipe) *awscdkpipe
 	_jsii_.Invoke(
 		k,
 		"bind",
-		[]interface{}{_pipe},
+		[]interface{}{pipe},
 		&returns,
 	)
 

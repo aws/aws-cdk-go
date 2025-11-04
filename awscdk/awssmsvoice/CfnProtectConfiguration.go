@@ -76,6 +76,7 @@ type CfnProtectConfiguration interface {
 	// The status of deletion protection for the protect configuration.
 	DeletionProtectionEnabled() interface{}
 	SetDeletionProtectionEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -335,6 +336,16 @@ func (j *jsiiProxy_CfnProtectConfiguration) DeletionProtectionEnabled() interfac
 	_jsii_.Get(
 		j,
 		"deletionProtectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProtectConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

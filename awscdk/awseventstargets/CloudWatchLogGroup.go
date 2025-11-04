@@ -28,7 +28,7 @@ import (
 type CloudWatchLogGroup interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to log an event into a CloudWatch LogGroup.
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for CloudWatchLogGroup
@@ -63,7 +63,7 @@ func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogG
 	)
 }
 
-func (c *jsiiProxy_CloudWatchLogGroup) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (c *jsiiProxy_CloudWatchLogGroup) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := c.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -72,7 +72,7 @@ func (c *jsiiProxy_CloudWatchLogGroup) Bind(rule awsevents.IRule, _id *string) *
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

@@ -85,6 +85,7 @@ type CfnDomain interface {
 	// The domain version.
 	DomainVersion() *string
 	SetDomainVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -434,6 +435,16 @@ func (j *jsiiProxy_CfnDomain) DomainVersion() *string {
 	_jsii_.Get(
 		j,
 		"domainVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

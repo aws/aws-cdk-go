@@ -56,6 +56,7 @@ type CfnUserAccessLoggingSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The ARN of the Kinesis stream.
 	KinesisStreamArn() *string
 	SetKinesisStreamArn(val *string)
@@ -298,6 +299,16 @@ func (j *jsiiProxy_CfnUserAccessLoggingSettings) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserAccessLoggingSettings) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

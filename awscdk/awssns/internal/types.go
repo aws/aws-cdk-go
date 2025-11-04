@@ -8,6 +8,7 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware
 type Type__awscodestarnotificationsINotificationRuleTarget = awscodestarnotifications.INotificationRuleTarget
 type Type__awscdkIResource = awscdk.IResource
 type Type__awscdkResource = awscdk.Resource

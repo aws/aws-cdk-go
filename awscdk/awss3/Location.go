@@ -4,23 +4,40 @@ package awss3
 // An interface that represents the location of a specific object in an S3 Bucket.
 //
 // Example:
-//   // Create an S3 bucket for recordings
-//   recordingBucket := s3.NewBucket(this, jsii.String("RecordingBucket"), &BucketProps{
-//   	BucketName: jsii.String("my-browser-recordings"),
-//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+//   bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
+//   	BucketName: jsii.String("test-memory"),
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   	AutoDeleteObjects: jsii.Boolean(true),
 //   })
 //
-//   // Create browser with recording enabled
-//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
-//   	BrowserCustomName: jsii.String("my_browser"),
-//   	Description: jsii.String("Browser with recording enabled"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
-//   	RecordingConfig: &RecordingConfig{
-//   		Enabled: jsii.Boolean(true),
+//   topic := sns.NewTopic(this, jsii.String("topic"))
+//
+//   // Create a custom semantic memory strategy
+//   selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
+//   	Name: jsii.String("selfManagedStrategy"),
+//   	Description: jsii.String("self managed memory strategy"),
+//   	HistoricalContextWindowSize: jsii.Number(5),
+//   	InvocationConfiguration: &InvocationConfiguration{
+//   		Topic: topic,
 //   		S3Location: &Location{
-//   			BucketName: recordingBucket.BucketName,
-//   			ObjectKey: jsii.String("browser-recordings/"),
+//   			BucketName: bucket.BucketName,
+//   			ObjectKey: jsii.String("memory/"),
 //   		},
+//   	},
+//   	TriggerConditions: &TriggerConditions{
+//   		MessageBasedTrigger: jsii.Number(1),
+//   		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
+//   		TokenBasedTrigger: jsii.Number(100),
+//   	},
+//   })
+//
+//   // Create memory with custom strategy
+//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+//   	MemoryName: jsii.String("my-custom-memory"),
+//   	Description: jsii.String("Memory with custom strategy"),
+//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+//   	MemoryStrategies: []IMemoryStrategy{
+//   		selfManagedStrategy,
 //   	},
 //   })
 //

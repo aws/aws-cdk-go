@@ -83,6 +83,7 @@ type CfnEnvironment interface {
 	// The identifier of the Amazon DataZone domain in which the environment is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The identifier of the AWS account in which an environment exists.
 	EnvironmentAccountIdentifier() *string
 	SetEnvironmentAccountIdentifier(val *string)
@@ -452,6 +453,16 @@ func (j *jsiiProxy_CfnEnvironment) DomainIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"domainIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

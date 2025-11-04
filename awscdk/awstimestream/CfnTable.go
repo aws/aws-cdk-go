@@ -70,6 +70,7 @@ type CfnTable interface {
 	// The name of the Timestream database that contains this table.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -325,6 +326,16 @@ func (j *jsiiProxy_CfnTable) DatabaseName() *string {
 	_jsii_.Get(
 		j,
 		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

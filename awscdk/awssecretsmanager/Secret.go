@@ -45,12 +45,13 @@ type Secret interface {
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The string of the characters that are excluded in this secret when it is generated.
 	ExcludeCharacters() *string
@@ -127,7 +128,7 @@ type Secret interface {
 	// Grants writing and updating the secret value to some role.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-	SecretValueFromJson(jsonField *string) awscdk.SecretValue
+	SecretValueFromJson(key *string) awscdk.SecretValue
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -632,8 +633,8 @@ func (s *jsiiProxy_Secret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	return returns
 }
 
-func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
-	if err := s.validateSecretValueFromJsonParameters(jsonField); err != nil {
+func (s *jsiiProxy_Secret) SecretValueFromJson(key *string) awscdk.SecretValue {
+	if err := s.validateSecretValueFromJsonParameters(key); err != nil {
 		panic(err)
 	}
 	var returns awscdk.SecretValue
@@ -641,7 +642,7 @@ func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretV
 	_jsii_.Invoke(
 		s,
 		"secretValueFromJson",
-		[]interface{}{jsonField},
+		[]interface{}{key},
 		&returns,
 	)
 

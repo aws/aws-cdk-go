@@ -8,7 +8,7 @@ func (a *jsiiProxy_AlexaSkillDeployAction) validateBindParameters(scope construc
 	return nil
 }
 
-func (a *jsiiProxy_AlexaSkillDeployAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) error {
+func (a *jsiiProxy_AlexaSkillDeployAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

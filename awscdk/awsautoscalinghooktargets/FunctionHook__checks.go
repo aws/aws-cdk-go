@@ -12,9 +12,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (f *jsiiProxy_FunctionHook) validateBindParameters(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (f *jsiiProxy_FunctionHook) validateBindParameters(scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if options == nil {

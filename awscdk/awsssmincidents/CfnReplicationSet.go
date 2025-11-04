@@ -57,6 +57,7 @@ type CfnReplicationSet interface {
 	// Determines if the replication set deletion protection is enabled or not.
 	DeletionProtected() interface{}
 	SetDeletionProtected(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -291,6 +292,16 @@ func (j *jsiiProxy_CfnReplicationSet) DeletionProtected() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtected",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

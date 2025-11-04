@@ -36,7 +36,7 @@ func (m *jsiiProxy_MapBase) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (m *jsiiProxy_MapBase) validateNextParameters(next IChainable) error {
+func (m *jsiiProxy_MapBase) validateNextParameters(state IChainable) error {
 	return nil
 }
 

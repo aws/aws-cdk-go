@@ -52,6 +52,7 @@ type CfnCustomerGatewayAssociation interface {
 	// The ID of the device.
 	DeviceId() *string
 	SetDeviceId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -291,6 +292,16 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) DeviceId() *string {
 	_jsii_.Get(
 		j,
 		"deviceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomerGatewayAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

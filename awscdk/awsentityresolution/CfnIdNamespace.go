@@ -100,6 +100,7 @@ type CfnIdNamespace interface {
 	// The description of the ID namespace.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 	IdMappingWorkflowProperties() interface{}
 	SetIdMappingWorkflowProperties(val interface{})
@@ -376,6 +377,16 @@ func (j *jsiiProxy_CfnIdNamespace) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdNamespace) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

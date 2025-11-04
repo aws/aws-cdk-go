@@ -65,6 +65,7 @@ type CfnPackagingGroup interface {
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs() interface{}
 	SetEgressAccessLogs(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Unique identifier that you assign to the packaging group.
 	Id() *string
 	SetId(val *string)
@@ -319,6 +320,16 @@ func (j *jsiiProxy_CfnPackagingGroup) EgressAccessLogs() interface{} {
 	_jsii_.Get(
 		j,
 		"egressAccessLogs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPackagingGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

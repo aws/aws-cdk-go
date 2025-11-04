@@ -50,7 +50,7 @@ type CanonicalUserPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// JSON-ify the principal.
@@ -182,8 +182,8 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToPolicy(statement PolicyStatement
 	return returns
 }
 
-func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := c.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := c.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -191,7 +191,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(_statement Polic
 	_jsii_.Invoke(
 		c,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

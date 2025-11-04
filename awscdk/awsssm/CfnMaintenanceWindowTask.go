@@ -113,6 +113,7 @@ type CfnMaintenanceWindowTask interface {
 	// A description of the task.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// > `LoggingInfo` has been deprecated.
 	LoggingInfo() interface{}
 	SetLoggingInfo(val interface{})
@@ -384,6 +385,16 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTask) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

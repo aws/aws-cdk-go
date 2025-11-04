@@ -42,6 +42,7 @@ type CfnElasticLoadBalancerAttachment interface {
 	// The Elastic Load Balancing instance name.
 	ElasticLoadBalancerName() *string
 	SetElasticLoadBalancerName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
 	LayerId() *string
 	SetLayerId(val *string)
@@ -278,6 +279,16 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) ElasticLoadBalancerName() *
 	_jsii_.Get(
 		j,
 		"elasticLoadBalancerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

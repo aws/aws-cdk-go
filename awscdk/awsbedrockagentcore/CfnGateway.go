@@ -96,6 +96,7 @@ type CfnGateway interface {
 	// The description for the gateway.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The exception level for the gateway.
 	ExceptionLevel() *string
 	SetExceptionLevel(val *string)
@@ -442,6 +443,16 @@ func (j *jsiiProxy_CfnGateway) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGateway) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

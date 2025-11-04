@@ -144,7 +144,7 @@ type StepFunctionsStartExecution interface {
 	//
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
-	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	Next(state awsstepfunctions.IChainable) awsstepfunctions.Chain
 	// Render the assign in ASL JSON format.
 	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
@@ -166,7 +166,7 @@ type StepFunctionsStartExecution interface {
 	// Render error recovery options in ASL JSON format.
 	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
+	ToStateJson(stateMachineQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -923,8 +923,8 @@ func (s *jsiiProxy_StepFunctionsStartExecution) MetricTimedOut(props *awscloudwa
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsStartExecution) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
-	if err := s.validateNextParameters(next); err != nil {
+func (s *jsiiProxy_StepFunctionsStartExecution) Next(state awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := s.validateNextParameters(state); err != nil {
 		panic(err)
 	}
 	var returns awsstepfunctions.Chain
@@ -932,7 +932,7 @@ func (s *jsiiProxy_StepFunctionsStartExecution) Next(next awsstepfunctions.IChai
 	_jsii_.Invoke(
 		s,
 		"next",
-		[]interface{}{next},
+		[]interface{}{state},
 		&returns,
 	)
 
@@ -1069,13 +1069,13 @@ func (s *jsiiProxy_StepFunctionsStartExecution) RenderRetryCatch(topLevelQueryLa
 	return returns
 }
 
-func (s *jsiiProxy_StepFunctionsStartExecution) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
+func (s *jsiiProxy_StepFunctionsStartExecution) ToStateJson(stateMachineQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		s,
 		"toStateJson",
-		[]interface{}{topLevelQueryLanguage},
+		[]interface{}{stateMachineQueryLanguage},
 		&returns,
 	)
 

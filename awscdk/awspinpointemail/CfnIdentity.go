@@ -78,6 +78,7 @@ type CfnIdentity interface {
 	// For domain identities, this attribute is used to enable or disable DomainKeys Identified Mail (DKIM) signing for the domain.
 	DkimSigningEnabled() interface{}
 	SetDkimSigningEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackForwardingEnabled() interface{}
 	SetFeedbackForwardingEnabled(val interface{})
@@ -386,6 +387,16 @@ func (j *jsiiProxy_CfnIdentity) DkimSigningEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"dkimSigningEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentity) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

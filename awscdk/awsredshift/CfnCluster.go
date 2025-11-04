@@ -202,6 +202,7 @@ type CfnCluster interface {
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled.
 	EnhancedVpcRouting() interface{}
 	SetEnhancedVpcRouting(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 	HsmClientCertificateIdentifier() *string
 	SetHsmClientCertificateIdentifier(val *string)
@@ -795,6 +796,16 @@ func (j *jsiiProxy_CfnCluster) EnhancedVpcRouting() interface{} {
 	_jsii_.Get(
 		j,
 		"enhancedVpcRouting",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

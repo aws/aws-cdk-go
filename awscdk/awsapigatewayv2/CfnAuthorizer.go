@@ -81,6 +81,7 @@ type CfnAuthorizer interface {
 	// Specifies whether a Lambda authorizer returns a response in a simple format.
 	EnableSimpleResponses() interface{}
 	SetEnableSimpleResponses(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The identity source for which authorization is requested.
 	IdentitySource() *[]*string
 	SetIdentitySource(val *[]*string)
@@ -386,6 +387,16 @@ func (j *jsiiProxy_CfnAuthorizer) EnableSimpleResponses() interface{} {
 	_jsii_.Get(
 		j,
 		"enableSimpleResponses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAuthorizer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

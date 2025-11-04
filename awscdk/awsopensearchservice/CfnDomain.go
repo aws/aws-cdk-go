@@ -242,6 +242,7 @@ type CfnDomain interface {
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Configuration options for controlling IAM Identity Center integration within a domain.
 	IdentityCenterOptions() interface{}
 	SetIdentityCenterOptions(val interface{})
@@ -767,6 +768,16 @@ func (j *jsiiProxy_CfnDomain) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

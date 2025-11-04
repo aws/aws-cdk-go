@@ -160,6 +160,7 @@ type CfnLoadBalancer interface {
 	// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
 	CrossZone() interface{}
 	SetCrossZone(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The health check settings to use when evaluating the health of your EC2 instances.
 	HealthCheck() interface{}
 	SetHealthCheck(val interface{})
@@ -524,6 +525,16 @@ func (j *jsiiProxy_CfnLoadBalancer) CrossZone() interface{} {
 	_jsii_.Get(
 		j,
 		"crossZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

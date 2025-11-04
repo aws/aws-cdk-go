@@ -47,6 +47,7 @@ type CfnCustomResource interface {
 	CreationStack() *[]*string
 	// A reference to a CustomResource resource.
 	CustomResourceRef() *CustomResourceReference
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -276,6 +277,16 @@ func (j *jsiiProxy_CfnCustomResource) CustomResourceRef() *CustomResourceReferen
 	_jsii_.Get(
 		j,
 		"customResourceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomResource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -3,6 +3,7 @@ package awselasticloadbalancing
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ILoadBalancerRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a LoadBalancer resource.
 	// Experimental.
 	LoadBalancerRef() *LoadBalancerReference
@@ -19,6 +21,7 @@ type ILoadBalancerRef interface {
 // The jsii proxy for ILoadBalancerRef
 type jsiiProxy_ILoadBalancerRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ILoadBalancerRef) LoadBalancerRef() *LoadBalancerReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ILoadBalancerRef) LoadBalancerRef() *LoadBalancerReference {
 	_jsii_.Get(
 		j,
 		"loadBalancerRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILoadBalancerRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILoadBalancerRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

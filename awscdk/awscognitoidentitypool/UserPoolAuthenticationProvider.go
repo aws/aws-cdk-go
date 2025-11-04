@@ -21,7 +21,7 @@ import (
 type UserPoolAuthenticationProvider interface {
 	IUserPoolAuthenticationProvider
 	// The method called when a given User Pool Authentication Provider is added (for the first time) to an Identity Pool.
-	Bind(scope constructs.Construct, identityPool IIdentityPool, _options *UserPoolAuthenticationProviderBindOptions) *UserPoolAuthenticationProviderBindConfig
+	Bind(scope constructs.Construct, identityPool IIdentityPool, options *UserPoolAuthenticationProviderBindOptions) *UserPoolAuthenticationProviderBindConfig
 }
 
 // The jsii proxy struct for UserPoolAuthenticationProvider
@@ -56,8 +56,8 @@ func NewUserPoolAuthenticationProvider_Override(u UserPoolAuthenticationProvider
 	)
 }
 
-func (u *jsiiProxy_UserPoolAuthenticationProvider) Bind(scope constructs.Construct, identityPool IIdentityPool, _options *UserPoolAuthenticationProviderBindOptions) *UserPoolAuthenticationProviderBindConfig {
-	if err := u.validateBindParameters(scope, identityPool, _options); err != nil {
+func (u *jsiiProxy_UserPoolAuthenticationProvider) Bind(scope constructs.Construct, identityPool IIdentityPool, options *UserPoolAuthenticationProviderBindOptions) *UserPoolAuthenticationProviderBindConfig {
+	if err := u.validateBindParameters(scope, identityPool, options); err != nil {
 		panic(err)
 	}
 	var returns *UserPoolAuthenticationProviderBindConfig
@@ -65,7 +65,7 @@ func (u *jsiiProxy_UserPoolAuthenticationProvider) Bind(scope constructs.Constru
 	_jsii_.Invoke(
 		u,
 		"bind",
-		[]interface{}{scope, identityPool, _options},
+		[]interface{}{scope, identityPool, options},
 		&returns,
 	)
 

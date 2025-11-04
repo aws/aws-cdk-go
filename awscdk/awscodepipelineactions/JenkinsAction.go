@@ -34,7 +34,7 @@ type JenkinsAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the `IAction.bind` method.
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	VariableExpression(variableName *string) *string
@@ -109,8 +109,8 @@ func (j *jsiiProxy_JenkinsAction) Bind(scope constructs.Construct, stage awscode
 	return returns
 }
 
-func (j *jsiiProxy_JenkinsAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	if err := j.validateBoundParameters(_scope, _stage, _options); err != nil {
+func (j *jsiiProxy_JenkinsAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := j.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
 	var returns *awscodepipeline.ActionConfig
@@ -118,7 +118,7 @@ func (j *jsiiProxy_JenkinsAction) Bound(_scope constructs.Construct, _stage awsc
 	_jsii_.Invoke(
 		j,
 		"bound",
-		[]interface{}{_scope, _stage, _options},
+		[]interface{}{scope, stage, options},
 		&returns,
 	)
 

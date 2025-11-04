@@ -92,6 +92,7 @@ type CfnFlowSource interface {
 	// The ARN of the entitlement that allows you to subscribe to this flow.
 	EntitlementArn() *string
 	SetEntitlementArn(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow this source is connected to.
 	FlowArn() *string
 	SetFlowArn(val *string)
@@ -402,6 +403,16 @@ func (j *jsiiProxy_CfnFlowSource) EntitlementArn() *string {
 	_jsii_.Get(
 		j,
 		"entitlementArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

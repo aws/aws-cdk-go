@@ -3,6 +3,7 @@ package awssecurityhub
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecurityhub/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IPolicyAssociationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a PolicyAssociation resource.
 	// Experimental.
 	PolicyAssociationRef() *PolicyAssociationReference
@@ -19,6 +21,7 @@ type IPolicyAssociationRef interface {
 // The jsii proxy for IPolicyAssociationRef
 type jsiiProxy_IPolicyAssociationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IPolicyAssociationRef) PolicyAssociationRef() *PolicyAssociationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IPolicyAssociationRef) PolicyAssociationRef() *PolicyAssociat
 	_jsii_.Get(
 		j,
 		"policyAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPolicyAssociationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPolicyAssociationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

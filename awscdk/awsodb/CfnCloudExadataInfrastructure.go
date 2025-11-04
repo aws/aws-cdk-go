@@ -141,6 +141,7 @@ type CfnCloudExadataInfrastructure interface {
 	// The user-friendly name for the Exadata infrastructure.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -650,6 +651,16 @@ func (j *jsiiProxy_CfnCloudExadataInfrastructure) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCloudExadataInfrastructure) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

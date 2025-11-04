@@ -59,7 +59,7 @@ type AnyPrincipal interface {
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
 	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
@@ -190,8 +190,8 @@ func (a *jsiiProxy_AnyPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	return returns
 }
 
-func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	if err := a.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := a.validateAddToPrincipalPolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *AddToPrincipalPolicyResult
@@ -199,7 +199,7 @@ func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 	_jsii_.Invoke(
 		a,
 		"addToPrincipalPolicy",
-		[]interface{}{_statement},
+		[]interface{}{statement},
 		&returns,
 	)
 

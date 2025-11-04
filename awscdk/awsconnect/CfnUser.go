@@ -82,6 +82,7 @@ type CfnUser interface {
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId() *string
 	SetDirectoryUserId(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the user's hierarchy group.
 	HierarchyGroupArn() *string
 	SetHierarchyGroupArn(val *string)
@@ -340,6 +341,16 @@ func (j *jsiiProxy_CfnUser) DirectoryUserId() *string {
 	_jsii_.Get(
 		j,
 		"directoryUserId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUser) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

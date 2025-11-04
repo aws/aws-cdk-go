@@ -114,6 +114,7 @@ type CfnStreamProcessor interface {
 	// Allows you to opt in or opt out to share data with Rekognition to improve model performance.
 	DataSharingPreference() interface{}
 	SetDataSharingPreference(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The input parameters used to recognize faces in a streaming video analyzed by an Amazon Rekognition stream processor.
 	FaceSearchSettings() interface{}
 	SetFaceSearchSettings(val interface{})
@@ -412,6 +413,16 @@ func (j *jsiiProxy_CfnStreamProcessor) DataSharingPreference() interface{} {
 	_jsii_.Get(
 		j,
 		"dataSharingPreference",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStreamProcessor) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

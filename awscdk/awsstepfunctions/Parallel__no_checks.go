@@ -44,7 +44,7 @@ func (p *jsiiProxy_Parallel) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (p *jsiiProxy_Parallel) validateNextParameters(next IChainable) error {
+func (p *jsiiProxy_Parallel) validateNextParameters(state IChainable) error {
 	return nil
 }
 

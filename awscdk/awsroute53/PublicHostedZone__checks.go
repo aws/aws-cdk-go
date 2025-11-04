@@ -25,9 +25,9 @@ func (p *jsiiProxy_PublicHostedZone) validateAddDelegationParameters(delegate IP
 	return nil
 }
 
-func (p *jsiiProxy_PublicHostedZone) validateAddVpcParameters(_vpc awsec2.IVpc) error {
-	if _vpc == nil {
-		return fmt.Errorf("parameter _vpc is required, but nil was provided")
+func (p *jsiiProxy_PublicHostedZone) validateAddVpcParameters(vpc awsec2.IVpc) error {
+	if vpc == nil {
+		return fmt.Errorf("parameter vpc is required, but nil was provided")
 	}
 
 	return nil

@@ -379,6 +379,7 @@ type CfnFlow interface {
 	// The configuration that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigList() interface{}
 	SetDestinationFlowConfigList(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The specified name of the flow.
 	FlowName() *string
 	SetFlowName(val *string)
@@ -643,6 +644,16 @@ func (j *jsiiProxy_CfnFlow) DestinationFlowConfigList() interface{} {
 	_jsii_.Get(
 		j,
 		"destinationFlowConfigList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

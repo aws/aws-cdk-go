@@ -79,6 +79,7 @@ type CfnPlaceIndex interface {
 	// The optional description for the place index resource.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The name of the place index resource.
 	IndexName() *string
 	SetIndexName(val *string)
@@ -376,6 +377,16 @@ func (j *jsiiProxy_CfnPlaceIndex) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaceIndex) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

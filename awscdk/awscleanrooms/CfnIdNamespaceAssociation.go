@@ -69,6 +69,7 @@ type CfnIdNamespaceAssociation interface {
 	// The description of the ID namespace association.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The configuration settings for the ID mapping table.
 	IdMappingConfig() interface{}
 	SetIdMappingConfig(val interface{})
@@ -370,6 +371,16 @@ func (j *jsiiProxy_CfnIdNamespaceAssociation) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdNamespaceAssociation) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

@@ -28,6 +28,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataAccessRoleArn", GoGetter: "DataAccessRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "documentClassifierName", GoGetter: "DocumentClassifierName"},
 			_jsii_.MemberProperty{JsiiProperty: "documentClassifierRef", GoGetter: "DocumentClassifierRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "inputDataConfig", GoGetter: "InputDataConfig"},
@@ -115,6 +116,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataAccessRoleArn", GoGetter: "DataAccessRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "dataLakeS3Uri", GoGetter: "DataLakeS3Uri"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSecurityConfig", GoGetter: "DataSecurityConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flywheelName", GoGetter: "FlywheelName"},
 			_jsii_.MemberProperty{JsiiProperty: "flywheelRef", GoGetter: "FlywheelRef"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -190,11 +192,13 @@ func init() {
 		reflect.TypeOf((*IDocumentClassifierRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "documentClassifierRef", GoGetter: "DocumentClassifierRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IDocumentClassifierRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -202,12 +206,14 @@ func init() {
 		"aws-cdk-lib.aws_comprehend.IFlywheelRef",
 		reflect.TypeOf((*IFlywheelRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flywheelRef", GoGetter: "FlywheelRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IFlywheelRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)

@@ -80,6 +80,7 @@ type CfnFuotaTask interface {
 	// The ID of the wireless device to disassociate from a FUOTA task.
 	DisassociateWirelessDevice() *string
 	SetDisassociateWirelessDevice(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The S3 URI points to a firmware update image that is to be used with a FUOTA task.
 	FirmwareUpdateImage() *string
 	SetFirmwareUpdateImage(val *string)
@@ -393,6 +394,16 @@ func (j *jsiiProxy_CfnFuotaTask) DisassociateWirelessDevice() *string {
 	_jsii_.Get(
 		j,
 		"disassociateWirelessDevice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFuotaTask) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

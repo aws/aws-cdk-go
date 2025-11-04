@@ -107,6 +107,7 @@ type CfnImageRecipe interface {
 	// The description of the image recipe.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A reference to a ImageRecipe resource.
 	ImageRecipeRef() *ImageRecipeReference
 	// The logical ID for this CloudFormation stack element.
@@ -400,6 +401,16 @@ func (j *jsiiProxy_CfnImageRecipe) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageRecipe) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

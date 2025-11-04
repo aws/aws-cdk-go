@@ -40,20 +40,20 @@ func (e *jsiiProxy_ExternalService) validateApplyRemovalPolicyParameters(policy 
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateAssociateCloudMapServiceParameters(_options *AssociateCloudMapServiceOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (e *jsiiProxy_ExternalService) validateAssociateCloudMapServiceParameters(options *AssociateCloudMapServiceOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateAttachToApplicationTargetGroupParameters(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {
-	if _targetGroup == nil {
-		return fmt.Errorf("parameter _targetGroup is required, but nil was provided")
+func (e *jsiiProxy_ExternalService) validateAttachToApplicationTargetGroupParameters(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {
+	if targetGroup == nil {
+		return fmt.Errorf("parameter targetGroup is required, but nil was provided")
 	}
 
 	return nil
@@ -75,34 +75,34 @@ func (e *jsiiProxy_ExternalService) validateAttachToNetworkTargetGroupParameters
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateAutoScaleTaskCountParameters(_props *awsapplicationautoscaling.EnableScalingProps) error {
-	if _props == nil {
-		return fmt.Errorf("parameter _props is required, but nil was provided")
+func (e *jsiiProxy_ExternalService) validateAutoScaleTaskCountParameters(props *awsapplicationautoscaling.EnableScalingProps) error {
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_props, func() string { return "parameter _props" }); err != nil {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(_vpc awsec2.IVpc, _vpcSubnets *awsec2.SubnetSelection) error {
-	if _vpc == nil {
-		return fmt.Errorf("parameter _vpc is required, but nil was provided")
+func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
+	if vpc == nil {
+		return fmt.Errorf("parameter vpc is required, but nil was provided")
 	}
 
-	if err := _jsii_.ValidateStruct(_vpcSubnets, func() string { return "parameter _vpcSubnets" }); err != nil {
+	if err := _jsii_.ValidateStruct(vpcSubnets, func() string { return "parameter vpcSubnets" }); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(_options *CloudMapOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(options *CloudMapOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 
@@ -152,11 +152,11 @@ func (e *jsiiProxy_ExternalService) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateLoadBalancerTargetParameters(_options *LoadBalancerTargetOptions) error {
-	if _options == nil {
-		return fmt.Errorf("parameter _options is required, but nil was provided")
+func (e *jsiiProxy_ExternalService) validateLoadBalancerTargetParameters(options *LoadBalancerTargetOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
 
@@ -191,9 +191,9 @@ func (e *jsiiProxy_ExternalService) validateMetricMemoryUtilizationParameters(pr
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateRegisterLoadBalancerTargetsParameters(_targets *[]*EcsTarget) error {
-	for idx_d55176, v := range *_targets {
-		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter _targets[%#v]", idx_d55176) }); err != nil {
+func (e *jsiiProxy_ExternalService) validateRegisterLoadBalancerTargetsParameters(targets *[]*EcsTarget) error {
+	for idx_26cafb, v := range *targets {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter targets[%#v]", idx_26cafb) }); err != nil {
 			return err
 		}
 	}

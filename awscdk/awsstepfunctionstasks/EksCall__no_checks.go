@@ -84,7 +84,7 @@ func (e *jsiiProxy_EksCall) validateMetricTimedOutParameters(props *awscloudwatc
 	return nil
 }
 
-func (e *jsiiProxy_EksCall) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EksCall) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

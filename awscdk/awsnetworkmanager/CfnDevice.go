@@ -79,6 +79,7 @@ type CfnDevice interface {
 	SetDescription(val *string)
 	// A reference to a Device resource.
 	DeviceRef() *DeviceReference
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the global network.
 	GlobalNetworkId() *string
 	SetGlobalNetworkId(val *string)
@@ -379,6 +380,16 @@ func (j *jsiiProxy_CfnDevice) DeviceRef() *DeviceReference {
 	_jsii_.Get(
 		j,
 		"deviceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDevice) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

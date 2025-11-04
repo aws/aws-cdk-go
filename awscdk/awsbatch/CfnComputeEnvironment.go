@@ -154,6 +154,7 @@ type CfnComputeEnvironment interface {
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	EksConfiguration() interface{}
 	SetEksConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -441,6 +442,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) EksConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"eksConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

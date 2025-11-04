@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-func (s *jsiiProxy_SessionTagsPrincipal) validateAddToAssumeRolePolicyParameters(doc PolicyDocument) error {
-	if doc == nil {
-		return fmt.Errorf("parameter doc is required, but nil was provided")
+func (s *jsiiProxy_SessionTagsPrincipal) validateAddToAssumeRolePolicyParameters(document PolicyDocument) error {
+	if document == nil {
+		return fmt.Errorf("parameter document is required, but nil was provided")
 	}
 
 	return nil

@@ -84,7 +84,7 @@ func (b *jsiiProxy_BedrockCreateModelCustomizationJob) validateMetricTimedOutPar
 	return nil
 }
 
-func (b *jsiiProxy_BedrockCreateModelCustomizationJob) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (b *jsiiProxy_BedrockCreateModelCustomizationJob) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

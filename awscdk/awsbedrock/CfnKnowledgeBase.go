@@ -254,6 +254,7 @@ type CfnKnowledgeBase interface {
 	// The description of the knowledge base associated with the inline agent.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Contains details about the embeddings configuration of the knowledge base.
 	KnowledgeBaseConfiguration() interface{}
 	SetKnowledgeBaseConfiguration(val interface{})
@@ -557,6 +558,16 @@ func (j *jsiiProxy_CfnKnowledgeBase) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnKnowledgeBase) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

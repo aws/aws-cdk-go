@@ -36,7 +36,7 @@ func (w *jsiiProxy_Wait) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (w *jsiiProxy_Wait) validateNextParameters(next IChainable) error {
+func (w *jsiiProxy_Wait) validateNextParameters(state IChainable) error {
 	return nil
 }
 

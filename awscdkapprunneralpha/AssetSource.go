@@ -42,7 +42,7 @@ type AssetSource interface {
 	Source
 	// Called when the Job is initialized to allow this object to bind.
 	// Experimental.
-	Bind(_scope constructs.Construct) *SourceConfig
+	Bind(scope constructs.Construct) *SourceConfig
 }
 
 // The jsii proxy struct for AssetSource
@@ -159,8 +159,8 @@ func AssetSource_FromGitHub(props *GithubRepositoryProps) GithubSource {
 	return returns
 }
 
-func (a *jsiiProxy_AssetSource) Bind(_scope constructs.Construct) *SourceConfig {
-	if err := a.validateBindParameters(_scope); err != nil {
+func (a *jsiiProxy_AssetSource) Bind(scope constructs.Construct) *SourceConfig {
+	if err := a.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *SourceConfig
@@ -168,7 +168,7 @@ func (a *jsiiProxy_AssetSource) Bind(_scope constructs.Construct) *SourceConfig 
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_scope},
+		[]interface{}{scope},
 		&returns,
 	)
 

@@ -70,6 +70,7 @@ type CfnApiKey interface {
 	// Specifies whether the ApiKey can be used by callers.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value.
 	GenerateDistinctId() interface{}
 	SetGenerateDistinctId(val interface{})
@@ -341,6 +342,16 @@ func (j *jsiiProxy_CfnApiKey) Enabled() interface{} {
 	_jsii_.Get(
 		j,
 		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApiKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

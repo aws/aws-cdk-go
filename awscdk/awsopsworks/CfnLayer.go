@@ -143,6 +143,7 @@ type CfnLayer interface {
 	// Whether to disable auto healing for the layer.
 	EnableAutoHealing() interface{}
 	SetEnableAutoHealing(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Whether to install operating system and package updates when the instance boots.
 	InstallUpdatesOnBoot() interface{}
 	SetInstallUpdatesOnBoot(val interface{})
@@ -474,6 +475,16 @@ func (j *jsiiProxy_CfnLayer) EnableAutoHealing() interface{} {
 	_jsii_.Get(
 		j,
 		"enableAutoHealing",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLayer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

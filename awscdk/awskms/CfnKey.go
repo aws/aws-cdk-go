@@ -117,6 +117,7 @@ type CfnKey interface {
 	// Enables automatic rotation of the key material for the specified KMS key.
 	EnableKeyRotation() interface{}
 	SetEnableKeyRotation(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The key policy to attach to the KMS key.
 	KeyPolicy() interface{}
 	SetKeyPolicy(val interface{})
@@ -409,6 +410,16 @@ func (j *jsiiProxy_CfnKey) EnableKeyRotation() interface{} {
 	_jsii_.Get(
 		j,
 		"enableKeyRotation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

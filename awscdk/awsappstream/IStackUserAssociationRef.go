@@ -3,6 +3,7 @@ package awsappstream
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappstream/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IStackUserAssociationRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a StackUserAssociation resource.
 	// Experimental.
 	StackUserAssociationRef() *StackUserAssociationReference
@@ -19,6 +21,7 @@ type IStackUserAssociationRef interface {
 // The jsii proxy for IStackUserAssociationRef
 type jsiiProxy_IStackUserAssociationRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IStackUserAssociationRef) StackUserAssociationRef() *StackUserAssociationReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IStackUserAssociationRef) StackUserAssociationRef() *StackUse
 	_jsii_.Get(
 		j,
 		"stackUserAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStackUserAssociationRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStackUserAssociationRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

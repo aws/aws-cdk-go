@@ -113,6 +113,7 @@ type CfnAnomalyDetector interface {
 	// The dimensions of the metric associated with the anomaly detection band.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -374,6 +375,16 @@ func (j *jsiiProxy_CfnAnomalyDetector) Dimensions() interface{} {
 	_jsii_.Get(
 		j,
 		"dimensions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAnomalyDetector) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

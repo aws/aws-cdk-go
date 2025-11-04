@@ -38,7 +38,7 @@ type SessionTagsPrincipal interface {
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
-	AddToAssumeRolePolicy(doc PolicyDocument)
+	AddToAssumeRolePolicy(document PolicyDocument)
 	// Add to the policy of this principal.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
@@ -139,14 +139,14 @@ func NewSessionTagsPrincipal_Override(s SessionTagsPrincipal, principal IPrincip
 	)
 }
 
-func (s *jsiiProxy_SessionTagsPrincipal) AddToAssumeRolePolicy(doc PolicyDocument) {
-	if err := s.validateAddToAssumeRolePolicyParameters(doc); err != nil {
+func (s *jsiiProxy_SessionTagsPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := s.validateAddToAssumeRolePolicyParameters(document); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToAssumeRolePolicy",
-		[]interface{}{doc},
+		[]interface{}{document},
 	)
 }
 

@@ -55,6 +55,7 @@ type CfnLedger interface {
 	// Specifies whether the ledger is protected from being deleted by any user.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
 	KmsKey() *string
 	SetKmsKey(val *string)
@@ -295,6 +296,16 @@ func (j *jsiiProxy_CfnLedger) DeletionProtection() interface{} {
 	_jsii_.Get(
 		j,
 		"deletionProtection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLedger) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

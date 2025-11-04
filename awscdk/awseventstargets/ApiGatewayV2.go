@@ -27,7 +27,7 @@ type ApiGatewayV2 interface {
 	// Returns a RuleTarget that can be used to trigger this API Gateway HTTP APIs as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html#eb-api-gateway-permissions
 	//
-	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for ApiGatewayV2
@@ -73,7 +73,7 @@ func NewApiGatewayV2_Override(a ApiGatewayV2, httpApi awsapigatewayv2.IHttpApi, 
 	)
 }
 
-func (a *jsiiProxy_ApiGatewayV2) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+func (a *jsiiProxy_ApiGatewayV2) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	if err := a.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
@@ -82,7 +82,7 @@ func (a *jsiiProxy_ApiGatewayV2) Bind(rule awsevents.IRule, _id *string) *awseve
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

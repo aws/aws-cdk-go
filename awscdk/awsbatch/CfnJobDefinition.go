@@ -46,6 +46,7 @@ type CfnJobDefinition interface {
 	// An object with properties that are specific to Amazon EKS-based jobs.
 	EksProperties() interface{}
 	SetEksProperties(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The name of the job definition.
 	JobDefinitionName() *string
 	SetJobDefinitionName(val *string)
@@ -334,6 +335,16 @@ func (j *jsiiProxy_CfnJobDefinition) EksProperties() interface{} {
 	_jsii_.Get(
 		j,
 		"eksProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

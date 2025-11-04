@@ -22,7 +22,7 @@ import (
 type LogGroupLogDestination interface {
 	IAccessLogDestination
 	// Binds this destination to the CloudWatch Logs.
-	Bind(_stage IStageRef) *AccessLogDestinationConfig
+	Bind(stage IStageRef) *AccessLogDestinationConfig
 }
 
 // The jsii proxy struct for LogGroupLogDestination
@@ -57,8 +57,8 @@ func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslo
 	)
 }
 
-func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStageRef) *AccessLogDestinationConfig {
-	if err := l.validateBindParameters(_stage); err != nil {
+func (l *jsiiProxy_LogGroupLogDestination) Bind(stage IStageRef) *AccessLogDestinationConfig {
+	if err := l.validateBindParameters(stage); err != nil {
 		panic(err)
 	}
 	var returns *AccessLogDestinationConfig
@@ -66,7 +66,7 @@ func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStageRef) *AccessLogDest
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{_stage},
+		[]interface{}{stage},
 		&returns,
 	)
 

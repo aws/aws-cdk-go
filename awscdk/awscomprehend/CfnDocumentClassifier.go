@@ -110,6 +110,7 @@ type CfnDocumentClassifier interface {
 	SetDocumentClassifierName(val *string)
 	// A reference to a DocumentClassifier resource.
 	DocumentClassifierRef() *DocumentClassifierReference
+	Env() *awscdk.ResourceEnvironment
 	// Specifies the format and location of the input data for the job.
 	InputDataConfig() interface{}
 	SetInputDataConfig(val interface{})
@@ -394,6 +395,16 @@ func (j *jsiiProxy_CfnDocumentClassifier) DocumentClassifierRef() *DocumentClass
 	_jsii_.Get(
 		j,
 		"documentClassifierRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDocumentClassifier) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

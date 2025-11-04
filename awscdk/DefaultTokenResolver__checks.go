@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-func (d *jsiiProxy_DefaultTokenResolver) validateResolveListParameters(xs *[]*string, context IResolveContext) error {
-	if xs == nil {
-		return fmt.Errorf("parameter xs is required, but nil was provided")
+func (d *jsiiProxy_DefaultTokenResolver) validateResolveListParameters(l *[]*string, context IResolveContext) error {
+	if l == nil {
+		return fmt.Errorf("parameter l is required, but nil was provided")
 	}
 
 	if context == nil {
@@ -18,9 +18,9 @@ func (d *jsiiProxy_DefaultTokenResolver) validateResolveListParameters(xs *[]*st
 	return nil
 }
 
-func (d *jsiiProxy_DefaultTokenResolver) validateResolveStringParameters(fragments TokenizedStringFragments, context IResolveContext) error {
-	if fragments == nil {
-		return fmt.Errorf("parameter fragments is required, but nil was provided")
+func (d *jsiiProxy_DefaultTokenResolver) validateResolveStringParameters(s TokenizedStringFragments, context IResolveContext) error {
+	if s == nil {
+		return fmt.Errorf("parameter s is required, but nil was provided")
 	}
 
 	if context == nil {

@@ -59,6 +59,7 @@ type CfnScheduledAction interface {
 	// The date and time for the recurring schedule to end, in UTC.
 	EndTime() *string
 	SetEndTime(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -319,6 +320,16 @@ func (j *jsiiProxy_CfnScheduledAction) EndTime() *string {
 	_jsii_.Get(
 		j,
 		"endTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

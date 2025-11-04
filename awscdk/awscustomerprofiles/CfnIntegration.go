@@ -144,6 +144,7 @@ type CfnIntegration interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// A list of unique names for active event triggers associated with the integration.
 	EventTriggerNames() *[]*string
 	SetEventTriggerNames(val *[]*string)
@@ -400,6 +401,16 @@ func (j *jsiiProxy_CfnIntegration) DomainName() *string {
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntegration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

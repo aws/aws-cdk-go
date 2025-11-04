@@ -1116,6 +1116,86 @@ Using `resourcePolicy` you can add a [resource policy](https://docs.aws.amazon.c
     });
 ```
 
+### Adding Resource Policy Statements Dynamically
+
+You can also add resource policy statements to a table after it's created using the `addToResourcePolicy` method. Following the same pattern as KMS, resource policies use wildcard resources to avoid circular dependencies:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+
+// Standard resource policy (recommended approach)
+table.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("dynamodb:GetItem"),
+		jsii.String("dynamodb:PutItem"),
+		jsii.String("dynamodb:Query"),
+	},
+	Principals: []IPrincipal{
+		iam.NewAccountRootPrincipal(),
+	},
+	Resources: []*string{
+		jsii.String("*"),
+	},
+}))
+
+// Allow specific service access
+table.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("dynamodb:Query"),
+	},
+	Principals: []IPrincipal{
+		iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+	},
+	Resources: []*string{
+		jsii.String("*"),
+	},
+}))
+```
+
+#### Scoped Resource Policies (Advanced)
+
+For scoped resource policies that reference specific table ARNs, you must specify an explicit table name:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// Table with explicit name enables scoped resource policies
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	TableName: jsii.String("my-explicit-table-name"),
+	 // Required for scoped resources
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+
+// Now you can use scoped resources
+table.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("dynamodb:GetItem"),
+	},
+	Principals: []IPrincipal{
+		iam.NewAccountRootPrincipal(),
+	},
+	Resources: []*string{
+		awscdk.Fn_Sub(jsii.String("arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/my-explicit-table-name")),
+		awscdk.Fn_*Sub(jsii.String("arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/my-explicit-table-name/index/*")),
+	},
+}))
+```
+
+**Important Limitations:**
+
+* **Auto-generated table names**: Must use `resources: ['*']` to avoid circular dependencies
+* **Explicit table names**: Enable scoped resources but lose CDK's automatic naming benefits
+* **CloudFormation constraint**: Resource policies cannot reference the resource they're attached to during creation
+
 TableV2 doesn’t support creating a replica and adding a resource-based policy to that replica in the same stack update in Regions other than the Region where you deploy the stack update.
 To incorporate a resource-based policy into a replica, you'll need to initially deploy the replica without the policy, followed by a subsequent update to include the desired policy.
 

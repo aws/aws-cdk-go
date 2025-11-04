@@ -116,6 +116,7 @@ type CfnStateMachine interface {
 	// Encryption configuration for the state machine.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Defines what execution history events are logged and where they are logged.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
@@ -422,6 +423,16 @@ func (j *jsiiProxy_CfnStateMachine) EncryptionConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStateMachine) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

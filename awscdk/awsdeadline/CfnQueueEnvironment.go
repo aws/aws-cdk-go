@@ -43,6 +43,7 @@ type CfnQueueEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// The identifier assigned to the farm that contains the queue.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -283,6 +284,16 @@ func (j *jsiiProxy_CfnQueueEnvironment) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueueEnvironment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

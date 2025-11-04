@@ -16,7 +16,7 @@ func (e *jsiiProxy_ExternalTaskDefinition) validateAddFirelensLogRouterParameter
 	return nil
 }
 
-func (e *jsiiProxy_ExternalTaskDefinition) validateAddInferenceAcceleratorParameters(_inferenceAccelerator *InferenceAccelerator) error {
+func (e *jsiiProxy_ExternalTaskDefinition) validateAddInferenceAcceleratorParameters(inferenceAccelerator *InferenceAccelerator) error {
 	return nil
 }
 

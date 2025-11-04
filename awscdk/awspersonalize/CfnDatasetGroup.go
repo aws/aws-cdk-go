@@ -51,6 +51,7 @@ type CfnDatasetGroup interface {
 	// The domain of a Domain dataset group.
 	Domain() *string
 	SetDomain(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the datasets.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -293,6 +294,16 @@ func (j *jsiiProxy_CfnDatasetGroup) Domain() *string {
 	_jsii_.Get(
 		j,
 		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatasetGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

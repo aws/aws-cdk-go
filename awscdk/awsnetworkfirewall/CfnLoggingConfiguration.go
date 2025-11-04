@@ -62,6 +62,7 @@ type CfnLoggingConfiguration interface {
 	CreationStack() *[]*string
 	EnableMonitoringDashboard() interface{}
 	SetEnableMonitoringDashboard(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with.
 	FirewallArn() *string
 	SetFirewallArn(val *string)
@@ -286,6 +287,16 @@ func (j *jsiiProxy_CfnLoggingConfiguration) EnableMonitoringDashboard() interfac
 	_jsii_.Get(
 		j,
 		"enableMonitoringDashboard",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoggingConfiguration) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

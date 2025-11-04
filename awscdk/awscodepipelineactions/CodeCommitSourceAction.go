@@ -88,7 +88,7 @@ type CodeCommitSourceAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the `IAction.bind` method.
-	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	VariableExpression(variableName *string) *string
@@ -173,8 +173,8 @@ func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope constructs.Construct, stag
 	return returns
 }
 
-func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	if err := c.validateBoundParameters(_scope, stage, options); err != nil {
+func (c *jsiiProxy_CodeCommitSourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
 	var returns *awscodepipeline.ActionConfig
@@ -182,7 +182,7 @@ func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope constructs.Construct, st
 	_jsii_.Invoke(
 		c,
 		"bound",
-		[]interface{}{_scope, stage, options},
+		[]interface{}{scope, stage, options},
 		&returns,
 	)
 

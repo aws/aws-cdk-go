@@ -215,6 +215,7 @@ type CfnFleet interface {
 	// The display name of the fleet summary to update.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The farm ID.
 	FarmId() *string
 	SetFarmId(val *string)
@@ -539,6 +540,16 @@ func (j *jsiiProxy_CfnFleet) DisplayName() *string {
 	_jsii_.Get(
 		j,
 		"displayName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

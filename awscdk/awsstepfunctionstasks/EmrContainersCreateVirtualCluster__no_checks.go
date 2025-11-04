@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateMetricTimedOutPara
 	return nil
 }
 
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

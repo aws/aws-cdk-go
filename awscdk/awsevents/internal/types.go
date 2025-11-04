@@ -12,3 +12,4 @@ type Type__awsiamIResourceWithPolicy = awsiam.IResourceWithPolicy
 type Type__awscdkIResolvable = awscdk.IResolvable
 type Type__awscdkIResource = awscdk.IResource
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awscdkIEnvironmentAware = awscdk.IEnvironmentAware

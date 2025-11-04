@@ -34,7 +34,7 @@ type ServiceCatalogDeployActionBeta1 interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the `IAction.bind` method.
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	VariableExpression(variableName *string) *string
@@ -109,8 +109,8 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bind(scope constructs.Constr
 	return returns
 }
 
-func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	if err := s.validateBoundParameters(_scope, _stage, options); err != nil {
+func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
 	var returns *awscodepipeline.ActionConfig
@@ -118,7 +118,7 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope constructs.Cons
 	_jsii_.Invoke(
 		s,
 		"bound",
-		[]interface{}{_scope, _stage, options},
+		[]interface{}{scope, stage, options},
 		&returns,
 	)
 

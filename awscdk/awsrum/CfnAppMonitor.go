@@ -136,6 +136,7 @@ type CfnAppMonitor interface {
 	// This parameter or the `Domain` parameter is required.
 	DomainList() *[]*string
 	SetDomainList(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -431,6 +432,16 @@ func (j *jsiiProxy_CfnAppMonitor) DomainList() *[]*string {
 	_jsii_.Get(
 		j,
 		"domainList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAppMonitor) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

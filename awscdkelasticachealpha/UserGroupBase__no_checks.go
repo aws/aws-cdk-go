@@ -4,7 +4,7 @@ package awscdkelasticachealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (u *jsiiProxy_UserGroupBase) validateAddUserParameters(_user IUser) error {
+func (u *jsiiProxy_UserGroupBase) validateAddUserParameters(user IUser) error {
 	return nil
 }
 

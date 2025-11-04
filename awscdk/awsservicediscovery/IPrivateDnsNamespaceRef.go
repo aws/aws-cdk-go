@@ -3,6 +3,7 @@ package awsservicediscovery
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IPrivateDnsNamespaceRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a PrivateDnsNamespace resource.
 	// Experimental.
 	PrivateDnsNamespaceRef() *PrivateDnsNamespaceReference
@@ -19,6 +21,7 @@ type IPrivateDnsNamespaceRef interface {
 // The jsii proxy for IPrivateDnsNamespaceRef
 type jsiiProxy_IPrivateDnsNamespaceRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IPrivateDnsNamespaceRef) PrivateDnsNamespaceRef() *PrivateDnsNamespaceReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IPrivateDnsNamespaceRef) PrivateDnsNamespaceRef() *PrivateDns
 	_jsii_.Get(
 		j,
 		"privateDnsNamespaceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPrivateDnsNamespaceRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPrivateDnsNamespaceRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

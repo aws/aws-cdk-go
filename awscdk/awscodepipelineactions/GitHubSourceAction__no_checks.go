@@ -8,7 +8,7 @@ func (g *jsiiProxy_GitHubSourceAction) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func (g *jsiiProxy_GitHubSourceAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) error {
+func (g *jsiiProxy_GitHubSourceAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

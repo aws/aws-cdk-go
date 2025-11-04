@@ -84,7 +84,7 @@ func (m *jsiiProxy_MediaConvertCreateJob) validateMetricTimedOutParameters(props
 	return nil
 }
 
-func (m *jsiiProxy_MediaConvertCreateJob) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (m *jsiiProxy_MediaConvertCreateJob) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

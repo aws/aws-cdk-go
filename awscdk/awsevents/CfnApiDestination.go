@@ -71,6 +71,7 @@ type CfnApiDestination interface {
 	// A description for the API destination to create.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The method to use for the request to the HTTP invocation endpoint.
 	HttpMethod() *string
 	SetHttpMethod(val *string)
@@ -336,6 +337,16 @@ func (j *jsiiProxy_CfnApiDestination) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApiDestination) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

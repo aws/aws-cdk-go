@@ -214,6 +214,7 @@ type CfnTransformer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// Specify either the name or ARN of the log group to create the transformer for.
 	LogGroupIdentifier() *string
 	SetLogGroupIdentifier(val *string)
@@ -425,6 +426,16 @@ func (j *jsiiProxy_CfnTransformer) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransformer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

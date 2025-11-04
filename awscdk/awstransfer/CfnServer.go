@@ -133,6 +133,7 @@ type CfnServer interface {
 	// The type of endpoint that you want your server to use.
 	EndpointType() *string
 	SetEndpointType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` .
 	IdentityProviderDetails() interface{}
 	SetIdentityProviderDetails(val interface{})
@@ -462,6 +463,16 @@ func (j *jsiiProxy_CfnServer) EndpointType() *string {
 	_jsii_.Get(
 		j,
 		"endpointType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

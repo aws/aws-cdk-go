@@ -76,6 +76,7 @@ type CfnVPCConnection interface {
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers() *[]*string
 	SetDnsResolvers(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -392,6 +393,16 @@ func (j *jsiiProxy_CfnVPCConnection) DnsResolvers() *[]*string {
 	_jsii_.Get(
 		j,
 		"dnsResolvers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCConnection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

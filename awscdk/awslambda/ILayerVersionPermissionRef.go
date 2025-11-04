@@ -3,6 +3,7 @@ package awslambda
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type ILayerVersionPermissionRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a LayerVersionPermission resource.
 	// Experimental.
 	LayerVersionPermissionRef() *LayerVersionPermissionReference
@@ -19,6 +21,7 @@ type ILayerVersionPermissionRef interface {
 // The jsii proxy for ILayerVersionPermissionRef
 type jsiiProxy_ILayerVersionPermissionRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_ILayerVersionPermissionRef) LayerVersionPermissionRef() *LayerVersionPermissionReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_ILayerVersionPermissionRef) LayerVersionPermissionRef() *Laye
 	_jsii_.Get(
 		j,
 		"layerVersionPermissionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILayerVersionPermissionRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILayerVersionPermissionRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

@@ -63,6 +63,7 @@ type CfnProactiveEngagement interface {
 	// The list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support, plus any relevant notes.
 	EmergencyContactList() interface{}
 	SetEmergencyContactList(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -291,6 +292,16 @@ func (j *jsiiProxy_CfnProactiveEngagement) EmergencyContactList() interface{} {
 	_jsii_.Get(
 		j,
 		"emergencyContactList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProactiveEngagement) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

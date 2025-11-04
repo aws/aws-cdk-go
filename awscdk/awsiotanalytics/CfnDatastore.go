@@ -109,6 +109,7 @@ type CfnDatastore interface {
 	// Where data store data is stored.
 	DatastoreStorage() interface{}
 	SetDatastoreStorage(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// Contains the configuration information of file formats.
 	//
 	// AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
@@ -376,6 +377,16 @@ func (j *jsiiProxy_CfnDatastore) DatastoreStorage() interface{} {
 	_jsii_.Get(
 		j,
 		"datastoreStorage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatastore) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

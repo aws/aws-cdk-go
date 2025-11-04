@@ -63,6 +63,7 @@ type CfnNetworkInterfaceAttachment interface {
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification() interface{}
 	SetEnaSrdSpecification(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The ID of the instance to which you will attach the ENI.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -324,6 +325,16 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) EnaSrdSpecification() interfac
 	_jsii_.Get(
 		j,
 		"enaSrdSpecification",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

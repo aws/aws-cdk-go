@@ -59,6 +59,7 @@ type CfnLoadBalancerTlsCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Env() *awscdk.ResourceEnvironment
 	// A Boolean value indicating whether HTTPS redirection is enabled for the load balancer that the TLS certificate is attached to.
 	HttpsRedirectionEnabled() interface{}
 	SetHttpsRedirectionEnabled(val interface{})
@@ -323,6 +324,16 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

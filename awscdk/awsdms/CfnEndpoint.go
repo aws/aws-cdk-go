@@ -356,6 +356,7 @@ type CfnEndpoint interface {
 	// The type of engine for the endpoint, depending on the `EndpointType` value.
 	EngineName() *string
 	SetEngineName(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// Additional attributes associated with the connection.
 	ExtraConnectionAttributes() *string
 	SetExtraConnectionAttributes(val *string)
@@ -743,6 +744,16 @@ func (j *jsiiProxy_CfnEndpoint) EngineName() *string {
 	_jsii_.Get(
 		j,
 		"engineName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpoint) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

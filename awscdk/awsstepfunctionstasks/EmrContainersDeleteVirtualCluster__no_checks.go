@@ -84,7 +84,7 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateMetricTimedOutPara
 	return nil
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

@@ -66,6 +66,7 @@ type CfnNotificationRule interface {
 	// The level of detail to include in the notifications for this resource.
 	DetailType() *string
 	SetDetailType(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The event type associated with this notification rule.
 	EventTypeId() *string
 	SetEventTypeId(val *string)
@@ -328,6 +329,16 @@ func (j *jsiiProxy_CfnNotificationRule) DetailType() *string {
 	_jsii_.Get(
 		j,
 		"detailType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNotificationRule) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

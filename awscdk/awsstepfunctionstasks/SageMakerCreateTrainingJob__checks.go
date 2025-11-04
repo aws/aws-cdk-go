@@ -201,9 +201,9 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) validateMetricTimedOutParameters(
 	return nil
 }
 
-func (s *jsiiProxy_SageMakerCreateTrainingJob) validateNextParameters(next awsstepfunctions.IChainable) error {
-	if next == nil {
-		return fmt.Errorf("parameter next is required, but nil was provided")
+func (s *jsiiProxy_SageMakerCreateTrainingJob) validateNextParameters(state awsstepfunctions.IChainable) error {
+	if state == nil {
+		return fmt.Errorf("parameter state is required, but nil was provided")
 	}
 
 	return nil

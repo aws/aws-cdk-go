@@ -84,7 +84,7 @@ func (e *jsiiProxy_EventBridgePutEvents) validateMetricTimedOutParameters(props 
 	return nil
 }
 
-func (e *jsiiProxy_EventBridgePutEvents) validateNextParameters(next awsstepfunctions.IChainable) error {
+func (e *jsiiProxy_EventBridgePutEvents) validateNextParameters(state awsstepfunctions.IChainable) error {
 	return nil
 }
 

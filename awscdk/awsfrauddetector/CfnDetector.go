@@ -181,6 +181,7 @@ type CfnDetector interface {
 	// The status of the detector version.
 	DetectorVersionStatus() *string
 	SetDetectorVersionStatus(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The event type associated with this detector.
 	EventType() interface{}
 	SetEventType(val interface{})
@@ -519,6 +520,16 @@ func (j *jsiiProxy_CfnDetector) DetectorVersionStatus() *string {
 	_jsii_.Get(
 		j,
 		"detectorVersionStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDetector) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

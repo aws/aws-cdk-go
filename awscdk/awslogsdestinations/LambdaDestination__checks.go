@@ -12,13 +12,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_LambdaDestination) validateBindParameters(scope constructs.Construct, logGroup awslogs.ILogGroup) error {
+func (l *jsiiProxy_LambdaDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if logGroup == nil {
-		return fmt.Errorf("parameter logGroup is required, but nil was provided")
+	if sourceLogGroup == nil {
+		return fmt.Errorf("parameter sourceLogGroup is required, but nil was provided")
 	}
 
 	return nil

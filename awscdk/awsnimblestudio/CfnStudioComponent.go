@@ -95,6 +95,7 @@ type CfnStudioComponent interface {
 	SetDescription(val *string)
 	Ec2SecurityGroupIds() *[]*string
 	SetEc2SecurityGroupIds(val *[]*string)
+	Env() *awscdk.ResourceEnvironment
 	InitializationScripts() interface{}
 	SetInitializationScripts(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -357,6 +358,16 @@ func (j *jsiiProxy_CfnStudioComponent) Ec2SecurityGroupIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"ec2SecurityGroupIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudioComponent) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

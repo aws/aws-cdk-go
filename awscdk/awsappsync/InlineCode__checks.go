@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_InlineCode) validateBindParameters(_scope constructs.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (i *jsiiProxy_InlineCode) validateBindParameters(scope constructs.Construct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

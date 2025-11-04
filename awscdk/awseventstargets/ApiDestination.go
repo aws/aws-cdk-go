@@ -32,7 +32,7 @@ import (
 type ApiDestination interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger API destinations from an EventBridge event.
-	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for ApiDestination
@@ -67,8 +67,8 @@ func NewApiDestination_Override(a ApiDestination, apiDestination awsevents.IApiD
 	)
 }
 
-func (a *jsiiProxy_ApiDestination) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
-	if err := a.validateBindParameters(_rule); err != nil {
+func (a *jsiiProxy_ApiDestination) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := a.validateBindParameters(rule); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.RuleTargetConfig
@@ -76,7 +76,7 @@ func (a *jsiiProxy_ApiDestination) Bind(_rule awsevents.IRule, _id *string) *aws
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{_rule, _id},
+		[]interface{}{rule, id},
 		&returns,
 	)
 

@@ -31,7 +31,7 @@ import (
 type Lambda interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Lambda
@@ -66,8 +66,8 @@ func NewLambda_Override(l Lambda, props *LambdaProps) {
 	)
 }
 
-func (l *jsiiProxy_Lambda) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
-	if err := l.validateBindParameters(rule); err != nil {
+func (l *jsiiProxy_Lambda) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := l.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}
 	var returns *awsses.ReceiptRuleActionConfig
@@ -75,7 +75,7 @@ func (l *jsiiProxy_Lambda) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleAct
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{rule},
+		[]interface{}{receiptRule},
 		&returns,
 	)
 

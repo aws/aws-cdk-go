@@ -106,6 +106,7 @@ type CfnConnectAttachment interface {
 	// The Region where the edge is located.
 	EdgeLocation() *string
 	SetEdgeLocation(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -470,6 +471,16 @@ func (j *jsiiProxy_CfnConnectAttachment) EdgeLocation() *string {
 	_jsii_.Get(
 		j,
 		"edgeLocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

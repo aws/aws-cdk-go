@@ -63,6 +63,7 @@ type CfnDBClusterParameterGroup interface {
 	// The description for the DB cluster parameter group.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The DB cluster parameter group family name.
 	Family() *string
 	SetFamily(val *string)
@@ -308,6 +309,16 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

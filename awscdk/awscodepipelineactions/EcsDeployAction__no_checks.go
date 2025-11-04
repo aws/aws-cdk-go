@@ -8,7 +8,7 @@ func (e *jsiiProxy_EcsDeployAction) validateBindParameters(scope constructs.Cons
 	return nil
 }
 
-func (e *jsiiProxy_EcsDeployAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (e *jsiiProxy_EcsDeployAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

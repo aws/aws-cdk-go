@@ -89,6 +89,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "globalSecondaryIndexes", GoGetter: "GlobalSecondaryIndexes"},
@@ -254,6 +255,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "contributorInsightsSpecification", GoGetter: "ContributorInsightsSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deletionProtectionEnabled", GoGetter: "DeletionProtectionEnabled"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "globalSecondaryIndexes", GoGetter: "GlobalSecondaryIndexes"},
@@ -417,12 +419,14 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.IGlobalTableRef",
 		reflect.TypeOf((*IGlobalTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "globalTableRef", GoGetter: "GlobalTableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGlobalTableRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -477,12 +481,14 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.ITableRef",
 		reflect.TypeOf((*ITableRef)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIEnvironmentAware)
 			return &j
 		},
 	)
@@ -670,6 +676,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "schema", GoMethod: "Schema"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "table", GoGetter: "Table"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},

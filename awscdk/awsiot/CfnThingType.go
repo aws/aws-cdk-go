@@ -69,6 +69,7 @@ type CfnThingType interface {
 	// You can not associate new things with deprecated thing type.
 	DeprecateThingType() interface{}
 	SetDeprecateThingType(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnThingType) DeprecateThingType() interface{} {
 	_jsii_.Get(
 		j,
 		"deprecateThingType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnThingType) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

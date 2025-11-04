@@ -30,13 +30,13 @@ func (d *jsiiProxy_DotNetLinuxInjector) validateInjectInitContainerParameters(ta
 	return nil
 }
 
-func (d *jsiiProxy_DotNetLinuxInjector) validateOverrideAdditionalEnvironmentsParameters(_envsToOverride *map[string]*string, _envsFromTaskDef *map[string]*string) error {
-	if _envsToOverride == nil {
-		return fmt.Errorf("parameter _envsToOverride is required, but nil was provided")
+func (d *jsiiProxy_DotNetLinuxInjector) validateOverrideAdditionalEnvironmentsParameters(envsToOverride *map[string]*string, envsFromTaskDef *map[string]*string) error {
+	if envsToOverride == nil {
+		return fmt.Errorf("parameter envsToOverride is required, but nil was provided")
 	}
 
-	if _envsFromTaskDef == nil {
-		return fmt.Errorf("parameter _envsFromTaskDef is required, but nil was provided")
+	if envsFromTaskDef == nil {
+		return fmt.Errorf("parameter envsFromTaskDef is required, but nil was provided")
 	}
 
 	return nil

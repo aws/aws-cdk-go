@@ -116,6 +116,7 @@ type CfnFirewallPolicy interface {
 	// A description of the firewall policy.
 	Description() *string
 	SetDescription(val *string)
+	Env() *awscdk.ResourceEnvironment
 	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 	FirewallPolicy() interface{}
 	SetFirewallPolicy(val interface{})
@@ -363,6 +364,16 @@ func (j *jsiiProxy_CfnFirewallPolicy) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewallPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

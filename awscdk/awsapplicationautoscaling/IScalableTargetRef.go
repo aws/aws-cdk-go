@@ -3,6 +3,7 @@ package awsapplicationautoscaling
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,6 +12,7 @@ import (
 // Experimental.
 type IScalableTargetRef interface {
 	constructs.IConstruct
+	awscdk.IEnvironmentAware
 	// A reference to a ScalableTarget resource.
 	// Experimental.
 	ScalableTargetRef() *ScalableTargetReference
@@ -19,6 +21,7 @@ type IScalableTargetRef interface {
 // The jsii proxy for IScalableTargetRef
 type jsiiProxy_IScalableTargetRef struct {
 	internal.Type__constructsIConstruct
+	internal.Type__awscdkIEnvironmentAware
 }
 
 func (j *jsiiProxy_IScalableTargetRef) ScalableTargetRef() *ScalableTargetReference {
@@ -26,6 +29,26 @@ func (j *jsiiProxy_IScalableTargetRef) ScalableTargetRef() *ScalableTargetRefere
 	_jsii_.Get(
 		j,
 		"scalableTargetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IScalableTargetRef) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IScalableTargetRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns

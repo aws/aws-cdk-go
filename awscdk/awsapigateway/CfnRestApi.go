@@ -108,6 +108,7 @@ type CfnRestApi interface {
 	// A list of the endpoint types and IP address types of the API.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
+	Env() *awscdk.ResourceEnvironment
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered.
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
@@ -439,6 +440,16 @@ func (j *jsiiProxy_CfnRestApi) EndpointConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"endpointConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRestApi) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns
