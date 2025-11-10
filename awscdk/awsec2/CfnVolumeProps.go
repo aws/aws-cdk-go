@@ -12,10 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVolumeProps := &CfnVolumeProps{
-//   	AvailabilityZone: jsii.String("availabilityZone"),
-//
-//   	// the properties below are optional
 //   	AutoEnableIo: jsii.Boolean(false),
+//   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	Encrypted: jsii.Boolean(false),
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -23,6 +22,7 @@ import (
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	Size: jsii.Number(123),
 //   	SnapshotId: jsii.String("snapshotId"),
+//   	SourceVolumeId: jsii.String("sourceVolumeId"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -37,18 +37,21 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html
 //
 type CfnVolumeProps struct {
-	// The ID of the Availability Zone in which to create the volume. For example, `us-east-1a` .
-	//
-	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzone
-	//
-	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// Indicates whether the volume is auto-enabled for I/O operations.
 	//
 	// By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-autoenableio
 	//
 	AutoEnableIo interface{} `field:"optional" json:"autoEnableIo" yaml:"autoEnableIo"`
+	// The ID of the Availability Zone in which to create the volume. For example, `us-east-1a` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzone
+	//
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-availabilityzoneid
+	//
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// Indicates whether the volume should be encrypted.
 	//
 	// The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide* .
@@ -117,6 +120,9 @@ type CfnVolumeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-snapshotid
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-sourcevolumeid
+	//
+	SourceVolumeId *string `field:"optional" json:"sourceVolumeId" yaml:"sourceVolumeId"`
 	// The tags to apply to the volume during creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-tags
 	//

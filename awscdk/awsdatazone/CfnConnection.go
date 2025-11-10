@@ -18,7 +18,6 @@ import (
 //
 //   cfnConnection := awscdk.Aws_datazone.NewCfnConnection(this, jsii.String("MyCfnConnection"), &CfnConnectionProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -29,6 +28,9 @@ import (
 //   		IamConnectionId: jsii.String("iamConnectionId"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	EnableTrustedIdentityPropagation: jsii.Boolean(false),
+//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //   	Props: &ConnectionPropertiesInputProperty{
 //   		AthenaProperties: &AthenaPropertiesInputProperty{
 //   			WorkgroupName: jsii.String("workgroupName"),
@@ -128,6 +130,12 @@ import (
 //   				WorkgroupName: jsii.String("workgroupName"),
 //   			},
 //   		},
+//   		S3Properties: &S3PropertiesInputProperty{
+//   			S3Uri: jsii.String("s3Uri"),
+//
+//   			// the properties below are optional
+//   			S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
+//   		},
 //   		SparkEmrProperties: &SparkEmrPropertiesInputProperty{
 //   			ComputeArn: jsii.String("computeArn"),
 //   			InstanceProfileArn: jsii.String("instanceProfileArn"),
@@ -192,6 +200,9 @@ type CfnConnection interface {
 	// The ID of the domain where the connection is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	// Specifies whether the trusted identity propagation is enabled.
+	EnableTrustedIdentityPropagation() interface{}
+	SetEnableTrustedIdentityPropagation(val interface{})
 	Env() *awscdk.ResourceEnvironment
 	// The ID of the environment where the connection is created.
 	EnvironmentIdentifier() *string
@@ -211,6 +222,9 @@ type CfnConnection interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The identifier of the project in which the connection should be created.
+	ProjectIdentifier() *string
+	SetProjectIdentifier(val *string)
 	// Connection props.
 	Props() interface{}
 	SetProps(val interface{})
@@ -520,6 +534,16 @@ func (j *jsiiProxy_CfnConnection) DomainIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) EnableTrustedIdentityPropagation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableTrustedIdentityPropagation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
@@ -565,6 +589,16 @@ func (j *jsiiProxy_CfnConnection) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnection) ProjectIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectIdentifier",
 		&returns,
 	)
 	return returns
@@ -678,10 +712,18 @@ func (j *jsiiProxy_CfnConnection)SetDomainIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnConnection)SetEnvironmentIdentifier(val *string) {
-	if err := j.validateSetEnvironmentIdentifierParameters(val); err != nil {
+func (j *jsiiProxy_CfnConnection)SetEnableTrustedIdentityPropagation(val interface{}) {
+	if err := j.validateSetEnableTrustedIdentityPropagationParameters(val); err != nil {
 		panic(err)
 	}
+	_jsii_.Set(
+		j,
+		"enableTrustedIdentityPropagation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetEnvironmentIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"environmentIdentifier",
@@ -696,6 +738,14 @@ func (j *jsiiProxy_CfnConnection)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetProjectIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"projectIdentifier",
 		val,
 	)
 }

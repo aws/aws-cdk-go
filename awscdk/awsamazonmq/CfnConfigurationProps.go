@@ -28,15 +28,15 @@ package awsamazonmq
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html
 //
 type CfnConfigurationProps struct {
-	// The type of broker engine.
+	// Required.
 	//
-	// Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
+	// The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-enginetype
 	//
 	EngineType *string `field:"required" json:"engineType" yaml:"engineType"`
-	// The name of the configuration.
+	// Required.
 	//
-	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+	// The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -46,7 +46,9 @@ type CfnConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-authenticationstrategy
 	//
 	AuthenticationStrategy *string `field:"optional" json:"authenticationStrategy" yaml:"authenticationStrategy"`
-	// The base64-encoded XML configuration.
+	// Amazon MQ for Active MQ: The base64-encoded XML configuration.
+	//
+	// Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data
 	//
 	Data *string `field:"optional" json:"data" yaml:"data"`
@@ -54,9 +56,9 @@ type CfnConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The version of the broker engine.
+	// The broker engine version.
 	//
-	// For a list of supported engine versions, see [](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html)
+	// Defaults to the latest available version for the specified broker engine type. For more information, see the [ActiveMQ version management](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html) and the [RabbitMQ version management](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html) sections in the Amazon MQ Developer Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`

@@ -34,10 +34,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVolume := awscdk.Aws_ec2.NewCfnVolume(this, jsii.String("MyCfnVolume"), &CfnVolumeProps{
-//   	AvailabilityZone: jsii.String("availabilityZone"),
-//
-//   	// the properties below are optional
 //   	AutoEnableIo: jsii.Boolean(false),
+//   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	Encrypted: jsii.Boolean(false),
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -45,6 +44,7 @@ import (
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	Size: jsii.Number(123),
 //   	SnapshotId: jsii.String("snapshotId"),
+//   	SourceVolumeId: jsii.String("sourceVolumeId"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -73,6 +73,8 @@ type CfnVolume interface {
 	// For example, `us-east-1a` .
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	AvailabilityZoneId() *string
+	SetAvailabilityZoneId(val *string)
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -121,6 +123,8 @@ type CfnVolume interface {
 	// The snapshot from which to create the volume.
 	SnapshotId() *string
 	SetSnapshotId(val *string)
+	SourceVolumeId() *string
+	SetSourceVolumeId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -321,6 +325,16 @@ func (j *jsiiProxy_CfnVolume) AvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVolume) AvailabilityZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZoneId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVolume) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -471,6 +485,16 @@ func (j *jsiiProxy_CfnVolume) SnapshotId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVolume) SourceVolumeId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceVolumeId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVolume) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -601,12 +625,17 @@ func (j *jsiiProxy_CfnVolume)SetAutoEnableIo(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnVolume)SetAvailabilityZone(val *string) {
-	if err := j.validateSetAvailabilityZoneParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"availabilityZone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVolume)SetAvailabilityZoneId(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneId",
 		val,
 	)
 }
@@ -669,6 +698,14 @@ func (j *jsiiProxy_CfnVolume)SetSnapshotId(val *string) {
 	_jsii_.Set(
 		j,
 		"snapshotId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVolume)SetSourceVolumeId(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceVolumeId",
 		val,
 	)
 }

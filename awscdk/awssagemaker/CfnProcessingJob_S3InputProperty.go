@@ -44,7 +44,7 @@ type CfnProcessingJob_S3InputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-s3input.html#cfn-sagemaker-processingjob-s3input-s3compressiontype
 	//
 	S3CompressionType *string `field:"optional" json:"s3CompressionType" yaml:"s3CompressionType"`
-	// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated` , or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+	// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated` , or whether the data from Amazon S3 is sharded by Amazon S3 key, downloading one shard of data to each processing instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-s3input.html#cfn-sagemaker-processingjob-s3input-s3datadistributiontype
 	//
 	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`

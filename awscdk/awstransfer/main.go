@@ -166,11 +166,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConnectorId", GoGetter: "AttrConnectorId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceManagedEgressIpAddresses", GoGetter: "AttrServiceManagedEgressIpAddresses"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "connectorRef", GoGetter: "ConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "egressConfig", GoGetter: "EgressConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "egressType", GoGetter: "EgressType"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -209,6 +212,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnConnector.As2ConfigProperty",
 		reflect.TypeOf((*CfnConnector_As2ConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnConnector.ConnectorEgressConfigProperty",
+		reflect.TypeOf((*CfnConnector_ConnectorEgressConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnConnector.ConnectorVpcLatticeEgressConfigProperty",
+		reflect.TypeOf((*CfnConnector_ConnectorVpcLatticeEgressConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnConnector.SftpConfigProperty",

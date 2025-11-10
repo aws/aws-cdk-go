@@ -11,6 +11,7 @@ package awsmediapackagev2
 //   encryptionProperty := &EncryptionProperty{
 //   	EncryptionMethod: &EncryptionMethodProperty{
 //   		CmafEncryptionMethod: jsii.String("cmafEncryptionMethod"),
+//   		IsmEncryptionMethod: jsii.String("ismEncryptionMethod"),
 //   		TsEncryptionMethod: jsii.String("tsEncryptionMethod"),
 //   	},
 //   	SpekeKeyProvider: &SpekeKeyProviderProperty{

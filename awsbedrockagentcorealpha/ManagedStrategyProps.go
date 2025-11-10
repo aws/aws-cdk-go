@@ -31,7 +31,7 @@ type ManagedStrategyProps struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the strategy.
-	// Default: No description.
+	// Default: - No description.
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`

@@ -17,6 +17,7 @@ package awsnetworkfirewall
 //   	},
 //
 //   	// the properties below are optional
+//   	EnableTlsSessionHolding: jsii.Boolean(false),
 //   	PolicyVariables: &PolicyVariablesProperty{
 //   		RuleVariables: map[string]interface{}{
 //   			"ruleVariablesKey": map[string][]*string{
@@ -94,6 +95,9 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
 	//
 	StatelessFragmentDefaultActions *[]*string `field:"required" json:"statelessFragmentDefaultActions" yaml:"statelessFragmentDefaultActions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-enabletlssessionholding
+	//
+	EnableTlsSessionHolding interface{} `field:"optional" json:"enableTlsSessionHolding" yaml:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-policyvariables
 	//

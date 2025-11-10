@@ -23,6 +23,11 @@ import (
 //   	InstanceArn: jsii.String("instanceArn"),
 //
 //   	// the properties below are optional
+//   	AliasConfigurations: []interface{}{
+//   		&AliasConfigurationProperty{
+//   			EmailAddressArn: jsii.String("emailAddressArn"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	Tags: []CfnTag{
@@ -40,6 +45,9 @@ type CfnEmailAddress interface {
 	IEmailAddressRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A list of alias configurations for this email address, showing which email addresses forward to this primary address.
+	AliasConfigurations() interface{}
+	SetAliasConfigurations(val interface{})
 	// The Amazon Resource Name (ARN) of the email address.
 	AttrEmailAddressArn() *string
 	// Tag Manager which manages the tags for this resource.
@@ -238,6 +246,16 @@ type jsiiProxy_CfnEmailAddress struct {
 	jsiiProxy_IEmailAddressRef
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnEmailAddress) AliasConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"aliasConfigurations",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEmailAddress) AttrEmailAddressArn() *string {
@@ -455,6 +473,17 @@ func NewCfnEmailAddress_Override(c CfnEmailAddress, scope constructs.Construct, 
 		"aws-cdk-lib.aws_connect.CfnEmailAddress",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEmailAddress)SetAliasConfigurations(val interface{}) {
+	if err := j.validateSetAliasConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"aliasConfigurations",
+		val,
 	)
 }
 

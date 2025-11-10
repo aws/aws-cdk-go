@@ -107,6 +107,12 @@ package awsdatazone
 //   			WorkgroupName: jsii.String("workgroupName"),
 //   		},
 //   	},
+//   	S3Properties: &S3PropertiesInputProperty{
+//   		S3Uri: jsii.String("s3Uri"),
+//
+//   		// the properties below are optional
+//   		S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
+//   	},
 //   	SparkEmrProperties: &SparkEmrPropertiesInputProperty{
 //   		ComputeArn: jsii.String("computeArn"),
 //   		InstanceProfileArn: jsii.String("instanceProfileArn"),
@@ -153,6 +159,10 @@ type CfnConnection_ConnectionPropertiesInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-redshiftproperties
 	//
 	RedshiftProperties interface{} `field:"optional" json:"redshiftProperties" yaml:"redshiftProperties"`
+	// S3 Properties Input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-s3properties
+	//
+	S3Properties interface{} `field:"optional" json:"s3Properties" yaml:"s3Properties"`
 	// The Spark EMR properties of a connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-sparkemrproperties
 	//

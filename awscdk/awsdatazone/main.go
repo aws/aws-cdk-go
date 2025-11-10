@@ -34,6 +34,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "domainIdentifier", GoGetter: "DomainIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "enableTrustedIdentityPropagation", GoGetter: "EnableTrustedIdentityPropagation"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentIdentifier", GoGetter: "EnvironmentIdentifier"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -45,6 +46,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "projectIdentifier", GoGetter: "ProjectIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -140,6 +142,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnection.RedshiftStoragePropertiesProperty",
 		reflect.TypeOf((*CfnConnection_RedshiftStoragePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnConnection.S3PropertiesInputProperty",
+		reflect.TypeOf((*CfnConnection_S3PropertiesInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnection.SparkEmrPropertiesInputProperty",

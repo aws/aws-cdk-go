@@ -21,6 +21,7 @@ import (
 //   		ExclusiveEndBillingPeriod: jsii.String("exclusiveEndBillingPeriod"),
 //   		InclusiveStartBillingPeriod: jsii.String("inclusiveStartBillingPeriod"),
 //   	},
+//   	ComputationRule: jsii.String("computationRule"),
 //   	CustomLineItemChargeDetails: &CustomLineItemChargeDetailsProperty{
 //   		Type: jsii.String("type"),
 //
@@ -47,6 +48,9 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	PresentationDetails: &PresentationDetailsProperty{
+//   		Service: jsii.String("service"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -74,6 +78,10 @@ type CfnCustomLineItemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-billingperiodrange
 	//
 	BillingPeriodRange interface{} `field:"optional" json:"billingPeriodRange" yaml:"billingPeriodRange"`
+	// The display settings of the Custom Line Item.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-computationrule
+	//
+	ComputationRule *string `field:"optional" json:"computationRule" yaml:"computationRule"`
 	// The charge details of a custom line item.
 	//
 	// It should contain only one of `Flat` or `Percentage` .
@@ -86,6 +94,9 @@ type CfnCustomLineItemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-presentationdetails
+	//
+	PresentationDetails interface{} `field:"optional" json:"presentationDetails" yaml:"presentationDetails"`
 	// A map that contains tag keys and tag values that are attached to a custom line item.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-tags
 	//

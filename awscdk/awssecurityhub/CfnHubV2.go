@@ -11,7 +11,7 @@ import (
 
 // Returns details about the service resource in your account.
 //
-// This API is in private preview and subject to change.
+// This API is in public preview and subject to change.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

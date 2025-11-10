@@ -80,6 +80,10 @@ func validateCfnAutomatedReasoningPolicy_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy) validateSetForceDeleteParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutomatedReasoningPolicy) validateSetNameParameters(val *string) error {
 	return nil
 }

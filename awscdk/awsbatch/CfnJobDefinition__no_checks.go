@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetPropagateTagsParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnJobDefinition) validateSetResourceRetentionPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnJobDefinition) validateSetRetryStrategyParameters(val interface{}) error {
 	return nil
 }

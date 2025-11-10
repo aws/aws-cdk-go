@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnVolume) validateSetAutoEnableIoParameters(val interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnVolume) validateSetAvailabilityZoneParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnVolume) validateSetEncryptedParameters(val interface{}) error {
 	return nil
 }

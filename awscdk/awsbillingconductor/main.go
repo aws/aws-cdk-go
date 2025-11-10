@@ -106,6 +106,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "computationRule", GoGetter: "ComputationRule"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customLineItemChargeDetails", GoGetter: "CustomLineItemChargeDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "customLineItemRef", GoGetter: "CustomLineItemRef"},
@@ -120,6 +121,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "presentationDetails", GoGetter: "PresentationDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -161,6 +163,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem.LineItemFilterProperty",
 		reflect.TypeOf((*CfnCustomLineItem_LineItemFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem.PresentationDetailsProperty",
+		reflect.TypeOf((*CfnCustomLineItem_PresentationDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItemProps",

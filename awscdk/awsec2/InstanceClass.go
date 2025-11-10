@@ -219,6 +219,10 @@ const (
 	InstanceClass_MEMORY7_AMD InstanceClass = "MEMORY7_AMD"
 	// Memory optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
 	InstanceClass_R7A InstanceClass = "R7A"
+	// Memory optimized instances based on 5th generation AMD EPYC (formerly code named Turin), 8th generation.
+	InstanceClass_MEMORY8_AMD InstanceClass = "MEMORY8_AMD"
+	// Memory optimized instances based on 5th generation AMD EPYC (formerly code named Turin), 8th generation.
+	InstanceClass_R8A InstanceClass = "R8A"
 	// Memory optimized instances with Graviton4 processors.
 	InstanceClass_MEMORY8_GRAVITON InstanceClass = "MEMORY8_GRAVITON"
 	// Memory optimized instances with Graviton4 processors.

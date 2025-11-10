@@ -741,6 +741,10 @@ func init() {
 		reflect.TypeOf((*CfnService_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.CanaryConfigurationProperty",
+		reflect.TypeOf((*CfnService_CanaryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.CapacityProviderStrategyItemProperty",
 		reflect.TypeOf((*CfnService_CapacityProviderStrategyItemProperty)(nil)).Elem(),
 	)
@@ -773,6 +777,10 @@ func init() {
 		reflect.TypeOf((*CfnService_ForceNewDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.LinearConfigurationProperty",
+		reflect.TypeOf((*CfnService_LinearConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.LoadBalancerProperty",
 		reflect.TypeOf((*CfnService_LoadBalancerProperty)(nil)).Elem(),
 	)
@@ -795,6 +803,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.SecretProperty",
 		reflect.TypeOf((*CfnService_SecretProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectAccessLogConfigurationProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectAccessLogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectClientAliasProperty",

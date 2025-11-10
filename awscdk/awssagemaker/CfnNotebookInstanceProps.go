@@ -111,6 +111,8 @@ type CfnNotebookInstanceProps struct {
 	//
 	NotebookInstanceName *string `field:"optional" json:"notebookInstanceName" yaml:"notebookInstanceName"`
 	// The platform identifier of the notebook instance runtime environment.
+	//
+	// The default value is `notebook-al2-v2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-platformidentifier
 	//
 	PlatformIdentifier *string `field:"optional" json:"platformIdentifier" yaml:"platformIdentifier"`

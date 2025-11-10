@@ -14,6 +14,7 @@ package awscloudfront
 //   	// the properties below are optional
 //   	OriginKeepaliveTimeout: jsii.Number(123),
 //   	OriginReadTimeout: jsii.Number(123),
+//   	OwnerAccountId: jsii.String("ownerAccountId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html
@@ -43,5 +44,8 @@ type CfnDistribution_VpcOriginConfigProperty struct {
 	// Default: - 30.
 	//
 	OriginReadTimeout *float64 `field:"optional" json:"originReadTimeout" yaml:"originReadTimeout"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html#cfn-cloudfront-distribution-vpcoriginconfig-owneraccountid
+	//
+	OwnerAccountId *string `field:"optional" json:"ownerAccountId" yaml:"ownerAccountId"`
 }
 

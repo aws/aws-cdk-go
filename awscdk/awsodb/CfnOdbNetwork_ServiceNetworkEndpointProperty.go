@@ -21,8 +21,6 @@ type CfnOdbNetwork_ServiceNetworkEndpointProperty struct {
 	//
 	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 	// The type of the VPC endpoint.
-	//
-	// Valid Values: `Interface | Gateway`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-servicenetworkendpoint.html#cfn-odb-odbnetwork-servicenetworkendpoint-vpcendpointtype
 	//
 	VpcEndpointType *string `field:"optional" json:"vpcEndpointType" yaml:"vpcEndpointType"`

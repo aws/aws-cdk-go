@@ -46,5 +46,7 @@ const (
 	RouterType_VPC_PEERING_CONNECTION RouterType = "VPC_PEERING_CONNECTION"
 	// VPC Endpoint for gateway load balancers.
 	RouterType_VPC_ENDPOINT RouterType = "VPC_ENDPOINT"
+	// AWS Network Manager Core Network.
+	RouterType_CORE_NETWORK RouterType = "CORE_NETWORK"
 )
 

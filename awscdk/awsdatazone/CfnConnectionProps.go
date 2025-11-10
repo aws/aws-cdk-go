@@ -10,7 +10,6 @@ package awsdatazone
 //
 //   cfnConnectionProps := &CfnConnectionProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -21,6 +20,9 @@ package awsdatazone
 //   		IamConnectionId: jsii.String("iamConnectionId"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	EnableTrustedIdentityPropagation: jsii.Boolean(false),
+//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
+//   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //   	Props: &ConnectionPropertiesInputProperty{
 //   		AthenaProperties: &AthenaPropertiesInputProperty{
 //   			WorkgroupName: jsii.String("workgroupName"),
@@ -120,6 +122,12 @@ package awsdatazone
 //   				WorkgroupName: jsii.String("workgroupName"),
 //   			},
 //   		},
+//   		S3Properties: &S3PropertiesInputProperty{
+//   			S3Uri: jsii.String("s3Uri"),
+//
+//   			// the properties below are optional
+//   			S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
+//   		},
 //   		SparkEmrProperties: &SparkEmrPropertiesInputProperty{
 //   			ComputeArn: jsii.String("computeArn"),
 //   			InstanceProfileArn: jsii.String("instanceProfileArn"),
@@ -151,10 +159,6 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The ID of the environment where the connection is created.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-environmentidentifier
-	//
-	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The name of the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-name
 	//
@@ -167,6 +171,20 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Specifies whether the trusted identity propagation is enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-enabletrustedidentitypropagation
+	//
+	EnableTrustedIdentityPropagation interface{} `field:"optional" json:"enableTrustedIdentityPropagation" yaml:"enableTrustedIdentityPropagation"`
+	// The ID of the environment where the connection is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-environmentidentifier
+	//
+	EnvironmentIdentifier *string `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	// The identifier of the project in which the connection should be created.
+	//
+	// If.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-projectidentifier
+	//
+	ProjectIdentifier *string `field:"optional" json:"projectIdentifier" yaml:"projectIdentifier"`
 	// Connection props.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-props
 	//

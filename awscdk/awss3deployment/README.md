@@ -614,6 +614,83 @@ cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &CfnOutputProps{
 })
 ```
 
+## Specifying a Custom VPC, Subnets, and Security Groups in BucketDeployment
+
+By default, the AWS CDK BucketDeployment construct runs in a publicly accessible environment. However, for enhanced security and compliance, you may need to deploy your assets from within a VPC while restricting network access through custom subnets and security groups.
+
+### Using a Custom VPC
+
+To deploy assets within a private network, specify the vpc property in BucketDeploymentProps. This ensures that the deployment Lambda function executes within your specified VPC.
+
+```go
+vpc := ec2.Vpc_FromLookup(this, jsii.String("ExistingVPC"), &VpcLookupOptions{
+	VpcId: jsii.String("vpc-12345678"),
+})
+bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+
+s3deploy.NewBucketDeployment(this, jsii.String("DeployToS3"), &BucketDeploymentProps{
+	DestinationBucket: bucket,
+	Vpc: vpc,
+	Sources: []ISource{
+		s3deploy.Source_Asset(jsii.String("./website")),
+	},
+})
+```
+
+### Specifying Subnets for Deployment
+
+By default, when you specify a VPC, the BucketDeployment function is deployed in the private subnets of that VPC.
+However, you can customize the subnet selection using the vpcSubnets property.
+
+```go
+vpc := ec2.Vpc_FromLookup(this, jsii.String("ExistingVPC"), &VpcLookupOptions{
+	VpcId: jsii.String("vpc-12345678"),
+})
+bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+
+s3deploy.NewBucketDeployment(this, jsii.String("DeployToS3"), &BucketDeploymentProps{
+	DestinationBucket: bucket,
+	Vpc: vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	Sources: []ISource{
+		s3deploy.Source_Asset(jsii.String("./website")),
+	},
+})
+```
+
+### Defining Custom Security Groups
+
+For enhanced network security, you can now specify custom security groups in BucketDeploymentProps.
+This allows fine-grained control over ingress and egress rules for the deployment Lambda function.
+
+```go
+vpc := ec2.Vpc_FromLookup(this, jsii.String("ExistingVPC"), &VpcLookupOptions{
+	VpcId: jsii.String("vpc-12345678"),
+})
+bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("CustomSG"), &SecurityGroupProps{
+	Vpc: vpc,
+	Description: jsii.String("Allow HTTPS outbound access"),
+	AllowAllOutbound: jsii.Boolean(false),
+})
+
+securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS traffic"))
+
+s3deploy.NewBucketDeployment(this, jsii.String("DeployWithSecurityGroup"), &BucketDeploymentProps{
+	DestinationBucket: bucket,
+	Vpc: vpc,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	Sources: []ISource{
+		s3deploy.Source_Asset(jsii.String("./website")),
+	},
+})
+```
+
 ## Notes
 
 * This library uses an AWS CloudFormation custom resource which is about 10MiB in

@@ -95,6 +95,12 @@ type CfnAccount interface {
 	//
 	// For example: `2016-11-24T11:11:48-08:00` .
 	AttrJoinedTimestamp() *string
+	// Each state represents a specific phase in the account lifecycle.
+	//
+	// Use this information to manage account access, automate workflows, or trigger actions based on account state changes.
+	//
+	// For more information about account states and their implications, see [Monitor the state of your AWS accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_account_state.html) in the *AWS Organizations User Guide* .
+	AttrState() *string
 	// Returns the status of the account in the organization.
 	//
 	// For example: `ACTIVE | SUSPENDED | PENDING_CLOSURE` .
@@ -347,6 +353,16 @@ func (j *jsiiProxy_CfnAccount) AttrJoinedTimestamp() *string {
 	_jsii_.Get(
 		j,
 		"attrJoinedTimestamp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccount) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

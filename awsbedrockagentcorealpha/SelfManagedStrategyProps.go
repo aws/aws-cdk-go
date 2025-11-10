@@ -47,7 +47,7 @@ type SelfManagedStrategyProps struct {
 	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the strategy.
-	// Default: No description.
+	// Default: - No description.
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -57,7 +57,7 @@ type SelfManagedStrategyProps struct {
 	// Define the number of previous events to be included when processing memory.
 	//
 	// A larger history window provides more context from past conversations.
-	// Default: - 4.
+	// Default: 4.
 	//
 	// Experimental.
 	HistoricalContextWindowSize *float64 `field:"optional" json:"historicalContextWindowSize" yaml:"historicalContextWindowSize"`

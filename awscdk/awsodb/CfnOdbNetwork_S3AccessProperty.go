@@ -33,8 +33,6 @@ type CfnOdbNetwork_S3AccessProperty struct {
 	//
 	S3PolicyDocument *string `field:"optional" json:"s3PolicyDocument" yaml:"s3PolicyDocument"`
 	// The status of the Amazon S3 access.
-	//
-	// Valid Values: `enabled | disabled`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-s3access.html#cfn-odb-odbnetwork-s3access-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

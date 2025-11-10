@@ -54,7 +54,7 @@ type CfnApiDestination interface {
 	//
 	// For example, the following resource defines an IAM policy that grants permission to update a specific API destination.
 	//
-	// `Resources: ExamplePolicy: Type: AWS::IAM::Policy Properties: PolicyName: ExamplePolicy PolicyDocument: Version: '2012-10-17' Statement: - Effect: Allow Action: - events:UpdateApiDestination Resource: - !GetAtt myApiDestination.ArnForPolicy`
+	// `Resources: ExamplePolicy: Type: AWS::IAM::Policy Properties: PolicyName: ExamplePolicy PolicyDocument: Version: '2012-10-17 ' Statement: - Effect: Allow Action: - events:UpdateApiDestination Resource: - !GetAtt myApiDestination.ArnForPolicy`
 	AttrArnForPolicy() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

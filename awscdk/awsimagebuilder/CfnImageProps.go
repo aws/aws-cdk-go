@@ -10,9 +10,16 @@ package awsimagebuilder
 //
 //   cfnImageProps := &CfnImageProps{
 //   	ContainerRecipeArn: jsii.String("containerRecipeArn"),
+//   	DeletionSettings: &DeletionSettingsProperty{
+//   		ExecutionRole: jsii.String("executionRole"),
+//   	},
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
 //   	ExecutionRole: jsii.String("executionRole"),
+//   	ImagePipelineExecutionSettings: &ImagePipelineExecutionSettingsProperty{
+//   		DeploymentId: jsii.String("deploymentId"),
+//   		OnUpdate: jsii.Boolean(false),
+//   	},
 //   	ImageRecipeArn: jsii.String("imageRecipeArn"),
 //   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
 //   		EcrConfiguration: &EcrConfigurationProperty{
@@ -58,6 +65,10 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
 	//
 	ContainerRecipeArn *string `field:"optional" json:"containerRecipeArn" yaml:"containerRecipeArn"`
+	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-deletionsettings
+	//
+	DeletionSettings interface{} `field:"optional" json:"deletionSettings" yaml:"deletionSettings"`
 	// The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 	//
@@ -72,6 +83,10 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	// The settings for starting an image pipeline execution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagepipelineexecutionsettings
+	//
+	ImagePipelineExecutionSettings interface{} `field:"optional" json:"imagePipelineExecutionSettings" yaml:"imagePipelineExecutionSettings"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	//

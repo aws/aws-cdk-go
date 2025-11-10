@@ -156,10 +156,27 @@ import (
 //   			UrlEncodeChildManifest: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MssManifests: []interface{}{
+//   		&MssManifestConfigurationProperty{
+//   			ManifestName: jsii.String("manifestName"),
+//
+//   			// the properties below are optional
+//   			FilterConfiguration: &FilterConfigurationProperty{
+//   				ClipStartTime: jsii.String("clipStartTime"),
+//   				End: jsii.String("end"),
+//   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Start: jsii.String("start"),
+//   				TimeDelaySeconds: jsii.Number(123),
+//   			},
+//   			ManifestLayout: jsii.String("manifestLayout"),
+//   			ManifestWindowSeconds: jsii.Number(123),
+//   		},
+//   	},
 //   	Segment: &SegmentProperty{
 //   		Encryption: &EncryptionProperty{
 //   			EncryptionMethod: &EncryptionMethodProperty{
 //   				CmafEncryptionMethod: jsii.String("cmafEncryptionMethod"),
+//   				IsmEncryptionMethod: jsii.String("ismEncryptionMethod"),
 //   				TsEncryptionMethod: jsii.String("tsEncryptionMethod"),
 //   			},
 //   			SpekeKeyProvider: &SpekeKeyProviderProperty{
@@ -219,6 +236,7 @@ type CfnOriginEndpoint interface {
 	AttrLowLatencyHlsManifestUrls() *[]*string
 	// The timestamp of the modification of the origin endpoint.
 	AttrModifiedAt() *string
+	AttrMssManifestUrls() *[]*string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -265,6 +283,9 @@ type CfnOriginEndpoint interface {
 	// The low-latency HLS (LL-HLS) manifests associated with the origin endpoint.
 	LowLatencyHlsManifests() interface{}
 	SetLowLatencyHlsManifests(val interface{})
+	// A list of Microsoft Smooth Streaming (MSS) manifest configurations associated with the origin endpoint.
+	MssManifests() interface{}
+	SetMssManifests(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The name of the origin endpoint associated with the origin endpoint configuration.
@@ -498,6 +519,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) AttrModifiedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) AttrMssManifestUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrMssManifestUrls",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -643,6 +674,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) LowLatencyHlsManifests() interface{} {
 	_jsii_.Get(
 		j,
 		"lowLatencyHlsManifests",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) MssManifests() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mssManifests",
 		&returns,
 	)
 	return returns
@@ -857,6 +898,17 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetLowLatencyHlsManifests(val interface{}) 
 	_jsii_.Set(
 		j,
 		"lowLatencyHlsManifests",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint)SetMssManifests(val interface{}) {
+	if err := j.validateSetMssManifestsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mssManifests",
 		val,
 	)
 }

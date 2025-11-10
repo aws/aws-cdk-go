@@ -3,8 +3,6 @@ package awsamazonmq
 
 // Encryption options for the broker.
 //
-// > Does not apply to RabbitMQ brokers.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

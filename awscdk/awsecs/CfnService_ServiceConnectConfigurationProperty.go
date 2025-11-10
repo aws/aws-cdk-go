@@ -16,6 +16,12 @@ package awsecs
 //   	Enabled: jsii.Boolean(false),
 //
 //   	// the properties below are optional
+//   	AccessLogConfiguration: &ServiceConnectAccessLogConfigurationProperty{
+//   		Format: jsii.String("format"),
+//
+//   		// the properties below are optional
+//   		IncludeQueryParameters: jsii.String("includeQueryParameters"),
+//   	},
 //   	LogConfiguration: &LogConfigurationProperty{
 //   		LogDriver: jsii.String("logDriver"),
 //   		Options: map[string]*string{
@@ -78,6 +84,9 @@ type CfnService_ServiceConnectConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-enabled
 	//
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-accesslogconfiguration
+	//
+	AccessLogConfiguration interface{} `field:"optional" json:"accessLogConfiguration" yaml:"accessLogConfiguration"`
 	// The log configuration for the container.
 	//
 	// This parameter maps to `LogConfig` in the docker container create command and the `--log-driver` option to docker run.

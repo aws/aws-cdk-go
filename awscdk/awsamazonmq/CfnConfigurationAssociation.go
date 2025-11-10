@@ -9,11 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Use the AWS CloudFormation `AWS::AmazonMQ::ConfigurationAssociation` resource to associate a configuration with a broker, or return information about the specified ConfigurationAssociation.
-//
-// Only use one per broker, and don't use a configuration on the broker resource if you have associated a configuration with that broker.
-//
-// > Does not apply to RabbitMQ brokers.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,7 +32,7 @@ type CfnConfigurationAssociation interface {
 	awscdk.IInspectable
 	// The ID of the ConfigurationAssociation Resource.
 	AttrId() *string
-	// The broker to associate with a configuration.
+	// ID of the Broker that the configuration should be applied to.
 	Broker() *string
 	SetBroker(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +40,7 @@ type CfnConfigurationAssociation interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The configuration to associate with a broker.
+	// Returns information about all configurations.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// A reference to a ConfigurationAssociation resource.

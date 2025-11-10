@@ -21,8 +21,6 @@ type CfnOdbNetwork_ZeroEtlAccessProperty struct {
 	//
 	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 	// The status of the Zero-ETL access.
-	//
-	// Valid Values: `enabled | disabled`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-zeroetlaccess.html#cfn-odb-odbnetwork-zeroetlaccess-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

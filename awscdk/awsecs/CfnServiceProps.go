@@ -32,6 +32,10 @@ import (
 //   			Rollback: jsii.Boolean(false),
 //   		},
 //   		BakeTimeInMinutes: jsii.Number(123),
+//   		CanaryConfiguration: &CanaryConfigurationProperty{
+//   			CanaryBakeTimeInMinutes: jsii.Number(123),
+//   			CanaryPercent: jsii.Number(123),
+//   		},
 //   		DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
 //   			Enable: jsii.Boolean(false),
 //   			Rollback: jsii.Boolean(false),
@@ -47,6 +51,10 @@ import (
 //   				// the properties below are optional
 //   				HookDetails: hookDetails,
 //   			},
+//   		},
+//   		LinearConfiguration: &LinearConfigurationProperty{
+//   			StepBakeTimeInMinutes: jsii.Number(123),
+//   			StepPercent: jsii.Number(123),
 //   		},
 //   		MaximumPercent: jsii.Number(123),
 //   		MinimumHealthyPercent: jsii.Number(123),
@@ -117,6 +125,12 @@ import (
 //   		Enabled: jsii.Boolean(false),
 //
 //   		// the properties below are optional
+//   		AccessLogConfiguration: &ServiceConnectAccessLogConfigurationProperty{
+//   			Format: jsii.String("format"),
+//
+//   			// the properties below are optional
+//   			IncludeQueryParameters: jsii.String("includeQueryParameters"),
+//   		},
 //   		LogConfiguration: &LogConfigurationProperty{
 //   			LogDriver: jsii.String("logDriver"),
 //   			Options: map[string]*string{

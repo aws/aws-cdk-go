@@ -219,6 +219,30 @@ func (j *jsiiProxy_CfnConnector) validateSetAccessRoleParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnector) validateSetEgressConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConnector_ConnectorEgressConfigProperty:
+		val := val.(*CfnConnector_ConnectorEgressConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConnector_ConnectorEgressConfigProperty:
+		val_ := val.(CfnConnector_ConnectorEgressConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnector_ConnectorEgressConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnector) validateSetSftpConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -248,14 +272,6 @@ func (j *jsiiProxy_CfnConnector) validateSetTagsRawParameters(val *[]*awscdk.Cfn
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnConnector) validateSetUrlParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

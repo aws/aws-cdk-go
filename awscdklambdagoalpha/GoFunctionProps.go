@@ -18,7 +18,9 @@ import (
 //   go.NewGoFunction(this, jsii.String("handler"), &GoFunctionProps{
 //   	Entry: jsii.String("app/cmd/api"),
 //   	Bundling: &BundlingOptions{
-//   		DockerImage: awscdk.DockerImage_FromBuild(jsii.String("/path/to/Dockerfile")),
+//   		Environment: map[string]*string{
+//   			"HELLO": jsii.String("WORLD"),
+//   		},
 //   	},
 //   })
 //

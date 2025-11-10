@@ -443,6 +443,25 @@ func (j *jsiiProxy_CfnMailManagerAddressList)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+// Creates a new IMailManagerAddressListRef from a addressListId.
+func CfnMailManagerAddressList_FromAddressListId(scope constructs.Construct, id *string, addressListId *string) IMailManagerAddressListRef {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerAddressList_FromAddressListIdParameters(scope, id, addressListId); err != nil {
+		panic(err)
+	}
+	var returns IMailManagerAddressListRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddressList",
+		"fromAddressListId",
+		[]interface{}{scope, id, addressListId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

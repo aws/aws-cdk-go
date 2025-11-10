@@ -15,10 +15,18 @@ import (
 //
 //   cfnConnectorProps := &CfnConnectorProps{
 //   	AccessRole: jsii.String("accessRole"),
-//   	Url: jsii.String("url"),
 //
 //   	// the properties below are optional
 //   	As2Config: as2Config,
+//   	EgressConfig: &ConnectorEgressConfigProperty{
+//   		VpcLattice: &ConnectorVpcLatticeEgressConfigProperty{
+//   			ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   			// the properties below are optional
+//   			PortNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	EgressType: jsii.String("egressType"),
 //   	LoggingRole: jsii.String("loggingRole"),
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
@@ -34,6 +42,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Url: jsii.String("url"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html
@@ -55,16 +64,24 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-accessrole
 	//
 	AccessRole *string `field:"required" json:"accessRole" yaml:"accessRole"`
-	// The URL of the partner's AS2 or SFTP endpoint.
-	//
-	// When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-url
-	//
-	Url *string `field:"required" json:"url" yaml:"url"`
 	// A structure that contains the parameters for an AS2 connector object.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-as2config
 	//
 	As2Config interface{} `field:"optional" json:"as2Config" yaml:"as2Config"`
+	// Current egress configuration of the connector, showing how traffic is routed to the SFTP server.
+	//
+	// Contains VPC Lattice settings when using VPC_LATTICE egress type.
+	//
+	// When using the VPC_LATTICE egress type, AWS Transfer Family uses a managed Service Network to simplify the resource sharing process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-egressconfig
+	//
+	EgressConfig interface{} `field:"optional" json:"egressConfig" yaml:"egressConfig"`
+	// Type of egress configuration for the connector.
+	//
+	// SERVICE_MANAGED uses Transfer Family managed NAT gateways, while VPC_LATTICE routes traffic through customer VPCs using VPC Lattice.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-egresstype
+	//
+	EgressType *string `field:"optional" json:"egressType" yaml:"egressType"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 	//
 	// When set, you can view connector activity in your CloudWatch logs.
@@ -83,5 +100,11 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The URL of the partner's AS2 or SFTP endpoint.
+	//
+	// When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-url
+	//
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 

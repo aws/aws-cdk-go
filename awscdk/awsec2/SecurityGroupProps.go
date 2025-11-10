@@ -2,25 +2,27 @@ package awsec2
 
 
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(1),
+//   vpc := ec2.Vpc_FromLookup(this, jsii.String("ExistingVPC"), &VpcLookupOptions{
+//   	VpcId: jsii.String("vpc-12345678"),
 //   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   })
-//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SG"), &SecurityGroupProps{
-//   	Vpc: Vpc,
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("CustomSG"), &SecurityGroupProps{
+//   	Vpc: vpc,
+//   	Description: jsii.String("Allow HTTPS outbound access"),
+//   	AllowAllOutbound: jsii.Boolean(false),
 //   })
 //
-//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
-//   	Cluster: Cluster,
-//   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		MemoryLimitMiB: jsii.Number(512),
-//   	},
-//   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
+//   securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS traffic"))
+//
+//   s3deploy.NewBucketDeployment(this, jsii.String("DeployWithSecurityGroup"), &BucketDeploymentProps{
+//   	DestinationBucket: bucket,
+//   	Vpc: vpc,
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
+//   	},
+//   	Sources: []ISource{
+//   		s3deploy.Source_Asset(jsii.String("./website")),
 //   	},
 //   })
 //

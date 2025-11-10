@@ -189,6 +189,13 @@ type BucketDeploymentProps struct {
 	// Default: - A role is automatically created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// The list of security groups to associate with the lambda handlers network interfaces.
+	//
+	// Only used if 'vpc' is supplied.
+	// Default: undefined - If the function is placed within a VPC and a security group is
+	// not specified a dedicated security group will be created for this function.
+	//
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// System-defined x-amz-server-side-encryption metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//

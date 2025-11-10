@@ -20,6 +20,8 @@ package awslambda
 //
 type CfnEventInvokeConfig_OnSuccessProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
+	//
+	// > Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending `OnFailure` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html#cfn-lambda-eventinvokeconfig-onsuccess-destination
 	//
 	Destination *string `field:"required" json:"destination" yaml:"destination"`

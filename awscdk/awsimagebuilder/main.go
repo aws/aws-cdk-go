@@ -296,12 +296,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "containerRecipeArn", GoGetter: "ContainerRecipeArn"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "deletionSettings", GoGetter: "DeletionSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationArn", GoGetter: "DistributionConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "enhancedImageMetadataEnabled", GoGetter: "EnhancedImageMetadataEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "imagePipelineExecutionSettings", GoGetter: "ImagePipelineExecutionSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "imageRecipeArn", GoGetter: "ImageRecipeArn"},
 			_jsii_.MemberProperty{JsiiProperty: "imageRef", GoGetter: "ImageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "imageScanningConfiguration", GoGetter: "ImageScanningConfiguration"},
@@ -338,12 +340,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.DeletionSettingsProperty",
+		reflect.TypeOf((*CfnImage_DeletionSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.EcrConfigurationProperty",
 		reflect.TypeOf((*CfnImage_EcrConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageLoggingConfigurationProperty",
 		reflect.TypeOf((*CfnImage_ImageLoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImagePipelineExecutionSettingsProperty",
+		reflect.TypeOf((*CfnImage_ImagePipelineExecutionSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageScanningConfigurationProperty",
@@ -378,6 +388,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDeploymentId", GoGetter: "AttrDeploymentId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

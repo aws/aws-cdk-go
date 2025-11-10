@@ -47,19 +47,19 @@ import (
 // Experimental.
 type TriggerConditions struct {
 	// Triggers memory processing when specified number of new messages is reached.
-	// Default: - 1.
+	// Default: 1.
 	//
 	// Experimental.
 	MessageBasedTrigger *float64 `field:"optional" json:"messageBasedTrigger" yaml:"messageBasedTrigger"`
 	// Triggers memory processing when the session has been idle for the specified duration.
 	//
 	// Value in seconds.
-	// Default: - 10.
+	// Default: - 10 seconds.
 	//
 	// Experimental.
 	TimeBasedTrigger awscdk.Duration `field:"optional" json:"timeBasedTrigger" yaml:"timeBasedTrigger"`
 	// Triggers memory processing when the token size reaches the specified threshold.
-	// Default: - 100.
+	// Default: 100.
 	//
 	// Experimental.
 	TokenBasedTrigger *float64 `field:"optional" json:"tokenBasedTrigger" yaml:"tokenBasedTrigger"`

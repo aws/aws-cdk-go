@@ -56,6 +56,17 @@ package awsconnectcampaignsv2
 //   			PredictiveConfig: &PredictiveConfigProperty{
 //   				BandwidthAllocation: jsii.Number(123),
 //   			},
+//   			PreviewConfig: &PreviewConfigProperty{
+//   				BandwidthAllocation: jsii.Number(123),
+//   				TimeoutConfig: &TimeoutConfigProperty{
+//   					DurationInSeconds: jsii.Number(123),
+//   				},
+//
+//   				// the properties below are optional
+//   				AgentActions: []*string{
+//   					jsii.String("agentActions"),
+//   				},
+//   			},
 //   			ProgressiveConfig: &ProgressiveConfigProperty{
 //   				BandwidthAllocation: jsii.Number(123),
 //   			},

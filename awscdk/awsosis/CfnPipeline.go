@@ -126,7 +126,7 @@ type CfnPipeline interface {
 	SetPipelineName(val *string)
 	// A reference to a Pipeline resource.
 	PipelineRef() *PipelineReference
-	// The Pipeline Role (ARN) for the pipeline.
+	// The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS resources.
 	PipelineRoleArn() *string
 	SetPipelineRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

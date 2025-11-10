@@ -135,7 +135,7 @@ type CfnConnection interface {
 	//
 	// For example, the following resource defines an IAM policy that grants permission to update a specific connection.
 	//
-	// `Resources: ExamplePolicy: Type: AWS::IAM::Policy Properties: PolicyName: ExamplePolicy PolicyDocument: Version: '2012-10-17' Statement: - Effect: Allow Action: - events:UpdateConnection Resource: - !GetAtt myConnection.ArnForPolicy`
+	// `Resources: ExamplePolicy: Type: AWS::IAM::Policy Properties: PolicyName: ExamplePolicy PolicyDocument: Version: '2012-10-17 ' Statement: - Effect: Allow Action: - events:UpdateConnection Resource: - !GetAtt myConnection.ArnForPolicy`
 	AttrArnForPolicy() *string
 	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
 	//

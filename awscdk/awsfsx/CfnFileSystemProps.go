@@ -57,6 +57,7 @@ import (
 //   			Mode: jsii.String("mode"),
 //   		},
 //   		EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
+//   		EndpointIpv6AddressRange: jsii.String("endpointIpv6AddressRange"),
 //   		FsxAdminPassword: jsii.String("fsxAdminPassword"),
 //   		HaPairs: jsii.Number(123),
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),

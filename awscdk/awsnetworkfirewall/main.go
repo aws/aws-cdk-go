@@ -22,6 +22,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointIds", GoGetter: "AttrEndpointIds"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFirewallArn", GoGetter: "AttrFirewallArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFirewallId", GoGetter: "AttrFirewallId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTransitGatewayAttachmentId", GoGetter: "AttrTransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneChangeProtection", GoGetter: "AvailabilityZoneChangeProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneMappings", GoGetter: "AvailabilityZoneMappings"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

@@ -23,8 +23,6 @@ type CfnOdbNetwork_ManagedS3BackupAccessProperty struct {
 	//
 	Ipv4Addresses *[]*string `field:"optional" json:"ipv4Addresses" yaml:"ipv4Addresses"`
 	// The status of the managed Amazon S3 backup access.
-	//
-	// Valid Values: `enabled | disabled`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-manageds3backupaccess.html#cfn-odb-odbnetwork-manageds3backupaccess-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

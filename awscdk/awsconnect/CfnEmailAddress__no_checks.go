@@ -80,6 +80,10 @@ func validateCfnEmailAddress_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEmailAddress) validateSetAliasConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEmailAddress) validateSetEmailAddressParameters(val *string) error {
 	return nil
 }

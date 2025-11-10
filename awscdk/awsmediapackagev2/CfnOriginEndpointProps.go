@@ -151,10 +151,27 @@ import (
 //   			UrlEncodeChildManifest: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MssManifests: []interface{}{
+//   		&MssManifestConfigurationProperty{
+//   			ManifestName: jsii.String("manifestName"),
+//
+//   			// the properties below are optional
+//   			FilterConfiguration: &FilterConfigurationProperty{
+//   				ClipStartTime: jsii.String("clipStartTime"),
+//   				End: jsii.String("end"),
+//   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Start: jsii.String("start"),
+//   				TimeDelaySeconds: jsii.Number(123),
+//   			},
+//   			ManifestLayout: jsii.String("manifestLayout"),
+//   			ManifestWindowSeconds: jsii.Number(123),
+//   		},
+//   	},
 //   	Segment: &SegmentProperty{
 //   		Encryption: &EncryptionProperty{
 //   			EncryptionMethod: &EncryptionMethodProperty{
 //   				CmafEncryptionMethod: jsii.String("cmafEncryptionMethod"),
+//   				IsmEncryptionMethod: jsii.String("ismEncryptionMethod"),
 //   				TsEncryptionMethod: jsii.String("tsEncryptionMethod"),
 //   			},
 //   			SpekeKeyProvider: &SpekeKeyProviderProperty{
@@ -234,6 +251,12 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifests
 	//
 	LowLatencyHlsManifests interface{} `field:"optional" json:"lowLatencyHlsManifests" yaml:"lowLatencyHlsManifests"`
+	// A list of Microsoft Smooth Streaming (MSS) manifest configurations associated with the origin endpoint.
+	//
+	// Each configuration represents a different MSS streaming option available from this endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-mssmanifests
+	//
+	MssManifests interface{} `field:"optional" json:"mssManifests" yaml:"mssManifests"`
 	// The segment associated with the origin endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-segment
 	//

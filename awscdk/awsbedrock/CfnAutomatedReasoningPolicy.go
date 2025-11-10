@@ -27,6 +27,8 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ForceDelete: jsii.Boolean(false),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PolicyDefinition: &PolicyDefinitionProperty{
 //   		Rules: []interface{}{
 //   			&PolicyDefinitionRuleProperty{
@@ -81,6 +83,8 @@ type CfnAutomatedReasoningPolicy interface {
 	AttrCreatedAt() *string
 	// A hash of the policy definition used to identify the version.
 	AttrDefinitionHash() *string
+	// The KMS key with which the Policy's assets will be encrypted at rest.
+	AttrKmsKeyArn() *string
 	// The Amazon Resource Name (ARN) of the policy.
 	AttrPolicyArn() *string
 	// The unique identifier of the policy.
@@ -106,6 +110,12 @@ type CfnAutomatedReasoningPolicy interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *awscdk.ResourceEnvironment
+	// Specifies whether to force delete the automated reasoning policy even if it has active resources.
+	ForceDelete() interface{}
+	SetForceDelete(val interface{})
+	// The KMS key with which the Policy's assets will be encrypted at rest.
+	KmsKeyId() *string
+	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -304,6 +314,16 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicy) AttrDefinitionHash() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy) AttrKmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrKmsKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAutomatedReasoningPolicy) AttrPolicyArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -419,6 +439,26 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicy) Env() *awscdk.ResourceEnvironmen
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy) ForceDelete() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"forceDelete",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy) KmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyId",
 		&returns,
 	)
 	return returns
@@ -546,6 +586,25 @@ func (j *jsiiProxy_CfnAutomatedReasoningPolicy)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy)SetForceDelete(val interface{}) {
+	if err := j.validateSetForceDeleteParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"forceDelete",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutomatedReasoningPolicy)SetKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyId",
 		val,
 	)
 }

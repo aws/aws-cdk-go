@@ -70,6 +70,9 @@ type CfnJobDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-propagatetags
 	//
 	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-resourceretentionpolicy
+	//
+	ResourceRetentionPolicy interface{} `field:"optional" json:"resourceRetentionPolicy" yaml:"resourceRetentionPolicy"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
 	//

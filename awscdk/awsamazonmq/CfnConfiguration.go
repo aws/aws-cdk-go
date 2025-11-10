@@ -13,8 +13,6 @@ import (
 //
 // Amazon MQ uses the default configuration (the engine type and version).
 //
-// > Does not apply to RabbitMQ brokers.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -70,16 +68,16 @@ type CfnConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The base64-encoded XML configuration.
+	// Amazon MQ for Active MQ: The base64-encoded XML configuration.
 	Data() *string
 	SetData(val *string)
 	// The description of the configuration.
 	Description() *string
 	SetDescription(val *string)
-	// The type of broker engine.
+	// Required.
 	EngineType() *string
 	SetEngineType(val *string)
-	// The version of the broker engine.
+	// The broker engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	Env() *awscdk.ResourceEnvironment
@@ -93,7 +91,7 @@ type CfnConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the configuration.
+	// Required.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

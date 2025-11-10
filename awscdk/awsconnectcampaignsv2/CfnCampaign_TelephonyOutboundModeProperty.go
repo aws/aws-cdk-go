@@ -15,6 +15,17 @@ package awsconnectcampaignsv2
 //   	PredictiveConfig: &PredictiveConfigProperty{
 //   		BandwidthAllocation: jsii.Number(123),
 //   	},
+//   	PreviewConfig: &PreviewConfigProperty{
+//   		BandwidthAllocation: jsii.Number(123),
+//   		TimeoutConfig: &TimeoutConfigProperty{
+//   			DurationInSeconds: jsii.Number(123),
+//   		},
+//
+//   		// the properties below are optional
+//   		AgentActions: []*string{
+//   			jsii.String("agentActions"),
+//   		},
+//   	},
 //   	ProgressiveConfig: &ProgressiveConfigProperty{
 //   		BandwidthAllocation: jsii.Number(123),
 //   	},
@@ -31,6 +42,10 @@ type CfnCampaign_TelephonyOutboundModeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-predictiveconfig
 	//
 	PredictiveConfig interface{} `field:"optional" json:"predictiveConfig" yaml:"predictiveConfig"`
+	// Preview config.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-previewconfig
+	//
+	PreviewConfig interface{} `field:"optional" json:"previewConfig" yaml:"previewConfig"`
 	// Contains progressive telephony outbound mode configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-progressiveconfig
 	//

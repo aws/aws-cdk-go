@@ -34,6 +34,18 @@ package awseks
 //   	NodegroupName: jsii.String("nodegroupName"),
 //   	NodeRepairConfig: &NodeRepairConfigProperty{
 //   		Enabled: jsii.Boolean(false),
+//   		MaxParallelNodesRepairedCount: jsii.Number(123),
+//   		MaxParallelNodesRepairedPercentage: jsii.Number(123),
+//   		MaxUnhealthyNodeThresholdCount: jsii.Number(123),
+//   		MaxUnhealthyNodeThresholdPercentage: jsii.Number(123),
+//   		NodeRepairConfigOverrides: []interface{}{
+//   			&NodeRepairConfigOverridesProperty{
+//   				MinRepairWaitTimeMins: jsii.Number(123),
+//   				NodeMonitoringCondition: jsii.String("nodeMonitoringCondition"),
+//   				NodeUnhealthyReason: jsii.String("nodeUnhealthyReason"),
+//   				RepairAction: jsii.String("repairAction"),
+//   			},
+//   		},
 //   	},
 //   	ReleaseVersion: jsii.String("releaseVersion"),
 //   	RemoteAccess: &RemoteAccessProperty{

@@ -56,6 +56,7 @@ type CfnNatGateway interface {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	// The ID of the network interface.
 	AttrEniId() *string
 	// The ID of the NAT gateway.
 	AttrNatGatewayId() *string

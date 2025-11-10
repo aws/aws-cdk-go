@@ -18,16 +18,22 @@ import (
 // directly, as it already implements `IPeer`.
 //
 // Example:
-//   var vpc Vpc
-//
-//   cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-//   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V4_1_X_KRAFT(),
-//   	Vpc: Vpc,
+//   natGatewayProvider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
+//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_NONE,
+//   })
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+//   	NatGatewayProvider: NatGatewayProvider,
 //   })
 //
-//   cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(2181)))
-//   cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(9094)))
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
+//   	AllowAllOutbound: jsii.Boolean(false),
+//   })
+//   securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)))
+//   for _, gatewayInstance := range natGatewayProvider.gatewayInstances {
+//   	gatewayInstance.AddSecurityGroup(securityGroup)
+//   }
 //
 type Peer interface {
 }

@@ -105,6 +105,9 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
 	//
 	QueryStringConfig interface{} `field:"optional" json:"queryStringConfig" yaml:"queryStringConfig"`
+	// The regular expressions to match against the condition field.
+	//
+	// The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-regexvalues
 	//
 	RegexValues *[]*string `field:"optional" json:"regexValues" yaml:"regexValues"`

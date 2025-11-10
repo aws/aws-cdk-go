@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetLowLatencyHlsManifestsParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetMssManifestsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetOriginEndpointNameParameters(val *string) error {
 	return nil
 }

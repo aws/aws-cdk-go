@@ -1,7 +1,7 @@
 package awsamazonmq
 
 
-// The parameters that determine the `WeeklyStartTime` to apply pending updates or patches to the broker.
+// The parameters that determine the WeeklyStartTime.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,10 +17,14 @@ package awsamazonmq
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html
 //
 type CfnBroker_MaintenanceWindowProperty struct {
+	// Required.
+	//
 	// The day of the week.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-dayofweek
 	//
 	DayOfWeek *string `field:"required" json:"dayOfWeek" yaml:"dayOfWeek"`
+	// Required.
+	//
 	// The time, in 24-hour format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html#cfn-amazonmq-broker-maintenancewindow-timeofday
 	//

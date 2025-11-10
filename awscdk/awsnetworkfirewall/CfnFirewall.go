@@ -69,6 +69,7 @@ type CfnFirewall interface {
 	AttrFirewallArn() *string
 	// The name of the firewallresource.
 	AttrFirewallId() *string
+	AttrTransitGatewayAttachmentId() *string
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration.
 	AvailabilityZoneChangeProtection() interface{}
 	SetAvailabilityZoneChangeProtection(val interface{})
@@ -316,6 +317,16 @@ func (j *jsiiProxy_CfnFirewall) AttrFirewallId() *string {
 	_jsii_.Get(
 		j,
 		"attrFirewallId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) AttrTransitGatewayAttachmentId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrTransitGatewayAttachmentId",
 		&returns,
 	)
 	return returns

@@ -20,9 +20,16 @@ import (
 //
 //   cfnImage := awscdk.Aws_imagebuilder.NewCfnImage(this, jsii.String("MyCfnImage"), &CfnImageProps{
 //   	ContainerRecipeArn: jsii.String("containerRecipeArn"),
+//   	DeletionSettings: &DeletionSettingsProperty{
+//   		ExecutionRole: jsii.String("executionRole"),
+//   	},
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
 //   	ExecutionRole: jsii.String("executionRole"),
+//   	ImagePipelineExecutionSettings: &ImagePipelineExecutionSettingsProperty{
+//   		DeploymentId: jsii.String("deploymentId"),
+//   		OnUpdate: jsii.Boolean(false),
+//   	},
 //   	ImageRecipeArn: jsii.String("imageRecipeArn"),
 //   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
 //   		EcrConfiguration: &EcrConfigurationProperty{
@@ -110,6 +117,9 @@ type CfnImage interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	DeletionSettings() interface{}
+	SetDeletionSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.
 	DistributionConfigurationArn() *string
 	SetDistributionConfigurationArn(val *string)
@@ -120,6 +130,9 @@ type CfnImage interface {
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
+	// The settings for starting an image pipeline execution.
+	ImagePipelineExecutionSettings() interface{}
+	SetImagePipelineExecutionSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
@@ -454,6 +467,16 @@ func (j *jsiiProxy_CfnImage) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) DeletionSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deletionSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImage) DistributionConfigurationArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -489,6 +512,16 @@ func (j *jsiiProxy_CfnImage) ExecutionRole() *string {
 	_jsii_.Get(
 		j,
 		"executionRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImage) ImagePipelineExecutionSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imagePipelineExecutionSettings",
 		&returns,
 	)
 	return returns
@@ -680,6 +713,17 @@ func (j *jsiiProxy_CfnImage)SetContainerRecipeArn(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnImage)SetDeletionSettings(val interface{}) {
+	if err := j.validateSetDeletionSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deletionSettings",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnImage)SetDistributionConfigurationArn(val *string) {
 	_jsii_.Set(
 		j,
@@ -703,6 +747,17 @@ func (j *jsiiProxy_CfnImage)SetExecutionRole(val *string) {
 	_jsii_.Set(
 		j,
 		"executionRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImage)SetImagePipelineExecutionSettings(val interface{}) {
+	if err := j.validateSetImagePipelineExecutionSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imagePipelineExecutionSettings",
 		val,
 	)
 }

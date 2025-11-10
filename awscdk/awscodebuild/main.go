@@ -542,6 +542,13 @@ func init() {
 			"LARGE": DockerServerComputeType_LARGE,
 			"X_LARGE": DockerServerComputeType_X_LARGE,
 			"X2_LARGE": DockerServerComputeType_X2_LARGE,
+			"ATTRIBUTE_BASED_COMPUTE": DockerServerComputeType_ATTRIBUTE_BASED_COMPUTE,
+			"BUILD_LAMBDA_10GB": DockerServerComputeType_BUILD_LAMBDA_10GB,
+			"BUILD_LAMBDA_1GB": DockerServerComputeType_BUILD_LAMBDA_1GB,
+			"BUILD_LAMBDA_2GB": DockerServerComputeType_BUILD_LAMBDA_2GB,
+			"BUILD_LAMBDA_4GB": DockerServerComputeType_BUILD_LAMBDA_4GB,
+			"BUILD_LAMBDA_8GB": DockerServerComputeType_BUILD_LAMBDA_8GB,
+			"CUSTOM_INSTANCE_TYPE": DockerServerComputeType_CUSTOM_INSTANCE_TYPE,
 		},
 	)
 	_jsii_.RegisterStruct(

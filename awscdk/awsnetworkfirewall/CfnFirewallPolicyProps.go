@@ -21,6 +21,7 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		EnableTlsSessionHolding: jsii.Boolean(false),
 //   		PolicyVariables: &PolicyVariablesProperty{
 //   			RuleVariables: map[string]interface{}{
 //   				"ruleVariablesKey": map[string][]*string{

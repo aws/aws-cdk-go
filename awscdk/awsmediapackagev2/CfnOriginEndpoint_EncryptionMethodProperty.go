@@ -10,6 +10,7 @@ package awsmediapackagev2
 //
 //   encryptionMethodProperty := &EncryptionMethodProperty{
 //   	CmafEncryptionMethod: jsii.String("cmafEncryptionMethod"),
+//   	IsmEncryptionMethod: jsii.String("ismEncryptionMethod"),
 //   	TsEncryptionMethod: jsii.String("tsEncryptionMethod"),
 //   }
 //
@@ -20,6 +21,12 @@ type CfnOriginEndpoint_EncryptionMethodProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html#cfn-mediapackagev2-originendpoint-encryptionmethod-cmafencryptionmethod
 	//
 	CmafEncryptionMethod *string `field:"optional" json:"cmafEncryptionMethod" yaml:"cmafEncryptionMethod"`
+	// The encryption method used for Microsoft Smooth Streaming (MSS) content.
+	//
+	// This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html#cfn-mediapackagev2-originendpoint-encryptionmethod-ismencryptionmethod
+	//
+	IsmEncryptionMethod *string `field:"optional" json:"ismEncryptionMethod" yaml:"ismEncryptionMethod"`
 	// The encryption method to use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html#cfn-mediapackagev2-originendpoint-encryptionmethod-tsencryptionmethod
 	//

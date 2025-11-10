@@ -54,7 +54,6 @@ type CfnEventBusPolicy interface {
 	Action() *string
 	// Deprecated: this property has been deprecated.
 	SetAction(val *string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -259,16 +258,6 @@ func (j *jsiiProxy_CfnEventBusPolicy) Action() *string {
 	_jsii_.Get(
 		j,
 		"action",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnEventBusPolicy) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

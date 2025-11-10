@@ -85,6 +85,8 @@ type CfnImagePipeline interface {
 	//
 	// For example, `arn:aws:imagebuilder:us-west-2:123456789012:image-pipeline/mywindows2016pipeline` .
 	AttrArn() *string
+	// The deployment ID of the pipeline, used for resource create/update triggers.
+	AttrDeploymentId() *string
 	// Returns the name of the image pipeline.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -320,6 +322,16 @@ func (j *jsiiProxy_CfnImagePipeline) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImagePipeline) AttrDeploymentId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDeploymentId",
 		&returns,
 	)
 	return returns

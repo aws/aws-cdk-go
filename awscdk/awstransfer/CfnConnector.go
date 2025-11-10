@@ -24,10 +24,18 @@ import (
 //
 //   cfnConnector := awscdk.Aws_transfer.NewCfnConnector(this, jsii.String("MyCfnConnector"), &CfnConnectorProps{
 //   	AccessRole: jsii.String("accessRole"),
-//   	Url: jsii.String("url"),
 //
 //   	// the properties below are optional
 //   	As2Config: as2Config,
+//   	EgressConfig: &ConnectorEgressConfigProperty{
+//   		VpcLattice: &ConnectorVpcLatticeEgressConfigProperty{
+//   			ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   			// the properties below are optional
+//   			PortNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	EgressType: jsii.String("egressType"),
 //   	LoggingRole: jsii.String("loggingRole"),
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
@@ -43,6 +51,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Url: jsii.String("url"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html
@@ -66,6 +75,10 @@ type CfnConnector interface {
 	//
 	// These IP addresses are assigned automatically when you create the connector.
 	AttrServiceManagedEgressIpAddresses() *[]*string
+	// Current status of the connector.
+	//
+	// PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,6 +90,12 @@ type CfnConnector interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Current egress configuration of the connector, showing how traffic is routed to the SFTP server.
+	EgressConfig() interface{}
+	SetEgressConfig(val interface{})
+	// Type of egress configuration for the connector.
+	EgressType() *string
+	SetEgressType(val *string)
 	Env() *awscdk.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole() *string
@@ -314,6 +333,16 @@ func (j *jsiiProxy_CfnConnector) AttrServiceManagedEgressIpAddresses() *[]*strin
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnector) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -359,6 +388,26 @@ func (j *jsiiProxy_CfnConnector) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnector) EgressConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"egressConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnector) EgressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"egressType",
 		&returns,
 	)
 	return returns
@@ -541,6 +590,25 @@ func (j *jsiiProxy_CfnConnector)SetAs2Config(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnConnector)SetEgressConfig(val interface{}) {
+	if err := j.validateSetEgressConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"egressConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetEgressType(val *string) {
+	_jsii_.Set(
+		j,
+		"egressType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnConnector)SetLoggingRole(val *string) {
 	_jsii_.Set(
 		j,
@@ -580,9 +648,6 @@ func (j *jsiiProxy_CfnConnector)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnConnector)SetUrl(val *string) {
-	if err := j.validateSetUrlParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"url",

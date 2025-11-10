@@ -19,6 +19,7 @@ package awsfsx
 //   		Mode: jsii.String("mode"),
 //   	},
 //   	EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
+//   	EndpointIpv6AddressRange: jsii.String("endpointIpv6AddressRange"),
 //   	FsxAdminPassword: jsii.String("fsxAdminPassword"),
 //   	HaPairs: jsii.Number(123),
 //   	PreferredSubnetId: jsii.String("preferredSubnetId"),
@@ -66,6 +67,9 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-endpointipaddressrange
 	//
 	EndpointIpAddressRange *string `field:"optional" json:"endpointIpAddressRange" yaml:"endpointIpAddressRange"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-endpointipv6addressrange
+	//
+	EndpointIpv6AddressRange *string `field:"optional" json:"endpointIpv6AddressRange" yaml:"endpointIpv6AddressRange"`
 	// The ONTAP administrative password for the `fsxadmin` user with which you administer your file system using the NetApp ONTAP CLI and REST API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-fsxadminpassword
 	//

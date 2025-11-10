@@ -22,8 +22,6 @@ package awss3
 //
 type CfnBucket_DeleteMarkerReplicationProperty struct {
 	// Indicates whether to replicate delete markers.
-	//
-	// Disabled by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html#cfn-s3-bucket-deletemarkerreplication-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

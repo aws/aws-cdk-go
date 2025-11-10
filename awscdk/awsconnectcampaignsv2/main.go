@@ -125,6 +125,10 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_PredictiveConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.PreviewConfigProperty",
+		reflect.TypeOf((*CfnCampaign_PreviewConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.ProgressiveConfigProperty",
 		reflect.TypeOf((*CfnCampaign_ProgressiveConfigProperty)(nil)).Elem(),
 	)
@@ -175,6 +179,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.TimeWindowProperty",
 		reflect.TypeOf((*CfnCampaign_TimeWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.TimeoutConfigProperty",
+		reflect.TypeOf((*CfnCampaign_TimeoutConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaignProps",

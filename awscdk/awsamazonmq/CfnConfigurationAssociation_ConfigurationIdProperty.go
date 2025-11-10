@@ -1,7 +1,7 @@
 package awsamazonmq
 
 
-// The `ConfigurationId` property type specifies a configuration Id and the revision of a configuration.
+// A list of information about the configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,6 +16,8 @@ package awsamazonmq
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html
 //
 type CfnConfigurationAssociation_ConfigurationIdProperty struct {
+	// Required.
+	//
 	// The unique ID that Amazon MQ generates for the configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html#cfn-amazonmq-configurationassociation-configurationid-id
 	//

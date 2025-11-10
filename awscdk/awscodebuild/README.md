@@ -680,8 +680,6 @@ project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 })
 ```
 
-> > > > > > > 39ec36ec6a (feat(codebuild): add custom instance type and VPC to Fleets)
-
 ## Logs
 
 CodeBuild lets you specify an S3 Bucket, CloudWatch Log Group or both to receive logs from your projects.

@@ -28,6 +28,7 @@ import (
 //   		ExclusiveEndBillingPeriod: jsii.String("exclusiveEndBillingPeriod"),
 //   		InclusiveStartBillingPeriod: jsii.String("inclusiveStartBillingPeriod"),
 //   	},
+//   	ComputationRule: jsii.String("computationRule"),
 //   	CustomLineItemChargeDetails: &CustomLineItemChargeDetailsProperty{
 //   		Type: jsii.String("type"),
 //
@@ -54,6 +55,9 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	PresentationDetails: &PresentationDetailsProperty{
+//   		Service: jsii.String("service"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -97,6 +101,9 @@ type CfnCustomLineItem interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The display settings of the Custom Line Item.
+	ComputationRule() *string
+	SetComputationRule(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -125,6 +132,8 @@ type CfnCustomLineItem interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	PresentationDetails() interface{}
+	SetPresentationDetails(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -407,6 +416,16 @@ func (j *jsiiProxy_CfnCustomLineItem) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomLineItem) ComputationRule() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"computationRule",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomLineItem) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -482,6 +501,16 @@ func (j *jsiiProxy_CfnCustomLineItem) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomLineItem) PresentationDetails() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"presentationDetails",
 		&returns,
 	)
 	return returns
@@ -605,6 +634,14 @@ func (j *jsiiProxy_CfnCustomLineItem)SetBillingPeriodRange(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCustomLineItem)SetComputationRule(val *string) {
+	_jsii_.Set(
+		j,
+		"computationRule",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCustomLineItem)SetCustomLineItemChargeDetails(val interface{}) {
 	if err := j.validateSetCustomLineItemChargeDetailsParameters(val); err != nil {
 		panic(err)
@@ -631,6 +668,17 @@ func (j *jsiiProxy_CfnCustomLineItem)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomLineItem)SetPresentationDetails(val interface{}) {
+	if err := j.validateSetPresentationDetailsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"presentationDetails",
 		val,
 	)
 }

@@ -5,7 +5,11 @@ package awss3
 //
 // For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference* .
 //
-// > When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations ( `PUT` or `DELETE` ) on objects in the bucket.
+// Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+//
+// - *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+// - *Suspending versioning* - Takes effect immediately with no propagation delay.
+// - *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

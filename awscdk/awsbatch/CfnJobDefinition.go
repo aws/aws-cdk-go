@@ -81,6 +81,8 @@ type CfnJobDefinition interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ResourceRetentionPolicy() interface{}
+	SetResourceRetentionPolicy(val interface{})
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy() interface{}
 	SetRetryStrategy(val interface{})
@@ -440,6 +442,16 @@ func (j *jsiiProxy_CfnJobDefinition) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobDefinition) ResourceRetentionPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceRetentionPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobDefinition) RetryStrategy() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -644,6 +656,17 @@ func (j *jsiiProxy_CfnJobDefinition)SetPropagateTags(val interface{}) {
 	_jsii_.Set(
 		j,
 		"propagateTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobDefinition)SetResourceRetentionPolicy(val interface{}) {
+	if err := j.validateSetResourceRetentionPolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourceRetentionPolicy",
 		val,
 	)
 }

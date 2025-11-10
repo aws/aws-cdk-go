@@ -16,6 +16,11 @@ import (
 //   	InstanceArn: jsii.String("instanceArn"),
 //
 //   	// the properties below are optional
+//   	AliasConfigurations: []interface{}{
+//   		&AliasConfigurationProperty{
+//   			EmailAddressArn: jsii.String("emailAddressArn"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	Tags: []CfnTag{
@@ -37,6 +42,12 @@ type CfnEmailAddressProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-instancearn
 	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	// A list of alias configurations for this email address, showing which email addresses forward to this primary address.
+	//
+	// Each configuration contains the email address ID of an alias that forwards emails to this address.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-aliasconfigurations
+	//
+	AliasConfigurations interface{} `field:"optional" json:"aliasConfigurations" yaml:"aliasConfigurations"`
 	// The description of the email address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-description
 	//

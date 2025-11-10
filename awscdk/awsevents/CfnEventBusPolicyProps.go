@@ -42,12 +42,6 @@ type CfnEventBusPolicyProps struct {
 	// Deprecated: this property has been deprecated.
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
-	//
-	// For more information about AWS Organizations, see [What Is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide* .
-	//
-	// If you specify `Condition` with an AWS organization ID, and specify "*" as the value for `Principal` , you grant permission to all the accounts in the named organization.
-	//
-	// The `Condition` is a JSON string which must contain `Type` , `Key` , and `Value` fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
 	//
 	// Deprecated: this property has been deprecated.
@@ -61,8 +55,6 @@ type CfnEventBusPolicyProps struct {
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus.
 	//
 	// Specify "*" to permit any account to put events to your default event bus.
-	//
-	// If you specify "*" without specifying `Condition` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
 	//
 	// Deprecated: this property has been deprecated.

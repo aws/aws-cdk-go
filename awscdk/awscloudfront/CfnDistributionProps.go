@@ -257,6 +257,7 @@ import (
 //   					// the properties below are optional
 //   					OriginKeepaliveTimeout: jsii.Number(123),
 //   					OriginReadTimeout: jsii.Number(123),
+//   					OwnerAccountId: jsii.String("ownerAccountId"),
 //   				},
 //   			},
 //   		},

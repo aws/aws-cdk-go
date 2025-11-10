@@ -80,7 +80,15 @@ func validateCfnImage_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnImage) validateSetDeletionSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImage) validateSetEnhancedImageMetadataEnabledParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnImage) validateSetImagePipelineExecutionSettingsParameters(val interface{}) error {
 	return nil
 }
 

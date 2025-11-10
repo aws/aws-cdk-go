@@ -88,7 +88,7 @@ func (j *jsiiProxy_CfnConnection) validateSetDomainIdentifierParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnection) validateSetEnvironmentIdentifierParameters(val *string) error {
+func (j *jsiiProxy_CfnConnection) validateSetEnableTrustedIdentityPropagationParameters(val interface{}) error {
 	return nil
 }
 

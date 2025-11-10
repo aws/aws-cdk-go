@@ -46,6 +46,7 @@ type CfnVpcOrigin interface {
 	IVpcOriginRef
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	AttrAccountId() *string
 	// The VPC origin ARN.
 	AttrArn() *string
 	// The VPC origin created time.
@@ -243,6 +244,16 @@ type jsiiProxy_CfnVpcOrigin struct {
 	jsiiProxy_IVpcOriginRef
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnVpcOrigin) AttrAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAccountId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnVpcOrigin) AttrArn() *string {

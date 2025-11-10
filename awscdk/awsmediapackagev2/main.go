@@ -210,6 +210,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrHlsManifestUrls", GoGetter: "AttrHlsManifestUrls"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLowLatencyHlsManifestUrls", GoGetter: "AttrLowLatencyHlsManifestUrls"},
 			_jsii_.MemberProperty{JsiiProperty: "attrModifiedAt", GoGetter: "AttrModifiedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMssManifestUrls", GoGetter: "AttrMssManifestUrls"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -228,6 +229,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "lowLatencyHlsManifests", GoGetter: "LowLatencyHlsManifests"},
+			_jsii_.MemberProperty{JsiiProperty: "mssManifests", GoGetter: "MssManifests"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -320,6 +322,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.LowLatencyHlsManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_LowLatencyHlsManifestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.MssManifestConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_MssManifestConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.ScteDashProperty",

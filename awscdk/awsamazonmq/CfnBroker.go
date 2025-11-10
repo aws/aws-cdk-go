@@ -9,11 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A *broker* is a message broker environment running on Amazon MQ .
+// Creates a broker. Note: This API is asynchronous.
 //
-// It is the basic building block of Amazon MQ .
-//
-// The `AWS::AmazonMQ::Broker` resource lets you create Amazon MQ for ActiveMQ and Amazon MQ for RabbitMQ brokers, add configuration changes or modify users for a speified ActiveMQ broker, return information about the specified broker, and delete the broker. For more information, see [How Amazon MQ works](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-how-it-works.html) in the *Amazon MQ Developer Guide* .
+// To create a broker, you must either use the `AmazonMQFullAccess` IAM policy or include the following EC2 permissions in your IAM policy.
 //
 // - `ec2:CreateNetworkInterface`
 //
@@ -30,7 +28,9 @@ import (
 // - `ec2:DescribeRouteTables`
 // - `ec2:DescribeSecurityGroups`
 // - `ec2:DescribeSubnets`
-// - `ec2:DescribeVpcs`.
+// - `ec2:DescribeVpcs`
+//
+// For more information, see [Create an IAM User and Get Your AWS Credentials](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user) and [Never Modify or Delete the Amazon MQ Elastic Network Interface](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface) in the *Amazon MQ Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -142,9 +142,6 @@ type CfnBroker interface {
 	//
 	// This may have more precision than the specified EngineVersion.
 	AttrEngineVersionCurrent() *string
-	// Required.
-	//
-	// The unique ID that Amazon MQ generates for the configuration.
 	AttrId() *string
 	// The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
 	//
@@ -169,10 +166,10 @@ type CfnBroker interface {
 	// Optional.
 	AuthenticationStrategy() *string
 	SetAuthenticationStrategy(val *string)
-	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ.
+	// Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
-	// The name of the broker.
+	// Required.
 	BrokerName() *string
 	SetBrokerName(val *string)
 	// A reference to a Broker resource.
@@ -195,22 +192,20 @@ type CfnBroker interface {
 	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker.
 	DataReplicationPrimaryBrokerArn() *string
 	SetDataReplicationPrimaryBrokerArn(val *string)
-	// The deployment mode of the broker.
-	//
-	// Available values:.
+	// Required.
 	DeploymentMode() *string
 	SetDeploymentMode(val *string)
 	// Encryption options for the broker.
 	EncryptionOptions() interface{}
 	SetEncryptionOptions(val interface{})
-	// The type of broker engine.
+	// Required.
 	EngineType() *string
 	SetEngineType(val *string)
-	// The version of the broker engine.
+	// The broker engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	Env() *awscdk.ResourceEnvironment
-	// The broker's instance type.
+	// Required.
 	HostInstanceType() *string
 	SetHostInstanceType(val *string)
 	// Optional.
@@ -229,7 +224,7 @@ type CfnBroker interface {
 	// Enables Amazon CloudWatch logging for brokers.
 	Logs() interface{}
 	SetLogs(val interface{})
-	// The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+	// The parameters that determine the WeeklyStartTime.
 	MaintenanceWindowStartTime() interface{}
 	SetMaintenanceWindowStartTime(val interface{})
 	// The tree node.
@@ -257,7 +252,7 @@ type CfnBroker interface {
 	SetSubnetIds(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs.
+	// Create tags when creating the broker.
 	TagsRaw() *[]*CfnBroker_TagsEntryProperty
 	SetTagsRaw(val *[]*CfnBroker_TagsEntryProperty)
 	// Deprecated.

@@ -92,7 +92,7 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-logpublishingoptions
 	//
 	LogPublishingOptions interface{} `field:"optional" json:"logPublishingOptions" yaml:"logPublishingOptions"`
-	// The Pipeline Role (ARN) for the pipeline.
+	// The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinerolearn
 	//
 	PipelineRoleArn *string `field:"optional" json:"pipelineRoleArn" yaml:"pipelineRoleArn"`

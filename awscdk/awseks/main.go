@@ -728,6 +728,10 @@ func init() {
 		reflect.TypeOf((*CfnNodegroup_LaunchTemplateSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnNodegroup.NodeRepairConfigOverridesProperty",
+		reflect.TypeOf((*CfnNodegroup_NodeRepairConfigOverridesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnNodegroup.NodeRepairConfigProperty",
 		reflect.TypeOf((*CfnNodegroup_NodeRepairConfigProperty)(nil)).Elem(),
 	)

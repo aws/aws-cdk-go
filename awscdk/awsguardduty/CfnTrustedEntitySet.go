@@ -9,11 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::GuardDuty::TrustedEntitySet` resource helps you create a list of IP addresses and domain names that you can use for secure communication with your AWS infrastructure and applications.
+// Creates a new trusted entity set.
 //
-// Once you activate this list, GuardDuty will not generate findings when there is an activity associated with these safe IP addresses and domain names. At any given time, you can have only one trusted entity set.
+// In the trusted entity set, you can provide IP addresses and domains that you believe are secure for communication in your AWS environment. GuardDuty will not generate findings for the entries that are specified in a trusted entity set. At any given time, you can have only one trusted entity set.
 //
-// Only the users of the GuardDuty administrator account can manage the entity sets. These settings automatically apply member accounts.
+// Only users of the administrator account can manage the entity sets, which automatically apply to member accounts.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
